@@ -34,11 +34,10 @@
     width: 20ch;
 }
 
-
 /* Media Queries */
 @media (min-width: 1200px) {
     .container {
-        grid-template-columns: auto min(80ch, 100%) auto;
+        grid-template-columns: auto min(65ch, 100%) auto;
         grid-template-areas:
         "navigation main empty-right"
     }
