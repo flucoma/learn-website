@@ -2,14 +2,18 @@
     import "../app.css"
 </script>
 
-<div id='container'>
-    <div></div>
-    <slot/>
-    <div></div>
+<div class='container'>
+    <div class='navigation'></div>
+    
+    <div class='main'>
+        <slot/>
+    </div>
+    
+    <div class='empty-right' />
 </div>
 
 <style>
-#container {
+.container {
     display: grid;
     justify-content: center;
 }
@@ -30,36 +34,11 @@
     width: 20ch;
 }
 
-.nav-list {
-    display: flex;
-    flex-direction: column;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    gap: 3px;
-}
-
-.projects {
-    gap: 6px;
-    text-align: left;
-}
-
-.sidebar-link {
-    max-width: max-content;
-    text-decoration: none;
-}
-
-.project { 
-    margin-left: 0.5em;
-}
-
-.sel {
-    font-weight: bold;
-}
 
 /* Media Queries */
 @media (min-width: 1200px) {
     .container {
-        grid-template-columns: auto min(65ch, 100%) auto;
+        grid-template-columns: auto min(80ch, 100%) auto;
         grid-template-areas:
         "navigation main empty-right"
     }
