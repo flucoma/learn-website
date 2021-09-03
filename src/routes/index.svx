@@ -2,7 +2,7 @@
     import Note from '$lib/Note.svelte'
 </script>
 
-# Main Page
+# Learn FluCoMa
 
 <Note>
 

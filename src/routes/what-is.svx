@@ -1,0 +1,23 @@
+# Thinking About Fluid Corpus Manipulation
+
+Very often when we're working with a collection of sounds we will want to take them apart in some ways as part of exploring and organising them.
+
+Sometimes these moves seem trivial and we might not consciously consider them to be part of our creative process (such as topping-and-tailing groups of files). But these steps are all part of becoming familiar with and thinking musically about our sounds. At other times, these processes are much more involved, and conspicuously artistic. For instance, cutting and filtering are often ways to produce new variations of sounds from an existing collection.
+
+We've grouped various tactics for doing this under the topic of decomposing a signal, and present these tactics in terms of broadly different types of thing we might want to separate out: slices, layers, and objects. Click on the areas below to explore each more detail.
+
+## Slices
+
+Breaking up signals in time is...
+
+Fundamental to building a library, [corpus](/concepts/corpus) or collection
+
+User-specific, time is treated in different ways and at different scales
+
+Hard to automate, often semi-supervised or entirely supervised.
+
+## Layers
+
+
+
+## Objects
