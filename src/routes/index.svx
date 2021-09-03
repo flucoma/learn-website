@@ -1,0 +1,15 @@
+<script>
+    import Note from '$lib/Note.svelte'
+</script>
+
+# Main Page
+
+<Note>
+
+I can type text into this, and it shall appear indented
+
+</Note>
+
+
+
+

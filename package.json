@@ -1,0 +1,19 @@
+{
+  "name": "learn",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "svelte-kit dev",
+    "build": "svelte-kit build",
+    "preview": "svelte-kit preview"
+  },
+  "devDependencies": {
+    "@sveltejs/kit": "next",
+    "svelte": "^3.42.4"
+  },
+  "type": "module",
+  "dependencies": {
+    "@sveltejs/adapter-static": "next",
+    "mdsvex": "^0.9.8",
+    "rehype-slug": "^4.0.1"
+  }
+}
