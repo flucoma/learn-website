@@ -3,3 +3,10 @@
 html {
     font-family: 'Overpass', sans-serif;
 }
+
+* { margin: 0px }
+
+p {
+    margin-bottom: 1em;
+    margin-top: 1em;
+}
