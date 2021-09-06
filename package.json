@@ -14,6 +14,7 @@
   "dependencies": {
     "@sveltejs/adapter-static": "next",
     "mdsvex": "^0.9.8",
+    "ml5": "^0.6.1",
     "rehype-slug": "^4.0.1"
   }
 }
