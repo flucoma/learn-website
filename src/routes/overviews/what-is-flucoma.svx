@@ -18,6 +18,4 @@ Hard to automate, often semi-supervised or entirely supervised.
 
 ## Layers
 
-
-
 ## Objects

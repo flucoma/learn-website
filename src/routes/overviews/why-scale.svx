@@ -1,0 +1,5 @@
+# Why Scale
+
+Why would you scale data? 
+
+- Contribution of different data ranges (db/pitch)
