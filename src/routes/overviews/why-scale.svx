@@ -7,3 +7,5 @@ Why would you scale data?
 # Normalisation
 
 - using the fit to rescale incoming data.
+
+See http://www.faqs.org/faqs/ai-faq/neural-nets/part2/section-16.html
