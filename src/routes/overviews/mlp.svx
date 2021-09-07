@@ -1,0 +1,17 @@
+# Multi-layer Perceptron
+
+What do all the parameters do dude???
+
+## Parameters To Cover
+1. Activation function bad > good
+2. Hidden Layers (important)
+3. Learning Rate > effect on training
+4. Momentum smoothes the loss
+
+https://distill.pub/2020/grand-tour/
+
+## Parameters
+- Activation Function
+- Learning Rate
+- Momentum
+- Hidden Layers
