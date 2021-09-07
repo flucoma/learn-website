@@ -3,3 +3,7 @@
 Why would you scale data? 
 
 - Contribution of different data ranges (db/pitch)
+
+# Normalisation
+
+- using the fit to rescale incoming data.
