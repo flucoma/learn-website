@@ -6,7 +6,10 @@ import { mdsvex } from 'mdsvex';
 const config = {
 	extensions: [ '.svelte', '.svx' ],
 	preprocess: [ mdsvex({
-		rehypePlugins : [slug]
+		rehypePlugins : [slug],
+		layout: {
+			overviews: './src/lib/layouts/overview.svelte'
+		}
 	})],
 	kit: {
 		adapter: adapter(),
