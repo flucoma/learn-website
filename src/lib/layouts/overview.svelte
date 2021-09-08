@@ -11,7 +11,9 @@
 <h2>Tags</h2>
 <div class='tagtainer'>
     {#each tags as tag}
-    <a class='tag' href='/search/{tag.replace(' ', '+')}'>{tag}</a>
+    <a class='tag' href='/search/{tag.replace(' ', '+')}'>
+        { tag }
+    </a>
     {/each}
 </div>
 
@@ -30,15 +32,18 @@
 
     .tag {
         width: max-content;
-        padding: 0.3em;
+        padding: 0.25em;
         border-radius: 5px;
         box-shadow: 0 1px 3px 4px rgba(0, 0, 0, 0.1);
         border-radius: 5px;
         -webkit-transition: all 0.2s cubic-bezier(0.165, 0.84, 0.44, 1);
         transition: all 0.2s cubic-bezier(0.165, 0.84, 0.44, 1);
         background-color: transparent;
-        padding: 0.5em;
         text-align: center;
         text-decoration: none;
+    }
+
+    .tag:hover {
+        text-decoration: underline;
     }
 </style>
