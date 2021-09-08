@@ -1,0 +1,32 @@
+---
+layout: none
+---
+
+<script>
+    import { structure } from '$lib/app.js';
+    console.log($structure)
+</script>
+
+# Overviews
+
+The overviews section contains long form, prose-like articles describing high-level problems in musicking with FluCoMa tools and the wider gamut of machine learning and machine listening technologies.
+
+See the list of overviews below:
+
+<div class='overview-list'>
+    {#each $structure.routes.overviews as ov}
+    <a href={ov.url}>
+    {ov.title}
+    </a>
+    {/each}
+</div>
+
+
+<style>
+    .overview-list {
+        display: flex;
+        flex-direction: column;
+    }
+</style>
+
+

@@ -1,4 +1,4 @@
-<script>
+<!-- <script>
     import ml5 from 'ml5';
     import { onMount } from 'svelte';
     
@@ -47,4 +47,4 @@
             });
         }
     })
-</script>
+</script> -->

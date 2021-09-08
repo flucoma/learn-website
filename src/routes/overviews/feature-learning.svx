@@ -1,1 +1,20 @@
-# Feature Learning
+---
+title: Feature Learning
+blurb: |
+    Feature learning is a process by which features are learned
+tags: 
+    - audio-features
+    - unsupervised learning
+    - automation
+    - ai
+---
+
+<script>
+    import Container from '$lib/Container.svelte';
+</script>
+
+Some fukkin content
+
+markdown foo
+
+## WOO

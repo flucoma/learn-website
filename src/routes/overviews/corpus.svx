@@ -1,4 +1,9 @@
-# Corpus
+---
+title: What is a Corpus?
+blurb: | 
+    This overview first outlines the basic notion of a corpus and challenges the concept that a corpora necessarily relates to just sound-samples.
+
+---
 
 A corpus is often thought of as a collection of sounds, musical materials or elements for making and creating music. A sample library is a good example of just one type of a corpus that can exist in practice.
 
