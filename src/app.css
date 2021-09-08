@@ -4,11 +4,14 @@ html {
     font-family: 'Overpass', sans-serif;
 }
 
-* { margin: 0px }
-
 h1, h2 {
     margin-bottom: 1em;
 }
+
+body {
+    margin: 0;
+}
+
 p {
     margin-bottom: 1em;
     margin-top: 1em;
