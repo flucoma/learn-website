@@ -2,9 +2,9 @@
   "name": "learn",
   "version": "0.0.1",
   "scripts": {
-    "dev": "svelte-kit dev",
-    "build": "svelte-kit build",
-    "preview": "svelte-kit preview"
+    "scrape" : "python3 scripts/extract_structure.py",
+    "dev": "python3 scripts/extract_structure.py && svelte-kit dev",
+    "build": "python3 scripts/extract-structure.py && svelte-kit build"
   },
   "devDependencies": {
     "@sveltejs/kit": "next",
