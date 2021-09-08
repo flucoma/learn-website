@@ -6,6 +6,9 @@ html {
 
 * { margin: 0px }
 
+h1, h2 {
+    margin-bottom: 1em;
+}
 p {
     margin-bottom: 1em;
     margin-top: 1em;
