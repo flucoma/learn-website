@@ -1,12 +1,20 @@
 <script>
     import "../app.css"
     import Header from '$lib/Header.svelte'
+    import pages from '../../static/pages.json'
+    import { page } from '$app/stores'
+    $: headings = pages.pages[$page.path]
 </script>
 
 <Header />
 
 <div class='container'>
     <div class='navigation'>
+    {#if headings}
+        {#each headings as h}
+        <a href={h.url}>{h.heading}</a>
+        {/each}
+    {/if}
     </div>
 
     <div class='main'>
@@ -32,6 +40,9 @@
         grid-area: navigation;
         width: 20ch;
         height: max-content;
+        display: flex;
+        flex-direction: column;
+
     }
 
     .empty-right {
