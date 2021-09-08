@@ -6,8 +6,9 @@
 <Header />
 
 <div class='container'>
-    <div class='navigation'></div>
-    
+    <div class='navigation'>
+    </div>
+
     <div class='main'>
         <slot/>
     </div>
@@ -24,7 +25,7 @@
 
     .main {
         grid-area: main;
-        min-width: 1px;
+        width: 100%;
     }
 
     .navigation {
@@ -46,18 +47,14 @@
             "navigation main empty-right"
         }
     }
-    @media (max-width: 1200px) {
-        .container {
-            justify-content:start;
-            gap: 0px;
-            grid-template-rows: auto auto;
-            grid-template-areas:
-            "navigation"
-            "main"
-        }
 
+    @media (max-width: 1200px) {
+        .navigation {
+            display: none;
+        }
         .empty-right {
             display: none;
         }
     }
+
 </style>
