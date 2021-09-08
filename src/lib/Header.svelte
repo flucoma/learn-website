@@ -13,13 +13,10 @@
         display: flex;
         flex-direction: column;
         background: #1ca3fc;
-        padding-left: 1em;
-        padding-right: 1em;
         justify-content: center;
         align-items: center;
         min-height: 3em;
-        padding-bottom: 1em;
-        padding-top: 1em;
+        padding: 1em;
     }
 
     .links {
