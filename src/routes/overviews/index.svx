@@ -4,7 +4,7 @@ layout: none
 
 <script>
     import { structure } from '$lib/app.js';
-    console.log($structure)
+    import { goto } from '$app/navigation';
 </script>
 
 # Overviews
@@ -15,9 +15,10 @@ See the list of overviews below:
 
 <div class='overview-list'>
     {#each $structure.routes.overviews as ov}
-    <a href={ov.url}>
-    {ov.title}
-    </a>
+    <div class='overview' on:click={ () => goto(ov.url) }>
+    <h2 class='overview-title'>{ov.data.title}</h2>
+    <p class='overview-blurb'>{ov.data.blurb}</p>
+    </div>
     {/each}
 </div>
 
@@ -26,6 +27,28 @@ See the list of overviews below:
     .overview-list {
         display: flex;
         flex-direction: column;
+    }
+
+    .overview {
+        text-decoration: none;
+        cursor: pointer;
+        margin-top: 0.25em;
+        margin-bottom: 0.25em;
+        padding: 0.25em;
+        border: 1px solid grey;
+        border-radius: 5px;
+    }
+
+    .overview-title {
+        text-decoration: none;
+    }
+
+    .overview-blurb {
+        color: grey;
+    }
+
+    .blurb {
+
     }
 </style>
 

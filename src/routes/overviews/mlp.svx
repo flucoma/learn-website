@@ -1,4 +1,14 @@
-# Multi-layer Perceptron
+---
+title: Multi-layer Perceptron
+blurb: |
+    Stuff about perceptrons
+tags: 
+    - neural network
+    - machine learning
+    - classification
+    - regression
+    - multi-layer perceptron
+---
 
 What do all the parameters do dude???
 

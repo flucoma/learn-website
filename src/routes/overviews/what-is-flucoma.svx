@@ -2,6 +2,8 @@
 title: Fluid Corpus Manipulation - What is it?
 blurb: | 
     This overview talks roughly about the architecture of the project
+tags:
+    - meta
 ---
 
 Very often when we're working with a collection of sounds we will want to take them apart in some ways as part of exploring and organising them.

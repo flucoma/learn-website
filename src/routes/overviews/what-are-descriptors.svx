@@ -1,2 +1,9 @@
-# What Are Audio Descriptors 
-###### and how do they misbehave?
+---
+title: What are Audio-Descriptors?
+blurb: |
+    What is an audio-descriptor? How do they work? What can they describe about a sound?
+tags:
+    - audio-description
+    - music information retrieval
+---
+

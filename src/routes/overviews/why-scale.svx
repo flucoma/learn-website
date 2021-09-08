@@ -1,4 +1,12 @@
-# Why Scale
+---
+title: Why Scale?
+blurb: |
+    Scaling data can be confusing and sometimes more alchemy than science. This overview discusses the fundamentals of scaling data and some scenarios where employing it might enable new creative possibilities.
+tags:
+    - overview
+    - preprocessing
+    - data
+---
 
 Why would you scale data? 
 
