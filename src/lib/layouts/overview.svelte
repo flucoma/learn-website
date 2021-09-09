@@ -13,7 +13,7 @@
 <h2>Tags</h2>
 <div class='tagtainer'>
     {#each tags as tag}
-    <a class='tag' href='/search/{tag.replace(' ', '+')}'>
+    <a class='tag' href='/search/{tag}'>
         { tag }
     </a>
     {/each}
