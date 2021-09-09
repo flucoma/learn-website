@@ -27,29 +27,22 @@ See the list of overviews below:
     .overview-list {
         display: flex;
         flex-direction: column;
+        gap: 1em;
     }
 
     .overview {
-        text-decoration: none;
         cursor: pointer;
-        margin-top: 0.25em;
-        margin-bottom: 0.25em;
-        padding: 0.25em;
-        border: 1px solid grey;
-        border-radius: 5px;
+        padding: 0.4em;
+        box-shadow: 0 1px 1.5px 2px rgba(0, 0, 0, 0.1);
+        background-color: transparent;
     }
 
-    .overview-title {
-        text-decoration: none;
+    .overview:hover {
+        scale: 1.03;
     }
 
     .overview-blurb {
         color: grey;
     }
-
-    .blurb {
-
-    }
 </style>
-
 
