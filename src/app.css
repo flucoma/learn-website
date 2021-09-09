@@ -1,7 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Fira+Mono&family=Overpass&display=swap');
+:root {
+    --overpass: 'Overpass', sans-serif;
+    --sans: sans-serif;
+    --dark-blue: rgb(8,60,100);
+    --med-blue: rgb(3,113,181)
+    --light-blue: rgb(28,164,252);
+} 
+
 
 html {
-    font-family: 'Overpass', sans-serif;
+    font-family: var(--overpass)
 }
 
 h1, h2 {
@@ -15,4 +23,8 @@ body {
 p {
     margin-bottom: 1em;
     margin-top: 1em;
+}
+
+a {
+    color: rgb(28, 122, 185);   
 }
