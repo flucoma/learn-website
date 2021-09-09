@@ -64,5 +64,4 @@ def get_hashpart(line):
     line = line.replace(')', '')
     line = line.lstrip().rstrip().lower()
     line = line.replace(' ', '-')
-    print(line)
     return line
