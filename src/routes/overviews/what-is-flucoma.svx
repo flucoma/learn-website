@@ -16,8 +16,6 @@ We've grouped various tactics for doing this under the topic of decomposing a si
 
 Breaking up signals in time is...
 
-Fundamental to building a library, [corpus](/concepts/corpus) or collection
-
 User-specific, time is treated in different ways and at different scales
 
 Hard to automate, often semi-supervised or entirely supervised.
