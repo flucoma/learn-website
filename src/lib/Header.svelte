@@ -1,5 +1,6 @@
 <div class='container'>
-    <a class='nav-link' href='/'>FluCoMa Learn</a>    
+    <img class='logo' src='/img/onlylogo.svg' alt='FluCoMa Logo'>
+
     <div class='links'>
         <a class='nav-link' href='/overviews'>Overviews</a>
         <a class='nav-link' href='/guides'>Guides</a>
@@ -12,22 +13,28 @@
     .container {
         display: flex;
         flex-direction: column;
-        background: #1ca3fc;
-        justify-content: center;
+        background: var(--dark-blue);
+        justify-content: space-around;
         align-items: center;
         min-height: 3em;
         padding: 1em;
+        gap: 2em;
     }
 
     .links {
         display: flex;
     }
 
+    .logo {
+        width: 5em;
+        height: 100%;
+    }
+
     .nav-link {
-        text-decoration: none;
         padding-right: 1em;
         padding-left: 1em;
         text-align: center;
+        font-size: 1.5em;
     }
 
     .nav-link:visited {
@@ -44,8 +51,7 @@
 
     /* Media Queries */
     @media (min-width: 1200px) {
-        .container {
-        }
+
     }
     @media (max-width: 1200px) {
         .container {
