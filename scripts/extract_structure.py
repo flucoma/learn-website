@@ -11,6 +11,7 @@ This can be consumed in the client side javascript in order to create a site-map
 
 structure = { 'routes' : {} }
 page_structures = { 'pages' : {} }
+tag_db = { 'db' : {} }
 
 route_path = Path('src/routes')
 
@@ -40,12 +41,22 @@ for route in routes:
 
     # Now get the frontmatter and parse it
     front = frontmatter.load(route).metadata
+
     if front:
         route_data['data'] = front
+
+        for tag in front['tags']:
+            if not tag in tag_db['db']:
+                tag_db['db'][str(tag)] = []
+            
+            tag_db['db'][str(tag)].append(url)
     structure['routes'][section].append(route_data)
 
 
 # Now write some JSON to static
+with open('static/tag.json', 'w') as f:
+    json.dump(tag_db, f, indent=2)
+
 with open('static/structure.json', 'w') as f:
     json.dump(structure, f, indent=2)
 
