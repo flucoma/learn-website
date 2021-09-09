@@ -11,26 +11,34 @@
                 <div>England HD13DH</div>
             </div>
         </div>
+
+        <div class="column">
+            <div class='contact'>
+                <div class='column'>
+                    <div class="head">PHONE</div>
+                    <div>+44 (0)1484 47 36 08</div>
+                
+                    <div class="head">FACEBOOK</div>
+                    <a target='_blank' href='https://www.facebook.com/flucoma'>facebook.com/flucoma</a>
+                </div>
+
+                <div class="column">
+                    <div class="head">EMAIL</div>
+                    <a href='mailto:info@flucoma.org'>info@flucoma.org</a>
+                    
+                    <div class="head">TWITTER</div>
+                    <a target='_blank' href='https://twitter.com/flucoma'>twitter.com/flucoma</a>
+                    
+                </div>
+            </div>
+        </div>
+
         <div class="column middle">
             <div class='funding'>
                 This project has received funding from the European Research Council (ERC) under the European Union’s Horizon 2020 research and innovation programme (grant agreement No 725899). 
             </div>
         </div>
-        <div class="column">
-            <div class='contact'>
-                <div class="head">PHONE</div>
-                <div>+44 (0)1484 47 36 08</div>
-                
-                <div class="head">EMAIL</div>
-                <a href='mailto:info@flucoma.org'>info@flucoma.org</a>
-                
-                <div class="head">TWITTER</div>
-                <a target='_blank' href='https://twitter.com/flucoma'>twitter.com/flucoma</a>
-                
-                <div class="head">FACEBOOK</div>
-                <a target='_blank' href='https://www.facebook.com/flucoma'>facebook.com/flucoma</a>
-            </div>
-        </div>
+
     </div>
 </footer>
 
@@ -53,6 +61,11 @@
         flex-direction: column;
         margin: 1em;
         gap: 0.75em;
+    }
+
+    .contact {
+        display: flex;
+        flex-direction: row;
     }
 
     .middle {
