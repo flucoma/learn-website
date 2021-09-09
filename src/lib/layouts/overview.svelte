@@ -2,6 +2,8 @@
     export let title;
     export let blurb;
     export let tags;
+
+    import HR from '$lib/HR.svelte'
 </script>
 
 <h1>{ title }</h1>
@@ -17,11 +19,17 @@
     {/each}
 </div>
 
+<HR />
+
 <slot />
 
 <style>
+    h1 {
+        text-align: center;
+    }
     .blurb {
         color: grey;
+        text-align: center;
     }
     .tagtainer {
         display: flex;
@@ -32,18 +40,15 @@
 
     .tag {
         width: max-content;
-        padding: 0.25em;
-        border-radius: 5px;
-        box-shadow: 0 1px 3px 4px rgba(0, 0, 0, 0.1);
-        border-radius: 5px;
-        -webkit-transition: all 0.2s cubic-bezier(0.165, 0.84, 0.44, 1);
-        transition: all 0.2s cubic-bezier(0.165, 0.84, 0.44, 1);
+        padding: 0.15em;
+        border-radius: 0px;
+        box-shadow: 0 1px 1.5px 2px rgba(0, 0, 0, 0.1);
         background-color: transparent;
         text-align: center;
-        text-decoration: none;
     }
 
     .tag:hover {
         text-decoration: underline;
+        font-style: italic;
     }
 </style>
