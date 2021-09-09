@@ -1,31 +1,41 @@
 <script>
     import "../app.css"
     import Header from '$lib/Header.svelte'
+    import Footer from '$lib/Footer.svelte'
     import pages from '../../static/pages.json'
     import { page } from '$app/stores'
     $: headings = pages.pages[$page.path]
 </script>
 
-<Header />
-
 <div class='container'>
-    <div class='navigation'>
-    {#if headings}
-        {#each headings as h}
-        <a href={h.url}>{h.heading}</a>
-        {/each}
-    {/if}
-    </div>
-
-    <div class='main'>
-        <slot/>
+    <Header />
+    
+    <div class='content'>
+        <div class='navigation'>
+            {#if headings}
+            {#each headings as h}
+            <a href={h.url}>{h.heading}</a>
+            {/each}
+            {/if}
+        </div>
+        
+        <div class='main'>
+            <slot/>
+        </div>
+        
+        <div class='empty-right' />
     </div>
     
-    <div class='empty-right' />
+    <Footer />
 </div>
-
+    
 <style>
     .container {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+    }
+    .content {
         display: grid;
         justify-content: center;
         margin: 1em;
@@ -52,8 +62,8 @@
 
     /* Media Queries */
     @media (min-width: 1200px) {
-        .container {
-            grid-template-columns: auto min(65ch, 100%) auto;
+        .content {
+            grid-template-columns: auto min(70ch, 100%) auto;
             grid-template-areas:
             "navigation main empty-right"
         }
@@ -67,5 +77,4 @@
             display: none;
         }
     }
-
 </style>
