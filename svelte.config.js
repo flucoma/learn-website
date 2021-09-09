@@ -8,7 +8,8 @@ const config = {
 	preprocess: [ mdsvex({
 		rehypePlugins : [slug],
 		layout: {
-			overviews: './src/lib/layouts/overview.svelte'
+			overviews: './src/lib/layouts/overview.svelte',
+			guides: './src/lib/layouts/overview.svelte'
 		}
 	})],
 	kit: {
