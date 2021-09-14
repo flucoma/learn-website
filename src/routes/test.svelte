@@ -1,29 +1,24 @@
 <script>
     import * as Plot from '@observablehq/plot';
     import { onMount } from 'svelte';
-    let fakeData = new Array(100).fill(
-        new Array(2)
-    );
 
-    fakeData.forEach((d, i) => {
-        const x = (Math.random() * 2) - 1
-        const y = (Math.random() * 2) - 1
-        const point = [x, y];
-        fakeData[i] = point;
-    })
-    console.log(fakeData)
-
+    let data;
     let container;
-    onMount(async() => { 
+    onMount(async() => {
+        
+        await fetch('/drum.csv')
+            .then(response => response.text())
+            .then(d => data=d.split('\n'))
+
+        data.forEach((d, i) => {
+            data[i] = [i, parseFloat(d.replace(/(\r\n|\n|\r)/gm, ""))]
+        }) 
+
+
+        console.log(data)
         let p = Plot.plot({
-            x : {
-                domain: [-1, 1],
-            },
-            y : {
-                domain: [-1, 1]
-            },
             marks: [
-                Plot.dot(fakeData)
+                Plot.line(data)
             ],
             style: { 
                 background: "white",
