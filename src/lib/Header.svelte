@@ -4,7 +4,7 @@
     <div class='links'>
         <a class='nav-link' href='/overviews'>Overviews</a>
         <a class='nav-link' href='/guides'>Guides</a>
-        <a class='nav-link' href='/documentation'>Documentation</a>
+        <a class='nav-link' href='/reference'>Reference</a>
         <a class='nav-link' href='/made-with-flucoma'>Made with FluCoMa</a>
     </div>
 </div>
