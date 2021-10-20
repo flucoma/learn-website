@@ -1,7 +1,3 @@
-<script>
-    import Note from '$lib/Note.svelte'
-</script>
-
 # Welcome
 
 Welcome to the Fluid Corpus Manipulation Learn platform.
