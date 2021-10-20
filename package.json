@@ -8,11 +8,11 @@
   },
   "devDependencies": {
     "@sveltejs/kit": "next",
-    "svelte": "^3.42.4"
+    "svelte": "^3.44.0"
   },
   "type": "module",
   "dependencies": {
-    "@observablehq/plot": "^0.2.0",
+    "@observablehq/plot": "^0.2.9",
     "@sveltejs/adapter-static": "next",
     "array-normalize": "^2.0.0",
     "chart.js": "^3.5.1",
