@@ -15,10 +15,12 @@ See the list of overviews below:
 
 <div class='overview-list'>
     {#each $structure.routes.overviews as ov}
+    {#if ov.data}
     <div class='overview' on:click={ () => goto(ov.url) }>
     <h2 class='overview-title'>{ov.data.title}</h2>
     <p class='overview-blurb'>{ov.data.blurb}</p>
     </div>
+    {/if}
     {/each}
 </div>
 
