@@ -1,1 +1,6 @@
-# Ampslice
+---
+title: FluidAmpGate
+source: ''
+tags: slicing, segmentation
+---
+
