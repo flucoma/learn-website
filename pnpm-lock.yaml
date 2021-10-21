@@ -12,6 +12,7 @@ specifiers:
   lodash-es: ^4.17.21
   mdsvex: ^0.9.8
   ml5: ^0.6.1
+  numpy-parser: ^1.2.3
   pts: ^0.10.6
   rehype-slug: ^4.0.1
   svelte: ^3.44.0
@@ -28,12 +29,13 @@ dependencies:
   lodash-es: 4.17.21
   mdsvex: 0.9.8_svelte@3.44.0
   ml5: 0.6.1
+  numpy-parser: 1.2.3
   pts: 0.10.6
   rehype-slug: 4.0.1
   tone: 14.7.77
 
 devDependencies:
-  '@sveltejs/kit': 1.0.0-next.187_svelte@3.44.0
+  '@sveltejs/kit': 1.0.0-next.188_svelte@3.44.0
   svelte: 3.44.0
 
 packages:
@@ -77,8 +79,8 @@ packages:
     resolution: {integrity: sha512-B4+QoUVAaANKx+mHntG8SqF45zbj3Ct4Akg/cGauo6COyfKZRhO5OsMa+wPuT2TKJBZC4eEDK0p+p9nyQBkxKQ==}
     dev: false
 
-  /@sveltejs/kit/1.0.0-next.187_svelte@3.44.0:
-    resolution: {integrity: sha512-ImB7UYO1vNhkshw6OKymE1TpWGqmjAH5HCToBi2l8RMdPZhkwdWFCoqz65l1UssNltiIktPzegKeyy6E5w+XaA==}
+  /@sveltejs/kit/1.0.0-next.188_svelte@3.44.0:
+    resolution: {integrity: sha512-eDssOlwcAmkUR3SGh3PK4LHBfV3mMY9vhsMohMUPV7oJO3fydOgvDykqzxK9wc1NgNB/TIBCm+1sps2vetePHw==}
     engines: {node: '>=14.13'}
     hasBin: true
     peerDependencies:
@@ -1438,6 +1440,10 @@ packages:
   /normalize-path/3.0.0:
     resolution: {integrity: sha512-6eZs5Ls3WtCisHWp9S2GUy8dqkpGi4BVSz3GaqiE6ezub0512ESztXUwUB6C6IKbQkY2Pnb/mD4WYojCRwcwLA==}
     engines: {node: '>=0.10.0'}
+    dev: false
+
+  /numpy-parser/1.2.3:
+    resolution: {integrity: sha512-hdb0XHWTMk9lOyWxHWbwwstD2MQxpecIbqURtyrAxEf8OUbUjEbdjTu/PimTycX99/l7pSMbtw7ueANMcfQzcA==}
     dev: false
 
   /object-assign/4.1.1:
