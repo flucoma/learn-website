@@ -1,0 +1,7 @@
+*.wav binary
+*.aiff binary
+*.aif binary
+*.mp3 binary
+*.svg binary
+*.png binary
+*.npy binary
