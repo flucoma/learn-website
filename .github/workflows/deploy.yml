@@ -39,5 +39,8 @@ jobs:
         run: | 
           npm i
           npm run build
-          ls build
+      
+      - name: Upload To Droplet
+        run: |
+          rsync ./build/ githubdeploy@${{ secrets.DO_IP }}:/home/learn/www/
           
