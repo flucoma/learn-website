@@ -1,3 +1,18 @@
-# Documentation
+---
+layout: none
+---
 
-<img src='/img/notbuilt.png'>
+<script>
+	import { structure, tags } from '$lib/app.js';
+	console.log($structure)
+</script>
+
+# Reference
+
+This section of the learn platform outlines each algorithm of the Fluid Corpus Manipulation toolbox. The aim of these outlines is to help you develop a fundamental understanding of the algorithms themselves while also nurturing a musical intuition for how it might be used and applied to creative problems and goals.
+
+
+
+
+
+
