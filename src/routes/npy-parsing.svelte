@@ -1,7 +1,6 @@
 
 <script>
     import { fromArrayBuffer } from 'numpy-parser';
-    import { onMount } from 'svelte';
     import { browser } from '$app/env';
 
     let url = '/foo.npy';
