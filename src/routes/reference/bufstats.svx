@@ -1,5 +1,5 @@
 ---
-title: FluidBufStats
+title: BufStats
 blurb: Calculate statistics on time-series as buffers
 tags: 
     - buffer

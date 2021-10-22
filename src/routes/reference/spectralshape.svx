@@ -1,5 +1,5 @@
 ---
-title: FluidSpectralShape
+title: SpectralShape
 blurb: Seven spectral shape descriptors
 tags: 
     - analysis

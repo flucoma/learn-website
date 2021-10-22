@@ -1,5 +1,5 @@
 ---
-title: FluidBufNMF
+title: BufNMF
 blurb: Non-negative matrix factorisation
 tags:
     - decomposition

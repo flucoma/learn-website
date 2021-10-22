@@ -1,5 +1,5 @@
 ---
-title: FluidKMeans
+title: KMeans
 blurb: Learn clusters from data
 tags: 
     - data

@@ -1,5 +1,5 @@
 ---
-title: FluidDataSetQuery
+title: DataSetQuery
 blurb: Programatically query a FluidDataSet
 tags: 
     - utlity

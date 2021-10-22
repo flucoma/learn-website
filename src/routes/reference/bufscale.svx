@@ -1,5 +1,5 @@
 ---
-title: FluidBufScale
+title: BufScale
 blurb: Buffer scaling
 tags: 
     - utility

@@ -1,5 +1,5 @@
 ---
-title: FluidMFCC
+title: MFCC
 blurb: Mel-Frequency Cepstrum Coefficients
 tags: 
     - descriptor

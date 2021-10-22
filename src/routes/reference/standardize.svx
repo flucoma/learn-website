@@ -1,5 +1,5 @@
 ---
-title: FluidStandardize
+title: Standardize
 blurb: Standard scaling of a FluidDataSet's contents
 tags:
     - data

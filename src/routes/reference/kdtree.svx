@@ -1,5 +1,5 @@
 ---
-title: FluidKDTree
+title: KDTree
 blurb: K-Dimensional tree for searching data
 tags: 
     - data

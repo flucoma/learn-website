@@ -1,5 +1,5 @@
 ---
-title: FluidKNNClassifier
+title: KNNClassifier
 blurb: Classify data with K Nearest Neighbours
 tags: 
     - data

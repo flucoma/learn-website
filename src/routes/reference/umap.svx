@@ -1,5 +1,5 @@
 ---
-title: FluidUMAP
+title: UMAP
 blurb: Uniform Manifold Approximation and Projection (UMAP) on a FluidDataSet
 tags: 
     - data

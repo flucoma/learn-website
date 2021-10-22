@@ -1,5 +1,5 @@
 ---
-title: FluidNoveltySlice
+title: NoveltySlice
 blurb: Onset detection with novelty slicing
 tags:
     - segmentation

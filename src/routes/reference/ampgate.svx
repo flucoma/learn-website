@@ -1,5 +1,5 @@
 ---
-title: FluidAmpGate
+title: AmpGate
 blurb: Absolute value amplitude-based slicing
 tags: 
     - slicing

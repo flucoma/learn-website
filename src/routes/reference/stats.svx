@@ -1,5 +1,5 @@
 ---
-title: FluidStats
+title: Stats
 blurb: Calculate real-time statistics
 tags: 
     - analysis

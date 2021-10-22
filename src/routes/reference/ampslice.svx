@@ -1,5 +1,5 @@
 ---
-title: FluidAmpSlice
+title: AmpSlice
 blurb: Relative value amplitude-based slicing
 tags: 
     - slicing

@@ -1,5 +1,5 @@
 ---
-title: FluidBufSelectEvery
+title: BufSelectEvery
 blurb: Extract values by frame/channel hop
 tags: 
     - utility

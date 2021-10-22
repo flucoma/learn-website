@@ -1,5 +1,5 @@
 ---
-title: FluidPCA
+title: PCA
 blurb: Principal component analysis of a FluidDataSet
 tags: 
     - data

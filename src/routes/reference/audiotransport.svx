@@ -1,5 +1,5 @@
 ---
-title: FluidAudioTransport
+title: AudioTransport
 blurb: Morph between sounds using optimal transport
 tags:
     - decomposition
