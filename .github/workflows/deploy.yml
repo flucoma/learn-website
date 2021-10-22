@@ -27,6 +27,7 @@ jobs:
       
       - name: Adding Known Hosts
         run: | 
+          mkdir ~/.ssh
           ${{ secrets.DO_IP }} >> ~/.ssh/known_hosts
           echo ${{ secrets.DO_IP }}
           cat ~/.ssh/known_hosts
