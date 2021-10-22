@@ -49,5 +49,5 @@ jobs:
       
       - name: Upload To Droplet
         run: |
-          rsync -avz -O --no-o --no-g -e 'ssh' ./build/ james@${{ secrets.DO_IP }}:/home/learn/www/
+          rsync -avz --delete --no-o --no-g --no-perms ./build/ james@${{ secrets.DO_IP }}:/home/learn/www/
           
