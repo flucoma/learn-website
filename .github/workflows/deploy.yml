@@ -29,5 +29,10 @@ jobs:
         run: | 
           mkdir ~/.ssh
           echo "${{ secrets.DO_IP }}" >> ~/.ssh/known_hosts
-          echo "${{ secrets.DO_IP }}"
-          cat ~/.ssh/known_hosts
+      
+      - name: Build Site
+        run: | 
+          npm i
+          npm run build
+          ls build
+          
