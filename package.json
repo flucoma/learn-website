@@ -26,6 +26,7 @@
     "numpy-parser": "^1.2.3",
     "pts": "^0.10.6",
     "rehype-slug": "^4.0.1",
+    "string-similarity": "^4.0.4",
     "tone": "^14.7.77"
   }
 }
