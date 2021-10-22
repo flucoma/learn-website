@@ -45,8 +45,9 @@ jobs:
         run: | 
           npm i
           npm run build
+          ls
       
       - name: Upload To Droplet
         run: |
-          rsync ./build/ james@${{ secrets.DO_IP }}:/home/learn/www/
+          rsync -avz -e 'ssh' ./build/ james@${{ secrets.DO_IP }}:/home/learn/www/
           
