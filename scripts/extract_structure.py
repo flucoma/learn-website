@@ -41,15 +41,14 @@ for route in routes:
 
     # Now get the frontmatter and parse it
     front = frontmatter.load(route).metadata
-
-    if front:
-        route_data['data'] = front
-
+    route_data['data'] = front
+    if 'tags' in front: # if there is a tags part of the frontmatter
         for tag in front['tags']:
             if not tag in tag_db['db']:
                 tag_db['db'][str(tag)] = []
             
             tag_db['db'][str(tag)].append(url)
+
     structure['routes'][section].append(route_data)
 
 
