@@ -3,8 +3,9 @@
   "version": "0.0.1",
   "scripts": {
     "scrape": "python3 scripts/extract_structure.py",
-    "dev": "svelte-kit dev",
-    "build": "python3 scripts/extract_structure.py && svelte-kit build"
+    "dev": "python3 scripts/extract_structure.py && svelte-kit dev",
+    "build": "python3 scripts/extract_structure.py && svelte-kit build",
+    "deploy" : ""
   },
   "devDependencies": {
     "@sveltejs/kit": "next",
