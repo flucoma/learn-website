@@ -15,7 +15,7 @@ Don't know where to start or what to do? The learn platform is broken down into 
 
 [Guides](/guides) demonstrate applications of the FluCoMa technology by building patches, scripts and programs in videos with accompanying text. A good starting example is the [timbre classification]() tutorial. 
 
-### Documentation
+### References
 Each creative-coding environment (CCE) has its own documentation system. This documentation system provides CCE agnostic information and discuss the underlying algorithms in more detail.
 
 ### Made with FluCoMa
