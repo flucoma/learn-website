@@ -41,7 +41,6 @@ for route in routes:
 
     # Now get the frontmatter and parse it
     front = frontmatter.load(route).metadata
-    print(front)
     route_data['data'] = front
     if 'tags' in front: # if there is a tags part of the frontmatter
         for tag in front['tags']:
