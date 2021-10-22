@@ -1,5 +1,0 @@
----
----
-
-Issues with statistics and thigns like a straight line from 0 -> 1 being the same as 1 -> 0 unless you have something else to measure direction.
-
