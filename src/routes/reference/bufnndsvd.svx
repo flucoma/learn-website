@@ -1,0 +1,8 @@
+---
+title: FluidBufNNDSVD
+blurb: Non-negative double singular value decomposition
+tags:
+    - decomposition
+    - machine learning
+    - nmf
+---

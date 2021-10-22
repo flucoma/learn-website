@@ -1,0 +1,9 @@
+---
+title: FluidMLPRegressor
+blurb: Regression with a multi-layer perceptron
+tags:
+    - data
+    - regression
+    - neural network
+    - machine learning
+---

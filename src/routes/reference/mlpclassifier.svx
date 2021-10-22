@@ -1,0 +1,9 @@
+---
+title: FluidMLPClassifier
+blurb: Classification with a multi-layer perceptron
+tags:
+    - data
+    - classification
+    - neural network
+    - machine learning
+---

@@ -1,0 +1,7 @@
+---
+title: FluidBufCompose
+blurb: Buffer composing
+tags: 
+    - utility
+    - buffer
+---

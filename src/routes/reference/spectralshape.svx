@@ -1,0 +1,10 @@
+---
+title: FluidSpectralShape
+blurb: Seven spectral shape descriptors
+tags: 
+    - analysis
+    - descriptor
+    - statistics
+---
+
+

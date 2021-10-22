@@ -1,0 +1,6 @@
+---
+title: FluidTransients
+blurb: Transient decomposition using a de-clicking algorithm
+tags:
+    - decomposition
+---

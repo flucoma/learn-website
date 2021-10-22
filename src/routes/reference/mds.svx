@@ -1,0 +1,12 @@
+---
+title: FluidMDS
+blurb: Multi-dimensional scaling of a FluiDataSet
+tags: 
+    - data
+    - dimension reduction
+    - mapping
+    - statistics
+    - preprocessing
+---
+
+

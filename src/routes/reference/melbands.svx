@@ -1,0 +1,6 @@
+---
+title: FluidMelBands
+blurb: Amplitude for a number of equally spread perceptual bands
+tags: 
+    - descriptor
+---

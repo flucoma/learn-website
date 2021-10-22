@@ -1,13 +1,16 @@
 ---
-title: Mel-cepstrum Frequency Coefficients
-tags: audio-descriptor, features
+title: FluidMFCC
+blurb: Mel-Frequency Cepstrum Coefficients
+tags: 
+    - descriptor
+    - analysis
 ---
 
 <script>
     import MFCCScrub from '$lib/widget/MFCCScrub.svelte';
 </script>
 
-# Mel-cepstrum Frequency Coefficients (MFCC)
+# Mel-Frequency Cepstrum Coefficients (MFCCs)
 
 <MFCCScrub />
 

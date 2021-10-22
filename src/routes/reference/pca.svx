@@ -1,0 +1,12 @@
+---
+title: FluidPCA
+blurb: Principal component analysis of a FluidDataSet
+tags: 
+    - data
+    - dimension reduction
+    - mapping
+    - statistics
+    - preprocessing
+---
+
+

@@ -1,0 +1,9 @@
+---
+title: FluidNormalize
+blurb: Normalize a FluidDataSet's contents
+tags:
+    - data
+    - scaling
+    - preprocessing
+    - statistics
+---

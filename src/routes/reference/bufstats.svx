@@ -1,0 +1,11 @@
+---
+title: FluidBufStats
+blurb: Calculate statistics on time-series as buffers
+tags: 
+    - buffer
+    - statistics
+    - stats
+    - descriptor
+---
+
+

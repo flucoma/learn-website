@@ -1,1 +1,8 @@
-# Noveltyslice
+---
+title: FluidNoveltySlice
+blurb: Onset detection with novelty slicing
+tags:
+    - segmentation
+    - slicing
+    - onset detection
+---
