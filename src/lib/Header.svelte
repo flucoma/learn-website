@@ -1,5 +1,5 @@
 <div class='container'>
-    <img class='logo' src='/img/onlylogo.svg' alt='FluCoMa Logo'>
+    <!-- <img class='logo' src='/img/onlylogo.svg' alt='FluCoMa Logo'> -->
 
     <div class='links'>
         <a class='nav-link' href='/overviews'>Overviews</a>

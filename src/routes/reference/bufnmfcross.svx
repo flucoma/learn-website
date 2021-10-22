@@ -1,0 +1,9 @@
+---
+title: NMFCross
+blurb: Resynthesis of targets using a source's spectral bases
+tags:
+    - decomposition
+    - machine learning
+    - source separation
+    - nmf
+---

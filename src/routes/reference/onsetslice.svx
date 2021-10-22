@@ -1,0 +1,8 @@
+---
+title: OnsetSlice
+blurb: Onset detection with various spectral slicers
+tags:
+    - segmentation
+    - slicing
+    - onset detection
+---

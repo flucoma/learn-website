@@ -1,0 +1,9 @@
+---
+title: BufSelectEvery
+blurb: Extract values by frame/channel hop
+tags: 
+    - utility
+    - buffer
+---
+
+

@@ -1,5 +1,9 @@
 ---
-title: FluidAudioTransport
-source: ''
+title: AudioTransport
+blurb: Morph between sounds using optimal transport
+tags:
+    - decomposition
+    - morphing
+    - hybrids
 ---
 

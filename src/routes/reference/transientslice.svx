@@ -1,0 +1,8 @@
+---
+title: TransientSlice
+blurb: Onset detection with a transient detection algorithm
+tags:
+    - segmentation
+    - slicing
+    - onset detection
+---

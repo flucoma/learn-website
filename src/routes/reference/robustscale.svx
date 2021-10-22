@@ -1,0 +1,9 @@
+---
+title: RobustScale
+blurb: Robust scaling of a FluidDataSet's contents
+tags:
+    - data
+    - scaling
+    - preprocessing
+    - statistics
+---

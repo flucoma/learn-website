@@ -1,0 +1,11 @@
+---
+title: KNNRegressor
+blurb: Regression with K Nearest Neighbours
+tags: 
+    - data
+    - querying
+    - regression
+    - mapping
+---
+
+

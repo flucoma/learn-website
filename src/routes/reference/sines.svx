@@ -1,0 +1,8 @@
+---
+title: Sines
+blurb: Decomposition using a sinusoidal reconstruction model
+tags: 
+    - decomposition
+---
+
+

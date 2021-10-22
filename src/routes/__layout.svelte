@@ -1,9 +1,11 @@
 <script>
     import "../app.css"
-    import Header from '$lib/Header.svelte'
-    import Footer from '$lib/Footer.svelte'
-    import pages from '../../static/pages.json'
+    import Header from '$lib/Header.svelte';
+    import Footer from '$lib/Footer.svelte';
+    import Crumbs from '$lib/components/Crumbs.svelte';
+    import pages from '../../static/pages.json';
     import { page } from '$app/stores'
+
     $: headings = pages.pages[$page.path]
 </script>
 
@@ -18,8 +20,10 @@
             {/each}
             {/if}
         </div>
-        
         <div class='main'>
+
+            <Crumbs />
+            <!-- Everything else -->
             <slot/>
         </div>
         

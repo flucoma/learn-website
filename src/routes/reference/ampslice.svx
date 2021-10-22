@@ -1,6 +1,8 @@
 ---
-title: FluidAmpGate
-source: ''
-tags: slicing, segmentation
+title: AmpSlice
+blurb: Relative value amplitude-based slicing
+tags: 
+    - slicing
+    - segmentation
 ---
 

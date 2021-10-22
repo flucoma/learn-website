@@ -15,6 +15,7 @@ specifiers:
   numpy-parser: ^1.2.3
   pts: ^0.10.6
   rehype-slug: ^4.0.1
+  string-similarity: ^4.0.4
   svelte: ^3.44.0
   tone: ^14.7.77
 
@@ -32,6 +33,7 @@ dependencies:
   numpy-parser: 1.2.3
   pts: 0.10.6
   rehype-slug: 4.0.1
+  string-similarity: 4.0.4
   tone: 14.7.77
 
 devDependencies:
@@ -1663,6 +1665,10 @@ packages:
       '@babel/runtime': 7.15.4
       automation-events: 4.0.8
       tslib: 2.3.1
+    dev: false
+
+  /string-similarity/4.0.4:
+    resolution: {integrity: sha512-/q/8Q4Bl4ZKAPjj8WerIBJWALKkaPRfrvhfF8k/B23i4nzrlRj2/go1m90In7nG/3XDSbOo0+pu6RvCTM9RGMQ==}
     dev: false
 
   /string-width/4.2.3:
