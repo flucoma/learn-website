@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "scripts": {
     "scrape": "python3 scripts/extract_structure.py",
-    "dev": "python3 scripts/extract_structure.py && svelte-kit dev",
+    "dev": "svelte-kit dev",
     "build": "python3 scripts/extract_structure.py && svelte-kit build"
   },
   "devDependencies": {
@@ -22,6 +22,7 @@
     "lodash-es": "^4.17.21",
     "mdsvex": "^0.9.8",
     "ml5": "^0.6.1",
+    "numpy-parser": "^1.2.3",
     "pts": "^0.10.6",
     "rehype-slug": "^4.0.1",
     "tone": "^14.7.77"

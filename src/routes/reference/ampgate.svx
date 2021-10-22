@@ -1,0 +1,5 @@
+---
+title: FluidAmpGate
+source: https://github.com/flucoma/flucoma-core/blob/main/include/clients/rt/AmpGateClient.hpp
+tags: slicing, segmentation
+---
