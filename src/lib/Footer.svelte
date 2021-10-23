@@ -2,7 +2,6 @@
     <div class='container'>
         <div class="column">
             <div class='address'>
-                <div class='head'>Address</div>
                 <div>FluCoMa Project</div>
                 <div>Department of Music</div>
                 <div>University of Huddersfield</div>
@@ -37,6 +36,7 @@
             <div class='funding'>
                 This project has received funding from the European Research Council (ERC) under the European Union’s Horizon 2020 research and innovation programme (grant agreement No 725899). 
             </div>
+            <a class='source-link' href='https://github.com/flucoma/learn'>source code</a>
         </div>
 
     </div>
@@ -75,16 +75,7 @@
         font-weight: bold;
     }
 
-    a {
-        color: white;
-    }
-
-    a:hover {
-        font-style: italic;
-    }
-
-    @media (min-width: 1200px) {
-        .container {
-        }
+    .source-link {
+        width: max-content;
     }
 </style>
