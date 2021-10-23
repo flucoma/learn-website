@@ -1,5 +1,7 @@
 # Learn
 
+[![Deployment](https://github.com/flucoma/learn/actions/workflows/deploy.yml/badge.svg)](https://github.com/flucoma/learn/actions/workflows/deploy.yml)
+
 To run this website you will need a package manager for js/node such as `pnpm`, `yarn` or `npm` and a Python 3+ installation.
 
 You will also need to have a working virtual environment, or be willing to pollute the global space with the packages in `requirements.txt`.
