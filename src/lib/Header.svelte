@@ -1,7 +1,7 @@
 <div class='container'>
-    <!-- <img class='logo' src='/img/onlylogo.svg' alt='FluCoMa Logo'> -->
-
+    
     <div class='links'>
+        <img class='logo' src='/img/onlylogo.svg' alt='FluCoMa Logo'>
         <a class='nav-link' href='/overviews'>Overviews</a>
         <a class='nav-link' href='/guides'>Guides</a>
         <a class='nav-link' href='/reference'>Reference</a>
@@ -26,7 +26,7 @@
     }
 
     .logo {
-        width: 5em;
+        width: 2em;
         height: 100%;
     }
 
@@ -57,6 +57,10 @@
     @media (max-width: 1200px) {
         .container {
             gap: 0.5em;
+        }
+
+        .logo {
+            display:none
         }
 
         .links {
