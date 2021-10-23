@@ -48,14 +48,17 @@ on:input={ doSearch }
 
 <div class='list'>
 {#each result as r}
-	<div class='overview' on:click={ () => goto(r.url) }>
-		<div class='title'>
-		{ r.data.title }
+	<a href={'/'+r.url}>
+		<div class='overview'>
+			<div class='title'>
+			{ r.data.title }
+			</div>
+			<div class='blurb'>
+			{ r.data.blurb }
+			</div>
+			{ r.url}
 		</div>
-		<div class='blurb'>
-		{ r.data.blurb }
-		</div>
-	</div>
+	</a>
 {/each}
 </div>
 
@@ -76,6 +79,7 @@ on:input={ doSearch }
         padding: 0.4em;
         box-shadow: 0 1px 1.5px 2px rgba(0, 0, 0, 0.1);
         background-color: transparent;
+		display: block;
     }
 
     .overview:hover {
@@ -93,6 +97,16 @@ on:input={ doSearch }
 		margin-bottom: 0.5em;
 		font-family: var(--overpass);
 		font-size: 2em;
+	}
+
+	/* Don't inherit the global styles for <a> */
+	a {
+		color: black;
+		text-decoration: none;
+	}
+	a:hover {
+		color: black;
+		background: white;
 	}
 
 </style>
