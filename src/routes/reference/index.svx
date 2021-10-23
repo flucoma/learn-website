@@ -48,14 +48,17 @@ on:input={ doSearch }
 
 <div class='list'>
 {#each result as r}
-	<div class='overview' on:click={ () => goto(r.url) }>
-		<div class='title'>
-		{ r.data.title }
+	<a href={'/'+r.url}>
+		<div class='overview'>
+			<div class='title'>
+			{ r.data.title }
+			</div>
+			<div class='blurb'>
+			{ r.data.blurb }
+			</div>
+			{ r.url}
 		</div>
-		<div class='blurb'>
-		{ r.data.blurb }
-		</div>
-	</div>
+	</a>
 {/each}
 </div>
 
