@@ -56,7 +56,6 @@ on:input={ doSearch }
 			<div class='blurb'>
 			{ r.data.blurb }
 			</div>
-			{ r.url}
 		</div>
 	</a>
 {/each}
