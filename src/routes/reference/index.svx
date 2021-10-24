@@ -4,52 +4,21 @@ layout: none
 
 <script>
 	import ReferenceEntry from '$lib/components/ReferenceEntry.svelte';
+	import ReferenceSearch from '$lib/components/ReferenceSearch.svelte';
 	import Image from '$lib/components/Image.svelte';
-	import { structure, tags } from '$lib/app.js';
-	import { goto } from '$app/navigation';
-	import stringSimilarity from "string-similarity";
+	import { structure } from '$lib/app.js';
 
-	const routes = $structure.routes.reference;
-	let result = routes 
-	let searchTerm = '';
-	let distances = {};
-
-	function constructDistances() {
-		console.log(result)
-		result.forEach(r => {
-            const comparator = r.data.title.replace(/[^a-zA-Z]+/g, '').toLowerCase();
-            r.similarity = stringSimilarity.compareTwoStrings(searchTerm.toLowerCase(), comparator)
-        })
-
-        result.sort((a, b) => a.similarity - b.similarity);
-        result = result.reverse();
-	}
-	function doSearch() {
-		if (searchTerm === '') {
-			// Dumb way to do a deep copy and make svelte trigger reactivity
-			result = JSON.parse(JSON.stringify(routes));
-		} else {
-			constructDistances();
-		}
-	}
+	let references = JSON.parse(JSON.stringify($structure.routes.reference));
 </script>
 
 # Reference
 
 This section of the learn platform outlines each algorithm of the Fluid Corpus Manipulation toolbox. The aim of these outlines is to help you develop a fundamental understanding of the algorithms themselves while also nurturing a musical intuition for how it might be used and applied to creative problems and goals. Use the search box below to search for a specific algorithm.
 
-<input
-class='search' 
-type='text' 
-bind:value={searchTerm} 
-placeholder='Search for something here'
-on:input={ doSearch }
-/>
-
-<Image src='/img/test.png' />
+<ReferenceSearch bind:result={references} />
 
 <div class='list'>
-	{#each result as r}
+	{#each references as r}
 		<ReferenceEntry 
 		title={r.data.title}
 		blurb={r.data.blurb}
@@ -64,15 +33,6 @@ on:input={ doSearch }
 		flex-direction: column;
 		gap: 1em;
 	}
-
-	.search {
-		width: 100%;
-		height: 2em;
-		margin-bottom: 0.5em;
-		font-family: var(--overpass);
-		font-size: 2em;
-	}
-
 </style>
 
 
