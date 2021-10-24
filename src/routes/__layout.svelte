@@ -1,5 +1,5 @@
 <script>
-    import "../app.css"
+    import "../app.scss"
     import Header from '$lib/Header.svelte';
     import Footer from '$lib/Footer.svelte';
     import Crumbs from '$lib/components/Crumbs.svelte';
@@ -33,7 +33,8 @@
     <Footer />
 </div>
     
-<style>
+<style lang='scss'>
+
     .container {
         display: flex;
         flex-direction: column;
@@ -66,7 +67,7 @@
     }
 
     /* Media Queries */
-    @media (min-width: 1200px) {
+    @media (min-width: $breakpoint) {
         .content {
             grid-template-columns: auto min(70ch, 100%) auto;
             grid-template-areas:
@@ -74,7 +75,7 @@
         }
     }
 
-    @media (max-width: 1200px) {
+    @media (max-width: $breakpoint) {
         .navigation {
             display: none;
         }
