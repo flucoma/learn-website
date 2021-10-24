@@ -3,6 +3,8 @@ layout: none
 ---
 
 <script>
+	import ReferenceEntry from '$lib/components/ReferenceEntry.svelte';
+	import Image from '$lib/components/Image.svelte';
 	import { structure, tags } from '$lib/app.js';
 	import { goto } from '$app/navigation';
 	import stringSimilarity from "string-similarity";
@@ -22,14 +24,12 @@ layout: none
         result.sort((a, b) => a.similarity - b.similarity);
         result = result.reverse();
 	}
-
-
 	function doSearch() {
 		if (searchTerm === '') {
-			result = routes;
+			// Dumb way to do a deep copy and make svelte trigger reactivity
+			result = JSON.parse(JSON.stringify(routes));
 		} else {
 			constructDistances();
-
 		}
 	}
 </script>
@@ -46,19 +46,16 @@ placeholder='Search for something here'
 on:input={ doSearch }
 />
 
+<Image src='/img/test.png' />
+
 <div class='list'>
-{#each result as r}
-	<a href={'/'+r.url}>
-		<div class='overview'>
-			<div class='title'>
-			{ r.data.title }
-			</div>
-			<div class='blurb'>
-			{ r.data.blurb }
-			</div>
-		</div>
-	</a>
-{/each}
+	{#each result as r}
+		<ReferenceEntry 
+		title={r.data.title}
+		blurb={r.data.blurb}
+		url={r.url}
+		/>
+	{/each}
 </div>
 
 <style>
@@ -67,28 +64,6 @@ on:input={ doSearch }
 		flex-direction: column;
 		gap: 1em;
 	}
-	.title {
-		font-weight: bold;
-	}
-	.blurb {
-		color: grey;
-	}
-    .overview {
-        cursor: pointer;
-        padding: 0.4em;
-        box-shadow: 0 1px 1.5px 2px rgba(0, 0, 0, 0.1);
-        background-color: transparent;
-		display: block;
-    }
-
-    .overview:hover {
-        scale: 1.03; /* Everyone Else */
-		-webkit-transform:scale(1.03); /* Chrome and Safari */
-    }
-
-    .overview-blurb {
-        color: grey;
-    }
 
 	.search {
 		width: 100%;
@@ -96,16 +71,6 @@ on:input={ doSearch }
 		margin-bottom: 0.5em;
 		font-family: var(--overpass);
 		font-size: 2em;
-	}
-
-	/* Don't inherit the global styles for <a> */
-	a {
-		color: black;
-		text-decoration: none;
-	}
-	a:hover {
-		color: black;
-		background: white;
 	}
 
 </style>
