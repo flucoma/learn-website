@@ -9,11 +9,11 @@
     </div>
 </div>
 
-<style>
-    .container {
+<style lang='scss'>
+    .container { 
         display: flex;
         flex-direction: column;
-        background: var(--dark-blue);
+        background: $dark-blue;
         justify-content: space-around;
         align-items: center;
         min-height: 3em;
