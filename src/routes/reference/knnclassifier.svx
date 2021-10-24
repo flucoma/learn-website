@@ -1,6 +1,6 @@
 ---
 title: KNNClassifier
-blurb: Classify data with K Nearest Neighbours
+blurb: Classification with K Nearest Neighbours
 tags: 
     - data
     - querying
