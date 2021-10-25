@@ -23,6 +23,7 @@
     "lodash": "^4.17.21",
     "lodash-es": "^4.17.21",
     "mdsvex": "^0.9.8",
+    "meyda": "^5.2.2",
     "numpy-parser": "^1.2.3",
     "pts": "^0.10.6",
     "rehype-slug": "^4.0.1",

@@ -1,0 +1,10 @@
+---
+title: STFT (Short-Term Fourier Transform)
+blurb: Conversion from the time domain to the spectral domain
+tags: 
+    - descriptor
+    - analysis
+    - spectral
+---
+
+# STFT
