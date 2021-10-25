@@ -4,7 +4,7 @@
     export let tags;
 </script>
 
-<div class='title'>
+<div class='title-box'>
     <h1>{ title }</h1>  
     <p class='blurb'>{ blurb }</p>
 </div>
