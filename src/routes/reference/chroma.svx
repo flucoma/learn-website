@@ -6,8 +6,6 @@ tags:
     - analysis
 ---
 
-# Chroma
-
 <script>
     import ChromaDemo from '$lib/widget/ChromaDemo.svelte';
 </script>
