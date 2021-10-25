@@ -2,13 +2,13 @@
     export let title;
     export let blurb;
     export let tags;
-
-    import HR from '$lib/HR.svelte'
 </script>
 
-<h1>{ title }</h1>
+<div class='title'>
+    <h1>{ title }</h1>  
+    <p class='blurb'>{ blurb }</p>
+</div>
 
-<p class='blurb'>{ blurb }</p>
 
 <h2>Tags</h2>
 <div class='tagtainer'>
@@ -48,5 +48,13 @@
     .tag:hover {
         text-decoration: underline;
         font-style: italic;
+    }
+
+    .title > h1 {
+        margin-bottom: 0;
+    }
+
+    .title > p {
+        margin-top: 0;
     }
 </style>
