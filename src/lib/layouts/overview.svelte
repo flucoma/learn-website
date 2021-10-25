@@ -19,8 +19,6 @@
     {/each}
 </div>
 
-<HR />
-
 <slot />
 
 <style>
