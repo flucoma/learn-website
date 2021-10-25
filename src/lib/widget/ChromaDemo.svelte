@@ -117,7 +117,6 @@
     </div>
 
     <div class="smoothing">
-
         <span>Smoothing: {smoothing} frames</span> 
         <input type='range'
         min=50
@@ -133,8 +132,6 @@
         class:hidden={!ready}
         />
     </div>
-
-
 </div>
 
 <style>
@@ -156,8 +153,7 @@
     .smoothing {
         display: grid;
         place-items: center;
-        width: 100%;
-        gap: 1em;
+        gap: 0.3em;
     }
 
     .smoothing > span {
@@ -167,7 +163,6 @@
     .smoothing > input {
         width: 60%
     }
-
 
     canvas {
         width: 100%;
