@@ -23,7 +23,7 @@
         // Chart
         Chart.register(...registerables);
         ctx = canvas.getContext('2d');
-        const labels = ['C','C#','D','D#','E','F','G','G#','A','A#','B','C']
+        const labels = ['C','C#','D','D#','E','F','F#','G','G#','A','A#','B']
         const data = {
             labels: labels,
             datasets: [
@@ -73,7 +73,6 @@
                 chart.update();
             }
         });
-        console.log(analyser)
 
         analyser.start();
         ready = true;
