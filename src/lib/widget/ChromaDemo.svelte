@@ -1,7 +1,7 @@
 <script>
     import { onMount } from 'svelte';
     import * as Meyda from 'meyda';
-    import { Chart } from 'chart.js';
+    import { Chart, registerables } from 'chart.js';
     import Button from '$lib/components/Button.svelte';
 
     // Audio
@@ -21,6 +21,7 @@
 
     onMount(async() => {
         // Chart
+        Chart.register(...registerables);
         ctx = canvas.getContext('2d');
         const labels = ['C','C#','D','D#','E','F','G','G#','A','A#','B','C']
         const data = {
