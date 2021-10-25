@@ -14,8 +14,9 @@ const config = {
 		mdsvex({
 			rehypePlugins : [slug],
 			layout: {
-				overviews: './src/lib/layouts/overview.svelte',
-				guides: './src/lib/layouts/overview.svelte'
+				overview: './src/lib/layouts/overview.svelte',
+				guides: './src/lib/layouts/overview.svelte',
+				reference: './src/lib/layouts/reference.svelte'
 			}
 		}),
 		sveltePreprocess({
