@@ -48,8 +48,6 @@
 
     .main {
         grid-area: main;
-        max-width: min(100%, 100ch);
-        min-width: 50ch;
     }
 
     .navigation {
