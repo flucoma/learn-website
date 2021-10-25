@@ -1,7 +1,7 @@
 <script>
     import { onMount } from 'svelte';
     import * as Meyda from 'meyda';
-    import Chart from 'chart.js/auto';
+    import { Chart } from 'chart.js';
     import Button from '$lib/components/Button.svelte';
 
     // Audio
