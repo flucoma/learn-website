@@ -1,0 +1,11 @@
+---
+title: Building a corpus
+blurb: |
+    Neural networks are powerful tools...
+tags:
+    - max
+    - neural network
+    - machine learning
+    - machine listening
+    - multi-layer perceptron
+---
