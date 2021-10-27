@@ -39,6 +39,8 @@
             type: 'bar',
             data: data,
             options: {
+                responsive: true,
+                maintainAspectRatio: false,
                 plugins: { legend: { display: false }},
                 animation: {
                     duration: smoothing
@@ -57,7 +59,6 @@
         const audioContext = new (AudioContext || webkitAudioContext)();
         const source = audioContext.createMediaElementSource(player);
         source.connect(audioContext.destination);
-
         const analyser = Meyda.createMeydaAnalyzer({
             audioContext: audioContext,
             source: source,
@@ -79,7 +80,7 @@
     })
 </script>
 
-<canvas bind:this={ canvas } />
+<canvas id='chroma-chart' bind:this={ canvas } />
 
 <div class='controls'>
     <div class="sound-select">
@@ -147,6 +148,7 @@
         display: flex;
         flex-direction: row;
         justify-content: center;
+        flex-wrap: wrap;
         gap: 0.5em;
     }
 
@@ -164,8 +166,10 @@
         width: 60%
     }
 
-    canvas {
-        width: 100%;
-        height: 300px;
+    #chroma-chart {
+        width: 99% !important;
+        min-width: 0 !important;
+        max-height: 200px;
+        margin: 0 auto;
     }
 </style>
