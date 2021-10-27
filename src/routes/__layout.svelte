@@ -67,7 +67,7 @@
     /* Media Queries */
     @media (min-width: $breakpoint) {
         .content {
-            grid-template-columns: auto min(70ch, 100%) auto;
+            grid-template-columns: auto min($breakpoint, 100%) auto;
             grid-template-areas:
             "navigation main empty-right"
         }
