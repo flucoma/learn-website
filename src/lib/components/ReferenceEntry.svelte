@@ -19,6 +19,7 @@
     a {
 		color: black;
 		text-decoration: none;
+        max-width: 100%;
 	}
 
 	a:hover {
