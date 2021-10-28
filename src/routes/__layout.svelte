@@ -48,6 +48,7 @@
 
     .main {
         grid-area: main;
+        min-width: 30ch;
     }
 
     .navigation {
