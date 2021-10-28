@@ -39,4 +39,4 @@ When this MLP neural network trains, it takes each data point from the FluidData
 * `Clear`: Reset all the MLP's internal parameters to a randomized state. This will erase all the learning that the neural network has done.
 
 ### Footnotes
-1 https://scikit-learn.org/stable/modules/generated/sklearn.neural_network.MLPClassifier.html
+1 - https://scikit-learn.org/stable/modules/generated/sklearn.neural_network.MLPClassifier.html
