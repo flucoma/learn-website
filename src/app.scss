@@ -5,6 +5,7 @@ $mono : 'Overpass Mono', monospace;
 $dark-blue: rgb(8,60,100);
 $med-blue: rgb(3,113,181);
 $light-blue: rgb(28,164,252);
+$link-blue: rgb(28, 122, 185);   
 $breakpoint: 70ch ;
 
 html {
@@ -21,12 +22,12 @@ p {
 }
 
 a {
-    color: rgb(28, 122, 185);   
+    color: $link-blue;
 }
 
 a:hover{
     color: white;
-    background: rgb(28, 122, 185);  
+    background: $link-blue;
 }
 
 .title-box:after {
