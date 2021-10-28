@@ -77,7 +77,7 @@
         flex-direction: column;
         padding-left: 2em;
         padding-right: 2em;
-
+        max-width: 45ch;
     }
 
     .middle-column {
