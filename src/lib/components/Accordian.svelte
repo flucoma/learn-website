@@ -12,9 +12,13 @@
 
 <div class='container' id={id}>
 	<button id='top-bar' on:click={ clickHandler }>
-		<div id='caption'>{caption}</div>
-		<div id='top-cap'>
-            {#if expanded}-{:else}+{/if}
+		<div id='caption'>
+			<div id='status'>
+				{#if expanded}-{:else}+{/if} 
+			</div>
+			<div>
+				{caption}
+			</div>
 		</div>
 	</button>
 
@@ -30,36 +34,10 @@
 
 <style lang='scss'>
 
-#top-cap {
-	width: 15px;
-	margin-top: 9px;
-	margin-left: 5px;
-	margin-right: 5px;
-}
-#figure {
-	font-style: italic;
-	min-width: 80px;
-	white-space: nowrap;
-}
-
-#caption {
-	text-align: left;
-	margin-left: 1px;
-}
-
-#caption, #figure {
-	margin-top: 8px;
-	margin-bottom: 8px;
-}
-
-#top-cap {
-	display: flex;
-	flex-direction: row;
-}
-
 .container {
 	display: flex;
 	flex-direction: column;
+	width: 100%;
 }
 
 #top-bar {
@@ -84,4 +62,40 @@
 	background-color: #cecece;
 	color: black;
 }
+
+#top-cap {
+	width: 15px;
+	margin-top: 9px;
+	margin-left: 5px;
+	margin-right: 5px;
+}
+#figure {
+	font-style: italic;
+	min-width: 80px;
+	white-space: nowrap;
+}
+
+#caption {
+	text-align: left;
+	margin-left: 1px;
+	display: flex;
+	flex-direction: row;
+	gap: 0.3em;
+}
+
+#status {
+	min-width: 10px;
+}
+
+#caption, #figure {
+	margin-top: 8px;
+	margin-bottom: 8px;
+}
+
+#top-cap {
+	display: flex;
+	flex-direction: row;
+}
+
+
 </style>
