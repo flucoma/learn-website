@@ -54,6 +54,7 @@
         color: white;
         font-size: 0.8em;
         gap: 2em;
+        padding-top: 2em;
     }
 
     @media (min-width: $breakpoint) {
