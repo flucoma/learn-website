@@ -2,8 +2,8 @@ import adapter from '@sveltejs/adapter-static';
 import slug from 'rehype-slug';
 import sveltePreprocess from 'svelte-preprocess';
 import { mdsvex } from 'mdsvex';
-import { dirname } from 'path'
-import { fileURLToPath } from 'url'
+import { dirname } from 'path';
+import { fileURLToPath } from 'url';
 
 const filePath = dirname(fileURLToPath(import.meta.url));
 

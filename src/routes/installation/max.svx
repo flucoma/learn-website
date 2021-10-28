@@ -1,0 +1,56 @@
+<script>
+    import Image from '$lib/components/Image.svelte';
+    import { Tabs, TabList, TabPanel, Tab } from '$lib/components/tabs/tabs';
+</script>
+
+# Max Installation Instructions
+
+## Step 1: Download the Max Package
+
+Download the latest version of the Max package from GitHub releases.
+
+https://github.com/flucoma/flucoma-max/releases/latest
+
+<Image
+src="/installation/max-step-1.png"
+/>
+
+## Step 2: Move the Package Folder
+
+To install a Max package you need to place it into the `Packages` folder. Select your operating system on the tabs below.
+
+<Tabs>
+    <TabList>
+        <Tab>MacOS</Tab>
+        <Tab>Windows</Tab>
+    </TabList>
+    <TabPanel>
+
+    On macOS `Packages` is located at `/Users/username/Documents/Max 8/Packages`. Where `username` is the username of your account.
+
+    <Image
+    src="/installation/max-step-2-mac.png"
+    />
+
+    </TabPanel>
+    <TabPanel>
+
+    On Windows, `Packages` is located at `C:\Users\username\Documents\Max 8\Packages`. Where `username` is the username of your account.
+
+    </TabPanel>
+</Tabs>
+
+## Step 3: Run Max and Test
+
+Now check that the installation worked.
+
+1. Restart Max.
+
+2. Open <a href='/installation/max-install-test.maxpat' download='max-install-test.maxpat'>this patch</a>.
+
+
+
+
+
+
+

@@ -14,11 +14,11 @@
     
     <div class='content'>
         <div class='navigation'>
-            {#if headings}
+            <!-- {#if headings}
             {#each headings as h}
             <a href={h.url}>{h.heading}</a>
             {/each}
-            {/if}
+            {/if} -->
         </div>
         <div class='main'>
 
