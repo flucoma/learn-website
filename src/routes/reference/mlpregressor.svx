@@ -11,9 +11,11 @@ tags:
     - mlp
 ---
 
-Perform regression using a multi-layer perceptron (MLP) neural network.
+The `MLPRegressor` is an object that can be used to perform _regression_. This is based on training a neural network called a [multi-layer perceptron](). By providing input and output data as [`DataSets`](/reference/dataset), the neural network is iteratively trained to learn a mapping between the two. When we work with the neural network like this, it is a form of _supervised learning_.
 
-See this [YouTube tutorial](http://localhost:3000/reference/mlpregressor) that controls a synthesizer with 10 control parameters using only the 2 control parameters of an XY pad.
+See this [YouTube tutorial]() that controls a synthesizer with 10 control parameters using 2 control parameters of an XY pad.
+
+## A Brief Explanation
 
 When this MLP neural network trains, it takes each data point from the source FluidDataSet as an input and predicts an output guess. At first these guesses will be quite wrong because the MLP begins in a randomized state. After each of these output guesses it will check what output is desired by checking against the datapoint in the provided target FluidLabelSet with the same identifier. The MLPClassifier will then adjust its internal parameters slightly based on how wrong it was so that it can be more accurate the next time it makes a prediction on this data point. After training on each data point thousands of times, these small adjustments enable the neural network to (hopefully!) make accurate predictions on the datapoints in the FluidDataSet, as well as on data points it has never seen before.
 
@@ -42,4 +44,4 @@ When this MLP neural network trains, it takes each data point from the source Fl
 * `Tap Out`: Sets which layer the neural network will output values from. This can be used to access different parts of a trained neural network such as the encoder or decoder of an [autoencoder](https://towardsdatascience.com/auto-encoder-what-is-it-and-what-is-it-used-for-part-1-3e5c6f017726).
 
 ### Footnotes
-1 https://scikit-learn.org/stable/modules/generated/sklearn.neural_network.MLPClassifier.html
+1 - https://scikit-learn.org/stable/modules/generated/sklearn.neural_network.MLPClassifier.html
