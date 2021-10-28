@@ -11,8 +11,6 @@
 
 <slot />
 
-<h1>See Also</h1>
-
 <style lang='scss'>
     .blurb {
         color: grey;
