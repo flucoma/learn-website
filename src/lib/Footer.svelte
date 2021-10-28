@@ -1,6 +1,7 @@
 <footer>
     <div class='container'>
         <div class="column">
+            <div class='head'>ADDRESS</div>
             <div class='address'>
                 <div>FluCoMa Project</div>
                 <div>Department of Music</div>
@@ -12,65 +13,88 @@
         </div>
 
         <div class="column">
-            <div class='contact'>
-                <div class='column'>
-                    <div class="head">PHONE</div>
-                    <div>+44 (0)1484 47 36 08</div>
-                
-                    <div class="head">FACEBOOK</div>
-                    <a target='_blank' href='https://www.facebook.com/flucoma'>facebook.com/flucoma</a>
-                </div>
+            <div class='head'>CONTACT</div>
+            <div class="contact">
+                e: <a href='mailto:info@flucoma.org'>info@flucoma.org</a>
+            </div>
 
-                <div class="column">
-                    <div class="head">EMAIL</div>
-                    <a href='mailto:info@flucoma.org'>info@flucoma.org</a>
-                    
-                    <div class="head">TWITTER</div>
-                    <a target='_blank' href='https://twitter.com/flucoma'>twitter.com/flucoma</a>
-                    
-                </div>
+            <div class="contact">
+                t: <a target='_blank' href='https://twitter.com/flucoma'>twitter.com/flucoma</a>
+            </div>
+
+            <div class="contact">
+                f: <a target='_blank' href='https://www.facebook.com/flucoma'>facebook.com/flucoma</a>
+            </div>
+
+            <div class="contact">
+                <div>p: +44 (0)1484 47 36 08</div>
             </div>
         </div>
 
-        <div class="column middle">
+        <div class="column">
+            <div>© University of Huddersfield. All rights reserved.</div>
             <div class='funding'>
                 This project has received funding from the European Research Council (ERC) under the European Union’s Horizon 2020 research and innovation programme (grant agreement No 725899). 
             </div>
-            <a class='source-link' href='https://github.com/flucoma/learn'>source code</a>
         </div>
-
     </div>
 </footer>
 
-<style>
+<style lang='scss'>
     footer {
         width: 100%;
         margin-top: auto;
     }
     .container {
-        display: grid;
-        grid-template-columns: auto auto auto;
-        justify-content: space-around;
-        background-color: rgb(8,60,100);
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        background-color: $dark-blue;
         color: white;
         font-size: 0.8em;
+        gap: 2em;
+    }
+
+    @media (min-width: $breakpoint) {
+        .container {
+            justify-content: center;
+        }
+    }
+
+    @media (max-width: $breakpoint) {
+        .container {
+            justify-content:flex-start;
+        }
+    }
+
+    .column > a {
+        color: white !important;
     }
 
     .column {
         display: flex;
         flex-direction: column;
-        margin: 1em;
-        gap: 0.75em;
+        padding-left: 2em;
+        padding-right: 2em;
+
     }
 
-    .contact {
+    .middle-column {
         display: flex;
         flex-direction: row;
+        flex-wrap: wrap;
     }
 
-    .middle {
-        max-width: 300px;
+    .funding {
+        text-align: justify;
+        font-size: 0.75em;
     }
+
+    .address {
+        white-space: nowrap;
+    }
+
     .head {
         font-weight: bold;
     }
