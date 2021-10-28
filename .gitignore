@@ -11,3 +11,4 @@ static/tag.json
 # Lock Files
 pnpm-lock.yaml
 package-lock.json
+.pnpm-debug.log
