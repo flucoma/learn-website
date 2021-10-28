@@ -24,19 +24,15 @@
         path = path.split('/').slice(1)
         let accum = ''
         path.forEach(p => {
-            accum += '/'
-            accum += p
+            accum += '/';
+            accum += p;
 
-            let crumb = { url: accum, text: formatCrumb(p)}
-
-            d.push(crumb)
+            let crumb = { url: accum, text: formatCrumb(p) };
+            d.push(crumb);
         })
         return d;
     }
     let crumbs;
-
-
-
     $: crumbs = splitPath($page.path);
 </script>
 
