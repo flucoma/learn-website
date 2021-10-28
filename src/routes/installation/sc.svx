@@ -1,0 +1,52 @@
+<script>
+    import Image from '$lib/components/Image.svelte';
+    import { Tabs, TabList, TabPanel, Tab } from '$lib/components/tabs/tabs';
+    import CodeBlock from '$lib/components/CodeBlock.svelte';
+</script>
+
+# SuperCollider Installation Instructions
+
+## Step 1: Download the FluCoMa SuperCollider Extension Package
+
+Download the latest version of the Max package from GitHub releases. Choose the appropriate release for your operating system.
+
+https://github.com/flucoma/flucoma-sc/releases/latest
+
+<Image
+src="/installation/sc-step-1.png"
+/>
+
+## Step 2: Move the Downloaded Folder to the Extension Directory
+
+The location of the extension directory changes depending on your operating system. The easiest way to discover the location is to run the below code in SuperCollider. This will print the extension directory for your system in the console.
+
+<CodeBlock>
+
+```js
+Platform.userExtensionDir;
+```
+
+</CodeBlock>
+
+
+Copy the downloaded folder to this location.
+
+
+## Step 3: Run SuperCollider and Test
+
+<CodeBlock>
+
+```js
+(
+// Recompile the class library by restarting SCIDE or Cmd/Ctrl + Shift + L
+s.waitForBoot({
+    FluidDataSet.version;
+    // Did this print the version string to the console?
+})
+)
+```
+
+</CodeBlock>
+
+
+If this code block prints the version of the FluCoMa tools then it is installed correctly.

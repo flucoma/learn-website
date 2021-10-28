@@ -15,7 +15,7 @@ https://github.com/flucoma/flucoma-max/releases/latest
 src="/installation/max-step-1.png"
 />
 
-## Step 2: Copy the Package Folder
+## Step 2: Move the Package Folder
 
 To install a Max package you need to place it into the `Packages` folder. Select your operating system on the tabs below.
 
@@ -40,13 +40,16 @@ To install a Max package you need to place it into the `Packages` folder. Select
     </TabPanel>
 </Tabs>
 
-## Step 3: Run Max
+## Step 3: Run Max and Test
 
 Now check that the installation worked.
 
 1. Restart Max.
 
-2. Open <a href='/installation/max_install_test.maxpat' download='max_install_test.maxpat' >this patch</a>.
+2. Open <a href='/installation/max-install-test.maxpat' download='max-install-test.maxpat'>this patch</a>.
+
+
+
 
 
 
