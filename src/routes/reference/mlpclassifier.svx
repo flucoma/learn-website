@@ -11,9 +11,9 @@ tags:
     - mlp
 ---
 
-Perform classification using a multi-layer perceptron (MLP) neural network.
+The `MLPClassifier` is an object that can be used to perform _classification_. This is based on training a neural network called a [multi-layer perceptron](). By providing data and labels, the neural network is iteratively trained such that it recognise different features of the data and return the most probable label for that data. When we work with the neural network like this, it is a form of _supervised learning_. See this [YouTube tutorial]() where we train the `MLPClassifier` to recognise oboe or trombone sounds in real-time.
 
-See this [YouTube tutorial](http://localhost:3000/reference/mlpclassifier) that classifies timbres as oboe or trombone in real-time.
+## A Brief Explanation
 
 When this MLP neural network trains, it takes each data point from the FluidDataSet provided as an input and predicts an output guess. At first these guesses will be quite wrong because the MLP begins in a randomized state. After each of these output guesses it will check what output is desired by checking against the label in the provided FluidLabelSet with the same identifier. The MLPClassifier will then adjust its internal parameters slightly based on how wrong it was so that it can be more accurate the next time it makes a prediction on this data point. After training on each data point thousands of times, these small adjustments enable the neural network to (hopefully!) make accurate predictions on the datapoints in the FluidDataSet, as well as on data points it has never seen before.
 
