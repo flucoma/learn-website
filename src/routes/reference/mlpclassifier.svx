@@ -19,7 +19,7 @@ When this MLP neural network trains, it takes each data point from the FluidData
 
 ## Parameters
   * `Hidden`: A list of numbers that specifies the structure of the neural network. Each number in the list represents one hidden layer of the neural network, the value of which is the number of neurons in that layer. For example, 3 3 (which is the default) specifies two hidden layers with three neurons each. The number of neurons in the input and output layers are determined from the corresponding datasets when training begins.
-  * `Activation`: An integer respresenting which activation function each neuron in the hidden layers will use. The default is 3 ('relu'). The options are<sup>1</sup>:
+  * `Activation`: An integer respresenting which activation function<sup>1</sup> each neuron in the hidden layers will use. The default is 3 ('relu'). The options are:
     - 0: 'identity' uses f(x) = x
     - 1: 'sigmoid' uses the logistic sigmoid function, f(x) = 1 / (1 + exp(-x))
     - 2: 'tanh' uses the hyperbolic tan function, f(x) = tanh(x)
