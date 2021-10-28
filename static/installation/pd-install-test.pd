@@ -1,0 +1,8 @@
+#N canvas 467 275 563 190 12;
+#X obj 55 49 fluid.bufnmf;
+#X obj 56 110 fluid.dataset;
+#X obj 57 152 fluid.grid;
+#X msg 185 70 version;
+#X text 54 14 Did any of these objects fail to load?;
+#X text 248 69 Does this print the version to the console?;
+#X connect 3 0 1 0;
