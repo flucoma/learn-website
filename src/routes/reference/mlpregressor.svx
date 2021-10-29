@@ -11,7 +11,7 @@ tags:
     - mlp
 ---
 
-The `MLPRegressor` is an object that can be used to perform _regression_. This is based on training a neural network called a [multi-layer perceptron](). By providing input and output data as [`DataSets`](/reference/dataset), the neural network is iteratively trained to learn a mapping between the two. When we work with the neural network like this, it is a form of _supervised learning_.
+The `MLPRegressor` is an object that can be used to perform _regression_. 'MLP' stands for multi-layer perceptron which is a type of neural network. By providing input and output data as `FluidDataSets`, the neural network is iteratively trained using _supervised learning_ to predict output data points based on input datapoints.
 
 See this [YouTube tutorial]() that controls a synthesizer with 10 control parameters using 2 control parameters of an XY pad.
 
