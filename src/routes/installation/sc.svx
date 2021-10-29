@@ -23,7 +23,7 @@ The location of the extension directory changes depending on your operating syst
 <CodeBlock>
 
 ```js
-Platform.userExtensionDir;
+Platform.userExtensionDir.openOS;
 ```
 
 </CodeBlock>
