@@ -1,7 +1,9 @@
 <div class='container'>
     
     <div class='links'>
-        <img class='logo' src='/img/onlylogo.svg' alt='FluCoMa Logo'>
+        <a class='logo-link' href='/'>
+            <img class='logo' src='/img/onlylogo.svg' alt='FluCoMa Logo'>
+        </a>
         <a class='nav-link' href='/overviews'>Overviews</a>
         <a class='nav-link' href='/guides'>Guides</a>
         <a class='nav-link' href='/reference'>Reference</a>
@@ -26,6 +28,11 @@
     }
 
     .logo {
+        width: 2em;
+        height: 100%;
+    }
+
+    .logo-link {
         width: 2em;
         height: 100%;
     }
