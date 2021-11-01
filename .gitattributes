@@ -5,3 +5,4 @@
 *.svg binary
 *.png binary
 *.npy binary
+*.maxpat binary
