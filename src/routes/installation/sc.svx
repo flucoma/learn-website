@@ -46,6 +46,8 @@ We can dequarantine the `*.scx` files directly from inside SuperCollider with th
 
 ## Step 4: Run SuperCollider and Test
 
+Be sure to recompile the class library first by restarting SCIDE or Cmd/Ctrl + Shift + L 
+
 <CodeBlock>
 
 ```js
