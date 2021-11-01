@@ -8,7 +8,7 @@
     let player;
     let ready = false;
     let features = new Array(12).fill(0.0);
-    let maxPitch;
+    let audioContext, source, analyser;
     // Canvas
     let canvas;
     let ctx;
@@ -54,30 +54,36 @@
                 }
             }
         })
-
-        // Analysis
-        const audioContext = new (AudioContext || webkitAudioContext)();
-        const source = audioContext.createMediaElementSource(player);
-        source.connect(audioContext.destination);
-        const analyser = Meyda.createMeydaAnalyzer({
-            audioContext: audioContext,
-            source: source,
-            bufferSize: 2048,
-            featureExtractors: ["chroma"],
-            callback: (chroma) => {
-                features = chroma.chroma;
-                // features = features.map(f => f > 0.8 ? 1.0 : 0.0)
-                chart.data.datasets[0].data = features;
-                maxPitch = labels[
-                    features.indexOf(Math.max(...features))
-                ]
-                chart.update();
-            }
-        });
-
-        analyser.start();
         ready = true;
     })
+            // Analysis
+    function startAudio(file) {
+        player.src = file;
+        if (!audioContext) {
+            audioContext = new (AudioContext || webkitAudioContext)();
+            source = audioContext.createMediaElementSource(player);
+            source.connect(audioContext.destination);
+        }
+        if (!analyser) {
+            analyser = Meyda.createMeydaAnalyzer({
+                audioContext: audioContext,
+                source: source,
+                bufferSize: 2048,
+                featureExtractors: ["chroma"],
+                callback: (chroma) => {
+                    features = chroma.chroma;
+                    // features = features.map(f => f > 0.8 ? 1.0 : 0.0)
+                    chart.data.datasets[0].data = features;
+                    // maxPitch = labels[
+                    //     features.indexOf(Math.max(...features))
+                    // ]
+                    chart.update();
+                }
+            });
+            analyser.start();
+        }
+        player.play();
+    }
 </script>
 
 <canvas id='chroma-chart' bind:this={ canvas } />
@@ -86,34 +92,22 @@
     <div class="sound-select">
         <Button 
         label='Bass 🎸'
-        on:click={ () => {
-            player.src = '/audio/bass-m.mp3';
-            player.play();
-            }}
+        on:click={ () => startAudio('/audio/bass-m.mp3') }
         />
 
         <Button 
         label='Piano 🎹'
-        on:click={ () => {
-            player.src = '/audio/piano-m.mp3';
-            player.play();
-            }}
+        on:click={ () => startAudio('/audio/piano-m.mp3') }
         />
 
         <Button 
         label='Oboe 🎷'
-        on:click={ () => {
-            player.src = '/audio/oboe-m.mp3';
-            player.play();
-            }}
+        on:click={ () => startAudio('/audio/oboe-m.mp3') }
         />
 
         <Button 
         label='Trombone 🎺'
-        on:click={ () => {
-            player.src = '/audio/trombone-m.mp3';
-            player.play();
-            }}
+        on:click={ () => startAudio('/audio/trombone-m.mp3') }
         />
     </div>
 
