@@ -6,4 +6,42 @@ tags:
     - classification
     - neural network
     - machine learning
+    - supervised learning
+    - multi-layer perceptron
+    - mlp
 ---
+
+The `MLPClassifier` is an object that can be used to perform _classification_. In machine learning, _classification_ refers to an algorithm that is trained to predict what category, or _class_, an input belongs to. 'MLP' stands for multi-layer perceptron which is a type of neural network.
+
+By providing data as a `FluidDataSet` and labels as a `FluidLabelSet`, the neural network is trained using _supervised learning_ so that it can predict the most probable label output for a given data point input.
+
+See this [YouTube tutorial](https://youtu.be/_QGQE-1RX-o) where we train the `MLPClassifier` to classify oboe and trombone sounds in real-time.
+
+## A Brief Explanation
+
+When this MLP neural network trains, it takes each data point from the FluidDataSet provided as an input and predicts an output guess. At first these guesses will be quite wrong because the MLP begins in a randomized state. After each of these output guesses it will check what output is desired by checking against the label in the provided FluidLabelSet with the same identifier. The MLPClassifier will then adjust its internal parameters slightly based on how wrong it was so that it can be more accurate the next time it makes a prediction on this data point. After training on each data point thousands of times, these small adjustments enable the neural network to (hopefully!) make accurate predictions on the data points in the FluidDataSet, as well as on data points it has never seen before.
+
+## Parameters
+
+  * `Hidden`: A list of numbers that specifies the structure of the neural network. Each number in the list represents one hidden layer of the neural network, the value of which is the number of neurons in that layer. For example, 3 3 (which is the default) specifies two hidden layers with three neurons each. The number of neurons in the input and output layers are determined from the corresponding datasets when training begins.
+  * `Activation`: An integer respresenting which activation function<sup>1</sup> each neuron in the hidden layers will use. The default is 2 ('relu'). The options are:
+    - 0: 'identity' uses f(x) = x
+    - 1: 'sigmoid' uses the logistic sigmoid function, f(x) = 1 / (1 + exp(-x))
+    - 2: 'relu' uses the rectified linear unit function, f(x) = max(x,0)
+    - 3: 'tanh' uses the hyperbolic tan function, f(x) = tanh(x)
+  * `Output Activation`: An integer representing which activation function each neuron in the output layer will use. The options are the same as for `Activation`. The default is 0 ('identity').
+  * `Batch Size`: The number of data points to use in between adjustments of the MLP's internal parameters. Higher values will speed up the training and smooth out the neural networks adjustments as it makes the adjustments based on batches of datapoints.
+  * `Max Iterations`: How many epochs to train when `fit` is called on the object. An Epoch is consists of training on all the datapoints one time.
+  * `Learn Rate`: A scalar for how drastically to adjust the internal paramters during training. It can be useful to begin at a relatively high value, such as 0.1 to try to quickly get the neural network in the general area of the solution. Then after a few fittings, decrease the learning rate to a smaller value, maybe 0.01, to slow down the adjustments and let the neural network hone in on a solution. This is the most imporant parameter to adjust while training a neural network. Different data will require different uses of learning rate. Experimenting with the learning rate for a given dataset is a good way to determine what might be best for a given task.
+  * `Validation`: A percentage (represented as a decimal) of the data point to set aside and not use for training. Instead these points will be used after each epoch to check how the neural network is performing. If it is found to no longer be improving, training will stop. This is useful if there are many data points. With a very small dataset validation should be 0.
+  * `Momentum`: A scalar to apply smoothing to the adjustments made to the internal parameters.
+
+## Methods / Messages
+
+* `Fit`: Train the neural network to map between a source FluidDataSet and a target FluidLabelSet.
+* `Predict`: Predict labels for all the datapoints in a provided FluidDataSet.
+* `Predict Point`: Predict a label for a single data point.
+* `Clear`: Reset all the MLP's internal parameters to a randomized state. This will erase all the learning that the neural network has done.
+
+### Footnotes
+1 - https://scikit-learn.org/stable/modules/generated/sklearn.neural_network.MLPClassifier.html
