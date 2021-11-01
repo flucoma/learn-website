@@ -15,7 +15,7 @@ The `MLPRegressor` is an object that can be used to perform _regression_. In mac
 
 By providing input and output data as `FluidDataSets`, the neural network is trained using _supervised learning_ to predict output data points based on input datapoints.
 
-See this [YouTube tutorial](https://youtu.be/EC9V5H_5QBU) that controls a synthesizer with 10 control parameters using 2 control parameters of an XY pad.
+See this [YouTube tutorial](https://youtu.be/3XSy297v9vk) that controls a synthesizer with 10 control parameters using 2 control parameters of an XY pad.
 
 ## A Brief Explanation
 
