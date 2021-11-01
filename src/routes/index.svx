@@ -2,34 +2,32 @@
 
 Welcome to the Fluid Corpus Manipulation Learn platform.
 
-This is a resource designed to go beyond the documentation found in each creative-coding environment (Max, SuperCollider, Pd) and offers more detailed and holistic deep-dives, guides and engagement with the broader concepts of machine learning, listening and musicking with computers.
-
-## Navigating
-
 Don't know where to start or what to do? The learn platform is broken down into four sections.
 
-### Overviews
+## Overviews
 [Overviews](/overviews) are longer-form, prose-like texts that aim to discuss higher-level topics in machine listening, machine learning sometimes relating to specific FluCoMa technology and sometimes reflecting more broadly. This is a good place to start browsing for ideas if you don't know where specifically you want to start.
 
-### Guides
+## Guides
+[Guides](/guides) demonstrate applications of the FluCoMa technology by building patches, scripts and programs in videos with accompanying text. 
 
-[Guides](/guides) demonstrate applications of the FluCoMa technology by building patches, scripts and programs in videos with accompanying text. A good starting example is the [timbre classification]() tutorial. 
+<!-- TODO: Ted's classifier video stuff + some writing -->
+<!-- A good starting example is the [timbre classification](/guides/timbre-classifier) tutorial.  -->
 
-### References
-Each creative-coding environment (CCE) has its own documentation system. This documentation system provides CCE agnostic information and discuss the underlying algorithms in more detail.
+## References
+The [reference](/reference) here discusses the underlying algorithms of the FluCoMa toolkit in more detail. We try to steer clear from specific implementation details and instead focus on the concepts behind each algorithm.
 
-### Made with FluCoMa
+## Made with FluCoMa
 [Made with FluCoMa](/made-with-flucoma) draws attention to you. The users, makers and creative people who are using the tools. We want to highlight what's our there as both a learning opportunity for others and to situate this technology within a community of techno-fluent musicians.
 
-## Get Involved
+# Get Involved
 
-There many ways you can get involved with FluCoMa if you are new.
+There many ways you can get involved with FluCoMa.
 
-Download the [Max](https://github.com/flucoma/flucoma-max/releases/latest), [SuperCollider](https://github.com/flucoma/flucoma-sc/releases/latest) or [Pd](https://github.com/flucoma/flucoma-pd/releases/latest) package.
+1. Download the [Max](https://github.com/flucoma/flucoma-max/releases/latest), [SuperCollider](https://github.com/flucoma/flucoma-sc/releases/latest) or [Pd](https://github.com/flucoma/flucoma-pd/releases/latest) package. You can follow the [installation instructions](/installation) for your environment of choice.
 
-Ask questions, discuss, or share what you've been using FluCoMa for in the [discourse forum](https://discourse.flucoma.org/). This is a community-driven place where we welcome anyone and especially encourage beginners as part of their learning experience.
+2. Discuss, ask questions, or share what you've been using FluCoMa for in the [discourse forum](https://discourse.flucoma.org/). This is a community-driven place where we welcome anyone and especially encourage beginners as part of their learning experience. 
 
-If you are proficient in C++ then you might be interested in the code. It is all open-source and available at [GitHub](https://github.com/flucoma). You can make suggestions for this website if you find typos or feel that something is non-inclusively or poorly explained.
+3. Dive into all of our open-source code at [GitHub](https://github.com/flucoma).
 
 
 
