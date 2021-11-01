@@ -15,7 +15,6 @@
     <a href='/installation/pd'>
         <h2>PureData</h2>
         <img src='/img/pd-logo.png' alt='PureData Logo' />
-
     </a>
 </div>
 
@@ -28,12 +27,10 @@
     a {
         display: grid;
         grid-template-columns: auto auto;
-        place-items: center;
         gap: 1em;
     }
 
     img {
-        width: 100%;
         height: 64px;
     }
 
