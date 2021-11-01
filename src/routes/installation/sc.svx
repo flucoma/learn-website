@@ -23,16 +23,28 @@ The location of the extension directory changes depending on your operating syst
 <CodeBlock>
 
 ```js
-Platform.userExtensionDir;
+Platform.userExtensionDir.openOS;
 ```
 
 </CodeBlock>
 
-
 Copy the downloaded folder to this location.
 
+## Step 3: Dequarantine *.scx Extensions
 
-## Step 3: Run SuperCollider and Test
+We don't sign the builds of the FluCoMa toolkit and so macOS will quarantine the binary files causing an error when the class library (re)compiles.
+
+We can dequarantine the `*.scx` files directly from inside SuperCollider with this script.
+
+<CodeBlock>
+
+```js
+("xattr -d -r com.apple.quarantine"+Platform.userExtensionDir.quote++"/FluidCorpusManipulation/plugins").runInTerminal
+```
+
+</CodeBlock>
+
+## Step 4: Run SuperCollider and Test
 
 <CodeBlock>
 
