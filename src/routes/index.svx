@@ -19,7 +19,7 @@ Don't know where to start or what to do? The learn platform is broken down into 
 Each creative-coding environment (CCE) has its own documentation system. This documentation system provides CCE agnostic information and discuss the underlying algorithms in more detail.
 
 ### Made with FluCoMa
-[Made with FluCoMa]() draws attention to you. The users, makers and creative people who are using the tools. We want to highlight what's our there as both a learning opportunity for others and to situate this technology within a community of techno-fluent musicians.
+[Made with FluCoMa](/made-with-flucoma) draws attention to you. The users, makers and creative people who are using the tools. We want to highlight what's our there as both a learning opportunity for others and to situate this technology within a community of techno-fluent musicians.
 
 ## Get Involved
 
