@@ -29,7 +29,6 @@ When this MLP neural network trains, it takes each data point from the FluidData
     - 1: 'sigmoid' uses the logistic sigmoid function, f(x) = 1 / (1 + exp(-x))
     - 2: 'relu' uses the rectified linear unit function, f(x) = max(x,0)
     - 3: 'tanh' uses the hyperbolic tan function, f(x) = tanh(x)
-  * `Output Activation`: An integer representing which activation function each neuron in the output layer will use. The options are the same as for `Activation`. The default is 0 ('identity').
   * `Batch Size`: The number of data points to use in between adjustments of the MLP's internal parameters. Higher values will speed up the training and smooth out the neural networks adjustments as it makes the adjustments based on batches of datapoints.
   * `Max Iterations`: How many epochs to train when `fit` is called on the object. An Epoch is consists of training on all the datapoints one time.
   * `Learn Rate`: A scalar for how drastically to adjust the internal paramters during training. It can be useful to begin at a relatively high value, such as 0.1 to try to quickly get the neural network in the general area of the solution. Then after a few fittings, decrease the learning rate to a smaller value, maybe 0.01, to slow down the adjustments and let the neural network hone in on a solution. This is the most imporant parameter to adjust while training a neural network. Different data will require different uses of learning rate. Experimenting with the learning rate for a given dataset is a good way to determine what might be best for a given task.
