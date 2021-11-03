@@ -5,29 +5,29 @@
     "scrape": "python3 scripts/extract_structure.py",
     "dev": "python3 scripts/extract_structure.py && svelte-kit dev --host",
     "build": "python3 scripts/extract_structure.py && svelte-kit build",
-    "deploy" : ""
+    "deploy": ""
   },
   "devDependencies": {
     "@sveltejs/kit": "next",
-    "svelte": "^3.44.0"
+    "svelte": "^3.44.1"
   },
   "type": "module",
   "dependencies": {
     "@observablehq/plot": "^0.2.9",
     "@sveltejs/adapter-static": "next",
     "array-normalize": "^2.0.0",
-    "chart.js": "^3.5.1",
+    "chart.js": "^3.6.0",
     "downsample": "^1.4.0",
     "essentia.js": "^0.1.3",
     "flexsearch": "^0.7.21",
     "lodash": "^4.17.21",
     "lodash-es": "^4.17.21",
     "mdsvex": "^0.9.8",
-    "meyda": "^5.2.2",
+    "meyda": "^5.3.0",
     "numpy-parser": "^1.2.3",
     "pts": "^0.10.6",
     "rehype-slug": "^4.0.1",
-    "sass": "^1.43.3",
+    "sass": "^1.43.4",
     "string-similarity": "^4.0.4",
     "svelte-preprocess": "^4.9.8",
     "tone": "^14.7.77"
