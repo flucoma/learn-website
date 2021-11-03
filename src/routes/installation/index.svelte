@@ -1,5 +1,5 @@
 <h1>
-    Choose your creating coding environment
+    Choose your creative coding environment
 </h1>
 
 <div class='installations'>
