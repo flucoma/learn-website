@@ -8,4 +8,8 @@ tags:
     - statistics
 ---
 
+<script>
+	import UMAPDemo from '$lib/widget/UMAPDemo.svelte';
+</script>
 
+<UMAPDemo />
