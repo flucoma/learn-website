@@ -1,9 +1,11 @@
-import adapter from '@sveltejs/adapter-static';
-import slug from 'rehype-slug';
-import sveltePreprocess from 'svelte-preprocess';
 import { mdsvex } from 'mdsvex';
 import { dirname } from 'path';
 import { fileURLToPath } from 'url';
+import slug from 'rehype-slug';
+import wikiLinkPlugin from 'remark-wiki-link';
+import jargon from 'remark-jargon';
+import adapter from '@sveltejs/adapter-static';
+import sveltePreprocess from 'svelte-preprocess';
 
 const filePath = dirname(fileURLToPath(import.meta.url));
 
@@ -12,7 +14,8 @@ const config = {
 	extensions: [ '.svelte', '.svx' ],
 	preprocess: [ 
 		mdsvex({
-			rehypePlugins : [slug],
+			remarkPlugins : [ jargon ],
+			rehypePlugins : [ slug ],
 			layout: {
 				overviews: './src/lib/layouts/overviews.svelte',
 				guides: './src/lib/layouts/overviews.svelte',
