@@ -3,11 +3,11 @@
     import { Tabs, TabList, TabPanel, Tab } from '$lib/components/tabs/tabs';
 </script>
 
-# Max Installation Instructions
+# Pd Installation Instructions
 
-## Step 1: Download the PureData Package
+## Step 1: Download the Pure Data Package
 
-Download the latest version of the PureData package from GitHub releases. Choose the appropriate release for your operating system.
+Download the latest version of the Pure Data package from GitHub releases. Choose the appropriate release for your operating system.
 
 https://github.com/flucoma/flucoma-pd/releases/latest
 
@@ -17,13 +17,13 @@ src="/installation/pd-step-1.png"
 
 ## Step 2: Move the Package Folder
 
-To install a PureData package you need to place it in the PureData search path by adding the package folder _to_ the search path.
+To install a Pure Data package you need to place it in the Pure Data search path by adding the package folder _to_ the search path.
 
 You can achieve this by opening the path preferences.
 
 ## Step 3: Add the FluCoMa library to the Startup Preferences
 
-We also need to add the FluCoMa library to the startup libraries of PureData. This is because many of our objects live inside a single compiled object called `fluid_libmanipulation`.
+We also need to add the FluCoMa library to the startup libraries of Pure Data. This is because many of our objects live inside a single compiled object called `fluid_libmanipulation`.
 
 To add the `fluid_libmanipulation` library to the startup preferences:
 
@@ -43,17 +43,10 @@ src="/installation/pd-mac-3-3.png"
 
 4. Click OK
 
-## Step 4: Run PureData and Test
+## Step 4: Run Pure Data and Test
 
 Now check that the installation worked.
 
-1. Restart PureData.
+1. Restart Pure Data.
 
 2. Open <a href='/installation/pd-install-test.pd' download='pd-install-test.pd'>this patch</a>.
-
-
-
-
-
-
-
