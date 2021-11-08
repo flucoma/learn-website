@@ -1,7 +1,8 @@
 <script>
     import { onMount } from 'svelte';
-    import * as Meyda from 'meyda';
     import { Chart, registerables } from 'chart.js';
+    import * as Meyda from 'meyda';
+    import WaveSurfer from 'wavesurfer.js';
     import Button from '$lib/components/Button.svelte';
 
     // Audio
@@ -9,6 +10,7 @@
     let ready = false;
     let features = new Array(12).fill(0.0);
     let maxPitch;
+    let waveform, wavesurfer, playing;
     // Canvas
     let canvas;
     let ctx;
@@ -75,6 +77,14 @@
             }
         });
 
+        // Waveform
+        wavesurfer = WaveSurfer.create({
+            container: waveform,
+            backend: 'MediaElement'
+        });
+        wavesurfer.load(player);
+
+
         analyser.start();
         ready = true;
     })
@@ -87,35 +97,41 @@
         <Button 
         label='Bass 🎸'
         on:click={ () => {
-            player.src = '/audio/bass-m.mp3';
-            player.play();
+            wavesurfer.load('/audio/bass-m.mp3');
+            wavesurfer.play();
+            playing = true;
             }}
         />
 
         <Button 
         label='Piano 🎹'
         on:click={ () => {
-            player.src = '/audio/piano-m.mp3';
-            player.play();
+            wavesurfer.load('/audio/piano-m.mp3');
+            wavesurfer.play();
+            playing = true;
             }}
         />
 
         <Button 
         label='Oboe 🎷'
         on:click={ () => {
-            player.src = '/audio/oboe-m.mp3';
-            player.play();
+            wavesurfer.load('/audio/oboe-m.mp3');
+            wavesurfer.play();
+            playing = true;
             }}
         />
 
         <Button 
         label='Trombone 🎺'
         on:click={ () => {
-            player.src = '/audio/trombone-m.mp3';
-            player.play();
+            wavesurfer.load('/audio/trombone-m.mp3');
+            wavesurfer.play();
+            playing = true;
             }}
         />
     </div>
+
+    <div bind:this={waveform} />
 
     <div class="smoothing">
         <span>Smoothing: {smoothing} frames</span> 
@@ -125,14 +141,26 @@
         bind:value={smoothing}
         on:input={ () => chart.options.animation.duration = smoothing }
         />
-
-        <audio controls loop 
-        bind:this={player} 
-        src='/audio/bass-m.mp3'
-        crossorigin='anonymous'
-        class:hidden={!ready}
+        <Button 
+        label={ playing === true ? 'Pause' : 'Play' }
+        on:click={
+            () => { 
+                if (playing) {
+                    wavesurfer.pause();
+                    playing = false;
+                } else {
+                    wavesurfer.play()
+                    playing = true;
+                }
+            }
+        }
         />
     </div>
+
+    <audio controls loop 
+    bind:this={player} 
+    src='/audio/bass-m.mp3'
+    />
 </div>
 
 <style>
