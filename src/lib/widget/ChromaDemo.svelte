@@ -1,7 +1,6 @@
 <script>
     import { onMount } from 'svelte';
     import { Chart, registerables } from 'chart.js';
-    import Peaks from 'peaks.js';
     import * as Meyda from 'meyda';
     import Button from '$lib/components/Button.svelte';
 
@@ -74,7 +73,8 @@
         });
 
         // Waveform
-
+        const module = await import("peaks.js")
+        const Peaks = module.default;
         const options = {
             overview: { 
                 container: waveform,
