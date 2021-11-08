@@ -1,14 +1,16 @@
 <script>
     import { onMount } from 'svelte';
-    import * as Meyda from 'meyda';
     import { Chart, registerables } from 'chart.js';
+    import Peaks from 'peaks.js';
+    import * as Meyda from 'meyda';
     import Button from '$lib/components/Button.svelte';
 
     // Audio
     let player;
     let ready = false;
     let features = new Array(12).fill(0.0);
-    let maxPitch;
+    let waveform, wavesurfer, playing;
+    let peaksInstance;
     // Canvas
     let canvas;
     let ctx;
@@ -66,18 +68,47 @@
             featureExtractors: ["chroma"],
             callback: (chroma) => {
                 features = chroma.chroma;
-                // features = features.map(f => f > 0.8 ? 1.0 : 0.0)
                 chart.data.datasets[0].data = features;
-                maxPitch = labels[
-                    features.indexOf(Math.max(...features))
-                ]
                 chart.update();
             }
+        });
+
+        // Waveform
+
+        const options = {
+            overview: { 
+                container: waveform,
+                waveformColor: 'rgb(3,113,181' 
+            },
+            mediaElement: player,
+            dataUri: { arraybuffer: '/audio/bass-m.dat'},
+            mediaUrl: '/audio/bass-m.mp3'
+        };
+
+        Peaks.init(options, function(err, peaks) {
+            // Do something when the waveform is displayed and ready
+            peaksInstance = peaks;
         });
 
         analyser.start();
         ready = true;
     })
+
+    const updateWaveform = (audioFile) => {
+        player.src = audioFile + '.mp3';
+        const options = {
+            mediaUrl: audioFile + '.mp3',
+            dataUri: { arraybuffer: audioFile + '.dat' }
+        };
+
+        peaksInstance.setSource(options, err => {
+            if (err) console.log(err)
+        });
+
+        player.play();
+
+
+    }
 </script>
 
 <canvas id='chroma-chart' bind:this={ canvas } />
@@ -86,36 +117,26 @@
     <div class="sound-select">
         <Button 
         label='Bass 🎸'
-        on:click={ () => {
-            player.src = '/audio/bass-m.mp3';
-            player.play();
-            }}
+        on:click={ () => { updateWaveform('/audio/bass-m') }}
         />
 
         <Button 
         label='Piano 🎹'
-        on:click={ () => {
-            player.src = '/audio/piano-m.mp3';
-            player.play();
-            }}
+        on:click={ () => { updateWaveform('/audio/piano-m') }}
         />
 
         <Button 
         label='Oboe 🎷'
-        on:click={ () => {
-            player.src = '/audio/oboe-m.mp3';
-            player.play();
-            }}
+        on:click={ () => { updateWaveform('/audio/oboe-m') }}
         />
 
         <Button 
         label='Trombone 🎺'
-        on:click={ () => {
-            player.src = '/audio/trombone-m.mp3';
-            player.play();
-            }}
+        on:click={ () => { updateWaveform('/audio/trombone-m') }}
         />
     </div>
+
+    <div class='waveform' bind:this={waveform} />
 
     <div class="smoothing">
         <span>Smoothing: {smoothing} frames</span> 
@@ -125,18 +146,18 @@
         bind:value={smoothing}
         on:input={ () => chart.options.animation.duration = smoothing }
         />
-
-        <audio controls loop 
-        bind:this={player} 
-        src='/audio/bass-m.mp3'
-        crossorigin='anonymous'
-        class:hidden={!ready}
-        />
     </div>
+
+    <audio controls loop 
+    class='player'
+    bind:this={player} 
+    src='/audio/bass-m.mp3'
+    />
 </div>
 
 <style>
     .hidden { display: none }
+    .waveform { width: 100%; height: 75px }
 
     .controls {
         display: flex;
@@ -164,6 +185,10 @@
 
     .smoothing > input {
         width: 60%
+    }
+
+    .player {
+        margin: 0 auto;
     }
 
     #chroma-chart {
