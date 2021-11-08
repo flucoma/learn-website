@@ -13,3 +13,6 @@ tags:
 </script>
 
 <UMAPDemo />
+
+https://distill.pub/2016/misread-tsne/
+https://pair-code.github.io/understanding-umap/
