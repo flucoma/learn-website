@@ -10,6 +10,8 @@
     let features = new Array(12).fill(0.0);
     let waveform, wavesurfer, playing;
     let peaksInstance;
+    let analyse;
+    let ctxStarted = false;
     // Canvas
     let canvas;
     let ctx;
@@ -56,22 +58,6 @@
             }
         })
 
-        // Analysis
-        const audioContext = new (AudioContext || webkitAudioContext)();
-        const source = audioContext.createMediaElementSource(player);
-        source.connect(audioContext.destination);
-        const analyser = Meyda.createMeydaAnalyzer({
-            audioContext: audioContext,
-            source: source,
-            bufferSize: 2048,
-            featureExtractors: ["chroma"],
-            callback: (chroma) => {
-                features = chroma.chroma;
-                chart.data.datasets[0].data = features;
-                chart.update();
-            }
-        });
-
         // Waveform
         const module = await import("peaks.js")
         const Peaks = module.default;
@@ -90,11 +76,28 @@
             peaksInstance = peaks;
         });
 
-        analyser.start();
         ready = true;
     })
 
     const updateWaveform = (audioFile) => {
+        if (!ctxStarted) {
+            const audioContext = new (AudioContext || webkitAudioContext)();
+            const source = audioContext.createMediaElementSource(player);
+            source.connect(audioContext.destination);
+            const analyser = Meyda.createMeydaAnalyzer({
+                audioContext: audioContext,
+                source: source,
+                bufferSize: 2048,
+                featureExtractors: ["chroma"],
+                callback: (chroma) => {
+                    features = chroma.chroma;
+                    chart.data.datasets[0].data = features;
+                    chart.update();
+                }
+            });
+            analyser.start();
+            ctxStarted = !ctxStarted;
+        }
         player.src = audioFile + '.mp3';
         const options = {
             mediaUrl: audioFile + '.mp3',
