@@ -28,6 +28,7 @@
 
     const newData = () => {
         go = false;
+        epoch = 0;
         clearTimeout(timeout);
         originalData = new Array(100).fill(new Array(3).fill(0));
         originalData = originalData.map(x => x.map(y => Math.random()));
