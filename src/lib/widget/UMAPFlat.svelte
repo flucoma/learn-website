@@ -8,10 +8,11 @@
 
     // Chart.js business
     let canvas, chart, ctx;
+    let timeout;
 
-    let stepInterval = 1;
+    let stepInterval = 5;
     let go = false;
-    let smoothing = 100;
+    let smoothing = 30;
 
     // UMAP params
     let neighbors = 10;
@@ -26,6 +27,8 @@
     let umap;
 
     const newData = () => {
+        go = false;
+        clearTimeout(timeout);
         originalData = new Array(100).fill(new Array(3).fill(0));
         originalData = originalData.map(x => x.map(y => Math.random()));
         umap = new UMAP({
@@ -62,15 +65,15 @@
         transform = embedding.map(row => 
             row.map(col => norm(col))
         );
-        if (go && epoch <= numEpochs) {
-            setTimeout(step, stepInterval);
-        } else {
-            go = false;
+        // Stopping condition
+        if (epoch > numEpochs) {
+            stopInterval();
             epoch = 0;
         };
+        // Update Chart
         if (chart) {
             updateChart();
-        }
+        };
     };
 
     const doStep = () => {
@@ -84,7 +87,15 @@
             'spread' : 1.0,
         });
         numEpochs = umap.initializeFit(originalData);
-        step();
+        startInterval();
+    }
+
+    const startInterval = () => {
+        timeout = setInterval(step, stepInterval);
+    }
+
+    const stopInterval = () => {
+        clearInterval(timeout);
     }
 
     const getPositions = (d) => {
@@ -164,6 +175,7 @@
                 newData();
                 step();
                 updateChart();
+                go=false;
             }}
             label='New Data'
             />
