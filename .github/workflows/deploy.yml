@@ -38,11 +38,14 @@ jobs:
         run: |
           pip3 install -r requirements.txt
           python3 scripts/extract_structure.py
+
+      - name: Install pnpm
+        run: npm i -g pnpm
       
       - name: Build Site
         run: | 
-          npm i
-          npm run build
+          pnpm i
+          pnpm run build
           ls
       
       - name: Upload To Droplet
