@@ -21,7 +21,7 @@
 
 <slot />
 
-<style>
+<style lang='scss'>
     h1 {
         text-align: center;
     }
@@ -46,8 +46,8 @@
     }
 
     .tag:hover {
+        color: white;
         text-decoration: underline;
-        font-style: italic;
     }
 
     .title > h1 {

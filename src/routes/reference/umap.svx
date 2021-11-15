@@ -10,9 +10,37 @@ tags:
 
 <script>
 	import UMAPDemo from '$lib/widget/UMAPDemo.svelte';
+    import UMAPFlat from '$lib/widget/UMAPFlat.svelte';
 </script>
 
-<UMAPDemo />
+<!-- This will eventually link to an overview on dimension reduction IMO -->
+_Uniform Manifold Approximation and Projection_ (UMAP) is a [dimensionality reduction technique](). It allows you to take high-dimensional data and compress it into a lower-dimensional representation. UMAP is a _non-linear_ form of dimension reduction, and is robust when working with data that is noisy, sparse or cannot be dealt with effectively using linear techniques such as [Principal Component Analysis (PCA)](/reference/pca).
+<UMAPFlat />
 
-https://distill.pub/2016/misread-tsne/
-https://pair-code.github.io/understanding-umap/
+This example visualises UMAP's iterative process of taking the original data and transforming it to a lower dimensional space. To begin with, 100 three-dimensional points are randomly generated. For each point we see visually, the original three dimensional data is used to give them an RGB colour. The algorithm then proceeds, interatively finding the optimal two-dimensional representation of the original three-dimensional space. UMAP is able to derive some structure from the RGB colour space resulting in the two dimensional plot becoming a version of a smooth gradient or colour spectrum.
+
+## Parameters
+
+UMAP has three key parameters that affect the result it produces. It is good to remember that UMAP is trying to work within the constraints you provide while giving the "best" possible result. Configuring UMAP with the the right parameters, (i.e constraints) allows you to balance the _global_ or _local_ features of the original space.
+
+### Minimum Distance (`mindist`)
+
+`mindist` encourages UMAP to consider how close points can be represented in the low-dimensional space that it produces. Small values of `mindist` mean that UMAP can pack points in a tight embedding, meaning the local structure of the original space can be preserved. Bigger values cause the embedding to be spread out, focusing on the preservation of the global topology.
+
+### Number of Neighbours (`numneighbours`)
+
+You can think of the `numneighbours` parameter as a way to tell UMAP how much of the _global_ space it should care about when it performs the dimension reduction. It is literally enforcing how many neighbouring points UMAP needs to consider.
+
+### Iterations
+
+UMAP works iteratively to calculate the lower-dimension representation of the input data. As such, performing more or less iterations will drastically effect the result.
+
+## Further Information
+
+There is a lot of good chatter and analysis of the UMAP algorithm which can serve to bolster your understanding of how it works. 
+
+[Understanding UMAP](https://pair-code.github.io/understanding-umap/), is a good palce to see some more examples of the algorithm at work. It can be illuminating to know how other dimension algorithms work too, as each technique fails and succeeds in different ways.
+
+Furthermore, this [Distill](https://distill.pub/2016/misread-tsne/) article, _"How to Use t-SNE Effectively"_ discusses effective approaches to using t-SNE, another non-linear dimension-reduciton algorithm.
+
+
