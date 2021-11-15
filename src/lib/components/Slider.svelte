@@ -1,7 +1,4 @@
 <script>
-import { escape_attribute_value } from 'svelte/internal';
-
-
     export let value;
     export let min= "0";
     export let max = "100";
