@@ -77,6 +77,7 @@
 
     const doStep = () => {
         epoch = 0;
+        clearInterval(timeout);
         umap = new UMAP({
             'nComponents' : 2,
             'nEpochs' : epochs,
