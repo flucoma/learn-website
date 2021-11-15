@@ -11,7 +11,6 @@
     let timeout;
 
     let stepInterval = 5;
-    let go = false;
     let smoothing = 100;
 
     // UMAP params
@@ -27,7 +26,6 @@
     let umap;
 
     const newData = () => {
-        go = false;
         epoch = 0;
         clearTimeout(timeout);
         originalData = new Array(100).fill(new Array(3).fill(0));
@@ -79,7 +77,6 @@
 
     const doStep = () => {
         epoch = 0;
-        go = true;
         umap = new UMAP({
             'nComponents' : 2,
             'nEpochs' : epochs,
@@ -176,7 +173,6 @@
                 newData();
                 step();
                 updateChart();
-                go=false;
             }}
             label='New Data'
             />
