@@ -17,7 +17,7 @@ Don't know where to start or what to do? The learn platform is broken down into 
 The [reference](/reference) here discusses the underlying algorithms of the FluCoMa toolkit in more detail. We try to steer clear from specific implementation details and instead focus on the concepts behind each algorithm.
 
 ## Made with FluCoMa
-[Made with FluCoMa](/made-with-flucoma) draws attention to you. The users, makers and creative people who are using the tools. We want to highlight what's our there as both a learning opportunity for others and to situate this technology within a community of techno-fluent musicians.
+[Made with FluCoMa](/madewithflucoma) draws attention to you. The users, makers and creative people who are using the tools. We want to highlight what's our there as both a learning opportunity for others and to situate this technology within a community of techno-fluent musicians.
 
 # Get Involved
 

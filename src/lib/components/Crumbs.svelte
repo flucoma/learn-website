@@ -3,7 +3,7 @@
 
     // Sanitise some special links where need be
     const lookup = {
-        'made-with-flucoma' : 'Made with FluCoMa',
+        'madewithflucoma' : 'Made with FluCoMa',
         'reference' : 'Reference',
         'guides' : 'Guides',
         'overviews' : 'Overviews'
