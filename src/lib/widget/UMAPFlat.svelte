@@ -67,7 +67,6 @@
         // Stopping condition
         if (epoch > numEpochs) {
             stopInterval();
-            epoch = 0;
         };
         // Update Chart
         if (chart) {
