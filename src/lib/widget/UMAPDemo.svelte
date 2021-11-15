@@ -4,8 +4,8 @@
     import Slider from '$lib/components/Slider.svelte';
     import * as d3 from 'd3';
     import * as THREE from "three";
-    // import { OrbitControls } from "../../../node_modules/three/examples/jsm/controls/OrbitControls.js";
     import oc from 'three-orbit-controls';
+    
     const OrbitControls = oc(THREE)
     let container;
     let height = 450;
@@ -13,19 +13,14 @@
     let stepInterval = 3;
     let go = true;
     // Animation Code
-    let camera, scene, renderer;
-    let group;
-    let particles;
-    let particlePositions;
-    let positions;
-    let pointCloud;
+    let camera, scene, renderer, group;
+    let particles, particlePositions, positions, pointCloud;
     const r = 4000;
 
     // UMAP params
     let neighbors = 10;
     let minDist = 0.3;
     let epochs = 500; 
-    let spread = 1.0;
 
     // Data
     let epoch = 0;
@@ -37,7 +32,7 @@
         'nEpochs' : epochs,
         'minDist' : minDist,
         'nNeighbors' : neighbors,
-        'spread' : spread
+        'spread' : 1.0
     });
 
     let numEpochs = umap.initializeFit(data);
@@ -85,7 +80,7 @@
             'position', new THREE.BufferAttribute( 
                 particlePositions, 3
             ).setUsage(THREE.DynamicDrawUsage)
-        )
+        );
 
         // particles/points
         pointCloud = new THREE.Points( particles, pMaterial );
@@ -94,13 +89,12 @@
         const geometry = new THREE.BufferGeometry();
         geometry.setAttribute( 'position', new THREE.Float32BufferAttribute( positions, 3 ) );
 
-
         geometry.computeBoundingSphere();
         geometry.setDrawRange( 0, 0 );
 
         // Renderer
         renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-        renderer.setClearColor( 0x000000, 0);
+        renderer.setClearColor( 0x000000, 0 );
         renderer.setPixelRatio( window.devicePixelRatio );
         renderer.setSize( width, height );
         container.appendChild( renderer.domElement );
@@ -185,7 +179,6 @@
         <Slider bind:value={epochs} title="Epochs" min="50" max="2000" step="1" chFunc={doStep}/>
         <Slider bind:value={minDist} title="Minimum Distance" min="0.0" max="1" step="0.001" chFunc={doStep}/>
         <Slider bind:value={neighbors} title="Number of Neighbours" min="3" max="99" step="1" chFunc={doStep}/>
-        <Slider bind:value={spread} title="Spread" min="0" max="1" step="0.001" chFunc={doStep}/>
     </div>
 </div>
 <style>
