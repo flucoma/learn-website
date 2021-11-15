@@ -65,7 +65,7 @@
             row.map(col => norm(col))
         );
         // Stopping condition
-        if (epoch > numEpochs) {
+        if (epoch >= numEpochs) {
             stopInterval();
         };
         // Update Chart
