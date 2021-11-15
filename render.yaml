@@ -1,0 +1,7 @@
+services:
+  - type: web
+    name: FluCoMa Learn platform
+    env: static
+    buildCommand: pip3 install -r requirements; yarn; yarn run build
+    staticPublishPath: ./build
+    pullRequestPreviewsEnabled: true # optional
