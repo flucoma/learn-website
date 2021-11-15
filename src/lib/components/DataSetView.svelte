@@ -1,5 +1,4 @@
 <script>
-
     let dataset = [
         { 'point1' : new Array(30).fill(0.3) },
         { 'point2' : new Array(30).fill(0.1) }
@@ -26,12 +25,10 @@
         display: grid;
         grid-template-columns: auto auto;
         width: min(20ch, 100%);
-        // width: min(20ch, 100%);
         font-family: $mono;
-        column-gap: 1em;
-        margin: 0 auto;
+        gap: 1em;
+        padding-top: 1em;
     }
-
 
     .heading {
         font-weight: bold;
