@@ -12,7 +12,7 @@
 
     let stepInterval = 5;
     let go = false;
-    let smoothing = 30;
+    let smoothing = 100;
 
     // UMAP params
     let neighbors = 10;
