@@ -28,7 +28,7 @@
     const newData = () => {
         epoch = 0;
         clearTimeout(timeout);
-        originalData = new Array(100).fill(new Array(3).fill(0));
+        originalData = new Array(150).fill(new Array(3).fill(0));
         originalData = originalData.map(x => x.map(y => Math.random()));
         umap = new UMAP({
             'nComponents' : 2,
