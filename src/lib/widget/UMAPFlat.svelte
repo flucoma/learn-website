@@ -11,7 +11,7 @@
     let timeout;
 
     let stepInterval = 5;
-    let smoothing = 100;
+    let smoothing = 230;
 
     // UMAP params
     let neighbors = 10;
