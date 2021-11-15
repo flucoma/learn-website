@@ -175,7 +175,7 @@
                 step();
                 updateChart();
             }}
-            label='New Data'
+            label='Reset'
             />
         </div>
     </div>
