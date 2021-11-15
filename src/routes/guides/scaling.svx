@@ -8,7 +8,7 @@ tags:
     - data
 ---
 
-Why would you scale data? 
+Why would you scale data? This article will cover scaling.
 
 - Contribution of different data ranges (db/pitch)
 
