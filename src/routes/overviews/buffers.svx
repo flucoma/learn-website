@@ -5,6 +5,28 @@ blurb: |
 tags: 
     - interface
     - data
+    - beginner
 ---
 
+If you've been playing with the FluCoMa objects for a while now, you might be wondering why you have to use buffers (or arrays in PureData) so much. There are many reasons that FluCoMa relies on buffers as pivotal interface and design feature, and while they add complexity to certain workflows they also solve many problems at the same time. You also might be confused, especially as a Max user, why `buffers~` are used so liberally and for storing many different things. This can be confusing at first, and we'd like to try and rationalise our choices here and provide some insight for how you can approach dealing with the buffer interface.
 
+## Cross Platform and Environment Agnostic
+FluCoMa is developed for PureData, SuperCollider and Max. These environments are great at writing audio processing chains or for manipulating singular streams of values, but often they have quirks and idiosyncracies when dealing with collections of multi-dimensional data. To do machine learning, machine listening and decomposition we often a need a place to store some data as an _input_, and place to store the _output_. Buffers (in Max and SuperCollider) and `arrays` (in PureData) although often used to store audio files, are actually capabale intefaces for storing data. Not only that, but each environment offers these up natively.
+
+This makes development simpler and more abstracted. We don't have to develop algorithms for a specific environment, rather, we dictate how a "buffer" is dealt with in the code. This means that across all of the creative coding environments that we support there is a singular conceptual interface that is integrated well with the environment. Furthermore, this facilitates more easily developing future environments wrappers as long as we describe in the development process how a buffer is accessed.
+
+## Fluidity of Workflow and Interface
+Another reason to use buffers as a generic container for sound and data is that it allows you to leverage your programming skills in your environment of choice. Max users will perhaps be familiar with `poke~`, `peek~`, `waveform~` and `groove~`, which all offer ways to tap into the data you generate with machine learning as well as audition the results of decomposition processes. You aren't "locked in" to working with the results in a certain way, which supports accessing, modifying and transforming the data more easily. For example, [Timo Hoogland](https://www.timohoogland.com/) uses the predictions of the [MLPClassifier](/reference/mlpclassifier) to create wavetables that are then accessed at audio rate in Max.
+
+Don't forget, buffers will almost always facilitate writing out their contents to disk, meaning you can store analysis, decomposition and segmentation results beyond the life of your environment of choice.
+
+## Efficiency and Overcoming Shortfalls
+Buffers are also useful for overcoming the shortfalls of certain environments. We often deal with large collections of multi-dimensional data in machine learning and machine learning. This is problematic in some cases! For example, Max lists are limited to 32767 items, whereas buffers are not constrained like this. In addition, buffers offer the possibility of having several channels of data meaning you can bundle more data in a single object. 
+
+SuperCollider and PureData users are perhaps more comfortable with the idea of an array holding both data and sound, so offering the buffer up as an interface for working with FluCoMa might feel more natural.
+
+## Some Helpers
+
+It can be awkward at first to reorientate your approach to buffers as generic containers for data and sound. We're aware of this and have developed some abstractions that can help you deal with buffers more easily.
+
+The patches and scripts below will help you to see how some of these abstractions might be useful in your workflows across the different environments.
