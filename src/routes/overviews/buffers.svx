@@ -1,0 +1,10 @@
+---
+title: Buffers in FluCoMa
+blurb: |
+    An attempt to explain our rationale for using buffers as an interface in FluCoMa
+tags: 
+    - interface
+    - data
+---
+
+
