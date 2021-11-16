@@ -119,37 +119,36 @@
         chart.update();
     };
 
+    const initChart = () => {
+        if (!chart) {
+            const points = {
+                datasets: [{
+                    data: getPositions(transform),
+                    backgroundColor: getColours(originalData)
+                }]
+            }
+            chart = new Chart(ctx, {
+                type: 'scatter',
+                data: points,
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: { legend: { display: false }},
+                    animation: { duration: smoothing },
+                    scales: {
+                        y: { display: false },
+                        x: { display: false }
+                    }
+                }
+            });
+        };
+    };
+
     onMount(async() => {
-        newData();
-        // Do an initial reduction from the random data to 2 dimensions
-        step();
         Chart.register(...registerables);
         ctx = canvas.getContext('2d');
-        const points = {
-            datasets: [{
-                data: getPositions(transform),
-                backgroundColor: getColours(originalData)
-            }]
-        }
-        chart = new Chart(ctx, {
-            type: 'scatter',
-            data: points,
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: { legend: { display: false }},
-                animation: { duration: smoothing },
-                scales: {
-                    y: { display: false },
-                    x: { display: false }
-                }
-            }
-        });
-        updateChart();
     });
-    const updateSmoothing = () => {
-        chart.options.animation.duration=smoothing;
-    }
+    
 </script>
 
 <div class='container'>
@@ -160,21 +159,22 @@
             <Slider bind:value={epochs} title="Iterations" min="50" max="2000" step="1" chFunc={doStep}/>
             <Slider bind:value={minDist} title="Minimum Distance" min="0.0" max="1" step="0.001" chFunc={doStep}/>
             <Slider bind:value={neighbors} title="Number of Neighbours" min="3" max="99" step="1" chFunc={doStep}/>
-            <Slider bind:value={smoothing} title="Smoothing" min={3} max={2000} step={1} chFunc={updateSmoothing} />
+            <!-- <Slider bind:value={smoothing} title="Smoothing" min={3} max={2000} step={1} chFunc={updateSmoothing} /> -->
         </div>
         <div class='btns'>
             <Button 
-            on:click={doStep}
-            label='Go'
+            on:click={ () => {
+                    newData();
+                    step();
+                    initChart();
+                    updateChart();
+                }
+            }
+            label='Create Random Initialisation'
             />
-        
             <Button 
-            on:click={() => {
-                newData();
-                step();
-                updateChart();
-            }}
-            label='Reset'
+            on:click={doStep}
+            label='Reduce'
             />
         </div>
     </div>
