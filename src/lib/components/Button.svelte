@@ -20,7 +20,8 @@
         border: 1px outset $light-blue;
         background-color: $light-blue;
         color: white;
-        width: 100px;
+        min-width: 100px;
+        width: max-content;
         height: 38px;
         cursor: pointer;
         transition: box-shadow .1s;
