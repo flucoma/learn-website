@@ -3,7 +3,7 @@
     https://ptsjs.org/guide/op-0400
  -->
 
-<script>
+ <script>
     import { onMount } from 'svelte';
     import { CanvasSpace, Pt, Group } from 'pts';
     import * as Tone from 'tone';
