@@ -41,8 +41,9 @@
                 pts = Create.distributeRandom( space.innerBound, 120 );
             },
             animate: (time, ftime, space) => {
-                form.fillOnly("#123").points( pts, 3, "circle" );
+
                 if (fit) {
+                    form.fillOnly("#123").points( pts, 3, "circle" );
                     pts.sort((a, b) => a.$subtract(mouse).magnitude() - b.$subtract(mouse).magnitude())
 
                     // Draw lines from mouse to points
@@ -54,10 +55,12 @@
                     for (let i=0; i < numNeighbours; i++) {
                         form.fill("#f03").point( pts[i], 7, "square" );
                     }
-                };
+                } else {
+                    form.fillOnly("#787878").points( pts, 3, "circle" );
+                }
             },
             action: (t,x,y,e) => {
-                mouse = getMousePos(canvas, e)
+                mouse = getMousePos(canvas, e);
             }
         });
         space.bindMouse().bindTouch().play();
