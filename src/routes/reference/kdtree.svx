@@ -10,14 +10,12 @@ tags:
     import KDTree from '$lib/widget/KDTree.svelte';
 </script>
 
-The [KDTree](/reference/kdtree) facilitates the rapid querying of data stored in a [FluidDataSet](/reference/dataset). It makes querying by distance much more efficient by first analysing a [FluidDataSet](/reference/dataset) and creating a data structure known as a _k_-d tree. As such, before the [KDTree](/reference/kdtree) can be used you have to `fit` a [FluidDataSet](/reference/dataset). After this, the tree can be quered by calling `knearest <buffer>` and providing the name of buffer of data.
+The [KDTree](/reference/kdtree) facilitates the rapid querying of data stored in a [FluidDataSet](/reference/dataset). It makes querying by distance much more efficient by first analysing a [FluidDataSet](/reference/dataset) and creating a data structure known as a _k_-d tree. As such, before the [KDTree](/reference/kdtree) can be used you have to `fit` a [FluidDataSet](/reference/dataset). After this, the tree can be quered by calling `knearest <buffer>` and providing the name of a buffer containing data.
 
-The example below shows how the [KDTree](/reference/kdtree) can be used to search through a two-dimensional space. 
+A common application of the [KDTree](/reference/kdtree) is for performing rapid nearest neighbour lookups. The interactive example below contains a collection of data points ranging between 0.0 and 1.0 which are then plotted on to a canvas like a scatterplot. Using the coordinates of our mouse in the square, we can search for the point, or group of poitns which are closest to our mouse.
+
+Before you use the example you will have to `fit` the underlying [KDTree](/reference/kdtree) by pressing the button labelled _fit_. You can change how many nearest neighbours you query for with the range slider at the bottom.
 
 <KDTree />
 
-<!-- Tutorial on YouTube which uses a KDTREE to perform multi-dimensional searching for nearest neighbours in a descriptor dataset. -->
-
-
-
-
+<!-- TODO: Tutorial on YouTube which uses a KDTREE to perform multi-dimensional searching for nearest neighbours in a descriptor dataset. -->
