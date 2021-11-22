@@ -6,3 +6,9 @@ tags:
     - segmentation
 ---
 
+<script>
+    import Ampslice from '$lib/widget/Ampslice.svelte';
+</script>
+
+<Ampslice />
+
