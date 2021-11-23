@@ -57,4 +57,8 @@
     .title > p {
         margin-top: 0;
     }
+
+    p {
+        text-align: justify;
+    }
 </style>
