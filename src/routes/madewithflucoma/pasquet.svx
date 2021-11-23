@@ -59,11 +59,11 @@ So physical model control is great.
 Vocal synthesis is good because low entropy.
 Particularly difficult with voice because of the expectation for meaning. This voice in electronic music*
 
-<!--
+
 <BigQuote 
 txt="this is a test quote"
 />
--->
+
 
 Let’s break this down. 
 The first line appears to inform us the most: Pasquet wants to take a sound that would be untimed and give it timing. 
