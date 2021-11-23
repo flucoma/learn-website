@@ -6,11 +6,8 @@
     import Button from '$lib/components/Button.svelte';
 
     // Audio
-    let player; // <audio>
     let features = new Array();
     let meter, bassPlayer, pianoPlayer, drumPlayer;
-    let waveform;
-    let peaksInstance;
     let ctxStarted = false;
     // Canvas
     let canvas, pixelRatio;
