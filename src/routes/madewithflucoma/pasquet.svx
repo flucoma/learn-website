@@ -4,9 +4,9 @@ blurb: |
     In this article we explore how Olivier Pasquet used the FluCoMa tools to yield artefacts that can be used by other tools such as bach and jtol. 
     The article is accompanied by a series of demonstration patches allowing you to explore the inner workings of the software.
 tags: 
-    - NMF
-    - Onset slicing
-    - Pitch detection
+    - nmf
+    - onset slicing
+    - pitch detection
     - bach
     - cage
     - markov chains
@@ -21,7 +21,7 @@ tags:
 
 ## Patches
 
-Download the demonstration patches for this article <a href='/installation/pd-install-test.pd' download='pd-install-test.pd'>here</a>.
+Download the demonstration patches for this article <a href='/madewithflucoma/pasquet/Olivier Pasquet Examples.zip' download='Olivier Pasquet Examples.zip'>here</a>.
 
 ## Introduction
 
@@ -43,6 +43,7 @@ What are these artefacts, and how were they forged?
 
 <SimpleAudioPlayer 
 src="/madewithflucoma/pasquet/11152019_124154.mp3"
+label="<em style='font-style: normal;'>11152019_124154.mp3</em>, example of the vocal content from Pasquet's performance."
 />
 
 Pasquet focused a lot of effort into developing a system to create these sounds. 
@@ -50,20 +51,16 @@ He notably took some of the FluCoMa tools and worked them into some of his pre-e
 In this text we shall explore what Pasquet wanted to achieve with his system and examine how the FluCoMa tools can yield artefacts that can be used by other tools such as bach and jtol. 
 As with all the Made with FluCoMa articles, there is a series of demonstration patches that can be downloaded and interacted with if you wish to explore the inner workings of the software.
 
-## The premise.
+## The Premise
 
 In his software, Pasquet left an enigmatic Max comment that seems to explain what he was trying to achieve:
 
-*Idea: like one sound. Sound as untimed. This gives it timing.
-So physical model control is great.
-Vocal synthesis is good because low entropy.
-Particularly difficult with voice because of the expectation for meaning. This voice in electronic music*
-
-
 <BigQuote 
-txt="this is a test quote"
+txt="Idea: like one sound. Sound as untimed. This gives it timing.<br>
+So physical model control is great.<br>
+Vocal synthesis is good because low entropy.<br>
+Particularly difficult with voice because of the expectation for meaning. This voice in electronic music"
 />
-
 
 Let’s break this down. 
 The first line appears to inform us the most: Pasquet wants to take a sound that would be untimed and give it timing. 
@@ -76,15 +73,15 @@ This begs two questions:
 1. First, what does Pasquet consider to be a basic unit, a *sound*? 
 As we shall see when exploring the software, it isn’t quite as simple as just taking a single FFT spectrum of audio. 
 Indeed, Pasquet makes heavy use of the FluCoMa tools to access a *sound*, and the way he approaches this gives us an inscribed trace of how he conceives of this elusive notion. 
-Going beyond a simple segmentation of a piece of audio at certain points in time, he levies [NMF processing](/reference/bufnmf), [pitch analysis]() and [onset detection]() to carefully dissect the audio into much more refined objects.
+Going beyond a simple segmentation of a piece of audio at certain points in time, he levies [NMF processing](/reference/bufnmf), [pitch analysis](/reference/pitch) and [onset detection](/reference/onsetslice) to carefully dissect the audio into much more refined objects.
 
 2. The second question is how does he give this sound *timing*? 
 Again, we shall see how Pasquet used the FluCoMa tools in conjunction with bach, jtol and cage to perform this operation. 
 We shall notably try to understand the singular way in which he conceives of an audio file as a collection of sounds, and how the relationships between these sounds can be engaged with to offer them *timing*.
 
-## Finding sounds.
+## Finding sounds
 
-### Overview.
+### Overview
 
 The sources that Pasquet uses have a very particular nature. 
 In his premise, he tells us that “*physical model control is great*” and that “*vocal synthesis is great because low entropy*”. 
@@ -95,6 +92,7 @@ As a side note, it is interesting to remark the parallels to be drawn between th
 
 <SimpleAudioPlayer 
 src="/madewithflucoma/pasquet/text_1_short.mp3"
+label="<em style='font-style: normal;'>text_1_short.mp3</em>, example of some source material."
 />
 
 To find *sounds* in this audio, Pasquet’s performs the following processes:
@@ -112,6 +110,7 @@ Note that in dark green, a *sound* has been selected: the sound deploys itself a
 
 <Image
 src="/madewithflucoma/pasquet/nmf_piano_roll.png"
+label="Visualisation taken from the <em style='font-style: normal;'>01 Finding Sounds</em> demo patch."
 />
 
 Pasquet groups these sounds together so that all the different combinations of frequency bands may be queried together. 
@@ -119,7 +118,7 @@ In light green, we see all the events that are only on the 9th frequency band.
 These different events, some only in one band, some across multiple bands, are each considered a *sound* in Pasquet’s sense of the word and shall be the building blocks for his manipulations. 
 Let’s look in more detail at how he gets to these sounds.
  
-### Building grouped frequency bands.
+### Building grouped frequency bands
 
 We’ll first examine how and why Pasquet builds up these frequency bands. 
 As you can see in the image above, there are only 10 different bands. 
@@ -143,7 +142,10 @@ He is looking to gain a general idea of pitch for each component, but only for f
 He does not allow frames of silence or frames where the algorithm is not certain there is a pitch to bias his results. 
 This can already be considered a first step of curation.
 
-EXAMPLE IMAGE.
+<Image
+src="/madewithflucoma/pasquet/pitch_analysis_process.png"
+label="Overview of the pitch analysis process in the <em style='font-style: normal;'>02 Pitch Analysis</em> demo patch."
+/>
 
 Next, he further quantises this information with two steps. 
 First, he rescales the mean pitch for each component. 
@@ -153,6 +155,7 @@ After this, he groups the components together into these bands.
 
 <Image
 src="/madewithflucoma/pasquet/pitch_scaling_example.png"
+label="Example of pitch scaling in the <em style='font-style: normal;'>02 Pitch Analysis</em> demo patch."
 />
 
 Note that when he performs his feature rescaling, he sets the old maximum to 1000 Hz: this essentially means that there will be ten bands going from 0-1000 Hz, and then one band that includes all the components whose mean pitch was above 1000 Hz. 
@@ -165,10 +168,11 @@ Anything above this is grouped together and is considered as one band.
 With this information in hand, Pasquet next performs a second NMF analysis. 
 The first analysis was looking somewhat blindly to decompose the audio spectrum into a large number of components. 
 This time, he has a specific idea about what he wishes the algorithm to find. 
-He will give the algorithm a set of [*fixed bases*]() that are derived from the combinations of bases from the 10 groups of frequency bands: he’s telling the NMF analysis that these are the types of objects to be found in the sound, now find them!
+He will give the algorithm a set of [*fixed bases*](/reference/bufnmf) that are derived from the combinations of bases from the 10 groups of frequency bands: he’s telling the NMF analysis that these are the types of objects to be found in the sound, now find them!
 
 <Image
 src="/madewithflucoma/pasquet/quantized_pitches_example.png"
+label="Grouping of the pitch analysis in the <em style='font-style: normal;'>03 Grouped Frequency Bands</em> demo patch."
 />
 
 In the example patch *03 Grouped Frequency Bands* we see a visualisation of this whole process. 
@@ -180,7 +184,7 @@ We see that in Pasquet’s conception of the *sound*, we are going beyond a simp
 With the second NMF process, we look to find sonorous *objects*. 
 The search for these objects is *guided* by the pitch analysis, yielding a result that is much more subtle than a simple grouping of frequency bands.
 
-### Finding sounds in the bands.
+### Finding sounds in the bands
 
 Next, Pasquet looks to slice these frequency bands in time to find *sounds* within them. 
 We begin to understand that the *sound* in Pasquet’s perspective is something that is inherently tied to perception: we saw with his scaling of the frequency bands into 10 stepped bands, that the organising vectors of difference in pitch need to be broad enough to be *perceptibly* meaningful. 
@@ -197,6 +201,7 @@ This means that the range of frequency bands goes beyond the 10 bands that were 
 
 <Image
 src="/madewithflucoma/pasquet/combination_example.png"
+label="Overview of the <em style='font-style: normal;'>01 Finding Sounds</em> demo patch."
 />
 
 In the first example patch *01 Finding Sounds*, we can see a list of all these combinations for the processed audio file. 
@@ -205,15 +210,16 @@ They all start at the same time, however, they may not all have the same duratio
 
 In the next section, we shall examine the singular way in which Pasquet stores this information using the bach library, and how he manipulates it using jtol and cage to give these sounds *timing*.
 
-## Timing sounds.
+## Timing sounds
 
-### Overview.
+### Overview
 
 To begin, let us have a listen to what the results are going to sound like, and discuss the nature of this transformation without delving into the mechanical working of the patch. 
 The example patch *04 Timing Sounds* allows the user to load a sound and listen to the final results of the process, comparing the 10 output channels with the 10 components of the second NMF analysis discussed above.
 
 <Image
 src="/madewithflucoma/pasquet/timing_sounds.png"
+label="Overview of the <em style='font-style: normal;'>04 Timed Sounds</em> demo patch."
 />
 
 The sound is notably smeared and various fragments of the original sound are played back in a glitchy manner, seeming to step upon themselves. 
@@ -225,7 +231,7 @@ We might make out syllables from time to time and disparate phonemes momentarily
 Let’s examine how Pasquet arrives at this new sequence. 
 There are two interesting elements to look at: the way in which data is stored, and the way in which data is manipulated.
 
-### Storing the symbolic data.
+### Storing the symbolic data
 
 The analysis examined in the previous section of this text leaves us with a symbolic representation of the audio that is strewn across several different places: the NMF components are stored in a multichannel buffer, the onset information in a *coll*. 
 In the previous section, we also saw that combinations of onsets starting at the same time in different frequency fields was an important constitutive part of the *sound*. 
@@ -235,7 +241,7 @@ How does Pasquet make this multidimensional data available to the processes he u
 As mentioned above, Pasquet makes use of the bach library and the data structure it brings to Max: lisp-like linked lists (lllls). 
 If you wish to learn more about lllls and how they work in Max you can consult the [bach documentation](https://www.bachproject.net/features/). 
 Here it suffices to know that an llll is a list that can be given several dimensions (lists within lists); and that in Max, lllls can be referred to with an address. 
-In this instance, Pasquet doesn’t actually use the bach library for its hierarchical possibilities, but as a dynamic way of storing and querying data (note that this can be achieved with the [fluid.dataset~]() object, however Pasquet used this format to incorporate the data into his own bespoke objects and workflow).
+In this instance, Pasquet doesn’t actually use the bach library for its hierarchical possibilities, but as a dynamic way of storing and querying data (note that this can be achieved with the [fluid.dataset~](/reference/dataset) object, however Pasquet used this format to incorporate the data into his own bespoke objects and workflow).
 
 There are two primary objects that Pasquet produces to store his data:
 
@@ -244,6 +250,7 @@ There are two primary objects that Pasquet produces to store his data:
 
 <Image
 src="/madewithflucoma/pasquet/data_storage.png"
+label="Visualisation of how sounds are stored across various objects."
 />
 
 We can conceive of the first object as the collection of sounds or notes that fill the audio file and the second object as the order in which they are heard. 
@@ -258,7 +265,7 @@ The sound is the basic sonorous unit, and to *time* it is to manipulate the cont
 Pasquet remarked that this is “*particularly difficult with voice because of the expectation for meaning*”: the voice is composed of sounds and their combination, their timing, is very important and rigid when we wish to convey meaning with them. 
 Let’s have a look at the way in which Pasquet *times* these sounds.
 
-### Manipulating the audio file.
+### Manipulating the audio file
 
 Pasquet uses the cage implementation of Markov chains to manipulate the relationships between sounds. 
 If you wish to learn more about Markov chains, you can have a look [here](https://brilliant.org/wiki/markov-chains/). 
