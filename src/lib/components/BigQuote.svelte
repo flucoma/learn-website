@@ -3,7 +3,7 @@
 </script>
 
 <div class='container'>
-    {txt}
+    "{@html txt}"
 </div>
 
 <style>
@@ -11,7 +11,10 @@
         padding-top: 1em;
         padding-bottom: 1em;
 
-        margin-left: 1em;
-        margin-right: 1em;
+        margin-left: 2em;
+        margin-right: 2em;
+
+        text-align: center;
+        font-style: italic;
     }
 </style>

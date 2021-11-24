@@ -1,6 +1,7 @@
 <script>
     export let src = '';
     export let alt = '';
+    export let label = '';
     export let drawBorder = true;
 </script>
 
@@ -12,6 +13,9 @@
         />
     </div>
 </a>
+<p class='label'>
+    {@html label}
+</p>
 
 <style lang='scss'>
 
@@ -35,5 +39,11 @@
         padding-top: 1em;
         padding-bottom: 1em;
         max-width: 100%;
+    }
+
+    .label{
+        text-align: center;
+        font-size: small;
+        font-style: italic;
     }
 </style>
