@@ -1,5 +1,6 @@
 ---
 title: What are Audio-Descriptors?
+short: Audio Descriptors
 blurb: |
     What is an audio-descriptor? How do they work? What can they describe about a sound?
 tags:
