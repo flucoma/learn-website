@@ -2,48 +2,45 @@
     export let src = '';
     export let alt = '';
     export let label = '';
-    export let drawBorder = true;
 </script>
 
-<a target='_blank' href={src}>
-<div class='container' class:border={drawBorder}>
+<div class="container">
+    <a target='_blank' href={src}>
         <img 
         alt={alt} 
         src={src}
         />
+    </a>
+    <div class='label'>
+        {@html label}
     </div>
-</a>
-<p class='label'>
-    {@html label}
-</p>
+</div>
 
 <style lang='scss'>
-
     .container {
         display: grid;
         place-items: center;
         width: 80%;
         margin: 0 auto;
-    }
 
-    .border {
-        border-radius: 2px;
-        box-shadow: 0 1px 3px 4px rgba(0, 0, 0, 0.1);
-    }
+        img {
+            padding-top: 1em;
+            padding-bottom: 1em;
+            max-width: 100%;
+        }
 
-    a {
-        max-width: 100%;
-    }
+        a {
+            max-width: 100%;
+        }
 
-    .container > img {
-        padding-top: 1em;
-        padding-bottom: 1em;
-        max-width: 100%;
+        a:hover {
+            background:transparent;
+        }
     }
 
     .label{
         text-align: center;
-        font-size: small;
+        font-size: 0.8rem;
         font-style: italic;
     }
 </style>
