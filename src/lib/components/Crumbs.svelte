@@ -1,5 +1,6 @@
 <script>
     import { page } from '$app/stores';
+    import { breadcrumbs } from '$lib/app';
 
     // Sanitise some special links where need be
     const lookup = {
@@ -12,15 +13,21 @@
     function formatCrumb(crumb) {
         if (crumb in lookup)
             return lookup[crumb]
-        else
-            return crumb.charAt(0).toUpperCase() + crumb.slice(1);
+        return crumb
     }
 
     function splitPath(path) {
         // Splits a full page path into an array of parts
         // This can be used to then construct the breadcrumbs
         let d = [];
-        path = path.split('/').slice(1)
+        path = path.split('/');
+        path.shift();
+        
+        if (path.length > 1) {
+            path.pop();
+            path.push($breadcrumbs.crumbs[$page.path]);
+        }
+        
         let accum = ''
         path.forEach(p => {
             accum += '/';
@@ -31,10 +38,8 @@
         })
         return d;
     }
-    let crumbs;
     $: crumbs = splitPath($page.path);
 </script>
-
 <!-- Breadcrumbs -->
 <div class="crumbs">
     <a href='/'>Home</a>
