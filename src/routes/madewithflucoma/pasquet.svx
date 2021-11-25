@@ -17,11 +17,10 @@ tags:
     import YouTube from '$lib/components/YouTube.svelte';
     import SimpleAudioPlayer from '$lib/components/SimpleAudioPlayer.svelte';
     import BigQuote from '$lib/components/BigQuote.svelte';
-    import MadeWithFluCoMaHeader from '$lib/components/MadeWithFluCoMaHeader.svelte';
+    import MFWHeader from '$lib/components/MFWHeader.svelte';
 </script>
 
-<MadeWithFluCoMaHeader 
-imgSrc = "/madewithflucoma/pasquet/profile_img.jpeg"
+<MFWHeader
 name = "Olivier Pasquet"
 website = "https://www.opasquet.fr/"
 bio = "Olivier Pasquet is a sound, visual artist and music producer. 
