@@ -7,6 +7,7 @@
 <div class="container">
     <a target='_blank' href={src}>
         <img 
+        loading=lazy
         alt={alt} 
         src={src}
         />
