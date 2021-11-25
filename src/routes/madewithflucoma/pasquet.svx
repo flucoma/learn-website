@@ -21,6 +21,7 @@ tags:
 </script>
 
 <MFWHeader
+src = "/madewithflucoma/pasquet/profile.jpeg"
 name = "Olivier Pasquet"
 website = "https://www.opasquet.fr/"
 bio = "Olivier Pasquet is a sound, visual artist and music producer. 
