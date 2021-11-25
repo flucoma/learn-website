@@ -26,7 +26,7 @@
         let accum = '';
         path.forEach((p, i) => {
             let sanitisedText = '';
-            if (i == path.length-1) {
+            if (i > 1) {
                 sanitisedText = $breadcrumbs.crumbs[$page.path]
             }
             else {
