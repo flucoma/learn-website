@@ -5,7 +5,7 @@
     export let bio = '';
     import { fade } from 'svelte/transition';
 </script>
-''
+
 <h2>Artist Bio</h2>
 <div class="container">
     <div class="photo" transition:fade>
