@@ -22,18 +22,19 @@
         let d = [];
         path = path.split('/');
         path.shift();
-        
-        if (path.length > 1) {
-            path.pop();
-            path.push($breadcrumbs.crumbs[$page.path]);
-        }
-        
-        let accum = ''
-        path.forEach(p => {
+    
+        let accum = '';
+        path.forEach((p, i) => {
+            let sanitisedText = '';
+            if (i == path.length-1) {
+                sanitisedText = $breadcrumbs.crumbs[$page.path]
+            }
+            else {
+                sanitisedText = formatCrumb(p);
+            }
             accum += '/';
             accum += p;
-
-            let crumb = { url: accum, text: formatCrumb(p) };
+            let crumb = { url: accum, text: sanitisedText };
             d.push(crumb);
         })
         return d;
