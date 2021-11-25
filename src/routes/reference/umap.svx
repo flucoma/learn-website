@@ -9,13 +9,12 @@ tags:
 ---
 
 <script>
-	import UMAPDemo from '$lib/widget/UMAPDemo.svelte';
-    import UMAPFlat from '$lib/widget/UMAPFlat.svelte';
+    import UMAP from '$lib/widget/UMAP.svelte';
 </script>
 
 <!-- This will eventually link to an overview on dimension reduction IMO -->
 _Uniform Manifold Approximation and Projection_ (UMAP) is a [dimensionality reduction technique](). It allows you to take high-dimensional data and compress it into a lower-dimensional representation. UMAP is a _non-linear_ form of dimension reduction, and is robust when working with data that is noisy, sparse or cannot be dealt with effectively using linear techniques such as [Principal Component Analysis (PCA)](/reference/pca).
-<UMAPFlat />
+<UMAP />
 
 This example visualises UMAP's iterative process of taking the original data and transforming it to a lower dimensional space. To begin with, 100 three-dimensional points are randomly generated. For each point we see visually, the original three dimensional data is used to give them an RGB colour. The algorithm then proceeds, interatively finding the optimal two-dimensional representation of the original three-dimensional space. UMAP is able to derive some structure from the RGB colour space resulting in the two dimensional plot becoming a version of a smooth gradient or colour spectrum.
 
