@@ -3,14 +3,14 @@
     export let name = '';
     export let website = '';
     export let bio = '';
-    import { slide } from 'svelte/transition';
+    import { fade } from 'svelte/transition';
 </script>
+''
 <h2>Artist Bio</h2>
 <div class="container">
-    <div class="photo" transition:slide>
+    <div class="photo" transition:fade>
         <a target='_blank' href={website}>
             <img
-            transition:slide
             loading=lazy
             alt={`${name} profile picture`}
             src={src}
