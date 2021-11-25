@@ -12,9 +12,8 @@
     function formatCrumb(crumb) {
         if (crumb in lookup)
             return lookup[crumb]
-        return crumb
-        // string = string.charAt(0).toUpperCase() + string.slice(1);
-        // return string
+        else
+            return crumb.charAt(0).toUpperCase() + crumb.slice(1);
     }
 
     function splitPath(path) {
