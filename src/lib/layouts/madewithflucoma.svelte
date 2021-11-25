@@ -6,7 +6,9 @@
 
 <div class='title-box'>
     <h1>{ title }</h1>  
-    <p class='blurb'>{ blurb }</p>
+    <p class='blurb'>
+        { blurb }
+    </p>
 
     <div class='tagtainer'>
         {#each tags as tag}
