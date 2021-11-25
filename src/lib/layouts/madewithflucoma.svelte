@@ -21,11 +21,11 @@
 
 <style lang='scss'>
     h1 {
-        text-align: center;
+        // text-align: center;
     }
     .blurb {
         color: grey;
-        text-align: center;
+        // text-align: center;
     }
     .tagtainer {
         display: flex;
