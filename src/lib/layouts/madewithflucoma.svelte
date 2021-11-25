@@ -20,6 +20,12 @@
 <slot />
 
 <style lang='scss'>
+
+    :global(p) {
+        text-align: justify;
+        text-justify: inter-word;
+    }
+
     .blurb {
         color: grey;
     }
