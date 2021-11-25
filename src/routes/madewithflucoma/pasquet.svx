@@ -1,5 +1,6 @@
 ---
 title: ​​Combining FluCoMa with bach
+artist: Olivier Pasquet
 blurb: |
     In this article we explore how Olivier Pasquet used the FluCoMa tools to yield artefacts that can be used by other tools such as bach and jtol. 
     The article is accompanied by a series of demonstration patches allowing you to explore the inner workings of the software.
