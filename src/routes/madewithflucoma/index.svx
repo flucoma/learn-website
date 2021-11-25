@@ -5,6 +5,7 @@ layout: none
 <script>
     import { structure } from '$lib/app.js';
     import { goto } from '$app/navigation';
+    import { fade, slide } from 'svelte/transition';
 </script>
 
 # Made with FluCoMa
@@ -14,19 +15,31 @@ Made with FluCoMa highlights projects and practices where FluCoMa is used.
 <div class='overview-list'>
     {#each $structure.routes.madewithflucoma as ov}
     {#if ov.data}
-    <div class='overview' on:click={ () => goto(ov.url) }>
-    <h2 class='overview-title'>{ov.data.title}</h2>
-    <p class='overview-blurb'>{ov.data.blurb}</p>
-    </div>
+    <a href={ov.url}>
+        <div class='overview' transition:fade>
+            <h2 class='overview-title'>{ov.data.title}</h2>
+            <p class='overview-blurb'>{ov.data.blurb}</p>
+        </div>
+    </a>
     {/if}
     {/each}
 </div>
 
-<style>
+<style lang='scss'>
+
     .overview-list {
         display: flex;
         flex-direction: column;
         gap: 1em;
+        a:hover {
+            background: transparent;
+            color: black;
+        }
+
+        a {
+            text-decoration: none;
+            color: black;
+        }
     }
 
     .overview {
