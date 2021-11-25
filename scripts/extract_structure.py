@@ -67,13 +67,13 @@ for route in routes:
 
 # Now write some JSON to static
 with open('static/tag.json', 'w') as f:
-    json.dump(tag_db, f)
+    json.dump(tag_db, f, separators=(',', ':'))
 
 with open('static/structure.json', 'w') as f:
-    json.dump(structure, f)
+    json.dump(structure, f, separators=(',', ':'))
 
 with open('static/pages.json', 'w') as f:
-    json.dump(page_structures, f)
+    json.dump(page_structures, f, separators=(',', ':'))
 
 with open('static/crumbs.json', 'w') as f:
-    json.dump(crumbs, f)
+    json.dump(crumbs, f, separators=(',', ':'))
