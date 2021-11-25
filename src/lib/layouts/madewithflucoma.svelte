@@ -7,16 +7,14 @@
 <div class='title-box'>
     <h1>{ title }</h1>  
     <p class='blurb'>{ blurb }</p>
-</div>
 
-
-<h2>Tags</h2>
-<div class='tagtainer'>
-    {#each tags as tag}
-    <a class='tag' href='/search/{tag}'>
-        { tag }
-    </a>
-    {/each}
+    <div class='tagtainer'>
+        {#each tags as tag}
+        <a class='tag' href='/search/{tag}'>
+            { tag }
+        </a>
+        {/each}
+    </div>
 </div>
 
 <slot />
