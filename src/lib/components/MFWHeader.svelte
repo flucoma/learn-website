@@ -33,7 +33,7 @@
         margin: 0 auto;
         img {
             min-width: 0px;
-            max-width: 400px  
+            max-width: 300px  
         }
 
         a:hover {
