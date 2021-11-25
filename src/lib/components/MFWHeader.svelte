@@ -24,16 +24,16 @@
 
 <style lang='scss'>
     .container{
-        display: flex;
-        flex-direction: row;
+        display: grid;
+        grid-template-rows: auto auto;
         gap: 1em;
         margin-top: 1em;
     }
     .photo {
-        flex: 0 1 30%;
+        margin: 0 auto;
         img {
-            min-width: 200px;
-            max-width: 100%;    
+            min-width: 0px;
+            max-width: 400px  
         }
 
         a:hover {
@@ -42,7 +42,6 @@
     }
 
     .bio {
-        flex: 0 1 70%;
         color: grey;
         text-align: justify;
     }
