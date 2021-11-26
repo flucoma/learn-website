@@ -31,10 +31,6 @@
 		min-height: 100vh;
 	}
 
-	.sub-header {
-		display: grid;
-
-	}
 	.content {
 		display: grid;
 		justify-content: center;
@@ -43,7 +39,8 @@
 	
 	.main {
 		grid-area: main;
-		min-width: 30ch;
+		min-width: $max-text-width;
+		max-width: $max-text-width;
 	}
 	
 	.navigation {
@@ -60,7 +57,7 @@
 	/* Media Queries */
 	@media (min-width: $breakpoint) {
 		.content {
-			grid-template-columns: auto min($breakpoint, 100%) auto;
+			grid-template-columns: auto min($max-text-width, 100%) auto;
 			grid-template-areas: 'navigation main empty-right';
 		}
 	}

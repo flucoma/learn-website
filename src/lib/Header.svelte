@@ -57,9 +57,9 @@
 	}
 
 	/* Media Queries */
-	@media (min-width: 1200px) {
+	@media (min-width: $breakpoint) {
 	}
-	@media (max-width: 1200px) {
+	@media (max-width: $breakpoint) {
 		.container {
 			gap: 0.5em;
 		}
