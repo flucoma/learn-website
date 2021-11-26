@@ -18,7 +18,8 @@ s.waitForBoot{
                 var result = Buffer.new(s);
 
                 ("Processing:"+file.fileName.asString).postln;
-                FluidBufHPSS.process(s, source:src, harmonic:h, percussive:p).wait;
+                // Do the HPSS processing. Only process the first channel to simplify things when we process a stereo file.
+                FluidBufHPSS.process(s, source:src, harmonic:h, percussive:p, numChans:1).wait;
                 FluidBufCompose.process(s, source:h, destination:result, destStartChan:0).wait;
                 FluidBufCompose.process(s, source:p, destination:result, destStartChan:1).wait;
 
