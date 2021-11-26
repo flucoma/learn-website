@@ -22,7 +22,7 @@ For example, in Python we might do something like this:
 <CodeBlock>
 
 ```py
-instruments = ['drums', 'synth', 'guitar', 'saxaphone']
+instruments = ['drums', 'synth', 'guitar', 'saxophone']
 
 for instrument in instruments:
     decompose(instrument)
@@ -137,7 +137,8 @@ The workflow is as follows:
 </Tabs>
 
 ### Non-Blocking Processing
-The workflow is as follows:
+
+SuperCollider doesn't inherently suffer the same as issue as Max and PD because you send the analysis away too the server and the language can continue to operate.
 
 <Tabs>
 <TabList>
