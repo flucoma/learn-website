@@ -40,6 +40,8 @@ for route in routes:
     last_edited = last_edited.split(' ')[1:4]
     last_edited = ' '.join(last_edited)
 
+    print(str(route), last_commit, author_name, last_edited)
+
     last_edits['routes'][url_from_route(route)] = {
         'commit' : last_commit,
         'author' : author_name,
