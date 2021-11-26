@@ -45,6 +45,6 @@
 
 <style>
 	.crumbs {
-		font-size: 0.8em;
+		font-size: 0.8rem;
 	}
 </style>
