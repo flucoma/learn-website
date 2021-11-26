@@ -9,7 +9,7 @@
 <div class="container">
 	<Header />
 	<Crumbs />
-	
+
 	<div class="content">
 		<div class="navigation">
 			<TOC />
@@ -17,10 +17,10 @@
 		<div class="main">
 			<slot />
 		</div>
-		
+
 		<div class="empty-right" />
 	</div>
-	
+
 	<Footer />
 </div>
 
@@ -36,24 +36,24 @@
 		justify-content: center;
 		margin: 1em;
 	}
-	
+
 	.main {
 		grid-area: main;
 		min-width: $max-text-width;
 		max-width: $max-text-width;
 	}
-	
+
 	.navigation {
 		grid-area: navigation;
 		width: 20ch;
 		height: max-content;
 	}
-	
+
 	.empty-right {
 		grid-area: empty-right;
 		width: 20ch;
 	}
-	
+
 	/* Media Queries */
 	@media (min-width: $breakpoint) {
 		.content {
@@ -61,13 +61,13 @@
 			grid-template-areas: 'navigation main empty-right';
 		}
 	}
-	
+
 	@media (max-width: $breakpoint) {
 		.content {
 			grid-template-rows: auto auto;
 			grid-template-areas:
-			'navigation'
-			'main'
+				'navigation'
+				'main';
 		}
 
 		.empty-right {
