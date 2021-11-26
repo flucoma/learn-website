@@ -37,17 +37,17 @@
 
 <!-- Breadcrumbs -->
 <div class="container">
-	<div class="left"></div>
+	<div class="left" />
 	<div class="crumbs">
 		<a href="/">Home</a>
 		{#each crumbs as c}
-		/ <a href={c.url}>{c.text}</a> &nbsp
+			/ <a href={c.url}>{c.text}</a> &nbsp
 		{/each}
 	</div>
-	<div class="right"></div>
+	<div class="right" />
 </div>
 
-<style lang='scss'>
+<style lang="scss">
 	.container {
 		display: grid;
 		grid-template-columns: auto min($max-text-width, 100%) auto;
