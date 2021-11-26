@@ -1,6 +1,6 @@
 <script>
-    import pages from '../../../static/pages.json';
     import { page } from '$app/stores';
+    import pages from '../../../static/pages.json';
     $: headings = pages.pages[$page.path] || [];
 </script>
 

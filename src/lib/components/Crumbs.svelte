@@ -50,7 +50,7 @@
 <style lang='scss'>
 	.container {
 		display: grid;
-		grid-template-columns: auto min($breakpoint, 100%) auto;
+		grid-template-columns: auto min($max-text-width, 100%) auto;
 		margin: 1em;
 	}
 	.crumbs {

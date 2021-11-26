@@ -7,7 +7,9 @@ $dark-blue: rgb(8, 60, 100);
 $med-blue: rgb(3, 113, 181);
 $light-blue: rgb(28, 164, 252);
 $link-blue: rgb(28, 122, 185);
-$breakpoint: 70ch;
+$breakpoint: 1200px;
+$max-text-width: 70ch;
+$min-text-width: 30ch;
 
 html {
 	font-family: $font;
