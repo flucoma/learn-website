@@ -1,0 +1,170 @@
+---
+title: Batch Processing
+blurb: |
+    Executing workflows across collections of sounds and analyses.
+tags: 
+    - workflow
+---
+
+<script>
+    import CodeBlock from '$lib/components/CodeBlock.svelte';
+    import Image from '$lib/components/Image.svelte';
+    import { Tabs, TabList, TabPanel, Tab } from '$lib/components/tabs/tabs';
+</script>
+
+## Introduction
+
+
+One of the major pain points working with machine learning and machine listening is that we often need to process and work on collections of sounds, slices or analyses. If you're familiar with a text-based programming language you'll be acquainted with the `for` or `while` loop, or a similar structure that can _iterate_ over a sequence or group of items.
+
+For example, in Python we might do something like this:
+
+<CodeBlock>
+
+```py
+instruments = ['drums', 'synth', 'guitar', 'saxaphone']
+
+for instrument in instruments:
+    decompose(instrument)
+```
+
+</CodeBlock>
+
+This would run the `decompose()` function on each `instrument` stored in the list called `instruments`. This type of programmatic control flow can be observed widely in text-based languages. Ultimately, this is the concept of processing things in _batches_.
+
+Let's think about the same workflow in Max and PureData (we'll come to SuperCollider a bit later) which are both visual programming languages that inherently struggle with the idea of iteration and batch processing. How does one iterate? How does one instruct the program where to start and where to stop? What is the equivalent of the `instruments` list that holds multiple items that will be processed? The rest of this overview will dig into this and suggest some ways in which our programming workflows can accomodate the notion of processing multiple items.
+
+## A Foundation
+
+Without even addressing FluCoMa objects directly, it is pertinent to remind ourselves of what forms batch processing already exists in Max, PD and SC.
+
+Let's first take a look at the humble Max list and how it is useful. We'll start by making a small patch that adds two numbers together. 
+
+<Image 
+src='/examples/batch/add.png'
+alt='A small patch to add two numbers together'
+/>
+
+This is fine. However, it is limited to adding two singular values together. If we want to use it to add two collections of numbers together, we would have to stream the values of two lists into the inlets, get the result and construct it back into a list. 
+
+<Image
+src='/examples/batch/add-streams.png'
+alt='Adding two lists together in Max using streams'
+/>
+
+
+We can avoid these kinds of workflows by instead using objects that deal with collections of items in a list inherently, simplifying much of the workflow entirely.
+
+<Image
+src='/examples/batch/add-list.png'
+alt='Using vexpr to add two lists together'
+/>
+
+The complexity of the patching hasn't increased greatly, and by replacing `+` with `vexpr` (vector expression), we can process entire lists of values. The patch will also still work with single value inputs making it much more flexible than the original. While the patching itself is not too complicated, knowing about the existence of these objects and how they work is not greatly emphasised in the way visual programming is taught wich is often concerned entirely with _streams_ of scalar (single) values. 
+
+While this is just a toy example, it demonstrates that the notion of processing groups of things together is not the **first** and **most obvious** way to patch. SC has the benefit of being built on the SuperCollider language which offers a number of ways to deal with arrays of data already that are both efficient and sleek to use. Logical operators also tend to work by default, meaning the interface for adding two integers is roughly the same as adding two arrays of integers. For example:
+
+<CodeBlock>
+
+```js
+(
+z = [1, 2, 3, 4];
+x = [10, 20, 30, 40];
+z + x.postln;
+)
+```
+
+</CodeBlock>
+
+Adds two lists (arrays) of integers together pairwise as we did before in Max.
+
+## Batch Processing
+
+So how do we approach batch processing with the FluCoMa objects? No doubt, there will be times where having to work with lots of data, or numerous slices or several decompositions will frustrate you to no end. The next section will demonstrate a number of ways in which batch processing can be implemented in Max, SC and PD and attempt to smooth over some of those rough edges showing how our interfaces interlock with those that already exist in your environment of choice. The explanation of particular objects and processes will be _in_ the patches and scripts themselves.
+
+### Analysis of Segments
+
+The workflow is as follows:
+
+1. Segment a sound into small chunks.
+2. Analyse each chunk using an audio descriptor.
+3. Calculate the average of that audio descriptor for each chunk.
+4. Store the average for each chunk in a [FluidDataSet](/reference/dataset).
+
+<Tabs>
+<TabList>
+    <Tab>Max</Tab>
+    <Tab>PureData</Tab>
+    <Tab>SuperCollider</Tab>
+</TabList>
+<TabPanel> <!-- Max -->
+<a href='/examples/batch/batch-slicing.maxpat' download>Download Patch</a>
+</TabPanel>
+
+<TabPanel> <!-- Pure Data -->
+<a href='/examples/batch/batch-slicing.pd' download>Download Patch</a>
+</TabPanel> 
+
+<TabPanel> <!-- SC -->
+<a href='/examples/batch/batch-slicing.scd' download>Download Script</a>
+</TabPanel> 
+</Tabs>
+
+### Decomposing Multiple Files
+
+The workflow is as follows:
+
+1. Create a corpus of multiple audio files
+2. Decompose each audio file into harmonic and percussive complnents using [FluidHPSS](/reference/hpss).
+
+<Tabs>
+<TabList>
+    <Tab>Max</Tab>
+    <Tab>PureData</Tab>
+    <Tab>SuperCollider</Tab>
+</TabList>
+<TabPanel> <!-- Max -->
+<a href='/examples/batch/batch-slicing.maxpat' download>Download Patch</a>
+</TabPanel>
+
+<TabPanel> <!-- Pure Data -->
+<a href='/examples/batch/batch-slicing.pd' download>Download Patch</a>
+</TabPanel> 
+
+<TabPanel> <!-- SC -->
+<a href='/examples/batch/batch-slicing.scd' download>Download Script</a>
+</TabPanel> 
+</Tabs>
+
+### Non-Blocking Processing
+The workflow is as follows:
+
+
+<Tabs>
+<TabList>
+    <Tab>Max</Tab>
+    <Tab>PureData</Tab>
+    <Tab>SuperCollider</Tab>
+</TabList>
+<TabPanel> <!-- Max -->
+<a href='/examples/batch/batch-slicing.maxpat' download>Download Patch</a>
+</TabPanel>
+
+<TabPanel> <!-- Pure Data -->
+<a href='/examples/batch/batch-slicing.pd' download>Download Patch</a>
+</TabPanel> 
+
+<TabPanel> <!-- SC -->
+<a href='/examples/batch/batch-slicing.scd' download>Download Script</a>
+</TabPanel> 
+</Tabs>
+
+
+
+
+
+
+
+
+
+
