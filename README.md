@@ -33,7 +33,7 @@ Pages are written in `.svx` format, which is a mix of markdown and svelte. Wrtin
 ```
 ---
 title: 'How speakers work'
-blurb: | 
+blurb: |
     Every wondered how sound is made by speakers? This article tells you all...
 tags:
     - audio
@@ -54,8 +54,3 @@ Speaker move air wiggle. Simples. Look at the picture below
 ```
 
 In the `scripts` folder you will find a file called `extract_structure.py`. This will parse the `.svx` pages and return some JSON data that is then stored in the `static` folder of this website. This is used to programatically generate the pages, links, tags and some content.
-
-
-
-
-

@@ -1,37 +1,36 @@
 <script>
-    import { createEventDispatcher } from 'svelte';
-    export let label = 'button';
+	import { createEventDispatcher } from 'svelte';
+	export let label = 'button';
 
-    const dispatch = createEventDispatcher();
+	const dispatch = createEventDispatcher();
 
-    function doStuff() {
-        dispatch('click')
-    }
-
+	function doStuff() {
+		dispatch('click');
+	}
 </script>
 
-<button class='btn' on:click={ doStuff }>
-    { label }
+<button class="btn" on:click={doStuff}>
+	{label}
 </button>
 
-<style lang='scss'>
-    .btn {
-        font-family: $font;
-        border: 1px outset $light-blue;
-        background-color: $light-blue;
-        color: white;
-        width: 100px;
-        height: 38px;
-        cursor: pointer;
-        transition: box-shadow .1s;
-    }
+<style lang="scss">
+	.btn {
+		font-family: $font;
+		border: 1px outset $light-blue;
+		background-color: $light-blue;
+		color: white;
+		width: 100px;
+		height: 38px;
+		cursor: pointer;
+		transition: box-shadow 0.1s;
+	}
 
-    .btn:active {
-        border: 1px outset $med-blue;
-        background-color: $med-blue;
-    }
+	.btn:active {
+		border: 1px outset $med-blue;
+		background-color: $med-blue;
+	}
 
-    .btn:hover {
-        box-shadow: 0 0 11px rgba(33,33,33,.2); 
-    }
+	.btn:hover {
+		box-shadow: 0 0 11px rgba(33, 33, 33, 0.2);
+	}
 </style>
