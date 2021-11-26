@@ -8,13 +8,13 @@
 
 <div class="container">
 	<Header />
+	<Crumbs />
 	
 	<div class="content">
 		<div class="navigation">
 			<TOC />
 		</div>
 		<div class="main">
-			<Crumbs />
 			<slot />
 		</div>
 		
@@ -29,6 +29,11 @@
 		display: flex;
 		flex-direction: column;
 		min-height: 100vh;
+	}
+
+	.sub-header {
+		display: grid;
+
 	}
 	.content {
 		display: grid;
@@ -62,11 +67,10 @@
 	
 	@media (max-width: $breakpoint) {
 		.content {
-			grid-template-rows: auto 1px;
+			grid-template-rows: auto auto;
 			grid-template-areas:
-			"navigation"
-			"main"
-			;
+			'navigation'
+			'main'
 		}
 
 		.empty-right {

@@ -36,14 +36,23 @@
 </script>
 
 <!-- Breadcrumbs -->
-<div class="crumbs">
-	<a href="/">Home</a>
-	{#each crumbs as c}
+<div class="container">
+	<div class="left"></div>
+	<div class="crumbs">
+		<a href="/">Home</a>
+		{#each crumbs as c}
 		/ <a href={c.url}>{c.text}</a> &nbsp
-	{/each}
+		{/each}
+	</div>
+	<div class="right"></div>
 </div>
 
-<style>
+<style lang='scss'>
+	.container {
+		display: grid;
+		grid-template-columns: auto min($breakpoint, 100%) auto;
+		margin: 1em;
+	}
 	.crumbs {
 		font-size: 0.8rem;
 	}
