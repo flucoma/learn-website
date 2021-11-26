@@ -4,6 +4,8 @@ blurb: |
     Executing workflows across collections of sounds and analyses.
 tags: 
     - workflow
+    - beginner
+    - intermediate
 ---
 
 <script>
@@ -13,8 +15,6 @@ tags:
 </script>
 
 ## Introduction
-
-
 One of the major pain points working with machine learning and machine listening is that we often need to process and work on collections of sounds, slices or analyses. If you're familiar with a text-based programming language you'll be acquainted with the `for` or `while` loop, or a similar structure that can _iterate_ over a sequence or group of items.
 
 For example, in Python we might do something like this:
@@ -124,21 +124,20 @@ The workflow is as follows:
     <Tab>SuperCollider</Tab>
 </TabList>
 <TabPanel> <!-- Max -->
-<a href='/examples/batch/batch-slicing.maxpat' download>Download Patch</a>
+<a href='/examples/batch/batch-decomposition.maxpat' download>Download Patch</a>
 </TabPanel>
 
 <TabPanel> <!-- Pure Data -->
-<a href='/examples/batch/batch-slicing.pd' download>Download Patch</a>
+<a href='/examples/batch/batch-decomposition.pd' download>Download Patch</a>
 </TabPanel> 
 
 <TabPanel> <!-- SC -->
-<a href='/examples/batch/batch-slicing.scd' download>Download Script</a>
+<a href='/examples/batch/batch-decomposition.scd' download>Download Script</a>
 </TabPanel> 
 </Tabs>
 
 ### Non-Blocking Processing
 The workflow is as follows:
-
 
 <Tabs>
 <TabList>
