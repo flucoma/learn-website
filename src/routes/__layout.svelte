@@ -3,32 +3,24 @@
 	import Header from '$lib/Header.svelte';
 	import Footer from '$lib/Footer.svelte';
 	import Crumbs from '$lib/components/Crumbs.svelte';
-	import pages from '../../static/pages.json';
-	import { page } from '$app/stores';
-
-	$: headings = pages.pages[$page.path];
+	import TOC from '$lib/components/TOC.svelte';
 </script>
 
 <div class="container">
 	<Header />
-
+	
 	<div class="content">
 		<div class="navigation">
-			<!-- {#if headings}
-            {#each headings as h}
-            <a href={h.url}>{h.heading}</a>
-            {/each}
-            {/if} -->
+			<TOC />
 		</div>
 		<div class="main">
 			<Crumbs />
-			<!-- Everything else -->
 			<slot />
 		</div>
-
+		
 		<div class="empty-right" />
 	</div>
-
+	
 	<Footer />
 </div>
 
@@ -43,25 +35,23 @@
 		justify-content: center;
 		margin: 1em;
 	}
-
+	
 	.main {
 		grid-area: main;
 		min-width: 30ch;
 	}
-
+	
 	.navigation {
 		grid-area: navigation;
 		width: 20ch;
 		height: max-content;
-		display: flex;
-		flex-direction: column;
 	}
-
+	
 	.empty-right {
 		grid-area: empty-right;
 		width: 20ch;
 	}
-
+	
 	/* Media Queries */
 	@media (min-width: $breakpoint) {
 		.content {
@@ -69,11 +59,16 @@
 			grid-template-areas: 'navigation main empty-right';
 		}
 	}
-
+	
 	@media (max-width: $breakpoint) {
-		.navigation {
-			display: none;
+		.content {
+			grid-template-rows: auto 1px;
+			grid-template-areas:
+			"navigation"
+			"main"
+			;
 		}
+
 		.empty-right {
 			display: none;
 		}
