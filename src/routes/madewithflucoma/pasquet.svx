@@ -93,7 +93,7 @@ Going beyond a simple segmentation of a piece of audio at certain points in time
 Again, we shall see how Pasquet used the FluCoMa tools in conjunction with bach, jtol and cage to perform this operation. 
 We shall notably try to understand the singular way in which he conceives of an audio file as a collection of sounds, and how the relationships between these sounds can be engaged with to offer them *timing*.
 
-## Finding sounds
+## Finding Sounds
 
 ### Overview
 
@@ -132,7 +132,7 @@ In light green, we see all the events that are only on the 9th frequency band.
 These different events, some only in one band, some across multiple bands, are each considered a *sound* in Pasquet’s sense of the word and shall be the building blocks for his manipulations. 
 Let’s look in more detail at how he gets to these sounds.
  
-### Building grouped frequency bands
+### Building Grouped Frequency Bands
 
 We’ll first examine how and why Pasquet builds up these frequency bands. 
 As you can see in the image above, there are only 10 different bands. 
@@ -198,7 +198,7 @@ We see that in Pasquet’s conception of the *sound*, we are going beyond a simp
 With the second NMF process, we look to find sonorous *objects*. 
 The search for these objects is *guided* by the pitch analysis, yielding a result that is much more subtle than a simple grouping of frequency bands.
 
-### Finding sounds in the bands
+### Finding Sounds in The Bands
 
 Next, Pasquet looks to slice these frequency bands in time to find *sounds* within them. 
 We begin to understand that the *sound* in Pasquet’s perspective is something that is inherently tied to perception: we saw with his scaling of the frequency bands into 10 stepped bands, that the organising vectors of difference in pitch need to be broad enough to be *perceptibly* meaningful. 
@@ -224,7 +224,7 @@ They all start at the same time, however, they may not all have the same duratio
 
 In the next section, we shall examine the singular way in which Pasquet stores this information using the bach library, and how he manipulates it using jtol and cage to give these sounds *timing*.
 
-## Timing sounds
+## Timing Sounds
 
 ### Overview
 
@@ -245,7 +245,7 @@ We might make out syllables from time to time and disparate phonemes momentarily
 Let’s examine how Pasquet arrives at this new sequence. 
 There are two interesting elements to look at: the way in which data is stored, and the way in which data is manipulated.
 
-### Storing the symbolic data
+### Storing the Symbolic Data
 
 The analysis examined in the previous section of this text leaves us with a symbolic representation of the audio that is strewn across several different places: the NMF components are stored in a multichannel buffer, the onset information in a *coll*. 
 In the previous section, we also saw that combinations of onsets starting at the same time in different frequency fields was an important constitutive part of the *sound*. 
@@ -279,7 +279,7 @@ The sound is the basic sonorous unit, and to *time* it is to manipulate the cont
 Pasquet remarked that this is “*particularly difficult with voice because of the expectation for meaning*”: the voice is composed of sounds and their combination, their timing, is very important and rigid when we wish to convey meaning with them. 
 Let’s have a look at the way in which Pasquet *times* these sounds.
 
-### Manipulating the audio file
+### Manipulating the Audio File
 
 Pasquet uses the cage implementation of Markov chains to manipulate the relationships between sounds. 
 If you wish to learn more about Markov chains, you can have a look [here](https://brilliant.org/wiki/markov-chains/). 
