@@ -16,7 +16,8 @@ const config = {
 			layout: {
 				overviews: './src/lib/layouts/overviews.svelte',
 				guides: './src/lib/layouts/overviews.svelte',
-				reference: './src/lib/layouts/reference.svelte'
+				reference: './src/lib/layouts/reference.svelte',
+				madewithflucoma: './src/lib/layouts/madewithflucoma.svelte'
 			}
 		}),
 		sveltePreprocess({

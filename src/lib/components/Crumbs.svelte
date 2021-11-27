@@ -1,40 +1,46 @@
 <script>
-	import { page } from '$app/stores';
+    import { page } from '$app/stores';
+    import { breadcrumbs } from '$lib/app';
 
-	// Sanitise some special links where need be
-	const lookup = {
-		'made-with-flucoma': 'Made with FluCoMa',
-		'reference': 'Reference',
-		'guides': 'Guides',
-		'overviews': 'Overviews'
-	};
+    // Sanitise some special links where need be
+    const lookup = {
+        'madewithflucoma' : 'Made with FluCoMa',
+        'reference' : 'Reference',
+        'guides' : 'Guides',
+        'overviews' : 'Overviews'
+    }
 
-	function formatCrumb(crumb) {
-		if (crumb in lookup) return lookup[crumb];
-		return crumb;
-		// string = string.charAt(0).toUpperCase() + string.slice(1);
-		// return string
-	}
+    function formatCrumb(crumb) {
+        if (crumb in lookup)
+            return lookup[crumb]
+        return crumb
+    }
 
-	function splitPath(path) {
-		// Splits a full page path into an array of parts
-		// This can be used to then construct the breadcrumbs
-		let d = [];
-		path = path.split('/').slice(1);
-		let accum = '';
-		path.forEach((p) => {
-			accum += '/';
-			accum += p;
-
-			let crumb = { url: accum, text: formatCrumb(p) };
-			d.push(crumb);
-		});
-		return d;
-	}
-	let crumbs;
-	$: crumbs = splitPath($page.path);
+    function splitPath(path) {
+        // Splits a full page path into an array of parts
+        // This can be used to then construct the breadcrumbs
+        let d = [];
+        path = path.split('/');
+        path.shift();
+    
+        let accum = '';
+        path.forEach((p, i) => {
+            let sanitisedText = '';
+            if (i > 1) {
+                sanitisedText = $breadcrumbs.crumbs[$page.path]
+            }
+            else {
+                sanitisedText = formatCrumb(p);
+            }
+            accum += '/';
+            accum += p;
+            let crumb = { url: accum, text: sanitisedText };
+            d.push(crumb);
+        })
+        return d;
+    }
+    $: crumbs = splitPath($page.path);
 </script>
-
 <!-- Breadcrumbs -->
 <div class="container">
 	<div class="left" />

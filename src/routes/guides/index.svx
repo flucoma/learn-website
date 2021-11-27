@@ -5,7 +5,6 @@ layout: none
 <script>
     import { structure } from '$lib/app.js';
     import { goto } from '$app/navigation';
-    console.log($structure)
 </script>
 
 # Guides

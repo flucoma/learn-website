@@ -1,0 +1,60 @@
+---
+layout: none
+---
+
+<script>
+    import { structure } from '$lib/app.js';
+    import { goto } from '$app/navigation';
+    import { fade, slide } from 'svelte/transition';
+</script>
+
+# Made with FluCoMa
+
+Made with FluCoMa highlights projects and practices where FluCoMa is used.
+
+<div class='overview-list'>
+    {#each $structure.routes.madewithflucoma as ov}
+    {#if ov.data}
+    <a href={ov.url}>
+        <div class='overview' transition:fade>
+            <h2 class='overview-title'>{ov.data.title}</h2>
+            <p class='overview-blurb'>{ov.data.blurb}</p>
+        </div>
+    </a>
+    {/if}
+    {/each}
+</div>
+
+<style lang='scss'>
+
+    .overview-list {
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+        a:hover {
+            background: transparent;
+            color: black;
+        }
+
+        a {
+            text-decoration: none;
+            color: black;
+        }
+    }
+
+    .overview {
+        cursor: pointer;
+        padding: 0.4em;
+        box-shadow: 0 1px 1.5px 2px rgba(0, 0, 0, 0.1);
+        background-color: transparent;
+    }
+
+    .overview:hover {
+        scale: 1.03;
+    }
+
+    .overview-blurb {
+        color: grey;
+    }
+</style>
+

@@ -13,6 +13,7 @@ This can be consumed in the client side javascript in order to create a site-map
 structure = { 'routes' : {} }
 page_structures = { 'pages' : {} }
 tag_db = { 'db' : {} }
+crumbs = { 'crumbs' : {} }
 last_edits = { 'routes' : {} }
 
 route_path = Path('src/routes')
@@ -64,6 +65,8 @@ for route in routes:
     # Now get the frontmatter and parse it
     front = frontmatter.load(route).metadata
     route_data['data'] = front
+
+    # Tags
     if 'tags' in front: # if there is a tags part of the frontmatter
         for tag in front['tags']:
             if not tag in tag_db['db']:
@@ -71,18 +74,31 @@ for route in routes:
             
             tag_db['db'][str(tag)].append(url)
 
+    ## Structure
     structure['routes'][section].append(route_data)
 
+    ## Crumbs
+    if section == 'reference':
+        crumbs['crumbs'][url] = front['title']
+    if section == 'madewithflucoma':
+        crumbs['crumbs'][url] = front['artist']
+    if section == 'guides':
+        crumbs['crumbs'][url] = front['short']
+    if section == 'overviews':
+        crumbs['crumbs'][url] = front['title']
 
 # Now write some JSON to static
 with open('static/tag.json', 'w') as f:
-    json.dump(tag_db, f, indent=2)
+    json.dump(tag_db, f, separators=(',', ':'))
 
 with open('static/structure.json', 'w') as f:
-    json.dump(structure, f, indent=2)
+    json.dump(structure, f, separators=(',', ':'))
 
 with open('static/pages.json', 'w') as f:
-    json.dump(page_structures, f, indent=2)
+    json.dump(page_structures, f, separators=(',', ':'))
+
+with open('static/crumbs.json', 'w') as f:
+    json.dump(crumbs, f, separators=(',', ':'))
 
 with open('static/edits.json', 'w') as f:
     json.dump(last_edits, f, separators=(',', ':'))
