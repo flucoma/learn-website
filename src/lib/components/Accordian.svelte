@@ -2,7 +2,7 @@
 	import { slide } from 'svelte/transition';
 	export let id: string = '';
 	export let caption: string = '';
-	export let expanded: Boolean = false;
+	export let expanded: boolean = false;
 
 	function clickHandler(e) {
 		expanded = !expanded;

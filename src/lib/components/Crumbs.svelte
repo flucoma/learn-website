@@ -4,9 +4,9 @@
 	// Sanitise some special links where need be
 	const lookup = {
 		'made-with-flucoma': 'Made with FluCoMa',
-		reference: 'Reference',
-		guides: 'Guides',
-		overviews: 'Overviews'
+		'reference': 'Reference',
+		'guides': 'Guides',
+		'overviews': 'Overviews'
 	};
 
 	function formatCrumb(crumb) {
