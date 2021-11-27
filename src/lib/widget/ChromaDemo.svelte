@@ -1,4 +1,4 @@
-<script>
+<script lang='ts'>
 	import { onMount } from 'svelte';
 	import { Chart, registerables } from 'chart.js';
 	import * as Meyda from 'meyda';
@@ -6,18 +6,14 @@
 
 	// Audio
 	let player;
-	let ready = false;
-	let features = new Array(12).fill(0.0);
-	let waveform, wavesurfer, playing;
+	let features: Array<number> = new Array(12).fill(0.0);
+	let waveform;
 	let peaksInstance;
-	let analyse;
-	let ctxStarted = false;
+	let ctxStarted: boolean = false;
 	// Canvas
-	let canvas;
-	let ctx;
-	let chart;
+	let canvas, ctx, chart;
 	// CODE CRIME 👮
-	const colours = [
+	const colours: Array<string> = [
 		'#8dd3c7',
 		'#ffffb3',
 		'#bebada',
@@ -33,7 +29,7 @@
 	];
 
 	// Control
-	let smoothing = 50;
+	let smoothing: number = 50;
 
 	onMount(async () => {
 		// Chart
@@ -88,8 +84,6 @@
 			// Do something when the waveform is displayed and ready
 			peaksInstance = peaks;
 		});
-
-		ready = true;
 	});
 
 	const updateWaveform = (audioFile) => {

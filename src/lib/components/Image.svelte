@@ -1,6 +1,6 @@
-<script>
-	export let src = '';
-	export let alt = '';
+<script lang='ts'>
+	export let src: string = '';
+	export let alt: string = '';
 	export let drawBorder = true;
 </script>
 

@@ -3,19 +3,19 @@
     https://ptsjs.org/guide/op-0400
  -->
 
- <script>
+ <script lang='ts'>
     import { onMount } from 'svelte';
-    import { CanvasSpace, Create } from 'pts';
+    import { CanvasSpace, Create, GroupLike } from 'pts';
     import Slider from '$lib/components/Slider.svelte';
     import Button from '$lib/components/Button.svelte';
 
     let canvas;
-    let pts = [];
-    let data = [];
-    let mouse = [];
+    let pts: GroupLike = [];
+    let data: Array<number> = [];
+    let mouse: Array<number> = [];
+    let numNeighbours: number = 1;
+    let fit: boolean = false;
     let rect;
-    let numNeighbours = 1;
-    let fit = false;
 
     function getMousePos(canvas, evt) {
         // We need to do this manually otherwise when shifting the window the resize is not accounted for.

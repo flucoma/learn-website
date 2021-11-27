@@ -2,14 +2,14 @@
 	import { UMAP } from 'umap-js';
 	import { onMount } from 'svelte';
 	import { Chart, registerables } from 'chart.js';
+	import type { Vectors } from 'umap-js/dist/umap';
 	import Slider from '$lib/components/Slider.svelte';
 	import Button from '$lib/components/Button.svelte';
 	import * as d3 from 'd3';
-import type { Vectors } from 'umap-js/dist/umap';
 
 	// Chart.js business
-	let canvas, chart, ctx;
-	let timeout;
+	let canvas, chart: Chart, ctx;
+	let timeout: NodeJS.Timer;
 
 	let stepInterval: number = 5;
 	let smoothing: number = 230;
@@ -23,8 +23,8 @@ import type { Vectors } from 'umap-js/dist/umap';
 	// UMAP Data
 	let epoch: number = 0;
 	let numEpochs: number = 0;
-	let originalData: Array<number> = [];
-	let umap;
+	let originalData: Array<Array<number>> = [];
+	let umap: UMAP;
 
 	const newData = () => {
 		epoch = 0;
@@ -120,6 +120,7 @@ import type { Vectors } from 'umap-js/dist/umap';
 	};
 
 	onMount(async () => {
+		console.log(typeof(canvas))
 		newData();
 		// Do an initial reduction from the random data to 2 dimensions
 		step();

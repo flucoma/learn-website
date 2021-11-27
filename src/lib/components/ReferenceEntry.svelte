@@ -1,7 +1,7 @@
-<script>
-	export let title = '';
-	export let blurb = '';
-	export let url = '';
+<script lang='ts'>
+	export let title: string = '';
+	export let blurb: string = '';
+	export let url: string = '';
 </script>
 
 <a href={'/' + url}>

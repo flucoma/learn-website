@@ -1,9 +1,9 @@
-<script>
-	export let url = '';
-	export let title = '';
-	export let caption = title;
-	export let width = 560;
-	export let height = 315;
+<script lang='ts'>
+	export let url: string = '';
+	export let title: string = '';
+	export let caption: string = title;
+	export let width: number = 560;
+	export let height: number = 315;
 </script>
 
 <div class="container">
