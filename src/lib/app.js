@@ -6,4 +6,5 @@ import e from '../../static/edits.json';
 
 export const structure = readable(s);
 export const tags = readable(t);
+export const breadcrumbs = readable(c);
 export const edits = readable(e);
