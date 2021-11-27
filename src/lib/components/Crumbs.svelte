@@ -25,8 +25,9 @@
     
         let accum = '';
         path.forEach((p:string, i:number) => {
+			console.log(p, i)
             let sanitisedText = '';
-            if (i > 1) {
+            if (i >= 1) {
                 sanitisedText = $breadcrumbs.crumbs[$page.path]
             }
             else {
