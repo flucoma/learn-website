@@ -1,29 +1,32 @@
 <script>
-    export let title;
-    export let blurb;
+	export let title;
+	export let blurb;
+	import EditHistory from '$lib/components/EditHistory.svelte';
+	import HR from '$lib/components/HR.svelte';
 </script>
 
-<div class='title-box'>
-    <h1>{ title }</h1> 
-    <p class='blurb'>{ blurb }</p>
+<div class="title-box">
+	<h1>{title}</h1>
+	<p class="blurb">{blurb}</p>
 </div>
-
 
 <slot />
 
-<style lang='scss'>
-    .blurb {
-        color: grey;
-        text-align: left;
-    }
+<HR />
 
-    .title > h1 {
-        margin-bottom: 0;
-    }
+<EditHistory />
 
-    .title > p {
-        margin-top: 0;
-    }
+<style lang="scss">
+	.blurb {
+		color: grey;
+		text-align: left;
+	}
 
+	.title > h1 {
+		margin-bottom: 0;
+	}
 
+	.title > p {
+		margin-top: 0;
+	}
 </style>
