@@ -39,7 +39,7 @@
 
 	.main {
 		grid-area: main;
-		min-width: $max-text-width;
+		min-width: $min-text-width;
 		max-width: $max-text-width;
 	}
 
