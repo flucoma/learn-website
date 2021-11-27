@@ -175,14 +175,6 @@
 				step="1"
 				chFunc={doStep}
 			/>
-			<Slider
-				bind:value={smoothing}
-				title="Smoothing"
-				min={3}
-				max={2000}
-				step={1}
-				chFunc={updateSmoothing}
-			/>
 		</div>
 		<div class="btns">
 			<Button on:click={doStep} label="Go" />
