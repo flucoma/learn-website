@@ -5,7 +5,7 @@
 
  <script lang='ts'>
     import { onMount } from 'svelte';
-    import { CanvasSpace, Create, GroupLike } from 'pts';
+    import { CanvasSpace, Create, GroupLike, Circle } from 'pts';
     import Slider from '$lib/components/Slider.svelte';
     import Button from '$lib/components/Button.svelte';
 
@@ -16,6 +16,7 @@
     let numNeighbours: number = 1;
     let fit: boolean = false;
     let rect;
+    let radius: number = 0.0;
 
     function getMousePos(canvas, evt) {
         // We need to do this manually otherwise when shifting the window the resize is not accounted for.
@@ -26,10 +27,15 @@
         ]
     }
 
-    onMount(async() => {      
-        let space = new CanvasSpace('#sketch')
+    onMount(async() => {    
+        
+        // const module = await import('static-kdtree');
+		// const KDTree = module.default;
+        // console.log(KDTree)
+        let space = new CanvasSpace('#sketch');
+        let darkBlue = 'rgba(8, 60, 100,0.5)';
         space.setup({ 
-            bgcolor: '#e8e4ec',
+            bgcolor: 'rgba(28,164,252,0.01)',
             resize: true
         });
 
@@ -41,21 +47,30 @@
                 pts = Create.distributeRandom( space.innerBound, 120 );
             },
             animate: (time, ftime, space) => {
-
+                // if (radius > 0.0) {
+                let circle: GroupLike = Circle.fromCenter( space.pointer, radius * space.size.y)
+                form.fillOnly(darkBlue).circle( circle );
+                // }
                 if (fit) {
                     form.fillOnly("#123").points( pts, 3, "circle" );
+                    
                     pts.sort((a, b) => a.$subtract(mouse).magnitude() - b.$subtract(mouse).magnitude())
 
-                    // Draw lines from mouse to points
-                    for (let j=0; j < numNeighbours; j++) {
-                        form.strokeOnly('#0d47a1', 2).line( [ pts[j], mouse ] );
-                    }
-
-                    // Draw bigger circles on top of points
+                    // Draw bigger on top of points
                     for (let i=0; i < numNeighbours; i++) {
-                        form.fill("#f03").point( pts[i], 7, "square" );
+                        form.strokeOnly('#0d47a1', 2).line( [ pts[i], mouse ] );
+
+                        if (radius > 0.0) {
+                            if (Circle.withinBound( circle, pts[i] )) {
+                                form.fill("#f03").point( pts[i], 7, "square" );
+                            }
+                        }
+                        else {
+                            form.fill("#f03").point( pts[i], 7, "square" );
+                        }
                     }
-                } else {
+                } 
+                else {
                     form.fillOnly("#787878").points( pts, 3, "circle" );
                 }
             },
@@ -73,7 +88,8 @@
 
 <div class="controls">
     <Button on:click={ () => fit = true } label='Fit' />
-    <Slider bind:value={numNeighbours} min={1} max={15} title='Number of Neighbours' step={1} />
+    <Slider bind:value={numNeighbours} min={1} max={50} title='Number of Neighbours' step={1} />
+    <Slider bind:value={radius} min={0.0} max={1.0} title='Radius' step={0.01} />
 </div>
 
 <style>
