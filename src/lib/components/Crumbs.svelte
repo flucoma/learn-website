@@ -42,15 +42,24 @@
     $: crumbs = splitPath($page.path);
 </script>
 <!-- Breadcrumbs -->
-<div class="crumbs">
-    <a href='/'>Home</a>
-    {#each crumbs as c}
-        / <a href={c.url}>{c.text}</a> &nbsp
-    {/each}
+<div class="container">
+	<div class="left" />
+	<div class="crumbs">
+		<a href="/">Home</a>
+		{#each crumbs as c}
+			/ <a href={c.url}>{c.text}</a> &nbsp
+		{/each}
+	</div>
+	<div class="right" />
 </div>
 
-<style>
-    .crumbs {
-        font-size: 0.8em;
-    }
+<style lang="scss">
+	.container {
+		display: grid;
+		grid-template-columns: auto min($max-text-width, 100%) auto;
+		margin: 1em;
+	}
+	.crumbs {
+		font-size: 0.8rem;
+	}
 </style>

@@ -12,4 +12,5 @@ static/tag.json
 pnpm-lock.yaml
 package-lock.json
 .pnpm-debug.log
+static/edits.json
 static/crumbs.json

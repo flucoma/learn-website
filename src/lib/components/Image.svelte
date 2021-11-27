@@ -1,7 +1,7 @@
-<script>
-    export let src = '';
-    export let alt = '';
-    export let label = '';
+<script lang='ts'>
+	export let src: string = '';
+	export let alt: string = '';
+	export let drawBorder = true;
 </script>
 
 <div class="container">
