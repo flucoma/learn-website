@@ -1,6 +1,6 @@
-<script>
+<script lang='ts'>
 	import { createEventDispatcher } from 'svelte';
-	export let label = 'button';
+	export let label: string = 'button';
 
 	const dispatch = createEventDispatcher();
 
