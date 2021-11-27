@@ -9,13 +9,12 @@ tags:
 ---
 
 <script>
-	import UMAPDemo from '$lib/widget/UMAPDemo.svelte';
-    import UMAPFlat from '$lib/widget/UMAPFlat.svelte';
+    import UMAP from '$lib/widget/UMAP.svelte';
 </script>
 
 <!-- This will eventually link to an overview on dimension reduction IMO -->
-_Uniform Manifold Approximation and Projection_ (UMAP) is a [dimensionality reduction technique](). It allows you to take high-dimensional data and compress it into a lower-dimensional representation. UMAP is a _non-linear_ form of dimension reduction, and is robust when working with data that is noisy, sparse or cannot be dealt with effectively using linear techniques such as [Principal Component Analysis (PCA)](/reference/pca).
-<UMAPFlat />
+_Uniform Manifold Approximation and Projection_ (UMAP) is a [dimensionality reduction technique](). It allows you to take high-dimensional data and reduce it to a lower-dimensional representation. UMAP is a _non-linear_ form of dimension reduction, and is robust when working with data that is noisy, sparse or cannot be reduced effectively using linear techniques such as [Principal Component Analysis (PCA)](/reference/pca).
+<UMAP />
 
 This example visualises UMAP's iterative process of taking the original data and transforming it to a lower dimensional space. To begin with, 100 three-dimensional points are randomly generated. For each point we see visually, the original three dimensional data is used to give them an RGB colour. The algorithm then proceeds, interatively finding the optimal two-dimensional representation of the original three-dimensional space. UMAP is able to derive some structure from the RGB colour space resulting in the two dimensional plot becoming a version of a smooth gradient or colour spectrum.
 
@@ -23,24 +22,22 @@ This example visualises UMAP's iterative process of taking the original data and
 
 UMAP has three key parameters that affect the result it produces. It is good to remember that UMAP is trying to work within the constraints you provide while giving the "best" possible result. Configuring UMAP with the the right parameters, (i.e constraints) allows you to balance the _global_ or _local_ features of the original space.
 
-### Minimum Distance (`mindist`)
+There is also a good explanation in the documentation of the original implementation located [here](https://umap-learn.readthedocs.io/en/latest/parameters.html#).
 
-`mindist` encourages UMAP to consider how close points can be represented in the low-dimensional space that it produces. Small values of `mindist` mean that UMAP can pack points in a tight embedding, meaning the local structure of the original space can be preserved. Bigger values cause the embedding to be spread out, focusing on the preservation of the global topology.
+### Minimum Distance (`mindist`)
+`mindist` encourages UMAP to consider how close points can be represented in the low-dimensional space that it produces. Small values of `mindist` (tending towards 0) mean that UMAP can pack points in a tight embedding which preserves the local characteristics of the high-dimensional data. Bigger values cause the embedding to be spread out, focusing on the preservation of the global topology. The actual values of `mindist` are somewhat arbitrary, though keeping the values in the range of 0.0 to 3.0 is a good place to start.
 
 ### Number of Neighbours (`numneighbours`)
-
-You can think of the `numneighbours` parameter as a way to tell UMAP how much of the _global_ space it should care about when it performs the dimension reduction. It is literally enforcing how many neighbouring points UMAP needs to consider.
+You can think of the `numneighbours` parameter as a control that determines how UMAP balances the preservation of _global_ or _local_ features of the high-dimension data. Because UMAP is estimating another structure in a lower dimensionality that can represent the high-dimensional data, we can tell it how many points around any given point it needs to consider when it transforms the space. As such, high values of `numneighbours` will result in UMAP considering perhaps the entire space as a whole, whereas low values will focus on the relationship between only a few points. Remember, this parameter's value is relative to the number of points in your original data. If you have 200 points and you set `numneighbours` to 2 then UMAP is only ever considering 1% of your data at any given time. Therefore, a "low" or "high" value is quantified by its relationship to the size of your data at hand.
 
 ### Iterations
-
-UMAP works iteratively to calculate the lower-dimension representation of the input data. As such, performing more or less iterations will drastically effect the result.
+UMAP works iteratively to calculate the lower-dimension representation of the input data. As such, performing more or less iterations will drastically effect the result. It is hard to say whether the results will be "better" or "worse" in any case. In fact, you might find something musically useful at any given point of the process. That said, if you find that the low-dimension embedding that UMAP gives you doesn't make sense it might be the case that more iterations can help it to discern some structure of your data.
 
 ## Further Information
-
 There is a lot of good chatter and analysis of the UMAP algorithm which can serve to bolster your understanding of how it works. 
 
-[Understanding UMAP](https://pair-code.github.io/understanding-umap/), is a good palce to see some more examples of the algorithm at work. It can be illuminating to know how other dimension algorithms work too, as each technique fails and succeeds in different ways.
+[Understanding UMAP](https://pair-code.github.io/understanding-umap/), is an excellent explanation of the algorithm that tries to stay at a high-level understanding without diving into the underlying mathematics.
 
-Furthermore, this [Distill](https://distill.pub/2016/misread-tsne/) article, _"How to Use t-SNE Effectively"_ discusses effective approaches to using t-SNE, another non-linear dimension-reduciton algorithm.
+It can also be illuminating to know how other dimension algorithms work too, as each technique fails and succeeds in different ways. This [Distill](https://distill.pub/2016/misread-tsne/) article, _"How to Use t-SNE Effectively"_ discusses effective approaches to using t-SNE, another non-linear dimension-reduciton algorithm.
 
 

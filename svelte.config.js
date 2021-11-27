@@ -9,14 +9,15 @@ const filePath = dirname(fileURLToPath(import.meta.url));
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
-	extensions: [ '.svelte', '.svx' ],
-	preprocess: [ 
+	extensions: ['.svelte', '.svx'],
+	preprocess: [
 		mdsvex({
-			rehypePlugins : [slug],
+			rehypePlugins: [slug],
 			layout: {
 				overviews: './src/lib/layouts/overviews.svelte',
 				guides: './src/lib/layouts/overviews.svelte',
-				reference: './src/lib/layouts/reference.svelte'
+				reference: './src/lib/layouts/reference.svelte',
+				madewithflucoma: './src/lib/layouts/madewithflucoma.svelte'
 			}
 		}),
 		sveltePreprocess({

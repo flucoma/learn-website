@@ -1,5 +1,6 @@
 ---
 title: Classifying instrumental timbre with a neural network
+short: Timbre Classification
 blurb: |
     Neural networks are powerful tools...
 tags:

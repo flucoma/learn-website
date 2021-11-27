@@ -1,6 +1,0 @@
-# ReaCoMa
-
-ReaCoMa is a set of Lua scripts that facilitate using the FluCoMa first toolbox algorithms within REAPER.
-
-## How does it work?
-
