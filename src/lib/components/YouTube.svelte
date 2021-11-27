@@ -38,5 +38,6 @@
 		text-align: center;
 		width: 80%;
 		margin: 0 auto;
+		font-size: 0.8rem;
 	}
 </style>
