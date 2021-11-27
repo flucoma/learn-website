@@ -1,11 +1,11 @@
-<script>
-	export let value;
-	export let min = '0';
-	export let max = '100';
-	export let title = '';
-	export let step = 'any';
-	export let inFunc;
-	export let chFunc;
+<script lang='ts'>
+	export let value: string | number;
+	export let min: string | number = '0';
+	export let max: string | number = '100';
+	export let title: string = '';
+	export let step: string | number = 'any';
+	export let inFunc = () => {};
+	export let chFunc = () => {};
 </script>
 
 <div class="container">
