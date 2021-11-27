@@ -1,4 +1,4 @@
-<script>
+<script lang='ts'>
     import { page } from '$app/stores';
     import { breadcrumbs } from '$lib/app';
 
@@ -24,7 +24,7 @@
         path.shift();
     
         let accum = '';
-        path.forEach((p, i) => {
+        path.forEach((p:string, i:number) => {
             let sanitisedText = '';
             if (i > 1) {
                 sanitisedText = $breadcrumbs.crumbs[$page.path]
