@@ -52,35 +52,40 @@ src='/examples/batch/add-streams.png'
 alt='Adding two lists together in Max using streams'
 />
 
-
-We can avoid these kinds of workflows by instead using objects that deal with collections of items in a list inherently, simplifying much of the workflow entirely.
+We can avoid these kinds of workflows by instead using objects that deal with collections of items in a list resulting in a simpler workflow.
 
 <Image
 src='/examples/batch/add-list.png'
 alt='Using vexpr to add two lists together'
 />
 
-The complexity of the patching hasn't increased greatly, and by replacing `+` with `vexpr` (vector expression), we can process entire lists of values. The patch will also still work with single value inputs making it much more flexible than the original. While the patching itself is not too complicated, knowing about the existence of these objects and how they work is not greatly emphasised in the way visual programming is taught wich is often concerned entirely with _streams_ of scalar (single) values. 
+The complexity of the patching hasn't increased greatly, and by replacing `+` with `vexpr` (vector expression), we can process entire lists of values. The patch will also still work with single value inputs (scalars) making it much more flexible than what we had originally. While the patching itself is not too complicated, knowing about the existence of these objects and how they work is not greatly emphasised in the way visual programming is taught wich is often concerned entirely with _streams_ of scalar values. 
 
-While this is just a toy example, it demonstrates that the notion of processing groups of things together is not the **first** and **most obvious** way to patch. SC has the benefit of being built on the SuperCollider language which offers a number of ways to deal with arrays of data already that are both efficient and sleek to use. Logical operators also tend to work by default, meaning the interface for adding two integers is roughly the same as adding two arrays of integers. For example:
+While this is just a toy example, it demonstrates that the notion of processing groups of things together is not the **first** and **most obvious** way to patch. SC has the benefit of being built on the SuperCollider language which offers a number of ways to deal with arrays of data already that are both efficient and sleek to use. Logical operators also are _overloaded_ in many cases, meaning the interface for adding two integers is roughly the same as adding two arrays of integers. For example:
 
 <CodeBlock>
 
 ```js
 (
+// Add together two integers
+z = 1;
+x = 10;
+(z + x).postln;
+)
+
+(
+// Add together two lists
 z = [1, 2, 3, 4];
 x = [10, 20, 30, 40];
-z + x.postln;
+(z + x).postln;
 )
 ```
 
 </CodeBlock>
 
-Adds two lists (arrays) of integers together pairwise as we did before in Max.
-
 ## Batch Processing
 
-So how do we approach batch processing with the FluCoMa objects? No doubt, there will be times where having to work with lots of data, or numerous slices or several decompositions will frustrate you to no end. The next section will demonstrate a number of ways in which batch processing can be implemented in Max, SC and PD and attempt to smooth over some of those rough edges showing how our interfaces interlock with those that already exist in your environment of choice. The explanation of particular objects and processes will be _in_ the patches and scripts themselves.
+So how do we approach batch processing with the FluCoMa objects? No doubt, there will be times where having to work with lots of data, or numerous slices or several decompositions will frustrate you to no end. The next section will demonstrate a number of ways in which batch processing can be implemented in Max, SC and PD and attempt to smooth over some of those rough edges by showing how our interfaces interlock with the existing ones in your environment of choice. The explanation of particular objects and processes will be _in_ the patches and scripts themselves.
 
 ### Analysis of Segments
 
@@ -116,6 +121,7 @@ The workflow is as follows:
 
 1. Create a corpus of multiple audio files
 2. Decompose each audio file into harmonic and percussive complnents using [FluidHPSS](/reference/hpss).
+3. Store the results in some sort of _container_. This will depend on the CCE.
 
 <Tabs>
 <TabList>
@@ -137,25 +143,19 @@ The workflow is as follows:
 </Tabs>
 
 ### Non-Blocking Processing
-
-SuperCollider doesn't inherently suffer the same as issue as Max and PD because you send the analysis away too the server and the language can continue to operate.
+In the two examples above you may have noticed that whenever batch processing is started it seems to _freeze_ or _hang_ Max and PD. SuperCollider doesn't suffer the exact same issue because by default SuperCollider is _non-blocking_ and uses the Max equivalent of `@blocking 0` or PD's `-blocking 0`. The language will continue to function and you can send more processes to the server after triggering a batch process. In fact in the previous two examples we we're batch processing in a non-blocking way as a result of nesting these calls inside `Routine` and using the `.wait` function await their completion. As such, there is no SC example for this particular scenario.
 
 <Tabs>
 <TabList>
     <Tab>Max</Tab>
     <Tab>PureData</Tab>
-    <Tab>SuperCollider</Tab>
 </TabList>
 <TabPanel> <!-- Max -->
-<a href='/examples/batch/batch-slicing.maxpat' download>Download Patch</a>
+<a href='/examples/batch/batch-decomposition-threads.maxpat' download>Download Patch</a>
 </TabPanel>
 
 <TabPanel> <!-- Pure Data -->
-<a href='/examples/batch/batch-slicing.pd' download>Download Patch</a>
-</TabPanel> 
-
-<TabPanel> <!-- SC -->
-<a href='/examples/batch/batch-slicing.scd' download>Download Script</a>
+<a href='/examples/batch/batch-decomposition-threads.pd' download>Download Patch</a>
 </TabPanel> 
 </Tabs>
 
