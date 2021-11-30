@@ -1,69 +1,71 @@
 // Refer to https://learn.flucoma.org/overviews/batch-processing
 (
 s.waitForBoot{
-	Task{
-		var drum = Buffer.read(s,File.realpath(FluidDataSet.class.filenameSymbol).dirname.withTrailingSlash ++ "../AudioFiles/Nicol-LoopE-M.wav");
-		var slices = Buffer(s); // FluidBufAmpSlice will write into this buffer the samples at which slices are detected.
-		var sliceAnalysis = Buffer(s); // a buffer for writing the analysis from FluidSpectralShape into
-		var sliceCentroid = Buffer(s); // a buffer for writing the statistic analyses into
-        var sliceStats = Buffer(s, 7); // a buffer that will be used to add points to the dataset - the analyses will be written into this buffer first
-		var sliceMean = Buffer(s, 1);
+    Task{
+        var drum = Buffer.read(s,File.realpath(FluidDataSet.class.filenameSymbol).dirname.withTrailingSlash ++ "../AudioFiles/Nicol-LoopE-M.wav");
+        var slices = Buffer(s); // The slicer (FluidBufOnsetSlice) will write into this buffer the samples at which slices are detected
+        var sliceAnalysis = Buffer(s); // A Buffer() for writing the analysis from FluidSpectralShape into
+        var sliceCentroid = Buffer(s); // A Buffer() for extracting the centroid into
+        var sliceStats = Buffer(s, 7); // A Buffer() for writing the statistical analyses of the centroid into
+        var sliceMean = Buffer(s, 1); // A Buffer() for extracting just the mean from the 7 statistical analyses.
 
-        var data = FluidDataSet(s); // a data set for storing the analysis of each slice (mean centroid & mean loudness)
+        var data = FluidDataSet(s); // A FluidDataSet() for storing the analysis of each slice (mean centroid)
+        s.sync;
 
-		s.sync;
+        FluidBufOnsetSlice.process(s, drum, indices:slices, metric:9,threshold:0.5).wait;
+        // Slice the drum Buffer() based on consecutive changes in spectral frames
+        // The samples at which slices are detected will be written into the "slices" Buffer()
 
-		FluidBufOnsetSlice.process(s, drum, indices:slices, metric:9,threshold:0.5).wait;
-		// slice the drums buffer based changes in the spectrum
-		// the samples at which slices are detected will be written into the "slicepoints" buffer
+        slices.loadToFloatArray(action:{ // bring the values in the slices buffer from the server to the language as a float array
+            arg slices_arr;
+            slices_arr.postln;
+            slices_arr.doAdjacentPairs{
+                /*
+                Take each of the adjacent pairs and pass them to this function as an array of 2 values
 
-		slices.loadToFloatArray(action:{ // bring the values in the slicepoints buffer from the server to the language as a float array
-			arg slices_arr;
-			slices_arr.postln;
-			slices_arr.doAdjacentPairs{
-				/*
-				take each of the adjacent pairs and pass them to this function as an array of 2 values
+                For example, [0,1,2,3,4] will execute this function 4 times, passing these 2 value arrays:
+                [0,1]
+                [1,2]
+                [2,3]
+                [3,4]
 
-				nb. for example [0,1,2,3,4] will execute this function 4 times, passing these 2 value arrays:
-				[0,1]
-				[1,2]
-				[2,3]
-				[3,4]
+                This will give us the left and right boundary of each segment
+                We can use this to inform the analysis (FluidBufSpectralShape) where to start analysing and how many frames to analyse
+                */
+                arg start, end, slice_index;
+                var numsamps = end-start; // The next slice point minus the current one will determine how many frames to analyse.
 
-				this will give us each slice point *and* the next slice point so that we
-				can tell the analyzers where to start analyzing and how many frames to analyze
-				*/
-				arg start, end, slice_index;
-				var numsamps = end-start; // the next slice point minus the current one will give us the difference how many slices to analyze)
+                slice_index.postln; // Post which slice index we're currently working on
 
-				slice_index.postln; // post which slice index we're currently analyzing
-
-				// the ".wait"s will pause the Task (that this whole things is in) until the analysis is done;
-
-				FluidBufSpectralShape.process(s, source:drum, startFrame:start, numFrames:numsamps, features:sliceAnalysis).wait;
-				/* analyze the drum buffer starting at `start_samps` and for `num_samps` samples
-				this returns a buffer (feautres_buf) that is 7 channels wide (for the 7 spectral analyses, see helpfile) and
-				however many frames long as there are fft frames in the slice */
-
-                FluidBufSelect.process(s, source:sliceAnalysis, destination:sliceCentroid, channels:0).wait;
+                // Using .processBlocking we control the flow of analysis as it is extracted and further analysed.
+                // Analyse the drum buffer starting at `start` and for a number of samples equal to `numsamps`
+                /*
+                This returns a buffer (sliceAnalysis) that is 7 channels wide (for the 7 spectral analyses) and
+                however many frames long as there are fft frames in the slice.
+                */
+                FluidBufSpectralShape.processBlocking(s, source:drum, startFrame:start, numFrames:numsamps, features:sliceAnalysis);
 
 
-				FluidBufStats.process(s, source:sliceCentroid, stats:sliceStats).wait;
-				/* perform a statistical analysis the spectral analysis, doing only the first channel (specified by `numChans:1`)
-				this will return just one channel because we asked it to analyze only 1 channel. that one channel will have 7 frames
-				corresponding to the 7 statistical analyses that it performs */
+                // We extract only the first channel of the 7 channels (the centroid) and put it into a Buffer() named sliceCentroid
+                FluidBufSelect.processBlocking(s, source:sliceAnalysis, destination:sliceCentroid, channels:0);
 
-				FluidBufSelect.process(s, source:sliceStats, destination:sliceMean, indices:0).wait;
+                // Then calculate the statistical analyses of the centroid for each segment.
+                // This will return write the output into a new Buffer() called sliceStats that will be 1 channel and 7 frames in size.
+                FluidBufStats.processBlocking(s, source:sliceCentroid, stats:sliceStats);
+
+                // Then extract only the first frame from the 7 frames and write it into a Buffer() called sliceMean.
+                // This isolates a singular value, the average spectral centroid for the segment.
+                FluidBufSelect.processBlocking(s, source:sliceStats, destination:sliceMean, indices:0);
+
+                // Now that we have a 1x1 Buffer() holding the mean centroid for that segment we can add it to the FluidDataSet.
+                data.addPoint(slice_index, sliceMean);
 
 
-				data.addPoint(slice_index, sliceMean);
-				/* now that we've added the mean centroid and mean loudness into `point_buf`, we can use that buf to add the data that is in it to the dataset.
-				we also need to give it an identifer. here we're calling it "point-%", where the "%" is replaced by the index of the slice */
-
-				s.sync;
-			};
-		});
+                // After all this analysis we sync the server before iterating to the next item.
+                s.sync;
+            };
+        });
         data.print;
-	}.play(AppClock);
+    }.play(AppClock);
 }
 )
