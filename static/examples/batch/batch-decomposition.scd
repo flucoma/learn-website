@@ -19,16 +19,24 @@ s.waitForBoot{
 
                 ("Processing:"+file.fileName.asString).postln;
                 // Do the HPSS processing. Only process the first channel to simplify things when we process a stereo file.
-                FluidBufHPSS.process(s, source:src, harmonic:h, percussive:p, numChans:1).wait;
-                FluidBufCompose.process(s, source:h, destination:result, destStartChan:0).wait;
-                FluidBufCompose.process(s, source:p, destination:result, destStartChan:1).wait;
+                // We call the processBlocking method in order to do synchronous calls that will happen in a deterministic order.
+                // Later on you will see the process method being used to do asynchronous calls between the language and server.
+                FluidBufHPSS.processBlocking(s, source:src, harmonic:h, percussive:p, numChans:1);
+                FluidBufCompose.processBlocking(s, source:h, destination:result, destStartChan:0);
+                FluidBufCompose.processBlocking(s, source:p, destination:result, destStartChan:1);
+
+                // The three calls above are executed syncrhonously, but we need to sync to the server before we progressing to the next file in the loop.
+                s.sync;
 
                 // Associate the source file name (as a symbol) to the 2-channel result buffer.
-                results.add(file.asSymbol -> result);
+                results.add(file.fileName.asSymbol -> result);
             });
         });
         // This is the entire dictionary of results.
-        results.postln;
+        results.keys.do({
+           arg key;
+            (key++": "++results[key].asString).postln;
+        });
     }.play(AppClock);
 }
 )
