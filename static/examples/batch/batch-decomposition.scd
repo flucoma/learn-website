@@ -7,7 +7,7 @@ s.waitForBoot{
         var results = Dictionary.new;
 
         // In the language iterate over all the files in the example audio files directory
-        audioFiles.filesDo({
+        audioFiles.files.do({
             arg file; // Individual file paths are now this variable
             if ((file.extension == "wav"), { // Only process wav files
                 var src = Buffer.read(s, file.fullPath.asString); // Create a buffer with the source audio in a buffer called "src"
