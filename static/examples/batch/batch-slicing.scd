@@ -1,6 +1,6 @@
+// Refer to https://learn.flucoma.org/overviews/batch-processing
 (
 s.waitForBoot{
-
 	Task{
 		var drum = Buffer.read(s,File.realpath(FluidDataSet.class.filenameSymbol).dirname.withTrailingSlash ++ "../AudioFiles/Nicol-LoopE-M.wav");
 		var slices = Buffer(s); // FluidBufAmpSlice will write into this buffer the samples at which slices are detected.
