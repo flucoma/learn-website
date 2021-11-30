@@ -36,7 +36,7 @@ Let's think about the same workflow in Max and PureData (we'll come to SuperColl
 
 ## A Foundation
 
-Without even addressing FluCoMa objects directly, it is pertinent to remind ourselves of what forms batch processing already exists in Max, PD and SC.
+Without even addressing FluCoMa objects directly, it is relevant to remind ourselves of what forms batch processing already exists in Max, PD and SC.
 
 Let's first take a look at the humble Max list and how it is useful. We'll start by making a small patch that adds two numbers together. 
 
@@ -45,23 +45,21 @@ src='/examples/batch/add.png'
 alt='A small patch to add two numbers together'
 />
 
-This is fine. However, it is limited to adding two singular values together. If we want to use it to add two collections of numbers together, we would have to stream the values of two lists into the inlets, get the result and construct it back into a list. 
+This is fine. However, it is limited to adding two singular values together. If we want to use it to add two collections of numbers together, we would have to stream the values of two lists into the inlets, get the result and construct it back into a list. Another approach would be to copy this bit of patch multiple times and serve each copy with two single values.
 
 <Image
 src='/examples/batch/add-streams.png'
 alt='Adding two lists together in Max using streams'
 />
 
-We can avoid these kinds of workflows by instead using objects that deal with collections of items in a list resulting in a simpler workflow.
+We can avoid these kinds of workflows by instead using objects that deal with collections of items in a list natively.
 
 <Image
 src='/examples/batch/add-list.png'
 alt='Using vexpr to add two lists together'
 />
 
-The complexity of the patching hasn't increased greatly, and by replacing `+` with `vexpr` (vector expression), we can process entire lists of values. The patch will also still work with single value inputs (scalars) making it much more flexible than what we had originally. While the patching itself is not too complicated, knowing about the existence of these objects and how they work is not greatly emphasised in the way visual programming is taught wich is often concerned entirely with _streams_ of scalar values. 
-
-While this is just a toy example, it demonstrates that the notion of processing groups of things together is not the **first** and **most obvious** way to patch. SC has the benefit of being built on the SuperCollider language which offers a number of ways to deal with arrays of data already that are both efficient and sleek to use. Logical operators also are _overloaded_ in many cases, meaning the interface for adding two integers is roughly the same as adding two arrays of integers. For example:
+The complexity of the patching hasn't increased greatly, and by replacing `+` with `vexpr` (vector expression), we can process entire lists of values. The patch will also still work with single value inputs (scalars) making it much more flexible than what we had originally. While the patching itself is not too complicated, knowing about the existence of these objects and how they work is not greatly emphasised in the way visual programming is taught wich is often concerned entirely with _streams_ of scalar values. Furthermore, while this is just a toy example, it demonstrates that the notion of processing groups of things together is not the **first** and **most obvious** way to patch. SC has the benefit of being built on the SuperCollider language which offers a number of ways to deal with arrays of data already that are both efficient and sleek to use. Logical operators also are _overloaded_ in many cases, meaning the interface for adding two integers is roughly the same as adding two arrays of integers. For example:
 
 <CodeBlock>
 
@@ -85,7 +83,7 @@ x = [10, 20, 30, 40];
 
 ## Batch Processing
 
-So how do we approach batch processing with the FluCoMa objects? No doubt, there will be times where having to work with lots of data, or numerous slices or several decompositions will frustrate you to no end. The next section will demonstrate a number of ways in which batch processing can be implemented in Max, SC and PD and attempt to smooth over some of those rough edges by showing how our interfaces interlock with the existing ones in your environment of choice. The explanation of particular objects and processes will be _in_ the patches and scripts themselves.
+So how do we approach batch processing with the FluCoMa objects? No doubt, there will be scenarios where working with bundles of data, numerous slices or several audio files can be frustrating and hard to structure in the code. The next section will demonstrate a number of ways in which batch processing can be implemented in Max, SC and PD and attempt to show how our interfacescan interlock with the existing ones in your environment of choice. The explanation of particular objects and processes will be _in_ the patches and scripts themselves.
 
 ### Analysis of Segments
 
@@ -108,7 +106,9 @@ So how do we approach batch processing with the FluCoMa objects? No doubt, there
 </TabPanel> 
 </Tabs>
 
-The workflow is as follows:
+In this example a single audio file is sliced into a collection of segments. Each segment will be analysed with an audio descriptor and the result for that segment will be stored in a [FluidDataSet](/reference/dataset).The problem illustrated in this patch is how we can iterate through several portions of the source buffer and use the segmentation result to control a process that only analyses specific portions of time in the source file.
+
+The step-by-step workflow is as follows:
 
 1. Segment a sound into small chunks.
 2. Analyse each chunk using an audio descriptor.
