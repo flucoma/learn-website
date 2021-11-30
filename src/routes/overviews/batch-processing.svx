@@ -89,13 +89,6 @@ So how do we approach batch processing with the FluCoMa objects? No doubt, there
 
 ### Analysis of Segments
 
-The workflow is as follows:
-
-1. Segment a sound into small chunks.
-2. Analyse each chunk using an audio descriptor.
-3. Calculate the average of that audio descriptor for each chunk.
-4. Store the average for each chunk in a [FluidDataSet](/reference/dataset).
-
 <Tabs>
 <TabList>
     <Tab>Max</Tab>
@@ -115,13 +108,14 @@ The workflow is as follows:
 </TabPanel> 
 </Tabs>
 
-### Decomposing Multiple Files
-
 The workflow is as follows:
 
-1. Create a corpus of multiple audio files
-2. Decompose each audio file into harmonic and percussive complnents using [FluidHPSS](/reference/hpss).
-3. Store the results in some sort of _container_. This will depend on the CCE.
+1. Segment a sound into small chunks.
+2. Analyse each chunk using an audio descriptor.
+3. Calculate the average of that audio descriptor for each chunk.
+4. Store the average for each chunk in a [FluidDataSet](/reference/dataset).
+
+### Decomposing Multiple Files
 
 <Tabs>
 <TabList>
@@ -142,8 +136,13 @@ The workflow is as follows:
 </TabPanel> 
 </Tabs>
 
+The workflow is as follows:
+
+1. Create a corpus of multiple audio files
+2. Decompose each audio file into harmonic and percussive complnents using [FluidHPSS](/reference/hpss).
+3. Store the results in some sort of _container_. This will depend on the CCE.
+
 ### Non-Blocking Processing
-In the two examples above you may have noticed that whenever batch processing is started it seems to _freeze_ or _hang_ Max and PD. SuperCollider doesn't suffer the exact same issue because by default SuperCollider is _non-blocking_ and uses the Max equivalent of `@blocking 0` or PD's `-blocking 0`. The language will continue to function and you can send more processes to the server after triggering a batch process. In fact in the previous two examples we we're batch processing in a non-blocking way as a result of nesting these calls inside `Routine` and using the `.wait` function await their completion. As such, there is no SC example for this particular scenario.
 
 <Tabs>
 <TabList>
@@ -158,6 +157,10 @@ In the two examples above you may have noticed that whenever batch processing is
 <a href='/examples/batch/batch-decomposition-threads.pd' download>Download Patch</a>
 </TabPanel> 
 </Tabs>
+
+In the two examples above you may have noticed that whenever batch processing is started it seems to _freeze_ or _hang_ Max and PD. SuperCollider doesn't suffer the exact same issue because by default SuperCollider is _non-blocking_ and uses the Max equivalent of `@blocking 0` or PD's `-blocking 0`. The language will continue to function and you can send more processes to the server after triggering a batch process. In fact in the previous two examples we we're batch processing in a non-blocking way as a result of nesting these calls inside `Routine` and using the `.wait` function await their completion. As such, there is no SC example for this particular scenario.
+
+
 
 
 
