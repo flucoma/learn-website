@@ -29,17 +29,17 @@ s.waitForBoot{
                         FluidBufCompose.process(s, source:h, destination:result, destStartChan:0);
                         FluidBufCompose.process(s, source:p, destination:result, destStartChan:1);
                         /*
-                        FluidBufHPSS
-                        |
-                        |
-                        ––––––––––––––––––––––
-                        |                    |
+                                    FluidBufHPSS
+                                         |
+                                         |
+                               ––––––––––––––––––––––
+                               |                    |
                         FluidBufCompose (1)  FluidBufCompose (2)
-                        |                    |
-                        ––––––––––––––––––––––
-                        |
-                        |
-                        s.sync
+                               |                    |
+                               ––––––––––––––––––––––
+                                         |
+                                         |
+                                       s.sync
                         */
 
                         // Then we sync the server so that the the result of both FluidBufCompose's is awaited on.
