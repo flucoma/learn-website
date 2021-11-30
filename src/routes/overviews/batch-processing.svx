@@ -106,7 +106,7 @@ So how do we approach batch processing with the FluCoMa objects? No doubt, there
 </TabPanel> 
 </Tabs>
 
-In this example a single audio file is sliced into a collection of segments. Each segment will be analysed with an audio descriptor and the result for that segment will be stored in a [FluidDataSet](/reference/dataset).The problem illustrated in this patch is how we can iterate through several portions of the source buffer and use the segmentation result to control a process that only analyses specific portions of time in the source file.
+In this example a single audio file is sliced into a collection of segments. Each segment will be analysed with an audio descriptor and the result for that segment will be stored in a [FluidDataSet](/reference/dataset).The example illustrates how one can iterate through several portions of the source buffer and use the segmentation result to control a process that only analyses specific portions of time in the source file.
 
 The step-by-step workflow is as follows:
 
@@ -136,7 +136,9 @@ The step-by-step workflow is as follows:
 </TabPanel> 
 </Tabs>
 
-The workflow is as follows:
+In this example a collection of audio files are processed as a batch using the [FluidHPSS](/reference/hpss) algorithm. Each decomposition is stored in a CCE specific container so that the results can be accessed later for audition or storage on disk. The example illustrates how a corpus might be processed as a whole in an automated way.
+
+The step-by-step workflow is as follows:
 
 1. Create a corpus of multiple audio files
 2. Decompose each audio file into harmonic and percussive complnents using [FluidHPSS](/reference/hpss).
@@ -150,7 +152,8 @@ The workflow is as follows:
     <Tab>PureData</Tab>
 </TabList>
 <TabPanel> <!-- Max -->
-<a href='/examples/batch/batch-decomposition-threads.maxpat' download>Download Patch</a>
+<a href='/examples/batch/batch-slicing-threads.maxpat' download>Download Asyncrhonous Segment Analysis Patch</a>
+<a href='/examples/batch/batch-decomposition-threads.maxpat' download>Download Asyncrhonous Decomposition Patch</a>
 </TabPanel>
 
 <TabPanel> <!-- Pure Data -->
@@ -158,7 +161,13 @@ The workflow is as follows:
 </TabPanel> 
 </Tabs>
 
-In the two examples above you may have noticed that whenever batch processing is started it seems to _freeze_ or _hang_ Max and PD. SuperCollider doesn't suffer the exact same issue because by default SuperCollider is _non-blocking_ and uses the Max equivalent of `@blocking 0` or PD's `-blocking 0`. The language will continue to function and you can send more processes to the server after triggering a batch process. In fact in the previous two examples we we're batch processing in a non-blocking way as a result of nesting these calls inside `Routine` and using the `.wait` function await their completion. As such, there is no SC example for this particular scenario.
+In the two examples above you may have noticed that whenever batch processing is started it seems to _freeze_ or _hang_ Max and PD. SuperCollider doesn't suffer the exact same issue because the language will continue to function even while the server is processing. However, the process that is executed is ultimately synchronous and working serially. Instead of always working syncrhonously FluCoMa objects can work in non-realtime individuated threads. This is sometimes referred to as _asynchronous_ or _non-blocking_ programming.
+
+The benefit of making one's code asynchronous is that processes can be triggered and left to complete while other processes go on. This is a massive boon in a number of scenarios, albeit at the introduction of complexity in how we might expect analysis, decomposition and processes to start, finish and interact with each other.
+
+The examples above illustrate how using `process()` and `wait` in SuperCollider and `@blocking 0` and `-blocking 0` in PD can allow us to trigger processes and _await_ the results of those processes.
+
+
 
 
 
