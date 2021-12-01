@@ -6,10 +6,16 @@ s.waitForBoot({
     // Create a dictionary that will contain the resulting buffer, associated to a string which represents the original source file
     var results = Dictionary.new;
 
-    var condition = Condition();
+    // Create a condition that hangs while processing is still happening and unhangs when its complete.
+    var processingCompleted = Condition();
+
+    // Maintain a counter for the number of files processed.
+    // This will be use to determine when all of the files are finished working.
     var counter = 0;
+
+    // Remove any files from the audioFiles collection so that only those with a .wav extension remain
     var wav = audioFiles.files.removeAllSuchThat({ |file| file.extension == "wav" });
-    wav.size.postln;
+
     // In the language iterate over all the files in the example audio files directory
     wav.do({ |file|
         fork ({
@@ -51,12 +57,12 @@ s.waitForBoot({
 
             counter = counter + 1;
             if (counter == wav.size, {
-                condition.unhang;
+                processingCompleted.unhang;
             });
         });
     });
 
-    condition.hang;
+    processingCompleted.hang;
 
     "\nProcessing complete\n".postln;
 
