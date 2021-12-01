@@ -83,16 +83,25 @@
 </script>
 
 <div class="container">
+    <Button 
+    on:click={ () => { fit = true } }
+    disabled={ fit }
+    label={ fit ? 'Already Fitted' : 'Fit' }
+    width='100%' />
     <canvas id='sketch' bind:this={ canvas } />
 </div>
 
 <div class="controls">
-    <Button on:click={ () => fit = true } label='Fit' />
     <Slider bind:value={numNeighbours} min={1} max={50} title='Number of Neighbours' step={1} />
     <Slider bind:value={radius} min={0.0} max={1.0} title='Radius' step={0.01} />
 </div>
 
 <style>
+    .container {
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+    }
     #sketch {
         width: 100%;
         display: inline-block;
@@ -101,6 +110,7 @@
     .controls {
         display: flex;
         flex-direction: row;
+        justify-content: center;
         gap: 1em;
     }
 </style>
