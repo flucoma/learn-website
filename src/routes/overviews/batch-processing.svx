@@ -176,7 +176,7 @@ The step-by-step workflow is as follows:
 
 In the two examples above you may have noticed that whenever batch processing is started it seems to _freeze_ or _hang_ Max and PD. SuperCollider doesn't suffer the exact same issue because the language will continue to function even while the server is processing. However, the process that is executed is ultimately synchronous and working serially. Instead of always working syncrhonously FluCoMa objects can work in non-realtime individuated threads. This is sometimes referred to as _asynchronous_ or _non-blocking_ programming.
 
-The benefit of making one's code asynchronous is that processes can be triggered and left to complete while other processes go on. This is a massive boon in a number of scenarios, albeit at the introduction of complexity in how we might expect analysis, decomposition and processes to start, finish and interact with each other.
+The benefit of making one's code asynchronous is that processes can be triggered and won't block or be blocked by something else. This is a massive boon in a number of scenarios, albeit at the introduction of complexity in how we might expect analysis, decomposition and processes to start, finish and interact with each other.
 
 The examples above illustrate how using `process()` and `wait` in SuperCollider and `@blocking 0` and `-blocking 0` in PD can allow us to trigger processes and _await_ the results of those processes.
 
