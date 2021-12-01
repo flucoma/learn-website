@@ -1,15 +1,23 @@
 <script lang='ts'>
 	import { createEventDispatcher } from 'svelte';
 	export let label: string = 'button';
-
+	export let width: string = '100px';
+	export let disabled: boolean = false;
 	const dispatch = createEventDispatcher();
 
 	function doStuff() {
 		dispatch('click');
 	}
+
 </script>
 
-<button class="btn" on:click={doStuff}>
+<button
+style={`width: ${width}`}
+class:disabled={disabled}
+class="btn" 
+on:click={doStuff}
+disabled={disabled}
+>
 	{label}
 </button>
 
@@ -19,7 +27,6 @@
 		border: 1px outset $light-blue;
 		background-color: $light-blue;
 		color: white;
-		width: 100px;
 		height: 38px;
 		cursor: pointer;
 		transition: box-shadow 0.1s;
@@ -33,4 +40,10 @@
 	.btn:hover {
 		box-shadow: 0 0 11px rgba(33, 33, 33, 0.2);
 	}
+
+	.disabled, .disabled:active, .disabled:hover {
+		background-color: grey;
+		border: grey;
+	}
+
 </style>
