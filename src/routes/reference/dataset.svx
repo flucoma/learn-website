@@ -4,6 +4,30 @@ blurb: An associative data container
 tags: 
     - utlity
     - data
+related:
+    - labelset
 ---
+
+<script>
+    import DataSet from '$lib/widget/DataSet.svelte';
+</script>
+
+The [DataSet](/reference/dataset) is an important object in the second FluCoMa toolbox. Whenever there is a need to create a collection of data (such as for input to a machine learning process), or to make a provision for some output, [DataSet](/reference/dataset) is the tool that you'll want to reach for. 
+
+The [DataSet](/reference/dataset) starts out empty and we add any number of _points_ to it. A point is made up of two bits of information: an _identifier_ and some _data_. The _data_ is any number of numerical bits of information stored in a buffer. The _identifier_ is a string or symbol which is _associated_ to the _data_. If you have used the `coll`, `dict`, `text` or `Dictionary` objects in your environment of choice you will already be familiar with this idea of storing data associatively. If you're not, you can think of it like a filing system. The identifier gives us a human-readable bit of information which we can use to look up the data that it is attached to.
+
+<!-- <DataSet /> -->
+
+## Some Caveats to Remember
+
+1. For each point, the data needs to be uniformly sized. In other words, if the first point you add to a [DataSet](/reference/dataset) dictates how many numbers each point's data can should have. If you added a point that had 10 numbers in the data, and then tried to add a new point with 3 numbers in the data it wouldn't work.
+
+2. Identifiers are unique. You cannot have the same identifier twice in a single [DataSet](/reference/dataset).
+
+3. When data is transformed and passed between many instances of FluCoMa objects, the identifiers are preserved meaning one can backtrack results from the end to the beginning of a processing pipeline.
+
+## Usage
+
+The help files in each environment are the best place to see the most common usage of the [DataSet](/reference/dataset) including adding, updating and deleting points.
 
 
