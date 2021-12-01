@@ -1,7 +1,7 @@
 // Refer to https://learn.flucoma.org/overviews/batch-processing
 (
-s.waitForBoot{
-    Task{
+s.waitForBoot({
+    fork({
         var drum = Buffer.read(s,File.realpath(FluidDataSet.class.filenameSymbol).dirname.withTrailingSlash ++ "../AudioFiles/Nicol-LoopE-M.wav");
         var slices = Buffer(s); // The slicer (FluidBufOnsetSlice) will write into this buffer the samples at which slices are detected
         var sliceAnalysis = Buffer(s); // A Buffer() for writing the analysis from FluidSpectralShape into
@@ -12,14 +12,13 @@ s.waitForBoot{
         var data = FluidDataSet(s); // A FluidDataSet() for storing the analysis of each slice (mean centroid)
         s.sync;
 
-        FluidBufOnsetSlice.process(s, drum, indices:slices, metric:9,threshold:0.5).wait;
         // Slice the drum Buffer() based on consecutive changes in spectral frames
         // The samples at which slices are detected will be written into the "slices" Buffer()
+        FluidBufOnsetSlice.process(s, drum, indices:slices, metric:9,threshold:0.5).wait;
 
-        slices.loadToFloatArray(action:{ // bring the values in the slices buffer from the server to the language as a float array
-            arg slices_arr;
-            slices_arr.postln;
-            slices_arr.doAdjacentPairs{
+        slices.loadToFloatArray(action:{ |slicesArr| // bring the values in the slices buffer from the server to the language as a float array
+            slicesArr.postln;
+            slicesArr.doAdjacentPairs({ |start, end, slice_index|
                 /*
                 Take each of the adjacent pairs and pass them to this function as an array of 2 values
 
@@ -32,7 +31,6 @@ s.waitForBoot{
                 This will give us the left and right boundary of each segment
                 We can use this to inform the analysis (FluidBufSpectralShape) where to start analysing and how many frames to analyse
                 */
-                arg start, end, slice_index;
                 var numsamps = end-start; // The next slice point minus the current one will determine how many frames to analyse.
 
                 slice_index.postln; // Post which slice index we're currently working on
@@ -60,12 +58,11 @@ s.waitForBoot{
                 // Now that we have a 1x1 Buffer() holding the mean centroid for that segment we can add it to the FluidDataSet.
                 data.addPoint(slice_index, sliceMean);
 
-
                 // After all this analysis we sync the server before iterating to the next item.
                 s.sync;
-            };
+            });
         });
         data.print;
-    }.play(AppClock);
-}
+    });
+})
 )
