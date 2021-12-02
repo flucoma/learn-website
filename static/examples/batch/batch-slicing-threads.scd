@@ -79,6 +79,10 @@ s.waitForBoot({
                     processingCompleted.unhang;
                 });
 
+                // Free buffers
+                src.free; sliceAnalysis.free; sliceCentroid.free; sliceStats.free; sliceMean.free;
+
+                // Signal to the Semaphore that this worker is done.
                 pool.signal;
             });
         });
