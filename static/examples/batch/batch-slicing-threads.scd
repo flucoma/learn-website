@@ -8,13 +8,13 @@ s.waitForBoot({
     // Create a condition that hangs while processing is still happening and unhangs when its complete.
     var processingCompleted = Condition();
 
-    // Create a Semaphore that allows 4 consecutive jobs
+    // Create a Semaphore that allows 4 concurrent jobs, and will manage a queue of waiting jobs for us.
     var pool = Semaphore(4);
 
     // Slice the drum Buffer() based on consecutive changes in spectral frames
     // The samples at which slices are detected will be written into the "slices" Buffer()
+    // note that we call wait(), as a convinience to block until the slicing has completed
     FluidBufOnsetSlice.process(s, drum, indices:slices, metric:9,threshold:0.5).wait;
-    s.sync;
 
     slices.loadToFloatArray(action:{ |slicesArr| // Bring the values in the slices buffer from the server to the language as a float array
         slicesArr.postln;
@@ -33,7 +33,7 @@ s.waitForBoot({
             */
             fork ({
                 var sliceAnalysis, sliceCentroid, sliceStats, sliceMean, numSamps;
-                pool.wait; // We tell the Semaphore that this work is now using up one of the pool workers.
+                pool.wait; // We ask the semaphore if we can proceed (i.e. < 4 jobs currently processing) It will block until we are able to go
                 sliceAnalysis = Buffer(s); // A Buffer() for writing the analysis from FluidSpectralShape into
                 sliceCentroid = Buffer(s); // A Buffer() for extracting the centroid into
                 sliceStats = Buffer(s, 7); // A Buffer() for writing the statistical analyses of the centroid into
@@ -50,40 +50,36 @@ s.waitForBoot({
                     FluidBufStats.process(s, source:sliceAnalysis, stats:sliceStats, numChans:1, action:{
                         // Select only the first value from the 7 statistics.
                         // Put that value into a 1 channel by 1 sample buffer.
-                        FluidBufSelect.process(s, source:sliceStats, destination:sliceMean, indices:0, action:{
+                        FluidBufSelect.process(s, source:sliceStats, destination:sliceMean, indices:0,action:{
                             // Now that we have a 1x1 Buffer() holding the mean centroid for that segment we can add it to the FluidDataSet.
-                            data.addPoint(sliceIndex, sliceMean, action:{
-                                /*
-                                Check how many items are in the DataSet.
-                                If there are the same number of items in the DataSet as there are items we wanted to process unhang the Condition()
-                                */
-                                data.size(action:{ |size|
-                                    if (size == (slicesArr.size-1), { processingCompleted.unhang });
+                            data.addPoint(sliceIndex, sliceMean);
+                            // Free buffers
+                            sliceAnalysis.free; sliceCentroid.free; sliceStats.free; sliceMean.free;
 
-                                    // The segments will be started in order but they won't necessarily finish in order.
-                                    // Theoretically, the shortest (fastest to process) will return sooner and so the order should be jumbled in the console.
-                                    // The slices which are started have an advantage however.
-                                    ("Finished Processing Slice Index:"+sliceIndex.asString).postln;
+                            // The segments will be started in order but they won't necessarily finish in order.
+                            // Theoretically, the shortest (fastest to process) will return sooner and so the order should be jumbled in the console.
+                            // The slices which are started have an advantage, however.
+                            ("Finished Processing Slice Index:"+sliceIndex.asString).postln;
 
-                                    // Free buffers
-                                    sliceAnalysis.free; sliceCentroid.free; sliceStats.free; sliceMean.free;
-
-                                    // Signal to the Semaphore that this worker is done.
-                                    pool.signal;
-                                });
+                            // Check how many items are in the DataSet.
+                            // If there are the same number of items in the DataSet as there are items we wanted to process unhang the Condition
+                            data.size(action:{ |size|
+                                if (size == (slicesArr.size-1)) { processingCompleted.unhang }
                             });
-                        });
-                    });
+
+                            // Tell the pool that we are finished
+                            pool.signal;
+                        })
+                    })
                 });
             });
         });
     });
-    /*
-    The code inside the fork executes immediately in a non-blocking way.
-    At this point FluCoMa will be processing all of the slices in a batch.
-    The interpreter then moves to processingCompleted.hang which will stall until processingCompleted.unhang is called.
-    When the last item in the fork is processed this is called (see line 69).
-    */
+
+    // The code inside the fork executes immediately after slices.loadToFloatArray (which is non-blocking)
+    // At this point FluCoMa will be processing all of the slices in a batch.
+    // The interpreter then moves to processingCompleted.hang which will stall until processingCompleted.unhang is called.
+    // When the last item in the fork is processed this is called (see line 69).
     processingCompleted.hang;
 
     "\nProcessing complete\n".postln;
