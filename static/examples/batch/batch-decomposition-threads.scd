@@ -38,44 +38,33 @@ s.waitForBoot({
 
             ("Processing:"+file.fileName.asString).postln;
             // Do the HPSS processing. Only process the first channel to simplify things when we process a stereo file.
-            // We call the processBlocking method in order to do synchronous calls that will happen in a deterministic order.
-            // Later on you will see the process method being used to do asynchronous calls between the language and server.
             FluidBufHPSS.process(s, source:src, harmonic:h, percussive:p, numChans:1).wait;
-            // These two process() calls can happen together in their own threads because they don't depend on each other.
-            FluidBufCompose.process(s, source:h, destination:result, destStartChan:0);
-            FluidBufCompose.process(s, source:p, destination:result, destStartChan:1);
 
-            // Then we sync the server so that the the result of both FluidBufCompose's is awaited on.
-            s.sync; ("Finished"+file.fileName.asString).postln;
-            pool.signal; // We the notify the Semaphore that this worker from the pool is done and can be used for someting else.Bra
-
-            /*
-                                    FluidBufHPSS
-                                         |
-                                         |
-                               ––––––––––––––––––––––
-                               |                    |
-                        FluidBufCompose (1)  FluidBufCompose (2)
-                               |                    |
-                               ––––––––––––––––––––––
-                                         |
-                                         |
-                                       s.sync
-            */
+            // Copy the harmonic component (h) to channel 0 of result
+            FluidBufCompose.process(s, source:h, destination:result, destStartChan:0).wait;
+            FluidBufCompose.process(s, source:p, destination:result, destStartChan:1).wait;
+            ("Finished"+file.fileName.asString).postln;
 
             // Associate the source file name (as a symbol) to the 2-channel result buffer.
             results.add(file.fileName.asSymbol -> result);
 
-            counter = counter + 1;
-            if (counter == wav.size, {
+            // When the number of keys in the Dictionary is equal to the number of files we processed we know that we are completely finished.
+            if (results.keys.size == wav.size, {
                 processingCompleted.unhang;
             });
-            pool.signal; // We the notify the Semaphore that this worker from the pool is done and can be used for someting else.Bra
+
+            // Free buffers
+            src.free; h.free; p.free;
+
+            // We the notify the Semaphore that this worker from the pool is done and can be used for someting else.
+            pool.signal;
         });
     });
 
+    // Once the language has triggered a number of threads and processes the script will hang here until we unhang it elsewhere.
     processingCompleted.hang;
 
+    // Get the time at the end of processing
     t = SystemClock.seconds - t;
 
     ("\nProcessing complete in" + t.asString + "seconds\n").postln;
