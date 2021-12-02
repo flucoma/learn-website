@@ -1,14 +1,13 @@
 (
-s.waitForBoot{
-    Task{
+s.waitForBoot({
+    fork({
         // Store the location of the FluCoMa audio files in the audioFiles variable
         var audioFiles= PathName(File.realpath(FluidDataSet.class.filenameSymbol).dirname.withTrailingSlash ++ "../AudioFiles/");
         // Create a dictionary that will contain the resulting buffer, associated to a string which represents the original source file
         var results = Dictionary.new;
 
         // In the language iterate over all the files in the example audio files directory
-        audioFiles.files.do({
-            arg file; // Individual file paths are now this variable
+        audioFiles.files.do({ |file| // Individual file paths are now this variable
             if ((file.extension == "wav"), { // Only process wav files
                 var src = Buffer.read(s, file.fullPath.asString); // Create a buffer with the source audio in a buffer called "src"
                 // Create two buffers, h and p for the harmonic and percussive outputs respectively
@@ -33,10 +32,9 @@ s.waitForBoot{
             });
         });
         // This is the entire dictionary of results.
-        results.keys.do({
-           arg key;
+        results.keys.do({ |key|
             (key++": "++results[key].asString).postln;
         });
-    }.play(AppClock);
-}
+    });
+});
 )
