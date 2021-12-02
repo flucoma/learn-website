@@ -18,7 +18,7 @@ s.waitForBoot({
 
         slices.loadToFloatArray(action:{ |slicesArr| // bring the values in the slices buffer from the server to the language as a float array
             slicesArr.postln;
-            slicesArr.doAdjacentPairs({ |start, end, slice_index|
+            slicesArr.doAdjacentPairs({ |start, end, sliceIndex|
                 /*
                 Take each of the adjacent pairs and pass them to this function as an array of 2 values
 
@@ -33,7 +33,7 @@ s.waitForBoot({
                 */
                 var numSamps = end-start; // The next slice point minus the current one will determine how many frames to analyse.
 
-                slice_index.postln; // Post which slice index we're currently working on
+                sliceIndex.postln; // Post which slice index we're currently working on
 
                 // Using .processBlocking we control the flow of analysis as it is extracted and further analysed.
                 // Analyse the drum buffer starting at `start` and for a number of samples equal to `numsamps`
@@ -56,13 +56,16 @@ s.waitForBoot({
                 FluidBufSelect.processBlocking(s, source:sliceStats, destination:sliceMean, indices:0);
 
                 // Now that we have a 1x1 Buffer() holding the mean centroid for that segment we can add it to the FluidDataSet.
-                data.addPoint(slice_index, sliceMean);
+                data.addPoint(sliceIndex, sliceMean);
 
                 // After all this analysis we sync the server before iterating to the next item.
                 s.sync;
             });
         });
         data.print;
+
+        // Free buffers
+        drum.free; slices.free; sliceAnalysis.free; sliceCentroid.free; sliceStats.free; sliceMean.free;
     });
 })
 )
