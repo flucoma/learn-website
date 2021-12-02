@@ -33,39 +33,39 @@ s.waitForBoot({
                 */
                 var numSamps = end-start; // The next slice point minus the current one will determine how many frames to analyse.
 
-                sliceIndex.postln; // Post which slice index we're currently working on
-
-                // Using .processBlocking we control the flow of analysis as it is extracted and further analysed.
-                // Analyse the drum buffer starting at `start` and for a number of samples equal to `numsamps`
                 /*
+                Using .processBlocking we control the flow of analysis as it is extracted and further analysed.
+                Analyse the drum buffer starting at `start` and for a number of samples equal to `numsamps`
                 This returns a buffer (sliceAnalysis) that is 7 channels wide (for the 7 spectral analyses) and
                 however many frames long as there are fft frames in the slice.
                 */
-                FluidBufSpectralShape.processBlocking(s, source:drum, startFrame:start, numFrames:numSamps, features:sliceAnalysis);
 
+                sliceIndex.postln; // Post which slice index we're currently working on
 
-                // We extract only the first channel of the 7 channels (the centroid) and put it into a Buffer() named sliceCentroid
-                FluidBufSelect.processBlocking(s, source:sliceAnalysis, destination:sliceCentroid, channels:0);
-
-                // Then calculate the statistical analyses of the centroid for each segment.
-                // This will return write the output into a new Buffer() called sliceStats that will be 1 channel and 7 frames in size.
-                FluidBufStats.processBlocking(s, source:sliceCentroid, stats:sliceStats);
-
-                // Then extract only the first frame from the 7 frames and write it into a Buffer() called sliceMean.
-                // This isolates a singular value, the average spectral centroid for the segment.
-                FluidBufSelect.processBlocking(s, source:sliceStats, destination:sliceMean, indices:0);
-
-                // Now that we have a 1x1 Buffer() holding the mean centroid for that segment we can add it to the FluidDataSet.
-                data.addPoint(sliceIndex, sliceMean);
-
-                // After all this analysis we sync the server before iterating to the next item.
+                // Calculate the spectral shape descriptor for the segment.
+                // This produces a 7 channel buffer with as many samples as there are analysis windows.
+                // Each channel is a different spectral descriptor (see the help file).
+                FluidBufSpectralShape.processBlocking(s, source:drum, features:sliceAnalysis, startFrame:start, numFrames:numSamps, action:{
+                    // Calculate the stats on only the first channel (spectral centroid).
+                    FluidBufStats.processBlocking(s, source:sliceAnalysis, stats:sliceStats, numChans:1, action:{
+                        // Select only the first value from the 7 statistics.
+                        // Put that value into a 1 channel by 1 sample buffer.
+                        FluidBufSelect.processBlocking(s, source:sliceStats, destination:sliceMean, indices:0, action:{
+                            // Add the contents of the sliceMean buffer to the DataSet with an identifier which is the slice index.
+                            data.addPoint(sliceIndex, sliceMean);
+                        });
+                    });
+                });
                 s.sync;
             });
         });
-        data.print;
+        s.sync;
 
         // Free buffers
-        drum.free; slices.free; sliceAnalysis.free; sliceCentroid.free; sliceStats.free; sliceMean.free;
+        sliceAnalysis.free; sliceCentroid.free; sliceStats.free; sliceMean.free;
+
+        // Print the contents of the DataSet
+        data.print;
     });
-})
+});
 )
