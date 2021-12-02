@@ -10,11 +10,11 @@ s.waitForBoot({
         var sliceMean = Buffer(s, 1); // A Buffer() for extracting just the mean from the 7 statistical analyses.
 
         var data = FluidDataSet(s); // A FluidDataSet() for storing the analysis of each slice (mean centroid)
-        s.sync;
 
         // Slice the drum Buffer() based on consecutive changes in spectral frames
         // The samples at which slices are detected will be written into the "slices" Buffer()
-        FluidBufOnsetSlice.process(s, drum, indices:slices, metric:9,threshold:0.5).wait;
+        FluidBufOnsetSlice.processBlocking(s, drum, indices:slices, metric:9,threshold:0.5);
+        s.sync;
 
         slices.loadToFloatArray(action:{ |slicesArr| // bring the values in the slices buffer from the server to the language as a float array
             slicesArr.postln;
@@ -31,7 +31,7 @@ s.waitForBoot({
                 This will give us the left and right boundary of each segment
                 We can use this to inform the analysis (FluidBufSpectralShape) where to start analysing and how many frames to analyse
                 */
-                var numsamps = end-start; // The next slice point minus the current one will determine how many frames to analyse.
+                var numSamps = end-start; // The next slice point minus the current one will determine how many frames to analyse.
 
                 slice_index.postln; // Post which slice index we're currently working on
 
@@ -41,7 +41,7 @@ s.waitForBoot({
                 This returns a buffer (sliceAnalysis) that is 7 channels wide (for the 7 spectral analyses) and
                 however many frames long as there are fft frames in the slice.
                 */
-                FluidBufSpectralShape.processBlocking(s, source:drum, startFrame:start, numFrames:numsamps, features:sliceAnalysis);
+                FluidBufSpectralShape.processBlocking(s, source:drum, startFrame:start, numFrames:numSamps, features:sliceAnalysis);
 
 
                 // We extract only the first channel of the 7 channels (the centroid) and put it into a Buffer() named sliceCentroid
