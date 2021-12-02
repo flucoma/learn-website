@@ -17,8 +17,6 @@ s.waitForBoot({
     s.sync;
 
     slices.loadToFloatArray(action:{ |slicesArr| // Bring the values in the slices buffer from the server to the language as a float array
-        // Keep track of how many slices have been processing with a counter.
-        var counter = 0;
         slicesArr.postln;
         slicesArr.doAdjacentPairs({ |start, end, sliceIndex|
             /*
@@ -33,7 +31,6 @@ s.waitForBoot({
             This will give us the left and right boundary of each segment
             We can use this to inform the analysis (FluidBufSpectralShape) where to start analysing and how many frames to analyse
             */
-
             fork ({
                 var sliceAnalysis, sliceCentroid, sliceStats, sliceMean, numSamps;
                 pool.wait; // We tell the Semaphore that this work is now using up one of the pool workers.
@@ -45,45 +42,39 @@ s.waitForBoot({
                 numSamps = end-start; // The next slice point minus the current one will determine how many frames to analyse.
 
                 // Analyse the drum buffer starting at `start` and for a number of samples equal to `numsamps`
-                /*
-                This returns a buffer (sliceAnalysis) that is 7 channels wide (for the 7 spectral analyses) and
-                however many frames long as there are fft frames in the slice.
-                */
-                FluidBufSpectralShape.process(s, source:drum, startFrame:start, numFrames:numSamps, features:sliceAnalysis).wait;
+                // Calculate the spectral shape descriptor for the segment.
+                // This produces a 7 channel buffer with as many samples as there are analysis windows.
+                // Each channel is a different spectral descriptor (see the help file).
+                FluidBufSpectralShape.process(s, source:drum, features:sliceAnalysis, startFrame:start, numFrames:numSamps, action:{
+                    // Calculate the stats on only the first channel (spectral centroid).
+                    FluidBufStats.process(s, source:sliceAnalysis, stats:sliceStats, numChans:1, action:{
+                        // Select only the first value from the 7 statistics.
+                        // Put that value into a 1 channel by 1 sample buffer.
+                        FluidBufSelect.process(s, source:sliceStats, destination:sliceMean, indices:0, action:{
+                            // Now that we have a 1x1 Buffer() holding the mean centroid for that segment we can add it to the FluidDataSet.
+                            data.addPoint(sliceIndex, sliceMean, action:{
+                                /*
+                                Check how many items are in the DataSet.
+                                If there are the same number of items in the DataSet as there are items we wanted to process unhang the Condition()
+                                */
+                                data.size(action:{ |size|
+                                    if (size == (slicesArr.size-1), { processingCompleted.unhang });
 
+                                    // The segments will be started in order but they won't necessarily finish in order.
+                                    // Theoretically, the shortest (fastest to process) will return sooner and so the order should be jumbled in the console.
+                                    // The slices which are started have an advantage however.
+                                    ("Finished Processing Slice Index:"+sliceIndex.asString).postln;
 
-                // We extract only the first channel of the 7 channels (the centroid) and put it into a Buffer() named sliceCentroid
-                FluidBufSelect.process(s, source:sliceAnalysis, destination:sliceCentroid, channels:0).wait;
+                                    // Free buffers
+                                    sliceAnalysis.free; sliceCentroid.free; sliceStats.free; sliceMean.free;
 
-                // Then calculate the statistical analyses of the centroid for each segment.
-                // This will return write the output into a new Buffer() called sliceStats that will be 1 channel and 7 frames in size.
-                FluidBufStats.process(s, source:sliceCentroid, stats:sliceStats).wait;
-
-                // Then extract only the first frame from the 7 frames and write it into a Buffer() called sliceMean.
-                // This isolates a singular value, the average spectral centroid for the segment.
-                FluidBufSelect.process(s, source:sliceStats, destination:sliceMean, indices:0).wait;
-
-                // Now that we have a 1x1 Buffer() holding the mean centroid for that segment we can add it to the FluidDataSet.
-                data.addPoint(sliceIndex, sliceMean);
-                s.sync;
-
-                // Everytime a slice is processed increment the counter.
-                counter = counter + 1;
-
-                // The segments will be started in order but they won't necessarily finish in order.
-                // Theoretically, the shortest (fastest to process) will return sooner and so the order should be jumbled in the console.
-                // The slices which are started have an advantage however.
-                ("Finished Processing Slice Index:"+sliceIndex.asString).postln;
-
-                if (counter == (slicesArr.size-1), {
-                    processingCompleted.unhang;
+                                    // Signal to the Semaphore that this worker is done.
+                                    pool.signal;
+                                });
+                            });
+                        });
+                    });
                 });
-
-                // Free buffers
-                src.free; sliceAnalysis.free; sliceCentroid.free; sliceStats.free; sliceMean.free;
-
-                // Signal to the Semaphore that this worker is done.
-                pool.signal;
             });
         });
     });
