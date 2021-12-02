@@ -4,7 +4,6 @@ node_modules
 /package
 static/structure.json
 static/pages.json
-scripts
 build
 static/tag.json
 
