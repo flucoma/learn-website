@@ -7,7 +7,6 @@ s.waitForBoot({
 
     // Create a condition that hangs while processing is still happening and unhangs when its complete.
     var processingCompleted = Condition();
-    var counter = 0; // Also keep track of how many slices we have processed.
 
     // Create a Semaphore that allows 4 consecutive jobs
     var pool = Semaphore(4);
@@ -18,6 +17,8 @@ s.waitForBoot({
     s.sync;
 
     slices.loadToFloatArray(action:{ |slicesArr| // Bring the values in the slices buffer from the server to the language as a float array
+        // Keep track of how many slices have been processing with a counter.
+        var counter = 0;
         slicesArr.postln;
         slicesArr.doAdjacentPairs({ |start, end, sliceIndex|
             /*
@@ -65,15 +66,19 @@ s.waitForBoot({
                 // Now that we have a 1x1 Buffer() holding the mean centroid for that segment we can add it to the FluidDataSet.
                 data.addPoint(sliceIndex, sliceMean);
                 s.sync;
+
+                // Everytime a slice is processed increment the counter.
                 counter = counter + 1;
 
                 // The segments will be started in order but they won't necessarily finish in order.
                 // Theoretically, the shortest (fastest to process) will return sooner and so the order should be jumbled in the console.
                 // The slices which are started have an advantage however.
-                ("Finished Processing Slice Index:"+sliceIndex).postln;
-                if (counter == (slicesArr.size-1) , {
+                ("Finished Processing Slice Index:"+sliceIndex.asString).postln;
+
+                if (counter == (slicesArr.size-1), {
                     processingCompleted.unhang;
                 });
+
                 pool.signal;
             });
         });
