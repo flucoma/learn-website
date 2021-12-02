@@ -21,8 +21,12 @@ s.waitForBoot({
     wav.do({ |file|
         fork ({
             var src, h, p, result;
-            pool.wait; // We tell the Semaphore above that we are going to be doing some work and one of the 4 workers needs to WAIT.
-            src = Buffer.read(s, file.fullPath.asString); // Create a buffer with the source audio in a buffer called "src"
+            pool.wait;
+            /*
+            This tells indicates to the Semaphore that we'd like to queue up this portion of the work with one of the workers.'
+            If 1 of the 4 workers are avaialble it will process, otherwise it'll have to wait till something is available.
+            */
+
             // Create two buffers, h and p for the harmonic and percussive outputs respectively
             h = Buffer.new(s);
             p = Buffer.new(s);
