@@ -9,10 +9,6 @@ s.waitForBoot({
     // Create a condition that hangs while processing is still happening and unhangs when its complete.
     var processingCompleted = Condition();
 
-    // Maintain a counter for the number of files processed.
-    // This will be use to determine when all of the files are finished working.
-    var counter = 0;
-
     // Remove any files from the audioFiles collection so that only those with a .wav extension remain
     var wav = audioFiles.files.select({ |file| file.extension == "wav" });
 
