@@ -8,11 +8,14 @@ s.waitForBoot({
     // Create a condition that hangs while processing is still happening and unhangs when its complete.
     var processingCompleted = Condition();
     var counter = 0; // Also keep track of how many slices we have processed.
-    s.sync;
+
+    // Create a Semaphore that allows 4 consecutive jobs
+    var pool = Semaphore(4);
 
     // Slice the drum Buffer() based on consecutive changes in spectral frames
     // The samples at which slices are detected will be written into the "slices" Buffer()
-    FluidBufOnsetSlice.processBlocking(s, drum, indices:slices, metric:9,threshold:0.5);
+    FluidBufOnsetSlice.process(s, drum, indices:slices, metric:9,threshold:0.5).wait;
+    s.sync;
 
     slices.loadToFloatArray(action:{ |slicesArr| // Bring the values in the slices buffer from the server to the language as a float array
         slicesArr.postln;
@@ -31,19 +34,21 @@ s.waitForBoot({
             */
 
             fork ({
-                var sliceAnalysis = Buffer(s); // A Buffer() for writing the analysis from FluidSpectralShape into
-                var sliceCentroid = Buffer(s); // A Buffer() for extracting the centroid into
-                var sliceStats = Buffer(s, 7); // A Buffer() for writing the statistical analyses of the centroid into
-                var sliceMean = Buffer(s, 1); // A Buffer() for extracting just the mean from the 7 statistical analyses.
+                var sliceAnalysis, sliceCentroid, sliceStats, sliceMean, numSamps;
+                pool.wait; // We tell the Semaphore that this work is now using up one of the pool workers.
+                sliceAnalysis = Buffer(s); // A Buffer() for writing the analysis from FluidSpectralShape into
+                sliceCentroid = Buffer(s); // A Buffer() for extracting the centroid into
+                sliceStats = Buffer(s, 7); // A Buffer() for writing the statistical analyses of the centroid into
+                sliceMean = Buffer(s, 1); // A Buffer() for extracting just the mean from the 7 statistical analyses.
 
-                var numsamps = end-start; // The next slice point minus the current one will determine how many frames to analyse.
+                numSamps = end-start; // The next slice point minus the current one will determine how many frames to analyse.
 
                 // Analyse the drum buffer starting at `start` and for a number of samples equal to `numsamps`
                 /*
                 This returns a buffer (sliceAnalysis) that is 7 channels wide (for the 7 spectral analyses) and
                 however many frames long as there are fft frames in the slice.
                 */
-                FluidBufSpectralShape.process(s, source:drum, startFrame:start, numFrames:numsamps, features:sliceAnalysis).wait;
+                FluidBufSpectralShape.process(s, source:drum, startFrame:start, numFrames:numSamps, features:sliceAnalysis).wait;
 
 
                 // We extract only the first channel of the 7 channels (the centroid) and put it into a Buffer() named sliceCentroid
@@ -69,6 +74,7 @@ s.waitForBoot({
                 if (counter == (slicesArr.size-1) , {
                     processingCompleted.unhang;
                 });
+                pool.signal;
             });
         });
     });
