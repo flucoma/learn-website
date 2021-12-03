@@ -3,6 +3,7 @@
 	import stringSimilarity from 'string-similarity';
 
 	let searchTerm = '';
+	let isFocused = false;
 	const routes = $info.reference;
 	export let result;
 
@@ -30,8 +31,10 @@
 	class="search"
 	type="text"
 	bind:value={searchTerm}
-	placeholder="Search for something here"
+	placeholder={ isFocused ? 'Type your search query...' : 'Search...'}
 	on:input={doSearch}
+	on:focus={ () => isFocused = true }
+	on:blur={ () => isFocused = false}
 />
 
 <style lang="scss">
