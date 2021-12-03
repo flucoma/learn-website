@@ -43,6 +43,13 @@
 		height: 2em;
 		margin-bottom: 0.5em;
 		font-family: $font;
-		font-size: 2em;
+		font-size: 1.5rem;
+		border-radius: 5px;
+		border: 2px;
+		border-color: solid $dark-blue;
+	}
+
+	.search, .search:focus {
+		border: solid $dark-blue
 	}
 </style>
