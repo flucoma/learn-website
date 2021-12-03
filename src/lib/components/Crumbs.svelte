@@ -2,6 +2,8 @@
     import { page } from '$app/stores';
     import { breadcrumbs } from '$lib/app';
 
+    console.log($breadcrumbs)
+
     // Sanitise some special links where need be
     const lookup = {
         'madewithflucoma' : 'Made with FluCoMa',
@@ -33,8 +35,7 @@
             else {
                 sanitisedText = formatCrumb(p);
             }
-            accum += '/';
-            accum += p;
+            accum += `/${p}`;
             let crumb = { url: accum, text: sanitisedText };
             d.push(crumb);
         })
