@@ -1,9 +1,9 @@
 <script>
-	import { structure } from '$lib/app.js';
+	import { info } from '$lib/app.js';
 	import stringSimilarity from 'string-similarity';
 
 	let searchTerm = '';
-	const routes = $structure.routes.reference;
+	const routes = $info.reference;
 	export let result;
 
 	function constructDistances() {

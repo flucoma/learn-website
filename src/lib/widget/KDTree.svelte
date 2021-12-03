@@ -28,10 +28,6 @@
     }
 
     onMount(async() => {    
-        
-        // const module = await import('static-kdtree');
-		// const KDTree = module.default;
-        // console.log(KDTree)
         let space = new CanvasSpace('#sketch');
         let darkBlue = 'rgba(8, 60, 100,0.5)';
         space.setup({ 

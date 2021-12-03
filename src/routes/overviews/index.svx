@@ -3,7 +3,7 @@ layout: none
 ---
 
 <script>
-    import { structure } from '$lib/app.js';
+    import { info } from '$lib/app.js';
     import { goto } from '$app/navigation';
 </script>
 
@@ -14,13 +14,13 @@ The overviews section contains long form, prose-like articles describing high-le
 See the list of overviews below:
 
 <div class='overview-list'>
-    {#each $structure.routes.overviews as ov}
-    {#if ov.data}
-    <div class='overview' on:click={ () => goto(ov.url) }>
-    <h2 class='overview-title'>{ov.data.title}</h2>
-    <p class='overview-blurb'>{ov.data.blurb}</p>
-    </div>
-    {/if}
+    {#each $info.overviews as overview}
+        {#if overview.data}
+        <div class='overview' on:click={ () => goto(overview.url) }>
+        <h2 class='overview-title'>{overview.data.title}</h2>
+        <p class='overview-blurb'>{overview.data.blurb}</p>
+        </div>
+        {/if}
     {/each}
 </div>
 

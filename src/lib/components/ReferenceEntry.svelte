@@ -4,7 +4,7 @@
 	export let url: string = '';
 </script>
 
-<a href={'/' + url}>
+<a href={url}>
 	<div class="overview">
 		<div class="title">
 			{title}

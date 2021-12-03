@@ -11,9 +11,7 @@
 <script>
 	export let query;
 
-	console.log(query);
-	import { structure, tags } from '$lib/app';
-	console.log($tags['machine listening']);
+	import { tags } from '$lib/app';
 </script>
 
 <div class="related">
