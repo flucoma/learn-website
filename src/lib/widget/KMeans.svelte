@@ -3,13 +3,17 @@
 	import { CanvasSpace, Group, Pt } from 'pts';
     import Button from '$lib/components/Button.svelte';
     import * as d3 from 'd3';
+    import gaussianData from '../../../static/data/gaussian4.json';
 
     var genColor = d3.interpolateSinebow;
     
     // Declare some vars to use after mounting
     let result = {};
+    let data = Object.values(gaussianData.data);
     let doMeans = () => {};
-    let data = new Array(400).fill([null, null]);
+    // let data = new Array(400).fill([null, null]);
+        // Generate some random data each time to start with
+        // data = data.map(x => [Math.random(), Math.random()]);
     let ready = false;
 
     // chart / pts.js
@@ -23,14 +27,13 @@
         const module = await import('ml5');
         const ml5 = module.default;
 
-        // Generate some random data each time to start with
-        data = data.map(x => [Math.random(), Math.random()]);
+
         
         // Configure some options for KMeans
         let options = {
             k: 4,
-            maxIter: 500,
-            threshold: 0.5,
+            maxIter: 10,
+            threshold: 0.01,
         };
         
         doMeans = () => {
@@ -48,7 +51,6 @@
 
 
         let space = new CanvasSpace('#sketch');
-		let darkBlue = 'rgba(8, 60, 100,0.5)';
 		space.setup({
 			bgcolor: 'rgba(28,164,252,0.01)',
 			resize: true
