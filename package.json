@@ -35,6 +35,7 @@
 		"markdown": "^0.5.0",
 		"mdsvex": "^0.9.8",
 		"meyda": "^5.3.0",
+		"ml5": "^0.7.1",
 		"numpy-parser": "^1.2.3",
 		"peaks.js": "^0.27.0",
 		"prettier": "^2.5.0",
