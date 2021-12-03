@@ -1,10 +1,8 @@
-<script>
-    let dataset = [
-        { 'point1' : new Array(30).fill(0.3) },
-        { 'point2' : new Array(30).fill(0.1) }
-    ]
-
+<script lang="ts">
+    export let data = [];
+    console.log(data)
     function sanitiseData(data) {
+        return data.map(d => d.toFixed(2))
         return data.length <= 10 ? data.push('...') : data.slice(0, 10)
     }
 </script>
@@ -12,9 +10,9 @@
 <div class="table">
     <div class="heading">Identifier</div>
     <div class="heading">Data</div>
-    {#each dataset as point}
+    {#each data as point}
     {#each Object.entries(point) as [id, data]}
-        <div class='entry'>{id}</div>
+        <div class='entry'>{ id }</div>
         <div class='entry'>{ sanitiseData(data) }</div>
     {/each}
     {/each}
