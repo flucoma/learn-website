@@ -15,7 +15,7 @@
 </script>
 
 <div class="related">
-	{#each $tags.db[query] as related}
+	{#each $tags[query] as related}
 		<a href={related}>{related}</a>
 	{/each}
 </div>
