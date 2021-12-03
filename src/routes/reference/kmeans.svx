@@ -7,4 +7,9 @@ tags:
     - clustering
 ---
 
+<script>
+    import KMeans from '$lib/widget/KMeans.svelte';
+</script>
+
+<KMeans />
 
