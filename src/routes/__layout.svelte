@@ -8,7 +8,7 @@
 
 <div class="container">
 	<Header />
-	<Crumbs />
+	<!-- <Crumbs /> -->
 
 	<div class="content">
 		<div class="navigation">

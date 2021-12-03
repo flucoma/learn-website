@@ -12,7 +12,7 @@
 	export let query;
 
 	console.log(query);
-	import { structure, tags } from '$lib/app';
+	import { tags } from '$lib/app';
 	console.log($tags['machine listening']);
 </script>
 
