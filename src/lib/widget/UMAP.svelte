@@ -120,7 +120,6 @@
 	};
 
 	onMount(async () => {
-		console.log(typeof canvas);
 		newData();
 		// Do an initial reduction from the random data to 2 dimensions
 		step();
