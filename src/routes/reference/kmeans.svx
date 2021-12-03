@@ -7,6 +7,10 @@ tags:
     - clustering
 ---
 
+<script context="module">
+    export const ssr = false;
+</script>
+
 <script>
     import KMeans from '$lib/widget/KMeans.svelte';
 </script>
