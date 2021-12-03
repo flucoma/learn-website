@@ -5,7 +5,6 @@ layout: none
 <script>
     import { info } from '$lib/app.js';
     import { goto } from '$app/navigation';
-    import { fade, slide } from 'svelte/transition';
 </script>
 
 # Made with FluCoMa
@@ -16,7 +15,7 @@ Made with FluCoMa highlights projects and practices where FluCoMa is used.
     {#each $info.madewithflucoma as article}
         {#if article.data}
         <a href={article.url}>
-            <div class='overview' transition:fade>
+            <div class='overview'>
                 <h2 class='overview-title'>{article.data.title}</h2>
                 <p class='overview-blurb'>{article.data.blurb}</p>
             </div>
