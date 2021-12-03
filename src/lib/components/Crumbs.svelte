@@ -2,7 +2,6 @@
     import { page } from '$app/stores';
     import { breadcrumbs } from '$lib/app';
 
-    console.log($breadcrumbs)
 
     // Sanitise some special links where need be
     const lookup = {
@@ -30,7 +29,7 @@
 			console.log(p, i)
             let sanitisedText = '';
             if (i >= 1) {
-                sanitisedText = $breadcrumbs.crumbs[$page.path]
+                sanitisedText = $breadcrumbs[$page.path]
             }
             else {
                 sanitisedText = formatCrumb(p);
