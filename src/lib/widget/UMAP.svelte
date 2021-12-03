@@ -1,4 +1,4 @@
-<script lang='ts'>
+<script lang="ts">
 	import { UMAP } from 'umap-js';
 	import { onMount } from 'svelte';
 	import { Chart, registerables } from 'chart.js';
@@ -120,7 +120,6 @@
 	};
 
 	onMount(async () => {
-		console.log(typeof(canvas))
 		newData();
 		// Do an initial reduction from the random data to 2 dimensions
 		step();

@@ -3,14 +3,14 @@ layout: none
 ---
 
 <script>
-    import { structure } from '$lib/app.js';
+    import { info } from '$lib/app.js';
     import { goto } from '$app/navigation';
 </script>
 
 # Guides
 
 <div class='overview-list'>
-    {#each $structure.routes.guides as ov}
+    {#each $info.guides as ov}
     <div class='overview' on:click={ () => goto(ov.url) }>
         <h2 class='overview-title'>{ov.data.title}</h2>
         <p class='overview-blurb'>{ov.data.blurb}</p>

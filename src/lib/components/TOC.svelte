@@ -1,19 +1,18 @@
 <script>
 	import { page } from '$app/stores';
-	import pages from '../../../static/pages.json';
-	$: headings = pages.pages[$page.path] || [];
+	import { structure } from '$lib/app.js';
+
+	$: headings = $structure[$page.path] || [];
 </script>
 
 {#if headings.length > 0}
 	<div class="toc">Table of Contents</div>
+	<div class="headings">
+		{#each headings as h}
+			<a href={h.url}>{h.text}</a>
+		{/each}
+	</div>
 {/if}
-<div class="headings">
-	{#each headings as h}
-		{#if h.depth <= 2}
-			<a href={h.url}>{h.heading}</a>
-		{/if}
-	{/each}
-</div>
 
 <style>
 	.toc {

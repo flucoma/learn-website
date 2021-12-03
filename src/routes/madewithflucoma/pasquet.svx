@@ -16,7 +16,7 @@ tags:
 <script>
     import Image from '$lib/components/Image.svelte';
     import YouTube from '$lib/components/YouTube.svelte';
-    import SimpleAudioPlayer from '$lib/components/SimpleAudioPlayer.svelte';
+    import Audio from '$lib/components/Audio.svelte';
     import BigQuote from '$lib/components/BigQuote.svelte';
     import MFWHeader from '$lib/components/MFWHeader.svelte';
 </script>
@@ -55,9 +55,9 @@ They are starkly contrasted to the constant gestures of synthetic and electronic
 It seems apparent that they hold a particularly important place in the piece, both structurally and aesthetically.
 What are these artefacts, and how were they forged?
 
-<SimpleAudioPlayer 
+<Audio 
 src="/madewithflucoma/pasquet/11152019_124154.mp3"
-label="<em style='font-style: normal;'>11152019_124154.mp3</em>, example of the vocal content from Pasquet's performance."
+label="An example of the vocal content from Pasquet's performance."
 />
 
 Pasquet focused a lot of effort into developing a system to create these sounds. 
@@ -104,9 +104,9 @@ A short example can be found below: a short text of vocal sound synthesis, givin
 He experimented with 4 different variations of this, all very similar. 
 As a side note, it is interesting to remark the parallels to be drawn between the tropes of traditional hip-hop and the broad structure seen here: electronic, percussion-heavy accompanying music which leaves an important place to unsung, rhythmic vocals.
 
-<SimpleAudioPlayer 
+<Audio
 src="/madewithflucoma/pasquet/text_1_short.mp3"
-label="<em style='font-style: normal;'>text_1_short.mp3</em>, example of some source material."
+label="An example of some source material."
 />
 
 To find *sounds* in this audio, Pasquet’s performs the following processes:
@@ -124,7 +124,7 @@ Note that in dark green, a *sound* has been selected: the sound deploys itself a
 
 <Image
 src="/madewithflucoma/pasquet/nmf_piano_roll.png"
-label="Visualisation taken from the <em style='font-style: normal;'>01 Finding Sounds</em> demo patch."
+label="Visualisation taken from the '01 Finding Sounds' demo patch."
 />
 
 Pasquet groups these sounds together so that all the different combinations of frequency bands may be queried together. 
@@ -158,7 +158,7 @@ This can already be considered a first step of curation.
 
 <Image
 src="/madewithflucoma/pasquet/pitch_analysis_process.png"
-label="Overview of the pitch analysis process in the <em style='font-style: normal;'>02 Pitch Analysis</em> demo patch."
+label="Overview of the pitch analysis process in the '02 Pitch Analysis' demo patch."
 />
 
 Next, he further quantises this information with two steps. 
@@ -169,7 +169,7 @@ After this, he groups the components together into these bands.
 
 <Image
 src="/madewithflucoma/pasquet/pitch_scaling_example.png"
-label="Example of pitch scaling in the <em style='font-style: normal;'>02 Pitch Analysis</em> demo patch."
+label="Example of pitch scaling in the '02 Pitch Analysis' demo patch."
 />
 
 Note that when he performs his feature rescaling, he sets the old maximum to 1000 Hz: this essentially means that there will be ten bands going from 0-1000 Hz, and then one band that includes all the components whose mean pitch was above 1000 Hz. 
@@ -186,7 +186,7 @@ He will give the algorithm a set of [*fixed bases*](/reference/bufnmf) that are 
 
 <Image
 src="/madewithflucoma/pasquet/quantized_pitches_example.png"
-label="Grouping of the pitch analysis in the <em style='font-style: normal;'>03 Grouped Frequency Bands</em> demo patch."
+label="Grouping of the pitch analysis in the '03 Grouped Frequency Bands' demo patch."
 />
 
 In the example patch *03 Grouped Frequency Bands* we see a visualisation of this whole process. 
@@ -215,7 +215,7 @@ This means that the range of frequency bands goes beyond the 10 bands that were 
 
 <Image
 src="/madewithflucoma/pasquet/combination_example.png"
-label="Overview of the <em style='font-style: normal;'>01 Finding Sounds</em> demo patch."
+label="Overview of the '01 Finding Sounds' demo patch."
 />
 
 In the first example patch *01 Finding Sounds*, we can see a list of all these combinations for the processed audio file. 
@@ -233,7 +233,7 @@ The example patch *04 Timing Sounds* allows the user to load a sound and listen 
 
 <Image
 src="/madewithflucoma/pasquet/timing_sounds.png"
-label="Overview of the <em style='font-style: normal;'>04 Timed Sounds</em> demo patch."
+label="Overview of the '04 Timed Sounds' demo patch."
 />
 
 The sound is notably smeared and various fragments of the original sound are played back in a glitchy manner, seeming to step upon themselves. 
