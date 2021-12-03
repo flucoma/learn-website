@@ -14,7 +14,6 @@
 	</div>
 {/if}
 
-
 <style>
 	.toc {
 		font-size: 1.1rem;

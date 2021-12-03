@@ -1,4 +1,4 @@
-<script lang='ts'>
+<script lang="ts">
 	export let title: string = '';
 	export let blurb: string = '';
 	export let url: string = '';

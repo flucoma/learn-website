@@ -5,7 +5,6 @@ import c from '../../static/crumbs.json';
 import e from '../../static/edits.json';
 import s from '../../static/structure.json';
 
-
 export const info = readable(i);
 export const tags = readable(t);
 export const breadcrumbs = readable(c);

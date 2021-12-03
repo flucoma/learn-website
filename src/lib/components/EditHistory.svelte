@@ -1,4 +1,4 @@
-<script lang='ts'>
+<script lang="ts">
 	import { edits } from '$lib/app.js';
 	import { page } from '$app/stores';
 	const editHistory = $edits[$page.path];

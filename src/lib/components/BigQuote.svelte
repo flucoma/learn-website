@@ -1,20 +1,20 @@
 <script>
-    export let txt = '';
+	export let txt = '';
 </script>
 
-<div class='container'>
-    {@html txt}
+<div class="container">
+	{@html txt}
 </div>
 
 <style>
-    .container {
-        padding-top: 1em;
-        padding-bottom: 1em;
+	.container {
+		padding-top: 1em;
+		padding-bottom: 1em;
 
-        margin-left: 2em;
-        margin-right: 2em;
+		margin-left: 2em;
+		margin-right: 2em;
 
-        text-align: center;
-        font-style: italic;
-    }
+		text-align: center;
+		font-style: italic;
+	}
 </style>

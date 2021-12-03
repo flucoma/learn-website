@@ -1,4 +1,4 @@
-<script lang='ts'>
+<script lang="ts">
 	import { createEventDispatcher } from 'svelte';
 	export let label: string = 'button';
 	export let width: string = '100px';
@@ -8,16 +8,9 @@
 	function doStuff() {
 		dispatch('click');
 	}
-
 </script>
 
-<button
-style={`width: ${width}`}
-class:disabled={disabled}
-class="btn" 
-on:click={doStuff}
-disabled={disabled}
->
+<button style={`width: ${width}`} class:disabled class="btn" on:click={doStuff} {disabled}>
 	{label}
 </button>
 
@@ -41,9 +34,10 @@ disabled={disabled}
 		box-shadow: 0 0 11px rgba(33, 33, 33, 0.2);
 	}
 
-	.disabled, .disabled:active, .disabled:hover {
+	.disabled,
+	.disabled:active,
+	.disabled:hover {
 		background-color: grey;
 		border: grey;
 	}
-
 </style>
