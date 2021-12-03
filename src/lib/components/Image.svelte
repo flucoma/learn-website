@@ -2,14 +2,15 @@
 	export let src: string = '';
 	export let alt: string = '';
 	export let label: string = '';
+	export let id: string = '';
 </script>
 
-<div class="container">
+<div class="container" id={id}>
 	<a target="_blank" href={src}>
 		<img loading="lazy" {alt} {src} />
 	</a>
 	<div class="label">
-		{@html label}
+		{label}
 	</div>
 </div>
 
@@ -38,6 +39,5 @@
 	.label {
 		text-align: center;
 		font-size: 0.8rem;
-		font-style: italic;
 	}
 </style>
