@@ -22,24 +22,18 @@
     
     // Declare some vars to use after mounting
     let result = {};
-    let data = Object.values(gaussianData.data);
     let doMeans = () => {};
+    let data = Object.values(gaussianData.data);
     // let data = new Array(400).fill([null, null]);
         // Generate some random data each time to start with
-        // data = data.map(x => [Math.random(), Math.random()]);
+    // data = data.map(x => [Math.random(), Math.random()]);
     let ready = false;
 
     // chart / pts.js
     let canvas, pts;
-
-    const randColor = () => {
-        return Math.floor(Math.random()*16777215).toString(16);
-    }
     const sleep = (ms) => {
         return new Promise(resolve => setTimeout(resolve, ms));
     }
-
-
 
     onMount(async() => {
         doMeans = async() => {
@@ -76,15 +70,17 @@
                         form.fillOnly(color).point(pt, 3, 'circle')
                     })
 
-                    centroids.forEach(c => {
+                    centroids.forEach((c, i) => {
                         let pt = new Pt([
                             c[0] * space.size.x,
                             c[1] * space.size.y
                         ])
 
-                        let c1 = Circle.fromCenter(pt, 10)
+                        let c1 = Circle.fromCenter(pt, 12)
 
-                        form.fill('#000').circle(c1)
+                        let color = genColor(i / options.k);
+
+                        form.fill(color).circle(c1)
                         
                     });
 				} else {
