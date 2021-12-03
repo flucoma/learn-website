@@ -1,9 +1,22 @@
 <script>
     import { onMount } from 'svelte';
-	import { CanvasSpace, Group, Pt } from 'pts';
+	import { CanvasSpace, Group, Pt, Circle } from 'pts';
     import Button from '$lib/components/Button.svelte';
     import * as d3 from 'd3';
     import gaussianData from '../../../static/data/gaussian4.json';
+    import KMeans from 'tf-kmeans';
+    import * as tf from '@tensorflow/tfjs';
+
+    // Configure some options for KMeans
+    let options = {
+        k: 4,
+        maxIter: 20,
+    };
+
+    let predictions, centroids;
+    let iteration = 0;
+
+    const kmeans = new KMeans(options);
 
     var genColor = d3.interpolateSinebow;
     
@@ -22,33 +35,24 @@
     const randColor = () => {
         return Math.floor(Math.random()*16777215).toString(16);
     }
-    
+    const sleep = (ms) => {
+        return new Promise(resolve => setTimeout(resolve, ms));
+    }
+
+
+
     onMount(async() => {
-        const module = await import('ml5');
-        const ml5 = module.default;
-
-
-        
-        // Configure some options for KMeans
-        let options = {
-            k: 4,
-            maxIter: 10,
-            threshold: 0.01,
-        };
-        
-        doMeans = () => {
-            result = ml5.kmeans(
-                data.map(x => { return { 
-                    x: x[0], 
-                    y: x[1]
-                }}), 
-                options,
-                () => {
-                    ready = true;
+        doMeans = async() => {
+            const tfData = tf.tensor(data);
+            await kmeans.TrainAsync(tfData,
+                async(i, cents, preds) => {
+                    iteration = i;
+                    predictions = await preds.array(); 
+                    centroids = await cents.array();
+                    // await sleep(50);
                 }
-            );
+            )
         }
-
 
         let space = new CanvasSpace('#sketch');
 		space.setup({
@@ -61,15 +65,28 @@
 			animate: (time, ftime, space) => {
                 // Map norm data to canvas
 
-				if (ready) {
-                    result.dataset.forEach(p => {
-                        let color = genColor(p.centroid / result.config.k);
+				if (predictions && centroids) {
+                    predictions.forEach((p, i) => {
+                        let coords = data[i];
+                        let color = genColor(p / options.k);
                         let pt = new Pt([ 
-                            p[0]*space.size.x * 0.9 + (space.size.x * 0.05), 
-                            p[1]*space.size.y * 0.9 + (space.size.y * 0.05)
+                            coords[0]*space.size.x, 
+                            coords[1]*space.size.y
                         ]) 
                         form.fillOnly(color).point(pt, 3, 'circle')
                     })
+
+                    centroids.forEach(c => {
+                        let pt = new Pt([
+                            c[0] * space.size.x,
+                            c[1] * space.size.y
+                        ])
+
+                        let c1 = Circle.fromCenter(pt, 10)
+
+                        form.fill('#000').circle(c1)
+                        
+                    });
 				} else {
                     const tData = data.map(d => [ 
                         d[0]*space.size.x * 0.9 + (space.size.x * 0.05), 
@@ -77,8 +94,6 @@
                     ]);
                     pts = Group.fromArray(tData);
                     form.fillOnly('#123').points(pts, 3, 'circle');
-
-					// form.fillOnly('#787878').points(pts, 3, 'circle');
 				}
 			}
 		});
@@ -87,12 +102,13 @@
 </script>
 
 <div class="container">
-
+    
     <Button on:click={doMeans} 
     label={'Calculate Means'}
     width={'100%'}
     />
     
+    We are at iteration: { iteration }
     <canvas id="sketch" bind:this={canvas}/>
 </div>
 
