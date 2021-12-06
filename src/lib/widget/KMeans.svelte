@@ -4,10 +4,11 @@
     import * as d3 from 'd3';
     import { onMount } from 'svelte';
     import { CanvasSpace, Group, Pt, Circle } from 'pts';
+	import { Chart, registerables } from 'chart.js';
     import Button from '$lib/components/Button.svelte';
-    import Slider from '$lib/components/Slider.svelte';
     import gaussianData from '../../../static/data/gaussian4.json';
     import lineData from '../../../static/data/curvey-line.json';
+import { step } from '@tensorflow/tfjs';
     
     // Configure some options for KMeans
     let numClusters = 4;
@@ -15,6 +16,9 @@
     // Set aside some variables to do with the kmeans centroids
     let predictions, centroids;
     let iteration = 0;
+    let centSteps = []; // An array to hold the centroid steps
+    let predSteps = []; // An array to hold the prediction steps
+    let stepScrub = 0.0;
     
     // Essentially rename the colour generation function
     var genColor = d3.interpolateSinebow;
@@ -24,6 +28,13 @@
     // let data = Object.values(gaussianData.data); // The point data... TODO: fine a way to make this data re-usably
     let dataSelect = 'gaussian';
     $: data = dataSelect === 'line' ? Object.values(lineData.data) : Object.values(gaussianData.data)
+
+    const updateVis = () => {
+        const cInterp = d3.interpolate(centSteps[0], centSteps[centSteps.length-1]);
+        const pInterp = d3.interpolate(predSteps[0], predSteps[predSteps.length-1]);
+        centroids = cInterp(stepScrub);
+        predictions = pInterp(stepScrub);
+    }
 
     const reset = () => {
         kmeans = null;
@@ -40,14 +51,18 @@
                 k: numClusters,
                 maxIter: 40,
             });
-            console.log(kmeans)
+
+            centSteps = [];
+            predSteps = [];
+
             await kmeans.TrainAsync(tfData,
-            async(i, cents, preds) => {
-                iteration = i;
-                centroids = await cents.array();
-                predictions = await preds.array();
-            }
-            )
+                async(i, cent, pred) => {
+                    iteration = i;
+                    centSteps.push(await cent.array());
+                    predSteps.push(await pred.array());
+                }
+            );
+            console.log('finished compooting')
         }
         
         let space = new CanvasSpace('#sketch');
@@ -59,7 +74,7 @@
         let form = space.getForm();
         space.add({
             animate: (time, ftime, space) => {
-                if (predictions && centroids) {
+                if (centroids && predictions) {
                     predictions.forEach((p, i) => {
                         let coords = data[i];
                         let color = genColor(p / kmeans.k);
@@ -100,6 +115,8 @@
     label={'Calculate Means'}
     width={'100%'}
     />
+
+    <input type='range' min=0 max=1 step=0.01 bind:value={stepScrub} on:input={ updateVis }/>
     
     <div class="controls">
         <input
