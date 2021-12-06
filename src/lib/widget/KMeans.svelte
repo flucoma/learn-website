@@ -7,6 +7,7 @@
     import Button from '$lib/components/Button.svelte';
     import Slider from '$lib/components/Slider.svelte';
     import gaussianData from '../../../static/data/gaussian4.json';
+    import lineData from '../../../static/data/curvey-line.json';
     
     // Configure some options for KMeans
     let numClusters = 4;
@@ -20,7 +21,16 @@
     let kmeans;
     // Declare some vars to use after mounting
     let doMeans; // A function that the button gets bound to. We won't define it yet because of awaits
-    let data = Object.values(gaussianData.data); // The point data... TODO: fine a way to make this data re-usably
+    // let data = Object.values(gaussianData.data); // The point data... TODO: fine a way to make this data re-usably
+    let dataSelect = 'gaussian';
+    $: data = dataSelect === 'line' ? Object.values(lineData.data) : Object.values(gaussianData.data)
+
+    const reset = () => {
+        kmeans = null;
+        iteration = 0;
+        predictions = null;
+        centroids = null;
+    }
     
     onMount(async() => {
         doMeans = async() => {
@@ -72,8 +82,8 @@
                     });
                 } else {
                     const tData = data.map(d => [ 
-                    d[0]*space.size.x * 0.9 + (space.size.x * 0.05), 
-                    d[1]*space.size.y * 0.9 + (space.size.y * 0.05)
+                    d[0]*space.size.x, 
+                    d[1]*space.size.y
                     ]);
                     const pts = Group.fromArray(tData);
                     form.fillOnly('#123').points(pts, 3, 'circle');
@@ -91,9 +101,18 @@
     width={'100%'}
     />
     
-    <input
-    placeholder='Number of Clusters' 
-    type=number bind:value={numClusters} min=1 max=50>
+    <div class="controls">
+        <input
+        placeholder='Number of Clusters' 
+        type=number bind:value={numClusters} min=1 max=50
+        >
+        
+        <select bind:value={dataSelect} on:change={reset}>
+            <option value='gaussian'>Four Gaussian Clusters</option>
+            <option value='line'>A Wiggly Line</option>
+        </select>
+    </div>
+    
     We are at iteration: { iteration }
     <canvas id="sketch"/>
 </div>
@@ -103,6 +122,11 @@
         display: flex;
         flex-direction: column;
         gap: 1em;
+    }
+    
+    .controls {
+        display: grid;
+        grid-template-columns: auto auto;
     }
     #sketch {
         width: 100%;
