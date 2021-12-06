@@ -2,7 +2,7 @@
 	export let src: string = '';
 	export let label: string = '';
 
-	let fileName = src.split('/').at(-1);
+	const fileName = src.split('/').slice(-1)
 </script>
 
 <div class="container">
@@ -11,7 +11,7 @@
 		Your browser does not support the audio tag.
 	</audio>
 	<div class="label">
-		<a href={src}>{ fileName } :</a> { label } 
+		<a href={src}>{ fileName }:</a> { label } 
 	</div>
 </div>
 
