@@ -60,8 +60,6 @@
 				scales: {
 					y: {
 						display: false
-						// beginAtZero: true,
-						// min: 0, max: 1
 					}
 				}
 			}
