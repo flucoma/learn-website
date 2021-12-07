@@ -6,7 +6,10 @@
     import { CanvasSpace, Group, Pt, Circle } from 'pts';
     import { Chart, registerables } from 'chart.js';
     import Button from '$lib/components/Button.svelte';
+    import gaussianTiny from '../../../static/data/gaussian4-tiny.json';
+    import gaussianSmall from '../../../static/data/gaussian4-small.json';
     import gaussianData from '../../../static/data/gaussian4.json';
+    import lineTiny from '../../../static/data/line-tiny.json';
     import lineData from '../../../static/data/curvey-line.json';
     
     // Configure some options for KMeans
@@ -21,13 +24,21 @@
     let ctx, canvas, chart;
     
     // Essentially rename the colour generation function
-    var genColor = d3.interpolateSinebow;
+    var genColour = d3.interpolateSinebow;
     let kmeans;
     // Declare some vars to use after mounting
     let doMeans; // A function that the button gets bound to. We won't define it yet because of awaits
     // let data = Object.values(gaussianData.data); // The point data... TODO: fine a way to make this data re-usably
-    let dataSelect = 'gaussian';
-    $: data = dataSelect === 'line' ? Object.values(lineData.data) : Object.values(gaussianData.data)
+    let dataSelect = 'gaussianSmall';
+    let dataLookup = {
+        'gaussian' : gaussianData,
+        'gaussianTiny' : gaussianTiny,
+        'gaussianSmall' : gaussianSmall,
+        'line' : lineData,
+        'lineTiny' : lineTiny,
+    }
+
+    $: data = Object.values(dataLookup[dataSelect].data);
     
     const formatForChart = (d) => {
         // Marshalls data into a chart.js friendly format
@@ -43,7 +54,8 @@
                 data: formatForChart(data),
                 backgroundColor: '#000',
                 borderColor: '#000',
-                borderWidth: 1
+                borderWidth: 1,
+                pointRadius: 3
             }]
         };
         chart = new Chart(ctx, {
@@ -71,8 +83,7 @@
             k: numClusters,
             maxIter: 40,
         });
-        
-        
+
         kmeans.TrainAsync(tfData,
             async(i, cent, pred) => {
                 iteration = i;
@@ -83,14 +94,18 @@
                 let d = JSON.parse(JSON.stringify(data))
                 d.push(...centroids);
 
-                console.log(d.length)
+                // Compute all the colours
+                let colours = predictions.map(p => genColour(p / centroids.length));
+                let centroidColours = centroids.map((c, i) => genColour(i / centroids.length));
+                colours.push(...centroidColours);
                 
                 // Now calculate all the point radii
                 // The last k points shold be the centroids so they need to be larger and in charger
-                let rad = d.map((p, i) => i+1 <= predictions.length ? 2 : 10);
-                console.log(rad)
+                let rad = d.map((p, i) => i+1 <= predictions.length ? 3 : 10);
 
                 chart.data.datasets[0].data = formatForChart(d)
+                chart.data.datasets[0].pointBackgroundColor = colours;
+                chart.data.datasets[0].pointBorderColor = colours;
                 chart.data.datasets[0].pointRadius = rad;
                 chart.update();
             }
@@ -103,6 +118,9 @@
         predictions = null;
         centroids = null;
         
+        chart.data.datasets[0].pointBackgroundColor = ['#000'];
+        chart.data.datasets[0].pointBorderColor = ['#000'];
+        chart.data.datasets[0].pointRadius = 3
         chart.data.datasets[0].data = formatForChart(data);
         chart.update();
     };
@@ -122,8 +140,11 @@
         >
         
         <select bind:value={dataSelect} on:change={updateData}>
-            <option value='gaussian'>Four Gaussian Clusters</option>
-            <option value='line'>A Wiggly Line</option>
+            <option value='gaussian'>Four Gaussian Clusters (Large)</option>
+            <option value='gaussianSmall'>Four Gaussian Clusters (Small)</option>
+            <option value='gaussianTiny'>Four Gaussian Clusters (Tiny)</option>
+            <option value='line'>A Synthetic Line (Large)</option>
+            <option value='lineTiny'>A Synthetic Line (Tiny)</option>
         </select>
     </div>
     
