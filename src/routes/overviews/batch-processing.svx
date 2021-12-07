@@ -138,7 +138,7 @@ The step-by-step workflow is as follows:
 
 <TabPanel>
 
-Using `find` and `xargs` limiting to one folder deep.
+Using `find` and `xargs` limiting to one folder deep. Assumes you are `cd` in a directory of WAV audio files.
 
 <CodeBlock>
 
@@ -148,7 +148,7 @@ find . -name "*.wav" -print0 -maxdepth 2 | xargs -0 -I src fluid-hpss -source sr
 
 </CodeBlock>
 
-Using [`fd`](https://github.com/sharkdp/fd) limiting to one folder deep.
+Using [`fd`](https://github.com/sharkdp/fd) limiting to one folder deep. Assumes you are `cd` in a directory of WAV audio files.
 
 <CodeBlock>
 
