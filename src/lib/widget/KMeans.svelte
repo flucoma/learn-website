@@ -3,15 +3,17 @@
     import * as tf from '@tensorflow/tfjs';
     import * as d3 from 'd3';
     import { onMount } from 'svelte';
-    import { CanvasSpace, Group, Pt, Circle } from 'pts';
     import { Chart, registerables } from 'chart.js';
     import Button from '$lib/components/Button.svelte';
+    import Select from 'svelte-select';
+
+    // Data Imports TODO: fetch these on load to reduce component payload
     import gaussianTiny from '../../../static/data/gaussian4-tiny.json';
     import gaussianSmall from '../../../static/data/gaussian4-small.json';
     import gaussianData from '../../../static/data/gaussian4.json';
     import lineTiny from '../../../static/data/line-tiny.json';
     import lineData from '../../../static/data/curvey-line.json';
-    
+
     // Configure some options for KMeans
     let numClusters = 4;
     
@@ -29,7 +31,14 @@
     // Declare some vars to use after mounting
     let doMeans; // A function that the button gets bound to. We won't define it yet because of awaits
     // let data = Object.values(gaussianData.data); // The point data... TODO: fine a way to make this data re-usably
-    let dataSelect = 'gaussianSmall';
+    
+    const items = [
+        { value: 'gaussian', label: 'Four Gaussian Clusters (Large)' },
+        { value: 'gaussianSmall', label: 'Four Gaussian Clusters (Small)' },
+        { value: 'gaussianTiny', label: 'Four Gaussian Clusters (Tiny)' },
+        { value: 'line', label: 'A Synthetic Line (Large)' },
+        { value: 'lineTiny', label: 'A Synthetic Line (Tiny)' }
+    ]
     let dataLookup = {
         'gaussian' : gaussianData,
         'gaussianTiny' : gaussianTiny,
@@ -38,7 +47,7 @@
         'lineTiny' : lineTiny,
     }
 
-    $: data = Object.values(dataLookup[dataSelect].data);
+    let data = Object.values(gaussianSmall.data);
     
     const formatForChart = (d) => {
         // Marshalls data into a chart.js friendly format
@@ -112,11 +121,17 @@
         );
     };
     
-    const updateData = () => {
+    const updateData = (e) => {
         kmeans = null;
         iteration = 0;
         predictions = null;
         centroids = null;
+
+        const selection = e.detail.value;
+
+        data = Object.values(
+            dataLookup[selection].data
+        )
         
         chart.data.datasets[0].pointBackgroundColor = ['#000'];
         chart.data.datasets[0].pointBorderColor = ['#000'];
@@ -134,25 +149,31 @@
     />
     
     <div class="controls">
-        <input
-        placeholder='Number of Clusters' 
-        type=number bind:value={numClusters} min=1 max=50
-        >
-        
-        <select bind:value={dataSelect} on:change={updateData}>
-            <option value='gaussian'>Four Gaussian Clusters (Large)</option>
-            <option value='gaussianSmall'>Four Gaussian Clusters (Small)</option>
-            <option value='gaussianTiny'>Four Gaussian Clusters (Tiny)</option>
-            <option value='line'>A Synthetic Line (Large)</option>
-            <option value='lineTiny'>A Synthetic Line (Tiny)</option>
-        </select>
+
+        <Select 
+        {items} 
+        on:select={updateData} 
+        placeholder='Select a dataset...'
+        showChevron={true}
+        />
+
+        <div class='cluster'>
+            <div class='select'>
+                <div>Number of Clusters</div>
+                <input
+                placeholder='Number of Clusters' 
+                type=number bind:value={numClusters} min=1 max=49
+                >
+            </div>
+    
+            <div>Iteration Number: { iteration }</div>
+        </div>
     </div>
     
-    We are at iteration: { iteration }
     <canvas id="sketch" bind:this={canvas} />
 </div>
 
-<style>
+<style lang='scss'>
     .container {
         display: flex;
         flex-direction: column;
@@ -161,11 +182,42 @@
     
     .controls {
         display: grid;
-        grid-template-columns: auto auto;
+        grid-template-rows: auto auto;
+        gap: 1em;
+
+        .cluster {
+            display: flex;
+            flex-direction: row;
+            place-items: center;
+            justify-content: space-between;
+
+            .select {
+                display: flex;
+                flex-direction: row;
+                place-items: center;
+                gap: 0.5em;
+            }
+        }
+
+        input {
+            padding: 0.3em;
+            font-size: 1rem;
+        }
+
+        /* Chrome, Safari, Edge, Opera */
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+        }
+
+        /* Firefox */
+        input[type=number] {
+        -moz-appearance: textfield;
+        }
     }
     #sketch {
         width: 100%;
-        /* display: inline-block; */
         min-width: 0 !important;
         max-height: 400px;
     }
