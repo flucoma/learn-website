@@ -4,21 +4,21 @@
     import * as d3 from 'd3';
     import { onMount } from 'svelte';
     import { CanvasSpace, Group, Pt, Circle } from 'pts';
-	import { Chart, registerables } from 'chart.js';
+    import { Chart, registerables } from 'chart.js';
     import Button from '$lib/components/Button.svelte';
     import gaussianData from '../../../static/data/gaussian4.json';
     import lineData from '../../../static/data/curvey-line.json';
-import { step } from '@tensorflow/tfjs';
     
     // Configure some options for KMeans
     let numClusters = 4;
     
     // Set aside some variables to do with the kmeans centroids
-    let predictions, centroids;
+    let predictions = [];
+    let centroids = [];
     let iteration = 0;
-    let centSteps = []; // An array to hold the centroid steps
-    let predSteps = []; // An array to hold the prediction steps
-    let stepScrub = 0.0;
+    
+    // Chart.js
+    let ctx, canvas, chart;
     
     // Essentially rename the colour generation function
     var genColor = d3.interpolateSinebow;
@@ -28,85 +28,84 @@ import { step } from '@tensorflow/tfjs';
     // let data = Object.values(gaussianData.data); // The point data... TODO: fine a way to make this data re-usably
     let dataSelect = 'gaussian';
     $: data = dataSelect === 'line' ? Object.values(lineData.data) : Object.values(gaussianData.data)
-
-    const updateVis = () => {
-        const cInterp = d3.interpolate(centSteps[0], centSteps[centSteps.length-1]);
-        const pInterp = d3.interpolate(predSteps[0], predSteps[predSteps.length-1]);
-        centroids = cInterp(stepScrub);
-        predictions = pInterp(stepScrub);
+    
+    const formatForChart = (d) => {
+        // Marshalls data into a chart.js friendly format
+        return d.map(datum => { return { x: datum[0], y: datum[1] }});
     }
+    
+    onMount(async() => {
+        Chart.register(...registerables);
+        ctx = canvas.getContext('2d');
+        
+        const chartData = {
+            datasets: [{
+                data: formatForChart(data),
+                backgroundColor: '#000',
+                borderColor: '#000',
+                borderWidth: 1
+            }]
+        };
+        chart = new Chart(ctx, {
+            type: 'scatter',
+            data: chartData,
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: { legend: { display: false }},
+                animation: {
+                    duration: 1000
+                },
+                scales: { 
+                    x: { display: false },
+                    y: { display: false }
+                }
+            }
+        })
+    });
+    
+    doMeans = async() => {
+        const tfData = tf.tensor(data);
+        // Create an instance of the kmeans model
+        kmeans = new KMeans({
+            k: numClusters,
+            maxIter: 40,
+        });
+        
+        
+        kmeans.TrainAsync(tfData,
+            async(i, cent, pred) => {
+                iteration = i;
+                predictions = await pred.array();
+                centroids = await cent.array();
+                
+                // Append centroids to the dataset
+                let d = JSON.parse(JSON.stringify(data))
+                d.push(...centroids);
 
-    const reset = () => {
+                console.log(d.length)
+                
+                // Now calculate all the point radii
+                // The last k points shold be the centroids so they need to be larger and in charger
+                let rad = d.map((p, i) => i+1 <= predictions.length ? 2 : 10);
+                console.log(rad)
+
+                chart.data.datasets[0].data = formatForChart(d)
+                chart.data.datasets[0].pointRadius = rad;
+                chart.update();
+            }
+        );
+    };
+    
+    const updateData = () => {
         kmeans = null;
         iteration = 0;
         predictions = null;
         centroids = null;
-    }
-    
-    onMount(async() => {
-        doMeans = async() => {
-            const tfData = tf.tensor(data);
-            // Create an instance of the kmeans model
-            kmeans = new KMeans({
-                k: numClusters,
-                maxIter: 40,
-            });
-
-            centSteps = [];
-            predSteps = [];
-
-            await kmeans.TrainAsync(tfData,
-                async(i, cent, pred) => {
-                    iteration = i;
-                    centSteps.push(await cent.array());
-                    predSteps.push(await pred.array());
-                }
-            );
-            console.log('finished compooting')
-        }
         
-        let space = new CanvasSpace('#sketch');
-        space.setup({
-            bgcolor: 'rgba(28,164,252,0.01)',
-            resize: true
-        });
-        
-        let form = space.getForm();
-        space.add({
-            animate: (time, ftime, space) => {
-                if (centroids && predictions) {
-                    predictions.forEach((p, i) => {
-                        let coords = data[i];
-                        let color = genColor(p / kmeans.k);
-                        let pt = new Pt([ 
-                        coords[0]*space.size.x, 
-                        coords[1]*space.size.y
-                        ]) 
-                        form.fillOnly(color).point(pt, 3, 'circle')
-                    });
-                    
-                    centroids.forEach((c, i) => {
-                        let pt = new Pt([
-                            c[0] * space.size.x,
-                            c[1] * space.size.y
-                        ])
-                        
-                        let c1 = Circle.fromCenter(pt, 12)
-                        let color = genColor(i / kmeans.k);
-                        form.fill(color).circle(c1)
-                    });
-                } else {
-                    const tData = data.map(d => [ 
-                    d[0]*space.size.x, 
-                    d[1]*space.size.y
-                    ]);
-                    const pts = Group.fromArray(tData);
-                    form.fillOnly('#123').points(pts, 3, 'circle');
-                }
-            }
-        });
-        space.bindMouse().bindTouch().play();
-    });    
+        chart.data.datasets[0].data = formatForChart(data);
+        chart.update();
+    };
 </script>
 
 <div class="container">
@@ -115,8 +114,6 @@ import { step } from '@tensorflow/tfjs';
     label={'Calculate Means'}
     width={'100%'}
     />
-
-    <input type='range' min=0 max=1 step=0.01 bind:value={stepScrub} on:input={ updateVis }/>
     
     <div class="controls">
         <input
@@ -124,14 +121,14 @@ import { step } from '@tensorflow/tfjs';
         type=number bind:value={numClusters} min=1 max=50
         >
         
-        <select bind:value={dataSelect} on:change={reset}>
+        <select bind:value={dataSelect} on:change={updateData}>
             <option value='gaussian'>Four Gaussian Clusters</option>
             <option value='line'>A Wiggly Line</option>
         </select>
     </div>
     
     We are at iteration: { iteration }
-    <canvas id="sketch"/>
+    <canvas id="sketch" bind:this={canvas} />
 </div>
 
 <style>
@@ -147,8 +144,8 @@ import { step } from '@tensorflow/tfjs';
     }
     #sketch {
         width: 100%;
-        display: inline-block;
-        min-height: 200px;
-        height: 290px;
+        /* display: inline-block; */
+        min-width: 0 !important;
+        max-height: 400px;
     }
 </style>
