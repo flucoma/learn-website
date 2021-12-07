@@ -122,6 +122,7 @@ The step-by-step workflow is as follows:
     <Tab>Max</Tab>
     <Tab>PureData</Tab>
     <Tab>SuperCollider</Tab>
+    <Tab>Command Line</Tab>
 </TabList>
 <TabPanel> <!-- Max -->
 <a href='/examples/batch/batch-decomposition.maxpat' download>Download Patch</a>
@@ -134,6 +135,29 @@ The step-by-step workflow is as follows:
 <TabPanel> <!-- SC -->
 <a href='/examples/batch/batch-decomposition.scd' download>Download Script</a>
 </TabPanel> 
+
+<TabPanel>
+
+Using `find` and `xargs` limiting to one folder deep.
+
+<CodeBlock>
+
+```
+find . -name "*.wav" -print0 -maxdepth 2 | xargs -0 -I src fluid-hpss -source src -harmonic src-h.wav -percussive src-p.wav
+```
+
+</CodeBlock>
+
+Using [`fd`](https://github.com/sharkdp/fd) limiting to one folder deep.
+
+<CodeBlock>
+
+```
+mkdir -p output && fd -e wav -d 1 -x fluid-hpss -source {} -harmonic output/{/.}-h.wav -percussive output/{/.}-p.wav
+```
+
+</CodeBlock>
+</TabPanel>
 </Tabs>
 
 In this example a collection of audio files are processed as a batch using the [FluidHPSS](/reference/hpss) algorithm. Each decomposition is stored in a CCE specific container so that the results can be accessed later for audition or storage on disk. The example illustrates how a corpus might be processed as a whole in an automated way.
