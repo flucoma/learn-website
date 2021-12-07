@@ -13,6 +13,9 @@
     import gaussianData from '../../../static/data/gaussian4.json';
     import lineTiny from '../../../static/data/line-tiny.json';
     import lineData from '../../../static/data/curvey-line.json';
+    import moonsData from '../../../static/data/moon.json';
+    import blobsData from '../../../static/data/blobs.json';
+    import circlesData from '../../../static/data/circles.json';
 
     // Configure some options for KMeans
     let numClusters = 4;
@@ -30,21 +33,27 @@
     let kmeans;
     // Declare some vars to use after mounting
     let doMeans; // A function that the button gets bound to. We won't define it yet because of awaits
-    // let data = Object.values(gaussianData.data); // The point data... TODO: fine a way to make this data re-usably
     
     const items = [
         { value: 'gaussian', label: 'Four Gaussian Clusters (Large)' },
         { value: 'gaussianSmall', label: 'Four Gaussian Clusters (Small)' },
         { value: 'gaussianTiny', label: 'Four Gaussian Clusters (Tiny)' },
-        { value: 'line', label: 'A Synthetic Line (Large)' },
-        { value: 'lineTiny', label: 'A Synthetic Line (Tiny)' }
+        { value: 'line', label: 'Synthetic Line (Large)' },
+        { value: 'lineTiny', label: 'Synthetic Line (Tiny)' },
+        { value: 'moon', label: 'Moons (Small)' },
+        { value: 'blobs', label: 'Blobs (Small)' },
+        { value: 'circles', label: 'Circles (Small)' }
     ]
+
     let dataLookup = {
         'gaussian' : gaussianData,
         'gaussianTiny' : gaussianTiny,
         'gaussianSmall' : gaussianSmall,
         'line' : lineData,
         'lineTiny' : lineTiny,
+        'moon' : moonsData,
+        'blobs' : blobsData,
+        'circles' : circlesData
     }
 
     let data = Object.values(gaussianSmall.data);
