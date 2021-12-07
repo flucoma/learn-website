@@ -16,6 +16,7 @@
     import moonsData from '../../../static/data/moon.json';
     import blobsData from '../../../static/data/blobs.json';
     import circlesData from '../../../static/data/circles.json';
+    import random from '../../../static/data/random.json';
 
     // Configure some options for KMeans
     let numClusters = 4;
@@ -42,8 +43,9 @@
         { value: 'lineTiny', label: 'Synthetic Line (Tiny)' },
         { value: 'moon', label: 'Moons (Small)' },
         { value: 'blobs', label: 'Blobs (Small)' },
-        { value: 'circles', label: 'Circles (Small)' }
-    ]
+        { value: 'circles', label: 'Circles (Small)' },
+        { value: 'random', label: 'Random (Small)' },
+    ];
 
     let dataLookup = {
         'gaussian' : gaussianData,
@@ -53,8 +55,9 @@
         'lineTiny' : lineTiny,
         'moon' : moonsData,
         'blobs' : blobsData,
-        'circles' : circlesData
-    }
+        'circles' : circlesData,
+        'random' : random,
+    };
 
     let data = Object.values(gaussianSmall.data);
     
