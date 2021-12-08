@@ -209,7 +209,7 @@ label="An overview of the '02 Amp Slicing' example patch."
 />
 
 Next, we can add to this the amp slicing, which can be explored in the *02 Amp Slicing* example patch. 
-The pulsar synthesizer runs through the [*fluid.ampslice~*](/refernce/ampslice) object, and the detected slicings are used to trigger the playback of one of the novelty slice segments. 
+The pulsar synthesizer runs through the [*fluid.ampslice~*](/reference/ampslice) object, and the detected slicings are used to trigger the playback of one of the novelty slice segments. 
 The pitch of the pulsar synthesis can also be controlled by pitch tracking of the vocal input. 
 If we update our signal chain, we see that we have the same final objects, but B has been developed. 
 Note that the amplitude slicing also triggers other things in the patch.
