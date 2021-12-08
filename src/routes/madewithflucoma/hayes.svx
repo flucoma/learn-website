@@ -1,5 +1,5 @@
 ---
-title: Event detection and improvisation
+title: Event Detection and Improvisation
 artist: Lauren Sarah Hayes
 blurb: |
     In this article we explore the work Lauren Sarah Hayes did using some of the FluCoMa tools for her piece *Moon via Spirit*. 
@@ -31,7 +31,7 @@ Her shows are highly physical, making the performance of live electronic music m
 Over the last decade she has developed and honed a deliberately challenging and unpredictable performance system that explores the relationships between bodies, sound, environments, and technology."
 />
 
-->ASK IF LAUREN WANTS A DIFFERENT PHOTO.
+TODO: ASK IF LAUREN WANTS A DIFFERENT PHOTO.
 
 ## Patches
 
@@ -110,7 +110,7 @@ She doesn’t push to release records (despite having published several albums t
 At the time of the project, she explained that she wasn’t necessarily against the idea, but it is something that she hasn’t explored in great detail (for a great example of Hayes’ recorded work, you can give her latest 2021 SUPERPANG release *Embrace* a listen below).
 
 <BandCamp 
-album_id={'2665291014'}
+id={'2665291014'}
 />
 
 She went on to compare some of her work with that of some of the other artists on the project. 
