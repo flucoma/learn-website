@@ -1,6 +1,5 @@
 <script lang="ts">
     export let data = [];
-    console.log(data)
     function sanitiseData(data) {
         return data.map(d => d.toFixed(2))
         return data.length <= 10 ? data.push('...') : data.slice(0, 10)
