@@ -2,7 +2,7 @@
 	export let src: string = '';
 	export let label: string = '';
 
-	let fileName = src.split('/').at(-1);
+	let fileName = src.split('/').slice(-1);
 </script>
 
 <div class="container">
