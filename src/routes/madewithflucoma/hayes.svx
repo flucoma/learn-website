@@ -341,7 +341,7 @@ Indeed, the further we go down the signal paths, the more this notion is amplifi
 The transient slicing in signal path A operates on a 10 second buffer of accumulated audio, itself being derived from a previous accumulation of audio. 
 These slices will be ordered by pitch in an iterative manner, continuously in path A and on attacks in path C. 
 It seems that the configuration of the transient slicing and the pitch ordering will allow Hayes to take this accumulated audio and shape it into some kind of form that will of course never be the same over different performances, but morphologically somewhat recurrent: as series of transient attack which play out in an upward pitch progression. 
-This is something that Hayes also approaches in another form in other parts of the patch, using [NMF activations](/reference/nufnmf) to match the morphologies of sounds. 
+This is something that Hayes also approaches in another form in other parts of the patch, using [NMF activations](/reference/bufnmf) to match the morphologies of sounds. 
 
 Finally, it is interesting to remark the output of signal path B, and its either direct output or output through the HPSS Filter. 
 There is a certain idea of onset, as the crossfade jumps back to the immediate attack signal on each recording into the *shortVoice* buffer, but then fades back into a more continuous playback of novelty slices triggered by amplitude detection in the pulsar synth. 
