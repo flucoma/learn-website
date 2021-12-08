@@ -7,5 +7,8 @@ tags:
     - dimension reduction
 ---
 
-Dimensionality reduction, or dimension reduction, is a term that encompasses techniques where high-dimensional data is transformed into a lower-dimensional representation that can retain some of the original. The motivation for this can vary, but 
+Dimensionality reduction, or dimension reduction, is a term that encompasses techniques where high-dimensional data is transformed into a lower-
+
+
+
 It allows you to take high-dimensional data and compress it into a lower-dimensional representation.
