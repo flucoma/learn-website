@@ -93,7 +93,10 @@ The slightest movement has drastic effects on the whole.
 She even describes sometimes having to hold a position with her mouth to keep the system in a frozen state. 
 It is indeed through the opposite of physical resistance that she inserts tension and struggle into the system.
 
--> INSERT IMG FROM EXAMPLE PATCH
+<Image
+src="/madewithflucoma/hayes/delicate_instruments_img.png"
+label="An overview of the '06 Delicate Instruments' example patch, trying to simulate what it may be like to try and play with such a system."
+/>
  
 Conceptually, resistance in the system is found inscribed in the way in which her performance patch is coded. 
 We shall investigate this in more detail below, but on a first listen we hear that lots of slicing and automatic triggering of events are happening. 
@@ -171,7 +174,10 @@ There are two immediately performative elements in the piece: the gestures of th
 Hayes controls parameters of the pulsar synthesis with the gamepad, transcribing performative gestures into this element. 
 However, analysis of the pulsar synthesis also controls some of the ways in which the vocals are processed, creating a conceptual feedback loop between the two performative aspects giving them a complicated and symbiotic relationship.
 
--> INSERT IMG OF 05 PITCH TRACKING EXAMPLE PATCH.
+<Image
+src="/madewithflucoma/hayes/pitch_tracking_img.png"
+label="An overview of the '05 Pitch Tracking' example patch."
+/>
 
 The amplitude slicing of the pulsar synthesis (which as we saw is controlled in part by Hayes’ vocals), is used to trigger various things in the patch, notably the playback of slices found in the novelty slicing part of the patch (see below). 
 It is important to understand the relationship between these two important elements, and the extent to which they are interlinked: one cannot exist without the other. 
