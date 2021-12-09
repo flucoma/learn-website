@@ -83,7 +83,7 @@ x = [10, 20, 30, 40];
 
 ## Batch Processing
 
-So how do we approach batch processing with the FluCoMa objects? No doubt, there will be scenarios where working with bundles of data, numerous slices or several audio files can be frustrating and hard to structure in the code. The next section will demonstrate a number of ways in which batch processing can be implemented in Max, SC and PD and attempt to show how our interfacescan interlock with the existing ones in your environment of choice. The explanation of particular objects and processes will be _in_ the patches and scripts themselves.
+So how do we approach batch processing with the FluCoMa objects? No doubt, there will be scenarios where working with bundles of data, numerous slices or several audio files can be frustrating and hard to structure in the code. The next section will demonstrate a number of ways in which batch processing can be implemented in Max, SC and PD and attempt to show how our interfaces can interlock with the existing ones in your environment of choice. The explanation of particular objects and processes will be _in_ the patches and scripts themselves.
 
 ### Analysis of Segments
 
@@ -160,7 +160,7 @@ mkdir -p output && fd -e wav -d 1 -x fluid-hpss -source {} -harmonic output/{/.}
 </TabPanel>
 </Tabs>
 
-In this example a collection of audio files are processed as a batch using the [FluidHPSS](/reference/hpss) algorithm. Each decomposition is stored in a CCE specific container so that the results can be accessed later for audition or storage on disk. The example illustrates how a corpus might be processed as a whole in an automated way.
+In this example a collection of audio files are processed as a batch using the [FluidHPSS](/reference/hpss) algorithm. Each decomposition is output so that the results can be accessed later for audition or storage on disk. The example illustrates how a corpus might be processed as a whole in an automated way.
 
 The step-by-step workflow is as follows:
 
