@@ -15,7 +15,7 @@ tags:
 </script>
 
 ## Introduction
-One of the major pain points working with machine learning and machine listening is that we often need to process and work on collections of sounds, slices or analyses. If you're familiar with a text-based programming language you'll be acquainted with the `for` or `while` loop, or a similar structure that can _iterate_ over a sequence or group of items.
+One of the major pain points working with machine learning and machine listening is that we often need to process and work on collections of sounds, slices or analyses. The notion of batch processing is one that is not unfamiliar to musicians although it often is not called this. A widely found example can be seen when you normalise a bundle of audio files, or when you render a multi-track session in the DAW. In any of these cases, the computer has to work through a collection of things together. If you're familiar with a text-based programming language you'll be acquainted with the `for` or `while` loop that can _iterate_ over a sequence or group of items.
 
 For example, in Python we might do something like this:
 
