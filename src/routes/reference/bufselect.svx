@@ -4,6 +4,21 @@ blurb: Cherry pick buffer values
 tags: 
     - utility
     - buffer
+related:
+    - bufcompose
+    - bufselectevery
 ---
+
+<script>
+    import BufSelect from '$lib/widget/BufSelect.svelte';
+</script>
+
+BufSelect is an object for cherry picking values from a buffer by specificing a combination of indices and channels. The widget below allows you to visually experiment with how this works.
+
+The overall grid-like shape can be thought of as a buffer with samples going from left to right, and channels from top to bottom. By default ()
+
+<BufSelect />
+
+
 
 
