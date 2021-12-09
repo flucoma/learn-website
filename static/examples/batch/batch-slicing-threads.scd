@@ -17,6 +17,13 @@ s.waitForBoot({
     FluidBufOnsetSlice.process(s, drum, indices:slices, metric:9,threshold:0.5).wait;
 
     slices.loadToFloatArray(action:{ |slicesArr| // Bring the values in the slices buffer from the server to the language as a float array
+        /*
+        If the last slice index is not the true end of the source file (in samples), we append it.
+        This ensures that the final segment which is analysed goes from the last calculated index, to the end of the file.
+        */
+        if ((slicesArr.at(slicesArr.size) != drum.numFrames), {
+            slicesArr = slicesArr.add(drum.numFrames);
+        });
         slicesArr.postln;
         slicesArr.doAdjacentPairs({ |start, end, sliceIndex|
             /*
