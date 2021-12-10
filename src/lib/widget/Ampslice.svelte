@@ -59,8 +59,8 @@
 
             // web-gl plot
             const numX = canvas.width;
-            const color = new ColorRGBA(Math.random(), Math.random(), Math.random(), 1);
-            const color2 = new ColorRGBA(Math.random(), Math.random(), Math.random(), 1);
+            const color = new ColorRGBA(1,0,0,1);
+            const color2 = new ColorRGBA(0,0,1,1);
             const line = new WebglLine(color2, numX);
             const smoothedLine = new WebglLine(color, numX)
             const wglp = new WebglPlot(canvas);
@@ -74,7 +74,7 @@
             function newFrame() {
                 // let t = smooth(features, 0.0)
                 let t = features;
-                let tSmooth = smooth(features, 100);
+                let tSmooth = smooth(features, 50);
 
                 for (let i=0; i<t.length; i++) {
                     line.setY(i, t[i] * 2 - 0.5);
