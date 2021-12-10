@@ -7,8 +7,12 @@ tags:
 ---
 
 <script>
-    import Ampslice from '$lib/widget/Ampslice.svelte';
+    import AmpSlice from '$lib/widget/Ampslice.svelte';
 </script>
 
-<Ampslice />
 
+[AmpSlice](/reference/ampslice) is an object for _relative_ amplitude-based segmentation. Under the hood, it uses two envelope followers: one is slow and one is fast envelope. The premise of using both of these followers is that the slow envelope tracks the overall amplitude trend across a longer period of time than the fast one which tracks more immediate changes in amplitude. When the fast envelope value is greater than the slow envelope value by a given threshold a segment is detected. You can see a visual depiction of these two envelope followers below. The slow envelope is red, while the fast envelope is blue.
+
+<AmpSlice />
+
+If you are interested in absolute amplitude-based segmentation then check out [AmpGate](/reference/ampgate).
