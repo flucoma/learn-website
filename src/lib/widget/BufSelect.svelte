@@ -80,7 +80,7 @@
             }  
         }
         width=80%
-        label='Every index and second channel' 
+        label='Every index of second channel' 
         />
         <Button on:click={
             () => {
