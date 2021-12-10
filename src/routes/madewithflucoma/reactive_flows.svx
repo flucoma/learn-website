@@ -1,5 +1,5 @@
 ---
-title: ​​Event: Reactive Flows (HCMF 2019)
+title: (​​Event) Reactive Flows (HCMF 2019)
 blurb: |
     An overview of the first FluCoMa gig that happened on 21st November 2019 at HCMF.
 tags: 
@@ -49,9 +49,9 @@ url={'qqR_gORRwRA'}
 
 "*'Man is dust only, the feather duster is hold by himself.' 
 This thought points up many subjective inner convolutions like Kurt Gödel’s incompleteness theorem. 
-These loop also matter beyond science and entail self-conscience into existence.
+These loop also matter beyond science and entail self-conscience into existence.*
 
-Herbig–Haro, HH, immerses the audience into a rhythmic dust storm. 
+*Herbig–Haro, HH, immerses the audience into a rhythmic dust storm. 
 Particles aggregate together making a central sonic sculpture. 
 Individual listeners are free to move around and hear different perspectives. 
 This intangible generated object, made of moiré patterns, manipulates millions of grains set together according to sonic characteristics.*"
