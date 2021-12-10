@@ -106,6 +106,15 @@
         label='Drum 🥁'
         on:click={ () => { updateWaveform('drum') }}
         />
+
+        <Button 
+        label='Stop'
+        on:click={ () => { 
+            bassPlayer.stop();
+            pianoPlayer.stop();
+            drumPlayer.stop();
+        } }
+        />
     </div>
 </div>
 
