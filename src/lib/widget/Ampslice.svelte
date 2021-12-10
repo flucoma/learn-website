@@ -12,6 +12,8 @@
     // Canvas
     let canvas, pixelRatio;
     let ready = false;
+
+    let slowSmooth = 50;
     
     onMount(async() => {
         // Tone.js setup
@@ -30,7 +32,7 @@
         // webgl setup
         pixelRatio = window.devicePixelRatio || 1;
         canvas.width = canvas.clientWidth * pixelRatio;
-        canvas.height = 300 * pixelRatio;
+        canvas.height = 200 * pixelRatio;
         features = new Array(canvas.width).fill(0.0);
     });
 
@@ -74,7 +76,7 @@
             function newFrame() {
                 // let t = smooth(features, 0.0)
                 let t = features;
-                let tSmooth = smooth(features, 50);
+                let tSmooth = smooth(features, slowSmooth);
 
                 for (let i=0; i<t.length; i++) {
                     line.setY(i, t[i] * 2 - 0.5);
@@ -89,6 +91,8 @@
 </script>
 
 <canvas id='vis' bind:this={ canvas } class:hidden={!ready} />
+
+<input type='range' min=1 max=100 bind:value={slowSmooth} />
 
 <div class='controls'>
     <div class="sound-select">

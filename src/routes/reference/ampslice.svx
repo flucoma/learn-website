@@ -15,4 +15,6 @@ tags:
 
 <AmpSlice />
 
+<!-- There are a number of parameters that can be tuned in the [AmpSlice](/reference/ampslice) object which often can be confusing. On the whole, the parameters mostly deal with tuning the nature of the slow and fast envelopes independently as well as their relationship to each other.
+ -->
 If you are interested in absolute amplitude-based segmentation then check out [AmpGate](/reference/ampgate).
