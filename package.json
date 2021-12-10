@@ -48,6 +48,6 @@
 		"typescript": "^4.5.2",
 		"umap-js": "^1.3.3",
 		"waveform-data": "^4.3.0",
-		"webgl-plot": "^0.6.5"
+		"webgl-plot": "^0.6.6"
 	}
 }
