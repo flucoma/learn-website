@@ -92,9 +92,13 @@
 
 <canvas id='vis' bind:this={ canvas } class:hidden={!ready} />
 
-<input type='range' min=1 max=100 bind:value={slowSmooth} />
-
 <div class='controls'>
+    <div class="smoothing">
+        <div class="label">Slow Envelope Smoothing</div>
+        <div class="slider">
+            <input type='range' min=1 max=100 bind:value={slowSmooth} />
+        </div>
+    </div>
     <div class="sound-select">
         <Button 
         label='Bass 🎸'
@@ -123,13 +127,26 @@
 </div>
 
 <style>
+
+
     .hidden {
         visibility: hidden;
     }
     .controls {
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
+        justify-content: space-between;
         gap: 1em;
+    }
+
+    .smoothing {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .slider {
+        display: flex;
+        flex-direction: row;
     }
 
     .sound-select {
