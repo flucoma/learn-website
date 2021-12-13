@@ -8,7 +8,7 @@ s.waitForBoot({
         var sliceCentroid = Buffer(s); // A Buffer() for extracting the centroid into
         var sliceStats = Buffer(s, 7); // A Buffer() for writing the statistical analyses of the centroid into
         var sliceMean = Buffer(s, 1); // A Buffer() for extracting just the mean from the 7 statistical analyses.
-
+        var cond = Condition(); // A condition to stop the script from progressing to freeing Buffers.
         var data = FluidDataSet(s); // A FluidDataSet() for storing the analysis of each slice (mean centroid)
 
         // Slice the drum Buffer() based on consecutive changes in spectral frames
@@ -59,14 +59,15 @@ s.waitForBoot({
                         // Put that value into a 1 channel by 1 sample buffer.
                         FluidBufSelect.processBlocking(s, source:sliceStats, destination:sliceMean, indices:0, action:{
                             // Add the contents of the sliceMean buffer to the DataSet with an identifier which is the slice index.
-                            data.addPoint(sliceIndex, sliceMean);
+							data.addPoint(sliceIndex, sliceMean,{
+								cond.unhang
+							});
                         });
                     });
                 });
-                s.sync;
+                cond.hang;
             });
         });
-        s.sync;
 
         // Free buffers
         sliceAnalysis.free; sliceCentroid.free; sliceStats.free; sliceMean.free;
