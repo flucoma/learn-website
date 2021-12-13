@@ -38,13 +38,15 @@ s.waitForBoot({
             This will give us the left and right boundary of each segment
             We can use this to inform the analysis (FluidBufSpectralShape) where to start analysing and how many frames to analyse
             */
-            fork ({
+            fork({
                 var sliceAnalysis, sliceCentroid, sliceStats, sliceMean, numSamps;
                 pool.wait; // We ask the semaphore if we can proceed (i.e. < 4 jobs currently processing) It will block until we are able to go
                 sliceAnalysis = Buffer(s); // A Buffer() for writing the analysis from FluidSpectralShape into
                 sliceCentroid = Buffer(s); // A Buffer() for extracting the centroid into
                 sliceStats = Buffer(s, 7); // A Buffer() for writing the statistical analyses of the centroid into
                 sliceMean = Buffer(s, 1); // A Buffer() for extracting just the mean from the 7 statistical analyses.
+
+                s.sync;
 
                 numSamps = end-start; // The next slice point minus the current one will determine how many frames to analyse.
 
@@ -60,6 +62,7 @@ s.waitForBoot({
                         FluidBufSelect.process(s, source:sliceStats, destination:sliceMean, indices:0,action:{
                             // Now that we have a 1x1 Buffer() holding the mean centroid for that segment we can add it to the FluidDataSet.
                             data.addPoint(sliceIndex, sliceMean);
+
                             // Free buffers
                             sliceAnalysis.free; sliceCentroid.free; sliceStats.free; sliceMean.free;
 
@@ -73,7 +76,6 @@ s.waitForBoot({
                             data.size(action:{ |size|
                                 if (size == (slicesArr.size-1)) { processingCompleted.unhang }
                             });
-
                             // Tell the pool that we are finished
                             pool.signal;
                         })
