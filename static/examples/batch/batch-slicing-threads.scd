@@ -81,7 +81,7 @@ s.waitForBoot({
                         })
                     })
                 });
-            });
+            }, AppClock);
         });
     });
 
