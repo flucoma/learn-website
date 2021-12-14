@@ -76,6 +76,9 @@ glob('src/**/*.svx', (err, routes) => {
 			case 'overviews':
 				crumbs[url] = fm.title;
 				break;
+			case 'installation':
+				crumbs[url] = fm.title
+				break;
 		}
 	});
 
