@@ -42,12 +42,11 @@
 
 <style lang='scss'>
     $radius: 0px;
-    $w: 400px;
+    $w: min(90%, 400px);
     $border: 2px solid $dark-blue;
 
     .search {
         width: $w;
-        margin: 0 auto;
     }
 
     .query {
