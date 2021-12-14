@@ -3,4 +3,5 @@ title: MelBands
 blurb: Amplitude for a number of equally spread perceptual bands
 tags: 
     - descriptor
+flair: reference
 ---

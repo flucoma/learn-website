@@ -1,47 +1,43 @@
-<script lang='ts'>
+<script lang="ts">
 	export let src: string = '';
 	export let alt: string = '';
 	export let label: string = '';
+	export let id: string = '';
 </script>
 
-<div class="container">
-    <a target='_blank' href={src}>
-        <img 
-        loading=lazy
-        alt={alt} 
-        src={src}
-        />
-    </a>
-    <div class='label'>
-        {@html label}
-    </div>
+<div class="container" id={id}>
+	<a target="_blank" href={src}>
+		<img loading="lazy" {alt} {src} />
+	</a>
+	<div class="label">
+		{label}
+	</div>
 </div>
 
-<style lang='scss'>
-    .container {
-        display: grid;
-        place-items: center;
-        width: 80%;
-        margin: 0 auto;
+<style lang="scss">
+	.container {
+		display: grid;
+		place-items: center;
+		width: 80%;
+		margin: 0 auto;
 
-        img {
-            padding-top: 1em;
-            padding-bottom: 1em;
-            max-width: 100%;
-        }
+		img {
+			padding-top: 1em;
+			padding-bottom: 1em;
+			max-width: 100%;
+		}
 
-        a {
-            max-width: 100%;
-        }
+		a {
+			max-width: 100%;
+		}
 
-        a:hover {
-            background:transparent;
-        }
-    }
+		a:hover {
+			background: transparent;
+		}
+	}
 
-    .label{
-        text-align: center;
-        font-size: 0.8rem;
-        font-style: italic;
-    }
+	.label {
+		text-align: center;
+		font-size: 0.8rem;
+	}
 </style>

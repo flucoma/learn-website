@@ -1,4 +1,4 @@
-<script lang='ts'>
+<script lang="ts">
 	export let url: string = '';
 	export let title: string = '';
 	export let caption: string = title;
@@ -38,5 +38,6 @@
 		text-align: center;
 		width: 80%;
 		margin: 0 auto;
+		font-size: 0.8rem;
 	}
 </style>

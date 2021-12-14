@@ -1,4 +1,4 @@
-<script lang='ts'>
+<script lang="ts">
 	export let value: string | number;
 	export let min: string | number = '0';
 	export let max: string | number = '100';

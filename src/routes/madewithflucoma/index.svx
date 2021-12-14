@@ -3,9 +3,8 @@ layout: none
 ---
 
 <script>
-    import { structure } from '$lib/app.js';
+    import { info } from '$lib/app.js';
     import { goto } from '$app/navigation';
-    import { fade, slide } from 'svelte/transition';
 </script>
 
 # Made with FluCoMa
@@ -13,15 +12,15 @@ layout: none
 Made with FluCoMa highlights projects and practices where FluCoMa is used.
 
 <div class='overview-list'>
-    {#each $structure.routes.madewithflucoma as ov}
-    {#if ov.data}
-    <a href={ov.url}>
-        <div class='overview' transition:fade>
-            <h2 class='overview-title'>{ov.data.title}</h2>
-            <p class='overview-blurb'>{ov.data.blurb}</p>
-        </div>
-    </a>
-    {/if}
+    {#each $info.madewithflucoma as article}
+        {#if article.data}
+        <a href={article.url}>
+            <div class='overview'>
+                <h2 class='overview-title'>{article.data.title}</h2>
+                <p class='overview-blurb'>{article.data.blurb}</p>
+            </div>
+        </a>
+        {/if}
     {/each}
 </div>
 
@@ -57,4 +56,3 @@ Made with FluCoMa highlights projects and practices where FluCoMa is used.
         color: grey;
     }
 </style>
-

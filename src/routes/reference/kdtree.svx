@@ -4,18 +4,30 @@ blurb: K-Dimensional tree for searching data
 tags: 
     - data
     - querying
+flair: reference
 ---
 
 <script>
     import KDTree from '$lib/widget/KDTree.svelte';
 </script>
 
-The [KDTree](/reference/kdtree) facilitates the rapid querying of data stored in a [FluidDataSet](/reference/dataset). It makes querying by distance much more efficient by first analysing a [FluidDataSet](/reference/dataset) and creating a data structure known as a _k_-d tree. As such, before the [KDTree](/reference/kdtree) can be used you have to `fit` a [FluidDataSet](/reference/dataset). After this, the tree can be quered by calling `knearest <buffer>` and providing the name of a buffer containing data.
+The [KDTree](/reference/kdtree) facilitates the rapid querying of data stored in a [FluidDataSet](/reference/dataset). It makes querying by distance much more efficient by first analysing a [FluidDataSet](/reference/dataset) and creating a data structure known as a _k_-d tree. As such, before the [KDTree](/reference/kdtree) can be used you have to `fit` a [FluidDataSet](/reference/dataset). This constructs the tree that can then be queried.
 
-A common application of the [KDTree](/reference/kdtree) is for performing rapid nearest neighbour lookups. The interactive example below contains a collection of data points ranging between 0.0 and 1.0 which are then plotted on to a canvas like a scatterplot. Using the coordinates of our mouse in the square, we can search for the point, or group of poitns which are closest to our mouse.
-
-Before you use the example you will have to `fit` the underlying [KDTree](/reference/kdtree) by pressing the button labelled _fit_. You can change how many nearest neighbours you query for with the range slider at the bottom.
+A common application of the [KDTree](/reference/kdtree) is for performing _nearest neighbour lookups_. The interactive example below contains a collection of data points ranging between 0.0 and 1.0 which are then plotted on to a canvas like a scatterplot. Using the coordinates of our mouse in the square, we can search for the point, or group of points closest to our mouse. We can also control the radius constraints of the search, meaning only points within a certain distance, and not just whatever is closest, are returned. Before you use the example you will have to `fit` the underlying [KDTree](/reference/kdtree) by pressing the button labelled _fit_. 
 
 <KDTree />
+
+You can change the number of neighbours and the radius constraint with the sliders at the bottom. Points that are highlighted with a red square are those that are deemed to be the nearest neighbours, given both the number of neighbours and radius constraint. Even if points fall outside the radius, a line will be drawn to them. Notice how working with both constraints can help you to hone in on different neighbourhoods of points. For example, by using a large number of neighbours (50) and a small radius (0.1) you can ensure that if there are actually 50 very nearby points they will be returned, but only if they are within a tight proximity to the query (your mouse).
+
+<!-- ## Musical Motivations
+The _k_-d tree can is useful towards a number of different musical applications. Namely, it is a way of employing the computer to perform comparisons of similarity between data, that may or may not be associated to sound files, synthesiser parameters or anything musically useful. -->
+
+
+
+
+
+
+
+
 
 <!-- TODO: Tutorial on YouTube which uses a KDTREE to perform multi-dimensional searching for nearest neighbours in a descriptor dataset. -->

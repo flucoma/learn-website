@@ -1,4 +1,4 @@
-<script lang='ts'>
+<script lang="ts">
 	import { onMount } from 'svelte';
 	import { Chart, registerables } from 'chart.js';
 	import * as Meyda from 'meyda';

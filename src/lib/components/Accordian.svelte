@@ -1,4 +1,4 @@
-<script lang='ts'>
+<script lang="ts">
 	import { slide } from 'svelte/transition';
 	export let id: string = '';
 	export let caption: string = '';
