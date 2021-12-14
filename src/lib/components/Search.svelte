@@ -31,10 +31,11 @@
     <div class='results'>
         {#each results as r}
         <a class='result' href={r.url} on:click={ () => {results = []; query='';}}>
-            <div class="text">
-                {r.title}
-            </div>
+            <div class="text">{r.title}</div>
         </a>
+        {#if r.flair}
+        <div></div>
+        {/if}
         {/each}
     </div>
     {/if}
@@ -44,15 +45,17 @@
     $radius: 0px;
     $w: min(90%, 400px);
     $border: 2px solid $dark-blue;
+    $search-pad: 10px;
 
     .search {
         width: $w;
+        position: relative;
     }
 
     .query {
         font-size: 1rem;
         border-radius: $radius;
-        padding: 10px;
+        padding: $search-pad;
         width: 100%;
     }
 
@@ -60,17 +63,20 @@
         display: flex;
         flex-direction: column;
         position: absolute;
-        width: calc($w - 12px);
-        background: rgb(255, 255, 255);
+        width: calc(100% + 2*$search-pad);
+        background: rgb(255, 255, 255, 1.0);
         border: $border;
-        padding: 1em;
         border-radius: $radius;
         z-index: 0;
     }
 
     .result {
-        .text {
-            width: 100%;
-        }
+        height: 30px;
+        max-width: 100%;
+        padding: 0.5em;
+    }
+
+    .result::hover{
+        color:black;
     }
 </style>
