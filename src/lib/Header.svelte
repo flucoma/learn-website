@@ -1,34 +1,51 @@
+<script>
+	import Search from '$lib/components/Search.svelte';
+</script>
 <div class="container">
 	<div class="links">
 		<a class="logo-link" href="/">
 			<img class="logo" src="/img/onlylogo.svg" alt="FluCoMa Logo" />
 		</a>
 		<a class="nav-link" href="/overviews">Overviews</a>
-		<a class="nav-link" href="/guides">Guides</a>
 		<a class="nav-link" href="/reference">Reference</a>
 		<a class="nav-link" href="/madewithflucoma">Made with FluCoMa</a>
 	</div>
+	<Search />
 </div>
 
 <style lang="scss">
 	.container {
 		display: flex;
-		flex-direction: column;
-		background: $dark-blue;
-		justify-content: space-around;
+		flex-direction: row;
 		align-items: center;
-		min-height: 3em;
+		justify-content: center;
+		background: $dark-blue;
 		padding: 1em;
-		gap: 2em;
+	}
+
+	/* Media Queries */
+	@media (max-width: $breakpoint) {
+		.container {
+			gap: 0.5em;
+			display: flex;
+			flex-direction: column;
+		}
 	}
 
 	.links {
 		display: flex;
+		flex-direction: row;
+		margin: 0 auto;
+		gap: 1em;
 	}
 
 	.logo {
 		width: 2em;
 		height: 100%;
+	}
+
+	.logo:hover {
+		background: transparent;
 	}
 
 	.logo-link {
@@ -37,39 +54,26 @@
 	}
 
 	.nav-link {
-		padding-right: 1em;
-		padding-left: 1em;
+		display: block;
+		margin-top: auto;
+		margin-bottom: auto;
 		text-align: center;
 		font-size: 1.5em;
 		color: white;
-	}
-
-	.nav-link:visited {
-		color: white;
+		text-decoration: none;
 	}
 
 	.nav-link:hover {
-		background: #0372b5;
+		background: transparent;
+		text-decoration: underline;
+
 	}
 
 	.nav-link:visited {
 		color: white;
 	}
 
-	/* Media Queries */
-	@media (min-width: $breakpoint) {
-	}
-	@media (max-width: $breakpoint) {
-		.container {
-			gap: 0.5em;
-		}
-
-		.logo {
-			display: none;
-		}
-
-		.links {
-			flex-direction: column;
-		}
+	.nav-link:visited {
+		color: white;
 	}
 </style>
