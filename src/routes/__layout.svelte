@@ -36,6 +36,7 @@
 		justify-content: center;
 		margin-left: 1em;
 		margin-right: 1em;
+		margin-bottom: 1em;
 	}
 
 	.main {
