@@ -15,20 +15,19 @@
 
 <style lang="scss">
 	.container {
-		display: flex;
-		flex-direction: row;
-		align-items: center;
-		justify-content: center;
+		display: grid;
+		grid-template-columns: auto auto;
+		place-items: center;
 		background: $dark-blue;
 		padding: 1em;
+		gap: 3em;
 	}
 
-	/* Media Queries */
 	@media (max-width: $breakpoint) {
 		.container {
-			gap: 0.5em;
 			display: flex;
 			flex-direction: column;
+			gap: 0.5em;
 		}
 	}
 
@@ -38,6 +37,7 @@
 		margin: 0 auto;
 		gap: 1em;
 	}
+
 
 	.logo {
 		width: 2em;
