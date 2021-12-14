@@ -4,4 +4,5 @@ blurb: Absolute value amplitude-based slicing
 tags: 
     - slicing
     - segmentation
+flair: reference
 ---

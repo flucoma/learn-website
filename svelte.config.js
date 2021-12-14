@@ -1,6 +1,6 @@
 import adapter from '@sveltejs/adapter-static';
 import slug from 'rehype-slug';
-import sveltePreprocess from 'svelte-preprocess';
+import preprocess from 'svelte-preprocess';
 import { mdsvex } from 'mdsvex';
 import { dirname } from 'path';
 import { fileURLToPath } from 'url';
@@ -15,15 +15,12 @@ const config = {
 			rehypePlugins: [slug],
 			layout: {
 				overviews: './src/lib/layouts/overviews.svelte',
-				guides: './src/lib/layouts/overviews.svelte',
 				reference: './src/lib/layouts/reference.svelte',
 				madewithflucoma: './src/lib/layouts/madewithflucoma.svelte'
 			}
 		}),
-		sveltePreprocess({
-			scss: {
-				prependData: `@import '${filePath}/src/app.scss';`
-			}
+		preprocess({
+			scss: { prependData: `@import '${filePath}/src/app.scss';` },
 		})
 	],
 	kit: {

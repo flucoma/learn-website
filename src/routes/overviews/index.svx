@@ -9,9 +9,7 @@ layout: none
 
 # Overviews
 
-The overviews section contains long form, prose-like articles describing high-level problems in musicking with FluCoMa tools and the wider gamut of machine learning and machine listening technologies.
-
-See the list of overviews below:
+The overviews section hosts a variety of articles describing high-level problems in musicking with FluCoMa tools and the wider gamut of machine learning and machine listening technologies.
 
 <div class='overview-list'>
     {#each $info.overviews as overview}

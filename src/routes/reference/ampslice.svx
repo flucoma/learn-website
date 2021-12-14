@@ -4,5 +4,6 @@ blurb: Relative value amplitude-based slicing
 tags: 
     - slicing
     - segmentation
+flair: reference
 ---
 

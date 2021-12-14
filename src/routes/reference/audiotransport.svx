@@ -5,5 +5,6 @@ tags:
     - decomposition
     - morphing
     - hybrids
+flair: reference
 ---
 

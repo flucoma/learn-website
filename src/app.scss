@@ -1,11 +1,12 @@
-@import './code.scss';
 @import './fonts.scss';
+@import './code.scss';
 
 $font: 'Overpass', sans-serif;
 $mono: 'Overpass Mono', monospace;
 $dark-blue: rgb(8, 60, 100);
 $med-blue: rgb(3, 113, 181);
 $light-blue: rgb(28, 164, 252);
+$light-blue-faded: rgb(28, 164, 252, 0.1);
 $link-blue: rgb(28, 122, 185);
 $breakpoint: 1200px;
 $max-text-width: 70ch;

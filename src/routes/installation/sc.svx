@@ -1,3 +1,14 @@
+---
+title: SuperCollider Installation Instructions
+blurb: |
+    Step-by-step guide for installing the FluCoMa package for SuperCollider
+tags: 
+    - installation
+    - sc
+    - supercollider
+flair: article
+---
+
 <script>
     import Image from '$lib/components/Image.svelte';
     import { Tabs, TabList, TabPanel, Tab } from '$lib/components/tabs/tabs';
