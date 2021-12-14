@@ -4,6 +4,7 @@ blurb: K-Dimensional tree for searching data
 tags: 
     - data
     - querying
+flair: reference
 ---
 
 <script>

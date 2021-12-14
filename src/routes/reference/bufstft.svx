@@ -5,4 +5,5 @@ tags:
     - descriptor
     - analysis
     - spectral
+flair: reference
 ---

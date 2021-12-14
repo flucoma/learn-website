@@ -4,6 +4,7 @@ blurb: Mel-Frequency Cepstrum Coefficients
 tags: 
     - descriptor
     - analysis
+flair: reference
 ---
 
 <script>

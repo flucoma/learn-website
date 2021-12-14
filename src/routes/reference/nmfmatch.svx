@@ -6,4 +6,5 @@ tags:
     - nmf
     - machine learning
     - spectral
+flair: reference
 ---

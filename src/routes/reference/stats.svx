@@ -5,6 +5,7 @@ tags:
     - analysis
     - stats
     - statistics
+flair: reference
 ---
 
 
