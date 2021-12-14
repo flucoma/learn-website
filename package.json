@@ -3,7 +3,7 @@
 	"version": "0.0.1",
 	"scripts": {
 		"scrape": "node scripts/metadata.js && node scripts/db.js ",
-		"dev": "node scripts/metadata.js && node scripts/db.js svelte-kit dev --host",
+		"dev": "node scripts/metadata.js && node scripts/db.js && svelte-kit dev --host",
 		"build": "node scripts/metadata.js && node scripts/db.js && svelte-kit build",
 		"check": "svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-check --tsconfig ./tsconfig.json --watch",
