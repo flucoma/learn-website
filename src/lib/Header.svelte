@@ -1,17 +1,34 @@
 <script>
 	import Search from '$lib/components/Search.svelte';
+	import Hamburger from '$lib/components/Hamburger.svelte';
+	let w;
+	const breakpoint = 1200;
+	let userExpand = false;
+	const expandHandler = () => { userExpand=!userExpand };
+
+	$: navExpand = w >= breakpoint || userExpand;
 </script>
+
 <div class="container">
+	{#if w < breakpoint}
+		<Hamburger on:click={expandHandler} />
+	{/if}
+	{#if navExpand}
 	<div class="links">
+		{#if w >= breakpoint}
 		<a class="logo-link" href="/">
 			<img class="logo" src="/img/onlylogo.svg" alt="FluCoMa Logo" />
 		</a>
+		{/if}
 		<a class="nav-link" href="/overviews">Overviews</a>
 		<a class="nav-link" href="/reference">Reference</a>
 		<a class="nav-link" href="/madewithflucoma">Made with FluCoMa</a>
 	</div>
+	{/if}
 	<Search />
 </div>
+
+<svelte:window bind:innerWidth={w} />
 
 <style lang="scss">
 	.container {
@@ -38,14 +55,16 @@
 		gap: 1em;
 	}
 
+	@media (max-width: $breakpoint) {
+		.links {
+			flex-direction: column;
+			gap: 0.3em;
+		}
+	}
 
 	.logo {
 		width: 2em;
 		height: 100%;
-	}
-
-	.logo:hover {
-		background: transparent;
 	}
 
 	.logo-link {
@@ -53,8 +72,11 @@
 		height: 100%;
 	}
 
+	.logo-link:hover {
+		background: transparent;
+	}
+
 	.nav-link {
-		display: block;
 		margin-top: auto;
 		margin-bottom: auto;
 		text-align: center;
