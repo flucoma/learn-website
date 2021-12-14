@@ -7,7 +7,8 @@
 		madewithflucoma: 'Made with FluCoMa',
 		reference: 'Reference',
 		guides: 'Guides',
-		overviews: 'Overviews'
+		overviews: 'Overviews',
+		installation: 'Installation'
 	};
 
 	function formatCrumb(crumb) {

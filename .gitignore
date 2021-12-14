@@ -15,3 +15,4 @@ static/edits.json
 static/crumbs.json
 scripts/__pycache__
 static/info.json
+static/db.json
