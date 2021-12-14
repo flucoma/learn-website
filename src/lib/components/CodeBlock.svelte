@@ -18,7 +18,6 @@
 </div>
 
 <style lang="scss">
-	@import './code.scss';
 	.code {
 		position: relative;
 	}
