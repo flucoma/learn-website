@@ -19,7 +19,10 @@ const docs = database.docs;
 const search = new FuzzySearch(
     docs, 
     ['title', 'tags', 'flair', 'artist', 'blurb'], 
-    {caseSensitive: false}
+    {
+        caseSensitive: false,
+        sort: true,
+    }
 );
 
 export const db = search;
