@@ -17,7 +17,12 @@
 	<div class="links">
 		{#if w >= breakpoint}
 		<a class="logo-link" href="/">
-			<img class="logo" src="/img/onlylogo.svg" alt="FluCoMa Logo" />
+			<img 
+			class="logo" 
+			src="/img/onlylogo.svg" 
+			alt="FluCoMa Logo" 
+			loading=lazy
+			/>
 		</a>
 		{/if}
 		<a class="nav-link" href="/overviews">Overviews</a>
