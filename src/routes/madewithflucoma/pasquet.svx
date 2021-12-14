@@ -11,6 +11,7 @@ tags:
     - bach
     - cage
     - markov chains
+flair: article
 ---
 
 <script>
