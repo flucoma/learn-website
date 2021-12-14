@@ -1,18 +1,39 @@
 <script>
     import { db } from '$lib/app.js';
+    import { goto } from '$app/navigation';
+    import Flair from '$lib/components/Flair.svelte';
 
-    let results = [];
     let query = '';
+    $: results = search(query);
+    let storedQuery = query;
     let searchBar;
+    let focused = false;
+    $: placeholder = focused ?  'Enter your search term' : 'Site search... (Press "CMD + /" to focus)'
 
-    function search() {
-        results = db.search(query)
+    function search(query) {
+        return db.search(query)
+    }
+
+    function blurSearch() {
+        storedQuery = query;
+        focused = false;
+    }
+
+    function focusSearch() {
+        focused = true;
+        query = storedQuery;
     }
 
     function keyDown(e) {
-        if (e.key === 'k' && e.metaKey) {
+        if (e.key === '/' && e.metaKey) {
             searchBar.focus();
         }
+    }
+
+    function clickResult(link){
+        results = [];
+        query = '';
+        goto(link)
     }
 </script>
 
@@ -21,21 +42,30 @@
 <div class="search">
     <input 
     class='query'
+    placeholder={placeholder}
     bind:value={query} 
-    on:input={search} 
-    placeholder='Site search... (CMD+K)'
+    on:focus={ focusSearch }
+    on:blur={ blurSearch }
     bind:this={searchBar}
     />
     
-    {#if results.length >= 1}
+    {#if results.length >= 1 && focused}
     <div class='results'>
-        {#each results as r}
-        <a class='result' href={r.url} on:click={ () => {results = []; query='';}}>
-            <div class="text">{r.title}</div>
-        </a>
-        {#if r.flair}
-        <div></div>
-        {/if}
+        {#each results.slice(0, 15) as r, i}
+        <div class="result" 
+        on:click={ () => clickResult(r.url) } 
+        role='button'
+        tabindex={i}
+        >
+            <div class="top">
+                <div class="title">{r.title}</div>
+                <Flair flair={r.flair} />
+            </div>
+
+            <div class="bottom">
+                { r.blurb }
+            </div>
+        </div>
         {/each}
     </div>
     {/if}
@@ -68,15 +98,37 @@
         border: $border;
         border-radius: $radius;
         z-index: 0;
+        gap: 0em;
     }
 
     .result {
-        height: 30px;
         max-width: 100%;
         padding: 0.5em;
+        display: grid;
+        grid-template-rows: repeat(2, auto);
+        gap: 0.5em;
+        text-align: justify;
+
+        .top {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+
+
+            .title {
+                font-weight: bold;
+            }
+        }
+        .bottom {
+            color: grey;
+            text-overflow: ellipsis;
+            font-size: 0.8rem;
+        }
+
+    }
+    .result:hover {
+        background-color: rgba(128, 128, 128, 0.112);
+        cursor: pointer;
     }
 
-    .result::hover{
-        color:black;
-    }
 </style>
