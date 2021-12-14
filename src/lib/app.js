@@ -1,5 +1,5 @@
 import { readable } from 'svelte/store';
-import * as JsSearch from 'js-search';
+import FuzzySearch from 'fuzzy-search';
 import i from '../../static/info.json';
 import t from '../../static/tag.json';
 import c from '../../static/crumbs.json';
@@ -13,12 +13,17 @@ export const breadcrumbs = readable(c);
 export const edits = readable(e);
 export const structure = readable(s);
 
-let search = new JsSearch.Search('title');
-search.addIndex('title');
-search.addIndex('blurb');
-search.addIndex('tags');
-search.addIndex('url');
-search.addDocuments(database.docs);
+
+const docs = database.docs;
+
+const search = new FuzzySearch(
+    docs, 
+    ['title', 'tags', 'flair', 'artist', 'blurb'], 
+    {
+        caseSensitive: false,
+        sort: true,
+    }
+);
 
 export const db = search;
 
