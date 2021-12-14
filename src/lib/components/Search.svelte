@@ -4,36 +4,32 @@
     import Flair from '$lib/components/Flair.svelte';
 
     let query = '';
-    $: results = search(query);
-    let storedQuery = query;
     let searchBar;
     let focused = false;
     $: placeholder = focused ?  'Enter your search term' : 'Site search... (Press "CMD + /" to focus)'
+    $: results = search(query);
+
+    function clickResult(link){
+        query = '';
+        goto(link)
+    }
 
     function search(query) {
         return db.search(query)
     }
 
     function blurSearch() {
-        storedQuery = query;
         focused = false;
     }
 
     function focusSearch() {
         focused = true;
-        query = storedQuery;
     }
 
     function keyDown(e) {
         if (e.key === '/' && e.metaKey) {
             searchBar.focus();
         }
-    }
-
-    function clickResult(link){
-        results = [];
-        query = '';
-        goto(link)
     }
 </script>
 
@@ -44,16 +40,16 @@
     class='query'
     placeholder={placeholder}
     bind:value={query} 
+    bind:this={searchBar}
     on:focus={ focusSearch }
     on:blur={ blurSearch }
-    bind:this={searchBar}
     />
     
     {#if results.length >= 1 && focused}
     <div class='results'>
         {#each results.slice(0, 15) as r, i}
         <div class="result" 
-        on:click={ () => clickResult(r.url) } 
+        on:mousedown={ () => clickResult(r.url) } 
         role='button'
         tabindex={i}
         >
