@@ -4,6 +4,7 @@ blurb: Principal component analysis of a FluidDataSet
 tags: 
     - data
     - dimension reduction
+    - dimensionality reduction
     - mapping
     - statistics
     - preprocessing

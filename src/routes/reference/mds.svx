@@ -4,6 +4,7 @@ blurb: Multi-dimensional scaling of a FluiDataSet
 tags: 
     - data
     - dimension reduction
+    - dimensionality reduction
     - mapping
     - statistics
     - preprocessing
