@@ -34,7 +34,9 @@
 	.content {
 		display: grid;
 		justify-content: center;
-		margin: 1em;
+		margin-left: 1em;
+		margin-right: 1em;
+		margin-bottom: 1em;
 	}
 
 	.main {
