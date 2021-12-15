@@ -31,7 +31,7 @@
 		margin: 0 auto;
 		img {
 			min-width: 0px;
-			max-width: 300px;
+			max-width: 500px;
 		}
 
 		a:hover {
