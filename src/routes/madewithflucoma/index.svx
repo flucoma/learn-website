@@ -14,7 +14,7 @@ Made with FluCoMa highlights projects and practices where FluCoMa is used.
 <div class='overview-list'>
     {#each $info.madewithflucoma as article}
         {#if article.data}
-        <a href={article.url}>
+        <a class='entry' href={article.url}>
             <div class='overview'>
                 <h2 class='overview-title'>{article.data.title}</h2>
                 <p class='overview-blurb'>{article.data.blurb}</p>
@@ -35,9 +35,11 @@ Made with FluCoMa highlights projects and practices where FluCoMa is used.
             color: black;
         }
 
-        a {
+        .entry {
             text-decoration: none;
             color: black;
+            width: 100%;
+            max-width: 100%;
         }
     }
 
