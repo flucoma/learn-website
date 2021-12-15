@@ -94,7 +94,7 @@
 			const analyser = Meyda.createMeydaAnalyzer({
 				audioContext: audioContext,
 				source: source,
-				bufferSize: 2048,
+				bufferSize: 4096,
 				featureExtractors: ['chroma'],
 				callback: (chroma) => {
 					features = chroma.chroma;
