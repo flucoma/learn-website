@@ -2,8 +2,8 @@
 title: Event Detection and Improvisation
 artist: Lauren Sarah Hayes
 blurb: |
-    In this article we explore the work Lauren Sarah Hayes did using some of the FluCoMa tools for her piece *Moon via Spirit*. 
-    We examine how she incorporated the slicing tools into her improvisational practice, and how they can provide different approaches to event detection.
+    In this article we explore the work Lauren Sarah Hayes did using some of the FluCoMa tools for her piece Moon via Spirit. 
+    We examine how she incorporated some of the slicing tools into her improvisational practice, and how they can provide different approaches to event detection.
 tags: 
     - transient slicing
     - novelty slicing
@@ -31,8 +31,6 @@ Her shows are highly physical, making the performance of live electronic music m
 Over the last decade she has developed and honed a deliberately challenging and unpredictable performance system that explores the relationships between bodies, sound, environments, and technology."
 />
 
-TODO: ASK IF LAUREN WANTS A DIFFERENT PHOTO.
-
 ## Patches
 
 Download the demonstration patches for this article <a href='/madewithflucoma/hayes/Lauren Sarah Hayes Examples.zip' download='Lauren Sarah Hayes Examples.zip'>here</a>.
@@ -43,9 +41,9 @@ Today we’ll be looking at some of the work that Lauren Sarah Hayes did using t
 We’ll be taking a broad perspective on some of the working principles of the project and examine how some of its suggested workflows are incorporated into Hayes’ already well-developed improvisational practice. 
 We’ll start by considering her piece for the project and discussing some of her ideas about improvisation. 
 Then, we’ll have a look at the way in which Hayes used the tools within this framework. 
-As with all the Made with FluCoMa articles, there is a series of demonstration patches that can be downloaded and interacted with if you wish to explore the inner workings of the software.
+As with all the "[Made with FluCoMa](/madewithflucoma/index)" articles, there is a series of demonstration patches that can be <a href='/madewithflucoma/hayes/Lauren Sarah Hayes Examples.zip' download='Lauren Sarah Hayes Examples.zip'>downloaded</a> and interacted with if you wish to explore the inner workings of the software.
 
-Hayes’ piece, *Moon via Spirit*, was commissioned by the FluCoMa project and performed at the first FluCoMa gig at HCMF 2019. 
+Hayes’ piece, *Moon via Spirit*, was commissioned by the FluCoMa project and performed at the first [FluCoMa gig](/madewithflucoma/reactive_flows) at [HCMF](https://hcmf.co.uk/) 2019. 
 Her piece was particularly performative in nature: Hayes stood center-stage under a direct spotlight, and her facial expressions and entranced gestures walk us through the music. 
 She is surrounded by a whole host of external hardware: an [Elektron Digitakt](https://www.elektron.se/products/digitakt/), a [Moog DFAM](https://www.moogmusic.com/products/dfam-drummer-another-mother), an [ES-3](https://www.modularsquare.com/fr/shop/expert-sleepers/es-3-mk4/) module, a [TC-Helicon VoiceLive 2](https://www.tc-helicon.com/product.html?modelCode=P0CMC), a [Korg Nanocontrol](https://www.korg.com/fr/products/computergear/nanokontrol2/), a [CME XKey](https://www.thomann.de/fr/cme_xkey_37_le.htm), and of course a laptop which is running her performance patch. 
 As the piece progresses, we get the impression that all these elements are interlinked: Hayes is engulfed within a complicated, resonating, sonorous system. 
@@ -56,7 +54,7 @@ This is often tilted towards the audience, revealing the way in which delicate g
 url={'BzSRs_7S9cg'}
 />
 
-*Moon via Spirit* begins with a long section of thick pulsar synthesis, to which Hayes begins to add vocal utterances which are looped and manipulated. 
+*Moon via Spirit* begins with a long section of thick [pulsar synthesis](https://cycling74.com/forums/-sharing-advanced-pulsar-synthesis), to which Hayes begins to add vocal utterances which are looped and manipulated. 
 She describes this moment as “*moving around with the gamepad to find different timbres and textures*”. 
 She explains that “*there should be a fluidity about how it moves through the whole thing*”; she uses different strategies in order to “*blend the transitions*”. 
 After roughly 4 minutes, the pulsar synthesis fades away, and we enter a more chaotic section filled with drum machine beats and sampled vocals that are recycled and played back in various ways. 
@@ -66,17 +64,21 @@ Towards the end elements progressively filter out, finishing with a series of sy
 
 Hayes came to the project with an experience of over a decade in performance, improvisation, and instrument design. 
 The highly synthetic, sung and warped-pop music we hear in *Moon via Spirit* is but one aspect of her practice. 
-She has also done much work with augmented piano setups and haptic feedback which all bear traces in her work for the project. 
+She has also done much work with augmented piano setups (listen below) and [haptic feedback](https://yorkshiresoundwomen.com/event/music-for-ears-bodies-haptics-vibrotactile-feedback-touch-with-lauren-sarah-hayes-workshop/) which all bear traces in her work for the project. 
 One constant that can be found in most of her work is improvisation with an instrument or interconnected system of instruments that she has created.
+
+<BandCamp 
+id={'2845454850'}
+/>
 
 ### The Sweet Spot
 
-When talking about the instrument that she wishes to build and improvise with, she offers the idea of a *sweet spot*
+When talking about the instrument that she wishes to build and improvise with, she offers the idea of a *sweet spot*.
 She describes this as “*knowing what’s in the code and having some idea of how she would take a pass through it*”, but to still have space for moments of unexpectedness, of surprise: “*otherwise there’s no struggle through it as an improviser*”. 
 The idea of *struggle* and *resistance* is something that she explores in much of her work; finding a balance between having a system which one may guide to do certain things, but to have to struggle with this system in some way in performance and improvisation.
  
 This goes against some broader ideas around improvisation and the notion of flow: in her 2019 article [Beyond Skill Acquisition](https://www.academia.edu/42737438/Beyond_Skill_Acquisition_Improvisation_Interdisciplinarity_and_Enactive_Music_Cognition), she examines the idea of flow, proposing that it may have been mystified and reified. 
-She would like to get rid of some of the tropes of flow in improvisation, proposed by the Dreyfus model based around the idea of mindlessness. 
+She would like to get rid of some of the tropes of flow in improvisation, proposed by the [Dreyfus model](https://www.flowless.eu/dreyfus-model/) based around the idea of mindlessness. 
 Hayes nuances this, explaining that she is in fact “*very mindful, very aware of things*”. 
 She’s not “*completely lost in it *[…] *there is expertise and skill, there is a state of flow where gestures and sounds would move in a harmonious direction, but at the same time,* [she] *is very aware of the fragility*”. 
 We add to the ideas of *struggle* and *resistance* that of *fragility*.
@@ -97,20 +99,20 @@ It is indeed through the opposite of physical resistance that she inserts tensio
 src="/madewithflucoma/hayes/delicate_instruments_img.png"
 label="An overview of the '06 Delicate Instruments' example patch, trying to simulate what it may be like to try and play with such a system."
 />
- 
+
 Conceptually, resistance in the system is found inscribed in the way in which her performance patch is coded. 
 We shall investigate this in more detail below, but on a first listen we hear that lots of slicing and automatic triggering of events are happening. 
-Hayes explains that “*when you slice stuff, you have no idea which slices are going to come out *[…]*  you don’t know how loud or aggressive it might be, or maybe nothing comes out when you expect it to*”. 
+Hayes explains that “*when you slice stuff, you have no idea which slices are going to come out* […] *you don’t know how loud or aggressive it might be, or maybe nothing comes out when you expect it to*”. 
 She explains that these are moments that she enjoys and are a constitutive part of what she wishes to express as an improviser.
 
-### The moment
+### The Moment
 
 Another important aspect to understand about Hayes’ practice is that it is to be considered much more in terms of performance, and the moment. 
 She explains that “*it’s not about the whole patch or instrument, but the situation, the audience*”. 
 She explained that with so much experience as an improviser, she has gained the confidence so that “*even if half the patch were to go wrong, *[she] *could still give a compelling performance*”. 
 This is why radio has “*always been troubling for* [her]”. 
 She doesn’t push to release records (despite having published several albums to critical acclaim) as she is always concerned about the translation of her work from a live setting to the context of a recording. 
-At the time of the project, she explained that she wasn’t necessarily against the idea, but it is something that she hasn’t explored in great detail (for a great example of Hayes’ recorded work, you can give her latest 2021 SUPERPANG release *Embrace* a listen below).
+At the time of the project, she explained that she wasn’t necessarily against the idea, but it is something that she hasn’t explored in great detail (for a great example of Hayes’ recorded work, you can give her latest 2021 [SUPERPANG](https://superpang.bandcamp.com/) release *Embrace* a listen below).
 
 <BandCamp 
 id={'2665291014'}
@@ -119,7 +121,7 @@ id={'2665291014'}
 She went on to compare some of her work with that of some of the other artists on the project. 
 For example, she said that she found [Rodrigo Constanzo]() or [Pierre Alexandre Tremblay]()’s ways of crafting the sound spectrum to be beautiful, but that it just wasn’t something that she did. 
 This is why during setup she handed her gamepad to someone else and went out into the space to hear what things sounded like. 
-She made the decision to add extra speakers around the space as she wanted to achieve a very “*full and enveloping aesthetic*” (contrary to some of her piano work where the speakers should be localized to the instrument). 
+She made the decision to add extra loudspeakers around the space as she wanted to achieve a very “*full and enveloping aesthetic*” (contrary to some of her piano work where the loudspeakers should be localized to the instrument). 
 These are decisions that she makes in situ, following her ears and what they are hearing in the context of the specific space.
  
 When approaching Hayes’ practice, it is important to understand all of this, and to regard the way in which she forges an instrument in a much broader sense. 
@@ -142,7 +144,7 @@ This then begs the question, in the case of *Moon via Spirit*, what is it that i
 We shall see that in terms of the code, it is event detection in various forms which is explored most. 
 However, I believe that which guides the system in this case is mostly Hayes herself. 
 A great deal of agency is distributed to the Korg MIDI controller and most importantly her gamepad. 
-Hayes is the primary actor in guiding the system in as much as her gestures on the gamepad and Korg affects the parameters of the system in a very direct way. 
+Hayes is the primary actor in guiding the system in as much as her gestures on the gamepad and Korg effect the parameters of the system in a very direct way. 
 Indeed, we can imagine that this is a useful configuration if one wishes to insert notions of *struggle* and *resistance* into the system.
 
 ### Event Detection
@@ -169,7 +171,7 @@ From this diagram, we immediately remark two important elements:
 
 Let’s break this down. 
 Starting with the symbiosis, we remark that the vocals have an immediate effect on the pulsar synthesis. 
-Pitch tracking of the voice, which can be seen in the example patch *05 Pitch Tracking*, is controlling the pitch of the pulsar synthesis. 
+[Pitch tracking](/reference/pitch) of the voice, which can be seen in the example patch *05 Pitch Tracking*, is controlling the pitch of the pulsar synthesis. 
 There are two immediately performative elements in the piece: the gestures of the gamepad and Hayes’ vocals. 
 Hayes controls parameters of the pulsar synthesis with the gamepad, transcribing performative gestures into this element. 
 However, analysis of the pulsar synthesis also controls some of the ways in which the vocals are processed, creating a conceptual feedback loop between the two performative aspects giving them a complicated and symbiotic relationship.
@@ -179,7 +181,7 @@ src="/madewithflucoma/hayes/pitch_tracking_img.png"
 label="An overview of the '05 Pitch Tracking' example patch."
 />
 
-The amplitude slicing of the pulsar synthesis (which as we saw is controlled in part by Hayes’ vocals), is used to trigger various things in the patch, notably the playback of slices found in the novelty slicing part of the patch (see below). 
+The [amplitude slicing](/reference/ampslice) of the pulsar synthesis (which as we saw is controlled in part by Hayes’ vocals), is used to trigger various things in the patch, notably the playback of slices found in the [novelty slicing](/reference/noveltyslice) part of the patch (see below). 
 It is important to understand the relationship between these two important elements, and the extent to which they are interlinked: one cannot exist without the other. 
 This can be heard notably in the first third of the performance (0:00-4:10) where the relationship between these two elements is sonorously explicit.
 
@@ -226,7 +228,7 @@ label="An representation of the signal path in Hayes patch (2)."
 />
 
 After this, we can add the slicing that occurs within the *04 Knife* example patch. 
-This begins with transient slicing and pitch ordering which can be viewed in the *03 Transient Slicing* example patch. 
+This begins with [transient slicing](/reference/transientslice) and pitch ordering which can be viewed in the *03 Transient Slicing* example patch. 
 As we see on the broad representation of the code above, the audio coming into this is from the *Immediate Attacks* playback, or audio stream A, but also straight from the main voice input. 
 As we see on the screenshot of the example patch below, this audio is recorded into a buffer of 10 seconds whenever Hayes triggers the process with the Korg.
 
@@ -238,7 +240,7 @@ label="An overview of the '03 Transient Slicing' example patch."
 Once recording is finished, the analysis of this recorded audio begins: Hayes first slices the audio using [*fluid.buftransientslice~*](/reference/transientslice). 
 The parameters of this slicer are fixed, except for the forward threshold which is controlled by the Korg (on a scaling of 0-127 to 0.01-2.). 
 Once the slices have been found they are analyzed using the [*fluid.bufpitch~*](/reference/pitch) object, and then ordered according to the standard deviation statistic (found using [*fluid.bufstats~*](/reference/stats)). 
-The slices are played back incrementally, sometimes repeating, and the speed of triggering and playback being controlled by the Korg. 
+The slices are played back incrementally, sometimes repeating, and the speed of triggering and playback are controlled by the Korg. 
 This playback is sent into the *04 Knife* example patch which we shall explore below.
 
 One interesting aspect to note is that here, the main controlling object for the processing and playback is the Korg. 
@@ -254,7 +256,7 @@ We can now update our signal flow representation again.
 Note that we still only have two different signal paths: the transients slicing and pitch analysis has been added on to the end of path A. 
 The voice also directly goes into the transient slicing process. 
 It could be argued that this created a new signal path in itself, however as the signals are mixed together and treated together, we have decided to conceive of this as one path. 
-It is, however, important to remember that this is a somewhat objective representation of what is happening, and in such a sprawling and interconnected piece of software such as this, other interpretations could be entirely possible.
+It is, however, important to remember that this is a somewhat subjective representation of what is happening, and in such a sprawling and interconnected piece of software such as this, other interpretations could be entirely possible.
 
 <Image
 src="/madewithflucoma/hayes/knife_img.png"
@@ -266,7 +268,7 @@ As discussed above, this starts with the transient slicing process.
 The audio that comes out of the transient slicing patch is sent to two places:
 
 - The first (seen in step 4 of the example image) is constantly playing back the audio. The gain of this is being controlled by the Korg controller. 
-- The second (seen in steps 2 and 3) takes the audio and passes it to a *poly~* object. When triggered this records a 5 second slice of the audio which will be played back on the next trigger at a slow rate (0.1-0.3). The gain of this is also controlled by the Korg. Triggering is controlled by the [*bonk~*](https://cycling74.com/forums/bonk-64-bit-version) object, an old object developed by Miller Puckette that detects attacks in the incoming signal (this could also be achieved with the FluCoMa tools).
+- The second (seen in steps 2 and 3) takes the audio and passes it to a *poly~* object. When triggered this records a 5 second slice of the audio which will be played back on the next trigger at a slow rate (0.1-0.3). The gain of this is also controlled by the Korg. Triggering is controlled by the [*bonk~*](https://cycling74.com/forums/bonk-64-bit-version) object, an old object developed by [Miller Puckette](https://fr.wikipedia.org/wiki/Miller_Puckette) that detects attacks in the incoming signal (this could also be achieved with the FluCoMa tools).
 
 One interesting aspect to note in this part of the software, and in others, is the way in which control signals are treated. 
 First, we observe here in step 2 that the Korg’s input will always trigger either 0 or 1 - if the slider is at its maximum, we output 1, anything below the maximum outputs 0. 
@@ -291,7 +293,7 @@ The reason we have defined two signal paths is that the gain of the outputs of t
 
 <Image
 src="/madewithflucoma/hayes/hpss_filter_img.png"
-label="An overview of the '07 HPSS Filet' example patch."
+label="An overview of the '07 HPSS Filer' example patch."
 />
 
 Finally we can look at the HPSS Filter part of the main representation. 
@@ -305,7 +307,7 @@ label="An representation of the signal path in Hayes patch (5)."
 />
 
 We can finally update our signal paths in the following way. 
-We see that the HPSS Filter has been added to signal path B, taking the output from crossfade between the novelty slicing and immediate attack of the voice. 
+We see that the HPSS Filter has been added to signal path B, taking the output from the crossfade between the novelty slicing and immediate attack of the voice. 
 There is also a bypass of the HPSS Filter as the signal is also directed straight out. 
 The outputs of paths A and C have also been sent to *Audio Outs*: note that the gain levels for all of these outputs are present on the parent patcher in presentation mode, and also mapped to be controlled by Korg. 
 Before output Hayes also applied various filters to the sound, the parameters of which are also controlled by the Korg.
@@ -347,7 +349,7 @@ Indeed, the further we go down the signal paths, the more this notion is amplifi
 The transient slicing in signal path A operates on a 10 second buffer of accumulated audio, itself being derived from a previous accumulation of audio. 
 These slices will be ordered by pitch in an iterative manner, continuously in path A and on attacks in path C. 
 It seems that the configuration of the transient slicing and the pitch ordering will allow Hayes to take this accumulated audio and shape it into some kind of form that will of course never be the same over different performances, but morphologically somewhat recurrent: as series of transient attack which play out in an upward pitch progression. 
-This is something that Hayes also approaches in another form in other parts of the patch, using [NMF activations](/reference/bufnmf) to match the morphologies of sounds. 
+This is something that Hayes also approaches in another form in other parts of the patch which we haven't looked at, using [NMF activations](/reference/bufnmf) to match the morphologies of sounds. 
 
 Finally, it is interesting to remark the output of signal path B, and its either direct output or output through the HPSS Filter. 
 There is a certain idea of onset, as the crossfade jumps back to the immediate attack signal on each recording into the *shortVoice* buffer, but then fades back into a more continuous playback of novelty slices triggered by amplitude detection in the pulsar synth. 
