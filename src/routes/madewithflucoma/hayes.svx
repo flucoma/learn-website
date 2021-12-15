@@ -21,7 +21,7 @@ flair: article
 </script>
 
 <MFWHeader
-src = "/madewithflucoma/hayes/hayes_profile_img.jpeg"
+src = "/madewithflucoma/hayes/lauren.jpeg"
 name = "Lauren Sarah Hayes"
 website = "https://www.laurensarahhayes.com/"
 bio = "Lauren Sarah Hayes is a Scottish improviser and sound artist. 
