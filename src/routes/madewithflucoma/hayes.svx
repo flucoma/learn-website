@@ -42,7 +42,7 @@ Today we’ll be looking at some of the work that Lauren Sarah Hayes did using t
 We’ll be taking a broad perspective on some of the working principles of the project and examine how some of its suggested workflows are incorporated into Hayes’ already well-developed improvisational practice. 
 We’ll start by considering her piece for the project and discussing some of her ideas about improvisation. 
 Then, we’ll have a look at the way in which Hayes used the tools within this framework. 
-As with all the "[Made with FluCoMa](/madewithflucoma/index)" articles, there is a series of demonstration patches that can be <a href='/madewithflucoma/hayes/Lauren Sarah Hayes Examples.zip' download='Lauren Sarah Hayes Examples.zip'>downloaded</a> and interacted with if you wish to explore the inner workings of the software.
+As with all the "[Made with FluCoMa](/madewithflucoma)" articles, there is a series of demonstration patches that can be <a href='/madewithflucoma/hayes/Lauren Sarah Hayes Examples.zip' download='Lauren Sarah Hayes Examples.zip'>downloaded</a> and interacted with if you wish to explore the inner workings of the software.
 
 Hayes’ piece, *Moon via Spirit*, was commissioned by the FluCoMa project and performed at the first [FluCoMa gig](/madewithflucoma/reactive_flows) at [HCMF](https://hcmf.co.uk/) 2019. 
 Her piece was particularly performative in nature: Hayes stood center-stage under a direct spotlight, and her facial expressions and entranced gestures walk us through the music. 
