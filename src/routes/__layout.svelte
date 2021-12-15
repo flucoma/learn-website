@@ -47,13 +47,13 @@
 
 	.navigation {
 		grid-area: navigation;
-		width: 20ch;
+		width: 25ch;
 		height: max-content;
 	}
 
 	.empty-right {
 		grid-area: empty-right;
-		width: 20ch;
+		width: 25ch;
 	}
 
 	/* Media Queries */
