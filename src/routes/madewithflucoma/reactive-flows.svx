@@ -1,5 +1,5 @@
 ---
-title: (​​Event) Reactive Flows (HCMF 2019)
+title: Reactive Flows (HCMF 2019)
 blurb: |
     An overview of the first FluCoMa gig that happened on 21st November 2019 at HCMF.
 tags: 
@@ -10,6 +10,7 @@ tags:
     - lauren sarah hayes
     - leafcutter john
     - rodrigo constanzo
+flair: event
 ---
 
 <script>
