@@ -16,6 +16,8 @@
 	<div class="bio">
 		{@html bio}
 	</div>
+
+	<a href={website}>Website</a>
 </div>
 
 <style lang="scss">
