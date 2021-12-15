@@ -6,6 +6,7 @@
 class:article={flair==='article'}
 class:reference={flair==='reference'}
 class:podcast={flair==='podcast'}
+class:event={flair==='event'}
 >
     { flair } 
 </div>
@@ -17,6 +18,10 @@ class:podcast={flair==='podcast'}
         border-radius: 3px;
         color: white;
         padding: 3px;
+    }
+
+    .event {
+        background-color: rgb(235, 161, 23);
     }
 
     .article {
