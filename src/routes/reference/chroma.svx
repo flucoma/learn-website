@@ -11,7 +11,7 @@ flair: reference
     import ChromaDemo from '$lib/widget/ChromaDemo.svelte';
 </script>
 
-Chroma is an audio analysis that models the composition of pitch classes in a sound. In this context, a pitch class are _bins_ of the spectrum, derived through an [FFT](/reference/stft). By default, the Chroma algorithm will return 12 pitch classes, which conveniently maps on to a western model of tonal harmony (C, C#, D, D# etc...). The number of pitch classes can be changed, allowing you to tune the algorithm to return more or less granular bins in terms of what pitch class they represent. 
+Chroma is an audio analysis that models the composition of pitch classes in a sound. In this context, a pitch class are _bins_ of the spectrum derived through an [FFT](/reference/stft). By default, the Chroma algorithm will return 12 pitch classes, which conveniently maps on to a western model of tonal harmony (C, C#, D, D# etc...). The number of pitch classes can be changed, allowing you to tune the algorithm to return more or less granular bins in terms of what pitch class they represent. 
 
 <ChromaDemo />
 
