@@ -38,10 +38,8 @@
 				pts = Create.distributeRandom(space.innerBound, 120);
 			},
 			animate: (time, ftime, space) => {
-				// if (radius > 0.0) {
-				let circle: GroupLike = Circle.fromCenter(space.pointer, radius * space.size.y);
+				let circle: GroupLike = Circle.fromCenter(mouse, radius * space.size.y);
 				form.fillOnly(darkBlue).circle(circle);
-				// }
 				if (fit) {
 					form.fillOnly('#123').points(pts, 3, 'circle');
 
