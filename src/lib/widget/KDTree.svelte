@@ -8,13 +8,17 @@
 	import Slider from '$lib/components/Slider.svelte';
 	import Button from '$lib/components/Button.svelte';
 
+	const NUM_POINTS = 120;
+
 	let canvas;
 	let pts: GroupLike = [];
 	let mouse: Array<number> = [];
-	let numNeighbours: number = 1;
+	let numNeighbours: number = 30;
+	$: calcNeighbours = numNeighbours===0 ? NUM_POINTS : numNeighbours;
 	let fit: boolean = false;
 	let rect;
 	let radius: number = 0.0;
+
 
 	function getMousePos(canvas, evt) {
 		// We need to do this manually otherwise when shifting the window the resize is not accounted for.
@@ -35,19 +39,17 @@
 		space.add({
 			start: () => {
 				// Generate a random space of two-dimensional points between 0.0 and 1.0;
-				pts = Create.distributeRandom(space.innerBound, 120);
+				pts = Create.distributeRandom(space.innerBound, NUM_POINTS);
 			},
 			animate: (time, ftime, space) => {
 				let circle: GroupLike = Circle.fromCenter(mouse, radius * space.size.y);
 				form.fillOnly(darkBlue).circle(circle);
 				if (fit) {
-					form.fillOnly('#123').points(pts, 3, 'circle');
-
 					pts.sort((a, b) => a.$subtract(mouse).magnitude() - b.$subtract(mouse).magnitude());
-
+					form.fillOnly('#123').points(pts, 3, 'circle');
 					// Draw bigger on top of points
-					for (let i = 0; i < numNeighbours; i++) {
-						form.strokeOnly('#0d47a1', 2).line([pts[i], mouse]);
+					for (let i = 0; i<calcNeighbours; i++) {
+						form.strokeOnly('rgba(8,60,100,0.8)', 2).line([pts[i], mouse]);
 
 						if (radius > 0.0) {
 							if (Circle.withinBound(circle, pts[i])) {
@@ -82,8 +84,8 @@
 </div>
 
 <div class="controls">
-	<Slider bind:value={numNeighbours} min={1} max={50} title="Number of Neighbours" step={1} />
-	<Slider bind:value={radius} min={0.0} max={1.0} title="Radius" step={0.01} />
+	<Slider bind:value={numNeighbours} min=0 max=50 step=1 title="Number of Neighbours" />
+	<Slider bind:value={radius} min=0.0 max=1.0 step=0.01 title="Radius" />
 </div>
 
 <style>
