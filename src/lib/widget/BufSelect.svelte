@@ -1,22 +1,21 @@
 <script>
     import Button from '$lib/components/Button.svelte';
-    let w = 5;
-    let h = 5;
-
+    let w = 4;
+    let h = 4;
+    
     let indices = '-1';
     let channels = '-1';
-
+    
     let parseIndices = [];
     let parseChannels = [];
-
+    
     let indicesError = '';
     let channelsError = '';
-
+    
     $: {
         let arr = indices.split(' ');
         arr = arr.filter(x => parseInt(x) < w)
         indicesError = arr.length===0 ? 'No valid indices provided.' : '';
-
         
         if (arr.length === 1 && arr[0] === '-1') {
             parseIndices = new Array(w).fill(null).map((x, i) => i)
@@ -25,15 +24,14 @@
         } else if (arr.length === 0) {
             parseIndices = [];
         }
-
-        console.log(parseIndices)
+        parseIndices.sort();
     }
-
+    
     $: {
         let arr = channels.split(' ');
         arr = arr.filter(x => parseInt(x) < h);
         channelsError = arr.length===0 ? 'No valid channels provided' : '';
-
+        
         if (arr.length === 1 && arr[0] === '-1') {
             parseChannels = new Array(w).fill(null).map((x, i) => i)
         } else if (arr.length > 0) {
@@ -41,6 +39,7 @@
         } else if (arr.length === 0) {
             parseChannels = [];
         }
+        parseIndices.sort();
     }
 </script>
 
@@ -62,12 +61,12 @@
             </div>
         </div>
     </div>
-
+    
     <div class="preset">
         <Button on:click={ 
             () => {
                 indices = '0';
-                channels = '0 1 2 3 4';
+                channels = '0 1 2 3';
             }
         } 
         width=80%
@@ -75,7 +74,7 @@
         />
         <Button on:click={
             () => {
-                indices = '0 1 2 3 4';
+                indices = '0 1 2 3';
                 channels = '1';
             }  
         }
@@ -84,7 +83,7 @@
         />
         <Button on:click={
             () => {
-                indices = '0 4';
+                indices = '0 3';
                 channels = '1 3';
             }
         }
@@ -94,83 +93,115 @@
     </div>
 </div>
 
-<div class="grid">
-    {#each {length: w} as _, col}
-    <div class="row">
-        { #each {length: h} as _, row}
-        <div 
-        class='cell' 
-        class:selected={ parseIndices.includes(row) && parseChannels.includes(col) }>
-            <div>Index: {row}</div>
-            <div>Channel: {col}</div>
+<div class="vis">
+    <div class="io">
+        <div class="">Source</div>
+        <div class="grid">
+            { #each {length: w} as _, col }
+            <div class="row">
+                { #each {length: h} as _, row}
+                <div 
+                class='cell' 
+                class:selected={ parseIndices.includes(row) && parseChannels.includes(col) }>
+                <div>Index: {row}</div>
+                <div>Channel: {col}</div>
+            </div>
+            {/each}
         </div>
         {/each}
+        </div>
     </div>
-    {/each}
+    
+    <div class="arrow"></div>
+
+    <div class="io">
+
+        <div class="">Destination</div>
+
+        <div class="grid">
+            {#each parseChannels as chan, x}
+            <div class="row">
+                {#each parseIndices as ind, y}
+                <div class="cell selected" >
+                    <div>Index: {ind}</div>
+                    <div>Channel: {chan}</div>
+                </div>    
+                {/each}
+            </div>
+            {/each}
+        </div>
+    </div>
 </div>
 
-<style lang='scss'>
-
-.grid {
-    display: grid;
-    grid-template-rows: repeat(5, auto);
-    place-items: center stretch;
-    margin-top: 1em;
-}
-.row {
-    display: flex;
-    flex-direction: row;
-    margin: 0 auto;
-}
-
-.cell {
-    border: 1px solid rgb(201, 201, 201);
-    width: 75px;
-    height: 75px;
-
-    div {
-        font-size: 0.5rem;
-        margin: 0.5em;
+<style lang='scss'>    
+    .vis {
+        display: flex;
+        flex-direction: row;
+        place-items: start;
+        gap: 3em;
+        margin-top: 2em;
     }
-}
-
-.selected {
-    background-color: $light-blue;
-    color: white;
-}
-
-.error {
-    color: red;
-    font-size: 0.75rem;
-}
-.controls {
-    display: grid;
-    grid-template-columns: auto auto;
-    place-items: end;
-
-    input {
-        padding: 1em;
-        font-size: 1rem;
-        width: 80px;
+    .grid {
+        display: grid;
+        grid-template-rows: repeat(5, auto);
+        place-items: center stretch;
+        margin-top: 1em;
     }
-}
-
-.attr {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 0.5em;
-    width: 100%;
-
-    .text {
+    .row {
+        display: flex;
+        flex-direction: row;
+        margin: 0 auto;
+    }
+    
+    .cell {
+        border: 1px solid rgb(201, 201, 201);
+        width: 75px;
+        height: 75px;
+        
+        div {
+            font-size: 0.5rem;
+            margin: 0.5em;
+        }
+    }
+    
+    .selected {
+        background-color: $light-blue;
+        color: white;
+    }
+    
+    .error {
+        color: red;
+        font-size: 0.75rem;
+    }
+    .controls {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        
+        input {
+            padding: 1em;
+            font-size: 1rem;
+            width: 80px;
+        }
+    }
+    
+    .attr {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 0.5em;
+        width: 100%;
+        
+        .text {
+            display: flex;
+            flex-direction: column;
+        }
+    }
+    
+    .preset {
         display: flex;
         flex-direction: column;
+        gap: 0.3em;  
+        place-items: end;
     }
-}
-
-.preset {
-    display: flex;
-    flex-direction: column;
-    gap: 0.3em;  
-}
 </style>
