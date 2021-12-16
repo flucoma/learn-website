@@ -14,9 +14,9 @@ flair: reference
     import BufSelect from '$lib/widget/BufSelect.svelte';
 </script>
 
-BufSelect is an object for cherry picking values from a buffer by specifying a combination of indices and channels. For example, you could select the first index from every channel of a buffer, or every index of only channels 1, 2, and 3. The output of the process is a new buffer. 
+BufSelect is an object for copying values from a source buffer to a destination buffer by specifying a combination of indices and channels. For example, you could select the first index from every channel of a buffer, or every index of only channels 1, 2, and 3.
 
-The widget below allows you to visually experiment with how this works by specifying your own combination of indices and channels arguments as you would in Max, SuperCollider and PureData. The grid-shape can be thought of as a buffer with samples going from left to right, and channels from top to bottom. In essence, it is a 5 sample, 5 channel buffer. By default all indices and channels are selected. Try selecting some of the presets first, then specifying your own custom selections by changing the values in the input boxes.
+The widget below allows you to visually experiment with how this works by specifying your own combination of indices and channels arguments. The grid-shape can be thought of as a buffer with indices going from left to right, and channels from top to bottom. In essence, it is a 5 index, 5 channel buffer. By default all indices and channels are selected. Try selecting some of the presets first, then specifying your own custom selections by changing the values in the input boxes.
 
 <BufSelect />
 
