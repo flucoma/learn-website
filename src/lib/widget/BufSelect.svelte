@@ -137,26 +137,29 @@
     .vis {
         display: flex;
         flex-direction: row;
-        place-items: start;
-        gap: 3em;
         margin-top: 2em;
+        gap: 0.5em;
+        flex-wrap: wrap;
+        .io {
+            display: flex;
+            flex-direction: column;
+        }
     }
+
     .grid {
         display: grid;
-        grid-template-rows: repeat(5, auto);
-        place-items: center stretch;
+        grid-template-rows: repeat(4, 1fr);
         margin-top: 1em;
     }
     .row {
         display: flex;
         flex-direction: row;
-        margin: 0 auto;
     }
     
     .cell {
         border: 1px solid rgb(201, 201, 201);
-        width: 75px;
-        height: 75px;
+        width: 70px;
+        height: 70px;
         
         div {
             font-size: 0.5rem;
