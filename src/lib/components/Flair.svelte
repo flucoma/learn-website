@@ -18,6 +18,7 @@ class:event={flair==='event'}
         border-radius: 3px;
         color: white;
         padding: 3px;
+        height: 15px;
     }
 
     .event {

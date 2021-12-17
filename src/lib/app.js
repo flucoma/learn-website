@@ -25,6 +25,7 @@ const search = new FuzzySearch(
     }
 );
 
-export const db = search;
+const db = search;
+export { db, docs }
 
 
