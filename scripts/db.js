@@ -12,15 +12,16 @@ glob('src/routes/**/*.svx', (err, routes) => {
 	routes = routes.filter((p) => path.basename(p) !== 'index.svx');
 
 	routes.forEach((route) => {
-		let section = route.split('/')[2];
+		const section = route.split('/')[2];
 
-		let url = urlFromRoute(route);
+		const url = urlFromRoute(route);
 		// Read the page in as a string
-		let data = fs.readFileSync(route, 'utf8');
+		const data = fs.readFileSync(route, 'utf8');
 		
 		// Get frontmatter
 		let fm = frontmatter(data).attributes;
         fm.url = url;
+		fm.section = section
 		
         db.docs.push(fm);
 	});
