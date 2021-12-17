@@ -3,58 +3,11 @@ layout: none
 ---
 
 <script>
-    import { info } from '$lib/app.js';
-    import { goto } from '$app/navigation';
+    import CardList from '$lib/components/CardList.svelte';
 </script>
 
 # Made with FluCoMa
 
 Made with FluCoMa highlights projects and practices where FluCoMa is used.
 
-<div class='overview-list'>
-    {#each $info.madewithflucoma as article}
-        {#if article.data}
-        <a class='entry' href={article.url}>
-            <div class='overview'>
-                <h2 class='overview-title'>{article.data.title}</h2>
-                <p class='overview-blurb'>{article.data.blurb}</p>
-            </div>
-        </a>
-        {/if}
-    {/each}
-</div>
-
-<style lang='scss'>
-
-    .overview-list {
-        display: flex;
-        flex-direction: column;
-        gap: 1em;
-        a:hover {
-            background: transparent;
-            color: black;
-        }
-
-        .entry {
-            text-decoration: none;
-            color: black;
-            width: 100%;
-            max-width: 100%;
-        }
-    }
-
-    .overview {
-        cursor: pointer;
-        padding: 0.4em;
-        box-shadow: 0 1px 1.5px 2px rgba(0, 0, 0, 0.1);
-        background-color: transparent;
-    }
-
-    .overview:hover {
-        scale: 1.03;
-    }
-
-    .overview-blurb {
-        color: grey;
-    }
-</style>
+<CardList section='madewithflucoma' />
