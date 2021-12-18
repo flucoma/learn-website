@@ -103,6 +103,9 @@ So how do we approach batch processing with the FluCoMa objects? No doubt, there
 
 <TabPanel> <!-- SC -->
 <a href='/examples/batch/batch-slicing.scd' download>Download Script</a>
+
+There is also [this](https://discourse.flucoma.org/t/supernova-supercollider-unable-to-find-cmd-plugin-error/1159/6?u=jamesbradbury) valuable piece of information on the FluCoMa discourse highlighting how the value of spawning new threads is not always a panacea.
+
 </TabPanel> 
 </Tabs>
 
