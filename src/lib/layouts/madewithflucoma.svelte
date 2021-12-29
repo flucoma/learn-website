@@ -21,7 +21,7 @@
 
 <slot />
 
-<style lang="scss">
+<style lang="postcss">
 	:global(p) {
 		text-align: justify;
 		text-justify: inter-word;

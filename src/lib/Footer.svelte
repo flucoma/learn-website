@@ -41,7 +41,7 @@
 	</div>
 </footer>
 
-<style lang="scss">
+<style lang="postcss">
 	footer {
 		width: 100%;
 		margin-top: auto;
@@ -51,20 +51,20 @@
 		flex-direction: row;
 		flex-wrap: wrap;
 		justify-content: center;
-		background-color: $dark-blue;
+		background-color: var(--dark-blue);
 		color: white;
 		font-size: 0.8em;
 		gap: 2em;
 		padding-top: 2em;
 	}
 
-	@media (min-width: $breakpoint) {
+	@media (min-width: 1200px) {
 		.container {
 			justify-content: center;
 		}
 	}
 
-	@media (max-width: $breakpoint) {
+	@media (max-width: 1200px) {
 		.container {
 			justify-content: flex-start;
 		}

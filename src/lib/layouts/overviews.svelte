@@ -26,7 +26,7 @@
 
 <EditHistory />
 
-<style lang="scss">
+<style lang="postcss">
 	h1 {
 		text-align: center;
 	}

@@ -14,11 +14,11 @@
 	{label}
 </button>
 
-<style lang="scss">
+<style lang="postcss">
 	.btn {
-		font-family: $font;
-		border: 1px outset $light-blue;
-		background-color: $light-blue;
+		font-family: var(--font);
+		border: 1px outset var(--light-blue);
+		background-color: var(--light-blue);
 		color: white;
 		height: 38px;
 		cursor: pointer;
@@ -26,8 +26,8 @@
 	}
 
 	.btn:active {
-		border: 1px outset $med-blue;
-		background-color: $med-blue;
+		border: 1px outset var(--med-blue);
+		background-color: var(--med-blue);
 	}
 
 	.btn:hover {

@@ -6,17 +6,17 @@
 </script>
 
 {#if headings.length > 0}
-<div class="container">
-	<div class="toc">Table of Contents</div>
-	<div class="headings">
-		{#each headings as h}
-		<a href={h.url}>{h.text}</a>
-		{/each}
+	<div class="container">
+		<div class="toc">Table of Contents</div>
+		<div class="headings">
+			{#each headings as h}
+				<a href={h.url}>{h.text}</a>
+			{/each}
+		</div>
 	</div>
-</div>
 {/if}
 
-<style lang='scss'>
+<style lang="postcss">
 	.container {
 		position: fixed;
 	}
@@ -37,7 +37,7 @@
 		font-size: 0.8rem;
 	}
 
-	@media (max-width: $breakpoint) {
+	@media (max-width: 1200px) {
 		.container {
 			position: relative;
 		}

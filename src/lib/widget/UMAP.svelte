@@ -189,7 +189,7 @@
 	</div>
 </div>
 
-<style lang="scss">
+<style lang="postcss">
 	.container {
 		display: flex;
 		flex-direction: column;

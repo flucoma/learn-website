@@ -17,13 +17,13 @@
 	<slot />
 </div>
 
-<style lang="scss">
+<style lang="postcss">
 	.code {
 		position: relative;
 	}
 
 	.btn {
-		font-family: $font;
+		font-family: var(--font);
 		position: absolute;
 		right: 0;
 	}
