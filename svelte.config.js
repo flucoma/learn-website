@@ -1,16 +1,13 @@
 import adapter from '@sveltejs/adapter-static';
-import slug from 'rehype-slug';
 import preprocess from 'svelte-preprocess';
+import slug from 'rehype-slug';
 import { mdsvex } from 'mdsvex';
-import { dirname } from 'path';
-import { fileURLToPath } from 'url';
-
-const filePath = dirname(fileURLToPath(import.meta.url));
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
 	extensions: ['.svelte', '.svx'],
 	preprocess: [
+		preprocess(),
 		mdsvex({
 			rehypePlugins: [slug],
 			layout: {
@@ -18,9 +15,6 @@ const config = {
 				reference: './src/lib/layouts/reference.svelte',
 				madewithflucoma: './src/lib/layouts/madewithflucoma.svelte'
 			}
-		}),
-		preprocess({
-			scss: { prependData: `@import '${filePath}/src/app.scss';` },
 		})
 	],
 	kit: {
