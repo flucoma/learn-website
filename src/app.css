@@ -1,19 +1,21 @@
-@import './fonts.scss';
-@import './code.scss';
+/* Write your global styles here, in PostCSS syntax */
 
-$font: 'Overpass', sans-serif;
-$mono: 'Overpass Mono', monospace;
-$dark-blue: rgb(8, 60, 100);
-$med-blue: rgb(3, 113, 181);
-$light-blue: rgb(28, 164, 252);
-$light-blue-faded: rgb(28, 164, 252, 0.1);
-$link-blue: rgb(28, 122, 185);
-$breakpoint: 1200px;
-$max-text-width: 70ch;
-$min-text-width: 30ch;
+@import './fonts.css';
+@import './code.css';
+
+:root {
+	--breakpoint: 1200px;
+	--font: 'Overpass', sans-serif;
+	--mono: 'Overpass Mono', monospace;
+	--dark-blue: rgb(8, 60, 100);
+	--med-blue: rgb(3, 113, 181);
+	--light-blue: rgb(28, 164, 252);
+	--max-text-width: 70ch;
+	--min-text-width: 30ch;
+}
 
 html {
-	font-family: $font;
+	font-family: var(--font);
 }
 
 body {
@@ -28,13 +30,13 @@ li {
 }
 
 a {
-	color: $link-blue;
+	color: var(--link-blue);
 	max-width: max-content;
 }
 
 a:hover {
 	color: white;
-	background: $link-blue;
+	background: var(--link-blue);
 }
 
 .title-box:after {
@@ -51,7 +53,7 @@ a:hover {
 }
 
 code {
-	font-family: $mono;
+	font-family: var(--mono);
 	font-size: calc(1em - 2px);
 	color: #555;
 	background-color: #f0f0f0;
