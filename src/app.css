@@ -30,13 +30,13 @@ li {
 }
 
 a {
-	color: var(--link-blue);
+	color: var(--med-blue);
 	max-width: max-content;
 }
 
 a:hover {
 	color: white;
-	background: var(--link-blue);
+	background: var(--med-blue);
 }
 
 .title-box:after {
