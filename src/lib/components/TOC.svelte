@@ -20,6 +20,7 @@
 	.container {
 		position: fixed;
 	}
+
 	.toc {
 		font-size: 1.1rem;
 		margin-bottom: 1em;

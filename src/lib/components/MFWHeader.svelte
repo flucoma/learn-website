@@ -35,10 +35,6 @@
 		max-width: 500px;
 	}
 
-	a:hover {
-		background: transparent;
-	}
-
 	.bio {
 		color: grey;
 		text-align: justify;
