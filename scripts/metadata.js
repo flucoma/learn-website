@@ -15,21 +15,21 @@ let edits = {};
 glob('src/**/*.svx', (err, routes) => {
 	routes = routes.filter((p) => path.basename(p) !== 'index.svx');
 	edits = extractGit(routes);
-	
+
 	routes.forEach((route) => {
 		let section = route.split('/')[2];
-		
+
 		let url = urlFromRoute(route);
-		
+
 		// Read the page in as a string
 		let data = fs.readFileSync(route, 'utf8');
-		
+
 		// Parse the markdown tree for the headings
 		let tree = markdown.parse(data);
 		if (!Object.keys(structure).includes(url)) {
 			structure[url] = [];
 		}
-		
+
 		tree.forEach((el) => {
 			if (el[0] === 'header' && el[1].level === 2) {
 				let hashPart = sanitiseHashLink(el[2]);
@@ -39,10 +39,10 @@ glob('src/**/*.svx', (err, routes) => {
 				});
 			}
 		});
-		
+
 		// Get frontmatter
 		let fm = frontmatter(data).attributes;
-		
+
 		if (!Object.keys(info).includes(section)) {
 			info[section] = [];
 		}
@@ -51,7 +51,7 @@ glob('src/**/*.svx', (err, routes) => {
 			url: url,
 			data: fm
 		});
-		
+
 		// Tags
 		if (Object.keys(fm).includes('tags')) {
 			fm.tags.forEach((tag) => {
@@ -61,31 +61,31 @@ glob('src/**/*.svx', (err, routes) => {
 				tags[tag].push(url);
 			});
 		}
-		
+
 		// Crumbs
 		if (fm.crumb) {
 			crumbs[url] = fm.crumb;
 		} else {
 			switch (section) {
 				case 'reference':
-				crumbs[url] = fm.title;
-				break;
+					crumbs[url] = fm.title;
+					break;
 				case 'madewithflucoma':
-				crumbs[url] = fm.artist;
-				break;
+					crumbs[url] = fm.artist;
+					break;
 				case 'guides':
-				crumbs[url] = fm.short;
-				break;
+					crumbs[url] = fm.short;
+					break;
 				case 'overviews':
-				crumbs[url] = fm.title;
-				break;
+					crumbs[url] = fm.title;
+					break;
 				case 'installation':
-				crumbs[url] = fm.title;
-				break;
+					crumbs[url] = fm.title;
+					break;
 			}
 		}
 	});
-	
+
 	// Write out results
 	fs.writeFile('static/tag.json', JSON.stringify(tags), 'utf8', () => {});
 	fs.writeFile('static/info.json', JSON.stringify(info), 'utf8', () => {});

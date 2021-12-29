@@ -19,7 +19,7 @@
 	<a href={website}>Website</a>
 </div>
 
-<style lang="scss">
+<style lang="postcss">
 	.container {
 		display: grid;
 		grid-template-rows: auto auto;
@@ -28,14 +28,11 @@
 	}
 	.photo {
 		margin: 0 auto;
-		img {
-			min-width: 0px;
-			max-width: 500px;
-		}
+	}
 
-		a:hover {
-			background: transparent;
-		}
+	img {
+		min-width: 0px;
+		max-width: 500px;
 	}
 
 	.bio {

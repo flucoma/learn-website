@@ -28,7 +28,7 @@
 	{/if}
 </div>
 
-<style lang="scss">
+<style lang="postcss">
 	.container {
 		display: flex;
 		flex-direction: column;
@@ -36,7 +36,7 @@
 	}
 
 	#top-bar {
-		font-family: $font;
+		font-family: var(--font);
 		display: flex;
 		font-size: 15px;
 		min-height: 40px;

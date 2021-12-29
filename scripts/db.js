@@ -5,7 +5,7 @@ import frontmatter from 'front-matter';
 import { urlFromRoute } from './util.js';
 
 let db = {
-    docs : []
+	docs: []
 };
 
 glob('src/routes/**/*.svx', (err, routes) => {
@@ -17,13 +17,13 @@ glob('src/routes/**/*.svx', (err, routes) => {
 		const url = urlFromRoute(route);
 		// Read the page in as a string
 		const data = fs.readFileSync(route, 'utf8');
-		
+
 		// Get frontmatter
 		let fm = frontmatter(data).attributes;
-        fm.url = url;
-		fm.section = section
-		
-        db.docs.push(fm);
+		fm.url = url;
+		fm.section = section;
+
+		db.docs.push(fm);
 	});
 
 	// Write out results

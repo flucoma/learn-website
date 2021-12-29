@@ -5,7 +5,7 @@
 	export let id: string = '';
 </script>
 
-<div class="container" id={id}>
+<div class="container" {id}>
 	<a target="_blank" href={src}>
 		<img loading="lazy" {alt} {src} />
 	</a>
@@ -14,26 +14,26 @@
 	</div>
 </div>
 
-<style lang="scss">
+<style lang="postcss">
 	.container {
 		display: grid;
 		place-items: center;
 		width: 80%;
 		margin: 0 auto;
+	}
 
-		img {
-			padding-top: 1em;
-			padding-bottom: 1em;
-			max-width: 100%;
-		}
+	img {
+		padding-top: 1em;
+		padding-bottom: 1em;
+		max-width: 100%;
+	}
 
-		a {
-			max-width: 100%;
-		}
+	a {
+		max-width: 100%;
+	}
 
-		a:hover {
-			background: transparent;
-		}
+	a:hover {
+		background: transparent;
 	}
 
 	.label {

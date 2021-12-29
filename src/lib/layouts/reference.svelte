@@ -16,7 +16,7 @@
 
 <EditHistory />
 
-<style lang="scss">
+<style lang="postcss">
 	.blurb {
 		color: grey;
 		text-align: left;
