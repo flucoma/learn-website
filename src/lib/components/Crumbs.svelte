@@ -27,7 +27,7 @@
 		path.forEach((p, i) => {
 			let sanitisedText = '';
 			if (i >= 1) {
-				sanitisedText = $breadcrumbs[$page.path];
+				sanitisedText = $breadcrumbs[$page.url.pathname];
 			} else {
 				sanitisedText = formatCrumb(p);
 			}
@@ -37,7 +37,7 @@
 		});
 		return d;
 	}
-	$: crumbs = splitPath($page.path);
+	$: crumbs = splitPath($page.url.pathname);
 </script>
 
 <!-- Breadcrumbs -->

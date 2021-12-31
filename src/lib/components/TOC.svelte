@@ -2,7 +2,7 @@
 	import { page } from '$app/stores';
 	import { structure } from '$lib/app.js';
 
-	$: headings = $structure[$page.path] || [];
+	$: headings = $structure[$page.url.pathname] || [];
 </script>
 
 {#if headings.length > 0}

@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { edits } from '$lib/app.js';
 	import { page } from '$app/stores';
-	const editHistory = $edits[$page.path];
+	const editHistory = $edits[$page.url.pathname];
 	const source: string = `https://github.com/flucoma/learn-website/tree/main/${editHistory.url}`;
 	const commit: string = `https://github.com/flucoma/learn-website/commit/${editHistory.commit}`;
 </script>

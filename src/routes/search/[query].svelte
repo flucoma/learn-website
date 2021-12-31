@@ -1,8 +1,8 @@
 <script context="module">
-	export async function load({ page }) {
+	export async function load({ params }) {
 		return {
 			props: {
-				query: page.params.query
+				query: params.query
 			}
 		};
 	}
