@@ -1,25 +1,25 @@
 <script>
-	import "../app.css";
-    import Header from '$lib/Header.svelte';
-    import Footer from '$lib/Footer.svelte';
-    import Crumbs from '$lib/components/Crumbs.svelte';
-    import TOC from '$lib/components/TOC.svelte';
+	import '../app.css';
+	import Header from '$lib/Header.svelte';
+	import Footer from '$lib/Footer.svelte';
+	import Crumbs from '$lib/components/Crumbs.svelte';
+	import TOC from '$lib/components/TOC.svelte';
 </script>
 
 <div class="container">
-	<Header></Header>
-	<Crumbs></Crumbs>
+	<Header />
+	<Crumbs />
 
 	<div class="content">
-		<div class="navigation"> 
+		<div class="navigation">
 			<TOC />
 		</div>
 
-		<main class="main"> 
-			<slot/> 
+		<main class="main">
+			<slot />
 		</main>
 
-		<div class="empty-right"></div>
+		<div class="empty-right" />
 	</div>
 	<Footer />
 </div>
