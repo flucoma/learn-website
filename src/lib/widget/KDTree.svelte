@@ -10,7 +10,6 @@
 
 	let canvas;
 	let pts: GroupLike = [];
-	let data: Array<number> = [];
 	let mouse: Array<number> = [];
 	let numNeighbours: number = 1;
 	let fit: boolean = false;

@@ -4,7 +4,7 @@
  -->
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import { CanvasSpace, Circle, Rectangle, Geom, Bound } from 'pts';
+	import { CanvasSpace, Circle, Rectangle, Geom } from 'pts';
 
 	let canvas;
 	let darkBlue = 'rgba(8, 60, 100, 1.0)';

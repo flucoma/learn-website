@@ -7,9 +7,11 @@
 	import Button from '$lib/components/Button.svelte';
 	import * as d3 from 'd3';
 
-	// Chart.js business
+	// Chart.js
 	let canvas, chart: Chart, ctx;
-	let timeout: NodeJS.Timer;
+
+	// A timer to simulate the animation
+	let timeout: number; // setInterval() returns an ID which is a number
 
 	let stepInterval: number = 5;
 	let smoothing: number = 230;
@@ -30,7 +32,7 @@
 		epoch = 0;
 		clearTimeout(timeout);
 		originalData = new Array(150).fill(new Array(3).fill(0));
-		originalData = originalData.map((x) => x.map((y) => Math.random()));
+		originalData = originalData.map((x) => x.map(() => Math.random()));
 		umap = new UMAP({
 			nComponents: 2,
 			nEpochs: epochs,

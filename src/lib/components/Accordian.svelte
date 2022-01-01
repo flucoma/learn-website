@@ -4,7 +4,7 @@
 	export let caption: string = '';
 	export let expanded: boolean = false;
 
-	function clickHandler(e) {
+	function clickHandler() {
 		expanded = !expanded;
 	}
 </script>

@@ -1,11 +1,21 @@
 <script lang="ts">
+	import { createEventDispatcher } from 'svelte';
+
 	export let value: string | number;
 	export let min: string | number = '0';
 	export let max: string | number = '100';
 	export let title: string = '';
 	export let step: string | number = 'any';
-	export let inFunc = () => {};
-	export let chFunc = () => {};
+
+	const dispatch = createEventDispatcher();
+
+	const changeHandler = () => {
+		dispatch('change')
+	}
+
+	const inputHandler = () => {
+		dispatch('input')
+	}
 </script>
 
 <div class="container">
@@ -22,8 +32,8 @@
 			{max}
 			{step}
 			bind:value
-			on:input={inFunc}
-			on:change={chFunc}
+			on:input={inputHandler}
+			on:change={changeHandler}
 		/>
 		<span class="text max">{max}</span>
 	</div>
