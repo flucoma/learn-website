@@ -1,19 +1,23 @@
 <script lang="ts">
+	import type { PeaksInstance } from 'peaks.js';
 	import { onMount } from 'svelte';
 	import { Chart, registerables } from 'chart.js';
 	import * as Meyda from 'meyda';
 	import Button from '$lib/components/Button.svelte';
 
 	// Audio
-	let player;
-	let features: Array<number> = new Array(12).fill(0.0);
-	let waveform;
-	let peaksInstance;
+	let player: HTMLAudioElement | null;
+	let waveform: HTMLDivElement | null;
+	let peaksInstance: PeaksInstance;
+	let features: number[] = new Array(12).fill(0.0);
 	let ctxStarted: boolean = false;
 	// Canvas
-	let canvas, ctx, chart;
+	let canvas: HTMLCanvasElement | null;
+	let ctx: RenderingContext;
+	let chart: Chart;
+
 	// CODE CRIME 👮
-	const colours: Array<string> = [
+	const colours: string[] = [
 		'#8dd3c7',
 		'#ffffb3',
 		'#bebada',
@@ -94,7 +98,7 @@
 			const analyser = Meyda.createMeydaAnalyzer({
 				audioContext: audioContext,
 				source: source,
-				bufferSize: 2048,
+				bufferSize: 4096,
 				featureExtractors: ['chroma'],
 				callback: (chroma) => {
 					features = chroma.chroma;
