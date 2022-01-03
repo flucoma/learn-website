@@ -132,17 +132,18 @@
     </div>
 </div>
 
-<style lang='scss'>    
+<style lang='postcss'>    
     .vis {
         display: flex;
         flex-direction: row;
         margin-top: 2em;
         gap: 0.5em;
         flex-wrap: wrap;
-        .io {
-            display: flex;
-            flex-direction: column;
-        }
+    }
+
+    .io {
+        display: flex;
+        flex-direction: column;
     }
 
     .grid {
@@ -150,6 +151,7 @@
         grid-template-rows: repeat(4, 1fr);
         margin-top: 1em;
     }
+
     .row {
         display: flex;
         flex-direction: row;
@@ -159,15 +161,15 @@
         border: 1px solid rgb(201, 201, 201);
         width: 70px;
         height: 70px;
-        
-        div {
-            font-size: 0.5rem;
-            margin: 0.5em;
-        }
+    }
+
+    .cell > div {
+        font-size: 0.5rem;
+        margin: 0.5em;
     }
     
     .selected {
-        background-color: $light-blue;
+        background-color: var(--light-blue);
         color: white;
     }
     
@@ -175,16 +177,11 @@
         color: red;
         font-size: 0.75rem;
     }
+
     .controls {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
-        
-        input {
-            padding: 1em;
-            font-size: 1rem;
-            width: 80px;
-        }
     }
     
     .attr {
@@ -193,11 +190,17 @@
         align-items: center;
         gap: 0.5em;
         width: 100%;
-        
-        .text {
-            display: flex;
-            flex-direction: column;
-        }
+    }
+
+    .attr > input {
+        padding: 1em;
+        font-size: 1rem;
+        width: 80px;
+    }
+
+    .attr > .text {
+        display: flex;
+        flex-direction: column;
     }
     
     .preset {
