@@ -17,12 +17,6 @@ Chroma is an audio analysis that models the composition of pitch classes in a so
 
 Chroma is _not_ a fundamental pitch tracker and won't tell you about the structure of pitch classes, only their relative strength to each other. Furthermore, the entire spectrum is wrapped into a single octave, meaning any notion of register is lost. As such it is useful for perhaps identifying rough tonal components a sound might be comprised of, but nothing about their relationship to each other as a chord.
 
-<!-- For example, when the "Bass" sound is playing (click the button), there are moments where the strength of certain pitch classes are obviously the most dominant. Because the sound is monophonic and relatively clear in the recording this tells us what the note might be that is played by the instrumentalist. This however is misleading and we might think it is tracking pitch! Try the "Oboe" sound which is full of harmonically dense multiphonics. The first multiphonic has a relatively strong measurement of the A pitch class. This A is actually the difference tone that is produced by the oboe when it makes this sound and is somewhat concealed by the more prominent high notes.
-
-This is because the Chroma features is capturing the difference tone A, which is somewhat concealed by the higher note. Given this context, make sure you aware of what Chroma can and cannot tell you. -->
-
-<!-- @Owen can you fill in the smarty pants bit about melbands here :) -->
-
 # Related
 
 [Chroma and Shepherd Tones](https://www.audiolabs-erlangen.de/resources/MIR/FMP/C1/C1S1_ChromaShepard.html)
