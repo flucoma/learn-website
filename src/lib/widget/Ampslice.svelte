@@ -1,167 +1,176 @@
-<script>
-    import { WebglPlot, WebglLine, ColorRGBA } from 'webgl-plot';
-    import * as Tone from 'tone';
-    import smooth from 'array-smooth';
-    import { onMount } from 'svelte';
-    import Button from '$lib/components/Button.svelte';
+<script lang="ts">
+	import { WebglPlot, WebglLine, ColorRGBA } from 'webgl-plot';
+	import { onMount } from 'svelte';
+	import * as Tone from 'tone';
+	import smooth from 'array-smooth';
+	import Button from '$lib/components/Button.svelte';
 
-    // Audio
-    let features = new Array();
-    let meter, bassPlayer, pianoPlayer, drumPlayer;
-    let ctxStarted = false;
-    // Canvas
-    let canvas, pixelRatio;
-    let ready = false;
+	// Audio
+	let features = [];
+	let meter, bassPlayer, pianoPlayer, drumPlayer;
+	let ctxStarted: boolean = false;
+	// Canvas
+	let canvas, pixelRatio;
+	let ready: boolean = false;
 
-    let slowSmooth = 50;
-    
-    onMount(async() => {
-        // Tone.js setup
-        meter = new Tone.Meter({ normalRange: true });
-        bassPlayer = new Tone.Player({ loop: true, url: '/audio/bass-m.mp3' }).toDestination();
-        pianoPlayer = new Tone.Player({ loop: true, url: '/audio/piano-m.mp3'}).toDestination();
-        drumPlayer = new Tone.Player({ loop: true, url: '/audio/drum-m.mp3' }).toDestination();
-        bassPlayer.connect(meter); pianoPlayer.connect(meter); drumPlayer.connect(meter);
+	let slowSmooth: number = 50;
 
-        Tone.loaded()
-        .then(() => {
-            console.log('loaded!')
-            ready = true;
-        })
+	// WGLP
+	let line: WebglLine;
+	let smoothedLine: WebglLine;
+	let wglp: WebglPlot;
 
-        // webgl setup
-        pixelRatio = window.devicePixelRatio || 1;
-        canvas.width = canvas.clientWidth * pixelRatio;
-        canvas.height = 200 * pixelRatio;
-        features = new Array(canvas.width).fill(0.0);
-    });
+	const newFrame = () => {
+		// let t = smooth(features, 0.0)
+		let t = features;
+		let tSmooth = smooth(features, slowSmooth);
 
-    const updateWaveform = (choice) => {
-        if (choice === 'drum') {
-            bassPlayer.stop();
-            pianoPlayer.stop();
-            drumPlayer.start();
-        }
-        else if (choice === 'bass') {
-            bassPlayer.start();
-            pianoPlayer.stop();
-            drumPlayer.stop();
-        }
-        else {
-            bassPlayer.stop();
-            pianoPlayer.start();
-            drumPlayer.stop();
-        }
+		for (let i = 0; i < t.length; i++) {
+			line.setY(i, t[i] * 2 - 0.5);
+			smoothedLine.setY(i, tSmooth[i] * 2 - 0.5);
+		}
+		wglp.update();
+		requestAnimationFrame(newFrame);
+	}
 
-        if (!ctxStarted) {
-            setInterval(() => {
-                features.shift(); features.push(meter.getValue());
-            }, 0.1)
-            ctxStarted = true;
+	onMount(async () => {
+		// Tone.js setup
+		meter = new Tone.Meter({ normalRange: true });
+		bassPlayer = new Tone.Player({ loop: true, url: '/audio/bass-m.mp3' }).toDestination();
+		pianoPlayer = new Tone.Player({ loop: true, url: '/audio/piano-m.mp3' }).toDestination();
+		drumPlayer = new Tone.Player({ loop: true, url: '/audio/drum-m.mp3' }).toDestination();
+		bassPlayer.connect(meter);
+		pianoPlayer.connect(meter);
+		drumPlayer.connect(meter);
 
-            // web-gl plot
-            const numX = canvas.width;
-            const color = new ColorRGBA(1,0,0,1);
-            const color2 = new ColorRGBA(0,0,1,1);
-            const line = new WebglLine(color2, numX);
-            const smoothedLine = new WebglLine(color, numX)
-            const wglp = new WebglPlot(canvas);
+		Tone.loaded().then(() => {
+			console.log('loaded!');
+			ready = true;
+		});
 
-            line.arrangeX();
-            smoothedLine.arrangeX();
+		// webgl setup
+		pixelRatio = window.devicePixelRatio || 1;
+		canvas.width = canvas.clientWidth * pixelRatio;
+		canvas.height = 200 * pixelRatio;
+		features = new Array(canvas.width).fill(0.0);
+	});
 
-            wglp.addLine(line);
-            wglp.addLine(smoothedLine);
+	const updateWaveform = (choice) => {
+		if (choice === 'drum') {
+			bassPlayer.stop();
+			pianoPlayer.stop();
+			drumPlayer.start();
+		} else if (choice === 'bass') {
+			bassPlayer.start();
+			pianoPlayer.stop();
+			drumPlayer.stop();
+		} else {
+			bassPlayer.stop();
+			pianoPlayer.start();
+			drumPlayer.stop();
+		}
 
-            function newFrame() {
-                // let t = smooth(features, 0.0)
-                let t = features;
-                let tSmooth = smooth(features, slowSmooth);
+		if (!ctxStarted) {
+			setInterval(() => {
+				features.shift();
+				features.push(meter.getValue());
+			}, 0.1);
+			ctxStarted = true;
 
-                for (let i=0; i<t.length; i++) {
-                    line.setY(i, t[i] * 2 - 0.5);
-                    smoothedLine.setY(i, tSmooth[i] * 2 - 0.5)
-                }
-                wglp.update();
-                requestAnimationFrame(newFrame);
-            }
-            newFrame();
-        }
-    };
+			// web-gl plot
+			const numX = canvas.width;
+			const color = new ColorRGBA(1, 0, 0, 1);
+			const color2 = new ColorRGBA(0, 0, 1, 1);
+			line = new WebglLine(color2, numX);
+			smoothedLine = new WebglLine(color, numX);
+			wglp = new WebglPlot(canvas);
+
+			line.arrangeX();
+			smoothedLine.arrangeX();
+
+			wglp.addLine(line);
+			wglp.addLine(smoothedLine);
+			newFrame();
+		}
+	};
 </script>
 
-<canvas id='vis' bind:this={ canvas } class:hidden={!ready} />
+<canvas id="vis" bind:this={canvas} class:hidden={!ready} />
 
-<div class='controls'>
-    <div class="smoothing">
-        <div class="label">Slow Envelope Smoothing</div>
-        <div class="slider">
-            <input type='range' min=1 max=100 bind:value={slowSmooth} />
-        </div>
-    </div>
-    <div class="sound-select">
-        <Button 
-        label='Bass 🎸'
-        on:click={ () => { updateWaveform('bass') }}
-        />
+<div class="controls">
+	<div class="smoothing">
+		<div class="label">Slow Envelope Smoothing</div>
+		<div class="slider">
+			<input type="range" min="1" max="100" bind:value={slowSmooth} />
+		</div>
+	</div>
+	<div class="sound-select">
+		<Button
+			label="Bass 🎸"
+			on:click={() => {
+				updateWaveform('bass');
+			}}
+		/>
 
-        <Button 
-        label='Piano 🎹'
-        on:click={ () => { updateWaveform('piano') }}
-        />
+		<Button
+			label="Piano 🎹"
+			on:click={() => {
+				updateWaveform('piano');
+			}}
+		/>
 
-        <Button 
-        label='Drum 🥁'
-        on:click={ () => { updateWaveform('drum') }}
-        />
+		<Button
+			label="Drum 🥁"
+			on:click={() => {
+				updateWaveform('drum');
+			}}
+		/>
 
-        <Button 
-        label='Stop'
-        on:click={ () => { 
-            bassPlayer.stop();
-            pianoPlayer.stop();
-            drumPlayer.stop();
-        } }
-        />
-    </div>
+		<Button
+			label="Stop"
+			on:click={() => {
+				bassPlayer.stop();
+				pianoPlayer.stop();
+				drumPlayer.stop();
+			}}
+		/>
+	</div>
 </div>
 
 <style>
+	.hidden {
+		visibility: hidden;
+	}
+	.controls {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		gap: 1em;
+	}
 
+	.smoothing {
+		display: flex;
+		flex-direction: column;
+	}
 
-    .hidden {
-        visibility: hidden;
-    }
-    .controls {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        gap: 1em;
-    }
+	.slider {
+		display: flex;
+		flex-direction: row;
+	}
 
-    .smoothing {
-        display: flex;
-        flex-direction: column;
-    }
+	.sound-select {
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		flex-wrap: wrap;
+		gap: 0.5em;
+	}
 
-    .slider {
-        display: flex;
-        flex-direction: row;
-    }
-
-    .sound-select {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        flex-wrap: wrap;
-        gap: 0.5em;
-    }
-
-    #vis {
-        width: 99% !important;
-        min-width: 0 !important;
-        max-height: 400px;
-        margin: 0 auto;
-        border: 1px solid rgb(230, 230, 230);
-    }
+	#vis {
+		width: 99% !important;
+		min-width: 0 !important;
+		max-height: 400px;
+		margin: 0 auto;
+		border: 1px solid rgb(230, 230, 230);
+	}
 </style>

@@ -4,48 +4,45 @@
 	let w;
 	const breakpoint = 1200;
 	let userExpand = false;
-	const expandHandler = () => { userExpand=!userExpand };
+	const expandHandler = () => {
+		userExpand = !userExpand;
+	};
 
 	$: navExpand = w >= breakpoint || userExpand;
 </script>
 
-<div class="container">
+<div class="container" role="navigation">
 	{#if w < breakpoint}
 		<Hamburger on:click={expandHandler} />
 	{/if}
 	{#if navExpand}
-	<div class="links">
-		{#if w >= breakpoint}
-		<a class="logo-link" href="/">
-			<img 
-			class="logo" 
-			src="/img/onlylogo.svg" 
-			alt="FluCoMa Logo" 
-			loading=lazy
-			/>
-		</a>
-		{/if}
-		<a class="nav-link" href="/overviews">Overviews</a>
-		<a class="nav-link" href="/reference">Reference</a>
-		<a class="nav-link" href="/madewithflucoma">Made with FluCoMa</a>
-	</div>
+		<div class="links">
+			{#if w >= breakpoint}
+				<a class="logo-link" href="/">
+					<img class="logo" src="/img/onlylogo.svg" alt="FluCoMa Logo" loading="lazy" />
+				</a>
+			{/if}
+			<a class="nav-link" href="/overviews">Overviews</a>
+			<a class="nav-link" href="/reference">Reference</a>
+			<a class="nav-link" href="/madewithflucoma">Made with FluCoMa</a>
+		</div>
 	{/if}
 	<Search />
 </div>
 
 <svelte:window bind:innerWidth={w} />
 
-<style lang="scss">
+<style lang="postcss">
 	.container {
 		display: grid;
 		grid-template-columns: auto auto;
 		place-items: center;
-		background: $dark-blue;
+		background: var(--dark-blue);
 		padding: 1em;
 		gap: 3em;
 	}
 
-	@media (max-width: $breakpoint) {
+	@media (max-width: 1200px) {
 		.container {
 			display: flex;
 			flex-direction: column;
@@ -60,7 +57,7 @@
 		gap: 1em;
 	}
 
-	@media (max-width: $breakpoint) {
+	@media (max-width: 1200px) {
 		.links {
 			flex-direction: column;
 			gap: 0.3em;
@@ -93,7 +90,6 @@
 	.nav-link:hover {
 		background: transparent;
 		text-decoration: underline;
-
 	}
 
 	.nav-link:visited {

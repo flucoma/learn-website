@@ -31,25 +31,26 @@
 	class="search"
 	type="text"
 	bind:value={searchTerm}
-	placeholder={ isFocused ? 'Type your search query...' : 'Search...'}
+	placeholder={isFocused ? 'Type your search query...' : 'Search...'}
 	on:input={doSearch}
-	on:focus={ () => isFocused = true }
-	on:blur={ () => isFocused = false}
+	on:focus={() => (isFocused = true)}
+	on:blur={() => (isFocused = false)}
 />
 
-<style lang="scss">
+<style lang="postcss">
 	.search {
 		width: 100%;
 		height: 2em;
 		margin-bottom: 0.5em;
-		font-family: $font;
+		font-family: var(--font);
 		font-size: 1.5rem;
 		border-radius: 5px;
 		border: 2px;
-		border-color: solid $dark-blue;
+		border-color: solid var(--dark-blue);
 	}
 
-	.search, .search:focus {
-		border: solid $dark-blue
+	.search,
+	.search:focus {
+		border: solid var(--dark-blue);
 	}
 </style>

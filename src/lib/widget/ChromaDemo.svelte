@@ -169,9 +169,6 @@
 </div>
 
 <style>
-	.hidden {
-		display: none;
-	}
 	.waveform {
 		width: 100%;
 		height: 75px;

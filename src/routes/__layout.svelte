@@ -1,5 +1,5 @@
 <script>
-	import '../app.scss';
+	import '../app.css';
 	import Header from '$lib/Header.svelte';
 	import Footer from '$lib/Footer.svelte';
 	import Crumbs from '$lib/components/Crumbs.svelte';
@@ -14,17 +14,17 @@
 		<div class="navigation">
 			<TOC />
 		</div>
-		<div class="main">
+
+		<main class="main">
 			<slot />
-		</div>
+		</main>
 
 		<div class="empty-right" />
 	</div>
-
 	<Footer />
 </div>
 
-<style lang="scss">
+<style lang="postcss">
 	.container {
 		display: flex;
 		flex-direction: column;
@@ -41,8 +41,8 @@
 
 	.main {
 		grid-area: main;
-		min-width: $min-text-width;
-		max-width: $max-text-width;
+		min-width: var(--min-text-width);
+		max-width: var(--max-text-width);
 	}
 
 	.navigation {
@@ -57,14 +57,14 @@
 	}
 
 	/* Media Queries */
-	@media (min-width: $breakpoint) {
+	@media (min-width: 1200px) {
 		.content {
-			grid-template-columns: auto min($max-text-width, 100%) auto;
+			grid-template-columns: auto min(var(--max-text-width), 100%) auto;
 			grid-template-areas: 'navigation main empty-right';
 		}
 	}
 
-	@media (max-width: $breakpoint) {
+	@media (max-width: 1200px) {
 		.content {
 			grid-template-rows: auto auto;
 			grid-template-areas:

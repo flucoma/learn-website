@@ -2,7 +2,7 @@
 	import { browser } from '$app/env';
 	let block;
 
-	function copyCode(d) {
+	function copyCode() {
 		if (browser) {
 			let code = block.querySelectorAll('pre > code');
 			code.forEach((c) => {
@@ -17,13 +17,13 @@
 	<slot />
 </div>
 
-<style lang="scss">
+<style lang="postcss">
 	.code {
 		position: relative;
 	}
 
 	.btn {
-		font-family: $font;
+		font-family: var(--font);
 		position: absolute;
 		right: 0;
 	}

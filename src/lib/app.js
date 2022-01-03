@@ -13,18 +13,12 @@ export const breadcrumbs = readable(c);
 export const edits = readable(e);
 export const structure = readable(s);
 
-
 const docs = database.docs;
 
-const search = new FuzzySearch(
-    docs, 
-    ['title', 'tags', 'flair', 'artist', 'blurb'], 
-    {
-        caseSensitive: false,
-        sort: true,
-    }
-);
+const search = new FuzzySearch(docs, ['title', 'tags', 'flair', 'artist', 'blurb'], {
+	caseSensitive: false,
+	sort: true
+});
 
-export const db = search;
-
-
+const db = search;
+export { db, docs };
