@@ -99,7 +99,7 @@
 				bufferSize: 4096,
 				featureExtractors: ['chroma'],
 				callback: (chroma) => {
-					features = chroma.chroma.slice(9, 12) + chroma.chroma.slice(0, 9); // Start from A with pitch classes
+					features = [...chroma.chroma.slice(9, 12), ...chroma.chroma.slice(0, 9)]; // Start from A with pitch classes
 					chart.data.datasets[0].data = features;
 					chart.update();
 				}
