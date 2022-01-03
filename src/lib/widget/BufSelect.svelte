@@ -95,12 +95,13 @@
     <div class="io">
         <div class="">Source</div>
         <div class="grid">
-            { #each {length: w} as _, col }
+            {#each {length: w} as _, col}
             <div class="row">
-                { #each {length: h} as _, row}
+                {#each {length: h} as _, row}
                 <div 
                 class='cell' 
-                class:selected={ parseIndices.includes(row) && parseChannels.includes(col) }>
+                class:selected={parseIndices.includes(row) && parseChannels.includes(col)}
+                >
                 <div>Index: {row}</div>
                 <div>Channel: {col}</div>
             </div>
