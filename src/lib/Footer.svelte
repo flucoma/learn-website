@@ -70,22 +70,12 @@
 		}
 	}
 
-	.column > a {
-		color: white !important;
-	}
-
 	.column {
 		display: flex;
 		flex-direction: column;
 		padding-left: 2em;
 		padding-right: 2em;
 		max-width: 45ch;
-	}
-
-	.middle-column {
-		display: flex;
-		flex-direction: row;
-		flex-wrap: wrap;
 	}
 
 	.funding {
@@ -99,9 +89,5 @@
 
 	.head {
 		font-weight: bold;
-	}
-
-	.source-link {
-		width: max-content;
 	}
 </style>

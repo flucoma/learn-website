@@ -21,12 +21,4 @@
 		color: grey;
 		text-align: left;
 	}
-
-	.title > h1 {
-		margin-bottom: 0;
-	}
-
-	.title > p {
-		margin-top: 0;
-	}
 </style>

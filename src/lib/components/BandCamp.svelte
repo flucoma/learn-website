@@ -1,10 +1,7 @@
 <script lang="ts">
-	export let url: string = '';
 	export let id: string = '';
 	export let title: string = '';
 	export let caption: string = title;
-	export let width: number = 560;
-	export let height: number = 315;
 </script>
 
 <div class="container">

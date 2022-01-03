@@ -18,7 +18,7 @@
 		indicesError = arr.length === 0 ? 'No valid indices provided.' : '';
 
 		if (arr.length === 1 && arr[0] === '-1') {
-			parseIndices = new Array(w).fill(null).map((x, i) => i);
+			parseIndices = [...Array(w).keys()];
 		} else if (arr.length > 0) {
 			parseIndices = arr.map((i) => parseInt(i));
 		} else if (arr.length === 0) {
@@ -34,7 +34,7 @@
 		channelsError = arr.length === 0 ? 'No valid channels provided' : '';
 
 		if (arr.length === 1 && arr[0] === '-1') {
-			parseChannels = new Array(w).fill(null).map((x, i) => i);
+			parseChannels = [...Array(w).keys()];
 		} else if (arr.length > 0) {
 			parseChannels = arr.map((i) => parseInt(i));
 		} else if (arr.length === 0) {

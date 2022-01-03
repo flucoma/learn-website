@@ -2,7 +2,7 @@
 	import { browser } from '$app/env';
 	let block;
 
-	function copyCode(d) {
+	function copyCode() {
 		if (browser) {
 			let code = block.querySelectorAll('pre > code');
 			code.forEach((c) => {

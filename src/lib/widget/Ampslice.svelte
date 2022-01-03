@@ -1,19 +1,37 @@
-<script>
+<script lang="ts">
 	import { WebglPlot, WebglLine, ColorRGBA } from 'webgl-plot';
+	import { onMount } from 'svelte';
 	import * as Tone from 'tone';
 	import smooth from 'array-smooth';
-	import { onMount } from 'svelte';
 	import Button from '$lib/components/Button.svelte';
 
 	// Audio
-	let features = new Array();
+	let features = [];
 	let meter, bassPlayer, pianoPlayer, drumPlayer;
-	let ctxStarted = false;
+	let ctxStarted: boolean = false;
 	// Canvas
 	let canvas, pixelRatio;
-	let ready = false;
+	let ready: boolean = false;
 
-	let slowSmooth = 50;
+	let slowSmooth: number = 50;
+
+	// WGLP
+	let line: WebglLine;
+	let smoothedLine: WebglLine;
+	let wglp: WebglPlot;
+
+	const newFrame = () => {
+		// let t = smooth(features, 0.0)
+		let t = features;
+		let tSmooth = smooth(features, slowSmooth);
+
+		for (let i = 0; i < t.length; i++) {
+			line.setY(i, t[i] * 2 - 0.5);
+			smoothedLine.setY(i, tSmooth[i] * 2 - 0.5);
+		}
+		wglp.update();
+		requestAnimationFrame(newFrame);
+	}
 
 	onMount(async () => {
 		// Tone.js setup
@@ -63,28 +81,15 @@
 			const numX = canvas.width;
 			const color = new ColorRGBA(1, 0, 0, 1);
 			const color2 = new ColorRGBA(0, 0, 1, 1);
-			const line = new WebglLine(color2, numX);
-			const smoothedLine = new WebglLine(color, numX);
-			const wglp = new WebglPlot(canvas);
+			line = new WebglLine(color2, numX);
+			smoothedLine = new WebglLine(color, numX);
+			wglp = new WebglPlot(canvas);
 
 			line.arrangeX();
 			smoothedLine.arrangeX();
 
 			wglp.addLine(line);
 			wglp.addLine(smoothedLine);
-
-			function newFrame() {
-				// let t = smooth(features, 0.0)
-				let t = features;
-				let tSmooth = smooth(features, slowSmooth);
-
-				for (let i = 0; i < t.length; i++) {
-					line.setY(i, t[i] * 2 - 0.5);
-					smoothedLine.setY(i, tSmooth[i] * 2 - 0.5);
-				}
-				wglp.update();
-				requestAnimationFrame(newFrame);
-			}
 			newFrame();
 		}
 	};

@@ -5,12 +5,12 @@
 	export let disabled: boolean = false;
 	const dispatch = createEventDispatcher();
 
-	function doStuff() {
+	function clickHandler() {
 		dispatch('click');
 	}
 </script>
 
-<button style={`width: ${width}`} class:disabled class="btn" on:click={doStuff} {disabled}>
+<button style={`width: ${width}`} class:disabled class="btn" on:click={clickHandler} {disabled}>
 	{label}
 </button>
 
