@@ -39,7 +39,7 @@
 		// Chart
 		Chart.register(...registerables);
 		ctx = canvas.getContext('2d');
-		const labels = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B'];
+		const labels = 'A A# B C C# D D# E F F# G G#'.split(' ');
 		const data = {
 			labels: labels,
 			datasets: [
@@ -64,8 +64,6 @@
 				scales: {
 					y: {
 						display: false
-						// beginAtZero: true,
-						// min: 0, max: 1
 					}
 				}
 			}
@@ -101,7 +99,7 @@
 				bufferSize: 4096,
 				featureExtractors: ['chroma'],
 				callback: (chroma) => {
-					features = chroma.chroma;
+					features = chroma.chroma.slice(9, 12) + chroma.chroma.slice(0, 9); // Start from A with pitch classes
 					chart.data.datasets[0].data = features;
 					chart.update();
 				}
