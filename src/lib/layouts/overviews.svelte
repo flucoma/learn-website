@@ -26,7 +26,7 @@
 
 <EditHistory />
 
-<style lang="scss">
+<style lang="postcss">
 	h1 {
 		text-align: center;
 	}
@@ -53,13 +53,5 @@
 	.tag:hover {
 		color: white;
 		text-decoration: underline;
-	}
-
-	.title > h1 {
-		margin-bottom: 0;
-	}
-
-	.title > p {
-		margin-top: 0;
 	}
 </style>

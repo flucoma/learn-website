@@ -9,6 +9,7 @@ tags:
     - supervised learning
     - multi-layer perceptron
     - mlp
+flair: reference
 ---
 
 The `MLPClassifier` is an object that can be used to perform _classification_. In machine learning, _classification_ refers to an algorithm that is trained to predict what category, or _class_, an input belongs to. 'MLP' stands for multi-layer perceptron which is a type of neural network.

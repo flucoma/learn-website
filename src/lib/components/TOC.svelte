@@ -2,19 +2,25 @@
 	import { page } from '$app/stores';
 	import { structure } from '$lib/app.js';
 
-	$: headings = $structure[$page.path] || [];
+	$: headings = $structure[$page.url.pathname] || [];
 </script>
 
 {#if headings.length > 0}
-	<div class="toc">Table of Contents</div>
-	<div class="headings">
-		{#each headings as h}
-			<a href={h.url}>{h.text}</a>
-		{/each}
+	<div class="container">
+		<div class="toc">Table of Contents</div>
+		<div class="headings">
+			{#each headings as h}
+				<a href={h.url}>{h.text}</a>
+			{/each}
+		</div>
 	</div>
 {/if}
 
-<style>
+<style lang="postcss">
+	.container {
+		position: fixed;
+	}
+
 	.toc {
 		font-size: 1.1rem;
 		margin-bottom: 1em;
@@ -30,5 +36,11 @@
 	a {
 		text-decoration: none;
 		font-size: 0.8rem;
+	}
+
+	@media (max-width: 1200px) {
+		.container {
+			position: relative;
+		}
 	}
 </style>

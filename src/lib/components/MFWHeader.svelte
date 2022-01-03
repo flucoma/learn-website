@@ -3,12 +3,11 @@
 	export let name = '';
 	export let website = '';
 	export let bio = '';
-	import { fade } from 'svelte/transition';
 </script>
 
 <h2>Artist Bio</h2>
 <div class="container">
-	<div class="photo" transition:fade>
+	<div class="photo">
 		<a target="_blank" href={website}>
 			<img loading="lazy" alt={`${name} profile picture`} {src} />
 		</a>
@@ -20,7 +19,7 @@
 	<a href={website}>Website</a>
 </div>
 
-<style lang="scss">
+<style lang="postcss">
 	.container {
 		display: grid;
 		grid-template-rows: auto auto;
@@ -29,14 +28,11 @@
 	}
 	.photo {
 		margin: 0 auto;
-		img {
-			min-width: 0px;
-			max-width: 300px;
-		}
+	}
 
-		a:hover {
-			background: transparent;
-		}
+	img {
+		min-width: 0px;
+		max-width: 500px;
 	}
 
 	.bio {

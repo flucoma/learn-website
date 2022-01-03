@@ -4,27 +4,21 @@ blurb: A histogram of pitch classes
 tags: 
     - descriptor
     - analysis
+flair: reference
 ---
 
 <script>
-    import ChromaDemo from '$lib/widget/ChromaDemo.svelte';
+    import Chroma from '$lib/widget/Chroma.svelte';
 </script>
 
-Chroma is an audio feature that attempts to represent the composition of pitch classes in a sound. Each pitch class, or _"chroma"_, is an equal division of the octave. By default, the Chroma algorithm will return 12 pitch classes which conveniently maps on to a western model of tonal harmony (C, C#, D, D# etc...).
+Chroma is an audio analysis that models the composition of pitch classes in a sound. In this context, a pitch class are _bins_ of the spectrum derived through an [FFT](/reference/bufstft). By default, the Chroma algorithm will return 12 pitch classes, which conveniently maps on to a western model of tonal harmony (C, C#, D, D# etc...). The number of pitch classes can be changed, allowing you to tune the algorithm to return more or less granular bins in terms of what pitch class they represent. 
 
-We should be aware that this is not the only way to use this audio feature – the number of pitch classes (chromas) is modifiable. We should also be mindful that the Chroma algorithm is _not_ a fundamental pitch tracker and it won't tell you about the structure of pitch classes, only their relative strength to each other. Furthermore, the entire spectrum is wrapped into a single octave, meaning any notion of register is lost. As such it is useful for perhaps identifying rough tonal components a sound might be comprised of, but nothing about their hierarchy as a chord.
+<Chroma />
 
-<ChromaDemo />
+Chroma is _not_ a fundamental pitch tracker and won't tell you about the structure of pitch classes, only their relative strength to each other. Furthermore, the entire spectrum is wrapped into a single octave, meaning any notion of register is lost. As such it is useful for perhaps identifying rough tonal components a sound might be comprised of, but nothing about their relationship to each other as a chord.
 
-<!-- For example, when the "Bass" sound is playing (click the button), there are moments where the strength of certain pitch classes are obviously the most dominant. Because the sound is monophonic and relatively clear in the recording this tells us what the note might be that is played by the instrumentalist. This however is misleading and we might think it is tracking pitch! Try the "Oboe" sound which is full of harmonically dense multiphonics. The first multiphonic has a relatively strong measurement of the A pitch class. This A is actually the difference tone that is produced by the oboe when it makes this sound and is somewhat concealed by the more prominent high notes.
+# Related
 
-This is because the Chroma features is capturing the difference tone A, which is somewhat concealed by the higher note. Given this context, make sure you aware of what Chroma can and cannot tell you. -->
-
-<!-- @Owen can you fill in the smarty pants bit about melbands here :) -->
-
-# See Also
-[Melbands](/reference/melbands)
-
-[Short-Term Fourier Transform](/reference/bufstft)
+[Chroma and Shepherd Tones](https://www.audiolabs-erlangen.de/resources/MIR/FMP/C1/C1S1_ChromaShepard.html)
 
 

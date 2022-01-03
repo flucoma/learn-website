@@ -63,19 +63,26 @@ glob('src/**/*.svx', (err, routes) => {
 		}
 
 		// Crumbs
-		switch (section) {
-			case 'reference':
-				crumbs[url] = fm.title;
-				break;
-			case 'madewithflucoma':
-				crumbs[url] = fm.artist;
-				break;
-			case 'guides':
-				crumbs[url] = fm.short;
-				break;
-			case 'overviews':
-				crumbs[url] = fm.title;
-				break;
+		if (fm.crumb) {
+			crumbs[url] = fm.crumb;
+		} else {
+			switch (section) {
+				case 'reference':
+					crumbs[url] = fm.title;
+					break;
+				case 'madewithflucoma':
+					crumbs[url] = fm.artist;
+					break;
+				case 'guides':
+					crumbs[url] = fm.short;
+					break;
+				case 'overviews':
+					crumbs[url] = fm.title;
+					break;
+				case 'installation':
+					crumbs[url] = fm.title;
+					break;
+			}
 		}
 	});
 

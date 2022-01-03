@@ -4,5 +4,20 @@ blurb: Relative value amplitude-based slicing
 tags: 
     - slicing
     - segmentation
+flair: reference
 ---
 
+<script>
+    import AmpSlice from '$lib/widget/Ampslice.svelte';
+</script>
+
+
+[AmpSlice](/reference/ampslice) is an object for _relative_ amplitude-based segmentation. Under the hood, it uses two envelope followers: one slow and one fast. The slow envelope follower tracks amplitude trends across a longer period of time compared to the fast one which tracks faster and immediate changes in amplitude. [AmpSlice](/reference/ampslice) compares the difference between the slow and fast envelopes to determine if there has been a _relative_ spike in amplitude in the short term, compared to the longer term trend. How large this spike has to be is determined by a _threshold_. You can see a visual depiction of these two envelope followers below. The slow envelope is red, while the fast envelope is blue. 
+
+<AmpSlice />
+
+Typically an envelope follower is _smoothed_, meaning we remove discontinuities with something like a moving average. Both the fast and slow envelope followers can be smoothed independently from one another in [AmpSlice](/reference/ampslice) allowing you to define "how fast" and "how slow" each one should be. In the widget above, experiment by moving the slider to change how _smooth_ the slow envelope is. With lots of smoothing you'll visually be able to see how changes in the amplitude barely cause the envelope to fluctuate. On the flip side with no smoothing the slow envelope should look identical to the fast envelope. Remember, the algorithm is comparing the _relative difference_ between the slow and fast envelopes. With no smoothing it will be essentially impossible to look for relative changes between the two because they are the same. Too much smoothing and the slow envelope will stop responding to changes in amplitude in a meaningful way, thus spoiling the comparison the algorithm makes. Ultimately, working with [AmpSlice](/reference/ampslice) often comes down to fine-tuning the parameters that dictate the characteristics of the curves and how they respond to your input sound.   
+
+<!-- There are a number of parameters that can be tuned in the [AmpSlice](/reference/ampslice) object which often can be confusing. On the whole, the parameters mostly deal with tuning the nature of the slow and fast envelopes independently as well as their relationship to each other.
+ -->
+If you are interested in absolute amplitude-based segmentation then check out [AmpGate](/reference/ampgate).

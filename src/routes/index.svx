@@ -1,23 +1,15 @@
 # Welcome
 
-Welcome to the Fluid Corpus Manipulation Learn platform.
-
-Don't know where to start or what to do? The learn platform is broken down into four sections.
+Welcome to the Fluid Corpus Manipulation Learn platform. It is broken down into three major sections.
 
 ## Overviews
-[Overviews](/overviews) are longer-form, prose-like texts that aim to discuss higher-level topics in machine listening, machine learning sometimes relating to specific FluCoMa technology and sometimes reflecting more broadly. This is a good place to start browsing for ideas if you don't know where specifically you want to start.
-
-## Guides
-[Guides](/guides) demonstrate applications of the FluCoMa technology by building patches, scripts and programs in videos with accompanying text. 
-
-<!-- TODO: Ted's classifier video stuff + some writing -->
-<!-- A good starting example is the [timbre classification](/guides/timbre-classifier) tutorial.  -->
+[Overviews](/overviews) contain a variety of articles and guides discussing machine listening and machine learning, sometimes relating to specific FluCoMa technology and sometimes reflecting more broadly. This is a good place to start browsing for ideas.
 
 ## References
-The [reference](/reference) here discusses the underlying algorithms of the FluCoMa toolkit in more detail. We try to steer clear from specific implementation details and instead focus on the concepts behind each algorithm.
+The [reference](/reference) outlines the underlying algorithms of the FluCoMa toolkit in more detail. We try to steer clear from specific implementation details and instead focus on the concepts behind each algorithm and to help illuminate what goes on under the hood..
 
 ## Made with FluCoMa
-[Made with FluCoMa](/madewithflucoma) draws attention to you. The users, makers and creative people who are using the tools. We want to highlight what's out there as both a learning opportunity for others and to situate this technology within a community of techno-fluent musicians.
+[Made with FluCoMa](/madewithflucoma) draws attention to people like you. Makers who use the FluCoMa toolkit or are involved in the wider community. We want to highlight what is out there to try and cultivate opportunities for learning and to situate this technology within a community of techno-fluent musicians.
 
 # Get Involved
 

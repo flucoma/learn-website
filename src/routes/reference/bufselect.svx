@@ -4,6 +4,18 @@ blurb: Cherry pick buffer values
 tags: 
     - utility
     - buffer
+related:
+    - bufcompose
+    - bufselectevery
+flair: reference
 ---
 
+<script>
+    import BufSelect from '$lib/widget/BufSelect.svelte';
+</script>
 
+BufSelect is an object for copying values from a source buffer to a destination buffer by specifying a combination of indices and channels. For example, you could select the first index from every channel of a buffer, or every index of only channels 1, 2, and 3.
+
+The widget below allows you to visually experiment with how this works by specifying your own combination of indices and channels arguments. The grid-shape can be thought of as a buffer with indices going from left to right, and channels from top to bottom. In essence, it is a 5 index, 5 channel buffer. By default all indices and channels are selected by providing the argument "-1". This is a FluCoMa-wide convention that can be seen across many objects when providing default parameters to objects. Furthermore, the indices and channels are referenced through [Zero-based numbering](https://en.wikipedia.org/wiki/Zero-based_numbering), or 0-counting, meaning the first index or channel is 0. The second index or channel is 1. Try selecting some of the presets first, then specifying your own custom selections by changing the values in the input boxes.
+
+<BufSelect />
