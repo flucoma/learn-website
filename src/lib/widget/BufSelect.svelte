@@ -1,16 +1,14 @@
-<script>
+<script lang="ts">
     import Button from '$lib/components/Button.svelte';
-    let w = 4;
-    let h = 4;
-    
-    let indices = '-1';
-    let channels = '-1';
-    
-    let parseIndices = [];
-    let parseChannels = [];
-    
-    let indicesError = '';
-    let channelsError = '';
+
+    let w: number = 4; // Grid width
+    let h: number = 4; // Grid height
+    let indices: string = '-1';
+    let channels: string = '-1';
+    let parseIndices: number[] = [];
+    let parseChannels: number[] = [];
+    let indicesError: string = '';
+    let channelsError: string = '';
     
     $: {
         let arr = indices.split(' ');
