@@ -4,6 +4,7 @@ blurb: Fundamental pitch analysis
 tags: 
     - descriptor
     - analysis
+flair: reference
 ---
 
 

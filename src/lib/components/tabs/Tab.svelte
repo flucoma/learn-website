@@ -12,7 +12,7 @@
 	<slot />
 </button>
 
-<style lang="scss">
+<style lang="postcss">
 	button {
 		background: none;
 		border: none;
@@ -20,12 +20,12 @@
 		border-radius: 0;
 		margin: 0;
 		color: #ccc;
-		font-family: $font;
+		font-family: var(--font);
 		font-size: 1em;
 	}
 
 	.selected {
-		border-bottom: 2px solid $dark-blue;
+		border-bottom: 2px solid var(--dark-blue);
 		color: #333;
 	}
 </style>

@@ -9,7 +9,6 @@ layout: none
 	import Image from '$lib/components/Image.svelte';
 
 	let references = JSON.parse(JSON.stringify($info.reference)); // make a deep copy here for the search
-
 </script>
 
 # Reference

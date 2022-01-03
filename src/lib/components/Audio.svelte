@@ -6,28 +6,29 @@
 </script>
 
 <div class="container">
-	<audio controls>
+	<audio controls class="audio-player">
 		<source {src} type="audio/mp3" />
 		Your browser does not support the audio tag.
 	</audio>
 	<div class="label">
-		<a href={src}>{ fileName } :</a> { label } 
+		<a href={src}>{fileName} :</a>
+		{label}
 	</div>
 </div>
 
-<style lang="scss">
+<style lang="postcss">
 	.container {
 		display: flex;
 		flex-direction: column;
 		margin: 0 auto;
 		gap: 1em;
 		align-items: center;
-		
-		audio {
-			max-width: 50%;
-		}
-	
 	}
+
+	.audio-player {
+		max-width: 50%;
+	}
+
 	.label {
 		font-size: 0.75rem;
 	}

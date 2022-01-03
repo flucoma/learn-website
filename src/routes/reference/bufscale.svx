@@ -4,6 +4,7 @@ blurb: Buffer scaling
 tags: 
     - utility
     - buffer
+flair: reference
 ---
 
 
