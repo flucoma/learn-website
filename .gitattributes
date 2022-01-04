@@ -6,3 +6,5 @@
 *.png binary
 *.npy binary
 *.maxpat binary
+*.mp4 binary
+*.webm binary
