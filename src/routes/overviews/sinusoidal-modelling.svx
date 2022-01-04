@@ -1,0 +1,57 @@
+---
+title: Sinusoidal Modelling
+blurb: |
+    Modelling a signal as a set of time-varying sines.
+tags: 
+    - spectral processing
+    - sines
+    - sinunsoids
+flair: article
+---
+
+Sinusoidal modelling is probably the most venerable and widely researched STFT-based analysis and re-synthesis approach. It makes the strong assumption that a signal's spectrum is dominated by a few well defined peaks, and that these vary slowly enough across time to be tracked as partials. For sounds that meet these assumptions, it can yield a much more compact representation with good results. The peaks can then be resynthesised either directly, using a bank of oscillators, or using an inverse STFT.
+
+Having taken an STFT, the first step is to estimate the peaks in each spectral frame (marked with red crosses below):
+
+<!-- svg thing -->
+
+In practice, this is tricky, as a determination needs to be made about whether a peak in the spectrum represents a stable sinusoid, or is due to a noisier component. Then, peaks need to be tracked from frame to frame to try and establish tracks of partials. What we see below are the first few frames of a partial tracking algorithm working on a guitar sound with well-defined harmonics.
+
+<!-- img -->
+
+This diagram show us time going left to right, with frequency in the vertical axis. Notice how partials come and go, and occasionally bunch into each other. For peaks that are hovering around whatever threshold of detection the algorithm is using, these will appear and vanish again. If this happens a lot, we will notice chirping artefacts in the resynthesis.
+
+Let's do a full sound. Here's some synth:
+
+<!-- spectrum -->
+<!-- audio -->
+
+The partial structure should be pretty clear to see from the spectrogram. However, this is still giving the algorithm some work to do, because the partials in the sound cross each other a points. Here are some partial tracks overlaid on the spectrogram, and the resynthesised sound:
+
+<!-- spectrum -->
+<!-- audio -->
+
+It didn't do badly at all! Visually, we can see that things get a bit confused where things cross each other in the spectrogram, and that the algorithm struggles a bit with moving partials at higher frequencies (and note that we're only getting stuff up to about 5kHz). However, the resynthesis is pretty convincing.
+Ok, something harder. Let's do a field recording:
+
+<!-- Widget??? -->
+<!-- audio -->
+<!-- spectrogram -->
+<!-- audio -->
+
+We can both see and hear that this model struggles more here. The overall spectrum is denser, and has a less clear partial structure across time. We can see that it models the dog barks using a large number of brief sinusoid tracks, which shows that it's finding it hard to model, and we won't end up with a compact representation of the signal. Whilst things sound ok at low volumes, we can hear how there is now a lot of low level bubbly interference, and the depth has gone from the sound.
+
+With that said, the parts that it has reproduced still sound like themselves. What we can do in the (frequent) case that sinusoidal modelling doesn't capture everything interesting in our sound is to take the residual (the leftovers) and use this as as a separate layer:
+<!-- residual audio -->
+
+We could process it differently, or just use it to disguise the artfeacts of the sinusoidal layer. Alternatively we could do further decomposition, for instance, to try and separate transients from noise.
+
+You can play with sinusoidal modelling using [FluidSines](/reference/sines).
+
+# Resources
+
+https://www.klingbeil.com/spear/
+https://github.com/jundsp/Fast-Partial-Tracking
+https://www.celemony.com/en/start
+
+
