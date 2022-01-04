@@ -9,21 +9,28 @@ tags:
 flair: article
 ---
 
+<script>
+    import SinesPeaks from '$lib/widget/SinesPeaks.svelte';
+    import Image from '$lib/components/Image.svelte';
+</script>
+
 Sinusoidal modelling is probably the most venerable and widely researched STFT-based analysis and re-synthesis approach. It makes the strong assumption that a signal's spectrum is dominated by a few well defined peaks, and that these vary slowly enough across time to be tracked as partials. For sounds that meet these assumptions, it can yield a much more compact representation with good results. The peaks can then be resynthesised either directly, using a bank of oscillators, or using an inverse STFT.
 
 Having taken an STFT, the first step is to estimate the peaks in each spectral frame (marked with red crosses below):
 
-<!-- svg thing -->
+<SinesPeaks />
 
 In practice, this is tricky, as a determination needs to be made about whether a peak in the spectrum represents a stable sinusoid, or is due to a noisier component. Then, peaks need to be tracked from frame to frame to try and establish tracks of partials. What we see below are the first few frames of a partial tracking algorithm working on a guitar sound with well-defined harmonics.
 
-<!-- img -->
+<img src='/overviews/sinusoidal-modelling/guitar-partials.svg'>
 
 This diagram show us time going left to right, with frequency in the vertical axis. Notice how partials come and go, and occasionally bunch into each other. For peaks that are hovering around whatever threshold of detection the algorithm is using, these will appear and vanish again. If this happens a lot, we will notice chirping artefacts in the resynthesis.
 
 Let's do a full sound. Here's some synth:
 
-<!-- spectrum -->
+<Image 
+src='/overviews/sinusoidal-modelling/synth-spectrum.png'
+/>
 <!-- audio -->
 
 The partial structure should be pretty clear to see from the spectrogram. However, this is still giving the algorithm some work to do, because the partials in the sound cross each other a points. Here are some partial tracks overlaid on the spectrogram, and the resynthesised sound:
