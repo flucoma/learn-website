@@ -1,0 +1,19 @@
+---
+title: 2D Corpus Exploring
+blurb: |
+    This video tutorial guides you through building a two-dimensional corpus exploration patch in Max.
+tags: 
+    - unsupervised learning
+    - dimension reduction
+    - video
+flair: tutorial
+---
+
+<script>
+    import YouTube from '$lib/components/YouTube.svelte';
+</script>
+
+<YouTube 
+url='PLLzzOXU4pTgJNv3XL_DRQO4N9xXc0pJEu'
+/>
+
