@@ -6,7 +6,7 @@ const urlFromRoute = (route) => {
 	return `/${base}/${parse.name}`;
 };
 
-const spaces = new RegExp(search, 'g')
+const spaces = new RegExp(' ', 'g')
 const sanitiseHashLink = (link) => {
 	link = link.replace('.', '');
 	link = link.replace("'", '');
