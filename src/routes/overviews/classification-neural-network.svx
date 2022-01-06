@@ -14,15 +14,13 @@ flair: tutorial
     import YouTube from '$lib/components/YouTube.svelte';
 </script>
 
-This tutorial guides you through building a two-dimensional corpus exploration patch in Max. If you'ever come into contact with software such as [CataRT](http://imtr.ircam.fr/imtr/CataRT), [LjudMAP](https://github.com/victorwegeborn/LjudMAP) or [XO](https://www.xlnaudio.com/products/xo) then this way of working might be familiar. Briefly, the musical motivation for making a patch like this is quite diffuse. You might:
+This tutorial guides you through building a sound classification script in SuperCollider. It leverages a type of Neural Network in the Fluid Corpus Manipulation toolkit, the [MLPClassifier](/reference/mlpclassifier) to perform the classification process. This workflow is particularly flexible as you can _train_ the [MLPClassifier](/reference/mlpclassifier) to associate any kind of data to a given label. In the context of this tutorial, we associate audio-descriptors to instrumental labels, so that an input sound can be classified according to a set of instrumental archetypes. There are lots of ways in which this workflow can be applied musically. For example you could:
 
-1. Explore a relatively unknown collection of sounds in a visual space
-2. Exploit the sample's spatial positioning for creative inspiration
-3. Inform your selection of materials in real-time, such as for improvisation
+1. Drive audio-visual reactivity from the classification output
+2. Create an internal logic for an improvisational machine based on a sort of musical decision making
+3. Speed up the process of classifying a large corpus of sound resources.
 
-The tutorial starts off by showing you how to segment a sound file and analyse each segment with the [Loudness](/reference/loudness) and [SpectralShape](/reference/spectralshape) descriptors. This information is then used to drive a looping playback mechanism, kind of like an automated drum chopper / sequencer. The notion of descriptor-driven playback is then expanded: the descriptor values are processed and made usable as as coordinates so that each sound segment can be placed on to a `fluid.plotter` canvas. This creates the visual space that can be navigated with the mouse.
-
-Each fundamental component of the patch is separated out so that you can tinker and experiment with the workflow in a more bespoke way (once you're comfortable with the basics). You could try changing the descriptors or modifying how you interact with the data. Using `fluid.plotter` is just one way to think about this!
+<!-- Hunter + Ted's examples -->
 
 <YouTube 
 url='Y1cHmtbQPSk'
