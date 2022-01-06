@@ -1,0 +1,28 @@
+---
+title: Classifying sounds using a Neural Network
+blurb: |
+    This video tutorial guides you through building a flexible sound classifier in SuperCollider.
+tags: 
+    - supervised learning
+    - video
+    - classification
+    - neural network
+flair: tutorial
+---
+
+<script>
+    import YouTube from '$lib/components/YouTube.svelte';
+</script>
+
+This tutorial guides you through building a sound classification script in SuperCollider. It leverages a type of Neural Network in the Fluid Corpus Manipulation toolkit, the [MLPClassifier](/reference/mlpclassifier) to perform the classification process. This workflow is particularly flexible as you can _train_ the [MLPClassifier](/reference/mlpclassifier) to associate any kind of data to a given label. In the context of this tutorial, we associate audio-descriptors to instrumental labels, so that an input sound can be classified according to a set of instrumental archetypes. There are lots of ways in which this workflow can be applied musically. For example you could:
+
+1. Drive audio-visual reactivity from the classification output
+2. Create an internal logic for an improvisational machine based on a sort of musical decision making
+3. Speed up the process of classifying a large corpus of sound resources.
+
+<!-- Hunter + Ted's examples -->
+
+<YouTube 
+url='3XSy297v9vk'
+/>
+
