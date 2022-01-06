@@ -16,7 +16,7 @@ const sanitiseHashLink = (link) => {
 	link = link.replace('(', '');
 	link = link.replace(')', '');
 	link = link.toLowerCase();
-	link = link.replace(' ', '-');
+	link = link.replaceAll(' ', '-');
 	return link;
 };
 export { urlFromRoute, sanitiseHashLink };
