@@ -8,6 +8,7 @@
 	class:reference={flair === 'reference'}
 	class:podcast={flair === 'podcast'}
 	class:event={flair === 'event'}
+	class:tutorial={flair === 'tutorial'}
 >
 	{flair}
 </div>
