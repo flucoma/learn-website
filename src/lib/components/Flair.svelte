@@ -36,4 +36,8 @@
 	.podcast {
 		background-color: palevioletred;
 	}
+
+	.tutorial {
+		background-color: rgba(102, 103, 171, 255);
+	}
 </style>
