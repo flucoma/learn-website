@@ -7,7 +7,8 @@
 		madewithflucoma: 'Made with FluCoMa',
 		reference: 'Reference',
 		guides: 'Guides',
-		overviews: 'Overviews'
+		overviews: 'Overviews',
+		installation: 'Installation'
 	};
 
 	function formatCrumb(crumb) {
@@ -23,10 +24,10 @@
 		path.shift();
 
 		let accum = '';
-		path.forEach((p: string, i: number) => {
+		path.forEach((p, i) => {
 			let sanitisedText = '';
 			if (i >= 1) {
-				sanitisedText = $breadcrumbs[$page.path];
+				sanitisedText = $breadcrumbs[$page.url.pathname];
 			} else {
 				sanitisedText = formatCrumb(p);
 			}
@@ -36,7 +37,7 @@
 		});
 		return d;
 	}
-	$: crumbs = splitPath($page.path);
+	$: crumbs = splitPath($page.url.pathname);
 </script>
 
 <!-- Breadcrumbs -->
@@ -51,10 +52,10 @@
 	<div class="right" />
 </div>
 
-<style lang="scss">
+<style lang="postcss">
 	.container {
 		display: grid;
-		grid-template-columns: auto min($max-text-width, 100%) auto;
+		grid-template-columns: auto min(var(--max-text-width), 100%) auto;
 		margin: 1em;
 	}
 	.crumbs {

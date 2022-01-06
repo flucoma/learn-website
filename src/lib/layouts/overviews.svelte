@@ -8,16 +8,17 @@
 
 <div class="title-box">
 	<h1>{title}</h1>
-	<p class="blurb">{blurb}</p>
-</div>
+	<p class="blurb">
+		{blurb}
+	</p>
 
-<h2>Tags</h2>
-<div class="tagtainer">
-	{#each tags as tag}
-		<a class="tag" href="/search/{tag}">
-			{tag}
-		</a>
-	{/each}
+	<div class="tagtainer">
+		{#each tags as tag}
+			<a class="tag" href="/search/{tag}">
+				{tag}
+			</a>
+		{/each}
+	</div>
 </div>
 
 <slot />
@@ -26,13 +27,14 @@
 
 <EditHistory />
 
-<style lang="scss">
-	h1 {
-		text-align: center;
+<style lang="postcss">
+	:global(p) {
+		text-align: justify;
+		text-justify: inter-word;
 	}
+
 	.blurb {
 		color: grey;
-		text-align: center;
 	}
 	.tagtainer {
 		display: flex;
@@ -46,20 +48,14 @@
 		padding: 0.15em;
 		border-radius: 0px;
 		box-shadow: 0 1px 1.5px 2px rgba(0, 0, 0, 0.1);
-		background-color: transparent;
 		text-align: center;
 	}
 
 	.tag:hover {
-		color: white;
 		text-decoration: underline;
 	}
 
-	.title > h1 {
-		margin-bottom: 0;
-	}
-
-	.title > p {
-		margin-top: 0;
+	p {
+		text-align: justify;
 	}
 </style>

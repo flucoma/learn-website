@@ -11,6 +11,7 @@ tags:
     - bach
     - cage
     - markov chains
+flair: article
 ---
 
 <script>
@@ -26,7 +27,7 @@ src = "/madewithflucoma/pasquet/profile.jpeg"
 name = "Olivier Pasquet"
 website = "https://www.opasquet.fr/"
 bio = "Olivier Pasquet is a sound, visual artist and music producer. 
-His generative pieces are contextualized within a rationalist theory-fiction. 
+His generative pieces are contextualised within a rationalist theory-fiction. 
 He has been working with a variety of artists at Ircam and other places. 
 Besides music and installations, he is also involved in performance pieces such as dance, theatre, opera. 
 All has consequently a strong relation with architecture, architectural design and specific sites. 
@@ -40,10 +41,10 @@ Download the demonstration patches for this article <a href='/madewithflucoma/pa
 ## Introduction
 
 Today we’ll be looking at some of the work that Olivier Pasquet did using the FluCoMa tools.
-His piece, *Herbig-Haro*, was performed at the first FluCoMa gig at HCMF 2019.
+His piece, *Herbig-Haro*, was performed at the [first FluCoMa gig](/madewithflucoma/reactive-flows) at [HCMF](https://hcmf.co.uk/) 2019.
 Compared to the other performances – which all featured the musician centre-stage with lights focused on them – his felt much more like an installation.
 The room was plunged into darkness, Pasquet was barely visible at the back of the stage, discreetly sat behind a laptop.
-The audience was engulfed in the music: thick bass tones and high, scraping clicks were spatialized across the speakers around the whole performance area; spotlights placed around the space were mapped to flicker on various clicks, pulling the listener into the overarching rhythms that seemed to drive the chaotic material.
+The audience was engulfed in the music: thick bass tones and high, scraping clicks were spatialised across the loudspeakers around the whole performance area; spotlights placed around the space were mapped to flicker on various clicks, pulling the listener into the overarching rhythms that seemed to drive the chaotic material.
 
 <YouTube 
 url={'qqR_gORRwRA'}
@@ -57,13 +58,18 @@ What are these artefacts, and how were they forged?
 
 <Audio 
 src="/madewithflucoma/pasquet/11152019_124154.mp3"
-label="An example of the vocal content from Pasquet's performance."
+label="An example of the vocal content from Pasquet's performance as it comes out of the generative patches."
+/>
+
+<Audio 
+src="/madewithflucoma/pasquet/piece_extract.mp3"
+label="An example of the vocal content during the performance."
 />
 
 Pasquet focused a lot of effort into developing a system to create these sounds. 
 He notably took some of the FluCoMa tools and worked them into some of his pre-existing workflows: he makes extensive use of the [bach](https://www.bachproject.net/) and [cage](https://www.bachproject.net/cage/) libraries in Max which rely on the lisp-like linked list (llll) data structure; he has also built a library of his own, [jtol](https://www.opasquet.fr/jtol/), which is built around many of the bach objects and deals with real-time pattern generation. 
 In this text we shall explore what Pasquet wanted to achieve with his system and examine how the FluCoMa tools can yield artefacts that can be used by other tools such as bach and jtol. 
-As with all the Made with FluCoMa articles, there is a series of demonstration patches that can be downloaded and interacted with if you wish to explore the inner workings of the software.
+As with all the "[Made with FluCoMa](/madewithflucoma)" articles, there is a series of demonstration patches that can be <a href='/madewithflucoma/pasquet/Olivier Pasquet Examples.zip' download='Olivier Pasquet Examples.zip'>downloaded</a> and interacted with if you wish to explore the inner workings of the software.
 
 ## The Premise
 
@@ -254,8 +260,7 @@ How does Pasquet make this multidimensional data available to the processes he u
 
 As mentioned above, Pasquet makes use of the bach library and the data structure it brings to Max: lisp-like linked lists (lllls). 
 If you wish to learn more about lllls and how they work in Max you can consult the [bach documentation](https://www.bachproject.net/features/). 
-Here it suffices to know that an llll is a list that can be given several dimensions (lists within lists); and that in Max, lllls can be referred to with an address. 
-In this instance, Pasquet doesn’t actually use the bach library for its hierarchical possibilities, but as a dynamic way of storing and querying data (note that this can be achieved with the [fluid.dataset~](/reference/dataset) object, however Pasquet used this format to incorporate the data into his own bespoke objects and workflow).
+Here it suffices to know that Pasquet uses Bach as a dynamic way of storing and querying data.
 
 There are two primary objects that Pasquet produces to store his data:
 
@@ -286,7 +291,7 @@ If you wish to learn more about Markov chains, you can have a look [here](https:
 Here, it is enough to understand that Markov chains will make decisions about sequential information based on a model - it is a way of describing the probability of moving from one ‘state’ to another (where a state may be a musical decision such as a section, sample, note, parameter or chord). 
 The model that Pasquet supplies here is the large llll that contains the order in which sounds appeared in the original audio file.
 
-He first compresses this data using his implementation of the [Lempel-Ziv-Welch](https://en.wikipedia.org/wiki/Lempel%E2%80%93Ziv%E2%80%93Welch) compression algorithm. 
+He first compresses this data using his implementation of the "[Lempel-Ziv-Welch](https://en.wikipedia.org/wiki/Lempel%E2%80%93Ziv%E2%80%93Welch)" compression algorithm. 
 This is a data compression algorithm that essentially works by finding repeated patterns in the original data and creating a mapping of keys corresponding to these patterns. 
 This allows the data to be represented with less characters, and can be decrypted with the key mapping when we want to decompress it.
 
