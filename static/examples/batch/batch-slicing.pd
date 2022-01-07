@@ -1,15 +1,15 @@
-#N canvas -188 -1174 1438 845 12;
-#X obj 33 119 soundfiler;
-#X obj 33 184 t b;
-#X obj 780 609 output~;
-#X text 442 21 Load a source sound file into the array "src" to start
+#N canvas 1070 415 1422 901 12;
+#X obj 30 224 soundfiler;
+#X obj 30 289 t b;
+#X obj 777 714 output~;
+#X text 439 126 Load a source sound file into the array "src" to start
 processing. Replace this path with one that makes sense for your machine.
 ;
-#X obj 430 222 array define slicepoints;
-#X msg 33 37 symbol ~/FluidCorpusManipulation/media/Nicol-LoopE-M.wav
+#X obj 427 327 array define slicepoints;
+#X msg 30 142 symbol ~/FluidCorpusManipulation/media/Nicol-LoopE-M.wav
 ;
-#X obj 33 260 array size slicepoints;
-#X obj 115 395 until;
+#X obj 30 365 array size slicepoints;
+#X obj 112 500 until;
 #N canvas 730 215 450 300 counter 0;
 #X obj 22 26 inlet;
 #X obj 95 19 inlet;
@@ -23,23 +23,23 @@ processing. Replace this path with one that makes sense for your machine.
 #X connect 3 0 2 0;
 #X connect 4 0 3 1;
 #X connect 5 0 3 1;
-#X restore 115 433 pd counter;
-#X obj 115 357 t f 0;
-#X obj 115 319 - 1;
-#X msg 33 81 read -resize \$1 drum;
-#X text 184 80 read the sound file into the array defined as "drum"
+#X restore 112 538 pd counter;
+#X obj 112 462 t f 0;
+#X obj 112 424 - 1;
+#X msg 30 186 read -resize \$1 drum;
+#X text 181 185 read the sound file into the array defined as "drum"
 ;
-#X obj 118 120 array define drum;
-#X obj 33 222 fluid.bufnoveltyslice -source drum -indices slicepoints
+#X obj 115 225 array define drum;
+#X obj 30 327 fluid.bufnoveltyslice -source drum -indices slicepoints
 ;
-#X obj 38 615 fluid.dataset data;
-#X msg 118 564 setpoint \$1 slice.mean;
-#X obj 33 293 t b l;
-#X msg 34 354 print;
-#X obj 115 478 t f f, f 26;
-#X floatatom 780 520 5 0 0 0 - - - 0;
-#X obj 100 185 s sr;
-#X msg 100 155 \$1;
+#X obj 35 720 fluid.dataset data;
+#X msg 115 669 setpoint \$1 slice.mean;
+#X obj 30 398 t b l;
+#X msg 31 459 print;
+#X obj 112 583 t f f, f 26;
+#X floatatom 777 625 5 0 0 0 - - - 0;
+#X obj 97 290 s sr;
+#X msg 97 260 \$1;
 #N canvas 1 26 298 441 slice_playback 0;
 #X obj 53 258 phasor~;
 #X obj 14 311 *~;
@@ -67,20 +67,20 @@ processing. Replace this path with one that makes sense for your machine.
 #X connect 8 1 9 0;
 #X connect 9 0 5 1;
 #X connect 10 0 8 0;
-#X restore 780 567 pd slice_playback;
-#X obj 915 601 fluid.dataset data;
-#X obj 1037 639 route getpoint;
-#X msg 915 567 getpoint \$1 query;
-#X obj 1052 566 array define query;
-#X obj 1037 674 array get query;
-#X msg 1037 745 2731.07;
-#X msg 1037 709 set \$1;
-#X text 1099 744 mean centroid of slice currently playing;
-#X text 139 183 store the samplerate for playing slices later;
-#X text 198 260 get slice indices as a list;
-#X text 292 556 every analysis iteration store the data in a fluid.dataset
+#X restore 777 672 pd slice_playback;
+#X obj 912 706 fluid.dataset data;
+#X obj 1034 744 route getpoint;
+#X msg 912 672 getpoint \$1 query;
+#X obj 1049 671 array define query;
+#X obj 1034 779 array get query;
+#X msg 1034 850 2731.07;
+#X msg 1034 814 set \$1;
+#X text 1096 849 mean centroid of slice currently playing;
+#X text 136 288 store the samplerate for playing slices later;
+#X text 195 365 get slice indices as a list;
+#X text 289 661 every analysis iteration store the data in a fluid.dataset
 ;
-#X text 823 520 select a slice to playback and see the average centroid
+#X text 820 625 select a slice to playback and see the average centroid
 ;
 #N canvas -188 -1174 1062 387 analysis 0;
 #X obj 16 75 array get slicepoints 0 2;
@@ -116,8 +116,13 @@ the number of frames to analyse;
 #X connect 8 0 10 0;
 #X connect 10 0 7 0;
 #X connect 15 0 0 0;
-#X restore 293 515 pd analysis;
-#X text 383 515 look in here for how the analysis is performed;
+#X restore 290 620 pd analysis;
+#X text 380 620 look in here for how the analysis is performed;
+#X obj 31 88 pdcontrol;
+#X msg 31 55 browse https://learn.flucoma.org/overviews/batch-processing
+;
+#X obj 9 16 cnv 15 100 10 empty empty Batch\\\ Processing 20 12 0 36
+#fcfcfc #404040 0;
 #X connect 0 0 1 0;
 #X connect 0 1 22 0;
 #X connect 1 0 14 0;
@@ -146,3 +151,4 @@ the number of frames to analyse;
 #X connect 26 0 24 0;
 #X connect 28 0 30 0;
 #X connect 30 0 29 0;
+#X connect 39 0 38 0;

@@ -1,18 +1,18 @@
-#N canvas 1 26 1438 845 12;
-#X obj 153 131 file glob;
-#X msg 18 18 symbol ~/FluidCorpusManipulation/media/*.wav;
-#X obj 150 281 soundfiler;
-#X msg 150 245 read -resize \$1 src;
-#X obj 150 325 t b;
-#X obj 152 191 t l l b, f 31;
-#X obj 147 513 fluid.bufhpss -source src;
-#X obj 27 245 array define src;
-#X obj 212 164 print FILE_ERROR;
-#X msg 147 469 harmonic h_\$1 \, percussive p_\$1 \, bang;
-#X obj 20 63 t b l b, f 39;
-#X obj 20 132 print complete!;
-#X obj 148 430 t f f;
-#X obj 147 598 text set outputs;
+#N canvas 1 26 1394 906 12;
+#X obj 167 257 file glob;
+#X msg 32 144 symbol ~/FluidCorpusManipulation/media/*.wav;
+#X obj 164 407 soundfiler;
+#X msg 164 371 read -resize \$1 src;
+#X obj 164 451 t b;
+#X obj 166 317 t l l b, f 31;
+#X obj 161 639 fluid.bufhpss -source src;
+#X obj 41 371 array define src;
+#X obj 226 290 print FILE_ERROR;
+#X msg 161 595 harmonic h_\$1 \, percussive p_\$1 \, bang;
+#X obj 34 189 t b l b, f 39;
+#X obj 34 258 print complete!;
+#X obj 162 556 t f f;
+#X obj 161 724 text set outputs;
 #N canvas 1 26 839 539 dynamic_array_management 0;
 #X obj 100 506 s pd-outputs;
 #X obj 100 318 + 10;
@@ -66,29 +66,29 @@ arrays for the fluid.bufhpss object.;
 #X connect 10 2 4 1;
 #X connect 11 0 3 0;
 #X connect 12 0 9 0;
-#X restore 148 375 pd dynamic_array_management;
-#X obj 373 374 text delete outputs;
-#X obj 334 334 t b -1;
-#X obj 147 555 list store;
-#X msg 909 92 stop;
-#X floatatom 965 91 5 0 0 0 - - - 0;
-#X msg 965 158 set p_\$1 \, bang;
-#X obj 909 247 output~;
-#X obj 909 202 tabplay~;
-#X msg 1085 158 set h_\$1 \, bang;
-#X floatatom 1085 89 5 0 0 0 - - - 0;
-#X obj 994 250 text get outputs;
-#X symbolatom 993 345 53 0 0 0 - - - 0;
-#X msg 993 298 set \$1;
-#X text 414 469 set the harmonic and percussive outputs to the new
+#X restore 162 501 pd dynamic_array_management;
+#X obj 387 500 text delete outputs;
+#X obj 348 460 t b -1;
+#X obj 161 681 list store;
+#X msg 923 218 stop;
+#X floatatom 979 217 5 0 0 0 - - - 0;
+#X msg 979 284 set p_\$1 \, bang;
+#X obj 923 373 output~;
+#X obj 923 328 tabplay~;
+#X msg 1099 284 set h_\$1 \, bang;
+#X floatatom 1099 215 5 0 0 0 - - - 0;
+#X obj 1008 376 text get outputs;
+#X symbolatom 1007 471 53 0 0 0 - - - 0;
+#X msg 1007 424 set \$1;
+#X text 428 595 set the harmonic and percussive outputs to the new
 array;
-#X text 228 555 retrieve the file name for the soundfile that was just
+#X text 242 681 retrieve the file name for the soundfile that was just
 processed, f 66;
-#X text 269 596 store the file name that was processed using the index
+#X text 283 722 store the file name that was processed using the index
 as its position in the text;
-#X text 301 246 read the sound file into the array defined as src;
-#X text 521 373 clear the text containing the outputs names;
-#X obj 40 674 cnv 15 600 80 empty cnv empty 20 12 0 14 #e7af9c #404040
+#X text 315 372 read the sound file into the array defined as src;
+#X text 535 499 clear the text containing the outputs names;
+#X obj 54 800 cnv 15 600 80 empty cnv empty 20 12 0 14 #e7af9c #404040
 0;
 #N canvas 697 935 450 300 outputs 0;
 #X obj 160 10 array define p_0;
@@ -135,15 +135,20 @@ as its position in the text;
 #X obj 20 510 array define h_20;
 #X obj 160 535 array define p_21;
 #X obj 20 535 array define h_21;
-#X restore 47 726 pd outputs;
-#X obj 45 683 text define outputs;
-#X text 186 677 each file that was processed is stored here the index
+#X restore 61 852 pd outputs;
+#X obj 59 809 text define outputs;
+#X text 200 803 each file that was processed is stored here the index
 of each file name maps against the array in "outputs", f 64;
-#X text 126 721 <-- the audio outputs of the batch decomposition are
+#X text 140 847 <-- the audio outputs of the batch decomposition are
 stored in arrays in this subpatcher;
-#X text 347 14 set the path here to a folder of audio files this shows
+#X text 361 140 set the path here to a folder of audio files this shows
 an example pointing toward the FluCoMa media exaxmples send the message
 to start batch processing!;
+#X obj 31 88 pdcontrol;
+#X msg 31 55 browse https://learn.flucoma.org/overviews/batch-processing
+;
+#X obj 9 16 cnv 15 100 10 empty empty Batch\\\ Processing 20 12 0 36
+#fcfcfc #404040 0;
 #X connect 0 0 5 0;
 #X connect 0 1 8 0;
 #X connect 1 0 10 0;
@@ -174,3 +179,4 @@ to start batch processing!;
 #X connect 24 0 25 0;
 #X connect 25 0 27 0;
 #X connect 27 0 26 0;
+#X connect 40 0 39 0;

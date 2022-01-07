@@ -1,10 +1,10 @@
-#N canvas 47 54 1232 717 12;
-#X msg 19 24 symbol ~/FluidCorpusManipulation/media/*.wav;
-#X obj 18 445 soundfiler;
-#X msg 18 409 read -resize \$1 src;
-#X obj 18 478 t b;
-#X obj 169 408 array define src;
-#X msg 18 553 harmonic h_\$1 \, percussive p_\$1 \, bang;
+#N canvas 1281 401 1234 832 12;
+#X msg 27 147 symbol ~/FluidCorpusManipulation/media/*.wav;
+#X obj 26 562 soundfiler;
+#X msg 26 526 read -resize \$1 src;
+#X obj 26 595 t b;
+#X obj 177 525 array define src;
+#X msg 26 670 harmonic h_\$1 \, percussive p_\$1 \, bang;
 #N canvas 465 522 985 506 dynamic_array_management 0;
 #X obj 102 476 s pd-outputs;
 #X obj 102 309 + 10;
@@ -58,22 +58,22 @@ arrays for the fluid.bufhpss object.;
 #X connect 10 2 4 1;
 #X connect 11 0 3 0;
 #X connect 18 0 9 0;
-#X restore 18 516 pd dynamic_array_management;
-#X msg 730 165 stop;
-#X floatatom 786 164 5 0 0 0 - - - 0;
-#X msg 786 231 set p_\$1 \, bang;
-#X obj 730 320 output~;
-#X obj 730 275 tabplay~;
-#X msg 906 231 set h_\$1 \, bang;
-#X floatatom 906 162 5 0 0 0 - - - 0;
-#X symbolatom 814 418 53 0 0 0 - - - 0;
-#X msg 814 371 set \$1;
-#X text 282 552 set the harmonic and percussive outputs to the new
+#X restore 26 633 pd dynamic_array_management;
+#X msg 738 282 stop;
+#X floatatom 794 281 5 0 0 0 - - - 0;
+#X msg 794 348 set p_\$1 \, bang;
+#X obj 738 437 output~;
+#X obj 738 392 tabplay~;
+#X msg 914 348 set h_\$1 \, bang;
+#X floatatom 914 279 5 0 0 0 - - - 0;
+#X symbolatom 822 535 53 0 0 0 - - - 0;
+#X msg 822 488 set \$1;
+#X text 290 669 set the harmonic and percussive outputs to the new
 array;
-#X text 286 596 retrieve the file name for the soundfile that was just
+#X text 294 713 retrieve the file name for the soundfile that was just
 processed, f 66;
-#X text 288 407 read the sound file into the array defined as src;
-#X obj 15 657 cnv 15 520 40 empty cnv empty 20 12 0 14 #e7af9c #404040
+#X text 296 524 read the sound file into the array defined as src;
+#X obj 23 774 cnv 15 520 40 empty cnv empty 20 12 0 14 #e7af9c #404040
 0;
 #N canvas 846 929 450 300 outputs 0;
 #X obj 160 10 array define p_0;
@@ -118,13 +118,13 @@ processed, f 66;
 #X obj 20 485 array define h_19;
 #X obj 160 510 array define p_20;
 #X obj 20 510 array define h_20;
-#X restore 22 667 pd outputs;
-#X text 101 662 <-- the audio outputs of the batch decomposition are
+#X restore 30 784 pd outputs;
+#X text 109 779 <-- the audio outputs of the batch decomposition are
 stored in arrays in this subpatcher;
-#X text 344 10 set the path here to a folder of audio files this shows
+#X text 352 133 set the path here to a folder of audio files this shows
 an example pointing toward the FluCoMa media exaxmples send the message
 to start batch processing!;
-#X obj 18 159 text size corpus;
+#X obj 26 276 text size corpus;
 #N canvas 730 215 450 329 counter 0;
 #X obj 22 26 inlet;
 #X obj 76 27 inlet;
@@ -153,11 +153,11 @@ hits a maximum;
 #X connect 11 0 12 0;
 #X connect 12 0 7 0;
 #X connect 12 1 8 0;
-#X restore 18 260 pd counter;
-#X obj 18 202 t b b f, f 10;
-#X obj 85 231 - 1;
-#X obj 19 64 t b l b;
-#X obj 18 317 text get corpus;
+#X restore 26 377 pd counter;
+#X obj 26 319 t b b f, f 10;
+#X obj 93 348 - 1;
+#X obj 27 181 t b l b;
+#X obj 26 434 text get corpus;
 #N canvas 440 1005 364 255 create 0;
 #X obj 14 53 file glob;
 #X obj 75 86 print FILE_ERROR;
@@ -177,18 +177,23 @@ hits a maximum;
 #X connect 6 0 0 0;
 #X connect 8 0 7 0;
 #X connect 9 0 8 0;
-#X restore 42 119 pd create corpus text;
-#X obj 815 322 text get corpus;
-#X obj 18 597 fluid.bufhpss -source src -blocking 0;
-#X obj 65 93 s \$0-reset;
-#X obj 99 202 r \$0-iterate;
-#X obj 18 628 s \$0-iterate;
-#X text 196 120 fill a text object with the full paths of files in
+#X restore 50 236 pd create corpus text;
+#X obj 823 439 text get corpus;
+#X obj 26 714 fluid.bufhpss -source src -blocking 0;
+#X obj 73 210 s \$0-reset;
+#X obj 107 319 r \$0-iterate;
+#X obj 26 745 s \$0-iterate;
+#X text 204 237 fill a text object with the full paths of files in
 our corpus, f 62;
-#X msg 138 317 Processing corpus item number \$1;
-#X msg 390 316 Done!;
-#X obj 138 350 print;
-#X obj 390 345 print;
+#X msg 146 434 Processing corpus item number \$1;
+#X msg 398 433 Done!;
+#X obj 146 467 print;
+#X obj 398 462 print;
+#X obj 29 89 pdcontrol;
+#X msg 29 56 browse https://learn.flucoma.org/overviews/batch-processing
+;
+#X obj 7 17 cnv 15 100 10 empty empty Batch\\\ Processing 20 12 0 36
+#fcfcfc #404040 0;
 #X connect 0 0 27 0;
 #X connect 1 0 3 0;
 #X connect 2 0 1 0;
@@ -222,3 +227,4 @@ our corpus, f 62;
 #X connect 33 0 24 0;
 #X connect 36 0 38 0;
 #X connect 37 0 39 0;
+#X connect 41 0 40 0;
