@@ -6,6 +6,7 @@ tags:
     - workflow
     - beginner
     - intermediate
+flair: article
 ---
 
 <script>
