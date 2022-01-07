@@ -17,21 +17,22 @@ class:danger={type === 'danger'}
 		--border-color: rgb(52, 52, 171, 1.0);
 		padding: 1em;
 		background-color: var(--bg-color);
-		border: 3px solid var(--bg-color);
+		border: 3px solid var(--border-color);
+		color: rgb(65, 65, 65);
 	}
 	
 	.note {
 		--bg-color: rgb(52, 52, 171, 0.2);
-		--border-color: rgb(52, 52, 171, 0.5);
+		--border-color: rgba(31, 31, 136, 0.63);
 	}
 	
 	.warn {
 		--bg-color: rgb(255, 204, 0, 0.2);
-		--border-color: rgb(255, 204, 0, 0.5);
+		--border-color: rgb(255, 204, 0, 0.63);
 	}
 	
 	.danger {
 		--bg-color: rgb(204, 51, 0, 0.2);
-		--border-color: rgb(204, 51, 0, 0.5);
+		--border-color: rgb(204, 51, 0, 0.63);
 	}
 </style>
