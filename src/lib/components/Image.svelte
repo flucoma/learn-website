@@ -1,16 +1,20 @@
-<script>
-	export let src = '';
-	export let alt = '';
-	export let drawBorder = true;
+<script lang="ts">
+	export let src: string = '';
+	export let alt: string = '';
+	export let label: string = '';
+	export let id: string = '';
 </script>
 
-<a target="_blank" href={src}>
-	<div class="container" class:border={drawBorder}>
-		<img {alt} {src} />
+<div class="container" {id}>
+	<a target="_blank" href={src}>
+		<img loading="lazy" {alt} {src} />
+	</a>
+	<div class="label">
+		{label}
 	</div>
-</a>
+</div>
 
-<style lang="scss">
+<style lang="postcss">
 	.container {
 		display: grid;
 		place-items: center;
@@ -18,18 +22,22 @@
 		margin: 0 auto;
 	}
 
-	.border {
-		border-radius: 2px;
-		box-shadow: 0 1px 3px 4px rgba(0, 0, 0, 0.1);
+	img {
+		padding-top: 1em;
+		padding-bottom: 1em;
+		max-width: 100%;
 	}
 
 	a {
 		max-width: 100%;
 	}
 
-	.container > img {
-		padding-top: 1em;
-		padding-bottom: 1em;
-		max-width: 100%;
+	a:hover {
+		background: transparent;
+	}
+
+	.label {
+		text-align: center;
+		font-size: 0.8rem;
 	}
 </style>

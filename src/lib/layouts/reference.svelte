@@ -1,6 +1,8 @@
 <script>
 	export let title;
 	export let blurb;
+	import EditHistory from '$lib/components/EditHistory.svelte';
+	import HR from '$lib/components/HR.svelte';
 </script>
 
 <div class="title-box">
@@ -10,17 +12,13 @@
 
 <slot />
 
-<style lang="scss">
+<HR />
+
+<EditHistory />
+
+<style lang="postcss">
 	.blurb {
 		color: grey;
 		text-align: left;
-	}
-
-	.title > h1 {
-		margin-bottom: 0;
-	}
-
-	.title > p {
-		margin-top: 0;
 	}
 </style>

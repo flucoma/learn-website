@@ -3,12 +3,12 @@ layout: none
 ---
 
 <script>
+	import { info } from '$lib/app.js';
 	import ReferenceEntry from '$lib/components/ReferenceEntry.svelte';
 	import ReferenceSearch from '$lib/components/ReferenceSearch.svelte';
 	import Image from '$lib/components/Image.svelte';
-	import { structure } from '$lib/app.js';
 
-	let references = JSON.parse(JSON.stringify($structure.routes.reference));
+	let references = JSON.parse(JSON.stringify($info.reference)); // make a deep copy here for the search
 </script>
 
 # Reference
@@ -18,14 +18,15 @@ This section of the learn platform outlines each algorithm of the Fluid Corpus M
 <ReferenceSearch bind:result={references} />
 
 <div class='list'>
-	{#each references as r}
+	{#each references as ref}
 		<ReferenceEntry 
-		title={r.data.title}
-		blurb={r.data.blurb}
-		url={r.url}
+		title={ref.data.title}
+		blurb={ref.data.blurb}
+		url={ref.url}
 		/>
 	{/each}
 </div>
+
 
 <style>
 	.list {

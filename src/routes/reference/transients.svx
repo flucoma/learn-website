@@ -3,4 +3,7 @@ title: Transients
 blurb: Transient decomposition using a de-clicking algorithm
 tags:
     - decomposition
+    - repair
+    - declick
+flair: reference
 ---

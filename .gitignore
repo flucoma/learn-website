@@ -4,7 +4,6 @@ node_modules
 /package
 static/structure.json
 static/pages.json
-scripts
 build
 static/tag.json
 
@@ -12,3 +11,8 @@ static/tag.json
 pnpm-lock.yaml
 package-lock.json
 .pnpm-debug.log
+static/edits.json
+static/crumbs.json
+scripts/__pycache__
+static/info.json
+static/db.json

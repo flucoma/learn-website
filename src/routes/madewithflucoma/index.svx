@@ -1,0 +1,13 @@
+---
+layout: none
+---
+
+<script>
+    import CardList from '$lib/components/CardList.svelte';
+</script>
+
+# Made with FluCoMa
+
+Made with FluCoMa highlights projects and practices where FluCoMa is used.
+
+<CardList section='madewithflucoma' />

@@ -1,79 +1,77 @@
 <script>
-	import '../app.scss';
+	import '../app.css';
 	import Header from '$lib/Header.svelte';
 	import Footer from '$lib/Footer.svelte';
 	import Crumbs from '$lib/components/Crumbs.svelte';
-	import pages from '../../static/pages.json';
-	import { page } from '$app/stores';
-
-	$: headings = pages.pages[$page.path];
+	import TOC from '$lib/components/TOC.svelte';
 </script>
 
 <div class="container">
 	<Header />
+	<Crumbs />
 
 	<div class="content">
 		<div class="navigation">
-			<!-- {#if headings}
-            {#each headings as h}
-            <a href={h.url}>{h.heading}</a>
-            {/each}
-            {/if} -->
+			<TOC />
 		</div>
-		<div class="main">
-			<Crumbs />
-			<!-- Everything else -->
+
+		<main class="main">
 			<slot />
-		</div>
+		</main>
 
 		<div class="empty-right" />
 	</div>
-
 	<Footer />
 </div>
 
-<style lang="scss">
+<style lang="postcss">
 	.container {
 		display: flex;
 		flex-direction: column;
 		min-height: 100vh;
 	}
+
 	.content {
 		display: grid;
 		justify-content: center;
-		margin: 1em;
+		margin-left: 1em;
+		margin-right: 1em;
+		margin-bottom: 1em;
 	}
 
 	.main {
 		grid-area: main;
-		min-width: 30ch;
+		min-width: var(--min-text-width);
+		max-width: var(--max-text-width);
 	}
 
 	.navigation {
 		grid-area: navigation;
-		width: 20ch;
+		width: 25ch;
 		height: max-content;
-		display: flex;
-		flex-direction: column;
 	}
 
 	.empty-right {
 		grid-area: empty-right;
-		width: 20ch;
+		width: 25ch;
 	}
 
 	/* Media Queries */
-	@media (min-width: $breakpoint) {
+	@media (min-width: 1200px) {
 		.content {
-			grid-template-columns: auto min($breakpoint, 100%) auto;
+			grid-template-columns: auto min(var(--max-text-width), 100%) auto;
 			grid-template-areas: 'navigation main empty-right';
 		}
 	}
 
-	@media (max-width: $breakpoint) {
-		.navigation {
-			display: none;
+	@media (max-width: 1200px) {
+		.content {
+			grid-template-rows: auto auto;
+			grid-template-areas:
+				'navigation'
+				'main';
 		}
+
 		.empty-right {
 			display: none;
 		}

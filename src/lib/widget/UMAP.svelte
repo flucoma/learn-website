@@ -1,35 +1,38 @@
-<script>
+<script lang="ts">
 	import { UMAP } from 'umap-js';
 	import { onMount } from 'svelte';
 	import { Chart, registerables } from 'chart.js';
+	import type { Vectors } from 'umap-js/dist/umap';
 	import Slider from '$lib/components/Slider.svelte';
 	import Button from '$lib/components/Button.svelte';
 	import * as d3 from 'd3';
 
-	// Chart.js business
-	let canvas, chart, ctx;
-	let timeout;
+	// Chart.js
+	let canvas, chart: Chart, ctx;
 
-	let stepInterval = 5;
-	let smoothing = 230;
+	// A timer to simulate the animation
+	let timeout: number; // setInterval() returns an ID which is a number
+
+	let stepInterval: number = 5;
+	let smoothing: number = 230;
 
 	// UMAP params
-	let neighbors = 10;
-	let minDist = 0.3;
-	let epochs = 500;
-	let transform;
+	let neighbors: number = 10;
+	let minDist: number = 0.3;
+	let epochs: number = 500;
+	let transform: Vectors;
 
 	// UMAP Data
-	let epoch = 0;
-	let numEpochs = 0;
-	let originalData = [];
-	let umap;
+	let epoch: number = 0;
+	let numEpochs: number = 0;
+	let originalData: Array<Array<number>> = [];
+	let umap: UMAP;
 
 	const newData = () => {
 		epoch = 0;
 		clearTimeout(timeout);
 		originalData = new Array(150).fill(new Array(3).fill(0));
-		originalData = originalData.map((x) => x.map((y) => Math.random()));
+		originalData = originalData.map((x) => x.map(() => Math.random()));
 		umap = new UMAP({
 			nComponents: 2,
 			nEpochs: epochs,
@@ -148,9 +151,6 @@
 		});
 		updateChart();
 	});
-	const updateSmoothing = () => {
-		chart.options.animation.duration = smoothing;
-	};
 </script>
 
 <div class="container">
@@ -175,14 +175,6 @@
 				step="1"
 				chFunc={doStep}
 			/>
-			<Slider
-				bind:value={smoothing}
-				title="Smoothing"
-				min={3}
-				max={2000}
-				step={1}
-				chFunc={updateSmoothing}
-			/>
 		</div>
 		<div class="btns">
 			<Button on:click={doStep} label="Go" />
@@ -199,7 +191,7 @@
 	</div>
 </div>
 
-<style lang="scss">
+<style lang="postcss">
 	.container {
 		display: flex;
 		flex-direction: column;

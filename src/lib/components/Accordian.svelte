@@ -1,10 +1,10 @@
-<script>
+<script lang="ts">
 	import { slide } from 'svelte/transition';
-	export let id = '';
-	export let caption = '';
-	export let expanded = false;
+	export let id: string = '';
+	export let caption: string = '';
+	export let expanded: boolean = false;
 
-	function clickHandler(e) {
+	function clickHandler() {
 		expanded = !expanded;
 	}
 </script>
@@ -28,7 +28,7 @@
 	{/if}
 </div>
 
-<style lang="scss">
+<style lang="postcss">
 	.container {
 		display: flex;
 		flex-direction: column;
@@ -36,7 +36,7 @@
 	}
 
 	#top-bar {
-		font-family: $font;
+		font-family: var(--font);
 		display: flex;
 		font-size: 15px;
 		min-height: 40px;

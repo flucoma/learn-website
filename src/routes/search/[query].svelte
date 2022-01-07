@@ -1,8 +1,8 @@
 <script context="module">
-	export async function load({ page }) {
+	export async function load({ params }) {
 		return {
 			props: {
-				query: page.params.query
+				query: params.query
 			}
 		};
 	}
@@ -11,13 +11,11 @@
 <script>
 	export let query;
 
-	console.log(query);
-	import { structure, tags } from '$lib/app';
-	console.log($tags['machine listening']);
+	import { tags } from '$lib/app';
 </script>
 
 <div class="related">
-	{#each $tags.db[query] as related}
+	{#each $tags[query] as related}
 		<a href={related}>{related}</a>
 	{/each}
 </div>

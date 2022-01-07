@@ -1,9 +1,10 @@
 <script>
-	import { structure } from '$lib/app.js';
+	import { info } from '$lib/app.js';
 	import stringSimilarity from 'string-similarity';
 
 	let searchTerm = '';
-	const routes = $structure.routes.reference;
+	let isFocused = false;
+	const routes = $info.reference;
 	export let result;
 
 	function constructDistances() {
@@ -30,16 +31,26 @@
 	class="search"
 	type="text"
 	bind:value={searchTerm}
-	placeholder="Search for something here"
+	placeholder={isFocused ? 'Type your search query...' : 'Search...'}
 	on:input={doSearch}
+	on:focus={() => (isFocused = true)}
+	on:blur={() => (isFocused = false)}
 />
 
-<style lang="scss">
+<style lang="postcss">
 	.search {
 		width: 100%;
 		height: 2em;
 		margin-bottom: 0.5em;
-		font-family: $font;
-		font-size: 2em;
+		font-family: var(--font);
+		font-size: 1.5rem;
+		border-radius: 5px;
+		border: 2px;
+		border-color: solid var(--dark-blue);
+	}
+
+	.search,
+	.search:focus {
+		border: solid var(--dark-blue);
 	}
 </style>

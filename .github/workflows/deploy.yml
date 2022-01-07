@@ -22,6 +22,8 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
+        with:
+          fetch-depth: '0'
 
       - name: Setup SSH
         uses: shimataro/ssh-key-action@v2
@@ -33,11 +35,6 @@ jobs:
         run: |
           mkdir -p ~/.ssh
           ssh-keyscan -H ${{ secrets.DO_IP }} >> ~/.ssh/known_hosts
-
-      - name: Setup Python
-        run: |
-          pip3 install -r requirements.txt
-          python3 scripts/extract_structure.py
 
       - name: Install pnpm
         run: npm i -g pnpm

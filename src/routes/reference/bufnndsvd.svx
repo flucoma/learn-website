@@ -5,4 +5,5 @@ tags:
     - decomposition
     - machine learning
     - nmf
+flair: reference
 ---
