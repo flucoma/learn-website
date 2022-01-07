@@ -132,8 +132,7 @@ The step-by-step workflow is as follows:
 </TabPanel>
 
 <TabPanel> <!-- Pure Data -->
-<!-- <a href='/examples/batch/batch-decomposition.pd' download>Download Patch</a> -->
-<p>Pure Data Vanilla is currently quite bare in terms of being able to iterate over folders of audio files. However, 0.52 should add the `files` object. So, when 0.52 is stable a patch for this will be released.</p>
+<a href='/examples/batch/batch-decomposition.pd' download>Download Patch</a>
 </TabPanel> 
 
 <TabPanel> <!-- SC -->
