@@ -3,29 +3,35 @@
 </script>
 
 <div
-	id="container"
-	class:note={type === 'note'}
-	class:warn={type === 'warn'}
-	class:danger={type === 'danger'}
+class="container"
+class:note={type === 'note'}
+class:warn={type === 'warn'}
+class:danger={type === 'danger'}
 >
-	<slot />
+<slot />
 </div>
 
 <style>
-	#container {
-		padding-left: 7px;
-		gap: 3px;
+	.container {
+		--bg-color: rgb(52, 52, 171, 0.2);
+		--border-color: rgb(52, 52, 171, 1.0);
+		padding: 1em;
+		background-color: var(--bg-color);
+		border: 3px solid var(--bg-color);
 	}
-
+	
 	.note {
-		border-left: 3px solid rgb(52, 52, 171);
+		--bg-color: rgb(52, 52, 171, 0.2);
+		--border-color: rgb(52, 52, 171, 0.5);
 	}
-
+	
 	.warn {
-		border-left: 3px solid #ffcc00;
+		--bg-color: rgb(255, 204, 0, 0.2);
+		--border-color: rgb(255, 204, 0, 0.5);
 	}
-
+	
 	.danger {
-		border-left: 3px solid #cc3300;
+		--bg-color: rgb(204, 51, 0, 0.2);
+		--border-color: rgb(204, 51, 0, 0.5);
 	}
 </style>
