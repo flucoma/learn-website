@@ -94,11 +94,11 @@ So how do we approach batch processing with the FluCoMa objects? No doubt, there
     <Tab>SuperCollider</Tab>
 </TabList>
 <TabPanel> <!-- Max -->
-<a href='/examples/batch/batch-slicing.maxpat' download>Download Patch</a>
+<a href='/examples/batch/batch-slicing.maxpat' download>Download Max Patch</a>
 </TabPanel>
 
 <TabPanel> <!-- Pure Data -->
-<a href='/examples/batch/batch-slicing.pd' download>Download Patch</a>
+<a href='/examples/batch/batch-slicing.pd' download>Download PureData Patch</a>
 </TabPanel> 
 
 <TabPanel> <!-- SC -->
@@ -128,11 +128,11 @@ The step-by-step workflow is as follows:
     <Tab>Command Line</Tab>
 </TabList>
 <TabPanel> <!-- Max -->
-<a href='/examples/batch/batch-decomposition.maxpat' download>Download Patch</a>
+<a href='/examples/batch/batch-decomposition.maxpat' download>Download Max Patch</a>
 </TabPanel>
 
 <TabPanel> <!-- Pure Data -->
-<a href='/examples/batch/batch-decomposition.pd' download>Download Patch</a>
+<a href='/examples/batch/batch-decomposition.pd' download>Download PureData Patch</a>
 </TabPanel> 
 
 <TabPanel> <!-- SC -->
@@ -181,22 +181,22 @@ The step-by-step workflow is as follows:
 </TabList>
 <TabPanel> <!-- Max -->
 <div class='links'>
-    <a href='/examples/batch/batch-slicing-threads.maxpat' download>Download Asynchronous Segment Analysis Patch</a>
-    <a href='/examples/batch/batch-decomposition-threads.maxpat' download>Download Asynchronous Decomposition Patch</a>
+    <a href='/examples/batch/batch-slicing-threads.maxpat' download>Download Non-blocking Segment Analysis Max Patch</a>
+    <a href='/examples/batch/batch-decomposition-threads.maxpat' download>Download Non-blocking Decomposition Max Patch</a>
 </div>
 </TabPanel>
 
 <TabPanel> <!-- Pure Data -->
 <div class='links'>
-    <a href='/examples/batch/batch-slicing-threads.pd' download>Download Asynchronous Segment Analysis Patch </a>
-    <a href='/examples/batch/batch-decomposition-threads.pd' download>Download Asynchronous Decomposition Patch</a>
+    <a href='/examples/batch/batch-slicing-threads.pd' download>Download Non-blocking Segment Analysis PureData Patch </a>
+    <a href='/examples/batch/batch-decomposition-threads.pd' download>Download Non-blocking Decomposition PureData Patch</a>
 </div>
 </TabPanel> 
 
 <TabPanel> <!-- SC -->
 <div class='links'>
-    <a href='/examples/batch/batch-slicing-threads.scd' download>Download Asynchronous Segment Analysis Script</a>
-    <a href='/examples/batch/batch-decomposition-threads.scd' download>Download Asynchronous Decomposition Script</a>
+    <a href='/examples/batch/batch-slicing-threads.scd' download>Download Non-blocking Segment Analysis Script</a>
+    <a href='/examples/batch/batch-decomposition-threads.scd' download>Download Non-blocking Decomposition Script</a>
 </div>
 </TabPanel>
 </Tabs>
