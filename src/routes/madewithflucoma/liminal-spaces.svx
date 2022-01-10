@@ -42,7 +42,7 @@ People, technology, musicking. The usual entanglement, where moments are shared 
 url={'xdygL-zm3j8?t=1030'}
 />
 
-"*Insert description*"
+"*Alice Eldridge and Chris Kiefer brought their Feedback Cello setup to Dialogues festival. This shared instrument has been augmented with some of the FluCoMa tools: the sounds of the cello are controlling a neural network, which is controlling parameters in the modular setup, which is modulating the sound of the cello. This feedback loop allows for a sublime, delicate performance and serves as a fascinating example of this unique type of instrument.*"
 
 ## Sam Pluta & Peter Evans - Neural Duo
 
@@ -54,7 +54,7 @@ url={'xdygL-zm3j8?t=1907'}
 url={'xdygL-zm3j8?t=4013'}
 />
 
-"*Insert description*"
+"*Long time collaborators Sam Pluta and Peter Evans deliver two exciting, energetic performances in Neural Duos I and II. Deftly overcoming the pre-recorded video format, this took nothing away from their performances which are striking in their complexity and richness. There is an intricate dialogue between the two musicians to be followed, a dialogue that is spoken with impressive virtuosity on two very different instruments.*"
 
 ## Alex Harker - Drift Shadow (performed by Niamh Dell)
 
@@ -62,7 +62,7 @@ url={'xdygL-zm3j8?t=4013'}
 url={'xdygL-zm3j8?t=2711'}
 />
 
-"*Insert description*"
+"*Niamh Dell gives a beautiful performance of this stunning piece for oboe and live electronics by Alex Harker. Through the long, sustained gestures, we fall into a meditative state and allow ourselves to become enthralled in the delicate and inextricable relationship that begins to form between the instrument we have before us and the sounds within which we are engulfed. In this piece, we find ourselves delving into the inner essence of the oboe which is decomposed and reconfigured with the upmost subtilty.*"
 
 ## Hans Tutschku - Sparks (performed by Mark Knoop)
 
@@ -70,7 +70,7 @@ url={'xdygL-zm3j8?t=2711'}
 url={'xdygL-zm3j8?t=4545'}
 />
 
-"*Insert description*"
+"*Mark Knoop gives a captivating performance of this piece for piano and live electronics by Hans Tutschku. From beginning to end, the composer’s mastery of this format is very clear – the piece flows effortlessly between different sonic fabrics, from dense percussive explosions to richly harmonic suspensions. There is a perfect balance between the piano and the electronics. The processes that are explored give us the impression of leaving the performance with a greater understanding of this complex acoustic instrument.*"
 
 ## Richard Devine - Constructors
 
@@ -78,5 +78,5 @@ url={'xdygL-zm3j8?t=4545'}
 url={'xdygL-zm3j8?t=5541'}
 />
 
-"*Insert description*"
+"*Richard Devine draws us immediately in to this enchanting performance. The dense sonic textures are particularly evocative. The performer expertly entwines a complex, expansive modular setup with an array of bizarre, fascinating percussive instruments and pre-recorded material. We are met with an exceptionally gestural vocabulary – the whole system seemingly able to suspend itself in enticing tension before falling into intricate motifs of impacts and resonance.*"
 
