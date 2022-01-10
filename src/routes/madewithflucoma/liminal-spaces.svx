@@ -1,0 +1,82 @@
+---
+title: Liminal Spaces (Dialogues Festival 2021)
+blurb: |
+    An overview of the second FluCoMa gig that happened on 9th July 2021 at Dialogues Festival.
+tags: 
+    - concert
+    - dialogues festival
+    - alice eldridge
+    - chris kiefer
+    - sam pluta
+    - peter evans
+    - alex harker
+    - niamh dell
+    - hans tutschku
+    - mark knoop
+    - richard devine
+flair: event
+crumb: Liminal Spaces
+---
+
+<script>
+    import YouTube from '$lib/components/YouTube.svelte';
+</script>
+
+## Summary
+
+The second FluCoMa gig *Liminal Spaces* took place on 9th July 2021 at [Dialogues Festival](https://digital.eca.ed.ac.uk/dialogues/), at the [Edinburgh College of Art](https://www.eca.ed.ac.uk/), Edinburgh. 
+Of course, due to the pandemic this gig was somewhat different to the first FluCoMa concert. With restrictions in place, a small number of people were allowed in the space, however the whole concert was also live-streamed. Travel restrictions also meant that some of the musicians were unable to attend in person, meaning that some of the performances were pre-recorded.
+
+This gig was the premiere for the second cohort of artists that were commissioned to create their pieces using the first and second set of FluCoMa tools: [Alice Eldridge](https://profiles.sussex.ac.uk/p127749-alice-eldridge), [Chris Kiefer](https://profiles.sussex.ac.uk/p208667-chris-kiefer), [Sam Pluta](http://www.sampluta.com/biographyText.html), [Alex Harker](https://www.alexanderjharker.co.uk/), [Hans Tutschku](https://tutschku.com/) and [Richard Devine](https://richarddevine.bandcamp.com/). 
+During the festival, the core team-members also played some music: [Pierre Alexandre Tremblay](https://www.pierrealexandretremblay.com/), [Gerard Roma](https://github.com/g-roma) and [Owen Green](http://owengreen.net/) with his trio [Raw-Green-Rust](https://rawgreenrust.bandcamp.com/releases).
+
+<YouTube 
+url={'xdygL-zm3j8'}
+/>
+
+People, technology, musicking. The usual entanglement, where moments are shared and things happen, like by magic. Musicians, as conjurors, ‘prepare’ their digital and electronic instruments and environments, teaching them to listen, to play, to wander: the unique qualities and characteristics of this occasion are amplified. It may not be clear who controls whom; who listens to whom; or even who learns from whom. All we can do is try and be prepared for it…
+
+## Alice Eldridge & Chris Kiefer - Feedback Cello
+
+<YouTube 
+url={'xdygL-zm3j8?t=1030'}
+/>
+
+"*Insert description*"
+
+## Sam Pluta & Peter Evans - Neural Duo
+
+<YouTube 
+url={'xdygL-zm3j8?t=1907'}
+/>
+
+<YouTube 
+url={'xdygL-zm3j8?t=4013'}
+/>
+
+"*Insert description*"
+
+## Alex Harker - Drift Shadow (performed by Niamh Dell)
+
+<YouTube 
+url={'xdygL-zm3j8?t=2711'}
+/>
+
+"*Insert description*"
+
+## Hans Tutschku - Sparks (performed by Mark Knoop)
+
+<YouTube 
+url={'xdygL-zm3j8?t=4545'}
+/>
+
+"*Insert description*"
+
+## Richard Devine - Constructors
+
+<YouTube 
+url={'xdygL-zm3j8?t=5541'}
+/>
+
+"*Insert description*"
+
