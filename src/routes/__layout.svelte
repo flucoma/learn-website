@@ -6,6 +6,12 @@
 	import TOC from '$lib/components/TOC.svelte';
 </script>
 
+<svelte:head>
+	<title>
+		Learn FluCoMa
+	</title>
+</svelte:head>
+
 <div class="container">
 	<Header />
 	<Crumbs />
