@@ -19,6 +19,7 @@
 <style lang="postcss">
 	.container {
 		position: fixed;
+		z-index: 1;
 	}
 
 	.toc {

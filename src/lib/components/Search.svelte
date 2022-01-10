@@ -36,14 +36,17 @@
 <svelte:window on:keydown={keyDown} />
 
 <div class="search">
-	<input
-		class="query"
-		{placeholder}
-		bind:value={query}
-		bind:this={searchBar}
-		on:focus={focusSearch}
-		on:blur={blurSearch}
-	/>
+	<form role="search">
+		<label class="visually-hidden" for="search-term">Search The Learn Platform</label>
+		<input
+			class="query"
+			{placeholder}
+			bind:value={query}
+			bind:this={searchBar}
+			on:focus={focusSearch}
+			on:blur={blurSearch}
+		/>
+	</form>
 
 	{#if results.length >= 1 && focused}
 		<div class="results">
@@ -74,6 +77,7 @@
 	.search {
 		width: var(--w);
 		position: relative;
+		z-index: 2;	
 	}
 
 	.query {
