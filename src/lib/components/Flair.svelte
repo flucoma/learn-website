@@ -8,6 +8,7 @@
 	class:reference={flair === 'reference'}
 	class:podcast={flair === 'podcast'}
 	class:event={flair === 'event'}
+	class:tutorial={flair === 'tutorial'}
 >
 	{flair}
 </div>
@@ -35,5 +36,9 @@
 
 	.podcast {
 		background-color: palevioletred;
+	}
+
+	.tutorial {
+		background-color: rgba(102, 103, 171, 255);
 	}
 </style>
