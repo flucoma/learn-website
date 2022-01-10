@@ -20,6 +20,7 @@
 	.container {
 		position: fixed;
 		z-index: 1;
+		max-width: 23ch;
 	}
 
 	.toc {
