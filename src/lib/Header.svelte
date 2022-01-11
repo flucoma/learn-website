@@ -79,6 +79,7 @@
 	}
 
 	.nav-link {
+		font-family: var(--font);
 		margin-top: auto;
 		margin-bottom: auto;
 		text-align: center;
