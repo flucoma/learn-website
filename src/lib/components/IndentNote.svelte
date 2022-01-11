@@ -15,10 +15,16 @@ class:danger={type === 'danger'}
 	.container {
 		--bg-color: rgb(52, 52, 171, 0.2);
 		--border-color: rgb(52, 52, 171, 1.0);
+		margin-top: 1em;
 		padding: 1em;
 		background-color: var(--bg-color);
 		border: 3px solid var(--border-color);
 		color: rgb(65, 65, 65);
+	}
+
+	/* Removes margins from p inserted into this component's slot */
+	:global(p) {
+		margin: 0;
 	}
 	
 	.note {
