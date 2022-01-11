@@ -29,7 +29,7 @@ Let's consider a similar workflow in Max and PureData (we'll come to SuperCollid
 
 ## Batch Processing Code Examples
 
-This section will demonstrate with code examples a number of ways in which batch processing can be implemented in Max, SuperCollider and PureData with the FluCoMa toolkit and show how our interfaces can interlock with the existing ones in your environment of choice. The explanation of particular objects and processes will be _in_ the patches and scripts themselves.
+This section will demonstrate with code examples a number of ways in which batch processing can be implemented in Max, SuperCollider and PureData with the FluCoMa toolkit and show how our interfaces can interlock with the existing ones in your creative coding environment (CCE) of choice. The explanation of particular objects and processes will be _in_ the patches and scripts themselves.
 
 ### Analysis of Segments
 
@@ -55,14 +55,14 @@ There is also [this](https://discourse.flucoma.org/t/supernova-supercollider-una
 </TabPanel> 
 </Tabs>
 
-In this example a single audio file is sliced into a collection of segments. Each segment will be analysed with an audio descriptor and the result for that segment will be stored in a [FluidDataSet](/reference/dataset).The example illustrates how one can iterate through several portions of the source buffer and use the segmentation result to control a process that only analyses specific portions of time in the source file.
+In this example a single audio file is sliced into a collection of segments. Each segment will be analysed with an audio descriptor and the result for that segment will be stored in a [DataSet](/reference/dataset).The example illustrates how one can iterate through several portions of the source buffer and use the segmentation result to control a process that only analyses specific portions of time in the source file.
 
 The step-by-step workflow is as follows:
 
 1. Segment a sound into small chunks.
 2. Analyse each chunk using an audio descriptor.
 3. Calculate the average of that audio descriptor for each chunk.
-4. Store the average for each chunk in a [FluidDataSet](/reference/dataset).
+4. Store the average for each chunk in a [DataSet](/reference/dataset).
 
 ### Decomposing Multiple Files
 
@@ -109,12 +109,12 @@ mkdir -p output && fd -e wav -d 1 -x fluid-hpss -source {} -harmonic output/{/.}
 </TabPanel>
 </Tabs>
 
-In this example a collection of audio files are processed as a batch using the [FluidHPSS](/reference/hpss) algorithm. Each decomposition is output so that the results can be accessed later for audition or storage on disk. The example illustrates how a corpus might be processed as a whole in an automated way.
+In this example a collection of audio files are processed as a batch using the [HPSS](/reference/hpss) algorithm. Each decomposition is output so that the results can be accessed later for audition or storage on disk. The example illustrates how a corpus might be processed as a whole in an automated way.
 
 The step-by-step workflow is as follows:
 
 1. Create a corpus of multiple audio files
-2. Decompose each audio file into harmonic and percussive complnents using [FluidHPSS](/reference/hpss).
+2. Decompose each audio file into harmonic and percussive complnents using [HPSS](/reference/hpss).
 3. Store the results in some sort of _container_. This will depend on the CCE.
 
 ### Non-Blocking Processing
@@ -149,17 +149,13 @@ The step-by-step workflow is as follows:
 
 In the two examples above you may have noticed that whenever these intensive batch processes are started it has the potential to _freeze_ or _hang_ Max and PureData. SuperCollider doesn't suffer the exact same issue because the language will continue to function even while the server is processing. However, it is easier to get into trouble in SuperCollider by launching lots of threads and potentially jamming up the server. To work around these limitations, FluCoMa objects can operate in their own threads that can run in parallel to other processes. This is sometimes referred to as _asynchronous_ or _non-blocking_ programming.
 
-The benefit of making one's code asynchronous is that processes can be triggered and won't block or be blocked by something else. This is a massive boon in a number of scenarios, albeit at the introduction of complexity in how we might expect processes to start, finish and interact with each other. In any environment, adding threads isn't a simple gateway to faster batch processing: once you add too many, then the scheduling overhead starts to kill performance. This is particularly prevalent when the situation is characterised by many small jobs. In situations like these it can be more expensive to spawn a new thread to do the processing, rather than just getting on with the processing synchronously.
+The benefit of making one's code asynchronous is that processes can be triggered and won't block or be blocked by something else. This is a massive boon in a number of scenarios, albeit at the introduction of complexity in how we might expect processes to start, finish and interact with each other. In any CCE, creating threads isn't a simple gateway to faster batch processing: once you add too many, then the scheduling overhead starts to kill performance. This is particularly prevalent when the situation is characterised by many small jobs. In situations like these it can be more expensive to spawn a new thread to do the processing, rather than just getting on with the processing synchronously.
 
 The examples above illustrate how using `process()` and `wait` in SuperCollider and `@blocking 0` and `-blocking 0` in PureData can allow us to trigger processes and _await_ the results of those processes.
 
-
-
 ## Discussion
 
-Without even addressing FluCoMa objects directly, it is relevant to remind ourselves of what forms batch processing already exists in Max, PureData and SuperCollider.
-
-Let's first take a look at the humble Max list and how it is useful. We'll start by making a small patch that adds two numbers together. 
+Without even addressing FluCoMa objects directly, it is relevant to remind ourselves of what forms batch processing already exists in Max, PureData and SuperCollider. Let's first take a look at the humble Max list and how it is useful. We'll start by making a small patch that adds two numbers together. 
 
 <Image 
 src='/examples/batch/add.png'
@@ -201,6 +197,8 @@ x = [10, 20, 30, 40];
 ```
 
 </CodeBlock>
+
+In other words, each CCE has a set of idioms and _paths of least resistance_ that may or may not lend themselves to batch processing. We hope this article helps you to overcome these when using the FluCoMa toolkit, as well as open up your wider knowledge in your CCE of choice.
 
 <style>
     .links {
