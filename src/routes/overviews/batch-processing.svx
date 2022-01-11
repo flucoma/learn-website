@@ -23,9 +23,7 @@ If you want to go straight to the code examples, they can be found under [Batch 
 </IndentNote>
 
 ## Introduction
-One of the major pain points working with machine learning and machine listening is that we often need to process and work on collections of sounds, slices or analyses. The notion of batch processing is actually quite familiar to musicians although it is often not referred to by the same name. A common example can be seen when normalising a bundle of audio files, or when rendering a multi-track session in the DAW. In any of these cases, the computer has to work through a collection of things together. Ultimately, this is the concept of processing things in _batches_.
-
-Let's consider a similar workflow in Max and PureData (we'll come to SuperCollider a bit later) , both visual programming languages that inherently struggle with iteration and loops. How does one iterate? How does one instruct the program where to start and stop? The rest of this overview will dig into these issues and suggest some ways in which our programming workflows can accomodate the notion of processing multiple items.
+When working with machine learning and machine listening, we often need to process and work on collections of sounds, slices or analyses together or as _batches_. "Batch processing" is actually quite familiar to musicians although it is often not referred to by the same name. An example would be if you have ever normalised a bundle of audio files, or if you have ever rendered a multi-track session in the DAW. In any of these cases, the computer works on a collection of things together. When we learn how to manage and program batch processes, it can be a powerful tool for manipulating large corpora and for working with collections of musical resources.
 
 ## Batch Processing Code Examples
 
@@ -154,7 +152,6 @@ The benefit of making one's code asynchronous is that processes can be triggered
 The examples above illustrate how using `process()` and `wait` in SuperCollider and `@blocking 0` and `-blocking 0` in PureData can allow us to trigger processes and _await_ the results of those processes.
 
 ## Discussion
-
 Without even addressing FluCoMa objects directly, it is relevant to remind ourselves of what forms batch processing already exists in Max, PureData and SuperCollider. Let's first take a look at the humble Max list and how it is useful. We'll start by making a small patch that adds two numbers together. 
 
 <Image 
