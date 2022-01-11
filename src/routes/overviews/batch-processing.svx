@@ -1,11 +1,11 @@
 ---
 title: Batch Processing
 blurb: |
-    Executing workflows across collections of sounds and analyses.
+    Batch processing corpora with the Fluid Corpus Manipulation toolkit. 
 tags: 
     - workflow
-    - beginner
-    - intermediate
+    - batch processing
+    - corpus
 flair: article
 ---
 
