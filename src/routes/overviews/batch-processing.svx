@@ -23,13 +23,13 @@ If you want to go straight to the code examples, they can be found under [Batch 
 </IndentNote>
 
 ## Introduction
-One of the major pain points working with machine learning and machine listening is that we often need to process and work on collections of sounds, slices or analyses. The notion of batch processing is actually quite familiar to musicians although it often is referred to by the same name. A common example can be seen when normalising a bundle of audio files, or when rendering a multi-track session in the DAW. In any of these cases, the computer has to work through a collection of things together. Ultimately, this is the concept of processing things in _batches_.
+One of the major pain points working with machine learning and machine listening is that we often need to process and work on collections of sounds, slices or analyses. The notion of batch processing is actually quite familiar to musicians although it is often not referred to by the same name. A common example can be seen when normalising a bundle of audio files, or when rendering a multi-track session in the DAW. In any of these cases, the computer has to work through a collection of things together. Ultimately, this is the concept of processing things in _batches_.
 
-Let's think about the same workflow in Max and PureData (we'll come to SuperCollider a bit later) which are both visual programming languages that inherently struggle with the idea of iteration and batch processing. How does one iterate? How does one instruct the program where to start and where to stop? The rest of this overview will dig into this and suggest some ways in which our programming workflows can accomodate the notion of processing multiple items.
+Let's consider a similar workflow in Max and PureData (we'll come to SuperCollider a bit later) , both visual programming languages that inherently struggle with iteration and loops. How does one iterate? How does one instruct the program where to start and stop? The rest of this overview will dig into these issues and suggest some ways in which our programming workflows can accomodate the notion of processing multiple items.
 
 ## Batch Processing Code Examples
 
-This section will demonstrate with code examples a number of ways in which batch processing can be implemented in Max, SuperCollider and PureData and attempt to show how our interfaces can interlock with the existing ones in your environment of choice. The explanation of particular objects and processes will be _in_ the patches and scripts themselves.
+This section will demonstrate with code examples a number of ways in which batch processing can be implemented in Max, SuperCollider and PureData with the FluCoMa toolkit and show how our interfaces can interlock with the existing ones in your environment of choice. The explanation of particular objects and processes will be _in_ the patches and scripts themselves.
 
 ### Analysis of Segments
 
