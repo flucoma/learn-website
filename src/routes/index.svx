@@ -18,7 +18,7 @@ A lot of music making with computers involves working with collections of audio,
     </p>
 </LandingCard>
 
-<LandingCard link='/references'>
+<LandingCard link='/reference'>
     <h2 slot="title">
     References
     </h2>
