@@ -12,6 +12,7 @@ flair: tutorial
 
 <script>
     import YouTube from '$lib/components/YouTube.svelte';
+    import { Tabs, TabList, TabPanel, Tab } from '$lib/components/tabs/tabs';
 </script>
 
 This tutorial guides you through building a sound classifier. It leverages a type of Neural Network in the Fluid Corpus Manipulation toolkit, the [MLPClassifier](/reference/mlpclassifier) to perform the classification process. This workflow is particularly flexible as you can _train_ the [MLPClassifier](/reference/mlpclassifier) to associate any kind of data to a given label. In the context of this tutorial, we associate audio-descriptors to instrumental labels, so that an input sound can be classified according to a set of instrumental archetypes. There are lots of ways in which this workflow can be applied musically. For example you could:
@@ -22,7 +23,26 @@ This tutorial guides you through building a sound classifier. It leverages a typ
 
 <!-- Hunter + Ted's examples -->
 
-<YouTube 
-url='Y1cHmtbQPSk'
-/>
+<Tabs>
+    <TabList>
+        <Tab>Max</Tab>
+        <Tab>SuperCollider</Tab>
+    </TabList>
+    <TabPanel>
+    <YouTube 
+    url='_QGQE-1RX-o'
+    />
+    </TabPanel>
+    <TabPanel>
+    <YouTube 
+    url='Y1cHmtbQPSk'
+    />
+    </TabPanel>
+</Tabs>
+
+
+
+
+
+
 
