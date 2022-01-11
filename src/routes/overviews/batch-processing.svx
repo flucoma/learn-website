@@ -46,7 +46,7 @@ src='/examples/batch/add.png'
 alt='A small patch to add two numbers together'
 />
 
-This is fine. However, it is limited to adding two singular values together. If we want to use it to add two collections of numbers together, we would have to stream the values of two lists into the inlets, get the result and construct it back into a list. Another approach would be to copy this bit of patch multiple times and serve each copy with two single values.
+This is fine. However, it is limited to adding two singular values together. If we want to use it to add two collections of numbers together, we would have to stream the values of two lists into the inlets, get the result and construct it back into a list. Another approach would be to copy this bit of patch multiple times and serve each copy with two single values (scalars).
 
 <Image
 src='/examples/batch/add-streams.png'
