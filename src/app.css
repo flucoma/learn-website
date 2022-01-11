@@ -16,11 +16,15 @@
 }
 
 html {
-	font-family: var(--font);
+	font-family: -apple-system, BlinkMacSystemFont, sans-serif, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue';
 }
 
 body {
 	margin: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: var(--font);
 }
 
 p,
