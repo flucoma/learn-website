@@ -1,5 +1,5 @@
 ---
-title: Batch Processing
+title: Batch Processing with FluCoMa
 blurb: |
     Batch processing corpora with the Fluid Corpus Manipulation toolkit. 
 tags: 
@@ -18,81 +18,18 @@ flair: article
 
 <IndentNote type='warn'>
 
-If you want to go straight to the code examples, they can be found toward the end of this article under [Batch Processing Code Examples](#batch-processing-code-examples).
+If you want to go straight to the code examples, they can be found under [Batch Processing Code Examples](#batch-processing-code-examples).
 
 </IndentNote>
 
-
 ## Introduction
-One of the major pain points working with machine learning and machine listening is that we often need to process and work on collections of sounds, slices or analyses. The notion of batch processing is one that is not unfamiliar to musicians although it often is not called this. A widely found example can be seen when you normalise a bundle of audio files, or when you render a multi-track session in the DAW. In any of these cases, the computer has to work through a collection of things together. If you're familiar with a text-based programming language you'll be acquainted with the `for` or `while` loop that can _iterate_ over a sequence or group of items.
+One of the major pain points working with machine learning and machine listening is that we often need to process and work on collections of sounds, slices or analyses. The notion of batch processing is actually quite familiar to musicians although it often is referred to by the same name. A common example can be seen when normalising a bundle of audio files, or when rendering a multi-track session in the DAW. In any of these cases, the computer has to work through a collection of things together. Ultimately, this is the concept of processing things in _batches_.
 
-For example, in Python we might do something like this:
-
-<CodeBlock>
-
-```py
-instruments = ['drums', 'synth', 'guitar', 'saxophone']
-
-for instrument in instruments:
-    decompose(instrument)
-```
-
-</CodeBlock>
-
-This would run the `decompose()` function on each `instrument` stored in the list called `instruments`. This type of programmatic control flow can be observed widely in text-based languages. Ultimately, this is the concept of processing things in _batches_.
-
-Let's think about the same workflow in Max and PureData (we'll come to SuperCollider a bit later) which are both visual programming languages that inherently struggle with the idea of iteration and batch processing. How does one iterate? How does one instruct the program where to start and where to stop? What is the equivalent of the `instruments` list that holds multiple items that will be processed? The rest of this overview will dig into this and suggest some ways in which our programming workflows can accomodate the notion of processing multiple items.
-
-## A Foundation
-
-Without even addressing FluCoMa objects directly, it is relevant to remind ourselves of what forms batch processing already exists in Max, PureData and SuperCollider.
-
-Let's first take a look at the humble Max list and how it is useful. We'll start by making a small patch that adds two numbers together. 
-
-<Image 
-src='/examples/batch/add.png'
-alt='A small patch to add two numbers together'
-/>
-
-This is fine. However, it is limited to adding two singular values together. If we want to use it to add two collections of numbers together, we would have to stream the values of two lists into the inlets, get the result and construct it back into a list. Another approach would be to copy this bit of patch multiple times and serve each copy with two single values (scalars).
-
-<Image
-src='/examples/batch/add-streams.png'
-alt='Adding two lists together in Max using streams'
-/>
-
-We can avoid these kinds of workflows by instead using objects that deal with collections of items in a list natively.
-
-<Image
-src='/examples/batch/add-list.png'
-alt='Using vexpr to add two lists together'
-/>
-
-The complexity of the patching hasn't increased greatly, and by replacing `+` with `vexpr` (vector expression), we can process entire lists of values. The patch will also still work with single value inputs (scalars) making it much more flexible than what we had originally. While the patching itself is not too complicated, knowing about the existence of these objects and how they work is not greatly emphasised in the way visual programming is taught wich is often concerned entirely with _streams_ of scalar values. Furthermore, while this is just a toy example, it demonstrates that the notion of processing groups of things together is not the **first** and **most obvious** way to patch. Conversely, SuperCollider has the language (sclang) which offers built-in methods for dealing with arrays of data. Most operators are also _overloaded_, meaning the interface for adding two integers is roughly the same as adding two arrays of integers. For example:
-
-<CodeBlock>
-
-```js
-(
-// Add together two integers
-z = 1;
-x = 10;
-(z + x).postln;
-)
-
-(
-// Add together two lists
-z = [1, 2, 3, 4];
-x = [10, 20, 30, 40];
-(z + x).postln;
-)
-```
-
-</CodeBlock>
+Let's think about the same workflow in Max and PureData (we'll come to SuperCollider a bit later) which are both visual programming languages that inherently struggle with the idea of iteration and batch processing. How does one iterate? How does one instruct the program where to start and where to stop? The rest of this overview will dig into this and suggest some ways in which our programming workflows can accomodate the notion of processing multiple items.
 
 ## Batch Processing Code Examples
 
-So how do we approach batch processing with the FluCoMa objects? No doubt, there will be scenarios where working with bundles of data, numerous slices or several audio files can be frustrating and hard to structure in the code. This section will demonstrate with code examples a number of ways in which batch processing can be implemented in Max, SuperCollider and PureData and attempt to show how our interfaces can interlock with the existing ones in your environment of choice. The explanation of particular objects and processes will be _in_ the patches and scripts themselves.
+This section will demonstrate with code examples a number of ways in which batch processing can be implemented in Max, SuperCollider and PureData and attempt to show how our interfaces can interlock with the existing ones in your environment of choice. The explanation of particular objects and processes will be _in_ the patches and scripts themselves.
 
 ### Analysis of Segments
 
@@ -215,6 +152,55 @@ In the two examples above you may have noticed that whenever these intensive bat
 The benefit of making one's code asynchronous is that processes can be triggered and won't block or be blocked by something else. This is a massive boon in a number of scenarios, albeit at the introduction of complexity in how we might expect processes to start, finish and interact with each other. In any environment, adding threads isn't a simple gateway to faster batch processing: once you add too many, then the scheduling overhead starts to kill performance. This is particularly prevalent when the situation is characterised by many small jobs. In situations like these it can be more expensive to spawn a new thread to do the processing, rather than just getting on with the processing synchronously.
 
 The examples above illustrate how using `process()` and `wait` in SuperCollider and `@blocking 0` and `-blocking 0` in PureData can allow us to trigger processes and _await_ the results of those processes.
+
+
+
+## Discussion
+
+Without even addressing FluCoMa objects directly, it is relevant to remind ourselves of what forms batch processing already exists in Max, PureData and SuperCollider.
+
+Let's first take a look at the humble Max list and how it is useful. We'll start by making a small patch that adds two numbers together. 
+
+<Image 
+src='/examples/batch/add.png'
+alt='A small patch to add two numbers together'
+/>
+
+This is fine. However, it is limited to adding two singular values together. If we want to use it to add two collections of numbers together, we would have to stream the values of two lists into the inlets, get the result and construct it back into a list. Another approach would be to copy this bit of patch multiple times and serve each copy with two single values (scalars).
+
+<Image
+src='/examples/batch/add-streams.png'
+alt='Adding two lists together in Max using streams'
+/>
+
+We can avoid these kinds of workflows by instead using objects that deal with collections of items in a list natively.
+
+<Image
+src='/examples/batch/add-list.png'
+alt='Using vexpr to add two lists together'
+/>
+
+The complexity of the patching hasn't increased greatly, and by replacing `+` with `vexpr` (vector expression), we can process entire lists of values. The patch will also still work with single value inputs (scalars) making it much more flexible than what we had originally. While the patching itself is not too complicated, knowing about the existence of these objects and how they work is not greatly emphasised in the way visual programming is taught wich is often concerned entirely with _streams_ of scalar values. Furthermore, while this is just a toy example, it demonstrates that the notion of processing groups of things together is not the **first** and **most obvious** way to patch. Conversely, SuperCollider has the language (sclang) which offers built-in methods for dealing with arrays of data. Most operators are also _overloaded_, meaning the interface for adding two integers is roughly the same as adding two arrays of integers. For example:
+
+<CodeBlock>
+
+```js
+(
+// Add together two integers
+z = 1;
+x = 10;
+(z + x).postln;
+)
+
+(
+// Add together two lists
+z = [1, 2, 3, 4];
+x = [10, 20, 30, 40];
+(z + x).postln;
+)
+```
+
+</CodeBlock>
 
 <style>
     .links {
