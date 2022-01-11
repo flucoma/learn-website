@@ -14,6 +14,8 @@ There could be many ways of coming up with a measure of novelty. The one that we
 
 
 
+There are example of SSMs in the wild, like [this one](https://colinmorris.github.io/SongSim/#/) which visualises the self-similarity of lyrics in popular music tracks. In effect, it shows how the same words and phrases get repeated at different points in the song structure, perhaps giving us an idea about the musical structure.
+
 
 
 What we're interested in is how much "novelty" appears to be present from one moment to the next. We can find this out from our map by adding together all the differences in a window around a given moment, and making a 'novelty curve'. Then, we can estimate likely places to make slices by looking for peaks in this curve. If we're interested in longer slices, one thing we can do is to make the time window that we sum together larger (this is typically called the kernel size in this type of algorithm). Additionally, we can apply smoothing to the novelty curve to suppresses smaller / shorter peaks and focus instead on larger / longer ones.
