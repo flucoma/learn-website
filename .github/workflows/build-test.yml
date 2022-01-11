@@ -1,9 +1,7 @@
 name: Build
 # Tests if the website will build so we don't merge in bad 
 
-on:
-  pull_request:
-    branches: [ * ]
+on: pull_request
 
 jobs:
   build:
