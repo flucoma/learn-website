@@ -15,7 +15,9 @@ class:danger={type === 'danger'}
 	.container {
 		--bg-color: rgb(52, 52, 171, 0.2);
 		--border-color: rgb(52, 52, 171, 1.0);
-		padding: 1em;
+		margin-top: 1em;
+		padding-left: 0.5em;
+		padding-right: 0.5em;
 		background-color: var(--bg-color);
 		border: 3px solid var(--border-color);
 		color: rgb(65, 65, 65);

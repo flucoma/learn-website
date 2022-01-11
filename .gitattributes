@@ -6,3 +6,4 @@
 *.png binary
 *.npy binary
 *.maxpat binary
+*.pd binary
