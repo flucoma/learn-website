@@ -15,6 +15,8 @@ flair: tutorial
     import { Tabs, TabList, TabPanel, Tab } from '$lib/components/tabs/tabs';
 </script>
 
+## A Brief Synopsis
+
 This tutorial guides you through building a sound classifier. It leverages a type of Neural Network in the Fluid Corpus Manipulation toolkit, the [MLPClassifier](/reference/mlpclassifier) to perform the classification process. This workflow is particularly flexible as you can _train_ the [MLPClassifier](/reference/mlpclassifier) to associate any kind of data to a given label. In the context of this tutorial, we associate audio-descriptors to instrumental labels, so that an input sound can be classified according to a set of instrumental archetypes. There are lots of ways in which this workflow can be applied musically. For example you could:
 
 1. Drive audio-visual reactivity from the classification output
