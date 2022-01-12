@@ -18,6 +18,7 @@ flair: article
     import YouTube from '$lib/components/YouTube.svelte';
     import MFWHeader from '$lib/components/MFWHeader.svelte';
     import BandCamp from '$lib/components/BandCamp.svelte';
+    import IndentNote from '$lib/components/IndentNote.svelte';
 </script>
 
 <MFWHeader
@@ -32,11 +33,13 @@ Her shows are highly physical, making the performance of live electronic music m
 Over the last decade she has developed and honed a deliberately challenging and unpredictable performance system that explores the relationships between bodies, sound, environments, and technology."
 />
 
-## Patches
+## Introduction
+
+<IndentNote type='pointer'>
 
 Download the demonstration patches for this article <a href='/madewithflucoma/hayes/Lauren Sarah Hayes Examples.zip' download='Lauren Sarah Hayes Examples.zip'>here</a>.
 
-## Introduction
+</IndentNote>
 
 Today we’ll be looking at some of the work that Lauren Sarah Hayes did using the FluCoMa tools. 
 We’ll be taking a broad perspective on some of the working principles of the project and examine how some of its suggested workflows are incorporated into Hayes’ already well-developed improvisational practice. 
