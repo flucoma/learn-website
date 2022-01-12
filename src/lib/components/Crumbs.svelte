@@ -41,7 +41,7 @@
 </script>
 
 <!-- Breadcrumbs -->
-<div class="container">
+<nav class="container">
 	<div class="left" />
 	<div class="crumbs">
 		<a href="/">Home</a>
@@ -50,7 +50,7 @@
 		{/each}
 	</div>
 	<div class="right" />
-</div>
+</nav>
 
 <style lang="postcss">
 	.container {

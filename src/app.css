@@ -2,6 +2,7 @@
 
 @import './fonts.css';
 @import './code.css';
+@import './utils.css';
 
 :root {
 	--breakpoint: 1200px;
@@ -15,11 +16,15 @@
 }
 
 html {
-	font-family: var(--font);
+	font-family: -apple-system, BlinkMacSystemFont, sans-serif, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue';
 }
 
 body {
 	margin: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: var(--font);
 }
 
 p,
@@ -59,4 +64,15 @@ code {
 	background-color: #f0f0f0;
 	padding: 0.1em 0.1em;
 	border-radius: 2px;
+}
+
+.autolink {
+	width: 16px;
+	height: 16px;
+	padding-left: 0.3em;
+	padding-right: 0.3em;
+}
+
+h2 > a:hover {
+	background-color: transparent;
 }
