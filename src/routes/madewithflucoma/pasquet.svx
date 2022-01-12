@@ -20,6 +20,7 @@ flair: article
     import Audio from '$lib/components/Audio.svelte';
     import BigQuote from '$lib/components/BigQuote.svelte';
     import MFWHeader from '$lib/components/MFWHeader.svelte';
+    import IndentNote from '$lib/components/IndentNote.svelte';
 </script>
 
 <MFWHeader
@@ -34,11 +35,13 @@ All has consequently a strong relation with architecture, architectural design a
 Beyond a close interest for duality between art and science, he endeavors links throughout scientific and artistic research."
 />
 
-## Patches
+## Introduction
+
+<IndentNote type='pointer'>
 
 Download the demonstration patches for this article <a href='/madewithflucoma/pasquet/Olivier Pasquet Examples.zip' download='Olivier Pasquet Examples.zip'>here</a>.
 
-## Introduction
+</IndentNote>
 
 Today we’ll be looking at some of the work that Olivier Pasquet did using the FluCoMa tools.
 His piece, *Herbig-Haro*, was performed at the [first FluCoMa gig](/madewithflucoma/reactive-flows) at [HCMF](https://hcmf.co.uk/) 2019.
