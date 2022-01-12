@@ -44,4 +44,8 @@
 		color: grey;
 		text-align: justify;
 	}
+
+	.bio > :global(p) {
+		margin-bottom: 0;
+	}
 </style>
