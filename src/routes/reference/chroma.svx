@@ -24,4 +24,3 @@ title='Chroma and Shepherd Tones'
 url='https://www.audiolabs-erlangen.de/resources/MIR/FMP/C1/C1S1_ChromaShepard.html'
 blurb='An article describing the relationship between Shephard tones and Chroma'
 />
-/>
