@@ -1,40 +1,38 @@
 <script>
-    import LandingCard from '$lib/components/LandingCard.svelte';
+    import Landing from '$lib/components/cards/Landing.svelte';
 </script>
-
-
 
 # Welcome
 
 Welcome to the Fluid Corpus Manipulation Learn platform. 
 A lot of music making with computers involves working with collections of audio, and these collections are getting bigger and bigger. At the same time, techniques for analysing sound and manipulating data keep being developed. Our project seeks to enable music making with collections of audio by making some of these techniques available for musical creative coding environments, alongside a set of supporting resources on these pages.
 
-<LandingCard link='/overviews'>
+<Landing link='/overviews'>
     <h2 slot="title">
     Overviews
     </h2>
     <p slot="blurb">
     A variety of articles and guides discussing machine listening and machine learning, sometimes relating to specific FluCoMa technology and sometimes reflecting more broadly.
     </p>
-</LandingCard>
+</Landing>
 
-<LandingCard link='/reference'>
+<Landing link='/reference'>
     <h2 slot="title">
     References
     </h2>
     <p slot="blurb">
     The references outline the underlying algorithms of the FluCoMa toolkit in more detail. We try to steer clear from specific implementation details and instead focus on the concepts behind each algorithm and to help illuminate what goes on under the hood.
     </p>
-</LandingCard>
+</Landing>
 
-<LandingCard link='/madewithflucoma'>
+<Landing link='/madewithflucoma'>
     <h2 slot="title">
     Made with FluCoMa
     </h2>
     <p slot="blurb">
     Made with FluCoMa draws attention to people like you. Makers who use the FluCoMa toolkit or are involved in the wider community. We want to highlight what is out there to try and cultivate opportunities for learning and to situate this technology within a community of techno-fluent musicians.
     </p>
-</LandingCard>
+</Landing>
 
 ## Get Involved
 
