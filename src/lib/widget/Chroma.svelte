@@ -4,7 +4,7 @@
 	import { Chart, registerables } from 'chart.js';
 	import * as Meyda from 'meyda';
 	import Button from '$lib/components/Button.svelte';
-
+	
 	// Audio
 	let player: HTMLAudioElement | null;
 	let waveform: HTMLDivElement | null;
@@ -15,26 +15,26 @@
 	let canvas: HTMLCanvasElement | null;
 	let ctx: RenderingContext;
 	let chart: Chart;
-
+	
 	// CODE CRIME 👮
 	const colours: string[] = [
-		'#8dd3c7',
-		'#ffffb3',
-		'#bebada',
-		'#fb8072',
-		'#80b1d3',
-		'#fdb462',
-		'#b3de69',
-		'#fccde5',
-		'#d9d9d9',
-		'#bc80bd',
-		'#ccebc5',
-		'#ffed6f'
+	'#8dd3c7',
+	'#ffffb3',
+	'#bebada',
+	'#fb8072',
+	'#80b1d3',
+	'#fdb462',
+	'#b3de69',
+	'#fccde5',
+	'#d9d9d9',
+	'#bc80bd',
+	'#ccebc5',
+	'#ffed6f'
 	];
-
+	
 	// Control
 	let smoothing: number = 50;
-
+	
 	onMount(async () => {
 		// Chart
 		Chart.register(...registerables);
@@ -43,12 +43,12 @@
 		const data = {
 			labels: labels,
 			datasets: [
-				{
-					data: features,
-					backgroundColor: colours,
-					borderColor: colours,
-					borderWidth: 1
-				}
+			{
+				data: features,
+				backgroundColor: colours,
+				borderColor: colours,
+				borderWidth: 1
+			}
 			]
 		};
 		chart = new Chart(ctx, {
@@ -68,7 +68,7 @@
 				}
 			}
 		});
-
+		
 		// Waveform
 		const module = await import('peaks.js');
 		const Peaks = module.default;
@@ -81,13 +81,13 @@
 			dataUri: { arraybuffer: '/audio/bass-m.dat' },
 			mediaUrl: '/audio/bass-m.mp3'
 		};
-
+		
 		Peaks.init(options, function (err, peaks) {
 			// Do something when the waveform is displayed and ready
 			peaksInstance = peaks;
 		});
 	});
-
+	
 	const updateWaveform = (audioFile) => {
 		if (!ctxStarted) {
 			const audioContext = new (AudioContext || webkitAudioContext)();
@@ -112,62 +112,63 @@
 			mediaUrl: audioFile + '.mp3',
 			dataUri: { arraybuffer: audioFile + '.dat' }
 		};
-
+		
 		peaksInstance.setSource(options, (err) => {
 			if (err) console.log(err);
 		});
-
+		
 		player.play();
 	};
 </script>
 
 <div class="container">
+	
 	<canvas id="chroma-chart" bind:this={canvas} />
-
+	
 	<div class="controls">
 		<div class="sound-select">
 			<Button
-				label="Bass 🎸"
-				on:click={() => {
-					updateWaveform('/audio/bass-m');
-				}}
+			label="Bass 🎸"
+			on:click={() => {
+				updateWaveform('/audio/bass-m');
+			}}
 			/>
-
+			
 			<Button
-				label="Piano 🎹"
-				on:click={() => {
-					updateWaveform('/audio/piano-m');
-				}}
+			label="Piano 🎹"
+			on:click={() => {
+				updateWaveform('/audio/piano-m');
+			}}
 			/>
-
+			
 			<Button
-				label="Oboe 🎷"
-				on:click={() => {
-					updateWaveform('/audio/oboe-m');
-				}}
+			label="Oboe 🎷"
+			on:click={() => {
+				updateWaveform('/audio/oboe-m');
+			}}
 			/>
-
+			
 			<Button
-				label="Trombone 🎺"
-				on:click={() => {
-					updateWaveform('/audio/trombone-m');
-				}}
+			label="Trombone 🎺"
+			on:click={() => {
+				updateWaveform('/audio/trombone-m');
+			}}
 			/>
 		</div>
-
+		
 		<div class="waveform" bind:this={waveform} />
-
+		
 		<div class="smoothing">
 			<span>Smoothing: {smoothing} frames</span>
 			<input
-				type="range"
-				min="50"
-				max="1000"
-				bind:value={smoothing}
-				on:input={() => (chart.options.animation.duration = smoothing)}
+			type="range"
+			min="50"
+			max="1000"
+			bind:value={smoothing}
+			on:input={() => (chart.options.animation.duration = smoothing)}
 			/>
 		</div>
-
+		
 		<audio controls loop class="player" bind:this={player} src="/audio/bass-m.mp3" />
 	</div>
 </div>
@@ -179,18 +180,18 @@
 		margin-top: 1em;
 		margin-bottom: 1em;
 	}
-
+	
 	.waveform {
 		width: 100%;
 		height: 75px;
 	}
-
+	
 	.controls {
 		display: flex;
 		flex-direction: column;
 		gap: 1em;
 	}
-
+	
 	.sound-select {
 		display: flex;
 		flex-direction: row;
@@ -198,25 +199,25 @@
 		flex-wrap: wrap;
 		gap: 0.5em;
 	}
-
+	
 	.smoothing {
 		display: grid;
 		place-items: center;
 		gap: 0.3em;
 	}
-
+	
 	.smoothing > span {
 		white-space: nowrap;
 	}
-
+	
 	.smoothing > input {
 		width: 60%;
 	}
-
+	
 	.player {
 		margin: 0 auto;
 	}
-
+	
 	#chroma-chart {
 		width: 99% !important;
 		min-width: 0 !important;
