@@ -19,11 +19,11 @@ flair: article
     import YouTube from '$lib/components/YouTube.svelte';
     import Audio from '$lib/components/Audio.svelte';
     import BigQuote from '$lib/components/BigQuote.svelte';
-    import MFWHeader from '$lib/components/MFWHeader.svelte';
+    import MWFHeader from '$lib/components/MWFHeader.svelte';
     import IndentNote from '$lib/components/IndentNote.svelte';
 </script>
 
-<MFWHeader
+<MWFHeader
 src = "/madewithflucoma/pasquet/profile.jpeg"
 name = "Olivier Pasquet"
 website = "https://www.opasquet.fr/"
