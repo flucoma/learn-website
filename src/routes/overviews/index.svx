@@ -3,7 +3,7 @@ layout: none
 ---
 
 <script>
-    import CardList from '$lib/components/CardList.svelte';
+    import CardList from '$lib/components/cards/List.svelte';
 </script>
 
 # Overviews

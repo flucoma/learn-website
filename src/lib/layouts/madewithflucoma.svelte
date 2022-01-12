@@ -12,13 +12,13 @@
 		{blurb}
 	</p>
 
-	<div class="tagtainer">
+	<!-- <div class="tagtainer">
 		{#each tags as tag}
 			<a class="tag" href="/search/{tag}">
 				{tag}
 			</a>
 		{/each}
-	</div>
+	</div> -->
 </div>
 
 <slot />

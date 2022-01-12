@@ -1,7 +1,7 @@
 ---
 title: 2D Corpus Exploring
 blurb: |
-    This video tutorial guides you through building a two-dimensional corpus exploration patch in Max.
+    A video tutorial guiding that teaches you how to build a two-dimensional corpus exploration patch in Max.
 tags: 
     - unsupervised learning
     - dimension reduction
@@ -17,6 +17,7 @@ flair: tutorial
     import YouTube from '$lib/components/YouTube.svelte';
 </script>
 
+## A Brief Synopsis
 This tutorial guides you through building a two-dimensional corpus exploration patch in Max. If you'ever come into contact with software such as [CataRT](http://imtr.ircam.fr/imtr/CataRT), [LjudMAP](https://github.com/victorwegeborn/LjudMAP) or [XO](https://www.xlnaudio.com/products/xo) then this way of working might be familiar. Briefly, the musical motivation for making a patch like this is quite diffuse. You might:
 
 1. Explore a relatively unknown collection of sounds in a visual space

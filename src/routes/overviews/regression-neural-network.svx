@@ -14,6 +14,8 @@ flair: tutorial
     import YouTube from '$lib/components/YouTube.svelte';
 </script>
 
+## A Brief Synopsis
+
 This tutorial guides you through building a bespoke synthesis controller. It leverages a type of Neural Network in the Fluid Corpus Manipulation toolkit, the [MLPRegressor](/reference/mlpregressor) to map a set of input data to a set of output data. This workflow allows you to _train_ the [MLPClassifier](/reference/mlpregressor) to create a mapping between any dimension of input and output data. This means you can have a single fader controlling 10 other faders, or joystick controlling a complex collection of parameters. Fundamentally, the Neural Network doesn't care what data you give to it, which means you get to decide and inform the relationship between the inputs and outputs. This can be applied musically in a number of contexts. For example you might:
 
 1. Map any dimensionality controller to something else such as a synth, VST effect, sequencer
