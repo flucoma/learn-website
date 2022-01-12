@@ -13,10 +13,14 @@
 	--light-blue: rgb(28, 164, 252);
 	--max-text-width: 70ch;
 	--min-text-width: 30ch;
+	--footer-height: 42px;
 }
 
 html {
 	font-family: -apple-system, BlinkMacSystemFont, sans-serif, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue';
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 }
 
 body {
