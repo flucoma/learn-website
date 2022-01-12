@@ -121,56 +121,65 @@
 	};
 </script>
 
-<canvas id="chroma-chart" bind:this={canvas} />
+<div class="container">
+	<canvas id="chroma-chart" bind:this={canvas} />
 
-<div class="controls">
-	<div class="sound-select">
-		<Button
-			label="Bass 🎸"
-			on:click={() => {
-				updateWaveform('/audio/bass-m');
-			}}
-		/>
+	<div class="controls">
+		<div class="sound-select">
+			<Button
+				label="Bass 🎸"
+				on:click={() => {
+					updateWaveform('/audio/bass-m');
+				}}
+			/>
 
-		<Button
-			label="Piano 🎹"
-			on:click={() => {
-				updateWaveform('/audio/piano-m');
-			}}
-		/>
+			<Button
+				label="Piano 🎹"
+				on:click={() => {
+					updateWaveform('/audio/piano-m');
+				}}
+			/>
 
-		<Button
-			label="Oboe 🎷"
-			on:click={() => {
-				updateWaveform('/audio/oboe-m');
-			}}
-		/>
+			<Button
+				label="Oboe 🎷"
+				on:click={() => {
+					updateWaveform('/audio/oboe-m');
+				}}
+			/>
 
-		<Button
-			label="Trombone 🎺"
-			on:click={() => {
-				updateWaveform('/audio/trombone-m');
-			}}
-		/>
+			<Button
+				label="Trombone 🎺"
+				on:click={() => {
+					updateWaveform('/audio/trombone-m');
+				}}
+			/>
+		</div>
+
+		<div class="waveform" bind:this={waveform} />
+
+		<div class="smoothing">
+			<span>Smoothing: {smoothing} frames</span>
+			<input
+				type="range"
+				min="50"
+				max="1000"
+				bind:value={smoothing}
+				on:input={() => (chart.options.animation.duration = smoothing)}
+			/>
+		</div>
+
+		<audio controls loop class="player" bind:this={player} src="/audio/bass-m.mp3" />
 	</div>
-
-	<div class="waveform" bind:this={waveform} />
-
-	<div class="smoothing">
-		<span>Smoothing: {smoothing} frames</span>
-		<input
-			type="range"
-			min="50"
-			max="1000"
-			bind:value={smoothing}
-			on:input={() => (chart.options.animation.duration = smoothing)}
-		/>
-	</div>
-
-	<audio controls loop class="player" bind:this={player} src="/audio/bass-m.mp3" />
 </div>
 
 <style>
+	.container {
+		display: flex;
+		flex-direction: column;
+		margin-top: 1em;
+		margin-bottom: 1em;
+	}
+
 	.waveform {
 		width: 100%;
 		height: 75px;
