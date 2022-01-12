@@ -17,6 +17,9 @@ const config = {
 					headings,
 					{
 						behavior: 'append',
+						properties: {
+							target: '_self'
+						},
 						test: ['h2', 'h3', 'h4', 'h5', 'h6'], // don't auto-link <h1>
 						content: s('svg .autolink', {
 							xmlns: "http://www.w3.org/2000/svg",
