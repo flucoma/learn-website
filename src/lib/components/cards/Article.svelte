@@ -1,0 +1,67 @@
+<script>
+    import ArrowRight from '$lib/components/ArrowRight.svelte';
+    export let data = {};
+    console.log(data);
+</script>
+
+<a class="container" href={data.url}>
+    <h2>{data.title}</h2>
+    <p>{data.blurb}</p>
+    <a class='linkout' href={data.url}>Learn More <ArrowRight /></a>
+</a>
+
+<style>
+    .container {
+        border-radius: 0.25rem;
+        border: 0.063rem solid #dcdee0;
+        padding: 0.75em;
+        margin-top: 0.5em;
+        margin-bottom: 0.5em;
+        max-width: 100%;
+    }
+
+    .container > p {
+        color: grey;
+    }
+
+    /* Overwrite hover behaviour */
+    .container, .container:hover {
+        color:black;
+        background-color: white;
+        text-decoration: none;
+    }
+
+    .container:hover {
+        cursor: pointer;
+    }
+
+    .container > :global(h2) {
+        margin: 0;
+    }
+
+    .container:hover {
+        box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    }
+
+    .container, .container:hover {
+        transition: box-shadow 200ms ease-in-out;
+    }
+
+    .linkout {
+        display: grid;
+        grid-template-columns: auto auto;
+        justify-content: left;
+        place-items: center;
+        gap: 0.2em;
+    }
+
+    .linkout:hover {
+        background-color: transparent;
+        color: var(--med-blue);
+        gap: 0.3em;
+    }
+
+    .linkout, .linkout:hover {
+        transition: gap 80ms ease-in-out;
+    }
+</style>
