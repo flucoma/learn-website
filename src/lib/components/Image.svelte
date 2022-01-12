@@ -20,6 +20,8 @@
 		place-items: center;
 		width: 80%;
 		margin: 0 auto;
+		margin-top: 1em;
+		margin-bottom: 1em;
 	}
 
 	img {
@@ -39,5 +41,6 @@
 	.label {
 		text-align: center;
 		font-size: 0.8rem;
+		font-style: italic;
 	}
 </style>
