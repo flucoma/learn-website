@@ -28,7 +28,7 @@
 <EditHistory />
 
 <style lang="postcss">
-	:global(p) {
+	.title-box > :global(p) {
 		text-align: justify;
 		text-justify: inter-word;
 	}
@@ -36,6 +36,7 @@
 	.blurb {
 		color: grey;
 	}
+
 	.tagtainer {
 		display: flex;
 		flex-direction: row;
