@@ -11,7 +11,7 @@
 		Your browser does not support the audio tag.
 	</audio>
 	<div class="label">
-		<a href={src}>{fileName} :</a>
+		<a href={src}>{fileName}</a> :
 		{label}
 	</div>
 </div>
