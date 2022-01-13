@@ -38,7 +38,7 @@ glob('src/**/*.svx', (err, routes) => {
 			if (el[0] === 'header' && el[1].level === 2) {
 				const rawText = el[2];
 
-				const text = raw_text
+				const text = rawText
 					.flat()
 					.filter(x => !x.includes('em'))
 					.join('')
