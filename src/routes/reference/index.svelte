@@ -7,9 +7,9 @@
 	const categorised = {
 		'Analyse Data' : [],
 		'Analyse Sound' : [],
-		'Slicing' : [],
-		'Decompose' : [],
 		'Utility' : [],
+		'Decompose' : [],
+		'Slicing' : [],
 		'Transform' : []
 	}
 
