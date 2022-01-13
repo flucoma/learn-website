@@ -11,8 +11,7 @@
 		Your browser does not support the audio tag.
 	</audio>
 	<div class="label">
-		<a href={src}>{fileName} :</a>
-		{label}
+		<a href={src}>{fileName}</a>: {label}
 	</div>
 </div>
 
@@ -20,13 +19,11 @@
 	.container {
 		display: flex;
 		flex-direction: column;
-		margin: 0 auto;
-		gap: 1em;
 		align-items: center;
-	}
-
-	.audio-player {
-		max-width: 50%;
+		gap: 1em;
+		margin: 0 auto;
+		margin-top: 1em;
+		margin-bottom: 1em;
 	}
 
 	.label {

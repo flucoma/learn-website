@@ -11,7 +11,6 @@ tags:
     - bach
     - cage
     - markov chains
-flair: article
 ---
 
 <script>
@@ -19,29 +18,30 @@ flair: article
     import YouTube from '$lib/components/YouTube.svelte';
     import Audio from '$lib/components/Audio.svelte';
     import BigQuote from '$lib/components/BigQuote.svelte';
-    import MFWHeader from '$lib/components/MFWHeader.svelte';
+    import ArtistCard from '$lib/components/mwf/ArtistCard.svelte';
+    import IndentNote from '$lib/components/IndentNote.svelte';
 </script>
 
-<MFWHeader
+<ArtistCard
 src = "/madewithflucoma/pasquet/profile.jpeg"
 name = "Olivier Pasquet"
 website = "https://www.opasquet.fr/"
-bio = "Olivier Pasquet is a sound, visual artist and music producer. 
-His generative pieces are contextualised within a rationalist theory-fiction. 
-He has been working with a variety of artists at Ircam and other places. 
-Besides music and installations, he is also involved in performance pieces such as dance, theatre, opera. 
-All has consequently a strong relation with architecture, architectural design and specific sites. 
-Beyond a close interest for duality between art and science, he endeavors links throughout scientific and artistic research."
-/>
-
-## Patches
-
-Download the demonstration patches for this article <a href='/madewithflucoma/pasquet/Olivier Pasquet Examples.zip' download='Olivier Pasquet Examples.zip'>here</a>.
+>
+<p slot="bio">
+Olivier Pasquet is a sound, visual artist and music producer. His generative pieces are contextualised within a rationalist theory-fiction. He has been working with a variety of artists at IRCAM and other places. Besides music and installations, he is also involved in performance pieces such as dance, theatre, opera. All has consequently a strong relation with architecture, architectural design and specific sites. Beyond a close interest for duality between art and science, he endeavors links throughout scientific and artistic research.
+</p>
+</ArtistCard>
 
 ## Introduction
 
+<IndentNote type='pointer'>
+
+Download the demonstration patches for this article <a href='/madewithflucoma/pasquet/Olivier Pasquet Examples.zip' download='Olivier Pasquet Examples.zip'>here</a>.
+
+</IndentNote>
+
 Today we’ll be looking at some of the work that Olivier Pasquet did using the FluCoMa tools.
-His piece, *Herbig-Haro*, was performed at the [first FluCoMa gig](/madewithflucoma/reactive-flows) at [HCMF](https://hcmf.co.uk/) 2019.
+His piece, *Herbig-Haro*, was performed at the [first FluCoMa gig](/madewithflucoma/reactive_flows) at [HCMF](https://hcmf.co.uk/) 2019.
 Compared to the other performances – which all featured the musician centre-stage with lights focused on them – his felt much more like an installation.
 The room was plunged into darkness, Pasquet was barely visible at the back of the stage, discreetly sat behind a laptop.
 The audience was engulfed in the music: thick bass tones and high, scraping clicks were spatialised across the loudspeakers around the whole performance area; spotlights placed around the space were mapped to flicker on various clicks, pulling the listener into the overarching rhythms that seemed to drive the chaotic material.

@@ -10,7 +10,7 @@
 	<div class="toc">Table of Contents</div>
 	<div class="headings">
 		{#each headings as h}
-			<a href={h.url}>{h.text}</a>
+			<a target='_self' href={h.url}>{h.text}</a>
 		{/each}
 	</div>
 </nav>

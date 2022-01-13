@@ -12,23 +12,21 @@
 		{blurb}
 	</p>
 
-	<div class="tagtainer">
+	<!-- <div class="tagtainer">
 		{#each tags as tag}
 			<a class="tag" href="/search/{tag}">
 				{tag}
 			</a>
 		{/each}
-	</div>
+	</div> -->
 </div>
 
 <slot />
 
-<HR />
-
 <EditHistory />
 
 <style lang="postcss">
-	:global(p) {
+	.title-box > :global(p) {
 		text-align: justify;
 		text-justify: inter-word;
 	}
@@ -36,6 +34,7 @@
 	.blurb {
 		color: grey;
 	}
+
 	.tagtainer {
 		display: flex;
 		flex-direction: row;
