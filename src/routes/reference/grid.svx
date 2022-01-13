@@ -1,0 +1,11 @@
+---
+title: Grid
+blurb: Constraint a 2D Dataset to a grid using the hungarian algorithm
+tags: 
+    - utlity
+    - data
+    - querying
+flair: reference
+---
+
+
