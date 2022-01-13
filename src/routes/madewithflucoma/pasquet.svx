@@ -19,11 +19,11 @@ flair: article
     import YouTube from '$lib/components/YouTube.svelte';
     import Audio from '$lib/components/Audio.svelte';
     import BigQuote from '$lib/components/BigQuote.svelte';
-    import MWFHeader from '$lib/components/MWFHeader.svelte';
+    import ArtistCard from '$lib/components/mwf/ArtistCard.svelte';
     import IndentNote from '$lib/components/IndentNote.svelte';
 </script>
 
-<MWFHeader
+<ArtistCard
 src = "/madewithflucoma/pasquet/profile.jpeg"
 name = "Olivier Pasquet"
 website = "https://www.opasquet.fr/"
@@ -31,7 +31,7 @@ website = "https://www.opasquet.fr/"
 <p slot="bio">
 Olivier Pasquet is a sound, visual artist and music producer. His generative pieces are contextualised within a rationalist theory-fiction. He has been working with a variety of artists at IRCAM and other places. Besides music and installations, he is also involved in performance pieces such as dance, theatre, opera. All has consequently a strong relation with architecture, architectural design and specific sites. Beyond a close interest for duality between art and science, he endeavors links throughout scientific and artistic research.
 </p>
-</MWFHeader>
+</ArtistCard>
 
 ## Introduction
 
