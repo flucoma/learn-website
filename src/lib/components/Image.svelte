@@ -5,14 +5,14 @@
 	export let id: string = '';
 </script>
 
-<div class="container" {id}>
+<figure class="container" {id}>
 	<a target="_blank" href={src}>
 		<img loading="lazy" {alt} {src} />
 	</a>
-	<div class="label">
+	<figcaption class="label">
 		{label}
-	</div>
-</div>
+	</figcaption>
+</figure >
 
 <style lang="postcss">
 	.container {
@@ -20,6 +20,8 @@
 		place-items: center;
 		width: 80%;
 		margin: 0 auto;
+		margin-top: 1em;
+		margin-bottom: 1em;
 	}
 
 	img {
@@ -28,16 +30,17 @@
 		max-width: 100%;
 	}
 
-	a {
+	.container > a {
 		max-width: 100%;
 	}
 
-	a:hover {
+	.container > a:hover {
 		background: transparent;
 	}
 
 	.label {
 		text-align: center;
 		font-size: 0.8rem;
+		font-style: italic;
 	}
 </style>

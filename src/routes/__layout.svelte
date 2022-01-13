@@ -6,6 +6,12 @@
 	import TOC from '$lib/components/TOC.svelte';
 </script>
 
+<svelte:head>
+	<title>
+		Learn FluCoMa
+	</title>
+</svelte:head>
+
 <div class="container">
 	<Header />
 	<Crumbs />
@@ -37,12 +43,15 @@
 		margin-left: 1em;
 		margin-right: 1em;
 		margin-bottom: 1em;
+		flex: 1 0 auto;
 	}
 
 	.main {
 		grid-area: main;
 		min-width: var(--min-text-width);
 		max-width: var(--max-text-width);
+		display: flex;
+		flex-direction: column;
 	}
 
 	.navigation {

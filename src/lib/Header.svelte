@@ -11,7 +11,7 @@
 	$: navExpand = w >= breakpoint || userExpand;
 </script>
 
-<div class="container" role="navigation">
+<header class="container" role="navigation">
 	{#if w < breakpoint}
 		<Hamburger on:click={expandHandler} />
 	{/if}
@@ -28,7 +28,7 @@
 		</div>
 	{/if}
 	<Search />
-</div>
+</header>
 
 <svelte:window bind:innerWidth={w} />
 
@@ -79,6 +79,7 @@
 	}
 
 	.nav-link {
+		font-family: var(--font);
 		margin-top: auto;
 		margin-bottom: auto;
 		text-align: center;

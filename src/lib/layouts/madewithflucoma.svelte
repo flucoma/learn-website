@@ -2,6 +2,8 @@
 	export let title;
 	export let blurb;
 	export let tags;
+	import EditHistory from '$lib/components/EditHistory.svelte';
+	import HR from '$lib/components/HR.svelte';
 </script>
 
 <div class="title-box">
@@ -10,16 +12,20 @@
 		{blurb}
 	</p>
 
-	<div class="tagtainer">
+	<!-- <div class="tagtainer">
 		{#each tags as tag}
 			<a class="tag" href="/search/{tag}">
 				{tag}
 			</a>
 		{/each}
-	</div>
+	</div> -->
 </div>
 
 <slot />
+
+<HR />
+
+<EditHistory />
 
 <style lang="postcss">
 	:global(p) {
