@@ -22,7 +22,6 @@
 </p>
 
 <div class="container">
-
 	{#each Object.entries(categorised) as [category, ref]}
 	<section>
 		<h3>{ category }</h3>
@@ -35,7 +34,6 @@
 		{/each}
 	</section>
 	{/each}
-
 </div>
 
 <style>
@@ -46,7 +44,7 @@
 		flex-wrap: wrap;
 		gap: 1.5em;
 	}
-	
+
 	section > h3 {
 		margin: 0;
 		margin-bottom: 0.125em;
