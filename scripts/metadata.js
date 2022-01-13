@@ -36,7 +36,7 @@ glob('src/**/*.svx', (err, routes) => {
 		tree.forEach((el) => {
 			
 			if (el[0] === 'header' && el[1].level === 2) {
-				const rawText = el[2];
+				const rawText = el.slice(2);
 
 				const text = rawText
 					.flat()
