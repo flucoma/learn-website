@@ -38,19 +38,14 @@
 
 <style>
 	.container {
-		column-count: 3;
-		column-gap: 1em;
-		gap: 1.5em;
+		display: flex;
+		flex-direction: column;
+		flex-wrap: wrap;
+		max-height: 550px;
 	}
 
-	section {
-		margin: 0;
-		display: grid;
-		grid-template-rows: 1fr auto;
-		margin-bottom: 0.125em;
-		break-inside: avoid;
-		grid-row: 1 / -1;
-  		grid-column: 1;
+	.container > section {
+		width: 33%;
 	}
 
 	section > h3 {
