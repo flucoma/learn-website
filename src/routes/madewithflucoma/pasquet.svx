@@ -11,7 +11,6 @@ tags:
     - bach
     - cage
     - markov chains
-flair: article
 ---
 
 <script>
@@ -42,7 +41,7 @@ Download the demonstration patches for this article <a href='/madewithflucoma/pa
 </IndentNote>
 
 Today we’ll be looking at some of the work that Olivier Pasquet did using the FluCoMa tools.
-His piece, *Herbig-Haro*, was performed at the [first FluCoMa gig](/madewithflucoma/reactive-flows) at [HCMF](https://hcmf.co.uk/) 2019.
+His piece, *Herbig-Haro*, was performed at the [first FluCoMa gig](/madewithflucoma/reactive_flows) at [HCMF](https://hcmf.co.uk/) 2019.
 Compared to the other performances – which all featured the musician centre-stage with lights focused on them – his felt much more like an installation.
 The room was plunged into darkness, Pasquet was barely visible at the back of the stage, discreetly sat behind a laptop.
 The audience was engulfed in the music: thick bass tones and high, scraping clicks were spatialised across the loudspeakers around the whole performance area; spotlights placed around the space were mapped to flicker on various clicks, pulling the listener into the overarching rhythms that seemed to drive the chaotic material.
@@ -70,7 +69,7 @@ label="An example of the vocal content during the performance."
 Pasquet focused a lot of effort into developing a system to create these sounds. 
 He notably took some of the FluCoMa tools and worked them into some of his pre-existing workflows: he makes extensive use of the [bach](https://www.bachproject.net/) and [cage](https://www.bachproject.net/cage/) libraries in Max which rely on the lisp-like linked list (llll) data structure; he has also built a library of his own, [jtol](https://www.opasquet.fr/jtol/), which is built around many of the bach objects and deals with real-time pattern generation. 
 In this text we shall explore what Pasquet wanted to achieve with his system and examine how the FluCoMa tools can yield artefacts that can be used by other tools such as bach and jtol. 
-As with all the "[Made with FluCoMa](/madewithflucoma)" articles, there is a series of demonstration patches that can be <a href='/madewithflucoma/pasquet/Olivier Pasquet Examples.zip' download='Olivier Pasquet Examples.zip'>downloaded</a> and interacted with if you wish to explore the inner workings of the software.
+As with all the "[Made with FluCoMa](/madewithflucoma/index)" articles, there is a series of demonstration patches that can be <a href='/madewithflucoma/pasquet/Olivier Pasquet Examples.zip' download='Olivier Pasquet Examples.zip'>downloaded</a> and interacted with if you wish to explore the inner workings of the software.
 
 ## The Premise
 
