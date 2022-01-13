@@ -1,11 +1,27 @@
-<script>
+<script lang="ts">
     import ArrowRight from '$lib/components/ArrowRight.svelte';
-    export let data = {};
-    console.log(data);
+    import Flair from '$lib/components/Flair.svelte';
+
+    type ArticleData = {
+        title: string,
+        blurb: string,
+        tags: string[],
+        flair: string,
+        url: string,
+        section: string,
+        artist?: string,
+        crumb?: string,
+        related?: string
+    }
+
+    export let data: ArticleData = {};
 </script>
 
 <a class="container" href={data.url}>
-    <h2>{data.title}</h2>
+    <div class="top">
+        <h2>{data.title}</h2>
+        <Flair flair={data.flair}/>
+    </div>
     <p>{data.blurb}</p>
     <a class='linkout' href={data.url}>Learn More <ArrowRight /></a>
 </a>
@@ -22,6 +38,8 @@
 
     .container > p {
         color: grey;
+        text-align: justify;
+        text-justify: inter-word;
     }
 
     /* Overwrite hover behaviour */
@@ -35,16 +53,24 @@
         cursor: pointer;
     }
 
-    .container > :global(h2) {
-        margin: 0;
-    }
-
     .container:hover {
         box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
     }
 
     .container, .container:hover {
         transition: box-shadow 200ms ease-in-out;
+    }
+
+    .top {
+        display: grid;
+        grid-template-columns: auto auto;
+        place-items: center;
+        justify-content: space-between;
+        margin-bottom: 0.5em;
+    }
+
+    .top > :global(h2) {
+        margin: 0;
     }
 
     .linkout {
