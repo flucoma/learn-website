@@ -22,7 +22,7 @@ flair: article
 </script>
 
 <ArtistCard
-src = "/madewithflucoma/hayes/hayes-profile.jpg"
+src = "/madewithflucoma/hayes/hayes_profile_2.png"
 name = "Lauren Sarah Hayes"
 website = "https://www.laurensarahhayes.com/"
 >

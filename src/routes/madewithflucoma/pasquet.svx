@@ -59,12 +59,12 @@ What are these artefacts, and how were they forged?
 
 <Audio 
 src="/madewithflucoma/pasquet/11152019_124154.mp3"
-label="An example of the vocal content from Pasquet's performance as it comes out of the generative patches."
+label="This is what the results of the generative process sound like."
 />
 
 <Audio 
 src="/madewithflucoma/pasquet/piece_extract.mp3"
-label="An example of the vocal content during the performance."
+label="This is an extract of the performance where we can hear the results."
 />
 
 Pasquet focused a lot of effort into developing a system to create these sounds. 
