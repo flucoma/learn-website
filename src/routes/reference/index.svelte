@@ -5,12 +5,12 @@
 	let references = docs.filter(d => d.section === 'reference');
 
 	const categorised = {
-		'Slicing' : [],
 		'Analyse Data' : [],
 		'Analyse Sound' : [],
+		'Slicing' : [],
 		'Decompose' : [],
-		'Transform' : [],
-		'Utility' : []
+		'Utility' : [],
+		'Transform' : []
 	}
 
 	references.forEach(r => { categorised[r.category].push(r) });
@@ -38,16 +38,24 @@
 
 <style>
 	.container {
-		display: grid;
-		grid-template-columns: auto auto auto;
-		flex-direction: row;
-		flex-wrap: wrap;
+		column-count: 3;
+		column-gap: 1em;
 		gap: 1.5em;
 	}
 
-	section > h3 {
+	section {
 		margin: 0;
+		display: grid;
+		grid-template-rows: 1fr auto;
 		margin-bottom: 0.125em;
+		break-inside: avoid;
+		grid-row: 1 / -1;
+  		grid-column: 1;
+	}
+
+	section > h3 {
+		margin-top: 0.25em;
+		margin-bottom: 0.25em;
 	}
 
 	section ul {
