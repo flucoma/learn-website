@@ -23,8 +23,6 @@
 
 <slot />
 
-<HR />
-
 <EditHistory />
 
 <style lang="postcss">
