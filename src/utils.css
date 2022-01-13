@@ -8,3 +8,13 @@
     position: absolute!important;
     width: 1px;
 }
+
+.neutral-link {
+    background-color: white;
+    text-decoration: none;
+}
+
+.neutral-link:hover {
+    background-color: white;
+    text-decoration: none;
+}
