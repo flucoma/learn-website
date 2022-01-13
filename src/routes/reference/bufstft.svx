@@ -1,5 +1,5 @@
 ---
-title: STFT (Short-Term Fourier Transform)
+title: BufSTFT
 blurb: Conversion from the time domain to the spectral domain
 tags: 
     - descriptor
