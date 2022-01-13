@@ -26,8 +26,7 @@ alt='Median filtering graphical example'
 label='A median filter applied to a sine wave disrupted by short spikes'
 />
 
-A median filter works in a very different way to more common audio filters (low-pass, high-pass etc.). We slide a window across our data, and are interested in the median value in the window. To derive the median value, the values are sorted and the middle one is taken.
-
+A median filter works in a very different way to more common audio filters (low-pass, high-pass etc.). We slide a window across our data, and replace the center value of each window with that window's [median](https://en.wikipedia.org/wiki/Median). For example, if one of the windows has a single spike in it and the other values conform to the sinusoidal, the computed median value will likely be much closer to the stable trajectory of the signal and filter out the anomylous jumps in values.
 
 We can see the process at work below, applied to the same case as above. The shaded area is the window, and the horizontal bar shows us where the median is at each point.
 
