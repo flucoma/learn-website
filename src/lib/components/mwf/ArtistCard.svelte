@@ -5,8 +5,10 @@
 </script>
 
 <a class="container neutral-link" href={ website }>
-	<img loading="lazy" alt={`${name} profile picture`} {src} />
-	<h2>{ name }</h2>
+	<div class="top">
+		<img loading="lazy" alt={`${name} profile picture`} {src} />
+		<h2>{ name }</h2>
+	</div>
 	<div class="bio">
 		<slot name="bio"></slot>
 	</div>
@@ -16,6 +18,7 @@
 	.container {
 		display: flex;
 		flex-direction: column;
+		gap: 0.5em;
 		margin-top: 1em;
         border: 0.063rem solid #dcdee0;
 		border-radius: 0.25em;
@@ -30,14 +33,22 @@
         transition: box-shadow 200ms ease-in-out;
     }
 
-	.container > h2 {
+	.top {
+		display: grid;
+		grid-template-rows: auto auto;
+		gap: 0.5em;
+		place-items: center;
+	}
+	.top > h2 {
 		color: black;
+		margin-top: 0;
 	}
 
 	img {
-		min-width: 0px;
-		max-width: 100%;
-		border-radius: 0.25em;
+		max-width: 200px;
+		max-height: 200px;
+		width: auto; height: auto;
+		border-radius: 0.25rem;
 	}
 
 	.bio {
