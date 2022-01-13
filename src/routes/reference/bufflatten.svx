@@ -1,0 +1,10 @@
+---
+title: BufFlatten
+blurb: Flatten a buffer to one dimension
+tags:
+    - utility
+    - buffer
+    - buf
+flair: reference
+category: Utility
+---
