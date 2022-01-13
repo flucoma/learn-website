@@ -8,6 +8,7 @@ tags:
     - semi-supervised
     - unsupervised
 flair: reference
+category: Analyse Data
 ---
 
 <script>

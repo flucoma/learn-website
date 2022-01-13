@@ -5,6 +5,7 @@ tags:
     - slicing
     - segmentation
 flair: reference
+category: Slicing
 ---
 
 <script>

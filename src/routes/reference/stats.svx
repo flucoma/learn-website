@@ -6,6 +6,7 @@ tags:
     - stats
     - statistics
 flair: reference
+category: Analyse Data
 ---
 
 
