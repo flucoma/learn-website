@@ -34,9 +34,18 @@ glob('src/**/*.svx', (err, routes) => {
 		}
 
 		tree.forEach((el) => {
+			
 			if (el[0] === 'header' && el[1].level === 2) {
+				const rawText = el[2];
+
+				const text = raw_text
+					.flat()
+					.filter(x => !x.includes('em'))
+					.join('')
+
 				slugger.reset();
-				let hashPart = slugger.slug(el[2]);
+				let hashPart = slugger.slug(text);
+				
 				structure[url].push({
 					url: `${url}#${hashPart}`,
 					text: el[2]
