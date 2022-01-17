@@ -69,7 +69,7 @@ url={'_qxBLjde39Y'}
 
 <Image
 src="/madewithflucoma/eldridge/feedback_cello_simulation.png"
-label="An overview of the "Feedback Cello Simulation" example patch."
+label="An overview of the 'Feedback Cello Simulation' example patch."
 />
 
 In the example patches that accompany this article, we’ve included a simple simulation of a Feedback Cello. Of course, the actual acoustic, analogue interface that this is emulating is much more complicated. Here, an analysis of the perceptual [loudness](/reference/loudness) (using the FluCoMa tools) is being used to drive the ‘vibration’ of strings in the feedback loop. You can experiment with different routings, for example having each string feed back into itself or have the entire output feeding into the string. As simple and as far from the real object this simulation is, it is still a fun patch to experiment with, and begin to get an idea about what it may be like to operate one of these instruments.
@@ -131,7 +131,7 @@ This process of experimentation continued for weeks, and through this Kiefer bui
 
 <Image
 src="/madewithflucoma/eldridge/training_the_neural_network_patch.png"
-label="An overview of the "Training the Neural Network" example patch."
+label="An overview of the 'Training the Neural Network' example patch."
 />
 
 You can test out this kind of process for yourself with the example patch *01 Training the neural network*. We have set up a system that is similar to what Eldridge and Kiefer were working with – an MLP regressor which is being fed an MFCC analysis of the input signal to control tree audio effect parameters. We have also provided different examples of Eldridge’s playing on the feedback cello, which can be used to train and run the neural network. Obviously, this patch comes nowhere near to the complexity of the full feedback system. There are lots of other elements that are not emulated, for example the low pass filters that Kiefer introduced to the MLP output to control some of the output jumpiness. However it is a good resource to conduct some experiments and begin to understand the process that Kiefer went through when learning this embodied knowledge around the training of a neural network. 
