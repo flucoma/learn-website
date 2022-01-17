@@ -9,4 +9,9 @@ flair: reference
 category: Analyse Sound
 ---
 
+<script>
+    import SpectralShape from '$lib/widget/SpectralShape.svelte';
+</script>
+
+<SpectralShape />
 
