@@ -16,9 +16,16 @@
 </figcaption>
 
 <style lang="postcss">
+
+	video{
+		padding-top: 1em;
+		padding-bottom: 1em;
+	}
+
 	.label {
 		text-align: center;
 		font-size: 0.8rem;
 		font-style: italic;
+		padding-bottom: 1em;
 	}
 </style>
