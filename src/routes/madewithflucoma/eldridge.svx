@@ -54,11 +54,11 @@ Chris Kiefer is a computer-musician and musical instrument designer, specialisin
 
 <IndentNote type='pointer'>
 
-Download the demonstration patches for this article <a href='/madewithflucoma/hayes/Alice Eldridge and Chris Kiefer Examples.zip' download='Alice Eldridge and Chris Kiefer Examples.zip'>here</a>.
+Download the demonstration patches for this article <a href='/madewithflucoma/eldridge/Alice Eldridge and Chris Kiefer Examples.zip' download='Alice Eldridge and Chris Kiefer Examples.zip'>here</a>.
 
 </IndentNote>
 
-Today we’ll be looking at some of the work that Alice Eldridge and Chris Kiefer did using the FluCoMa tools. These two collaborators came to the project seeking to augment their already well-established shared instrument system, the [Feedback Cello](https://www.feedbackcell.info/). We shall see how they used machine learning and descriptors to take this system to the next level, and how they approached this system in performance. As with all the "[Made with FluCoMa](/madewithflucoma)" articles, there is a series of demonstration patches that can be <a href='/madewithflucoma/hayes/Alice Eldridge and Chris Kiefer Examples.zip' download='Alice Eldridge and Chris Kiefer Examples.zip'>downloaded</a> and interacted with if you wish to explore the inner workings of the software.
+Today we’ll be looking at some of the work that Alice Eldridge and Chris Kiefer did using the FluCoMa tools. These two collaborators came to the project seeking to augment their already well-established shared instrument system, the [Feedback Cello](https://www.feedbackcell.info/). We shall see how they used machine learning and descriptors to take this system to the next level, and how they approached this system in performance. As with all the "[Made with FluCoMa](/madewithflucoma)" articles, there is a series of demonstration patches that can be <a href='/madewithflucoma/eldridge/Alice Eldridge and Chris Kiefer Examples.zip' download='Alice Eldridge and Chris Kiefer Examples.zip'>downloaded</a> and interacted with if you wish to explore the inner workings of the software.
 
 <YouTube 
 url={'xdygL-zm3j8?t=1024'}
