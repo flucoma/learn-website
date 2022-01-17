@@ -10,6 +10,7 @@ tags:
     - multi-layer perceptron
     - mlp
 flair: reference
+category: Analyse Data
 ---
 
 The `MLPRegressor` is an object that can be used to perform _regression_. In machine learning, _regression_ can be thought of as a mapping from one space to another, much like mapping a controller onto synthesis parameters. 'MLP' stands for multi-layer perceptron which is a type of neural network.

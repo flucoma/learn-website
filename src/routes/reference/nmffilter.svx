@@ -1,0 +1,12 @@
+---
+title: NMFFilter
+blurb: Decomposes and resynhtesis a signal against a set of spectral templates
+tags:
+    - data
+    - nmf
+    - machine learning
+    - spectral
+    - filter
+flair: reference
+category: Transform
+---

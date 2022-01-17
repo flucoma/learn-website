@@ -1,6 +1,6 @@
 ---
-title: DataSetQuery
-blurb: Programatically query a FluidDataSet
+title: Grid
+blurb: Constraint a 2D Dataset to a grid using the hungarian algorithm
 tags: 
     - utlity
     - data
@@ -8,5 +8,3 @@ tags:
 flair: reference
 category: Analyse Data
 ---
-
-

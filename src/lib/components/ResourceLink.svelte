@@ -47,23 +47,5 @@
     .container, .container:hover {
         transition: box-shadow 200ms ease-in-out;
     }
-
-    .linkout {
-        display: grid;
-        grid-template-columns: auto auto;
-        justify-content: left;
-        place-items: center;
-        gap: 0.2em;
-    }
-
-    .linkout:hover {
-        background-color: transparent;
-        color: var(--med-blue);
-        gap: 0.3em;
-    }
-
-    .linkout, .linkout:hover {
-        transition: gap 80ms ease-in-out;
-    }
 </style>
 

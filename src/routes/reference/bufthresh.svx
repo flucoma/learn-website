@@ -1,6 +1,6 @@
 ---
-title: BufCompose
-blurb: Buffer composing
+title: BufThresh
+blurb: Gate-like thresholding for buffers
 tags: 
     - utility
     - buffer

@@ -1,10 +1,13 @@
 import glob from 'glob';
 import path from 'path';
 import fs from 'fs';
+import GithubSlugger from 'github-slugger';
 import frontmatter from 'front-matter';
 import { extractGit } from './git.js';
-import { sanitiseHashLink, urlFromRoute } from './util.js';
+import { urlFromRoute } from './util.js';
 import { markdown } from 'markdown';
+
+const slugger = new GithubSlugger();
 
 let info = {};
 let structure = {};
@@ -31,8 +34,18 @@ glob('src/**/*.svx', (err, routes) => {
 		}
 
 		tree.forEach((el) => {
+			
 			if (el[0] === 'header' && el[1].level === 2) {
-				let hashPart = sanitiseHashLink(el[2]);
+				const rawText = el.slice(2);
+
+				const text = rawText
+					.flat()
+					.filter(x => !x.includes('em'))
+					.join('')
+
+				slugger.reset();
+				let hashPart = slugger.slug(text);
+				
 				structure[url].push({
 					url: `${url}#${hashPart}`,
 					text: el[2]

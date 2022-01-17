@@ -2,7 +2,7 @@
 title: Event Detection and Improvisation
 artist: Lauren Sarah Hayes
 blurb: |
-    In this article we explore the work Lauren Sarah Hayes did using some of the FluCoMa tools for her piece Moon via Spirit. 
+    In this article we explore Lauren Sarah Hayes' work using some of the FluCoMa tools for her piece Moon via Spirit. 
     We examine how she incorporated some of the slicing tools into her improvisational practice, and how they can provide different approaches to event detection.
 tags: 
     - transient slicing
@@ -16,22 +16,20 @@ flair: article
 <script>
     import Image from '$lib/components/Image.svelte';
     import YouTube from '$lib/components/YouTube.svelte';
-    import MFWHeader from '$lib/components/MFWHeader.svelte';
+    import ArtistCard from '$lib/components/mwf/ArtistCard.svelte';
     import BandCamp from '$lib/components/BandCamp.svelte';
     import IndentNote from '$lib/components/IndentNote.svelte';
 </script>
 
-<MFWHeader
-src = "/madewithflucoma/hayes/lauren.jpeg"
+<ArtistCard
+src = "/madewithflucoma/hayes/hayes_profile_2.png"
 name = "Lauren Sarah Hayes"
 website = "https://www.laurensarahhayes.com/"
-bio = "Lauren Sarah Hayes is a Scottish improviser and sound artist. 
-Her music is a mix of experimental pop/live electronics/techno/noise/free improvisation and has been described as ‘voracious’ and ‘exhilarating’. 
-She is a sculptress of sound, manipulating, remixing, and bending voice, drum machines, analogue synths and self-built software live and physically. 
-She is excited by what can happen in the vulnerable relationships between sound, space, and audience. 
-Her shows are highly physical, making the performance of live electronic music more engaging for audiences. 
-Over the last decade she has developed and honed a deliberately challenging and unpredictable performance system that explores the relationships between bodies, sound, environments, and technology."
-/>
+>
+<p slot="bio">
+Lauren Sarah Hayes is a Scottish improviser and sound artist. Her music is a mix of experimental pop/live electronics/techno/noise/free improvisation and has been described as "voracious" and "exhilarating". She is a sculptress of sound, manipulating, remixing, and bending voice, drum machines, analogue synths and self-built software live and physically. She is excited by what can happen in the vulnerable relationships between sound, space, and audience. Her shows are highly physical, making the performance of live electronic music more engaging for audiences. Over the last decade she has developed and honed a deliberately challenging and unpredictable performance system that explores the relationships between bodies, sound, environments, and technology.
+</p>
+</ArtistCard>
 
 ## Introduction
 
@@ -41,10 +39,10 @@ Download the demonstration patches for this article <a href='/madewithflucoma/ha
 
 </IndentNote>
 
-Today we’ll be looking at some of the work that Lauren Sarah Hayes did using the FluCoMa tools. 
+Today we'll be looking at some of the work that Lauren Sarah Hayes did using the FluCoMa tools. 
 We’ll be taking a broad perspective on some of the working principles of the project and examine how some of its suggested workflows are incorporated into Hayes’ already well-developed improvisational practice. 
 We’ll start by considering her piece for the project and discussing some of her ideas about improvisation. 
-Then, we’ll have a look at the way in which Hayes used the tools within this framework. 
+Then, we'll have a look at the way in which Hayes used the tools within this framework. 
 As with all the "[Made with FluCoMa](/madewithflucoma)" articles, there is a series of demonstration patches that can be <a href='/madewithflucoma/hayes/Lauren Sarah Hayes Examples.zip' download='Lauren Sarah Hayes Examples.zip'>downloaded</a> and interacted with if you wish to explore the inner workings of the software.
 
 Hayes’ piece, *Moon via Spirit*, was commissioned by the FluCoMa project and performed at the first [FluCoMa gig](/madewithflucoma/reactive-flows) at [HCMF](https://hcmf.co.uk/) 2019. 

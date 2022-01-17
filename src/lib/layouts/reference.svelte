@@ -1,6 +1,5 @@
 <script>
 	import EditHistory from '$lib/components/EditHistory.svelte';
-	import HR from '$lib/components/HR.svelte';
 
 	export let title;
 	export let blurb;
