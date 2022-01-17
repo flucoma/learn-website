@@ -5,15 +5,17 @@
 
 <video controls>
 
+	<track kind="captions">
+
     <source src={src}
             type="video/mp4">
 
     Sorry, your browser doesn't support embedded videos.
 </video>
 
-<figcaption class="label">
+<p class="label">
 	{label}
-</figcaption>
+</p>
 
 <style lang="postcss">
 
