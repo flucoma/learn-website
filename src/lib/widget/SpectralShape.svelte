@@ -13,16 +13,12 @@
 	let features: number[] = new Array(windowSize).fill(0.0);
 	let audioContext: AudioContext;
 	let generator;
-	let audioEnabled: boolean = false;
 	
 	// Canvas
 	let canvas: HTMLCanvasElement | null;
 	let ctx: RenderingContext;
 	let chart: Chart;
-	
-	let spectrum: number[] = [];
-	let source;
-	
+		
 	// Control
 	let smoothing: number = 50;
 	
@@ -83,11 +79,14 @@
 			source: generator,
 			bufferSize: bufferSize,
 			featureExtractors: [
-			'amplitudeSpectrum',
+				'amplitudeSpectrum',
+				'spectralCentroid'
 			],
-			callback: (...feature) => {
-				features = feature[0].amplitudeSpectrum.map(f => f*100)
-				chart.data.datasets[0].data = features;
+			callback: (...features) => {
+				const spectrum = features[0].amplitudeSpectrum.map(f => f*100)
+				const centroid = features[1].spectralCentroid;
+				chart.data.datasets[0].data = spectrum;
+				
 				chart.update();
 				// console.log(
 				//     binToHz(
