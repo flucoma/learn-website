@@ -15,24 +15,40 @@ flair: article
     import Image from '$lib/components/Image.svelte';
     import Video from '$lib/components/Video.svelte';
     import YouTube from '$lib/components/YouTube.svelte';
-    import MFWHeader from '$lib/components/MFWHeader.svelte';
+    import ArtistCard from '$lib/components/mwf/ArtistCard.svelte';
     import IndentNote from '$lib/components/IndentNote.svelte';
     import BigQuote from '$lib/components/BigQuote.svelte';
 </script>
 
-<MFWHeader
+<style>
+    .artist-cards {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.5em;
+    }
+</style>
+
+<div class="artist-cards">
+<ArtistCard
 src = "/madewithflucoma/eldridge/alice_profile.jpeg"
 name = "Alice Eldridge"
 website = "https://profiles.sussex.ac.uk/p127749-alice-eldridge"
-bio = "Alice Eldridge’s background in music, psychology (BSc), evolutionary and adaptive systems (MSc) and informatics (PhD) underpins creative and empirical interdisciplinary research in sonic (complex) systems at the interstices of music, technology and ecology. This includes improvisation, composition, field recording, instrument building and computational analysis of natural acoustic environments within the emerging field of ecoacoustics."
-/>
+>
+<p slot="bio">
+Alice Eldridge’s background in music, psychology (BSc), evolutionary and adaptive systems (MSc) and informatics (PhD) underpins creative and empirical interdisciplinary research in sonic (complex) systems at the interstices of music, technology and ecology. This includes improvisation, composition, field recording, instrument building and computational analysis of natural acoustic environments within the emerging field of ecoacoustics.
+</p>
+</ArtistCard>
 
-<MFWHeader
+<ArtistCard
 src = "/madewithflucoma/eldridge/chris_profile.jpeg"
 name = "Chris Kiefer"
 website = "https://profiles.sussex.ac.uk/p208667-chris-kiefer"
-bio = "Chris Kiefer is a computer-musician and musical instrument designer, specialising in musician-computer interaction, physical computing, and machine learning. He performs with custom-made instruments including malleable foam interfaces, touch screen software, interactive sculptures and a modified self-resonating cello. Chris’ research often focuses on participatory design and development of interactive music systems in everyday settings, including digital instruments for children with disabilities, and development of the NETEM networked score system for musical ensembles. His work also concentrates on machine learning and signal processing for audio and interaction, with an emphasis on nonlinear and dynamical systems."
-/>
+>
+<p slot="bio">
+Chris Kiefer is a computer-musician and musical instrument designer, specialising in musician-computer interaction, physical computing, and machine learning. He performs with custom-made instruments including malleable foam interfaces, touch screen software, interactive sculptures and a modified self-resonating cello. Chris’ research often focuses on participatory design and development of interactive music systems in everyday settings, including digital instruments for children with disabilities, and development of the NETEM networked score system for musical ensembles. His work also concentrates on machine learning and signal processing for audio and interaction, with an emphasis on nonlinear and dynamical systems.
+</p>
+</ArtistCard>
+</div>
 
 ## Introduction
 
