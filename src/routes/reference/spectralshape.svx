@@ -11,7 +11,46 @@ category: Analyse Sound
 
 <script>
     import SpectralShape from '$lib/widget/SpectralShape.svelte';
+    import ResourceLink from '$lib/components/ResourceLink.svelte';
 </script>
 
 <SpectralShape />
+
+A narrative type widget that shows from step to step how each of these fit together.
+
+Nyquist
+- Puzzle where the different descriptors provide different bits of _evidence_.
+
+## Spectral Centroid
+Centroid is the centre of gravity or centre of mass in the spectrum.
+- white noise should return half the nyquist
+
+## Spectral Spread
+Deviation of the energy around the spectral centroid.
+
+## Spectral Skewness
+How skewed, or symmetrical the spectrum is around the mean.
+
+## Spectral Kurtosis
+How "peaky" or "pointy" the spectrum is.
+
+## Spectral Rolloff
+The frequency below which is contained 99% of the energy of the spectrum.
+
+## Spectral Flatness
+Literally how _flat_ your spectrum is. White noise occupies equal energy in each frequency bin of a spectral analysis and is therefore very flat. A single sinusoidal peak will be not flat at all. It might be useful for differentiating noisy and tonal sounds.
+
+## Spectral Crest
+
+
+
+## Related Resources
+
+<ResourceLink
+title="Meaningless Numbers: Using Audio Descriptors in a Musical Manner"
+url='https://www.youtube.com/watch?v=Sh7LvH39dsY'
+blurb="An introduction to audio descriptors, how they can be used musically, as well as their assumptions and pitfalls."
+/>
+
+
 

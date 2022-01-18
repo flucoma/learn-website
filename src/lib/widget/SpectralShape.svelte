@@ -5,35 +5,49 @@
 	import * as Tone from 'tone';
 	
 	import SourceGenerator from './SourceGenerator.svelte';
+import { enableProdMode } from '@tensorflow/tfjs';
 	
-	const windowSize = 1024;
+	const windowSize = 512;
 	const bufferSize = windowSize;
+	let spectrum = new Array(windowSize).fill(0.0);
+	const binLabels = new Array(windowSize/2).fill(null).map((_, i) => i * (44100/windowSize))
+	console.log(binLabels)
 	
 	// Audio
-	let features: number[] = new Array(windowSize).fill(0.0);
 	let audioContext: AudioContext;
 	let generator;
+	let source;
+	let enabled = false;
+	
+	let shape = {
+		'centroid' : 0,
+		'spread' : 0,
+		'skewness' : 0,
+		'kurtosis' : 0,
+		'rolloff' : 0,
+		'flatness' : 0,
+		'crest' : 0
+	}
 	
 	// Canvas
 	let canvas: HTMLCanvasElement | null;
 	let ctx: RenderingContext;
 	let chart: Chart;
-		
+	
 	// Control
-	let smoothing: number = 50;
+	let smoothing = 150;
 	
 	onMount(async () => {
 		// Chart
 		Chart.register(...registerables);
 		ctx = canvas.getContext('2d');
 		const data = {
-			labels: features.map((x, i) => i * (44100 / windowSize)),
+			labels: binLabels,
 			datasets: [
 			{
-				data: features,
-				backgroundColor: '#000',
+				data: spectrum,
 				borderColor: '#000',
-				borderWidth: 1,
+				borderWidth: 0.8,
 				cubicInterpolationMode: 'monotone',
 				tension: 0.1,
 				pointRadius: 0,
@@ -44,22 +58,39 @@
 			type: 'line',
 			data: data,
 			options: {
+				plugins: {
+					legend: { display: false },
+					tooltip: {
+						enabled: false,
+					}
+				},
+				datasets: {
+					line: {
+						pointRadius: 0
+					}
+				},
+				elements: {
+					point: {
+						radius: 0
+					}
+				},
+				normalized: true,
 				responsive: true,
 				maintainAspectRatio: false,
-				plugins: { legend: { display: false } },
-				animation: {
-					duration: smoothing
-				},
+				animation: { duration: smoothing },
 				scales: {
 					x: {
 						display: true,
 						type: 'logarithmic',
+						min: 20,
+						max: 20000
 					},
 					y: {
 						display: false,
 						type: 'logarithmic',
 						min: 0,
-						max: 200000
+						max: 10000,
+						
 					}
 				}
 			}
@@ -72,29 +103,39 @@
 	}
 	
 	function startAudioDescriptor() {
-		Tone.start();
+		if (!enabled) {
+			Tone.start();
+			generator.patch("osc"); // activate the sine tone generator
+		} else {
+			audioContext.close();
+		}
+		
 		// Provide with the Tone.js audio context;
 		const analyser = Meyda.createMeydaAnalyzer({
 			audioContext: audioContext,
-			source: generator,
+			source: source,
 			bufferSize: bufferSize,
 			featureExtractors: [
-				'amplitudeSpectrum',
-				'spectralCentroid'
+			'amplitudeSpectrum',
+			'spectralCentroid',
+			'spectralSpread',
+			'spectralSkewness',
+			'spectralKurtosis',
+			'spectralRolloff',
+			'spectralFlatness',
+			
 			],
 			callback: (...features) => {
-				const spectrum = features[0].amplitudeSpectrum.map(f => f*100)
-				const centroid = features[1].spectralCentroid;
-				chart.data.datasets[0].data = spectrum;
-				
+				const desc = features[0];
+				spectrum = desc.amplitudeSpectrum;
+				shape.centroid = binToHz(desc.spectralCentroid, windowSize, 44100);
+				shape.spread = desc.spectralSpread;
+				shape.skewness = desc.spectralSkewness;
+				shape.kurtosis = desc.spectralKurtosis;
+				shape.rolloff = desc.spectralRolloff;
+				shape.flatness = desc.spectralFlatness;
+				chart.data.datasets[0].data = spectrum;				
 				chart.update();
-				// console.log(
-				//     binToHz(
-				//         feature[1].spectralCentroid,
-				//         bufferSize,
-				//         44100
-				//     )
-				// )
 			}
 		});
 		analyser.start();
@@ -102,27 +143,37 @@
 </script>
 
 <div class="container">
-	<button on:click={startAudioDescriptor}>Enable Audio</button>
+	<button on:click={startAudioDescriptor}>
+		Start Audio
+	</button>
 	
 	<canvas id="vis" bind:this={canvas} />
+
+	<button on:click={
+		() => {
+			chart.options.scales.x.type='linear'
+		}
+	}>lin</button>
+	
+	<button on:click={
+		() => {
+			chart.options.scales.x.type='logarithmic'
+		}
+	}>log</button>
+	
+	{#each Object.entries(shape) as [k, v]}
+	<div class="descriptor">
+		<div>{ k }: { v.toFixed(1) }</div>
+	</div>
+	{/each}
+	
 	
 	<SourceGenerator 
 	bind:audioContext={audioContext}
-	bind:output={generator}
+	bind:output={source}
+	bind:this={generator}
 	/>
 	
-	<div class="controls">		
-		<div class="smoothing">
-			<span>Smoothing: {smoothing} frames</span>
-			<input
-			type="range"
-			min="50"
-			max="1000"
-			bind:value={smoothing}
-			on:input={() => (chart.options.animation.duration = smoothing)}
-			/>
-		</div>
-	</div>
 </div>
 
 <style>
@@ -131,26 +182,6 @@
 		flex-direction: column;
 		margin-top: 1em;
 		margin-bottom: 1em;
-	}
-	
-	.controls {
-		display: flex;
-		flex-direction: column;
-		gap: 1em;
-	}
-	
-	.smoothing {
-		display: grid;
-		place-items: center;
-		gap: 0.3em;
-	}
-	
-	.smoothing > span {
-		white-space: nowrap;
-	}
-	
-	.smoothing > input {
-		width: 60%;
 	}
 	
 	#vis {
