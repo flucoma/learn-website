@@ -1,5 +1,5 @@
 ---
-title: Using FluCoMa to make a shared instrument
+title: Using FluCoMa to Make a Shared Instrument
 artist: Alice Eldridge & Chris Kiefer
 blurb: |
     In this article we explore the work of Alice Eldridge and Chris Kiefer and how they used the FluCoMa tools to augment their Feedback Cello shared instrument system.
@@ -18,6 +18,7 @@ flair: article
     import ArtistCard from '$lib/components/mwf/ArtistCard.svelte';
     import IndentNote from '$lib/components/IndentNote.svelte';
     import BigQuote from '$lib/components/BigQuote.svelte';
+    import CodeBlock from '$lib/components/CodeBlock.svelte';
 </script>
 
 <style>
@@ -143,6 +144,31 @@ label="Eldridge uses a mix and pedals to control the gain structure."
 
 Once this analogue setup was stable, they could begin introducing the digital, MLP-driven part of the system to wreak havoc on it! The question of training the neural network was something that Kiefer and Eldridge stated as being a crucial par of the development process, and one that has no easy answer. Kiefer explained that they explored different methods systematically. One important question to answer was whether it was better to use lots and lots of training data or not. They experimented with “*lots of little ten second bursts of sounds that were averaged out and connected with different space, to just two different pulls of long sounds from the cello*”. At first, they would try to “*peg out the space*”, for example “*quiet bridge sounds coupled with 2 parameters high and one low, then really loud, harmonically riche sounds, then pizz sounds with sharp onsets etc. with one parameter max and the other min, or all at max, all at min.*”. 
 
+<CodeBlock>
+
+```js
+// Extracts from Kiefer's SuperCollider patch.
+
+// Setting up the MLP regressor:
+(
+~net = FluidMLPRegressor(s,[40,20], activation: 1, outputActivation: 1, maxIter: 10, learnRate: 0.1, momentum: 0, batchSize: 1, validation: 0);
+
+~mode = 0;
+~entry = 0;
+~inputBuffer = Buffer.alloc(s,~nIn);
+~outputBuffer = Buffer.alloc(s,~nOut);
+~inData = FluidDataSet(s);
+~outData = FluidDataSet(s);
+)
+
+// Training the neural network:
+(
+~net.fit(~inData,~outData,{|x| x.postln;});
+)
+```
+
+</CodeBlock>
+
 This process of experimentation continued for weeks, and through this Kiefer built-up a certain *embodied knowledge* about how the network worked. He explained that “*in the end, I got an intuitive feel for it. I just told Alice to play, and I’ll collect some stuff. I just got a feel for when and where to go and how to pair things up.*” The experimentation process contributed to his learning of how to train the network, but he tried not to think about it too much: “*it’s such an imprecise science, if you get a human feel for how it works, then it just somehow works*”.
 
 <Image
@@ -154,7 +180,7 @@ You can test out this kind of process for yourself with the example patch *01 Tr
 
 Despite the embodied nature of this knowledge, there is one conclusion that seems to have emerged from Eldridge and Kiefer’s project. Kiefer explained that “*if you’ve got a deep network, you need loads and loads of data to get it to do something useful*”. They, on the other hand, found that the light-weight approach worked best for them, and provided the most interesting results.
 
-## Shared Instrument in performance
+## Shared Instrument in Performance
 
 As you can imagine, this system delivers quite a unique and bespoke interface to perform with. It is a shared instrument; it is also a very delicate instrument: the fine tuning of the gain structure means that it can be difficult to get things to work correctly in a new performance space. It is challenging instrument for the musicians: indeed, Eldridge is using the cello not only as a means for generating sound, but also as a controller for the modular setup. These two functions are fulfilled simultaneously: she explained that there was “*a huge learning curve*”. All these elements combine to make performing with this shared instrument a real challenge, and a notion that is still being developed and explored through Eldridge and Kiefer’s ongoing practice.
 
