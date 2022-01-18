@@ -210,7 +210,7 @@ For the moment, we have one slicing using peak amplitude (A), and another using 
 
 <Image
 src="/madewithflucoma/hayes/schema_1.jpg"
-label="An representation of the signal path in Hayes patch (1)."
+label="A representation of the signal path in Hayes' patch (1)."
 />
 
 <Image
@@ -226,7 +226,7 @@ Note that the amplitude slicing also triggers other things in the patch.
 
 <Image
 src="/madewithflucoma/hayes/schema_2.jpg"
-label="An representation of the signal path in Hayes patch (2)."
+label="A representation of the signal path in Hayes' patch (2)."
 />
 
 After this, we can add the slicing that occurs within the *04 Knife* example patch. 
@@ -251,7 +251,7 @@ It is interesting to remark which parts of the software Hayes decides to control
 
 <Image
 src="/madewithflucoma/hayes/schema_3.jpg"
-label="An representation of the signal path in Hayes patch (3)."
+label="A representation of the signal path in Hayes' patch (3)."
 />
 
 We can now update our signal flow representation again. 
@@ -285,7 +285,7 @@ If we consider this in the context of struggle and resistance, we can imagine th
 
 <Image
 src="/madewithflucoma/hayes/schema_4.jpg"
-label="An representation of the signal path in Hayes patch (4)."
+label="A representation of the signal path in Hayes' patch (4)."
 />
 
 Finally, we can once more update our representation of the signal paths. 
@@ -305,7 +305,7 @@ It is also interesting to note that Hayes allowed control of the output of both 
 
 <Image
 src="/madewithflucoma/hayes/schema_5.jpg"
-label="An representation of the signal path in Hayes patch (5)."
+label="A representation of the signal path in Hayes' patch (5)."
 />
 
 We can finally update our signal paths in the following way. 
