@@ -22,7 +22,7 @@
             datasets: [
             {
                 data: spectrum,
-                borderColor: '#000',
+                borderColor: 'black',
                 borderWidth: 0.8,
                 cubicInterpolationMode: 'monotone',
                 tension: 0.1,
@@ -42,13 +42,13 @@
                                 type: 'line',
                                 yMin: 0, yMax: 10000,
                                 xMin: 600, xMax: 600,
-                                borderColor: 'red',
+                                borderColor: 'rgba(256,0,0,0.25)',
                             },
                             rolloff : {
                                 type: 'line',
                                 yMin: 0, yMax: 10000,
-                                xMin: 0, xMax: 0 
-
+                                xMin: 0, xMax: 0,
+                                borderColor: 'rgba(0,0,256,0.25)'
                             }
                         }
                     },
@@ -73,10 +73,24 @@
                 maintainAspectRatio: false,
                 scales: {
                     x: {
+                        ticks: {
+                            autoSkip: true,
+                            callback: (value) => {
+                                if (value > 1000) {
+                                    return ((value/1000) + ' kHz')
+                                } else {
+                                    return value + ' Hz'
+                                }
+                            },
+                            minRotation: 90,
+                            maxRotation: 90,
+                            autoSkip: true,
+                            autoSkipPadding: 14
+                        },
                         display: true,
                         type: 'logarithmic',
                         min: 20,
-                        max: 20000
+                        max: 20000,
                     },
                     y: {
                         display: false,

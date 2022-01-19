@@ -228,9 +228,6 @@
 
 
 <style>
-    legend, label {
-        font-family: monospace;
-    }
     #source-selector {
         display: flex;
         flex-direction: column;
