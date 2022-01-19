@@ -12,7 +12,7 @@ flair: article
     import Audio from '$lib/components/Audio.svelte';
 </script>
 
-# Decomposition
+## Decomposition
 
 "NMF" stands for Non-negative Matrix Factorization, which is a machine learning algorithm that can be used for decomposing an audio buffer into component parts. In this example, we’ll look at decomposing a mono drum loop into three different mono audio buffers, each hopefully containing the hits from just one of the instruments: kick, snare, and cymbal. Here is the recording and spectrogram of our drum loop.
 
