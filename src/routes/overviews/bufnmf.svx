@@ -1,9 +1,12 @@
 ---
 title: Audio Decomposition using BufNMF
 blurb: |
-    Decompose an audio buffer into component parts using non-negative matrix factorization.
+    Decompose an audio buffer into component parts using non-negative matrix factorisation.
 tags:
     - decomposition
+    - nmf
+    - analysis
+    - machine learning
 flair: article
 ---
 
@@ -14,7 +17,7 @@ flair: article
 
 ## Decomposition
 
-"NMF" stands for Non-negative Matrix Factorization, which is a machine learning algorithm that can be used for decomposing an audio buffer into component parts. In this example, we’ll look at decomposing a mono drum loop into three different mono audio buffers, each hopefully containing the hits from just one of the instruments: kick, snare, and cymbal. Here is the recording and spectrogram of our drum loop.
+"NMF" stands for Non-negative Matrix Factorisation, which is a machine learning algorithm that can be used for decomposing an audio buffer into component parts. In this example, we’ll look at decomposing a mono drum loop into three different mono audio buffers, each hopefully containing the hits from just one of the instruments: kick, snare, and cymbal. Here is the recording and spectrogram of our drum loop.
 
 <Audio
 src="/audio/Nicol-LoopE-M.mp3"
@@ -35,7 +38,7 @@ label="(red = kick, blue = snare, yellow = cymbal)"
 
 As you can see (and hear in the playback), these different drum hits overlap quite a lot in both time and spectrum meaning that a purely time-based (such as a slicer) or purely spectral (such as a filter) strategy for separating these hits wouldn’t work very well.
 
-This is where Non-negative Matrix Factorization can be quite useful.
+This is where non-negative matrix factorisation can be quite useful.
 
 We can use BufNMF to analyze the drum loop’s spectrogram and determine which parts of the spectrum always (or often) occur together in time. For example, in the snare hits (the green boxes) you can see the different partials of the drum head’s resonant tone (the horizontal bands from ~300 Hz to ~2000 Hz) always occurring together. Sometimes there is also some cymbal sound happening (above that in a red box), but because the cymbal sound is often not there, NMF will try to decompose the spectrogram in such a way that these can be considered separate components. In general, the more that different sound objects are separated out in time and the more repetitions of each sound object, the better BufNMF will be at identifying and separating them.
 
@@ -48,7 +51,7 @@ Processing this mono drum loop with BufNMF (specifying that we want it to try to
 
 <Image
 src="/overviews/bufnmf/05_resynth_spectrogram_mel_component_0.png"
-label=""
+label="Mel-frequency spectrogram of Component #1"
 />
 
 <Audio
@@ -60,7 +63,7 @@ label="Component #1"
 
 <Image
 src="/overviews/bufnmf/05_resynth_spectrogram_mel_component_1.png"
-label=""
+label="Mel-frequency spectrogram of Component #2"
 />
 
 <Audio
@@ -72,7 +75,7 @@ label="Component #2"
 
 <Image
 src="/overviews/bufnmf/05_resynth_spectrogram_mel_component_2.png"
-label=""
+label="Mel-frequency spectrogram of Component #3"
 />
 
 <Audio
