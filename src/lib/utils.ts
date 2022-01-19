@@ -13,4 +13,9 @@ function logslider(position, imin, imax, omin, omax) {
     return Math.exp(minv + scale*(position-minp));
 }
 
-export { logslider }
+function binToHz(bin: number, windowSize: number, sampleRate: number): number {
+    const binWidth = sampleRate / windowSize;
+    return bin * binWidth;
+}
+
+export { logslider, binToHz }
