@@ -12,7 +12,8 @@
 </script>
 
 <button 
-style:width={width} 
+style:width={width}
+style:height={height}
 class:disabled 
 class="btn" 
 on:click={clickHandler} 
