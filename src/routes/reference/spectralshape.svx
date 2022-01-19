@@ -14,16 +14,13 @@ category: Analyse Sound
     import ResourceLink from '$lib/components/ResourceLink.svelte';
 </script>
 
+SpectralShape is an object that calculates several audio-descriptors and bundles them together. This collection of audio-descriptors describe the _shape_ of a spectrum which might, as a result, tell us something about the characteristics of a sound and how they might be unique or similar compared to other sounds. It can give us indications about the how "spread out" a spectrum is, where the "centre" is or perhaps how "flat" or "tilted" the overall shape is. As always, audio-descriptors have the potential to be misleading, after all, machines only model narrow models of hearing and not our wonderfully multi-modal ears. Therefore, it is important to keep in mind how the values themselves are derived so that we can apply our musicianly judgement to them and derive usefulness from what they are _actually_ describing about the spectrum. [Alex Harker](https://www.alexanderjharker.co.uk/) has an informative talk about this in the [Related Resources](#related-resources).
+
 <SpectralShape />
 
-A narrative type widget that shows from step to step how each of these fit together.
-
-Nyquist
-- Puzzle where the different descriptors provide different bits of _evidence_.
-
 ## Spectral Centroid
-Centroid is the centre of gravity or centre of mass in the spectrum.
-- white noise should return half the nyquist
+Centroid is the centre of gravity or centre of mass in the spectrum. If you imagine trying to balance the spectrum on your finger, where would you place it?
+- Sine tone vs noise
 
 ## Spectral Spread
 Deviation of the energy around the spectral centroid.
