@@ -94,7 +94,7 @@ BufNMF gives you access to the “bases” and “activations” that it derives
 
 ### Bases
 
-The “bases” can be thought of as spectral templates (or filter curves) that BufNMF discovers in the course of analyzing the spectrogram. As described above, BufNMF analyzes a spectrogram to determine which parts of the spectrum always (or often) occur together in time. These parts of the spectrum that occur together are then combined into one spectral template (or “basis”). You can see below the bases for the drum analysis conducted above. Each plot is a spectrum (the x axis is spectral bins, representing frequency, and the y axis is magnitude, representing loudness).
+The “bases” can be thought of as spectral templates (or filter curves) that BufNMF discovers in the course of analyzing the spectrogram. As described above, BufNMF analyzes a spectrogram to determine which parts of the spectrum always (or often) occur together in time. These parts of the spectrum that occur together are then combined into one spectral template (or “basis”). You can see below the bases for the drum analysis conducted above. Each plot is a spectrum (the _x_ axis is spectral bins, representing frequency, and the _y_ axis is magnitude, representing loudness).
 
 <Image
 src="/overviews/bufnmf/01_Bases_plot.png"
@@ -105,7 +105,7 @@ Basis 1 only has one peak of energy very low in the spectrum representing the ki
 
 ### Activations
 
-Each base is also paired with an “activation” which represents how present each of these bases is throughout the audio buffer (through time). Below you can see the activations from the drum analysis conducted above overlaid on the waveforms of their corresponding components. For each plot the x axis is time and the y axis is loudness.
+Each base is also paired with an “activation” which represents how present each of these bases is throughout the audio buffer (through time). Below you can see the activations from the drum analysis conducted above overlaid on the waveforms of their corresponding components. For each plot the _x_ axis is time and the _y_ axis is loudness.
 
 <Image
 src="/overviews/bufnmf/00_resynth_buffer_with_activations.png"
@@ -131,4 +131,4 @@ label="Activation of Component #3 enveloping pink noise."
 
 When BufNMF decomposes the mono drum buffer into the three component buffers (as seen and heard above) it does this by combining each component’s basis with just that component’s activation to resynthesize the component’s resulting audio buffer. For example BufNMF combines just the “hi-hat basis” (i.e., spectral template) with just the “hi-hat activation” (loudness envelope through time) to resynthesize the resulting “hi-hat component” audio buffer.
 
-There are a suite of objects in the FluCoMa toolkit that can be used along with BufNMF’s bases and activations. Check out NMFFilter, NMFMatch, NMFMorph, and BufNMFCross.
+There are a suite of objects in the FluCoMa toolkit that can be used along with BufNMF’s bases and activations. Check out [NMFFilter](/reference/nmffilter), [NMFMatch](/reference/nmfmatch), [NMFMorph](/reference/nmfmorph), and [BufNMFCross](/reference/bufnmfcross).
