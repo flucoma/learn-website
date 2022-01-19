@@ -9,3 +9,5 @@ tags:
     - activations
 flair: article
 ---
+
+## Seeding BufNMF with Bases and/or Activations
