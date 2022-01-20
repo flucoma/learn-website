@@ -66,7 +66,7 @@ For more information on using `basesMode` and `actMode`, see the [Seeding Bases 
 </IndentNote>
 
 If supplying pre-formed data (for `actMode` and `basesMode` 1 and 2), it's up to the user to make sure that the supplied buffers are the right size: bases must be **(fft size / 2) + 1** frames and **components * input channels** channels
-activations must be **(input frames / hopSize) + 1** frames and **components * input channels** channels
+activations must be **(input frames / hopSize) + 1** frames and **components * input channels** channels. FFT settings can be set in the BufNMF object.
 
 ### Arguments
 
