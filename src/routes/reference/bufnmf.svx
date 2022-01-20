@@ -61,7 +61,7 @@ If either of these arguments are set to 2, BufNMF will not modify the supplied c
 
 <IndentNote type='pointer'>
 
-For more information on using `basesMode` and `actMode`, see the [Seeding Bases and Activations](/overviews/seeding-bases-and-activations) Overview.
+For more information on using `basesMode` and `actMode`, see the [Seeding NMF](/overviews/seeding-nmf) Overview.
 
 </IndentNote>
 
