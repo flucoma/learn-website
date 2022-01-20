@@ -25,13 +25,14 @@ NMFMatch is designed to work with bases taken from a BufNMF analysis. Please vis
 
 </IndentNote>
 
-NMFMatch compares the spectrum of an incoming audio signal against a set of spectral templates provided by the user (such as bases from a BufNMF analysis). It continuously outputs values indicating how similar the spectrum of the incoming signal is to each of the provided bases (0 = more dissimilar; higher values = more similar). NMFMatch can be used as the foundation of  of classifier to estimate when certain sounds are present.
+NMFMatch compares the spectrum of an incoming audio signal against a set of spectral templates provided by the user (such as bases from a BufNMF analysis). It continuously outputs values indicating how similar the spectrum of the incoming signal is to each of the provided bases (0 = more dissimilar; higher values = more similar). NMFMatch can be used as the foundation of a classifier to estimate when certain sounds are present.
 
-The bases from the [BufNMF Overview](/overviews/bufnmf) example contain spectral templates for the (1) kick drum, (2) snare drum, and (3) high hat components of the original drum loop. One can use these bases in NMFMatch to determine how similar an audio signal is to each of these spectral templates at any given point in time.
+The bases from the [BufNMF Overview](/overviews/bufnmf) example contain spectral templates for the (1) kick drum, (2) snare drum, and (3) high-hat components of the original drum loop. One can use these bases in NMFMatch to determine how similar an audio signal is to each of these spectral templates at any given point in time.
 
-First, let’s provide these bases and send the original drum loop through NMFMatch (the plot below shows the recorded output values of NMFMatch). This shows how similar the audio signal of the original drum loop is to each of these spectral templates at each moment in time.
+First, let’s provide these bases and send the original drum loop through NMFMatch (the plot below shows the recorded real-time output values of NMFMatch). This shows how similar the audio signal of the original drum loop is to each of these spectral templates at each moment in time.
 
-<!-- TODO: <example code> -->
+<a href='/overviews/nmfmatch/nmfmatch-example.scd' download='nmfmatch-example.scd'>SuperCollider example code for this overview</a>
+<a href='/overviews/nmfmatch/nmfmatch-example.maxpat' download='nmfmatch-example.maxpat'>Max example code for this overview</a>
 
 <Image
 src="/overviews/nmfmatch/00_drums_nmf_match.png"
@@ -54,8 +55,6 @@ label="Recorded output values of NMFMatch when the this song is sent through it 
 
 Again, one sees what looks like activations for each of the drum loop’s bases. To get a sense of what these curves represent, one can use NMFFilter to hear what these three components contain.
 
-<!-- TODO: <example code> -->
-
 <Audio
 src="/overviews/nmfmatch/02_song_component_1.mp3"
 label="Output #1 (from basis #1) of the song excerpt when sent through NMFFilter using the bases from the drum loop."
@@ -71,7 +70,7 @@ src="/overviews/nmfmatch/02_song_component_3.mp3"
 label="Output #3 (from basis #3) of the song excerpt when sent through NMFFilter using the bases from the drum loop."
 />
 
-NMFFilter has relatively well decomposed the hi hat, kick drum, and snare drum sounds from this song (because those are the bases from the drum loop!). Therefore, one could consider the output of NMFMatch to roughly represent the presence of a hi hat, kick drum, or snare drum in this song. Of course there are other sounds in each of these components as well, as all of the sound from the original file needs to be represented by these components.
+NMFFilter has relatively well decomposed the kick drum, snare drum, and hi-hat sounds from this song (because those are the bases from the drum loop!). Of course there are other sounds in each of these components as well, as all of the sound from the song recording needs to be represented by these components. One could consider the output of NMFMatch to roughly represent the presence of a hi-hat, kick drum, or snare drum in this song.
 
 ## Training on a Subset of Audio
 
@@ -84,17 +83,14 @@ label="Field recording excerpt included in the FluCoMa package."
 
 Because this recording is only 22 seconds long, one could use BufNMF to decompose the buffer into two or three components and then see if one of those contains just the dog’s barks. The activation of such a component would represent where in the buffer the dog’s barks are present.
 
-If this buffer were much longer (maybe an hours-long field recording) trying to find all the dog barks with just BufNMF would take much too long to compute. In this example we’ll use BufNMF to decompose a section of the field recording (4 seconds) to find a basis for the dog’s bark. Then we’ll use NMFMatch to find where in a longer recording that basis (i.e., dog bark) occurs.
+If this buffer were much longer (maybe an hours-long field recording) trying to find all the dog barks with just BufNMF would take much too long to compute. In this example we’ll use BufNMF to decompose a section of the field recording (four seconds) to find a basis for the dog’s bark. Then we’ll use NMFMatch to find where in a longer recording that basis (i.e., dog bark) occurs.
 
 First, let’s perform BufNMF on just the first four seconds of this field recording because we know the dog’s bark is represented there. We will specify 2 components, hoping that BufNMF will decompose these four seconds into (1) the dog bark and (2) the “rest”.
 
 <Audio
-src="/overviews/nmfmatch/03_golcar4sec
-.mp3"
+src="/overviews/nmfmatch/03_golcar4sec.mp3"
 label="The first four seconds of the field recording used to create a basis of the dog bark and the 'rest'."
 />
-
-<!-- TODO: <example code> -->
 
 BufNMF seems to have done a good job of isolating the dog bark in one component and the “rest” in another.
 
@@ -120,11 +116,7 @@ src="/overviews/nmfmatch/04_golcar4sec_bases.png"
 label="Bases from four second BufNMF analysis. (blue = dog bark, orange = the 'rest')"
 />
 
-Now we can use these bases with NMFMatch to find where in the whole sound file the dog bark occurs.
-
-<!-- TODO: <example code> -->
-
-(The plot below shows the recorded output values of NMFMatch.)
+Now we can use these bases with NMFMatch to find where in the whole sound file the dog bark occurs. (The plot below shows the recorded output values of NMFMatch.)
 
 <Image
 src="/overviews/nmfmatch/06_golcar_activations_stacked=false.png"
