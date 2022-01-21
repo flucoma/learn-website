@@ -8,3 +8,42 @@ tags:
 flair: reference
 category: Analyse Data
 ---
+
+<script>
+    import ResourceLink from '$lib/components/ResourceLink.svelte';
+    import Grid from '$lib/widget/Grid.svelte';
+</script>
+
+<Grid />
+
+## Related Resources
+
+<ResourceLink 
+title='A shortest augmenting path algorithm for dense and sparse linear assignment problems'
+url='https://www.gwern.net/docs/statistics/decision/1987-jonker.pdf'
+blurb='The original algorithm described in a paper by Jonker and Volgenant'
+/>
+
+<ResourceLink 
+title='RasterFairy'
+url='https://github.com/Quasimondo/RasterFairy'
+blurb='A similar grid assignment project'
+/>
+
+<ResourceLink 
+title='CloudToGrid'
+url='https://github.com/kylemcdonald/CloudToGrid/'
+blurb='A similar grid assignment project'
+/>
+
+<ResourceLink
+title='IsoMatch: Creating Informative Grid Layouts'
+url='http://users.sussex.ac.uk/~nq28/kernelized_sorting.html'
+blurb='A similar grid assignment project'
+/>
+
+<ResourceLink
+title='Kernelised Sorting'
+url='http://users.sussex.ac.uk/~nq28/kernelized_sorting.html'
+blurb='A related algorithm'
+/>
