@@ -16,13 +16,14 @@
 
 <style lang="postcss">
 	.btn {
-		font-family: var(--font);
 		border: 1px outset var(--light-blue);
 		background-color: var(--light-blue);
 		color: white;
 		height: 38px;
 		cursor: pointer;
 		transition: box-shadow 0.1s;
+		border-radius: 0.25em;
+		font-size: 1rem;
 	}
 
 	.btn:active {
