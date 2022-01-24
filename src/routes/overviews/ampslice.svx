@@ -40,3 +40,15 @@ label="Green = relative envelope (the difference between the two)"
 You can see that the difference between the two envelope followers is greater (the relative envelope is higher) at the beginning of an amplitude onset because the “fast” envelope follower has responded quickly, jumping up to a high amplitude value, while the “slow” envelope follower takes more time to rise up in response to the sudden change.
 
 AmpSlice will indicate that an amplitude onset has occurred when this relative envelope goes above a threshold (indicated by the green horizontal line below). This parameter is called `onThreshold`.
+
+<Image
+src="/overviews/ampslice/ampslice-3.png"
+label="When the relative threshold goes above a user-defined threshold, an 'onset' is triggered."
+/>
+
+Once an amplitude onset has been detected, AmpSlice must detect the “offset” of this musical moment before it can trigger another onset (a system like this is called a Schmitt Trigger). Similar to how it identifies an onset as when the relative envelope goes above a threshold, an “offset” identified when the relative threshold goes below another threshold (indicated by the red line below). This parameter is called `offThreshold`.
+
+<Image
+src="/overviews/ampslice/ampslice-4.png"
+label="Once the relative envelope goes below the 'offThreshold', and 'offset' is identified, allowing AmpSlice to trigger another onset."
+/>
