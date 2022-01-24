@@ -1,0 +1,42 @@
+---
+title: AmpSlice
+blurb: Relative value amplitude-based slicing
+tags:
+    - slicing
+    - segmentation
+flair: article
+---
+
+<script>
+    import IndentNote from '$lib/components/IndentNote.svelte';
+    import Image from '$lib/components/Image.svelte';
+    import Audio from '$lib/components/Audio.svelte';
+    import ResourceLink from '$lib/components/ResourceLink.svelte';
+</script>
+
+AmpSlice determines when an amplitude onset has occurred by comparing two amplitude envelope followers on the same audio signal. One envelope follower is “fast” meaning that it responds quickly to changes in amplitude. The other is “slow” meaning that it responds more slowly to changes. You can see these two envelope followers below (blue is “fast”, orange is “slow”):
+
+<Image
+src="/overviews/ampslice/ampslice-0.png"
+label="Drum Loop: 'Nicol-LoopE-M' (sample 352068 to 390016), fastRampUp: 8820, fastRampDown: 4410, slowRampUp: 22050, slowRampDown: 26460; (these parameters are exaggerated-larger than they need to be–for visual clarity in the diagrams)"
+/>
+
+You can see that the curves created by these envelope followers lag behind the actual attack of these drum hits. This is because the envelope followers can’t look into the future to determine when a hit might happen, they can only respond to changes as they develop.
+
+AmpSlice is concerned with the difference between these two envelope followers. The chart below shows a measurement of the difference at a few different moments during the first drum hit (indicated by the I bars).
+
+<Image
+src="/overviews/ampslice/ampslice-1.png"
+label="Measuring the difference between the two envelope followers at a few moments in time."
+/>
+
+AmpSlice determines the difference between these two envelope curves by subtracting one from the other (fast minus slow) to create a "relative envelope" (the green curve below).
+
+<Image
+src="/overviews/ampslice/ampslice-2.png"
+label="Green = relative envelope (the difference between the two)"
+/>
+
+You can see that the difference between the two envelope followers is greater (the relative envelope is higher) at the beginning of an amplitude onset because the “fast” envelope follower has responded quickly, jumping up to a high amplitude value, while the “slow” envelope follower takes more time to rise up in response to the sudden change.
+
+AmpSlice will indicate that an amplitude onset has occurred when this relative envelope goes above a threshold (indicated by the green horizontal line below). This parameter is called `onThreshold`.
