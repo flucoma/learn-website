@@ -5,6 +5,10 @@ tags:
     - utlity
     - data
     - querying
+    - dataset
+    - umap
+    - mds
+    - pca
 flair: reference
 category: Analyse Data
 ---
