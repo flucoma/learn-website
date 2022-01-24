@@ -5,48 +5,45 @@ tags:
     - data
     - querying
     - labelling
+    - annotation
+    - tags
 flair: reference
 category: Analyse Data
 ---
 
 <script>
-    import DataSetView from '$lib/components/DataSetView.svelte';
     import LabelSetView from '$lib/components/LabelSetView.svelte';
-
-    const labelset = [
-        { "1" : "trombone" },
-        { "2" : "oboe" },
-        { "3" : "oboe" },
-        { "4" : "trombone" },
-        { "5" : "trombone" }
-    ]
-
-    const dataset = [
-        { "1" : [132.11, 323.3, 424.44] },
-        { "2" : [0.01, 1.32, 3.14] }
-        { "3" : [2.11, 1.23, 0.84] }
-        { "4" : [233.3, 400.2, 98.3] },
-        { "5" : [244.7, 89.2, 800] }
-    ]
-
+    import DataSetView from '$lib/components/DataSetView.svelte';
 </script>
 
-The [LabelSet]() supports building an associate collection of _labels_ and _identifiers_. The interface for doing this is similar to [DataSet](/reference/dataset), only that instead of providing an identifier and some data, you provide an identifier and a human-readable string. Because a [DataSet](/reference/dataset) and a [LabelSet]() can share identifiers, it allows us to "tag" or "annotate" data with words. This is an important part of building, for example, [classification workflows with neural networks](/overviews/classification-neural-network) or for inferring the results of clustering such as from [KMeans](/reference/kmeans).
+The [LabelSet]() supports building an associate collection of _labels_ and _identifiers_. The interface for doing this is similar to [DataSet](/reference/dataset), only that instead of providing an identifier and some data, you provide an identifier and a human-readable string. Because a [DataSet](/reference/dataset) and a [LabelSet]() can share identifiers, it allows us to create higher-level connections between the identifiers of stored in each one. This is an important part of building, for example, [classification workflows with neural networks](/overviews/classification-neural-network) or for inferring the results of clustering such as from [KMeans](/reference/kmeans).
 
-A [LabelSet]() is depicted below:
+To illustrate this, a [LabelSet]() is depicted below:
 
-<LabelSetView 
-data={labelset}
+<LabelSetView
+data={[
+    { "1" : "trombone" },
+    { "2" : "oboe" },
+    { "3" : "oboe" },
+    { "4" : "trombone" },
+    { "5" : "trombone" }
+]}
 />
 
-We could use this [LabelSet]() in combination with a [DataSet](/reference/labelset) such as the one below to form the basis of a classification system by which audio analysis stored in the dataset is then manually annotated by yourself.
+We could use this [LabelSet]() in combination with the [DataSet](/reference/dataset) depicted below to form the basis of an instrumental classification system.
 
-<!-- <DataSetView 
-data={dataset}
-/> -->
+<DataSetView 
+data={[
+    { "1" : [132.11, 323.3, 424.44] },
+    { "2" : [0.01, 1.32, 3.14] },
+    { "3" : [2.11, 1.23, 0.84] },
+    { "4" : [233.3, 400.2, 98.3] },
+    { "5" : [244.7, 89.2, 800] }
+]}
+/>
 
 ## Some Caveats to Remember
 
-1. Identifiers are unique. You cannot have the same identifier twice in a single [LabelSet](/reference/dataset).
+1. Identifiers are unique. You cannot have the same identifier twice in a single [LabelSet](/reference/labelset).
 
 
