@@ -44,7 +44,7 @@ src="/reference/hpss/220112_205334_00_Original_Spectrogram_single_row.png"
 label="One row in this spectrogram represents a single frequency range over the entire duration of the spectrogram."
 />
 
-The plot below shows the magnitudes in that row (blue line) over the whole duration of the sound, revealing the six “percussive” strums that occur. The orange line shows the result of applying the median filter and how those “percussive” parts of this row are very suppressed. One can think of these percussive moments as outliers that are somewhat removed by the median filter. The larger that the argument **harmFilterSize** is, the more these “percussive” moments will be suppressed, and therefore removed from the harmonic-enhanced spectrogram.
+The plot below shows the magnitudes in that row (blue line) over the whole duration of the sound, revealing the six “percussive” strums that occur. The orange line shows the result of applying the median filter and how those “percussive” parts of this row are very suppressed. One can think of these percussive moments as outliers that are somewhat removed by the median filter. The larger that the argument `harmFilterSize` is, the more these “percussive” moments will be suppressed, and therefore removed from the harmonic-enhanced spectrogram.
 
 <Image
 src="/reference/hpss/03_median_filter_on_a_row.png"
@@ -73,7 +73,7 @@ src="/reference/hpss/04_median_filter_on_a_column.png"
 label="One column (FFT frame) of the spectrogram. x axis = FFT bins; y axis = magnitude; median filter length = 91"
 />
 
-The many peaks and valleys in this magnitude spectrum (blue line) are created by the harmonic structure of the sustaining guitar strings (i.e., the “harmonic” part of the sound). The orange line shows the result of applying a median filter to the magnitudes. You can see how the harmonic information in the spectrum is greatly suppressed. Again, the median filter removes what seem to be “outliers,” in this case harmonic peaks. The larger that the argument **percFilterSize** is, the more these harmonic peaks will be suppressed, and therefore not represented in the percussive-enhanced spectrogram.
+The many peaks and valleys in this magnitude spectrum (blue line) are created by the harmonic structure of the sustaining guitar strings (i.e., the “harmonic” part of the sound). The orange line shows the result of applying a median filter to the magnitudes. You can see how the harmonic information in the spectrum is greatly suppressed. Again, the median filter removes what seem to be “outliers,” in this case harmonic peaks. The larger that the argument `percFilterSize` is, the more these harmonic peaks will be suppressed, and therefore not represented in the percussive-enhanced spectrogram.
 
 Applying this median filter to all the columns creates the percussive-enhanced spectrogram seen below.
 
@@ -90,7 +90,7 @@ The next step is to create “masks”. Masks are the same shape as these spectr
 After generating these masks (described in detail below), they are multiplied by the magnitudes in the original spectrogram to create the output percussive and harmonic components.
 
 ## Binary Mask
-The most basic kind of mask is the binary mask, which means it is filled with the binary options: zero or one. To use binary masking with FluCoMa’s HPSS object, the **maskingMode** argument must be set to 1. The harmonic and percussive binary masks are created by comparing each point in the harmonic-enhanced and percussive-enhanced spectrogram (each magnitude at each point in time) and simply seeing which is larger. If the magnitude in the harmonic-enhanced spectrogram is greater than the same one in the percussive-enhanced, then the harmonic mask gets a 1 at that point and the percussive mask gets a 0 and vice versa.
+The most basic kind of mask is the binary mask, which means it is filled with the binary options: zero or one. To use binary masking with FluCoMa’s HPSS object, the `maskingMode` argument must be set to 1. The harmonic and percussive binary masks are created by comparing each point in the harmonic-enhanced and percussive-enhanced spectrogram (each magnitude at each point in time) and simply seeing which is larger. If the magnitude in the harmonic-enhanced spectrogram is greater than the same one in the percussive-enhanced, then the harmonic mask gets a 1 at that point and the percussive mask gets a 0 and vice versa.
 
 In the plots below you can see that the same spot is compared in each enhanced spectrogram (the red square, which is enhanced in size for clarity). Since the percussive-enhanced has a greater magnitude at that point (green is > than blue), the percussive binary mask gets a 1 (yellow), while the percussive gets a 0 (blue).
 
@@ -125,7 +125,7 @@ label="Percussive Component Output Spectrogram (created using a Binary Mask)"
 Here we see the vertical percussive ridges of the guitar strums strongly represented. The lower partials of the harmonic guitar sustains (the yellow horizontal ridges above) are completely absent, as seen by all the black near the bottom. Although we do see some horizontal structure in this spectrogram, notice that it is filled with blue, meaning the magnitudes are rather quiet. These blue bands are the inverse of the much louder (yellow) horizontal ridges represented in the harmonic component output spectrogram above.
 
 # Output Audio
-After creating the harmonic and percussive output spectrograms, FluCoMa’s HPSS object turns these back into separate audio streams as the final output of the object. The results when using binary masks (**maskingMode** = 1, heard directly below) tend to have stronger separation between the harmonic and percussive components, but also leave more sonic artefacts. The default (**maskingMode** = 0) uses soft masks (described later), which tends to leave much fewer sonic artefacts, but allows more bleed between the harmonic and percussive components.
+After creating the harmonic and percussive output spectrograms, FluCoMa’s HPSS object turns these back into separate audio streams as the final output of the object. The results when using binary masks (`maskingMode` = 1, heard directly below) tend to have stronger separation between the harmonic and percussive components, but also leave more sonic artefacts. The default (`maskingMode` = 0) uses soft masks (described later), which tends to leave much fewer sonic artefacts, but allows more bleed between the harmonic and percussive components.
 
 <Audio
 src="/reference/hpss/220121_180534_02_harmonic_component_Binary_Mask.mp3"
@@ -140,7 +140,7 @@ label="Percussive Component Output (created using a Binary Mask)"
 # More Masking Modes
 
 ## Soft Mask
-Rather than being filled with only zeros and ones like the binary mask, a soft mask can contain numbers between zero and one. These values are determined by the ratio between the two “enhanced” spectrograms so that each mask has a proportional amount of the energy. Like the binary masks, these soft masks are still inversely related. If one added them together all the points would equal 1, accounting for all of the energy in the original spectrogram. To use a soft mask with FluCoMa’s HPSS object, set **maskingMode** = 0, which is the default.
+Rather than being filled with only zeros and ones like the binary mask, a soft mask can contain numbers between zero and one. These values are determined by the ratio between the two “enhanced” spectrograms so that each mask has a proportional amount of the energy. Like the binary masks, these soft masks are still inversely related. If one added them together all the points would equal 1, accounting for all of the energy in the original spectrogram. To use a soft mask with FluCoMa’s HPSS object, set `maskingMode` = 0, which is the default.
 
 <Image
 src="/reference/hpss/220121_180534_05_Harmonic_Mask_(Soft).png"
