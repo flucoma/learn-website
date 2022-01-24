@@ -23,7 +23,7 @@
 		width: min(20ch, 100%);
 		font-family: var(--mono);
 		gap: 1em;
-		margin-top: 1em;
+		margin-bottom: 1em;
 	}
 
 	.heading {
