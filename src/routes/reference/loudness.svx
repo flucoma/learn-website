@@ -18,7 +18,7 @@ The implementation of [Loudness]() in the FluCoMa toolbox models the way that hu
 
 <Loudness />
 
-Because there are both realtime and non-realtime objects for measuring loudness we can apply it in several ways. With the non-realtime buffer-based version, it could be used as a descriptor later provided to machine learning processes. It could also be used as a set of weights with [BufStats](/reference/bufstats) to weight quieter analysis windows more strongly. In real-time it could be used 
+Because there are both realtime and non-realtime objects for measuring loudness we can apply it in several ways. With the non-realtime buffer-based version, it can be used as a descriptor later provided to machine learning processes. It could also be used as a set of weights with [BufStats](/reference/bufstats) to weight quieter analysis windows more strongly. In real-time it could be used to control and shape a synthesis process.
 
 ## What is True Peak?
 Most digital meters (such as those in your DAW of choice) display sample peaks. When you play digital audio back, you are hearing an analog reconstruction of that sound as the digital data is converted into an analog signal for the speakers. The reconstruction analog signal can peak beyond the digital waveform and these are known as _inter-sample_ peaks. True peak is a measurement that takes into account inter-sample peaks while traditional sample peaks will not always represent these, giving you a piece of important information.
