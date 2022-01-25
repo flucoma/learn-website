@@ -2,6 +2,7 @@
 	import { createEventDispatcher } from 'svelte';
 	export let label: string = 'button';
 	export let width: string = '100px';
+	export let height:string = '38px';
 	export let disabled: boolean = false;
 	const dispatch = createEventDispatcher();
 
@@ -10,7 +11,7 @@
 	}
 </script>
 
-<button style={`width: ${width}`} class:disabled class="btn" on:click={clickHandler} {disabled}>
+<button style:width={width} style:height={height} class:disabled class="btn" on:click={clickHandler} {disabled}>
 	{label}
 </button>
 
@@ -19,7 +20,6 @@
 		border: 1px outset var(--light-blue);
 		background-color: var(--light-blue);
 		color: white;
-		height: 38px;
 		cursor: pointer;
 		transition: box-shadow 0.1s;
 		border-radius: 0.25em;
