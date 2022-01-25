@@ -10,6 +10,7 @@ category: Analyse Sound
 
 <script>
     import ResourceLink from '$lib/components/ResourceLink.svelte';
+    import Loudness from '$lib/widget/Loudness.svelte';
 </script>
 
 Our perception of how "loud" a sound is can be complex to understand measure. Human hearing is not constant or linear across the range of frequencies that we are sensitive to. It is possible to have signals that register as loud when measured that nonetheless sound weak (and vice versa) depending on their frequency content.
