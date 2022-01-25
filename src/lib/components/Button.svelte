@@ -23,6 +23,7 @@
 		cursor: pointer;
 		transition: box-shadow 0.1s;
 		border-radius: 0.25em;
+		font-size: 1rem;
 	}
 
 	.btn:active {
