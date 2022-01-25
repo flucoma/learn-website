@@ -22,6 +22,7 @@
 		color: white;
 		cursor: pointer;
 		transition: box-shadow 0.1s;
+		font-size: 1rem;
 	}
 
 	.btn:active {
