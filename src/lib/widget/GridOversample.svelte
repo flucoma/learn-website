@@ -4,16 +4,21 @@
     import { interpolateSinebow } from 'd3-scale-chromatic';
     import Button from '$lib/components/Button.svelte';
     import gaussian4 from '../../../static/data/gaussian4.json';
-    import out from '../../../static/ref/grid/out.json';
+    import oversample1 from '../../../static/ref/grid/help.grid.oversample.1.json';
+    import oversample2 from '../../../static/ref/grid/help.grid.oversample.2.json';
+    import oversample3 from '../../../static/ref/grid/help.grid.oversample.3.json';
+    import oversample4 from '../../../static/ref/grid/help.grid.oversample.4.json';
+    import oversample5 from '../../../static/ref/grid/help.grid.oversample.5.json';
+
     
     let canvas: HTMLCanvasElement;
     let ctx: RenderingContext;
     let chart: Chart;
 
-    const raw = Object.values(gaussian4.data).map(x => x);
-    const grid= Object.values(out.data).map(x => x);
-    const colours = raw.map(x => interpolateSinebow(x[0]*x[1]))
+    const btnWidth = '180px'
 
+    const raw = Object.values(gaussian4.data).map(x => x);
+    const colours = raw.map(x => interpolateSinebow(x[0]*x[1]))
 
     onMount(async () => {
         Chart.register(...registerables);
@@ -52,17 +57,7 @@
 
     <div id="controls">
         <Button
-        width={'max-content'}
-        on:click={
-            () => {
-                chart.data.datasets[0].data = grid;
-                chart.update();
-            } }
-            label='Assign to Grid'
-        />
-        
-        <Button
-        width={'max-content'}
+        width={btnWidth}
         on:click={ 
             () => {
                 chart.data.datasets[0].data = raw;
@@ -70,6 +65,56 @@
             } 
         }
         label='Original State'
+        />
+
+        <Button
+        width={btnWidth}
+        on:click={
+            () => {
+                chart.data.datasets[0].data = Object.values(oversample1.data).map(x => x);
+                chart.update();
+            } }
+            label='No Oversampling (1)'
+        />
+
+        <Button
+        width={btnWidth}
+        on:click={
+            () => {
+                chart.data.datasets[0].data = Object.values(oversample2.data).map(x => x);
+                chart.update();
+            } }
+            label='Oversampling (2)'
+        />
+
+        <Button
+        width={btnWidth}
+        on:click={
+            () => {
+                chart.data.datasets[0].data = Object.values(oversample3.data).map(x => x);
+                chart.update();
+            } }
+            label='Oversampling (3)'
+        />
+
+        <Button
+        width={btnWidth}
+        on:click={
+            () => {
+                chart.data.datasets[0].data = Object.values(oversample4.data).map(x => x);
+                chart.update();
+            } }
+            label='Oversampling (4)'
+        />
+
+        <Button
+        width={btnWidth}
+        on:click={
+            () => {
+                chart.data.datasets[0].data = Object.values(oversample5.data).map(x => x);
+                chart.update();
+            } }
+            label='Oversampling (25)'
         />
     </div>
     
@@ -90,7 +135,7 @@
 
     #controls {
         display: grid;
-        grid-template-columns: auto auto;
+        grid-template-columns: auto auto auto;
         justify-content:center;
         gap: 1em;
         margin-top: 1em;

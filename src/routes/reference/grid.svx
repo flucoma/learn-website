@@ -16,6 +16,7 @@ category: Analyse Data
 <script>
     import ResourceLink from '$lib/components/ResourceLink.svelte';
     import Grid from '$lib/widget/Grid.svelte';
+    import GridOversample from '$lib/widget/GridOversample.svelte';
 </script>
 
 [Grid]() maps a set of two-dimensional points from a [DataSet](/reference/dataset) to a rectangular grid. To do this, it uses a variant of the [Jonker-Volgenant algorithm](https://www.gwern.net/docs/statistics/decision/1987-jonker.pdf). This can be useful for compacting two-dimensional data into a uniform representation in which points are equally spaced from each other. Such a layout might be easier to navigate visually, or with a controller or could be used as a compositional impetus for the organisation of corpus items.
@@ -25,6 +26,12 @@ category: Analyse Data
 To do this, [Grid]() analyses a dataset and determines a _cost_ for moving (or assigning) each point two a position on a grid based on the [euclidian distance](https://en.wikipedia.org/wiki/Euclidean_distance) between points. Ideally, the grid moves each point as little as possible, but each point can only be assigned to a single position on the output grid. Given these constraints, the algorithm will find the least worst outcome in which the movement of points is minimised. Try this out for yourself, by transitioning between an original "raw" data and its assignment to a grid using the button below the scatterplot.
 
 What you'll notice is that points which are tightly compacted in the original data sometimes get moved quite far from their original position. This is because densely clustered areas have points that are competing for the same limited positions on the target grid. The algorithm has to deal with this problem across the entire dataset, meaning points can be moved quite far in order for another point to be moved minimally. Overall though, you can see that the colour mapping across the space is relatively preserved, save for a few minor disruptions.
+
+## Oversampling
+
+By default, the output grid is the number of dimensions that there are in the input dataset. To be explicit, if you have 100 points in the input, the output will be a grid with 100 points (so possibly 10 by 10). You can oversample the output grid, in effect providing more resolution for the assignemnt process to work with. As oversampling is increased the output tends towards the original shape of the input, giving you flexible control over "how gridded" you want the generated outcome to be. Notice how selecting the oversampling factor of 25 below almost renders the output to be the same as the input?
+
+<GridOversample />
 
 ## Related Resources
 
