@@ -12,7 +12,8 @@
     let ctx: RenderingContext;
     let chart: Chart;
 
-    const btnWidth = '180px'
+    const btnWidth = '180px';
+    const btnHeight= '50px';
 
     const raw = Object.values(gaussian4.data).map(x => x);
     const colours = raw.map(x => interpolateSinebow(x[0]*x[1]))
@@ -55,6 +56,7 @@
     <div id="controls">
         <Button
         width={btnWidth}
+        height={btnHeight}
         on:click={ 
             () => {
                 chart.data.datasets[0].data = raw;
@@ -66,6 +68,7 @@
 
         <Button
         width={btnWidth}
+        height={btnHeight}
         on:click={
             () => {
                 chart.data.datasets[0].data = Object.values(extent1.data).map(x => x);
@@ -76,6 +79,7 @@
 
         <Button
         width={btnWidth}
+        height={btnHeight}
         on:click={
             () => {
                 chart.data.datasets[0].data = Object.values(extent2.data).map(x => x);
@@ -86,6 +90,7 @@
 
         <Button
         width={btnWidth}
+        height={btnHeight}
         on:click={
             () => {
                 chart.data.datasets[0].data = Object.values(extent3.data).map(x => x);
