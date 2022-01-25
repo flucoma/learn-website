@@ -74,7 +74,7 @@
                 chart.data.datasets[0].data = Object.values(extent1.data).map(x => x);
                 chart.update();
             } }
-            label='Extent 2 along the vertical axis'
+            label='Extent 2 along vertical axis'
         />
 
         <Button
@@ -85,7 +85,7 @@
                 chart.data.datasets[0].data = Object.values(extent2.data).map(x => x);
                 chart.update();
             } }
-            label='Extent 5 with horizontal axis'
+            label='Extent 5 along horizontal axis'
         />
 
         <Button
@@ -96,7 +96,7 @@
                 chart.data.datasets[0].data = Object.values(extent3.data).map(x => x);
                 chart.update();
             } }
-            label='Extent 10 with horizontal axis'
+            label='Extent 10 along horizontal axis'
         />
     </div>
     
