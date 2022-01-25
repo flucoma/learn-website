@@ -45,6 +45,6 @@ data={[
 ## Some Caveats to Remember
 
 1. Identifiers are unique. You cannot have the same identifier twice in a single [LabelSet](/reference/labelset).
-2. Identifiers and labels are _strings_. Even if you use a number for either of these, they will be internally represented as a "string" and returned to you as such. This means using `fromsymbol` in Max if you want the identifier or label to be converted to an actual number.
+2. Identifiers and labels are _strings_. Even if you use a number for either of these, they will be internally represented as a "string" and returned to you as such. This means using `fromsymbol` in Max, for example, if you want the identifier or label to be converted to an actual number.
 
 
