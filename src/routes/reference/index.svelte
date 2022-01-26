@@ -76,10 +76,10 @@
 		display: flex;
 		flex-direction: column;
 		flex-wrap: wrap;
-		max-height: 620px;
+		max-height: 550px;
 	}
 
-	@media (max-width: 500px) {
+	@media (max-width: 750px) {
 		.container {
 			max-height: 1000px;
 		}
