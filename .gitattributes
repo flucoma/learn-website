@@ -7,3 +7,5 @@
 *.npy binary
 *.maxpat binary
 *.pd binary
+*.mp4 binary
+*.webm binary
