@@ -1,10 +1,12 @@
 <script>
 	import { docs } from '$lib/app';
 	import ArrowRight from '$lib/components/ArrowRight.svelte';
+	import FuzzySearch from 'fuzzy-search';	
+	import { fade } from 'svelte/transition';
 
 	let references = docs.filter(d => d.section === 'reference');
 
-	const categorised = {
+	let categorised = {
 		'Analyse Data' : [],
 		'Analyse Sound' : [],
 		'Utility' : [],
@@ -14,29 +16,62 @@
 	}
 
 	references.forEach(r => { categorised[r.category].push(r) });
+
+	let query = ''
+	const search = new FuzzySearch(references, ['title', 'tags', 'blurb', 'category'], {
+		caseSensitive: false,
+		sort: true
+	})
+
+	function doSearch() {
+		const searchResult = search.search(query);
+
+		// Clear categorised table
+		Object.keys(categorised).forEach(c => {
+			categorised[c] = [];
+		});
+
+		searchResult.forEach(r => { categorised[r.category].push(r) });
+	}
 </script>
 
-<h1>Reference</h1>
-<p>
-	This section of the learn platform outlines each algorithm of the Fluid Corpus Manipulation toolbox. The aim of these outlines is to help you develop a fundamental understanding of the algorithms themselves while also nurturing a musical intuition for how it might be used and applied to creative problems and goals. Use the search box below to search for a specific algorithm.
-</p>
+<h1 class='title'>Reference</h1>
+
+<form>
+	<label class="visually-hidden" for="query"></label>
+	<input 
+	bind:value={query} 
+	on:input={doSearch}
+	placeholder='Enter a search term'
+	>
+</form>
 
 <div class="container">
 	{#each Object.entries(categorised) as [category, ref]}
+	{#if ref.length > 0}
 	<section>
 		<h3>{ category }</h3>
 		{#each ref as r}
 		<ul>
 			<li>
-				<a href={r.url}>{r.title} <ArrowRight /></a>
+				<a transition:fade={{ duration: 90 }} href={r.url}>{r.title} <ArrowRight /></a>
 			</li>
 		</ul>
 		{/each}
 	</section>
+	{/if}
 	{/each}
 </div>
 
 <style>
+	form > input {
+		margin-bottom: 0.5em;
+		font-size: 1.5rem;
+		border: none;
+		outline: none;
+		border-bottom: 1px solid grey;
+	}
+
 	.container {
 		display: flex;
 		flex-direction: column;
@@ -44,8 +79,14 @@
 		max-height: 550px;
 	}
 
-	.container > section {
-		width: 33%;
+	@media (max-width: 750px) {
+		.container {
+			max-height: 1000px;
+		}
+	}
+
+	section {
+		width: max-content;
 	}
 
 	section > h3 {
