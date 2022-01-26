@@ -1,5 +1,3 @@
-# This is a basic workflow to help you get started with Actions
-
 name: deploy
 
 on:
@@ -35,7 +33,6 @@ jobs:
         run: |
           pnpm i
           pnpm run build
-          ls
 
       - name: Upload To Droplet
         run: |
