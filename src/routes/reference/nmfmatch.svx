@@ -33,7 +33,7 @@ category: Analyse Sound
   <a href='/reference/nmfmatch/nmfmatch-example.maxpat' download='nmfmatch-example.maxpat'>Max example code for this overview</a>
 
   <Image
-  src="/reference/nmfmatch/00_drums_nmf_match.png"
+  src="/reference/nmfmatch/00_drums_nmf_match.jpg"
   label="Recorded output values of NMFMatch when the original drum loop is sent through it using the bases derived from a BufNMF analysis of this drum loop. (blue = kick drum, orange = snare drum, green = hi-hat)"
   />
 
@@ -47,7 +47,7 @@ category: Analyse Sound
   />
 
   <Image
-  src="/reference/nmfmatch/01_song_nmf_match.png"
+  src="/reference/nmfmatch/01_song_nmf_match.jpg"
   label="Recorded output values of NMFMatch when the this song is sent through it using the bases derived from a BufNMF analysis of the drum loop. (blue = output based on the 'kick drum' basis, orange = output based on the 'snare drum' basis, green = output based on the 'hi-hat' basis)"
   />
 
@@ -104,19 +104,19 @@ category: Analyse Sound
 
   ### Activations:
   <Image
-  src="/reference/nmfmatch/05_golcar4sec_activation.png"
+  src="/reference/nmfmatch/05_golcar4sec_activation.jpg"
   label="Activations from four second BufNMF analysis.(blue = dog bark, orange = the 'rest')"
   />
 
   ### Bases:
   <Image
-  src="/reference/nmfmatch/04_golcar4sec_bases.png"
+  src="/reference/nmfmatch/04_golcar4sec_bases.jpg"
   label="Bases from four second BufNMF analysis. (blue = dog bark, orange = the 'rest')"
   />
 
   Now we can use these bases with NMFMatch to find where in the whole sound file the dog bark occurs. (The plot below shows the recorded output values of NMFMatch.)
 
   <Image
-  src="/reference/nmfmatch/06_golcar_activations_stacked=false.png"
+  src="/reference/nmfmatch/06_golcar_activations_stacked=false.jpg"
   label="Recorded outputs of NMFMatch. The bases used were derived from the four second analysis conducted above, then the entire 22 second sound file is sent through NMFMatch. (blue = dog bark, orange = the 'rest')"
   />
