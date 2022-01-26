@@ -1,7 +1,7 @@
 <script lang="ts">
     import { onMount } from 'svelte';
 	import { Chart, registerables } from 'chart.js';
-    import { interpolateSinebow } from 'd3-scale-chromatic';
+    import * as d3 from 'd3';
     import Button from '$lib/components/Button.svelte';
     import gaussian4 from '../../../static/data/gaussian4.json';
     import out from '../../../static/ref/grid/out.json';
@@ -12,7 +12,7 @@
 
     const raw = Object.values(gaussian4.data).map(x => x);
     const grid= Object.values(out.data).map(x => x);
-    const colours = raw.map(x => interpolateSinebow(x[0]*x[1]))
+    const colours = raw.map(x => d3.interpolateSinebow(x[0]*x[1]))
 
 
     onMount(async () => {
