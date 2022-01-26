@@ -2,6 +2,7 @@
 	import { docs } from '$lib/app';
 	import ArrowRight from '$lib/components/ArrowRight.svelte';
 	import FuzzySearch from 'fuzzy-search';	
+	import { fade } from 'svelte/transition';
 
 	let references = docs.filter(d => d.section === 'reference');
 
@@ -34,10 +35,7 @@
 	}
 </script>
 
-<h1>Reference</h1>
-<p>
-	This section of the learn platform outlines each algorithm of the Fluid Corpus Manipulation toolbox. The aim of these outlines is to help you develop a fundamental understanding of the algorithms themselves while also nurturing a musical intuition for how it might be used and applied to creative problems and goals. Use the search box below to search for a specific algorithm.
-</p>
+<h1 class='title'>Reference</h1>
 
 <form>
 	<label class="visually-hidden" for="query"></label>
@@ -56,7 +54,7 @@
 		{#each ref as r}
 		<ul>
 			<li>
-				<a href={r.url}>{r.title} <ArrowRight /></a>
+				<a transition:fade={{ duration: 90 }} href={r.url}>{r.title} <ArrowRight /></a>
 			</li>
 		</ul>
 		{/each}
@@ -67,7 +65,7 @@
 
 <style>
 	form > input {
-		margin-bottom: 1em;
+		margin-bottom: 0.5em;
 		font-size: 1.5rem;
 		border: none;
 		outline: none;
