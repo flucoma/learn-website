@@ -9,3 +9,114 @@ tags:
 flair: reference
 category: Analyse Sound
 ---
+
+  <script>
+      import IndentNote from '$lib/components/IndentNote.svelte';
+      import Image from '$lib/components/Image.svelte';
+      import Audio from '$lib/components/Audio.svelte';
+      import ResourceLink from '$lib/components/ResourceLink.svelte';
+  </script>
+
+  <IndentNote type='pointer'>
+
+  NMFMatch is designed to work with bases taken from a BufNMF analysis. Please visit the [BufNMF Overview](/overviews/bufnmf) to learn about bases before proceeding.
+
+  </IndentNote>
+
+  NMFMatch compares the spectrum of an incoming audio signal against a set of spectral templates provided by the user (such as bases from a BufNMF analysis). It continuously outputs values indicating how similar the spectrum of the incoming signal is to each of the provided bases (0 = more dissimilar; higher values = more similar). NMFMatch can be used as the foundation of a classifier to estimate when certain sounds are present.
+
+  The bases from the [BufNMF Overview](/overviews/bufnmf) example contain spectral templates for the (1) kick drum, (2) snare drum, and (3) high-hat components of the original drum loop. One can use these bases in NMFMatch to determine how similar an audio signal is to each of these spectral templates at any given point in time.
+
+  First, let’s provide these bases and send the original drum loop through NMFMatch (the plot below shows the recorded real-time output values of NMFMatch). This shows how similar the audio signal of the original drum loop is to each of these spectral templates at each moment in time.
+
+  <a href='/reference/nmfmatch/nmfmatch-example.scd' download='nmfmatch-example.scd'>SuperCollider example code for this overview</a>
+  <a href='/reference/nmfmatch/nmfmatch-example.maxpat' download='nmfmatch-example.maxpat'>Max example code for this overview</a>
+
+  <Image
+  src="/reference/nmfmatch/00_drums_nmf_match.png"
+  label="Recorded output values of NMFMatch when the original drum loop is sent through it using the bases derived from a BufNMF analysis of this drum loop. (blue = kick drum, orange = snare drum, green = hi-hat)"
+  />
+
+  It makes sense that these similarity curves look like the activations from the original BufNMF analysis. Just like the activations, they indicate how present each spectral template is at a given moment in time. Since each spectral template corresponds to a different drum instrument (in this case) these look like amplitude curves of the different drum instruments.
+
+  Next, let’s provide the same bases (from the drum loop) but send a different audio signal into NMFMatch. Here we’ll use an excerpt from an ensemble recording. (The plot below again shows the recorded output values of NMFMatch.)
+
+  <Audio
+  src="/audio/Tremblay-beatRemember.mp3"
+  label="Song excerpt included in the FluCoMa package."
+  />
+
+  <Image
+  src="/reference/nmfmatch/01_song_nmf_match.png"
+  label="Recorded output values of NMFMatch when the this song is sent through it using the bases derived from a BufNMF analysis of the drum loop. (blue = output based on the 'kick drum' basis, orange = output based on the 'snare drum' basis, green = output based on the 'hi-hat' basis)"
+  />
+
+  Again, one sees what looks like activations for each of the drum loop’s bases. To get a sense of what these curves represent, one can use NMFFilter to hear what these three components contain.
+
+  <Audio
+  src="/reference/nmfmatch/02_song_component_1.mp3"
+  label="Output #1 (from basis #1) of the song excerpt when sent through NMFFilter using the bases from the drum loop."
+  />
+
+  <Audio
+  src="/reference/nmfmatch/02_song_component_2.mp3"
+  label="Output #2 (from basis #2) of the song excerpt when sent through NMFFilter using the bases from the drum loop."
+  />
+
+  <Audio
+  src="/reference/nmfmatch/02_song_component_3.mp3"
+  label="Output #3 (from basis #3) of the song excerpt when sent through NMFFilter using the bases from the drum loop."
+  />
+
+  NMFFilter has relatively well decomposed the kick drum, snare drum, and hi-hat sounds from this song (because those are the bases from the drum loop!). Of course there are other sounds in each of these components as well, as all of the sound from the song recording needs to be represented by these components. One could consider the output of NMFMatch to roughly represent the presence of a hi-hat, kick drum, or snare drum in this song.
+
+  ## Training on a Subset of Audio
+
+  This field recording contains various moments of a dog barking.
+
+  <Audio
+  src="/audio/Tremblay-BaB-SoundscapeGolcarWithDog.mp3"
+  label="Field recording excerpt included in the FluCoMa package."
+  />
+
+  Because this recording is only 22 seconds long, one could use BufNMF to decompose the buffer into two or three components and then see if one of those contains just the dog’s barks. The activation of such a component would represent where in the buffer the dog’s barks are present.
+
+  If this buffer were much longer (maybe an hours-long field recording) trying to find all the dog barks with just BufNMF would take much too long to compute. In this example we’ll use BufNMF to decompose a section of the field recording (four seconds) to find a basis for the dog’s bark. Then we’ll use NMFMatch to find where in a longer recording that basis (i.e., dog bark) occurs.
+
+  First, let’s perform BufNMF on just the first four seconds of this field recording because we know the dog’s bark is represented there. We will specify 2 components, hoping that BufNMF will decompose these four seconds into (1) the dog bark and (2) the “rest”.
+
+  <Audio
+  src="/reference/nmfmatch/03_golcar4sec.mp3"
+  label="The first four seconds of the field recording used to create a basis of the dog bark and the 'rest'."
+  />
+
+  BufNMF seems to have done a good job of isolating the dog bark in one component and the “rest” in another.
+
+  <Audio
+  src="/reference/nmfmatch/03_golcar4s_component_1.mp3"
+  label="Component #1 contains mostly the dog barks."
+  />
+
+  <Audio
+  src="/reference/nmfmatch/03_golcar4s_component_2.mp3"
+  label="Component #2 contains mostly the 'rest' of the sound in the original audio buffer."
+  />
+
+  ### Activations:
+  <Image
+  src="/reference/nmfmatch/05_golcar4sec_activation.png"
+  label="Activations from four second BufNMF analysis.(blue = dog bark, orange = the 'rest')"
+  />
+
+  ### Bases:
+  <Image
+  src="/reference/nmfmatch/04_golcar4sec_bases.png"
+  label="Bases from four second BufNMF analysis. (blue = dog bark, orange = the 'rest')"
+  />
+
+  Now we can use these bases with NMFMatch to find where in the whole sound file the dog bark occurs. (The plot below shows the recorded output values of NMFMatch.)
+
+  <Image
+  src="/reference/nmfmatch/06_golcar_activations_stacked=false.png"
+  label="Recorded outputs of NMFMatch. The bases used were derived from the four second analysis conducted above, then the entire 22 second sound file is sent through NMFMatch. (blue = dog bark, orange = the 'rest')"
+  />
