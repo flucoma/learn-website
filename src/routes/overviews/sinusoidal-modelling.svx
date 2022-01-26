@@ -43,7 +43,7 @@ label='Spectrogram of the synth recording with partial tracks overlaid in colour
 />
 <Audio src='/overviews/sinusoidal-modelling/synth-resynth.mp3' label=''/>
 
-It didn't do badly at all! Visually, the algorithm gets a bit confused where partials cross each other in the spectrogram, and that the algorithm struggles a bit with partials at higher frequencies (and note that we're only getting up to about 5kHz). However, the resynthesis is pretty convincing.
+It didn't do badly at all! Visually, it seems the algorithm gets a bit confused where partials cross each other in the spectrogram, and at higher frequencies (and note that we're only getting up to about 5kHz). However, the resynthesis is pretty convincing.
 Ok, something harder. Let's do a field recording:
 
 <!-- Widget??? -->
