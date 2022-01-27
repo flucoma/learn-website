@@ -9,6 +9,8 @@
 	class:podcast={flair === 'podcast'}
 	class:event={flair === 'event'}
 	class:tutorial={flair === 'tutorial'}
+	class:composition={flair === 'composition'}
+	class:software={flair === 'software'}
 >
 	{flair}
 </div>
@@ -40,5 +42,13 @@
 
 	.tutorial {
 		background-color: rgba(102, 103, 171, 255);
+	}
+
+	.composition {
+		background-color: brown 
+	}
+
+	.software {
+		background-color:darkslategray
 	}
 </style>
