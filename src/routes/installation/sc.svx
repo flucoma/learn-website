@@ -2,7 +2,7 @@
 title: SuperCollider Installation Instructions
 blurb: |
     Step-by-step guide for installing the FluCoMa package for SuperCollider
-tags: 
+tags:
     - installation
     - sc
     - supercollider
@@ -18,7 +18,7 @@ flair: article
 
 ## Step 1: Download the FluCoMa SuperCollider Extension Package
 
-Download the latest version of the Max package from GitHub releases. Choose the appropriate release for your operating system.
+Download the latest version of the extension from GitHub releases. Choose the appropriate release for your operating system.
 
 https://github.com/flucoma/flucoma-sc/releases/latest
 
@@ -56,7 +56,7 @@ We can dequarantine the `*.scx` files directly from inside SuperCollider with th
 
 ## Step 4: Run SuperCollider and Test
 
-Be sure to recompile the class library first by restarting SCIDE or Cmd/Ctrl + Shift + L 
+Be sure to recompile the class library first by restarting SCIDE or Cmd/Ctrl + Shift + L
 
 <CodeBlock>
 

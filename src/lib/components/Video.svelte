@@ -1,33 +1,39 @@
 <script lang="ts">
-	export let src: string = '';
-	export let label: string = '';
+    export let url: string = '';
+    export let label= "";
+
+    url = url.replace(/\.[^/.]+$/, ""); // remove file extension
 </script>
 
-<video controls>
+<figure>
+    <video controls loop>
+        <source src={`${url}.mp4`} type="video/mp4">
+        <source src={`${url}.webm`} type="video/webm">
+        <p>Your browser doesn't support HTML5 video. </p>
+        <track kind=captions>
+    </video>
 
-	<track kind="captions">
+    <figcaption class="caption">
+        {label}
+    </figcaption>
 
-    <source src={src}
-            type="video/mp4">
+</figure>
 
-    Sorry, your browser doesn't support embedded videos.
-</video>
+<style>
+    figure {
+        display: grid;
+        grid-template-rows: auto auto;
+        place-items: center;
+        gap: 1em;
+        margin-top: 1em;
+        margin-bottom: 1em;
+    }
 
-<p class="label">
-	{label}
-</p>
+    video {
+        max-width: 100%;
+    }
 
-<style lang="postcss">
-
-	video{
-		padding-top: 1em;
-		padding-bottom: 1em;
-	}
-
-	.label {
-		text-align: center;
-		font-size: 0.8rem;
-		font-style: italic;
-		padding-bottom: 1em;
-	}
+    .caption {
+		font-size: 0.75rem;
+    }
 </style>
