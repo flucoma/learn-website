@@ -1,0 +1,19 @@
+---
+title: All the Noises
+artist: Owen Green and John Bowers
+blurb: |
+    Performance / installation for hijacked and repurposed machine listeners
+tags: 
+    - mixed music
+    - studio composition
+    - interactive electronics
+    - machine listening
+    - audio descriptors
+flair: composition
+---
+
+A collaboration between [Owen Green](http://owengreen.net/) and [John Bowers](http://jmbowers.net/) exploring the failures, instabilities and rich computerly characteristics of machine listening culminating in a performance and installation. A full write-up can be read [here](https://www.algorithmiclistening.org/seeds/oiA/).
+
+
+
+
