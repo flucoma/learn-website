@@ -1,0 +1,42 @@
+---
+title: NMF Piano Tracker for Symbolic Audio Effects
+artist: Hans Tutschku
+blurb: |
+    In this article, we’ll take a look at some of the work that Hans Tutschku did using the FluCoMa tools, notably the conception of a piano tracker that uses NMF and how this allows him to perform symbolic operations of audio.
+tags: 
+    - nmf
+    - hans tutschku
+    - mark knoof
+    - nmf match
+    - bach
+    - cage
+flair: article
+---
+
+<script>
+    import Image from '$lib/components/Image.svelte';
+    import YouTube from '$lib/components/YouTube.svelte';
+    import ArtistCard from '$lib/components/mwf/ArtistCard.svelte';
+    import IndentNote from '$lib/components/IndentNote.svelte';
+</script>
+
+<ArtistCard
+src = "/madewithflucoma/tutschku/bio_pic.jpeg"
+name = "Hans Tutschku"
+website = "https://tutschku.com/"
+>
+<p slot="bio">
+Hans Tutschku is a composer of instrumental and electroacoustic music. In 1982 he joined the “Ensemble for intuitive music Weimar” and later studied theatre and composition in Berlin, Dresden, The Hague, Paris, and Birmingham. He collaborated in film, theatre and dance productions, and participated in concert cycles with Karlheinz Stockhausen. Since 2004 he directs the electroacoustic studios at Harvard University.
+</p>
+</ArtistCard>
+
+## Introduction
+
+<IndentNote type='pointer'>
+
+Download the demonstration patches for this article <a href='/madewithflucoma/tutschku/Hans Tutschku Examples.zip' download='Hans Tutschku Examples.zip'>here</a>.
+
+</IndentNote>
+
+Today we’ll be taking a look at the work that Hans Tutschku did for the project. His piece *Sparks* for piano and live electronics was performed by pianist [Mark Knoop](https://www.markknoop.com/) at the [second FluCoMa concert](/madewithflucoma/liminal-spaces), at [Dialogues Festival 2021](https://digital.eca.ed.ac.uk/dialogues/). Tutschku notably made use of the [fluid.bufnmf~](/reference/bufnmf) and [fluid.nmfmatch~](/reference/nmfmatch) objects to build a piano-tracking patch. He then used this tracker to drive audio effect modules using symbolic notation. As with all the "[Made with FluCoMa](/madewithflucoma)" articles, there is a series of demonstration patches that can be <a href='/madewithflucoma/tutschku/Hans Tutschku Examples.zip' download='Hans Tutschku Examples.zip'>downloaded</a> and interacted with if you wish to explore the inner workings of the software.
+
