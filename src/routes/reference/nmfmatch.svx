@@ -25,6 +25,11 @@ category: Analyse Sound
 
   NMFMatch compares the spectrum of an incoming audio signal against a set of spectral templates provided by the user (such as bases from a BufNMF analysis). It continuously outputs values indicating how similar the spectrum of the incoming signal is to each of the provided bases (0 = more dissimilar; higher values = more similar). NMFMatch can be used as the foundation of a classifier to estimate when certain sounds are present.
 
+  <Image
+  src="/reference/nmfmatch/flowchart.jpg"
+  label="NMFMatch compares real-time audio against NMF analysis bases and outputs values indicating how similar the incoming signal is to the spectral templates provided."
+  />
+
   The bases from the [BufNMF Overview](/overviews/bufnmf) example contain spectral templates for the (1) kick drum, (2) snare drum, and (3) high-hat components of the original drum loop. One can use these bases in NMFMatch to determine how similar an audio signal is to each of these spectral templates at any given point in time.
 
   First, let’s provide these bases and send the original drum loop through NMFMatch (the plot below shows the recorded real-time output values of NMFMatch). This shows how similar the audio signal of the original drum loop is to each of these spectral templates at each moment in time.
