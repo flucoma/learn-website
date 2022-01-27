@@ -1,0 +1,17 @@
+---
+title: Confetti
+artist: Rodrigo Constanzo
+blurb: |
+    A suite of Max for Live devices that use the FluCoMa tools under the hood.
+tags: 
+    - software
+    - daw
+    - digital audio workstation
+    - workflow
+flair: software
+---
+
+A library of M4L devices based on the modules in [The Party Van](http://rodrigoconstanzo.com/the-party-van/), [Cut Glove](http://rodrigoconstanzo.com/cut-glove/), and [TPV2](https://github.com/rconstanzo/tpv2).
+
+Confetti is freely available at Rodirgo's GitHub page: https://github.com/rconstanzo/confetti
+

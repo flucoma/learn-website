@@ -1,0 +1,15 @@
+---
+title: ReaCoMa
+artist: James Bradbury
+blurb: |
+    A set of extensions for the Reaper DAW using the FluCoMa command-line interface
+tags: 
+    - software
+    - daw
+    - digital audio workstation
+    - workflow
+flair: software
+---
+
+ReaCoMa is a project developed by [James Bradbury](https://jamesbradbury.net) that brings the power of the FluCoMa toolbox to the Reaper DAW. More information can be found at https://github.com/ReaCoMa/ReaCoMa-2.0/wiki.
+

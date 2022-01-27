@@ -1,0 +1,24 @@
+---
+title: Regulatory Capture (2021)
+artist: Raw Green Rust
+blurb: |
+    Live improvisation using the FluCoMa Tools
+tags: 
+    - improvisation
+    - live electronics
+    - collaboration
+flair: composition
+---
+
+<script>
+    import YouTube from '$lib/components/YouTube.svelte';
+</script>
+
+An uncertain number of human improvisers, in uncertain locations, with uncertain connections, mediated by opinionated machine learning algorithms. Featuring [Owen Green](http://owengreen.net/), [Jules Rawlinson](http://www.pixelmechanics.com/) and [Dave Murray-Rust](http://dave.murray-rust.org/music).
+
+<YouTube 
+url={'C-hH1Hh0F8I&t=330s'}
+/>
+
+
+
