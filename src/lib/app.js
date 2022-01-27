@@ -14,7 +14,7 @@ export const structure = readable(s);
 
 const docs = database.docs;
 
-const search = new FuzzySearch(docs, ['title', 'tags', 'flair', 'artist', 'blurb'], {
+const search = new FuzzySearch(docs, ['section', 'title', 'tags', 'flair', 'artist', 'blurb'], {
 	caseSensitive: false,
 	sort: true
 });
