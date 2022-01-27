@@ -4,11 +4,10 @@ artist: Owen Green and John Bowers
 blurb: |
     Performance / installation for hijacked and repurposed machine listeners
 tags: 
-    - mixed music
-    - studio composition
     - interactive electronics
     - machine listening
     - audio descriptors
+    - installation
 flair: composition
 ---
 
