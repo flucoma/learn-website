@@ -1,0 +1,23 @@
+---
+title: Neither the Time nor the Energy
+artist: Owen Green
+blurb: |
+    Composition using the FluCoMa Tools
+tags: 
+    - interactive electronics
+    - live electronics
+flair: composition
+---
+
+<script>
+    import YouTube from '$lib/components/YouTube.svelte';
+</script>
+
+A composition by [Owen Green](http://owengreen.net/) using the FluCoMa tools.
+
+<YouTube 
+url={'VExDlHD7o80'}
+/>
+
+
+
