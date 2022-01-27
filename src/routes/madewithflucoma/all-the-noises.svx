@@ -1,6 +1,6 @@
 ---
-title: All the Noises
-artist: Owen Green and John Bowers
+title: All the Noises (2018)
+artist: Owen Green and John Bowers (2018)
 blurb: |
     Performance / installation for hijacked and repurposed machine listeners
 tags: 

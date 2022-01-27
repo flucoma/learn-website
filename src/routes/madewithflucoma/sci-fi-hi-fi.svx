@@ -1,11 +1,11 @@
 ---
-title: Attempts at Stillness (2017)
-artist: Pierre Alexandre Tremblay
+title: SCI★FI★HI★FI Machine Learning Remix (2019)
+artist: Owen Green and Matt Brennan
 blurb: |
-    Composition using the FluCoMa Tools
+    Generative remix of Brennan's Citizen Bravo album, Build A
 tags: 
-    - mixed music
-    - studio composition
+    - generative
+    - remix
 flair: composition
 ---
 

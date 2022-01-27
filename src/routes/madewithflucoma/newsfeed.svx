@@ -1,5 +1,5 @@
 ---
-title: Newsfeed
+title: Newsfeed (2018-20)
 artist: Pierre Alexandre Tremblay
 blurb: |
     Composition using the FluCoMa Tools

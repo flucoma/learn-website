@@ -1,0 +1,16 @@
+---
+title: RGR-Beyond-280919 (2019)
+artist: Raw Green Rust
+blurb: |
+    Laptop trio improvisation using the FluCoMa Tools
+tags: 
+    - improvisation
+    - machine listening
+    - collaboration
+flair: composition
+---
+
+A laptop trio improvisation by [Raw Green Rust](https://rawgreenrust.bandcamp.com/releases) using the FluCoMa tools. A recording can be found [here](https://electrocd.com/en/oeuvre/43907/Pierre_Alexandre_Tremblay/Attempts_at_Stillness).
+
+<iframe src="https://player.vimeo.com/video/389734773?h=6735497dc3" width="640" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+<p><a href="https://vimeo.com/389734773">RGR-Beyond-280919</a> from <a href="https://vimeo.com/user450885">pixelmechanic</a> on <a href="https://vimeo.com">Vimeo</a>.</p>

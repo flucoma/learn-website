@@ -1,0 +1,13 @@
+---
+title: Un fil rouge (2018)
+artist: Pierre Alexandre Tremblay
+blurb: |
+    Composition using the FluCoMa Tools
+tags: 
+    - mixed music
+    - studio composition
+flair: composition
+---
+
+A composition by [Pierre Alexandre Tremblay](https://www.pierrealexandretremblay.com/) using the FluCoMa tools. A recording can be found [here](https://electrocd.com/en/oeuvre/43326/Pierre_Alexandre_Tremblay/Un_fil_rouge).
+

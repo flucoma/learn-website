@@ -1,0 +1,12 @@
+---
+title: White Goods (2018)
+artist: Gerard Roma
+blurb: |
+    Performance piece using the FluCoMa Tools
+tags: 
+
+flair: composition
+---
+
+A performance piece by [Gerard Roma](https://g-roma.github.io/) using the FluCoMa tools.
+

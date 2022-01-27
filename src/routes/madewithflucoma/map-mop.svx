@@ -1,0 +1,21 @@
+---
+title: Map Mop (2019)
+artist: Gerard Roma
+blurb: |
+    Audiovisual performance piece based on interactive corpus exploration
+tags:
+    - performance piece
+    - corpus exploration
+flair: composition
+---
+
+<script>
+    import YouTube from '$lib/components/YouTube.svelte';
+</script>
+
+A composition by [Gerard Roma](https://g-roma.github.io/) using the FluCoMa tools.
+
+<YouTube 
+url={'Cwm_njSp1IQ'}
+/>
+
