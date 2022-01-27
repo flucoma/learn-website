@@ -15,7 +15,11 @@ category: Analyse Sound
 
 Our perception of how "loud" a sound is can be complex to understand measure. Human hearing is not constant or linear across the range of frequencies that we are sensitive to. It is possible to have sounds that register as loud when measured that nonetheless are perceived as weak (and vice versa) depending on their frequency content.
 
-The implementation of [Loudness]() in the FluCoMa toolbox attempts to model the characteristics of human hearing according to the [EBU R128 specification](https://tech.ebu.ch/docs/r/r128.pdf) and describes a sound according to this model. It provides a measurement of loudness in dBFS as well as the _true peak_ of that window. The rationale for this is to have our computers "listen" to sounds and infer their loudness in a way that is more similar to how we might perceive them. Of course, this is a murky area to untangle when a computer is involved, and our biological processes responsible for hearing are subjects to all sorts of other influences and contextual pieces of information. Aspects such as fatigue and expectation play a large role in the perceived loudness of a sound. In other words, it is important to appreciate the model that is being used, while being aware that it still falls short in many ways for replicating complex human hearing.
+[Loudness]() is an audio-descriptor that attempts to model such characteristics of human hearing according to the [EBU R128 specification](https://tech.ebu.ch/docs/r/r128.pdf). This specification uses an approach that both respects the natural filtering of our ears across the audible spectrum of frequencies and incorporates a notion of differing time scales into the analysis. A great deal of perception of loudness is not instantaneous (unlike how many meters measure the energy of a signal), rather, is derived from the longer time spans (100-1000ms).
+
+<!-- At a deeper cognitive level it also multi-modal, and we think about different loudness levels across different time spans simultaneously. Indeed, this is why the EBU specification suggests respecting  -->
+
+Given this, the object provides a measurement of loudness in dBFS over the analysis windows that are configured (via `windowsize` and `hopsize`) as well as the _true peak_ of that window. With these pieces of information, we might hope that our musical systems and programs can "listen" to sounds and infer their loudness in a way that is more similar to how we might perceive them. Of course, this is a murky area to untangle when a computer is involved, and our biological processes responsible for hearing are subjects to all sorts of other influences and contextual pieces of information. Aspects such as fatigue and expectation play a large role in the perceived loudness of a sound. In other words, it is important to appreciate the model that is being used, while being aware that it still falls short in many ways for replicating complex human hearing.
 
 <Loudness />
 
@@ -36,6 +40,12 @@ url='http://designingsound.org/2013/02/06/loudness-and-metering-part-1/'
 title='Loudness Penalty: Analyzer'
 blurb='A website that analyses an audio file to calculate the attenuation or amplification of different music streaming services'
 url='https://www.loudnesspenalty.com'
+/>
+
+<ResourceLink 
+title='MASTERING - LOUDNESS for streaming services with Ian Shepherd'
+blurb='An interview with Ian Shepherd on measuring loudness and its relationship to the mastering process'
+url='https://www.youtube.com/watch?v=pO2VEyVbp0U'
 />
 
 <ResourceLink 
