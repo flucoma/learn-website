@@ -1,0 +1,13 @@
+---
+title: (un)weave (2019)
+artist: Pierre Alexandre Tremblay
+blurb: |
+    Composition using the FluCoMa Tools
+tags: 
+    - mixed music
+    - studio composition
+flair: composition
+---
+
+A composition by [Pierre Alexandre Tremblay](https://www.pierrealexandretremblay.com/) using the FluCoMa tools. A recording can be found [here](https://electrocd.com/en/oeuvre/47621/Pierre_Alexandre_Tremblay/un_weave).
+

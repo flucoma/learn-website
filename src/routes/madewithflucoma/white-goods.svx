@@ -4,7 +4,9 @@ artist: Gerard Roma
 blurb: |
     Performance piece using the FluCoMa Tools
 tags: 
-
+    - performance piece
+    - improvisation
+    - machine listening
 flair: composition
 ---
 

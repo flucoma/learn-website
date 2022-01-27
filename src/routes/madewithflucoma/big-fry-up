@@ -1,0 +1,21 @@
+---
+title: Big Fry-Up
+artist: Gerard Roma
+blurb: |
+    Composition using the FluCoMa Tools
+tags: 
+    - audio-visual
+    - computer-assisted stirring
+    - improvisation
+flair: composition
+---
+
+<script>
+    import YouTube from '$lib/components/YouTube.svelte';
+</script>
+
+An audio-visual investigation of frying, sizzling, sputtering, broiling and poaching sounds, through the lens of computer-assisted stirring. Created by [Gerard Roma](https://g-roma.github.io/).
+
+<YouTube 
+url={'C-hH1Hh0F8I?t=1645'}
+/>

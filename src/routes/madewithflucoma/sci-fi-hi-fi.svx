@@ -9,5 +9,5 @@ tags:
 flair: composition
 ---
 
-A composition by [Pierre Alexandre Tremblay](https://www.pierrealexandretremblay.com/) using the FluCoMa tools. A recording can be found [here](https://electrocd.com/en/oeuvre/43907/Pierre_Alexandre_Tremblay/Attempts_at_Stillness).
+A composition by [Owen Green](http://owengreen.net/) and [Matt Brennan](http://www.citizenbravo.com/) using the FluCoMa tools. A more detailed description of the work can be found [here](http://citizenbravo.com/research.html).
 

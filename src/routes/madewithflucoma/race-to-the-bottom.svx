@@ -1,0 +1,23 @@
+---
+title: Race to the Bottom
+artist: Owen Green
+blurb: |
+    Composition using the FluCoMa Tools
+tags: 
+    - live electronics
+    - bowed cardboard
+flair: composition
+---
+
+<script>
+    import YouTube from '$lib/components/YouTube.svelte';
+</script>
+
+An improvisation with live electronics by [Owen Green](http://owengreen.net/) using the FluCoMa tools.
+
+<YouTube 
+url={'zeOm9w3ZJVc'}
+/>
+
+
+
