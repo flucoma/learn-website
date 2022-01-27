@@ -13,9 +13,9 @@ category: Analyse Sound
     import Loudness from '$lib/widget/Loudness.svelte';
 </script>
 
-Our perception of how "loud" a sound is can be complex to understand measure. Human hearing is not constant or linear across the range of frequencies that we are sensitive to. It is possible to have signals that register as loud when measured that nonetheless sound weak (and vice versa) depending on their frequency content.
+Our perception of how "loud" a sound is can be complex to understand measure. Human hearing is not constant or linear across the range of frequencies that we are sensitive to. It is possible to have sounds that register as loud when measured that nonetheless are perceived as weak (and vice versa) depending on their frequency content.
 
-The implementation of [Loudness]() in the FluCoMa toolbox models the way that humans hear according to the [EBU R128 specification](https://tech.ebu.ch/docs/r/r128.pdf) and describes a sound according to this model. It provides a measurement of loudness in dBFS as well as the _true peak_ of that window. The rationale for this is to have our computers "listen" to sounds and infer their loudness in a way that is more similar to how we might perceive them. Of course, this is a murky area to untangle when a computer is involved, and our biological processes responsible for hearing are subjects to all sorts of other influences and contextual pieces of information. Aspects such as fatigue and expectation play a large role in the perceived loudness of a sound. In other words, it is important to appreciate the model that is being used, while being aware that it still falls short in many ways for replicating complex human hearing.
+The implementation of [Loudness]() in the FluCoMa toolbox attempts to model the characteristics of human hearing according to the [EBU R128 specification](https://tech.ebu.ch/docs/r/r128.pdf) and describes a sound according to this model. It provides a measurement of loudness in dBFS as well as the _true peak_ of that window. The rationale for this is to have our computers "listen" to sounds and infer their loudness in a way that is more similar to how we might perceive them. Of course, this is a murky area to untangle when a computer is involved, and our biological processes responsible for hearing are subjects to all sorts of other influences and contextual pieces of information. Aspects such as fatigue and expectation play a large role in the perceived loudness of a sound. In other words, it is important to appreciate the model that is being used, while being aware that it still falls short in many ways for replicating complex human hearing.
 
 <Loudness />
 
@@ -42,6 +42,12 @@ url='https://www.loudnesspenalty.com'
 title='EBU R128: Loudness Normalisation and Permitted Maximum Level of Audio Signals'
 blurb='The EBU R128 specification'
 url='https://tech.ebu.ch/docs/r/r128.pdf'
+/>
+
+<ResourceLink
+title='ITU-R BS.1771-1 Requirements for loudness and true-peak indicating meters'
+blurb='A technical document describing the requirements for measuring loudness and true-peak meters'
+url='https://www.itu.int/dms_pubrec/itu-r/rec/bs/R-REC-BS.1771-1-201201-I!!PDF-E.pdf'
 />
 
 
