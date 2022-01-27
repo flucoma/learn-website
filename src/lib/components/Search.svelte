@@ -112,10 +112,12 @@
 		display: flex;
 		flex-direction: row;
 		justify-content: space-between;
+		gap: 0.5em;
 	}
 
 	.title {
 		font-weight: bold;
+		text-align: left;
 	}
 	.bottom {
 		color: grey;
