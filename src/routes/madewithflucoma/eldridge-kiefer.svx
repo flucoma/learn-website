@@ -8,6 +8,8 @@ tags:
     - mfcc
     - mlp
     - regression
+    - mlpregressor
+    - modular synthesis
 flair: article
 ---
 
@@ -125,7 +127,7 @@ url={'3XSy297v9vk'}
 Here we see the opposite happening: the neural network is taking a large set of input data points (20) and outputting a small number (3). There is also the notable fact that the input data is being derived from the description of an audio signal. The three outputs are controlling 3 MIDI modules which are controlling parameters in the modular synth setup. When explaining why they looked to implement this into their system, Eldridge explained that they saw this project as the “*next iteration*” of the Feedback Cell project. “*When we play two feedback cellos together, we sense a strong acoustic coupling. Any string instruments resonate with each other, but the feedback amplifies this effect. We had been thinking about ways to augment this process, to explore other instrumental couplings using feedback. At the same time I have been interested in keeping my signal pathway analogue, and Chris has just built a modular, so we had been thinking about the modular as a great addition to the feedback cello loop*”. This project gave a “*chance to explore a new way of doing this*”, a way of “*coupling the modular synth and the cello in a way that is more adaptive and responsive than just plugging the cello straight into the modular synth*”.
 
 <Video
-src="/madewithflucoma/eldridge/mlp_explination.mp4"
+src="/madewithflucoma/eldridge/mlp-explanation.mp4"
 label="Kiefer in his own words explaining their use of MLP regression."
 />
 
@@ -185,14 +187,14 @@ Despite the embodied nature of this knowledge, there is one conclusion that seem
 As you can imagine, this system delivers quite a unique and bespoke interface to perform with. It is a shared instrument; it is also a very delicate instrument: the fine tuning of the gain structure means that it can be difficult to get things to work correctly in a new performance space. It is a challenging instrument for the musicians: indeed, Eldridge is using the cello not only as a means for generating sound, but also as a controller for the modular setup. These two functions are fulfilled simultaneously: she explained that there was “*a pretty steep learning curve*”. All these elements combine to make performing with this shared instrument a real challenge, and a notion that is still being developed and explored through Eldridge and Kiefer’s ongoing practice.
 
 <Image
-src="/madewithflucoma/eldridge/performance_setting.JPG"
+src="/madewithflucoma/eldridge/performance_setting.jpg"
 label="The system being deployed in a performance setting."
 />
 
 I talked with the duo about how they felt the performance went, and despite being generally positive about it, there was an element of disappointment about the actual gig. This was partly due to the fact that the sound check went exceptionally well. Eldridge explained that they discovered that “*the room had the same resonant frequency as the bottom string of the cello.* [Pierre Alexandre Tremblay tuned the PA so that they] *could get feedback not only in the cello/modular system, but in the whole room*”. This was a striking moment which Eldridge decried “*made her heart melt*” – unfortunately this didn’t occur during the gig (pesky audience!).
 
 <Image
-src="/madewithflucoma/eldridge/chirs_at_work.jpg"
+src="/madewithflucoma/eldridge/chris-at-work.jpg"
 label="Kiefer at work adjusting the system."
 />
 
