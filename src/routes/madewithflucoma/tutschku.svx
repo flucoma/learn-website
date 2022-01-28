@@ -5,9 +5,8 @@ blurb: |
     In this article, we’ll take a look at some of the work that Hans Tutschku did using the FluCoMa tools, notably the conception of a piano tracker that uses NMF and how this allows him to perform symbolic operations of audio.
 tags: 
     - nmf
-    - hans tutschku
-    - mark knoof
-    - nmf match
+    - mark knoop
+    - nmfmatch
     - bach
     - cage
 flair: article
