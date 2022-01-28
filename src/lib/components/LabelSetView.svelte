@@ -1,22 +1,20 @@
 <script lang="ts">
 	export let data = [];
-	function sanitiseData(data) {
-		return data.map((d) => d.toFixed(2));
-	}
 </script>
 
 <div class="container">
-	<h3 class="label">DataSet</h3>
+	<h3 class="label">LabelSet</h3>
 	<div class="table">
 		<div class="heading">Identifier</div>
-		<div class="heading">Data</div>
+		<div class="heading">Label</div>
 		{#each data as point}
-		{#each Object.entries(point) as [id, data]}
-		<div class="entry">{id}</div>
-		<div class="entry">{sanitiseData(data)}</div>
-		{/each}
+			{#each Object.entries(point) as [id, label]}
+				<div class="entry">{id}</div>
+				<div class="entry">{label}</div>
+			{/each}
 		{/each}
 	</div>
+
 </div>
 
 <style lang="postcss">
@@ -43,11 +41,15 @@
 	.container:hover {
         box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
     }
-	
+
+    .container, .container:hover {
+        transition: box-shadow 200ms ease-in-out;
+    }
+
 	.heading {
 		font-weight: bold;
 	}
-	
+
 	.entry {
 		color: grey;
 		text-align: left;
