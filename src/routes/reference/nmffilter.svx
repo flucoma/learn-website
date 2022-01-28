@@ -1,12 +1,124 @@
 ---
 title: NMFFilter
-blurb: Decomposes and resynhtesis a signal against a set of spectral templates
+blurb: Decomposes and resynthesises a signal against a set of spectral templates
 tags:
     - data
     - nmf
     - machine learning
     - spectral
     - filter
+    - non-negative matrix factorization
 flair: reference
 category: Transform
 ---
+
+<script>
+    import IndentNote from '$lib/components/IndentNote.svelte';
+    import Image from '$lib/components/Image.svelte';
+    import Audio from '$lib/components/Audio.svelte';
+</script>
+
+<IndentNote type='pointer'>
+
+NMFFilter is designed to work with bases taken from a [BufNMF](/overviews/bufnmf) analysis. Please visit the [BufNMF](/overviews/bufnmf) page to learn about bases before proceeding.
+
+</IndentNote>
+
+NMFFilter splits an incoming audio signal into different audio streams based on a set of spectral templates provided by the user (such as bases from a [BufNMF](/overviews/bufnmf) analysis).
+
+<Image
+src="/reference/nmffilter/flowchart.jpg"
+label="One stream of audio is split into three streams based on three spectral templates provided to NMFFilter."
+/>
+
+<a href='/reference/nmffilter/nmffilter-example.scd' download='nmffilter-example.scd'>SuperCollider example code for the sounds heard below</a>
+<a href='/reference/nmffilter/nmffilter-example.maxpat' download='nmffilter-example.maxpat'>Max example code for the sounds heard below</a>
+
+In this example, we’ll use the bases from the analysis on the [BufNMF](/overviews/bufnmf) page. These bases contain spectral templates for the (1) kick drum, (2) snare drum, and (3) hi-hat components of the original drum loop.
+
+<Audio
+src="/audio/Nicol-LoopE-M.mp3"
+label="The original drum loop used to derive the bases from a BufNMF analysis"
+/>
+
+First, let’s send the original drum loop through NMFFilter in real-time using the bases derived from the drum loop analysis.
+
+### Audio stream output based on basis #1:
+<Audio
+src="/reference/nmffilter/02_orig_through_nmffilter_1.mp3"
+label="The output audio of the original drum loop filtered by basis #1 in NMFFilter"
+/>
+
+### Audio stream output based on basis #2:
+<Audio
+src="/reference/nmffilter/02_orig_through_nmffilter_2.mp3"
+label="The output audio of the original drum loop filtered by basis #2 in NMFFilter"
+/>
+
+### Audio stream output based on basis #3:
+<Audio
+src="/reference/nmffilter/02_orig_through_nmffilter_3.mp3"
+label="The output audio of the original drum loop filtered by basis #3 in NMFFilter"
+/>
+
+This will give us very similar sounding results as BufNMF’s resynthesized buffer–the difference here is that results are produced in real-time. This means that one could send a live input of this drummer and (hopefully) get similarly successful results decomposing the drum loop into the individual drum instruments in real-time.
+
+## Audio input from a different source
+
+One could also send a different audio signal through these bases using NMFFilter. Here we’ll use an excerpt from an ensemble recording that also has kick drum, snare drum, and hi-hat.
+
+### Original ensemble recording:
+
+<Audio
+src="/audio/Tremblay-beatRemember.mp3"
+label="Source ensemble recording."
+/>
+
+### Audio stream output based on basis #1:
+
+<Audio
+src="/reference/nmffilter/03_song_through_nmffilter_1.mp3"
+label="The output audio of the ensemble recording filtered by basis #1 of the drum loop BufNMF analysis"
+/>
+
+### Audio stream output based on basis #2:
+
+<Audio
+src="/reference/nmffilter/03_song_through_nmffilter_2.mp3"
+label="The output audio of the ensemble recording filtered by basis #2 of the drum loop BufNMF analysis"
+/>
+
+### Audio stream output based on basis #3:
+
+<Audio
+src="/reference/nmffilter/03_song_through_nmffilter_3.mp3"
+label="The output audio of the ensemble recording filtered by basis #3 of the drum loop BufNMF analysis"
+/>
+
+NMFFilter has relatively well separated the hi hat, kick drum, and snare drum sounds in this song (because those are the bases from the drum loop!). Of course there are other sounds in each of these audio signals as well, as all of the sound from the original file needs to be represented somewhere.
+
+## Filtering Noise
+
+Sending some pink noise through NMFFilter can provide another way of hearing and thinking about what it offers. Below are short clips of steady volume pink noise going through the three bases used above.
+
+<Audio
+src="/reference/nmffilter/04_base_1_filtering.mp3"
+label="Pink noise filtered by basis #1 of the drum loop BufNMF analysis"
+/>
+
+<Audio
+src="/reference/nmffilter/04_base_2_filtering.mp3"
+label="Pink noise filtered by basis #2 of the drum loop BufNMF analysis"
+/>
+
+<Audio
+src="/reference/nmffilter/04_base_3_filtering.mp3"
+label="Pink noise filtered by basis #3 of the drum loop BufNMF analysis"
+/>
+
+One can hear that the noise is filtered by the spectral templates of the bases (seen below as spectra).
+
+<Image
+src="/reference/nmffilter/01_Bases_plot.jpg"
+label="The bases used above seen as spectra. x axis = FFT bins; y axis = magnitudes"
+/>
