@@ -1,8 +1,11 @@
 <script lang="ts">
 	export let data = [];
-	function sanitiseData(data) {
-		return data.map((d) => d.toFixed(2));
+	function sanitiseData(x) {
+		return x.map((d) => d.toFixed(2));
 	}
+	data.forEach(d => {
+		console.log(d)
+	})
 </script>
 
 <div class="table">

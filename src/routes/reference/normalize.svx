@@ -9,3 +9,56 @@ tags:
 flair: reference
 category: Analyse Data
 ---
+
+<script>
+    import DataSetView from '$lib/components/DataSetView.svelte';
+    const one = [
+        { "1" : [1] },
+        { "2" : [2] },
+        { "3" : [3] },
+        { "4" : [4] },
+        { "5" : [5] }
+    ]
+
+    const two = [
+        { "1" : [0] },
+        { "2" : [0.25] },
+        { "3" : [0.5] },
+        { "4" : [0.75] },
+        { "5" : [1] }
+    ]
+
+    const three = [
+        { "1" : [1, 10] },
+        { "2" : [2, 20] },
+        { "3" : [3, 30] },
+        { "4" : [4, 40] },
+        { "5" : [5, 50] }
+    ]
+
+    const four = [
+        { "1" : [0, 0] },
+        { "2" : [0.25, 0.25] },
+        { "3" : [0.5, 0.5] },
+        { "4" : [0.75, 0.75] },
+        { "5" : [1, 1] }
+    ]
+</script>
+
+[Normalize]() helps us scale data from any range to a _normal_ range. Typically, a _normal_ range is between 0 and 1 but the minimum and maximum can be modified with `min` and `max`. A simple example of normalisation is shown below.
+
+This is our input dataset.
+<DataSetView data={one} />
+
+Once normalized this is the output.
+<DataSetView data={two} />
+
+Scales by _column_
+<DataSetView data={three} />
+<DataSetView data={four} />
+
+
+Find the minimum and maximum of each column in the input dataset
+
+Preserves the shape of the dataset but the range and scale is now different.
+
