@@ -24,7 +24,7 @@ NMFFilter is designed to work with bases taken from a [BufNMF](/overviews/bufnmf
 
 </IndentNote>
 
-NMFFilter splits an incoming audio signal into different audio streams based on a set of spectral templates provided by the user (such as bases from a [BufNMF](/overviews/bufnmf) analysis).
+NMFFilter splits an incoming audio signal into different audio streams based on a set of spectral templates provided by the user (such as bases from a [BufNMF](/overviews/bufnmf) analysis). It does this by performing non-negative matrix factorisation on a single spectral frame using the provided bases as seeds. Learn more about the seeding process in the [Seeding NMF Overview](/overviews/seeding-nmf).
 
 <Image
 src="/reference/nmffilter/flowchart.jpg"
