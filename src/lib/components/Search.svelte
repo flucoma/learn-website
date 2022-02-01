@@ -1,5 +1,6 @@
 <script>
-	import { db } from '$lib/app.js';
+	import { db } from '$lib/app';
+	import { wrap } from '$lib/util';
 	import { goto } from '$app/navigation';
 	import Flair from '$lib/components/Flair.svelte';
 
@@ -26,6 +27,11 @@
 		focused = true;
 	}
 
+	function updateFocus() {
+		focusedEntry = wrap(focusedEntry, 0, entries.length);
+		entries[focusedEntry].focus()
+	}
+
 	function keyDown(e) {
 		if (e.key === '/' && e.metaKey) {
 			searchBar.focus();
@@ -39,17 +45,19 @@
 		if (e.key === 'ArrowDown') {
 			focusedEntry += 1;
 			updateFocus()
-
 		}
+
+		if (e.key == 'Enter') {
+			entries[focusedEntry].click();
+		}
+
 	}
 
-	function updateFocus() {
-		focusedEntry = focusedEntry % entries.length;
-		entries[focusedEntry].focus()
-	}
-
-	let focusedEntry = -1;
+	let focusedEntry = 0;
 	let entries = [];
+	$: filteredResults = results.slice(0, 15).filter(x => x !== null);
+	$: entries = entries.filter(x => x !== null);
+	$: console.log(entries)
 </script>
 
 <svelte:window on:keydown={keyDown} />
@@ -69,12 +77,15 @@
 
 	{#if results.length >= 1 && focused}
 		<div class="results" tabindex="0">
-			{#each results.slice(0, 15) as r, i}
+			{ filteredResults.length }
+			{#each filteredResults as r, i}
 				<div class="result" 
 					on:mousedown={() => clickResult(r.url)}
+					on:click={ () => clickResult(r.url) }
 					on:focus={focusSearch}
 					on:blur={blurSearch}
 					bind:this={entries[i]}
+					class:entryhover={i === focusedEntry}
 					role="button"
 					tabindex="-1"
 				>
@@ -132,6 +143,7 @@
 		grid-template-rows: repeat(2, auto);
 		gap: 0.5em;
 		text-align: justify;
+		display: block;
 	}
 
 	.top {
@@ -151,7 +163,9 @@
 		font-size: 0.8rem;
 	}
 
-	.result:hover {
+
+
+	.result:hover, .entryhover {
 		background-color: rgba(128, 128, 128, 0.112);
 		cursor: pointer;
 	}
