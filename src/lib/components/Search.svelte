@@ -77,7 +77,6 @@
 
 	{#if results.length >= 1 && focused}
 		<div class="results" tabindex="0">
-			{ filteredResults.length }
 			{#each filteredResults as r, i}
 				<div class="result" 
 					on:mousedown={() => clickResult(r.url)}
