@@ -30,7 +30,26 @@
 		if (e.key === '/' && e.metaKey) {
 			searchBar.focus();
 		}
+
+		if (e.key === 'ArrowUp') {
+			focusedEntry -= 1;
+			updateFocus()
+		}
+
+		if (e.key === 'ArrowDown') {
+			focusedEntry += 1;
+			updateFocus()
+
+		}
 	}
+
+	function updateFocus() {
+		focusedEntry = focusedEntry % entries.length;
+		entries[focusedEntry].focus()
+	}
+
+	let focusedEntry = -1;
+	let entries = [];
 </script>
 
 <svelte:window on:keydown={keyDown} />
@@ -49,9 +68,16 @@
 	</form>
 
 	{#if results.length >= 1 && focused}
-		<div class="results">
+		<div class="results" tabindex="0">
 			{#each results.slice(0, 15) as r, i}
-				<div class="result" on:mousedown={() => clickResult(r.url)} role="button" tabindex={i}>
+				<div class="result" 
+					on:mousedown={() => clickResult(r.url)}
+					on:focus={focusSearch}
+					on:blur={blurSearch}
+					bind:this={entries[i]}
+					role="button"
+					tabindex="-1"
+				>
 					<div class="top">
 						<div class="title">{r.title}</div>
 						<Flair flair={r.flair} />
