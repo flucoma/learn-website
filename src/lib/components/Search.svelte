@@ -53,11 +53,10 @@
 
 	}
 
-	let focusedEntry = 0;
+	let focusedEntry = -1;
 	let entries = [];
 	$: filteredResults = results.slice(0, 15).filter(x => x !== null);
 	$: entries = entries.filter(x => x !== null);
-	$: console.log(entries)
 </script>
 
 <svelte:window on:keydown={keyDown} />
