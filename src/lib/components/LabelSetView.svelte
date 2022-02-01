@@ -2,7 +2,7 @@
 	export let data = [];
 </script>
 
-<div class="container">
+<div class="container raisedbox">
 	<h3 class="label">LabelSet</h3>
 	<div class="table">
 		<div class="heading">Identifier</div>
@@ -32,19 +32,9 @@
 		padding: 0.5em;
 	}
 	.container {
-		border: 0.063rem solid #dcdee0;
-		border-radius: 0.25em;
 		max-width: max-content;
 		margin-bottom: 1em;
 	}
-
-	.container:hover {
-        box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-    }
-
-    .container, .container:hover {
-        transition: box-shadow 200ms ease-in-out;
-    }
 
 	.heading {
 		font-weight: bold;

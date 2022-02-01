@@ -3,7 +3,7 @@
     export let link = '/'
 </script>
 
-<div class="container">
+<div class="container raisedbox">
         <slot name='title' />
         <slot name='blurb' />
         <a class='linkout' href={link}>Learn More <ArrowRight /></a>
@@ -20,14 +20,6 @@
 
     .container > :global(h2) {
         margin: 0;
-    }
-
-    .container:hover {
-        box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-    }
-
-    .container, .container:hover {
-        transition: box-shadow 200ms ease-in-out;
     }
 
     .linkout {
