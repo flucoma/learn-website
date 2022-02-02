@@ -16,6 +16,7 @@ category: Transform
     import IndentNote from '$lib/components/IndentNote.svelte';
     import Image from '$lib/components/Image.svelte';
     import Audio from '$lib/components/Audio.svelte';
+    import { Tabs, TabList, TabPanel, Tab } from '$lib/components/tabs/tabs';
 </script>
 
 <IndentNote type='pointer'>
@@ -31,8 +32,25 @@ src="/reference/nmffilter/flowchart.jpg"
 label="One stream of audio is split into three streams based on three spectral templates provided to NMFFilter."
 />
 
-<a href='/reference/nmffilter/nmffilter-example.scd' download='nmffilter-example.scd'>SuperCollider example code for the sounds heard below</a>
-<a href='/reference/nmffilter/nmffilter-example.maxpat' download='nmffilter-example.maxpat'>Max example code for the sounds heard below</a>
+### Example Code
+<Tabs>
+    <TabList>
+        <Tab>Max</Tab>
+        <Tab>SuperCollider</Tab>
+    </TabList>
+    <TabPanel>
+
+    <a href='/reference/nmffilter/nmffilter-example.maxpat' download='nmffilter-example.maxpat'>Max example code for the sounds heard below</a>
+
+    </TabPanel>
+    <TabPanel>
+
+    <a href='/reference/nmffilter/nmffilter-example.scd' download='nmffilter-example.scd'>SuperCollider example code for the sounds heard below</a>
+
+    </TabPanel>
+</Tabs>
+
+---
 
 In this example, we’ll use the bases from the analysis on the [BufNMF](/overviews/bufnmf) page. These bases contain spectral templates for the (1) kick drum, (2) snare drum, and (3) hi-hat components of the original drum loop.
 
