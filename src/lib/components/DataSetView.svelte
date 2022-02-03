@@ -5,31 +5,43 @@
 	}
 </script>
 
-<div class="table">
-	<div class="heading">Identifier</div>
-	<div class="heading">Data</div>
-	{#each data as point}
+<div class="container raisedbox">
+	<h3 class="label">DataSet</h3>
+	<div class="table">
+		<div class="heading">Identifier</div>
+		<div class="heading">Data</div>
+		{#each data as point}
 		{#each Object.entries(point) as [id, data]}
-			<div class="entry">{id}</div>
-			<div class="entry">{sanitiseData(data)}</div>
+		<div class="entry">{id}</div>
+		<div class="entry">{sanitiseData(data)}</div>
 		{/each}
-	{/each}
+		{/each}
+	</div>
 </div>
 
 <style lang="postcss">
+	.label {
+		/* font-family: var(--mono); */
+		font-weight: bold;
+		padding-left: 0.5em;
+	}
 	.table {
 		display: grid;
 		grid-template-columns: auto auto;
 		width: min(20ch, 100%);
 		font-family: var(--mono);
 		gap: 1em;
-		padding-top: 1em;
+		padding: 0.5em;
 	}
-
+	.container {
+		max-width: max-content;
+		margin-bottom: 1em;
+	}
+	
 	.heading {
 		font-weight: bold;
 	}
-
+	
 	.entry {
 		color: grey;
 		text-align: left;
