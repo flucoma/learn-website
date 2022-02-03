@@ -8,4 +8,52 @@ flair: reference
 category: Analyse Sound
 ---
 
+<script>
+    import ResourceLink from '$lib/components/ResourceLink.svelte';
+    import Loudness from '$lib/widget/Loudness.svelte';
+</script>
+
+
+Our perception of how “loud” a sound is can be complex to understand and measure. Human hearing is not constant or linear across the range of frequencies that we are sensitive to. It is possible to have sounds that register as loud when measured that nonetheless are perceived as weak (and vice versa) depending on their frequency content. Loudness is an audio descriptor that attempts to model such characteristics of human hearing according to the EBU R128 specification. This specification uses an approach that both respects the natural filtering of our ears across the audible spectrum of frequencies and incorporates a notion of differing time scales into the analysis. The graph below depicts a [k-weighting filter](https://en.wikipedia.org/wiki/Weighting_filter#loudness-measurements), which approximates the human ear's sensitivity to different frequencies.
+
+<Loudness />
+
+Like most descriptors, this object works over a short configurable window of time. For instant loudness, the EBU standard recommends a window size of 400ms that is updated every 100ms. For each window, the object provides a measurement of loudness of the signal (in [LUFS](https://en.wikipedia.org/wiki/LKFS)) and also provides the true-peak of that window (in dBFS). With these pieces of information, we might hope that our musical systems and programs can “listen” to sounds and infer their loudness in a way that is more similar to how we might perceive them. This is a murky area to untangle when a computer is involved, and our biological processes responsible for hearing are subject to all sorts of other influences and contextual pieces of information. Aspects such as fatigue and expectation play a large role in the perceived loudness of a sound. In other words, it is important to appreciate the model that is being used, while being aware that it can fall short for replicating complex human hearing.
+
+## What is True Peak?
+Most digital meters (such as those in your DAW of choice) display sample peaks i.e the highest number it identifies in a given time window. When you play digital audio back, you are hearing an analog reconstruction of that sound as the digital data is converted into an analog signal for the loudspeakers. The reconstructed analog signal can, in certain conditions, peak beyond the maximum sampled values: these are known as inter-sample peaks. True peak is a measurement that takes into account inter-sample peaks by means of oversampling the signal.
+
+
+## Related Resources
+
+<ResourceLink
+title='Loudness and Metering (Part 1)'
+blurb='A musicianly deep-dive into the nuances of perceived loudness and metering'
+url='http://designingsound.org/2013/02/06/loudness-and-metering-part-1/'
+/>
+
+<ResourceLink 
+title='Loudness Penalty: Analyzer'
+blurb='A website that analyses an audio file to calculate the attenuation or amplification of different music streaming services'
+url='https://www.loudnesspenalty.com'
+/>
+
+<ResourceLink 
+title='MASTERING - LOUDNESS for streaming services with Ian Shepherd'
+blurb='An interview with Ian Shepherd on measuring loudness and its relationship to the mastering process'
+url='https://www.youtube.com/watch?v=pO2VEyVbp0U'
+/>
+
+<ResourceLink 
+title='EBU R128: Loudness Normalisation and Permitted Maximum Level of Audio Signals'
+blurb='The EBU R128 specification'
+url='https://tech.ebu.ch/docs/r/r128.pdf'
+/>
+
+<ResourceLink
+title='ITU-R BS.1771-1 Requirements for loudness and true-peak indicating meters'
+blurb='A technical document describing the requirements for measuring loudness and true-peak meters'
+url='https://www.itu.int/dms_pubrec/itu-r/rec/bs/R-REC-BS.1771-1-201201-I!!PDF-E.pdf'
+/>
+
 
