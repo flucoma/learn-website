@@ -45,9 +45,9 @@ url='https://www.youtube.com/watch?v=pO2VEyVbp0U'
 />
 
 <ResourceLink 
-title='EBU R128: Loudness Normalisation and Permitted Maximum Level of Audio Signals'
-blurb='The EBU R128 specification'
-url='https://tech.ebu.ch/docs/r/r128.pdf'
+title='EBU: Loudness'
+blurb="The EBU's official resournce on loudness"
+url='https://tech.ebu.ch/loudness/'
 />
 
 <ResourceLink
