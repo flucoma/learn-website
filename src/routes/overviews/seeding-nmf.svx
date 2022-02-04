@@ -10,4 +10,95 @@ tags:
 flair: article
 ---
 
-## Seeding BufNMF with Bases and/or Activations
+<script>
+    import IndentNote from '$lib/components/IndentNote.svelte';
+    import Image from '$lib/components/Image.svelte';
+    import CodeBlock from '$lib/components/CodeBlock.svelte';
+    import { Tabs, TabList, TabPanel, Tab } from '$lib/components/tabs/tabs';
+    import Audio from '$lib/components/Audio.svelte';
+    // import ResourceLink from '$lib/components/ResourceLink.svelte';
+</script>
+
+<IndentNote type="pointer">
+
+This overview builds on information found in the [BufNMF Overview](/overviews/bufnmf). Please visit that page first to learn more.
+
+</IndentNote>
+
+Non-negative matrix factorisation can be "seeded," meaning that it is given some information to begin the process from. You can provide bases and/or activations that you think will "point the algorithm" in the direction toward what you're hoping it will find in the decomposition process. Without seeding, NMF activations and bases are both intitalized with random values.
+
+Both [NMFFilter](/reference/nmffilter) and [NMFMatch](/reference/nmfmatch) work from seeded bases, providing audio and activation outputs respectively, in real-time. This overview covers seeding the NMF process in BufNMF.
+
+## Seeding BufNMF with Bases
+
+Providing BufNMF with seeded bases begins the decomposition process from these spectral templates. In order to tell BufNMF you want it to use the provided bases buffer as a seed, set `basesMode` = 1. You can use bases dervied from a BufNMF analysis or bases that are constructed manually. This can be useful if you know what sort of spectral templates might be in your sound buffer, or what sort of spectral templates you're hoping to find. 
+
+For example, in the drum loop heard in the [BufNMF Overview](/overviews/bufnmf), there are three drum instruments: kick drum, snare drum, and hi-hat. In that overview, BufNMF is not seeded and decomposes the audio buffer into three channels: each containing mostly sounds from just one of those instruments. Because the process is not seeded, its bases begin filled with random values and therefore the ordering of these channels are random: each time the process runs the "kick drum component" could be in any of the channels 1, 2, or 3, as with all the other components.
+
+By providing the seeded bases below, which _very roughly_ resemble spectral templates for a kick drum (blue), snare drum (orange), and hi-hat (green), one can be reasonably confident that these components will end up in this order: kick drum component, snare drum component, hi-hat component. Basis 1 has energy only in the low frequency range, hoping that the NMF process will transform it into a basis representing the kick drum. Basis 2 has energy only in a middle register, hoping that it will become the basis representing the snare drum. Basis 3 has energe across a lot of the spectrum, mostly in the upper frequency range where the cymbals sound, hoping it will come to represent the cymbals. (Because bases are FFT spectra, the right half representes only one octave of the spectrum. The terms "middle register" and "upper frequency" are used here based on human hearing, rather than FFT bin position). 
+
+<Image
+src="/overviews/seeding-nmf/00_seeded_bases.jpg"
+label="The three bases seeded to BufNMF for decomposing the drum loop that very roughly resemble the spectral templates we're hoping to find: kick drum (blue), snare drum (orange), and hi-hat (green)."
+/>
+
+These bases have been created manually by calclutating each positon in the basis to have either a 0, 1, or some number in between. Download the code below to see how these values were created.
+
+### Example Code to create these bases
+<Tabs>
+    <TabList>
+        <Tab>Max</Tab>
+        <Tab>SuperCollider</Tab>
+    </TabList>
+    <TabPanel>
+
+    <a href='/reference/nmffilter/nmffilter-example.maxpat' download='nmffilter-example.maxpat'>Max example code for the sounds heard below</a>
+
+    </TabPanel>
+    <TabPanel>
+    
+    <CodeBlock>
+    
+    SuperCollider code can be copied from here.
+    <!-- ~bases = Buffer.loadCollection(s,513.collect{
+      arg i;
+      var kick = 0;
+      var snare = 0;
+      var hh = i.linlin(0,512,0.0,pi).sin;
+      if(i < 10,{kick = 1});
+      if((i > 10) && (i < 100),{snare = 1});
+      [kick,snare,hh];
+    }.flatten,3); -->
+    
+    </CodeBlock>
+
+    </TabPanel>
+</Tabs>
+
+---
+
+Seeding the BufNMF analysis with these bases allows us to be pretty sure that the resynthesized components will be in the order we expect: (1) kick drum, (2) snare drum, and (3) hi-hat.
+
+<Audio
+src="/overviews/seeding-nmf/02_component_0.mp3"
+label="Component 1"
+/>
+
+<Audio
+src="/overviews/seeding-nmf/02_component_1.mp3"
+label="Component 2"
+/>
+
+<Audio
+src="/overviews/seeding-nmf/02_component_2.mp3"
+label="Component 3"
+/>
+
+<Image
+src="/overviews/seeding-nmf/01_Bases_plot.jpg"
+label="The bases after BufNMF completed its processing. They still resemble the general register that was seeded, but now clearly are more representative of the sounds decomposed by BufNMF."
+/>
+
+## Seeding with Bases from a BufNMF Analysis
+
+## Seeding BufNMF with Activations
