@@ -47,40 +47,40 @@ Processing this mono drum loop with BufNMF (specifying that we want it to try to
 <a href='/overviews/bufnmf/bufnmf-overview-example.scd' download='bufnmf-overview-example.scd'>SuperCollider Example</a>
 <a href='/overviews/bufnmf/bufnmf-overview-example.maxpat' download='bufnmf-overview-example.maxpat'>Max Example</a>
 
-### Component \#1 (contains mostly just the kick drum hits)
+### Component 1 (contains mostly just the kick drum hits)
 
 <Image
 src="/overviews/bufnmf/05_resynth_spectrogram_mel_component_0.png"
-label="Mel-frequency spectrogram of Component #1"
+label="Mel-frequency spectrogram of Component 1"
 />
 
 <Audio
 src="/overviews/bufnmf/02_component_0.mp3"
-label="Component #1"
+label="Component 1"
 />
 
-### Component \#2 (contains mostly just the snare drum hits)
+### Component 2 (contains mostly just the snare drum hits)
 
 <Image
 src="/overviews/bufnmf/05_resynth_spectrogram_mel_component_1.png"
-label="Mel-frequency spectrogram of Component #2"
+label="Mel-frequency spectrogram of Component 2"
 />
 
 <Audio
 src="/overviews/bufnmf/02_component_1.mp3"
-label="Component #2"
+label="Component 2"
 />
 
-### Component \#3 (contains mostly just the hi-hat hits)
+### Component 3 (contains mostly just the hi-hat hits)
 
 <Image
 src="/overviews/bufnmf/05_resynth_spectrogram_mel_component_2.png"
-label="Mel-frequency spectrogram of Component #3"
+label="Mel-frequency spectrogram of Component 3"
 />
 
 <Audio
 src="/overviews/bufnmf/02_component_2.mp3"
-label="Component #3"
+label="Component 3"
 />
 
 In this case, BufNMF has worked quite well! It separated the sound into three components that strongly resemble how we as humans may have separated them in our minds while listening. This won’t always be the case. BufNMF knows nothing about how we perceive separate sound sources, such as these different percussion instruments. The rest of this explanation will continue to refer to the “hi-hat component”, “snare component”, and “kick component”, for convenience because this analysis turned out this way, however, different audio buffers won’t be able to separate as clearly as this one.
