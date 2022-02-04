@@ -8,4 +8,11 @@ flair: reference
 category: Utility
 ---
 
+<script>
+    import BufScale from '$lib/widget/BufScale.svelte'
+</script>
 
+
+The [BufScale]() object is a tool for scaling the value of data stored in a buffer. The interface is relatively lean: all you provide are minima and maxima for the input and output. Use the widget below to see how the scaling process processes data.
+
+<BufScale />
