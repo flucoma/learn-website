@@ -3,6 +3,8 @@
 	function sanitiseData(data) {
 		return data.map((d) => d.toFixed(2));
 	}
+	let num = 0;
+	$: if (data.length) num = Object.values(data[0])[0].length
 </script>
 
 <div class="container raisedbox">
@@ -13,7 +15,14 @@
 		{#each data as point}
 		{#each Object.entries(point) as [id, data]}
 		<div class="entry">{id}</div>
-		<div class="entry">{sanitiseData(data)}</div>
+		<div class="entry" style:grid-template-columns={'repeat(' + `${num}` +','+ '4.5ch)'}>
+			{#each data as datum}
+			<span>
+				{ datum.toFixed(2) }
+			</span>
+			{/each}
+			<!-- {sanitiseData(data)} -->
+		</div>
 		{/each}
 		{/each}
 	</div>
@@ -21,9 +30,7 @@
 
 <style lang="postcss">
 	.label {
-		/* font-family: var(--mono); */
 		font-weight: bold;
-		padding-left: 0.5em;
 	}
 	.table {
 		display: grid;
@@ -31,11 +38,11 @@
 		width: min(20ch, 100%);
 		font-family: var(--mono);
 		gap: 1em;
-		padding: 0.5em;
 	}
 	.container {
 		max-width: max-content;
 		margin-bottom: 1em;
+		padding: 0.5em;
 	}
 	
 	.heading {
@@ -43,6 +50,9 @@
 	}
 	
 	.entry {
+		display: grid;
+		/* flex-direction: row; */
+		gap: 1em;
 		color: grey;
 		text-align: left;
 	}
