@@ -7,9 +7,6 @@
 
     let value = 1;
     let values = new Array(10).fill(0).map(x => Math.random())
-    let colorPool = [
-        'blue', 'cyan', 'red', 'green', 'yellow',
-    ]
 </script>
 
 <h2>A single slider</h2>
