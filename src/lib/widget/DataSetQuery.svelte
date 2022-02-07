@@ -12,7 +12,7 @@
     let output = []
 
     let explanation = ''
-    const btnWidth = '300px';
+    const btnWidth = '350px';
 </script>
 
 <div class="filter-control">
