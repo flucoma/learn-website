@@ -24,7 +24,9 @@ steps={10}
 <div class="row">
     {#each values as x, i}
     <div class="col">
-        {x.toFixed(1)}
+        <div>
+            {x.toFixed(1)}
+        </div>
         <Slider 
         bind:value={values[i]}
         min={0}
@@ -41,7 +43,7 @@ steps={10}
     .row {
         display: flex;
         flex-direction: row;
-        gap: 0.5em;
+        gap: 1em;
         height: 200px;
     }
 
@@ -49,5 +51,9 @@ steps={10}
         display: grid;
         grid-template-rows: max-content auto;
         place-items: center;
+    }
+
+    .col > div {
+        width: 2ch;
     }
 </style>
