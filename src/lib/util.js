@@ -1,3 +1,11 @@
+export const scale = (i, iMin, iMax, oMin, oMax) => {
+    return (i - iMin) * (oMax - oMin) / (iMax - iMin) + oMin;
+}
+
+export const clip = (i, low, high) => {
+    return Math.min(Math.max(i, low), high)
+}
+
 const fmod = (a,b) => { 
     return Number((a - (Math.floor(a / b) * b)).toPrecision(8));
 };
