@@ -1,5 +1,5 @@
 <script>
-    import Spectroscope from $lib/components/Spectroscope.sveltete';
+    import Spectroscope from '$lib/components/Spectroscope.svelte';
 
     function generateSpectrum() {
         return new Array(1000).fill(0.0).map(x => Math.random())
