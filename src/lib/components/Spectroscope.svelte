@@ -13,6 +13,11 @@
 	export let chart;
     
     onMount(async () => {
+        if ('ResizeObserver' in window === false) {
+            const module = await import('@juggle/resize-observer');
+            window.ResizeObserver = module.ResizeObserver;
+            console.log('using polyfill')
+        }
         // Chart
         Chart.register(...registerables);
         ctx = canvas.getContext('2d');
