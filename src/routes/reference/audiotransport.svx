@@ -38,3 +38,7 @@ title='Computational Optimal Transport'
 url='https://arxiv.org/pdf/1803.00567.pdf'
 blurb='For those who really want to get down in the details'
 />
+
+<ResourceLink 
+title='https://towardsdatascience.com/optimal-transport-a-hidden-gem-that-empowers-todays-machine-learning-2609bbf67e59'
+/>
