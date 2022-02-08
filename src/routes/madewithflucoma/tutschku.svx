@@ -177,7 +177,7 @@ src="/madewithflucoma/tutschku/agogik_example.png"
 label="An overview of the 'Symbolic Audio Effect' example patch."
 />
 
-In the *Symbolic Audio Effect* example patch, we see an example of one of these processes. Using the [*cage.agogics*](https://www.bachproject.net/cage/) object, Tutshcku has created a module that allows the user to record a piece of symbolic notation which is then repeated and transformed with accelerandi. It is interesting to note that this process is encapsulated within a self-contained module which can be activated, soloed and muted like any other audio effect.
+In the *Symbolic Audio Effect* example patch, we see an example of one of these processes. Using the [*cage.agogics*](https://www.bachproject.net/cage/) object, Tutschku has created a module that allows the user to record a piece of symbolic notation which is then repeated and transformed with accelerandi. It is interesting to note that this process is encapsulated within a self-contained module which can be activated, soloed and muted like any other audio effect.
 
 In the video below, Tutschku gives some more examples of these kinds of effect modules: the agogik module, a timewarp, chord and cloud generators, and a stubborn delay. The stubborn delay is something that brings us back to Tutschku’s approach to the question of repetition in music. Here the delay will not be in a steady rhythm and it won’t be a perfect repetition of a particular duration. He is able to create delay lines for each note, “*creating these polyphonic textures where every new note coming in creates its own stream of delayed notes, each of them having their own rhythmic pattern*”. 
 
