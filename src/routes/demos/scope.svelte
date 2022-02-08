@@ -1,5 +1,12 @@
 <script>
     import Spectroscope from '$lib/components/Spectroscope.svelte';
+    import { onMount } from 'svelte';
+    onMount(async () => {
+        if ('ResizeObserver' in window === false) {
+            const module = await import('@juggle/resize-observer');
+            window.ResizeObserver = module.ResizeObserver;
+        }
+    })
 
     function generateSpectrum() {
         return new Array(1000).fill(0.0).map(x => Math.random())
