@@ -1,5 +1,5 @@
 <script>
-    import Spectrogram from '$lib/components/Spectrogram.svelte';
+    import Spectroscope from $lib/components/Spectroscope.sveltete';
 
     function generateSpectrum() {
         return new Array(1000).fill(0.0).map(x => Math.random())
@@ -21,7 +21,7 @@
 
 
 <!-- The actual component -->
-<Spectrogram 
+<Spectroscope
 spectrum={randomSpectrum}
 height={`${height}px`}
 />
