@@ -9,3 +9,32 @@ flair: reference
 category: Transform
 ---
 
+<script>
+    import ResourceLink from '$lib/components/ResourceLink.svelte';
+</script>
+
+https://pythonot.github.io/auto_examples/plot_OT_2D_samples.html#sphx-glr-auto-examples-plot-ot-2d-samples-py
+
+https://pythonot.github.io/auto_examples/backends/plot_sliced_wass_grad_flow_pytorch.html#sphx-glr-auto-examples-backends-plot-sliced-wass-grad-flow-pytorch-py
+
+https://pythonot.github.io/auto_examples/barycenters/plot_barycenter_lp_vs_entropic.html#sphx-glr-auto-examples-barycenters-plot-barycenter-lp-vs-entropic-py
+
+https://pythonot.github.io/auto_examples/barycenters/plot_convolutional_barycenter.html#sphx-glr-auto-examples-barycenters-plot-convolutional-barycenter-py
+
+https://www.youtube.com/watch?v=LXqZMKXSPJo
+
+
+
+## Related Resources
+
+<ResourceLink 
+title='Audio Transport: A Generalized Portamento via Optimal Transport'
+url='https://arxiv.org/pdf/1906.06763.pdf'
+blurb='The paper which inspired this implementation'
+/>
+
+<ResourceLink 
+title='Computational Optimal Transport'
+url='https://arxiv.org/pdf/1803.00567.pdf'
+blurb='For those who really want to get down in the details'
+/>
