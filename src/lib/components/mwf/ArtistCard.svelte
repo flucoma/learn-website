@@ -4,7 +4,7 @@
 	export let website = '';
 </script>
 
-<a class="container neutral-link" href={ website }>
+<a class="container neutral-link raisedbox" href={ website }>
 	<div class="top">
 		<img loading="lazy" alt={`${name} profile picture`} {src} />
 		<h2>{ name }</h2>
@@ -24,14 +24,6 @@
 		border-radius: 0.25em;
 		padding: 1em;
 	}
-
-    .container:hover {
-        box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-    }
-
-    .container, .container:hover {
-        transition: box-shadow 200ms ease-in-out;
-    }
 
 	.top {
 		display: grid;

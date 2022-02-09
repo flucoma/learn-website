@@ -17,7 +17,7 @@
     export let data: ArticleData = {};
 </script>
 
-<a class="container" href={data.url}>
+<a class="container raisedbox" href={data.url}>
     <div class="top">
         <h2>{data.title}</h2>
         <Flair flair={data.flair}/>
@@ -51,14 +51,6 @@
 
     .container:hover {
         cursor: pointer;
-    }
-
-    .container:hover {
-        box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-    }
-
-    .container, .container:hover {
-        transition: box-shadow 200ms ease-in-out;
     }
 
     .top {

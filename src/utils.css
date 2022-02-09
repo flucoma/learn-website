@@ -18,3 +18,16 @@
     background-color: white;
     text-decoration: none;
 }
+
+.raisedbox {
+    border: 0.063rem solid #dcdee0;
+    border-radius: 0.25em;
+}
+
+.raisedbox:hover {
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.raisedbox, .raisedbox:hover {
+    transition: box-shadow 200ms ease-in-out;
+}

@@ -11,28 +11,33 @@
 	}
 </script>
 
-<button style:width={width} style:height={height} class:disabled class="btn" on:click={clickHandler} {disabled}>
+<button
+class="btn" 
+style:width={width} 
+style:height={height} 
+class:disabled 
+on:click={clickHandler} 
+{disabled}
+>
 	{label}
 </button>
 
 <style lang="postcss">
 	.btn {
-		border: 1px outset var(--light-blue);
-		background-color: var(--light-blue);
 		color: white;
 		cursor: pointer;
-		transition: box-shadow 0.1s;
+		border: 2px outset var(--med-blue);
 		border-radius: 0.25em;
-		font-size: 1rem;
+		background-color: var(--light-blue);
+		transition: box-shadow 0.1s;
 	}
 
 	.btn:active {
-		border: 1px outset var(--med-blue);
 		background-color: var(--med-blue);
 	}
 
 	.btn:hover {
-		box-shadow: 0 0 11px rgba(33, 33, 33, 0.2);
+		box-shadow: 0 0 3px var(--dark-blue);
 	}
 
 	.disabled,
