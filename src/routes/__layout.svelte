@@ -25,7 +25,8 @@
 			<slot />
 		</main>
 
-		<div class="empty-right" />
+		<div class="related">
+		</div>
 	</div>
 	<Footer />
 </div>
@@ -60,8 +61,8 @@
 		height: max-content;
 	}
 
-	.empty-right {
-		grid-area: empty-right;
+	.related {
+		grid-area: related;
 		width: 25ch;
 	}
 
@@ -69,7 +70,7 @@
 	@media (min-width: 1200px) {
 		.content {
 			grid-template-columns: auto min(var(--max-text-width), 100%) auto;
-			grid-template-areas: 'navigation main empty-right';
+			grid-template-areas: 'navigation main related';
 		}
 	}
 
@@ -81,7 +82,11 @@
 				'main';
 		}
 
-		.empty-right {
+		.navigation {
+			width: 100%;
+		}
+
+		.related {
 			display: none;
 		}
 	}
