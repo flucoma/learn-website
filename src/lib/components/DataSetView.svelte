@@ -15,7 +15,7 @@
 		{#each data as point}
 		{#each Object.entries(point) as [id, data]}
 		<div class="entry">{id}</div>
-		<div class="entry" style:grid-template-columns={'repeat(' + `${num}` +','+ '6ch)'}>
+		<div class="entry" style:grid-template-columns={'repeat(' + `${num}` +','+ '7ch)'}>
 			{#each data as datum}
 			<div>
 				{ datum.toFixed(2) }
@@ -32,7 +32,7 @@
 	.container {
 		margin-bottom: 0.5em;
 		padding: 0.5em;
-		width: max-content; 
+		max-width: 100%;
 	}
 	.label {
 		font-weight: bold;

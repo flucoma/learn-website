@@ -55,9 +55,7 @@ category: Analyse Data
     <DataSetView data={two} />
 </div>
 
-When there are multple columns of data, normalisation is applied _per column_. This preserves the relationship of data within a column across all points, but will alter the shape of the data across the point. In the example below, we might imagine the first column is [Loudness](/reference/loudness) in dB, and the second column is [Pitch](/reference/pitch) in hertz. 
-
-see how the differences between the first and second column _after_ normalisation are reduced.
+When there are multple columns of data, normalisation is applied _per column_. This preserves the relationship of data within a column across all points, but will alter the shape of the data across the point. In the example below, we might imagine the first column is [Loudness](/reference/loudness) in dB, and the second column is [Pitch](/reference/pitch) in hertz. Observe the differences in range between the first and second column _after_ normalisation.
 
 <div class='io'>
     <DataSetView data={three} />
@@ -71,7 +69,7 @@ see how the differences between the first and second column _after_ normalisatio
     .io {
         display: flex;
         flex-direction: row;
-        gap: 2em;
+        gap: 1em;
     }
 
     .emoji {
