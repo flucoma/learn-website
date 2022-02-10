@@ -29,36 +29,77 @@ category: Analyse Data
     ]
 
     const three = [
-        { "1" : [1, 10] },
-        { "2" : [2, 20] },
-        { "3" : [3, 30] },
-        { "4" : [4, 40] },
-        { "5" : [5, 50] }
+        { "1" : [-12, 220] },
+        { "2" : [-24, 440] },
+        { "3" : [-36, 880] },
+        { "4" : [-48, 1760] },
+        { "5" : [-60, 3520] }
     ]
 
     const four = [
-        { "1" : [0, 0] },
-        { "2" : [0.25, 0.25] },
-        { "3" : [0.5, 0.5] },
-        { "4" : [0.75, 0.75] },
-        { "5" : [1, 1] }
+        { "1" : [1, 0] },
+        { "2" : [0.75, 0.06667] },
+        { "3" : [0.5, 0.2] },
+        { "4" : [0.25, 0.46667] },
+        { "5" : [0, 1] }
     ]
 </script>
 
-[Normalize]() helps us scale data from any range to a _normal_ range. Typically, a _normal_ range is between 0 and 1 but the minimum and maximum can be modified with `min` and `max`. A simple example of normalisation is shown below.
+[Normalize]() helps us scale data in a [DataSet](/reference/dataset) from any input range to a _normal_ output range. Typically, a _normal_ range is between 0 and 1. However, these boundaries can be modified with the `min` and `max` parameters. A concise example of normalisation is shown below by applying it to a [DataSet](/reference/dataset) containing five points. The input data is shown on the left, and the normalised result is shown on the right. 
 
-This is our input dataset.
-<DataSetView data={one} />
+<div class='io'>
+    <DataSetView data={one} />
+    <div class='emoji'>
+        <div class='arrow'>→</div>
+    </div>
+    <DataSetView data={two} />
+</div>
 
-Once normalized this is the output.
-<DataSetView data={two} />
+When there are multple columns of data, normalisation is applied _per column_. This preserves the relationship of data within a column across all points, but will alter the shape of the data across the point. In the example below, we might imagine the first column is [Loudness](/reference/loudness) in dB, and the second column is [Pitch](/reference/pitch) in hertz. 
 
-Scales by _column_
-<DataSetView data={three} />
-<DataSetView data={four} />
+see how the differences between the first and second column _after_ normalisation are reduced.
+
+<div class='io'>
+    <DataSetView data={three} />
+    <div class='emoji'>
+        <div class='arrow'>→</div>
+    </div>
+    <DataSetView data={four} />
+</div>
+
+<style>
+    .io {
+        display: flex;
+        flex-direction: row;
+        gap: 2em;
+    }
+
+    .emoji {
+        display: grid;
+        place-items: center;
+        font-size: 5rem;
+    }
 
 
-Find the minimum and maximum of each column in the input dataset
+    @media (max-width: 550px) {
+        .io {
+            display: flex;
+            flex-direction: column;
+            justify-content: left;
+            gap: 0;
+        }
 
-Preserves the shape of the dataset but the range and scale is now different.
+        .emoji {
+            justify-content: left;
+        }
+
+        .arrow {
+            -webkit-transform: rotate(90deg);
+            -moz-transform: rotate(90deg);
+            -o-transform: rotate(90deg);
+            -ms-transform: rotate(90deg);
+            transform: rotate(90deg);
+        }
+    }
+</style>
 
