@@ -8,6 +8,6 @@ layout: none
 
 # Made with FluCoMa
 
-Made with FluCoMa highlights projects and practices where FluCoMa is used.
+Made with FluCoMa highlights projects and practices where FluCoMa is used. Find a full catalogue of pieces that were made using the FluCoMa tools [here](https://www.flucoma.org/made-with/).
 
 <CardList section='madewithflucoma' />
