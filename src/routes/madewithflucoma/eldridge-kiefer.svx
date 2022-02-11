@@ -25,32 +25,31 @@ flair: article
 
 <style>
     .artist-cards {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 0.5em;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
     }
 </style>
 
 <div class="artist-cards">
-<ArtistCard
-src = "/madewithflucoma/eldridge/alice-profile.jpeg"
-name = "Alice Eldridge"
-website = "https://profiles.sussex.ac.uk/p127749-alice-eldridge"
->
-<p slot="bio">
-Alice Eldridge is a musician, researcher and Lecturer working at the interstices of music, technology & ecology. Described as a voluntary hybrid appeared she is recognised internationally both for her contributions to creative technology and new music research and the emerging science of ecoacoustics. As a soundscape ecologist she has featured on BBC TV Spring Watch and BBC Radio 4 Costing the Earth; as a cellist she has made numerous appearances on BBC Radio 3 Late Junction and Jazz on 3. Her contemporary chamber compositions have been broadcast on BBC Radio 6 Freak Zone, and she has appeared on BBC Radio 1 John Peel Show as a pop bassist.
-</p>
-</ArtistCard>
-
-<ArtistCard
-src = "/madewithflucoma/eldridge/chris-profile.jpeg"
-name = "Chris Kiefer"
-website = "https://profiles.sussex.ac.uk/p208667-chris-kiefer"
->
-<p slot="bio">
-Chris Kiefer is a computer-musician and musical instrument designer, specialising in musician-computer interaction, physical computing, and machine learning. He performs with custom-made instruments including malleable foam interfaces, touch screen software, interactive sculptures and a modified self-resonating cello. Chris’ research often focuses on participatory design and development of interactive music systems in everyday settings, including digital instruments for children with disabilities, and development of the NETEM networked score system for musical ensembles. His work also concentrates on machine learning and signal processing for audio and interaction, with an emphasis on nonlinear and dynamical systems.
-</p>
-</ArtistCard>
+    <ArtistCard
+    src = "/madewithflucoma/eldridge/alice-profile.jpeg"
+    name = "Alice Eldridge"
+    website = "https://profiles.sussex.ac.uk/p127749-alice-eldridge"
+    >
+    <p slot="bio">
+    Alice Eldridge is a musician, researcher and Lecturer working at the interstices of music, technology & ecology. Described as a voluntary hybrid appeared she is recognised internationally both for her contributions to creative technology and new music research and the emerging science of ecoacoustics. As a soundscape ecologist she has featured on BBC TV Spring Watch and BBC Radio 4 Costing the Earth; as a cellist she has made numerous appearances on BBC Radio 3 Late Junction and Jazz on 3. Her contemporary chamber compositions have been broadcast on BBC Radio 6 Freak Zone, and she has appeared on BBC Radio 1 John Peel Show as a pop bassist.
+    </p>
+    </ArtistCard>
+    <ArtistCard
+    src = "/madewithflucoma/eldridge/chris-profile.jpeg"
+    name = "Chris Kiefer"
+    website = "https://profiles.sussex.ac.uk/p208667-chris-kiefer"
+    >
+    <p slot="bio">
+    Chris Kiefer is a computer-musician and musical instrument designer, specialising in musician-computer interaction, physical computing, and machine learning. He performs with custom-made instruments including malleable foam interfaces, touch screen software, interactive sculptures and a modified self-resonating cello. Chris’ research often focuses on participatory design and development of interactive music systems in everyday settings, including digital instruments for children with disabilities, and development of the NETEM networked score system for musical ensembles. His work also concentrates on machine learning and signal processing for audio and interaction, with an emphasis on nonlinear and dynamical systems.
+    </p>
+    </ArtistCard>
 </div>
 
 ## Introduction
