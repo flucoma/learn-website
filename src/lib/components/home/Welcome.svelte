@@ -29,7 +29,7 @@
         <h2>   
             Welcome
         </h2>
-        <p>
+        <p class="text-block">
             Welcome to the Fluid Corpus Manipulation Learn platform. 
             A lot of music making with computers involves working with collections of audio, and these collections are getting bigger and bigger. At the same time, techniques for analysing sound and manipulating data keep being developed. Our project seeks to enable music making with collections of audio by making some of these techniques available for musical creative coding environments, alongside a set of supporting resources on these pages.
         </p>
@@ -39,7 +39,7 @@
         <h2>   
             Overviews
         </h2>
-        <p>
+        <p class="text-block">
             A variety of articles and guides discussing machine listening and machine learning, sometimes relating to specific FluCoMa technology and sometimes reflecting more broadly.
         </p>
         <div class='flaired-title'>
@@ -58,7 +58,7 @@
         <h2>   
             Made with FluCoMa
         </h2>
-        <p>
+        <p class="text-block">
             Made with FluCoMa draws attention to people like you. Makers who use the FluCoMa toolkit or are involved in the wider community. We want to highlight what is out there to try and cultivate opportunities for learning and to situate this technology within a community of techno-fluent musicians.
         </p>
         <div class='flaired-title'>
@@ -77,7 +77,7 @@
         <h2>   
             References
         </h2>
-        <p>
+        <p class="text-block">
             The references outline the underlying algorithms of the FluCoMa toolkit in more detail. We try to steer clear from specific implementation details and instead focus on the concepts behind each algorithm and to help illuminate what goes on under the hood.
         </p>
         <div class='flaired-title'>
@@ -96,6 +96,10 @@
 
 
 <style>
+
+    .text-block{
+        text-align: justify;
+    }
 
     .main-container{
         display: grid;
