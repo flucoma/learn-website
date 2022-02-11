@@ -26,11 +26,8 @@
 <div class="main-container">
 
     <div class="container" style="grid-column: 1/3;">
-        <h2>   
-            Welcome
-        </h2>
         <p class="text-block">
-            Welcome to the Fluid Corpus Manipulation Learn platform. 
+            Welcome to the <span style="font-weight: bold;">Fluid Corpus Manipulation Learn platform</span>. 
             A lot of music making with computers involves working with collections of audio, and these collections are getting bigger and bigger. At the same time, techniques for analysing sound and manipulating data keep being developed. Our project seeks to enable music making with collections of audio by making some of these techniques available for musical creative coding environments, alongside a set of supporting resources on these pages.
         </p>
     </div>
