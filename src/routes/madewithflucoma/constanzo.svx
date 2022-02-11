@@ -1,0 +1,39 @@
+---
+title: Sound into Sound
+artist: Rodrigo Constanzo
+blurb: |
+    In this article, we take a look at the work Rodrigo Constanzo did for the project and explore how he used the FluCoMa tools for his corpus-based music making.
+tags: 
+    - descriptors
+    - matching
+    - real-time
+    - batch processing
+    - max for live
+flair: article
+---
+
+<script>
+    import Image from '$lib/components/Image.svelte';
+    import YouTube from '$lib/components/YouTube.svelte';
+    import ArtistCard from '$lib/components/mwf/ArtistCard.svelte';
+    import IndentNote from '$lib/components/IndentNote.svelte';
+</script>
+
+<ArtistCard
+src = "/madewithflucoma/constanzo/constanzo_bio_pic.jpeg"
+name = "Rodrigo Constanzo"
+website = "https://rodrigoconstanzo.com/"
+>
+<p slot="bio">
+Rodrigo Constanzo makes art and thinks that it’s an important thing to do. The art he makes is generally smeared in time, in the form of music. He improvises and acts ad the antennae to the beauty, electricity, and endless surprise that is living a crazy life. He composes and tries to create new sounds, interactions, and behaviours that he finds interesting and challenging.
+</p>
+</ArtistCard>
+
+## Introduction
+
+<IndentNote type='pointer'>
+
+Download the demonstration patches for this article <a href='/madewithflucoma/constanzo/Rodrigo Constanzo Examples.zip' download='Rodrigo Constanzo Examples.zip'>here</a>.
+
+</IndentNote>
+
