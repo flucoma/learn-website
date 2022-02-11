@@ -41,5 +41,6 @@
 		max-height: 80px;
 		width: auto; 
 		height: auto;
+		border-radius: 50%;
 	}
 </style>
