@@ -7,12 +7,3 @@
     
 </Welcome>
 
-## Get Involved
-
-With these pages we're aiming to help musicians learn about how some of these techniques work, taking advantage of some of the excellent resources already online where possible. However, we also want to fill what we see as something of a gap, by exploring the creative musical possibilities of these techniques. This site will grow as these musical possibilities reveal themselves, particularly – we hope – through people sharing their discoveries and insights on our [discussion forum](https://discourse.flucoma.org)! There many ways you can get involved with FluCoMa either by contributing to the code and documentation or just by using the software:
-
-1. Download the [Max](https://github.com/flucoma/flucoma-max/releases/latest), [SuperCollider](https://github.com/flucoma/flucoma-sc/releases/latest) or [Pd](https://github.com/flucoma/flucoma-pd/releases/latest) package. You can follow the [installation instructions](/installation) for your environment of choice.
-
-2. Discuss, ask questions, or share what you've been using FluCoMa for in the [discourse forum](https://discourse.flucoma.org/). This is a community-driven place where we welcome anyone and especially encourage beginners as part of their learning experience. 
-
-3. Dive into all of our open-source code at [GitHub](https://github.com/flucoma).

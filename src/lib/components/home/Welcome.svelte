@@ -25,7 +25,7 @@
 
 <div class="main-container">
 
-    <div class="container" style="grid-column: 1;">
+    <div class="container" style="grid-column: 1/3;">
         <h2>   
             Welcome
         </h2>
@@ -35,9 +35,9 @@
         </p>
     </div>
 
-    <div class="container" style="grid-column: 2;">
+    <div class="container" style="grid-column: 1;">
         <h2>   
-            Overviews
+            Learn
         </h2>
         <p class="text-block">
             A variety of articles and guides discussing machine listening and machine learning, sometimes relating to specific FluCoMa technology and sometimes reflecting more broadly.
@@ -54,12 +54,12 @@
         </a>
     </div>
 
-    <div class="container" style="grid-column: 1;">
+    <div class="container" style="grid-column: 2;">
         <h2>   
-            Made with FluCoMa
+            Explore
         </h2>
         <p class="text-block">
-            Made with FluCoMa draws attention to people like you. Makers who use the FluCoMa toolkit or are involved in the wider community. We want to highlight what is out there to try and cultivate opportunities for learning and to situate this technology within a community of techno-fluent musicians.
+            Here we draw attention to people like you. Makers who use the FluCoMa toolkit or are involved in the wider community. We want to highlight what is out there to try and cultivate opportunities for learning and to situate this technology within a community of techno-fluent musicians.
         </p>
         <div class='flaired-title'>
             <div class="flair {chosen_madewith[0].flair}" />
@@ -73,7 +73,7 @@
         </a>
     </div>
 
-    <div class="container" style="grid-column: 2;">
+    <div class="container" style="grid-column: 1;">
         <h2>   
             References
         </h2>
@@ -90,6 +90,29 @@
         <a href={chosen_ref[0].url}>
             Learn More <ArrowRight />
         </a>
+    </div>
+
+    <div class="container" style="grid-column: 2;">
+        <h2>   
+            Get Involved
+        </h2>
+        <p class="text-block">
+            With these pages we're aiming to help musicians learn about how some of these techniques work, taking advantage of some of the excellent resources already online where possible. However, we also want to fill what we see as something of a gap, by exploring the creative musical possibilities of these techniques. This site will grow as these musical possibilities reveal themselves, particularly – we hope – through people sharing their discoveries and insights on our <a href="https://discourse.flucoma.org">discussion forum</a>! There many ways you can get involved with FluCoMa either by contributing to the code and documentation or just by using the software:
+        </p>
+            <ol>
+                <li>
+                    Download the <a href="https://github.com/flucoma/flucoma-max/releases/latest">Max</a>, <a href="https://github.com/flucoma/flucoma-sc/releases/latest">SuperCollider</a> or <a href="https://github.com/flucoma/flucoma-pd/releases/latest">Pd</a> package. You can follow the <a href="/installation">installation instructions</a> for your environment of choice.
+                </li>
+                <li>
+                    Discuss, ask questions, or share what you've been using FluCoMa for in the <a href="https://discourse.flucoma.org/">discourse forum</a>. This is a community-driven place where we welcome anyone and especially encourage beginners as part of their learning experience. 
+                </li>
+                <li>
+                    Dive into all of our open-source code at <a href="https://github.com/flucoma">GitHub</a>.
+                </li>
+            </ol>
+
+       
+
     </div>
 
 </div>
