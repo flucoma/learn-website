@@ -22,9 +22,9 @@
 					<img class="logo" src="/img/onlylogo.svg" alt="FluCoMa Logo" loading="lazy" />
 				</a>
 			{/if}
-			<a class="nav-link" href="/overviews">Overviews</a>
-			<a class="nav-link" href="/reference">Reference</a>
-			<a class="nav-link" href="/madewithflucoma">Made with FluCoMa</a>
+			<a sveltekit:prefetch class="nav-link" href="/overviews">Overviews</a>
+			<a sveltekit:prefetch class="nav-link" href="/reference">Reference</a>
+			<a sveltekit:prefetch class="nav-link" href="/madewithflucoma">Made with FluCoMa</a>
 		</div>
 	{/if}
 	<Search />

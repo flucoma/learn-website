@@ -12,7 +12,7 @@
 		<h3 class="toc">Table of Contents</h3>
 		<div class="headings">
 			{#each headings as h}
-			<a target='_self' href={h.url}>{h.text}</a>
+			<a href={h.url}>{h.text}</a>
 			{/each}
 		</div>
 	</div>

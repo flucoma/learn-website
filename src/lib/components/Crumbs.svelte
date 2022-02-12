@@ -44,9 +44,9 @@
 <nav class="container">
 	<div class="left" />
 	<div class="crumbs">
-		<a href="/">Home</a>
+		<a sveltekit:prefetch href="/">Home</a>
 		{#each crumbs as c}
-			/ <a href={c.url}>{c.text}</a> &nbsp
+			/ <a sveltekit:prefetch href={c.url}>{c.text}</a> &nbsp
 		{/each}
 	</div>
 	<div class="right" />

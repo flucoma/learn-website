@@ -6,7 +6,7 @@
 <div class="container raisedbox">
         <slot name='title' />
         <slot name='blurb' />
-        <a class='linkout' href={link}>Learn More <ArrowRight /></a>
+        <a sveltekit:prefetch class='linkout' href={link}>Learn More <ArrowRight /></a>
 </div>
 
 <style>

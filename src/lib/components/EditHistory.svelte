@@ -8,7 +8,7 @@
 
 <div class="history">
 	<div class="last-edit">Last modified: {editHistory.time} by {editHistory.author}</div>
-	<a target="_blank" class="edit" href={commit}>Commit: {editHistory.commit.slice(0, 6)}</a>
+	<!-- <a target="_blank" class="edit" href={commit}>Commit: {editHistory.commit.slice(0, 6)}</a> -->
 	<a target="_blank" class="edit" href={source}>Edit File on GitHub</a>
 </div>
 
