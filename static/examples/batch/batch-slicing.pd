@@ -119,7 +119,7 @@ the number of frames to analyse;
 #X restore 290 620 pd analysis;
 #X text 380 620 look in here for how the analysis is performed;
 #X obj 31 88 pdcontrol;
-#X msg 31 55 browse https://learn.flucoma.org/overviews/batch-processing
+#X msg 31 55 browse https://learn.flucoma.org/learn/batch-processing
 ;
 #X obj 9 16 cnv 15 100 10 empty empty Batch\\\ Processing 20 12 0 36
 #fcfcfc #404040 0;
