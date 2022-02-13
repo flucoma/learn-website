@@ -29,7 +29,6 @@
 	$: crumbs = splitPath($page.url.pathname);
 </script>
 
-<!-- Breadcrumbs -->
 <nav class="container">
 	<div class="left" />
 	<div class="crumbs">
@@ -49,9 +48,5 @@
 	}
 	.crumbs {
 		font-size: 0.8rem;
-	}
-
-	.crumbs::first-letter {
-    	text-transform:capitalize;
 	}
 </style>
