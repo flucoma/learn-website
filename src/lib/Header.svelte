@@ -19,12 +19,12 @@
 		<div class="links">
 			{#if w >= breakpoint}
 				<a class="logo-link" href="/">
-					<img class="logo" src="/img/onlylogo.svg" alt="FluCoMa Logo" loading="lazy" />
+					<img class="logo" src="/img/onlylogo.svg" alt="FluCoMa Logo" />
 				</a>
 			{/if}
-			<a sveltekit:prefetch class="nav-link" href="/overviews">Overviews</a>
+			<a sveltekit:prefetch class="nav-link" href="/learn">Learn</a>
 			<a sveltekit:prefetch class="nav-link" href="/reference">Reference</a>
-			<a sveltekit:prefetch class="nav-link" href="/madewithflucoma">Made with FluCoMa</a>
+			<a sveltekit:prefetch class="nav-link" href="/explore">Explore</a>
 		</div>
 	{/if}
 	<Search />
