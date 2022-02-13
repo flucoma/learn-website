@@ -21,11 +21,11 @@ category: Transform
 
 <IndentNote type='pointer'>
 
-NMFFilter is designed to work with bases taken from a [BufNMF](/overviews/bufnmf) analysis. Please visit the [BufNMF](/overviews/bufnmf) page to learn about bases before proceeding.
+NMFFilter is designed to work with bases taken from a [BufNMF](/learn/bufnmf) analysis. Please visit the [BufNMF](/learn/bufnmf) page to learn about bases before proceeding.
 
 </IndentNote>
 
-NMFFilter splits an incoming audio signal into different audio streams based on a set of spectral templates provided by the user (such as bases from a [BufNMF](/overviews/bufnmf) analysis). It does this by performing non-negative matrix factorisation on a single spectral frame using the provided bases as seeds. Learn more about the seeding process in the [Seeding NMF Overview](/overviews/seeding-nmf).
+NMFFilter splits an incoming audio signal into different audio streams based on a set of spectral templates provided by the user (such as bases from a [BufNMF](/learn/bufnmf) analysis). It does this by performing non-negative matrix factorisation on a single spectral frame using the provided bases as seeds. Learn more about the seeding process in the [Seeding NMF Overview](/learn/seeding-nmf).
 
 <Image
 src="/reference/nmffilter/flowchart.jpg"
@@ -52,7 +52,7 @@ label="One stream of audio is split into three streams based on three spectral t
 
 ---
 
-In this example, we’ll use the bases from the analysis on the [BufNMF](/overviews/bufnmf) page. These bases contain spectral templates for the (1) kick drum, (2) snare drum, and (3) hi-hat components of the original drum loop.
+In this example, we’ll use the bases from the analysis on the [BufNMF](/learn/bufnmf) page. These bases contain spectral templates for the (1) kick drum, (2) snare drum, and (3) hi-hat components of the original drum loop.
 
 <Audio
 src="/audio/Nicol-LoopE-M.mp3"

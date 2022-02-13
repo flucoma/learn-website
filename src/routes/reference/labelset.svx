@@ -16,7 +16,7 @@ category: Analyse Data
     import DataSetView from '$lib/components/DataSetView.svelte';
 </script>
 
-The [LabelSet]() supports building a collection of connected _labels_ and _identifiers_. The interface for doing this is similar to [DataSet](/reference/dataset), only that instead of providing an identifier and some data, you provide an identifier and a symbol (which could be a human-readable string, such as "oboe" for example). Because a [DataSet](/reference/dataset) and a [LabelSet]() can share identifiers, it allows us to create higher-level connections between the identifiers of stored in each one. This is an important part of building, for example, [classification workflows with neural networks](/overviews/classification-neural-network) or for inferring the results of clustering such as from [KMeans](/reference/kmeans).
+The [LabelSet]() supports building a collection of connected _labels_ and _identifiers_. The interface for doing this is similar to [DataSet](/reference/dataset), only that instead of providing an identifier and some data, you provide an identifier and a symbol (which could be a human-readable string, such as "oboe" for example). Because a [DataSet](/reference/dataset) and a [LabelSet]() can share identifiers, it allows us to create higher-level connections between the identifiers of stored in each one. This is an important part of building, for example, [classification workflows with neural networks](/learn/classification-neural-network) or for inferring the results of clustering such as from [KMeans](/reference/kmeans).
 
 To illustrate this, a [LabelSet]() is depicted below:
 
