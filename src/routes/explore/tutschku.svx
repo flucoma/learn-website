@@ -20,7 +20,7 @@ flair: article
 </script>
 
 <ArtistCard
-src = "/madewithflucoma/tutschku/bio_pic.jpeg"
+src = "/explore/tutschku/bio_pic.jpeg"
 name = "Hans Tutschku"
 website = "https://tutschku.com/"
 >
@@ -33,11 +33,11 @@ Hans Tutschku is a composer of instrumental and electroacoustic music. In 1982 h
 
 <IndentNote type='pointer'>
 
-Download the demonstration patches for this article <a href='/madewithflucoma/tutschku/Hans Tutschku Examples.zip' download='Hans Tutschku Examples.zip'>here</a>.
+Download the demonstration patches for this article <a href='/explore/tutschku/Hans Tutschku Examples.zip' download='Hans Tutschku Examples.zip'>here</a>.
 
 </IndentNote>
 
-Today we’ll be taking a look at the work that Hans Tutschku did for the project. His piece *Sparks* for piano and live electronics was performed by pianist [Mark Knoop](https://www.markknoop.com/) at the [second FluCoMa concert](/madewithflucoma/liminal-spaces), at [Dialogues Festival 2021](https://digital.eca.ed.ac.uk/dialogues/). Tutschku notably made use of the [fluid.bufnmf~](/reference/bufnmf) and [fluid.nmfmatch~](/reference/nmfmatch) objects to build a piano-tracking patch. He then used this tracker to drive audio effect modules using symbolic notation. As with all the "[Made with FluCoMa](/madewithflucoma)" articles, there is a series of demonstration patches that can be <a href='/madewithflucoma/tutschku/Hans Tutschku Examples.zip' download='Hans Tutschku Examples.zip'>downloaded</a> and interacted with if you wish to explore the inner workings of the software.
+Today we’ll be taking a look at the work that Hans Tutschku did for the project. His piece *Sparks* for piano and live electronics was performed by pianist [Mark Knoop](https://www.markknoop.com/) at the [second FluCoMa concert](/explore/liminal-spaces), at [Dialogues Festival 2021](https://digital.eca.ed.ac.uk/dialogues/). Tutschku notably made use of the [fluid.bufnmf~](/reference/bufnmf) and [fluid.nmfmatch~](/reference/nmfmatch) objects to build a piano-tracking patch. He then used this tracker to drive audio effect modules using symbolic notation. As with all the "[Made with FluCoMa](/explore)" articles, there is a series of demonstration patches that can be <a href='/explore/tutschku/Hans Tutschku Examples.zip' download='Hans Tutschku Examples.zip'>downloaded</a> and interacted with if you wish to explore the inner workings of the software.
 
 Tutschku describes the piece as the “*next step in* [his] *30-year investigation of the relationship between piano and live electronics*”. He explains that in “*an elastic relationship, the pianist is invited to make decisions based on what the electronics are producing at that moment* [and that he is] *hoping for a two-way interaction between both*". Indeed, from the very beginning of the piece, Tutschku’s experience and mastery of this format is very clear: the balance between the acoustic instrument and the electronics seems perfect. The whole piece has a very smooth flow – we navigate through different moments of suspension, dense percussive explosions and rich harmonic fabrics in a way that seems wholly natural.
 
@@ -70,21 +70,21 @@ The way that Tutschku approaches this goal is to find ways of allowing the elect
 As we see in the video recording, all we see on stage during *Sparks* is the pianist at the piano. There are two microphones within the piano body which are feeding audio into a Max patch, and this is distributing sound across 8 channels around the audience. As Tutschku indicates in the score notes, it is also possible to perform the piece with only 6 output channels. Due to health restrictions, Tutschku was unable to get to Edinburgh for the gig, so it was [Pierre Alexandre Tremblay](https://www.pierrealexandretremblay.com/) who was running the patch.
 
 <Image
-src="/madewithflucoma/tutschku/score_example_img.png"
+src="/explore/tutschku/score_example_img.png"
 label="The beginning of the score for Sparks."
 />
 
 Knoop is reading from a score which, as you can see in the example image, is written in proportional notation. Tutschku uses proportional notation to give the player “*pockets of freedom where they can actively create*”. There are other moments in the score that contribute to this: for example, in the extract below we see that the pianist is asked to “*create fast, irregular figures and clouds*” from a set of given pitches.
 
 <Image
-src="/madewithflucoma/tutschku/moments_of_freedom.png"
+src="/explore/tutschku/moments_of_freedom.png"
 label="A moment of freedom for the performer in Sparks."
 />
 
 Another example can be seen in the extract below: here, in two sections, the pianist is asked to play a chord a certain number of times with slight irregularities. This reflects certain musical tastes that Tutschku has: he explained that he’s “*not a huge fan of real, regular repetition*”. He described two opposite extremes of perception: constant repetition of a same element, and constant generation of new material. He finds that neither of these are very musically interesting – he tries to navigate the space between the two.
 
 <Image
-src="/madewithflucoma/tutschku/repetitions.png"
+src="/explore/tutschku/repetitions.png"
 label="Repetition in the score for Sparks."
 />
 
@@ -95,7 +95,7 @@ As you will have seen in these extracts, the score is divided into different eve
 - Those that deal with symbolic structure (see below).
 
 <Image
-src="/madewithflucoma/tutschku/different_modules.png"
+src="/explore/tutschku/different_modules.png"
 label="The module status patch in Tutschku's software."
 />
 
@@ -124,7 +124,7 @@ url={'C9WZlNWd4c0'}
 In his “Traces of Fluid Manipulations” presentation video (that can be viewed above), Tutschku goes through the development of his NMF Piano Tracker. We shall go over the various steps here which are also illustrated in the example patches. We have presented a simpler version to demonstrate the primary steps of the workflow that may be used as a basis for more complicated projects. It will be useful for the reader to discover both a simple and generic overview of the patch that they may explore themselves, and to hear it be explained in Tutschku’s own words and see it working with a real piano in this video.
 
 <Image
-src="/madewithflucoma/tutschku/building_a_database_example.png"
+src="/explore/tutschku/building_a_database_example.png"
 label="An overview of the 'Building a Database' example patch."
 />
 
@@ -133,21 +133,21 @@ As can be seen in the example patch *Building a Database*, Tutschku starts by bu
 This process can be recreated in the example patch. Not everyone will have Pianoteq, so it has been designed in a way that allows you to load any VST (on Mac it defaults to the basic Apple piano VST). Like in Tutschku’s patch, you can set a number of parameters and the database will iteratively create itself.
 
 <Image
-src="/madewithflucoma/tutschku/diagram.jpg"
+src="/explore/tutschku/diagram.jpg"
 label="An overview of how the process will work."
 />
 
-Tutschku now has a large database of piano sounds that is divided into pitches. As can be seen visualized in the diagram, the idea will be to match a live piano signal against this database to determine which pitches are currently being played. To achieve this, he uses the [*fluid.nmfmatch~*](/reference/nmfmatch) object – an object that allows a real-time NMF analysis that matches the incoming signal to a set of [fixed bases](/overviews/seeding-nmf). Let’s look at this process in more detail.
+Tutschku now has a large database of piano sounds that is divided into pitches. As can be seen visualized in the diagram, the idea will be to match a live piano signal against this database to determine which pitches are currently being played. To achieve this, he uses the [*fluid.nmfmatch~*](/reference/nmfmatch) object – an object that allows a real-time NMF analysis that matches the incoming signal to a set of [fixed bases](/learn/seeding-nmf). Let’s look at this process in more detail.
 
 <Image
-src="/madewithflucoma/tutschku/build_the_nmf_model_example.png"
+src="/explore/tutschku/build_the_nmf_model_example.png"
 label="An overview of the 'Build the NMF Model' example patch."
 />
 
 As can be seen in the *Build the NMF Model* example patch, Tutschku begins with an NMF analysis of each group of pitches. You will remark that for each analysis, he is only looking for one component. Indeed, this is because he already knows what he is looking for – he is not using NMF in this instance to search for objects within the sound, he is using it to build a set of bases that he will be able to use later to find this component in another signal. As we see in the example patch, each group of pitches will correspond to a channel in the bases buffer that will be exported – essentially, each base represents a pitch. These bases can be saved, and used in the next step for tracking.
 
 <Image
-src="/madewithflucoma/tutschku/nmf_matching_example.png"
+src="/explore/tutschku/nmf_matching_example.png"
 label="An overview of the 'NMF Matching' example patch."
 />
 
@@ -160,7 +160,7 @@ As can be seen in the *NMF Matching* example patch, these bases are loaded up to
 - Passing the incoming audio signal through a high-pass filter to remove redundant information.
 
 <Image
-src="/madewithflucoma/tutschku/nmf_piano_tracker_example.png"
+src="/explore/tutschku/nmf_piano_tracker_example.png"
 label="An overview of the 'NMF Piano Tracker' example patch."
 />
 
@@ -173,7 +173,7 @@ Tutschku also explained that he doesn’t make himself a “*slave to technology
 As we’ve seen in these examples, the pitch data can be transcribed into a [*bach.roll*](https://www.bachproject.net/) object, opening up a whole world of possibilities for manipulations in the symbolic realm. Tutschku explained that he can now “*do all kinds of compositional transformations that we have been doing for the past 60 years in written music*”, transformations such as inversions, mirrorings, stretching etc. 
 
 <Image
-src="/madewithflucoma/tutschku/agogik_example.png"
+src="/explore/tutschku/agogik_example.png"
 label="An overview of the 'Symbolic Audio Effect' example patch."
 />
 

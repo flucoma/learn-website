@@ -24,7 +24,7 @@ flair: article
 </script>
 
 <ArtistCard
-src = "/madewithflucoma/pasquet/profile.jpeg"
+src = "/explore/pasquet/profile.jpeg"
 name = "Olivier Pasquet"
 website = "https://www.opasquet.fr/"
 >
@@ -37,12 +37,12 @@ Olivier Pasquet is a sound, visual artist and music producer. His generative pie
 
 <IndentNote type='pointer'>
 
-Download the demonstration patches for this article <a href='/madewithflucoma/pasquet/Olivier Pasquet Examples.zip' download='Olivier Pasquet Examples.zip'>here</a>.
+Download the demonstration patches for this article <a href='/explore/pasquet/Olivier Pasquet Examples.zip' download='Olivier Pasquet Examples.zip'>here</a>.
 
 </IndentNote>
 
 Today we’ll be looking at some of the work that Olivier Pasquet did using the FluCoMa tools.
-His piece, *Herbig-Haro*, was performed at the [first FluCoMa gig](/madewithflucoma/reactive-flows) at [HCMF](https://hcmf.co.uk/) 2019.
+His piece, *Herbig-Haro*, was performed at the [first FluCoMa gig](/explore/reactive-flows) at [HCMF](https://hcmf.co.uk/) 2019.
 Compared to the other performances – which all featured the musician centre-stage with lights focused on them – his felt much more like an installation.
 The room was plunged into darkness, Pasquet was barely visible at the back of the stage, discreetly sat behind a laptop.
 The audience was engulfed in the music: thick bass tones and high, scraping clicks were spatialised across the loudspeakers around the whole performance area; spotlights placed around the space were mapped to flicker on various clicks, pulling the listener into the overarching rhythms that seemed to drive the chaotic material.
@@ -58,19 +58,19 @@ It seems apparent that they hold a particularly important place in the piece, bo
 What are these artefacts, and how were they forged?
 
 <Audio 
-src="/madewithflucoma/pasquet/11152019_124154.mp3"
+src="/explore/pasquet/11152019_124154.mp3"
 label="This is what the results of the generative process sound like."
 />
 
 <Audio 
-src="/madewithflucoma/pasquet/piece_extract.mp3"
+src="/explore/pasquet/piece_extract.mp3"
 label="This is an extract of the performance where we can hear the results."
 />
 
 Pasquet focused a lot of effort into developing a system to create these sounds. 
 He notably took some of the FluCoMa tools and worked them into some of his pre-existing workflows: he makes extensive use of the [bach](https://www.bachproject.net/) and [cage](https://www.bachproject.net/cage/) libraries in Max which rely on the lisp-like linked list (llll) data structure; he has also built a library of his own, [jtol](https://www.opasquet.fr/jtol/), which is built around many of the bach objects and deals with real-time pattern generation. 
 In this text we shall explore what Pasquet wanted to achieve with his system and examine how the FluCoMa tools can yield artefacts that can be used by other tools such as bach and jtol. 
-As with all the "[Made with FluCoMa](/madewithflucoma)" articles, there is a series of demonstration patches that can be <a href='/madewithflucoma/pasquet/Olivier Pasquet Examples.zip' download='Olivier Pasquet Examples.zip'>downloaded</a> and interacted with if you wish to explore the inner workings of the software.
+As with all the "[Made with FluCoMa](/explore)" articles, there is a series of demonstration patches that can be <a href='/explore/pasquet/Olivier Pasquet Examples.zip' download='Olivier Pasquet Examples.zip'>downloaded</a> and interacted with if you wish to explore the inner workings of the software.
 
 ## The Premise
 
@@ -112,7 +112,7 @@ He experimented with 4 different variations of this, all very similar.
 As a side note, it is interesting to remark the parallels to be drawn between the tropes of traditional hip-hop and the broad structure seen here: electronic, percussion-heavy accompanying music which leaves an important place to unsung, rhythmic vocals.
 
 <Audio
-src="/madewithflucoma/pasquet/text_1_short.mp3"
+src="/explore/pasquet/text_1_short.mp3"
 label="An example of some source material."
 />
 
@@ -130,7 +130,7 @@ The user has loaded a short piece of audio, each row corresponds to a different 
 Note that in dark green, a *sound* has been selected: the sound deploys itself across 3 different frequency bands (3, 4 and 8), all starting at the same time, but with different durations.
 
 <Image
-src="/madewithflucoma/pasquet/nmf_piano_roll.png"
+src="/explore/pasquet/nmf_piano_roll.png"
 label="Visualisation taken from the '01 Finding Sounds' demo patch."
 />
 
@@ -164,7 +164,7 @@ He does not allow frames of silence or frames where the algorithm is not certain
 This can already be considered a first step of curation.
 
 <Image
-src="/madewithflucoma/pasquet/pitch_analysis_process.png"
+src="/explore/pasquet/pitch_analysis_process.png"
 label="Overview of the pitch analysis process in the '02 Pitch Analysis' demo patch."
 />
 
@@ -175,7 +175,7 @@ Note that in the overview visualisation there are 10 frequency bands – this is
 After this, he groups the components together into these bands.
 
 <Image
-src="/madewithflucoma/pasquet/pitch_scaling_example.png"
+src="/explore/pasquet/pitch_scaling_example.png"
 label="Example of pitch scaling in the '02 Pitch Analysis' demo patch."
 />
 
@@ -192,7 +192,7 @@ This time, he has a specific idea about what he wishes the algorithm to find.
 He will give the algorithm a set of [*fixed bases*](/reference/bufnmf) that are derived from the combinations of bases from the 10 groups of frequency bands: he’s telling the NMF analysis that these are the types of objects to be found in the sound, now find them!
 
 <Image
-src="/madewithflucoma/pasquet/quantized_pitches_example.png"
+src="/explore/pasquet/quantized_pitches_example.png"
 label="Grouping of the pitch analysis in the '03 Grouped Frequency Bands' demo patch."
 />
 
@@ -221,7 +221,7 @@ This is interesting, as it indicates to us that the spectral decomposition of th
 This means that the range of frequency bands goes beyond the 10 bands that were obtained from the frequency band grouping: we add to this the various *combinations* of those fields according to activity in the temporal domain.
 
 <Image
-src="/madewithflucoma/pasquet/combination_example.png"
+src="/explore/pasquet/combination_example.png"
 label="Overview of the '01 Finding Sounds' demo patch."
 />
 
@@ -239,7 +239,7 @@ To begin, let us have a listen to what the results are going to sound like, and 
 The example patch *04 Timing Sounds* allows the user to load a sound and listen to the final results of the process, comparing the 10 output channels with the 10 components of the second NMF analysis discussed above.
 
 <Image
-src="/madewithflucoma/pasquet/timing_sounds.png"
+src="/explore/pasquet/timing_sounds.png"
 label="Overview of the '04 Timed Sounds' demo patch."
 />
 
@@ -269,7 +269,7 @@ There are two primary objects that Pasquet produces to store his data:
 - A large llll which is a list of these sounds. The elements in this llll are the addresses that can be used to query the *bach.shelf* object to access the corresponding sound. This llll follows the order of appearance of these sounds in the audio file.
 
 <Image
-src="/madewithflucoma/pasquet/data_storage.png"
+src="/explore/pasquet/data_storage.png"
 label="Visualisation of how sounds are stored across various objects."
 />
 
