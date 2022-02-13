@@ -7,28 +7,22 @@
 Welcome to the Fluid Corpus Manipulation Learn platform. 
 A lot of music making with computers involves working with collections of audio, and these collections are getting bigger and bigger. At the same time, techniques for analysing sound and manipulating data keep being developed. Our project seeks to enable music making with collections of audio by making some of these techniques available for musical creative coding environments, alongside a set of supporting resources on these pages.
 
-<Landing link='/overviews'>
-    <h2 slot="title">
-    Overviews
-    </h2>
+<Landing link='/learn'>
+    <h2 slot="title">Learn</h2>
     <p slot="blurb">
     A variety of articles and guides discussing machine listening and machine learning, sometimes relating to specific FluCoMa technology and sometimes reflecting more broadly.
     </p>
 </Landing>
 
 <Landing link='/reference'>
-    <h2 slot="title">
-    References
-    </h2>
+    <h2 slot="title">References</h2>
     <p slot="blurb">
     The references outline the underlying algorithms of the FluCoMa toolkit in more detail. We try to steer clear from specific implementation details and instead focus on the concepts behind each algorithm and to help illuminate what goes on under the hood.
     </p>
 </Landing>
 
-<Landing link='/madewithflucoma'>
-    <h2 slot="title">
-    Made with FluCoMa
-    </h2>
+<Landing link='/explore'>
+    <h2 slot="title">Explore</h2>
     <p slot="blurb">
     Made with FluCoMa draws attention to people like you. Makers who use the FluCoMa toolkit or are involved in the wider community. We want to highlight what is out there to try and cultivate opportunities for learning and to situate this technology within a community of techno-fluent musicians.
     </p>
