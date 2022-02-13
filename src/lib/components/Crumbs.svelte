@@ -21,13 +21,16 @@
 		// This can be used to then construct the breadcrumbs
 		let d = [];
 		path = path.split('/');
-		path.shift();
+		path.shift(); path.pop();
+		console.log(path)
 
 		let accum = '';
 		path.forEach((p, i) => {
 			let sanitisedText = '';
 			if (i >= 1) {
-				sanitisedText = $breadcrumbs[$page.url.pathname];
+				let path = $page.url.pathname; 
+				path = path.endsWith('/') ? path.slice(0, -1) : path;
+				sanitisedText = $breadcrumbs[path];
 			} else {
 				sanitisedText = formatCrumb(p);
 			}
@@ -44,9 +47,9 @@
 <nav class="container">
 	<div class="left" />
 	<div class="crumbs">
-		<a sveltekit:prefetch href="/">Home</a>
+		<a href="/">Home</a>
 		{#each crumbs as c}
-			/ <a sveltekit:prefetch href={c.url}>{c.text}</a> &nbsp
+			/ <a href={c.url}>{c.text}</a> &nbsp
 		{/each}
 	</div>
 	<div class="right" />
