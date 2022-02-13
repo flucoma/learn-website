@@ -83,13 +83,13 @@ glob('src/**/*.svx', (err, routes) => {
 				case 'reference':
 					crumbs[url] = fm.title;
 					break;
-				case 'madewithflucoma':
+				case 'explore':
 					crumbs[url] = fm.artist;
 					break;
 				case 'guides':
 					crumbs[url] = fm.short;
 					break;
-				case 'overviews':
+				case 'learn':
 					crumbs[url] = fm.title;
 					break;
 				case 'installation':
