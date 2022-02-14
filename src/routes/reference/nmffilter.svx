@@ -81,7 +81,7 @@ label="The output audio of the original drum loop filtered by basis 3 in NMFFilt
 
 This will give us very similar sounding results as BufNMF’s resynthesized buffer–the difference here is that results are produced in real-time. This means that one could send a live input of this drummer and (hopefully) get similarly successful results decomposing the drum loop into the individual drum instruments in real-time.
 
-## Audio input from a different source
+## Audio Input From a Different Source
 
 One could also send a different audio signal through these bases using NMFFilter. Here we’ll use an excerpt from an ensemble recording that also has kick drum, snare drum, and hi-hat.
 
