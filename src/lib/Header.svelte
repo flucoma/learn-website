@@ -23,8 +23,8 @@
 				</a>
 			{/if}
 			<a  class="nav-link" href="/learn">Learn</a>
-			<a  class="nav-link" href="/reference">Reference</a>
 			<a  class="nav-link" href="/explore">Explore</a>
+			<a  class="nav-link" href="/reference">Reference</a>
 		</div>
 	{/if}
 	<Search />
