@@ -21,7 +21,7 @@ Median filtering is a smoothing technique that can give better results than movi
 For instance, here's a sine wave that's been disrupted by a series of spikes (blue line), and the result of running a median filter (the dotted red line) over this. We would call these spikes outliers.
 
 <Image 
-src='/overviews/median-filters/median-filter.png'
+src='/learn/median-filters/median-filter.png'
 alt='Median filtering graphical example'
 label='A median filter applied to a sine wave disrupted by short spikes'
 />
@@ -31,6 +31,6 @@ A median filter works in a very different way to more common audio filters (low-
 We can see the process at work below, applied to the same case as above. The shaded area is the window, and the horizontal bar shows us where the median is at each point.
 
 <Video 
-url='/overviews/median-filters/median-despike.mp4'
+url='/learn/median-filters/median-despike.mp4'
 label='A median filter in action.'
 />

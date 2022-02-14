@@ -52,7 +52,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 10.0, 42.0, 340.0, 24.0 ],
-					"text" : "<link href=\"; max launchbrowser https://learn.flucoma.org/overviews/batch-processing\" >https://learn.flucoma.org/overviews/batch-processing</link>"
+					"text" : "<link href=\"; max launchbrowser https://learn.flucoma.org/learn/batch-processing\" >https://learn.flucoma.org/learn/batch-processing</link>"
 				}
 
 			}

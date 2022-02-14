@@ -33,7 +33,7 @@ flair: article
 
 <div class="artist-cards">
     <ArtistCard
-    src = "/madewithflucoma/eldridge/alice-profile.jpeg"
+    src = "/explore/eldridge/alice-profile.jpeg"
     name = "Alice Eldridge"
     website = "https://profiles.sussex.ac.uk/p127749-alice-eldridge"
     >
@@ -42,7 +42,7 @@ flair: article
     </p>
     </ArtistCard>
     <ArtistCard
-    src = "/madewithflucoma/eldridge/chris-profile.jpeg"
+    src = "/explore/eldridge/chris-profile.jpeg"
     name = "Chris Kiefer"
     website = "https://profiles.sussex.ac.uk/p208667-chris-kiefer"
     >
@@ -56,17 +56,17 @@ flair: article
 
 <IndentNote type='pointer'>
 
-Download the demonstration patches for this article <a href='/madewithflucoma/eldridge/Alice Eldridge and Chris Kiefer Examples.zip' download='Alice Eldridge and Chris Kiefer Examples.zip'>here</a>.
+Download the demonstration patches for this article <a href='/explore/eldridge/Alice Eldridge and Chris Kiefer Examples.zip' download='Alice Eldridge and Chris Kiefer Examples.zip'>here</a>.
 
 </IndentNote>
 
-Today we’ll be looking at some of the work that Alice Eldridge and Chris Kiefer did using the FluCoMa tools. These two collaborators came to the project seeking to augment their already well-established feedback instrument, the [Feedback Cello](https://www.feedbackcell.info/). We shall see how they used machine learning and descriptors to create a shared, adaptive instrument which takes improvisation to the next level , and how they approached this system in performance. As with all the "[Made with FluCoMa](/madewithflucoma)" articles, there is a series of demonstration patches that can be <a href='/madewithflucoma/eldridge/Alice Eldridge and Chris Kiefer Examples.zip' download='Alice Eldridge and Chris Kiefer Examples.zip'>downloaded</a> and interacted with if you wish to explore the inner workings of the software.
+Today we’ll be looking at some of the work that Alice Eldridge and Chris Kiefer did using the FluCoMa tools. These two collaborators came to the project seeking to augment their already well-established feedback instrument, the [Feedback Cello](https://www.feedbackcell.info/). We shall see how they used machine learning and descriptors to create a shared, adaptive instrument which takes improvisation to the next level , and how they approached this system in performance. As with all the "[Made with FluCoMa](/explore)" articles, there is a series of demonstration patches that can be <a href='/explore/eldridge/Alice Eldridge and Chris Kiefer Examples.zip' download='Alice Eldridge and Chris Kiefer Examples.zip'>downloaded</a> and interacted with if you wish to explore the inner workings of the software.
 
 <YouTube 
 url={'c03_84_P7PQ'}
 />
 
-The piece was premiered at the second [FluCoMa gig](/madewithflucoma/liminal-spaces), at [Dialogues Festival](https://digital.eca.ed.ac.uk/dialogues/), 2021. The beginning of the piece serves somewhat as an introduction into the concept of the instrument - (“*think of it as a young person’s guide to the feedback cello*” quips Eldridge). There are long, sustained, unstable notes which hover between harmonics – we understand that these tones are being fed back into the instrument, and causing the physical body of the cello to resonate. This continues, and as the piece progresses different sonic material emanates as different gestures and approaches to playing are explored: strikes and plucks, different objects are used to strike the cello at various places, and Eldridge explores different styles of playing from traditional melodic gestures to experimental tapping and percussive attacks. True to the concept of a shared instrument, it is difficult (and, as we shall see, somewhat pointless) to try and dissociate what is happening in the electronics and the cello: in an infinite feedback loop it becomes impossible to discern what can be considered source or modulation.
+The piece was premiered at the second [FluCoMa gig](/explore/liminal-spaces), at [Dialogues Festival](https://digital.eca.ed.ac.uk/dialogues/), 2021. The beginning of the piece serves somewhat as an introduction into the concept of the instrument - (“*think of it as a young person’s guide to the feedback cello*” quips Eldridge). There are long, sustained, unstable notes which hover between harmonics – we understand that these tones are being fed back into the instrument, and causing the physical body of the cello to resonate. This continues, and as the piece progresses different sonic material emanates as different gestures and approaches to playing are explored: strikes and plucks, different objects are used to strike the cello at various places, and Eldridge explores different styles of playing from traditional melodic gestures to experimental tapping and percussive attacks. True to the concept of a shared instrument, it is difficult (and, as we shall see, somewhat pointless) to try and dissociate what is happening in the electronics and the cello: in an infinite feedback loop it becomes impossible to discern what can be considered source or modulation.
 
 The two performers sit face-to-face. Both are entangled in their own complicated webs of objects: Eldridge the Feedback Cello, foot pedals and a mixer; Kiefer an extensive modular setup and computer running a SuperCollider patch. We glimpse fragments of facial communication between the two musicians, and we understand that they are enthralled in a complex, shared system that they are exploring together. In this article we shall try and gain a better idea about what is happening on stage. We shall start by looking at the Feedback Cello’s development before the project, and then how they approached development for the project and their use of [MFCC](/reference/mfcc) descriptors and [MLP](/reference/mlpregressor). Then we shall learn how they approach this system in a performance context.
 
@@ -75,7 +75,7 @@ The two performers sit face-to-face. Both are entangled in their own complicated
 *Feedback Cell* is the name that Eldridge and Kiefer give to their luthiary and performance project which features the feedback cello seen on stage (Kiefer has his own Feedback cello which does not make an appearance here). They describe the cello as a “*hacked acoustic cello, custom fitted with built-in speakers and on-body transducers* […] *the classical cello is transformed into a self-resonating feedback system*”. Essentially, as you can see in the diagram below, the idea is that the signal from the strings is captured by pickups and sent for gain control. They are then sent out to an amplifier and speaker on the cello body which in turn causes the strings to vibrate.
 
 <Image
-src="/madewithflucoma/eldridge/feedback-cello-diagram.png"
+src="/explore/eldridge/feedback-cello-diagram.png"
 label="An overview of the Feedback Cello, taken from Eldridge and Kiefer's 2017 NIME article."
 />
 
@@ -86,7 +86,7 @@ url={'_qxBLjde39Y'}
 />
 
 <Image
-src="/madewithflucoma/eldridge/feedback-cello-simulation.png"
+src="/explore/eldridge/feedback-cello-simulation.png"
 label="An overview of the 'Feedback Cello Simulation' example patch."
 />
 
@@ -97,14 +97,14 @@ In the example patches that accompany this article, we’ve included a simple si
 As you’ll have noticed, the Feedback Cello is not the only part of Eldridge and Kiefer’s setup. We see that in the diagram above, there is a key element called gain control/signal modification which is where a lot of the action is happening. It is this element of the Feedback Cello which has been augmented in *FeedbackFeedforward*. So whilst there are two people on stage and ostensibly two distinct physical instruments,this is not to be seen as a duo in the classical sense, but as a shared instrument. Kiefer explains that “*to think of our performance as a duo, you’d have to think of our instrument as two separate systems – but it’s not!*” Eldridge adds that “*a better way to think of it is that each physical instrument is an interface into points in the feedback loop of which they are both part*”. Indeed, when we see two musicians on stage, each entwined within their own webs of materialities, we can jump to assuming that they are two musicians playing two different instruments. However, as we shall see presently, the setup truly creates a *shared*, and importantly, *adaptive* system.
 
 <Image
-src="/madewithflucoma/eldridge/schematik.jpg"
+src="/explore/eldridge/schematik.jpg"
 label="An overview of the what is happening on stage."
 />
 
 As you can see in this diagram, there are indeed two main sides to this feedback loop associated with each musician. Eldridge is controlling the output of the cello with a gain foot pedal, and the sound is being sent to Kiefer’s modular system. There are more modules in the system which act on the cello’s signal – you can see an image of the patch below. The sound is then sent back towards the Feedback Cello. In this diagram we also see the modifications that were made to this system using the FluCoMa tools. The output of the cello is also sent to a laptop that is running a Supercollider patch. We shall discuss this further below, but essentially, the cello is running through a 20 band MFCC analysis, which is in turn being fed into an MLP regressor, which is outputting three values to a MIDI control module. This is being used principally to control the levels of a spring reverb, ring modulation and phase shifter modules.
 
 <Image
-src="/madewithflucoma/eldridge/modular-patch.jpg"
+src="/explore/eldridge/modular-patch.jpg"
 label="A photo of Kiefer's modular setup."
 />
 
@@ -126,7 +126,7 @@ url={'3XSy297v9vk'}
 Here we see the opposite happening: the neural network is taking a large set of input data points (20) and outputting a small number (3). There is also the notable fact that the input data is being derived from the description of an audio signal. The three outputs are controlling 3 MIDI modules which are controlling parameters in the modular synth setup. When explaining why they looked to implement this into their system, Eldridge explained that they saw this project as the “*next iteration*” of the Feedback Cell project. “*When we play two feedback cellos together, we sense a strong acoustic coupling. Any string instruments resonate with each other, but the feedback amplifies this effect. We had been thinking about ways to augment this process, to explore other instrumental couplings using feedback. At the same time I have been interested in keeping my signal pathway analogue, and Chris has just built a modular, so we had been thinking about the modular as a great addition to the feedback cello loop*”. This project gave a “*chance to explore a new way of doing this*”, a way of “*coupling the modular synth and the cello in a way that is more adaptive and responsive than just plugging the cello straight into the modular synth*”.
 
 <Video
-url="/madewithflucoma/eldridge/mlp-explanation.mp4"
+url="/explore/eldridge/mlp-explanation.mp4"
 label="Kiefer in his own words explaining their use of MLP regression."
 />
 
@@ -139,7 +139,7 @@ Eldridge and Kiefer talked about the development process, and how they approache
 However, before they could even begin to approach training the neural network, it was first necessary to get the analogue part of their system into a stable state. The most important aspect of this is to fine tune the gain structure of the feedback system: they explained that this is “*absolutely critical – even a small variance in the gain structure of a feedback system will put it into a completely different state space*”. They explained how they would carefully “*tune*” every component of the system, balancing the gains, making sure that each element was “*on the edge of being alive, not being too dominant*”. They would even go so far as to completely take apart and recompose the modular setup to ensure that each component was tuned perfectly.
 
 <Image
-src="/madewithflucoma/eldridge/gain-structure.jpg"
+src="/explore/eldridge/gain-structure.jpg"
 label="Eldridge uses a mixer and pedals to control the gain structure."
 />
 
@@ -173,7 +173,7 @@ Once this analogue setup was stable, they could begin introducing the digital, M
 This process of experimentation continued for weeks, and through this Kiefer built-up a certain *embodied knowledge* about how the network worked. He explained that “*in the end, I got an intuitive feel for it. I just told Alice to play, and I’ll collect some stuff. I just got a feel for when and where to go and how to pair things up.*” The experimentation process contributed to his learning of how to train the network, but he tried not to think about it too much: “*it’s such an imprecise science, if you get a human feel for how it works, then it just somehow works*”.
 
 <Image
-src="/madewithflucoma/eldridge/training-the-neural-network-patch.png"
+src="/explore/eldridge/training-the-neural-network-patch.png"
 label="An overview of the 'Training the Neural Network' example patch."
 />
 
@@ -186,14 +186,14 @@ Despite the embodied nature of this knowledge, there is one conclusion that seem
 As you can imagine, this system delivers quite a unique and bespoke interface to perform with. It is a shared instrument; it is also a very delicate instrument: the fine tuning of the gain structure means that it can be difficult to get things to work correctly in a new performance space. It is a challenging instrument for the musicians: indeed, Eldridge is using the cello not only as a means for generating sound, but also as a controller for the modular setup. These two functions are fulfilled simultaneously: she explained that there was “*a pretty steep learning curve*”. All these elements combine to make performing with this shared instrument a real challenge, and a notion that is still being developed and explored through Eldridge and Kiefer’s ongoing practice.
 
 <Image
-src="/madewithflucoma/eldridge/performance-setting.jpg"
+src="/explore/eldridge/performance-setting.jpg"
 label="The system being deployed in a performance setting."
 />
 
 I talked with the duo about how they felt the performance went, and despite being generally positive about it, there was an element of disappointment about the actual gig. This was partly due to the fact that the sound check went exceptionally well. Eldridge explained that they discovered that “*the room had the same resonant frequency as the bottom string of the cello.* [Pierre Alexandre Tremblay tuned the PA so that they] *could get feedback not only in the cello/modular system, but in the whole room*”. This was a striking moment which Eldridge decried “*made her heart melt*” – unfortunately this didn’t occur during the gig (pesky audience!).
 
 <Image
-src="/madewithflucoma/eldridge/chris-at-work.jpg"
+src="/explore/eldridge/chris-at-work.jpg"
 label="Kiefer at work adjusting the system."
 />
 

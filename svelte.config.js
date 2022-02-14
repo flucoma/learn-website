@@ -39,9 +39,9 @@ const config = {
 				]
 			],
 			layout: {
-				overviews: './src/lib/layouts/overviews.svelte',
+				learn: './src/lib/layouts/learn.svelte',
 				reference: './src/lib/layouts/reference.svelte',
-				madewithflucoma: './src/lib/layouts/madewithflucoma.svelte'
+				explore: './src/lib/layouts/explore.svelte'
 			}
 		})
 	],

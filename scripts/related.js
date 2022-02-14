@@ -7,7 +7,7 @@ import markdownLinkExtractor from 'markdown-link-extractor';
 
 let db = {};
 
-glob('src/routes/*(reference|madewithflucoma|overviews)/*.svx', (err, routes) => {
+glob('src/routes/*(reference|learn|explore)/*.svx', (err, routes) => {
 	routes = routes.filter((p) => path.basename(p) !== 'index.svx');
 
 	routes.forEach((route) => {
