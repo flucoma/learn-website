@@ -1,7 +1,7 @@
 <script lang="ts">
 	export let data = [];
-	function sanitiseData(data) {
-		return data.map((d) => d.toFixed(2));
+	function sanitiseData(x) {
+		return x.map((d) => d.toFixed(2));
 	}
 	let num = 0;
 	$: if (data.length) num = Object.values(data[0])[0].length
@@ -15,11 +15,11 @@
 		{#each data as point}
 		{#each Object.entries(point) as [id, data]}
 		<div class="entry">{id}</div>
-		<div class="entry" style:grid-template-columns={'repeat(' + `${num}` +','+ '4.5ch)'}>
+		<div class="entry" style:grid-template-columns={'repeat(' + `${num}` +','+ '7ch)'}>
 			{#each data as datum}
-			<span>
+			<div>
 				{ datum.toFixed(2) }
-			</span>
+			</div>
 			{/each}
 			<!-- {sanitiseData(data)} -->
 		</div>
@@ -29,6 +29,11 @@
 </div>
 
 <style lang="postcss">
+	.container {
+		margin-bottom: 0.5em;
+		padding: 0.5em;
+		max-width: 100%;
+	}
 	.label {
 		font-weight: bold;
 	}
@@ -39,11 +44,7 @@
 		font-family: var(--mono);
 		gap: 1em;
 	}
-	.container {
-		max-width: max-content;
-		margin-bottom: 1em;
-		padding: 0.5em;
-	}
+
 	
 	.heading {
 		font-weight: bold;
@@ -51,7 +52,6 @@
 	
 	.entry {
 		display: grid;
-		/* flex-direction: row; */
 		gap: 1em;
 		color: grey;
 		text-align: left;
