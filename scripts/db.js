@@ -8,7 +8,7 @@ let db = {
 	docs: []
 };
 
-glob('src/routes/**/*.svx', (err, routes) => {
+glob('src/routes/*(reference|learn|explore)/*.svx', (err, routes) => {
 	routes = routes.filter((p) => path.basename(p) !== 'index.svx');
 
 	routes.forEach((route) => {

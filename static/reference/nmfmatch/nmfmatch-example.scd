@@ -1,4 +1,4 @@
-// for a longer explanation of these examples, visit: https://learn.flucoma.org/overviews/nmfmatch
+// for a longer explanation of these examples, visit: https://learn.flucoma.org/learn/nmfmatch
 
 (
 // load the drum loop and create some buffers for our nmf analysis

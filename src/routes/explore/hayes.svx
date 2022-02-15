@@ -22,7 +22,7 @@ flair: article
 </script>
 
 <ArtistCard
-src = "/madewithflucoma/hayes/hayes_profile_2.png"
+src = "/explore/hayes/hayes_profile_2.png"
 name = "Lauren Sarah Hayes"
 website = "https://www.laurensarahhayes.com/"
 >
@@ -35,7 +35,7 @@ Lauren Sarah Hayes is a Scottish improviser and sound artist. Her music is a mix
 
 <IndentNote type='pointer'>
 
-Download the demonstration patches for this article <a href='/madewithflucoma/hayes/Lauren Sarah Hayes Examples.zip' download='Lauren Sarah Hayes Examples.zip'>here</a>.
+Download the demonstration patches for this article <a href='/explore/hayes/Lauren Sarah Hayes Examples.zip' download='Lauren Sarah Hayes Examples.zip'>here</a>.
 
 </IndentNote>
 
@@ -43,9 +43,9 @@ Today we'll be looking at some of the work that Lauren Sarah Hayes did using the
 We’ll be taking a broad perspective on some of the working principles of the project and examine how some of its suggested workflows are incorporated into Hayes’ already well-developed improvisational practice. 
 We’ll start by considering her piece for the project and discussing some of her ideas about improvisation. 
 Then, we'll have a look at the way in which Hayes used the tools within this framework. 
-As with all the "[Made with FluCoMa](/madewithflucoma)" articles, there is a series of demonstration patches that can be <a href='/madewithflucoma/hayes/Lauren Sarah Hayes Examples.zip' download='Lauren Sarah Hayes Examples.zip'>downloaded</a> and interacted with if you wish to explore the inner workings of the software.
+As with all the "[Made with FluCoMa](/explore)" articles, there is a series of demonstration patches that can be <a href='/explore/hayes/Lauren Sarah Hayes Examples.zip' download='Lauren Sarah Hayes Examples.zip'>downloaded</a> and interacted with if you wish to explore the inner workings of the software.
 
-Hayes’ piece, *Moon via Spirit*, was commissioned by the FluCoMa project and performed at the first [FluCoMa gig](/madewithflucoma/reactive-flows) at [HCMF](https://hcmf.co.uk/) 2019. 
+Hayes’ piece, *Moon via Spirit*, was commissioned by the FluCoMa project and performed at the first [FluCoMa gig](/explore/reactive-flows) at [HCMF](https://hcmf.co.uk/) 2019. 
 Her piece was particularly performative in nature: Hayes stood center-stage under a direct spotlight, and her facial expressions and entranced gestures walk us through the music. 
 She is surrounded by a whole host of external hardware: an [Elektron Digitakt](https://www.elektron.se/products/digitakt/), a [Moog DFAM](https://www.moogmusic.com/products/dfam-drummer-another-mother), an [ES-3](https://www.modularsquare.com/fr/shop/expert-sleepers/es-3-mk4/) module, a [TC-Helicon VoiceLive 2](https://www.tc-helicon.com/product.html?modelCode=P0CMC), a [Korg Nanocontrol](https://www.korg.com/fr/products/computergear/nanokontrol2/), a [CME XKey](https://www.thomann.de/fr/cme_xkey_37_le.htm), and of course a laptop which is running her performance patch. 
 As the piece progresses, we get the impression that all these elements are interlinked: Hayes is engulfed within a complicated, resonating, sonorous system. 
@@ -98,7 +98,7 @@ She even describes sometimes having to hold a position with her mouth to keep th
 It is indeed through the opposite of physical resistance that she inserts tension and struggle into the system.
 
 <Image
-src="/madewithflucoma/hayes/delicate_instruments_img.png"
+src="/explore/hayes/delicate_instruments_img.png"
 label="An overview of the '06 Delicate Instruments' example patch, trying to simulate what it may be like to try and play with such a system."
 />
 
@@ -162,7 +162,7 @@ We can try to decipher these conceptions by looking at the code.
 In the image of her physical setup on stage, the various signal paths in the software are intertwined in a fairly complicated way; to make things easier we can look at this broad representation of what is happening in the patch.
 
 <Image
-src="/madewithflucoma/hayes/schema_updated.jpg"
+src="/explore/hayes/schema_updated.jpg"
 label="An overview of some of the processing and event detection in Hayes' software."
 />
 
@@ -179,7 +179,7 @@ Hayes controls parameters of the pulsar synthesis with the gamepad, transcribing
 However, analysis of the pulsar synthesis also controls some of the ways in which the vocals are processed, creating a conceptual feedback loop between the two performative aspects giving them a complicated and symbiotic relationship.
 
 <Image
-src="/madewithflucoma/hayes/pitch_tracking_img.png"
+src="/explore/hayes/pitch_tracking_img.png"
 label="An overview of the '05 Pitch Tracking' example patch."
 />
 
@@ -188,7 +188,7 @@ It is important to understand the relationship between these two important eleme
 This can be heard notably in the first third of the performance (0:00-4:10) where the relationship between these two elements is sonorously explicit.
 
 <Image
-src="/madewithflucoma/hayes/novelty_slicing_image.png"
+src="/explore/hayes/novelty_slicing_image.png"
 label="An overview of the '01 Novelty Slicing' example patch."
 />
 
@@ -209,12 +209,12 @@ Let’s keep a summary of the various streams of audio, the various events which
 For the moment, we have one slicing using peak amplitude (A), and another using novelty slicing (B).
 
 <Image
-src="/madewithflucoma/hayes/schema_1.jpg"
+src="/explore/hayes/schema_1.jpg"
 label="A representation of the signal path in Hayes' patch (1)."
 />
 
 <Image
-src="/madewithflucoma/hayes/amp_slicing_patch.png"
+src="/explore/hayes/amp_slicing_patch.png"
 label="An overview of the '02 Amp Slicing' example patch."
 />
 
@@ -225,7 +225,7 @@ If we update our signal chain, we see that we have the same final objects, but B
 Note that the amplitude slicing also triggers other things in the patch.
 
 <Image
-src="/madewithflucoma/hayes/schema_2.jpg"
+src="/explore/hayes/schema_2.jpg"
 label="A representation of the signal path in Hayes' patch (2)."
 />
 
@@ -235,7 +235,7 @@ As we see on the broad representation of the code above, the audio coming into t
 As we see on the screenshot of the example patch below, this audio is recorded into a buffer of 10 seconds whenever Hayes triggers the process with the Korg.
 
 <Image
-src="/madewithflucoma/hayes/transient_slice_img.png"
+src="/explore/hayes/transient_slice_img.png"
 label="An overview of the '03 Transient Slicing' example patch."
 />
 
@@ -250,7 +250,7 @@ Note that the Korg is a very different object to the gamepad: during the perform
 It is interesting to remark which parts of the software Hayes decides to control with which objects.
 
 <Image
-src="/madewithflucoma/hayes/schema_3.jpg"
+src="/explore/hayes/schema_3.jpg"
 label="A representation of the signal path in Hayes' patch (3)."
 />
 
@@ -261,7 +261,7 @@ It could be argued that this created a new signal path in itself, however as the
 It is, however, important to remember that this is a somewhat subjective representation of what is happening, and in such a sprawling and interconnected piece of software such as this, other interpretations could be entirely possible.
 
 <Image
-src="/madewithflucoma/hayes/knife_img.png"
+src="/explore/hayes/knife_img.png"
 label="An overview of the '04 Knife' example patch."
 />
 
@@ -284,7 +284,7 @@ Similarly, when recording and processing of the transient slicer is triggered by
 If we consider this in the context of struggle and resistance, we can imagine that coding this latency into the actionning of control data will create a situation where the improviser must operate decisions in a broader timescale, thinking back and forward about what their actions may cause.
 
 <Image
-src="/madewithflucoma/hayes/schema_4.jpg"
+src="/explore/hayes/schema_4.jpg"
 label="A representation of the signal path in Hayes' patch (4)."
 />
 
@@ -294,7 +294,7 @@ Once again, we could conceivably represent this differently as both outputs are 
 The reason we have defined two signal paths is that the gain of the outputs of the two playback methods are controlled separately, leading us to believe that the two signals are not only distinct in terms of sound, but also in terms of gesture.
 
 <Image
-src="/madewithflucoma/hayes/hpss_filter_img.png"
+src="/explore/hayes/hpss_filter_img.png"
 label="An overview of the '07 HPSS Filer' example patch."
 />
 
@@ -304,7 +304,7 @@ As you can see, this is a somewhat out-of-the-box usage of the [*fluid.hpss~*](/
 It is also interesting to note that Hayes allowed control of the output of both signals from the parent patcher in presentation mode via toggles, but only mapped control of the percussive element to the Korg.
 
 <Image
-src="/madewithflucoma/hayes/schema_5.jpg"
+src="/explore/hayes/schema_5.jpg"
 label="A representation of the signal path in Hayes' patch (5)."
 />
 

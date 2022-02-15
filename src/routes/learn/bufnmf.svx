@@ -25,14 +25,14 @@ label="Mono drum loop included in the FluCoMa package."
 />
 
 <Image
-src="/overviews/bufnmf/00_original_spectrogram_mel_color.png"
+src="/learn/bufnmf/00_original_spectrogram_mel_color.png"
 label="Mel-frequecy spectrogram of drum loop"
 />
 
 The spectrogram below roughly identifies where in time and frequency each of these instruments are present.
 
 <Image
-src="/overviews/bufnmf/00_boxes_over_nicol-01.png"
+src="/learn/bufnmf/00_boxes_over_nicol-01.png"
 label="(red = kick, blue = snare, yellow = cymbal)"
 />
 
@@ -44,42 +44,42 @@ We can use BufNMF to analyze the drum loop’s spectrogram and determine which p
 
 Processing this mono drum loop with BufNMF (specifying that we want it to try to decompose the sound into three components) returns these three buffers, one with each component it was able to separate:
 
-<a href='/overviews/bufnmf/bufnmf-overview-example.scd' download='bufnmf-overview-example.scd'>SuperCollider Example</a>
-<a href='/overviews/bufnmf/bufnmf-overview-example.maxpat' download='bufnmf-overview-example.maxpat'>Max Example</a>
+<a href='/learn/bufnmf/bufnmf-overview-example.scd' download='bufnmf-overview-example.scd'>SuperCollider Example</a>
+<a href='/learn/bufnmf/bufnmf-overview-example.maxpat' download='bufnmf-overview-example.maxpat'>Max Example</a>
 
 ### Component 1 (contains mostly just the kick drum hits)
 
 <Image
-src="/overviews/bufnmf/05_resynth_spectrogram_mel_component_0.png"
+src="/learn/bufnmf/05_resynth_spectrogram_mel_component_0.png"
 label="Mel-frequency spectrogram of Component 1"
 />
 
 <Audio
-src="/overviews/bufnmf/02_component_0.mp3"
+src="/learn/bufnmf/02_component_0.mp3"
 label="Component 1"
 />
 
 ### Component 2 (contains mostly just the snare drum hits)
 
 <Image
-src="/overviews/bufnmf/05_resynth_spectrogram_mel_component_1.png"
+src="/learn/bufnmf/05_resynth_spectrogram_mel_component_1.png"
 label="Mel-frequency spectrogram of Component 2"
 />
 
 <Audio
-src="/overviews/bufnmf/02_component_1.mp3"
+src="/learn/bufnmf/02_component_1.mp3"
 label="Component 2"
 />
 
 ### Component 3 (contains mostly just the hi-hat hits)
 
 <Image
-src="/overviews/bufnmf/05_resynth_spectrogram_mel_component_2.png"
+src="/learn/bufnmf/05_resynth_spectrogram_mel_component_2.png"
 label="Mel-frequency spectrogram of Component 3"
 />
 
 <Audio
-src="/overviews/bufnmf/02_component_2.mp3"
+src="/learn/bufnmf/02_component_2.mp3"
 label="Component 3"
 />
 
@@ -100,7 +100,7 @@ BufNMF gives you access to the “bases” and “activations” that it derives
 The “bases” can be thought of as spectral templates (or filter curves) that BufNMF discovers in the course of analyzing the spectrogram. As described above, BufNMF analyzes a spectrogram to determine which parts of the spectrum always (or often) occur together in time. These parts of the spectrum that occur together are then combined into one spectral template (or “basis”). You can see below the bases for the drum analysis conducted above. Each plot is a spectrum (the _x_ axis is spectral bins, representing frequency, and the _y_ axis is magnitude, representing loudness).
 
 <Image
-src="/overviews/bufnmf/01_Bases_plot.png"
+src="/learn/bufnmf/01_Bases_plot.png"
 label="(blue = kick, orange = snare, green = hi-hat)"
 />
 
@@ -111,24 +111,24 @@ Basis 1 only has one peak of energy very low in the spectrum representing the ki
 Each base is also paired with an “activation” which represents how present each of these bases is throughout the audio buffer (through time). Below you can see the activations from the drum analysis conducted above overlaid on the waveforms of their corresponding components. For each plot the _x_ axis is time and the _y_ axis is loudness.
 
 <Image
-src="/overviews/bufnmf/00_resynth_buffer_with_activations.png"
+src="/learn/bufnmf/00_resynth_buffer_with_activations.png"
 label="(blue = kick, orange = snare, green = hi-hat)"
 />
 
 As you can see, each of these looks like an envelope follower for the drum instrument component they represent. These activations could be used to control the loudness of a signal through time. Here is an example of each of these activations modulating the loudness of pink noise.
 
 <Audio
-src="/overviews/bufnmf/04_activation_0_enveloping.mp3"
+src="/learn/bufnmf/04_activation_0_enveloping.mp3"
 label="Activation of Component #1 enveloping pink noise."
 />
 
 <Audio
-src="/overviews/bufnmf/04_activation_1_enveloping.mp3"
+src="/learn/bufnmf/04_activation_1_enveloping.mp3"
 label="Activation of Component #2 enveloping pink noise."
 />
 
 <Audio
-src="/overviews/bufnmf/04_activation_2_enveloping.mp3"
+src="/learn/bufnmf/04_activation_2_enveloping.mp3"
 label="Activation of Component #3 enveloping pink noise."
 />
 

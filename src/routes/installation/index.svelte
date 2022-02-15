@@ -1,15 +1,15 @@
 <h1>Choose your creative coding environment</h1>
 
 <div class="installations">
-	<a href="/installation/max">
+	<a  href="/installation/max">
 		<h2>Max</h2>
 		<img class="max" src="/img/max-logo.svg" alt="Max Logo" />
 	</a>
-	<a href="/installation/sc">
+	<a  href="/installation/sc">
 		<h2>SuperCollider</h2>
 		<img src="/img/sc-logo.svg" alt="SuperCollider Logo" />
 	</a>
-	<a href="/installation/pd">
+	<a  href="/installation/pd">
 		<h2>PureData</h2>
 		<img src="/img/pd-logo.png" alt="PureData Logo" />
 	</a>

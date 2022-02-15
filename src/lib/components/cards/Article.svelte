@@ -23,7 +23,7 @@
         <Flair flair={data.flair}/>
     </div>
     <p>{data.blurb}</p>
-    <a class='linkout' href={data.url}>Learn More <ArrowRight /></a>
+    <a  class='linkout' href={data.url}>Learn More <ArrowRight /></a>
 </a>
 
 <style>

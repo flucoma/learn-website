@@ -1,4 +1,4 @@
-// Refer to https://learn.flucoma.org/overviews/batch-processing
+// Refer to https://learn.flucoma.org/learn/batch-processing
 (
 s.waitForBoot({
     fork({

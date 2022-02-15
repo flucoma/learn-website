@@ -147,7 +147,7 @@ the number of frames to analyse;
 #X obj 31 734 v \$0-idx;
 #X obj 98 608 fluid.dataset \$0-data;
 #X obj 31 88 pdcontrol;
-#X msg 31 55 browse https://learn.flucoma.org/overviews/batch-processing
+#X msg 31 55 browse https://learn.flucoma.org/learn/batch-processing
 ;
 #X obj 9 16 cnv 15 100 10 empty empty Batch\\\ Processing 20 12 0 36
 #fcfcfc #404040 0;

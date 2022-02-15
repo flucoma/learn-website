@@ -22,7 +22,7 @@
 
         <div class='links'>
             {#each articles as link}
-            <a class='link' href="{link.url}">{link.title}</a>
+            <a  class='link' href="{link.url}">{link.title}</a>
             {/each}
         </div>
     </div>
@@ -37,7 +37,7 @@
 
         <div class='links'>
             {#each tutorials as link}
-            <a class='link' href="{link.url}">{link.title}</a>
+            <a  class='link' href="{link.url}">{link.title}</a>
             {/each}
         </div>
     </div>
@@ -52,7 +52,7 @@
 
         <div class='links'>
             {#each references as link}
-            <a class='link' href="{link.url}">{link.title}</a>
+            <a  class='link' href="{link.url}">{link.title}</a>
             {/each}
         </div>
     </div>
