@@ -22,7 +22,7 @@ flair: article
 </script>
 
 <ArtistCard
-src = "/madewithflucoma/constanzo/constanzo_bio_pic.jpeg"
+src = "/explore/constanzo/constanzo_bio_pic.jpeg"
 name = "Rodrigo Constanzo"
 website = "https://rodrigoconstanzo.com/"
 >
@@ -35,11 +35,11 @@ Rodrigo Constanzo makes art and thinks that it’s an important thing to do. The
 
 <IndentNote type='pointer'>
 
-Download the demonstration patches for this article <a href='/madewithflucoma/constanzo/Rodrigo Constanzo Examples.zip' download='Rodrigo Constanzo Examples.zip'>here</a>.
+Download the demonstration patches for this article <a href='/explore/constanzo/Rodrigo Constanzo Examples.zip' download='Rodrigo Constanzo Examples.zip'>here</a>.
 
 </IndentNote>
 
-Today we’ll be looking at some of the work that Rodrigo Constanzo did for the FluCoMa project. We’ll notably be exploring the ways in which Constanzo performs real-time sound matching using audio descriptors. This is an element that he has explored before – we’ll examine how he approached this idea in the past, and how he used the FluCoMa tools to achieve this in his piece *Kaizo Snare*. As with all the "[Made with FluCoMa](/madewithflucoma)" articles, there is a series of demonstration patches that can be <a href='/madewithflucoma/constanzo/Rodrigo Constanzo Examples.zip' download='Rodrigo Constanzo Examples.zip'>downloaded</a> and interacted with if you wish to explore the inner workings of the software.
+Today we’ll be looking at some of the work that Rodrigo Constanzo did for the FluCoMa project. We’ll notably be exploring the ways in which Constanzo performs real-time sound matching using audio descriptors. This is an element that he has explored before – we’ll examine how he approached this idea in the past, and how he used the FluCoMa tools to achieve this in his piece *Kaizo Snare*. As with all the "[Made with FluCoMa](/explore)" articles, there is a series of demonstration patches that can be <a href='/explore/constanzo/Rodrigo Constanzo Examples.zip' download='Rodrigo Constanzo Examples.zip'>downloaded</a> and interacted with if you wish to explore the inner workings of the software.
 
 Constanzo is a great self-documenter of his work. On his [website](https://rodrigoconstanzo.com/) he writes about his various projects, and the work around *Kaizo Snare* was recounted in an extensive post which can be read [here](https://rodrigoconstanzo.com/2020/08/kaizo-snare/). This post goes into much detail on many aspects: 
 - The importance of turntablism gestures and techniques in the piece.
@@ -58,7 +58,7 @@ We shall take look at some of Constanzo’s previous projects that incorporate s
 url={'MTWklm1oXWQ'}
 />
 
-*Kaizo Snare* was premiered at the [first FluCoMa concert](/madewithflucoma/reactive-flows) at [Bates Mill Blending Shed](https://www.batesmill.co.uk/), 21st November 2019. The stage setup appears quite simple: Constanzo is behind a kick and snare drums, with a computer and assortment of objects placed discreetly on a table next to him. As soon as he begins playing, we immediately understand that this is no simple drum solo. We recognize that Constanzo is interacting with the snare drum with his left hand as if it were a turntable, and with a crossfader with his right hand. Very soon we begin to hear sounds that go far beyond the instruments we see on stage: clangings and impacts of a variety of metallic objects.
+*Kaizo Snare* was premiered at the [first FluCoMa concert](/explore/reactive-flows) at [Bates Mill Blending Shed](https://www.batesmill.co.uk/), 21st November 2019. The stage setup appears quite simple: Constanzo is behind a kick and snare drums, with a computer and assortment of objects placed discreetly on a table next to him. As soon as he begins playing, we immediately understand that this is no simple drum solo. We recognize that Constanzo is interacting with the snare drum with his left hand as if it were a turntable, and with a crossfader with his right hand. Very soon we begin to hear sounds that go far beyond the instruments we see on stage: clangings and impacts of a variety of metallic objects.
 
 All of Constanzo’s gestures seem perfectly controlled: there is a striking sense of precision in his rapid hand movements and the sharp cuts heard in the sound. He progresses through the piece, experimenting with different objects upon the snare surface and his condenser microphone: a felt pad, crotales, combs… Twice we are struck as suddenly small robots hidden around the audience begin striking crotales, adding to the landscape of enticing pops, cracks and strikes that Constanzo is masterfully directing. From 8:50 onwards, the piece culminates in a series of gut-wrenching gestures that seem to emerge from a stretched-out, strained melody that is pulled from resonating bassy gongs. 
 
@@ -77,7 +77,7 @@ url={'jROMvDS1nSk'}
 Much of Constanzo’s work can be traced through the various softwares that he has made available. In this first example, we see his [Cut Glove](https://rodrigoconstanzo.com/cut-glove/) software being used to transform the signal of a double bass (there are also other examples with a [snare drum](https://youtu.be/GA3rSCHklMQ) and a [saxophone](https://youtu.be/YHZ1h6mcbZk)). One of the first things we notice, both in the presentation of the example video and the screenshot of the patch below, is the care and effort Constanzo puts into the presentation of his work. This could go beyond simply making things easy to use for other people. In his “[Traces of Fluid Manipulation](https://www.youtube.com/watch?v=spYWGa0Okzs)” talk, Constanzo talked about the naming of certain parameters of his [Confetti](https://rodrigoconstanzo.com/confetti/) [Max for Live](https://www.ableton.com/fr/live/max-for-live/) objects, explaining that it is often “*useful to have things wrapped-up in a metaphor*”. We often remark the playful naming of his modules and parameters: *Cut Glove, C-C-Combine, The Party Bus, Karma~*… A refreshing change from some of the stark naming conventions one can be accustomed to with audio plugins.
 
 <Image
-src="/madewithflucoma/constanzo/cut_glove_image.jpeg"
+src="/explore/constanzo/cut_glove_image.jpeg"
 label="An overview of the Cut Glove instrument by Rodrigo Constanzo."
 />
 
@@ -100,7 +100,7 @@ url={'TL-L9weQxeM'}
 Constanzo presented this software at the first FluCoMa plenary as part of his artist presentation. This is a ‘*real-time*’ implementation of concatenative synthesis, which essentially works in the following way: every so often (by default 10ms) the a chunk of incoming audio is analyzed (by default 40ms). Constanzo looks to find the mean, min and max values of the following audio descriptors: loudness, pitch, spectral centroid and spectral flatness (what he calls noise). He then searches a database of pre-analysed audio and looks for the slice of audio that closest matches these values, which will be played in its place.
 
 <Image
-src="/madewithflucoma/constanzo/c-c-combine_image.png"
+src="/explore/constanzo/c-c-combine_image.png"
 label="A shot of the C-C-Combine patch in action."
 />
 
@@ -123,7 +123,7 @@ In *Kaizo Snare*, Constanzo uses many of the same techniques, but in a configura
 The reader must note that Constanzo was a part of the first cohort of musicians that were commissioned to create a piece for the FluCoMa project, and some of the tools which are in the toolbox now were not available during the development of *Kaizo Snare*. Essentially, Constanzo used some of [Alex Harker’s externals](https://www.alexanderjharker.co.uk/Software.html), notably *entrymatcher~*. In the example patches, this has been replaced with objects from the FluCoMa toolbox, notably [*fluid.kdtree~*](/reference/kdtree), as they essentially perform the same task.
 
 <Image
-src="/madewithflucoma/constanzo/batch_process_image.png"
+src="/explore/constanzo/batch_process_image.png"
 label="An overview of the folder batch processing example patch."
 />
 
@@ -144,7 +144,7 @@ Constanzo collects a total of 28 different audio descriptor statistics for each 
 The 28 values for each file are stored in a [*fluid.dataset~*](/reference/dataset) (at the time this object was not available, so Constanzo stored his data in text format in a *coll*). Once batch processing is finished, the contents of the dataset can be saved as a json file and used again later. Up to this point, we are dealing with essentially the same process as *C-C-Combine*.
 
 <Image
-src="/madewithflucoma/constanzo/real_time_analysis_image.png"
+src="/explore/constanzo/real_time_analysis_image.png"
 label="An overview of the real time analysis example patch."
 />
 
@@ -158,14 +158,14 @@ It must be noted that this balance, this “*sweet spot*” was developed around
 - Mean spectral flatness.
 
 <Image
-src="/madewithflucoma/constanzo/diagram.jpg"
+src="/explore/constanzo/diagram.jpg"
 label="An overview of analysis, matching and corpus routings in Kaizo Snare."
 />
 
 Constanzo will then take this data, and similarly to *C-C-Combine*, use it to find matches in the pre-analysed database of sounds derived from the batch processing. In this diagram we see the ways in which mapping broadly happens between input material and corpora (this is subject to mode changes, and there are other processing elements in these paths, some of which are discussed below). As you can see, the data from onsets detected in the real-time content from the condenser mic will be used to query and match sounds from the metal resonance corpus, and the crotale corpus; onsets from the kick drum will query sounds from the gong corpus.
 
 <Image
-src="/madewithflucoma/constanzo/matching_image.png"
+src="/explore/constanzo/matching_image.png"
 label="An overview of the sound matching example patch."
 />
 
@@ -186,7 +186,7 @@ There is no continuous flow of concatenative synthesis. Depending on the signal 
 - Finally, the gong corpus is allowed to play out without any interruption – a corpus which is notably comprised of relatively long sounds. They are, however, corrected in pitch to match entries from a pool of pitches which is collected from the condenser mic material at certain moments (Constanzo tended to trigger this when he was using the comb).
 
 <Image
-src="/madewithflucoma/constanzo/crotale_robot.jpeg"
+src="/explore/constanzo/crotale_robot.jpeg"
 label="One of the solenoid crotale robots."
 />
 
@@ -197,21 +197,21 @@ Before continuing to talk about these configurations and how they may insert the
 Constanzo is clearly attentive to the aspect of the sounds that are emitted from his system: the presence of various filters, normalisations and clippings attest to the careful sculpting of the audio spectrum (due to the nature of the instrument, this is also necessary in order to control feedback to which the system can be prone). Beyond this, there are a few notable effects that seem to play an important role in building the sounds that are heard. These have been wrapped within [Max for Live](https://www.ableton.com/fr/live/max-for-live/) modules, and Constanzo has since released them as a package of modules called [Confetti](https://rodrigoconstanzo.com/confetti/). 
 
 <Image
-src="/madewithflucoma/constanzo/confetti_modules.png"
+src="/explore/constanzo/confetti_modules.png"
 label="Constanzo's Confetti modules in Ableton Live."
 />
 
 As we can see in the image of the *Kaizo Snare* parent patch in presentation mode, Constanzo uses 3 of these modules: *Cloud*, *Dirt* and *Wavefolder*. They take up a large amount of space on the parent patcher, which indicates that they must me of some importance. The *Dirt* module (implementing two different types of distortion) is used to process the raw condenser microphone signal. The *Wavefolder* is also is also used for this, and on the playback of the metal resonance corpus. Finally, the *Cloud* module is used on the blend of metal resonance and condenser microphone signal. The *Cloud* module is particularly interesting, and again brings up questions concerning ‘*real-time*’ processing and Constanzo’s approach to this. Let’s take a closer look.
 
 <Image
-src="/madewithflucoma/constanzo/kaizo_snare_parent.png"
+src="/explore/constanzo/kaizo_snare_parent.png"
 label="The Kaizo Snare patch in presentation mode."
 />
 
 As you can see in the image below, example patch *04 Cloud* breaks down the *Cloud* module, explaining what is happening. Constanzo describes the process as “*a real-time granulator that is triggered by onset-detection such that whenever an attack is detected a new bit of audio is written into a circular buffer and bits from that rotating pool of attacks are played back. So, it’s kind of like separate record and play heads for a looping delay that only operate when an attack is detected*”. Indeed, the effect triggers in the same way as the audio matching described earlier: on the detection of an onset, subsequent audio is recorded into a buffer.
 
 <Image
-src="/madewithflucoma/constanzo/cloud_image.png"
+src="/explore/constanzo/cloud_image.png"
 label="An overview of the Cloud effect module example patch."
 />
 
@@ -229,7 +229,7 @@ url={'I9bERlwK5ig'}
 
 Consider the synchronisation in Constanzo’s gestures: the left and right hands are clearly working together. Constanzo talks in his article about the importance of the turntablism techniques that he has applied to this setup – indeed, he even went so far as to take lessons with a professional. In turntablism, and in *Kaizo Snare*, it seems that one hand cannot live without the other. There is an immediate and inextricable relationship between the two. The left hand, constantly creating material and triggering samples, is constantly modulated by the right, leaving no conceptual space for source and modulation. Constanzo truly seems to merge present and past in this configuration of hands, crossfader, condenser microphone and snare surface.
 
-Indeed, the role of the sound he is producing becomes expanded: is the signal that it is providing sound material or control data? Evidently, the answer lies as a balance between the two. This is something that we often see in musical systems that employ machine learning techniques: for example, the same notion is discussed in the [“Made with FluCoMa” article](/madewithflucoma/eldridge-kiefer) about Alice Eldridge and Chris Kiefer’s piece. In the case of Eldridge and Kiefer, this relationship is perhaps more explicit, and somewhat part of the nature of a feedback instrument. In the case of something like *C-C-Combine*, the balance of this relationship is very strong: the incoming audio is clearly a driving control signal for the plugin. However, here this balance is constantly slipping around, rendering the mix of signals ambiguous. This dual status of control gesture and sound in the context of machine learning-assisted musicking is a fascinating question.
+Indeed, the role of the sound he is producing becomes expanded: is the signal that it is providing sound material or control data? Evidently, the answer lies as a balance between the two. This is something that we often see in musical systems that employ machine learning techniques: for example, the same notion is discussed in the [“Made with FluCoMa” article](/explore/eldridge-kiefer) about Alice Eldridge and Chris Kiefer’s piece. In the case of Eldridge and Kiefer, this relationship is perhaps more explicit, and somewhat part of the nature of a feedback instrument. In the case of something like *C-C-Combine*, the balance of this relationship is very strong: the incoming audio is clearly a driving control signal for the plugin. However, here this balance is constantly slipping around, rendering the mix of signals ambiguous. This dual status of control gesture and sound in the context of machine learning-assisted musicking is a fascinating question.
 
 Let us now try and think of these ideas in the context of Constanzo’s wider aesthetic project. Across the various interviews, workshops, and plenaries that Constanzo attended in regard to FluCoMa, there was one aspect that kept on coming back: the desire to *get what he does not want*. This joins back with the idea discussed at the beginning of this text of wanting to subvert habits, the expected. He seeks to be surprised.
 
