@@ -1,0 +1,30 @@
+Things that can happen once you have an audio Buffer:
+
+- Slicers
+- Buf Analysis
+- Buf Decomposition
+- NMF
+- Waveform
+
+Things that can happen once you have slice points:
+
+- Playback at different slice points
+- Analysis based on slice points
+- Waveform
+
+Things that can happen once you have Buffer Analyses:
+
+- Visualize
+- add to DataSet
+- Waveform
+
+Things that can happen once you have a DataSet:
+
+- KDTree
+- KMeans
+- PCA
+- MDS
+- UMAP
+- DataSetQuery
+- Plotter
+- MLP
