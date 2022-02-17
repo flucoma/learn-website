@@ -3,8 +3,76 @@ title: Sines
 blurb: Decomposition using a sinusoidal reconstruction model
 tags: 
     - decomposition
+    - spectral processing
 flair: reference
 category: Decompose
 ---
+
+<script>
+    import Audio from '$lib/components/Audio.svelte';
+    import ResourceLink from '$lib/components/ResourceLink.svelte';
+</script>
+
+[Sines]() is a tool for decomposing a sound into a *sinusoidal* and *residual* component. It operates on the assumption that a sound can be modelled and resynthesised as a collection of sinusoids that vary in strength and pitch over time. Anything that can't be easily resynthesised in this way is separated and classes as a "residual" component. Combined, these two components sum to the original sound. Let's listen to some practical examples of how this works.
+
+Firstly, let's take a reduced example: a sound comprised of pink noise and a sine tone blended together.
+
+<Audio 
+src='/ref/sines/mixed.mp3'
+label='Pink noise and a 440Hz sine wave blended together'
+/>
+
+Now let's hear the **sinusoidal** component:
+
+<Audio 
+src="/ref/sines/mixed.sines.mp3"
+label='Sinusoidal component'
+/>    
+
+Now let's hear the **residual** component:
+
+<Audio 
+src="/ref/sines/mixed.residual.mp3"
+label='Residual component'
+/>  
+
+What is obvious from this example is that the sinusoid and noise are neatly separated into their own components without much overlap or bleed between the two. Don't get too excited though, this is the perfect scenario for [Sines](), because the sinusoid is highly differentiable from the noise and isn't made more complicated by things modulating through time. In that light let's construct a more realistic example: a sound made up of many different timbres, envelopes and minutia that might be more difficult for the algorithm to deal with. Listen to the drum loop below.
+
+<Audio 
+src="/audio/drum-m.mp3"
+label='Nicol-LoopE-M drum loop'
+/> 
+
+Now let's hear the **sinusoidal** component:
+
+<Audio 
+src="/ref/sines/drums.sines.mp3"
+label='Nicol-LoopE-M sinusoidal component'
+/> 
+
+Now let's hear the **residual** component:
+
+<Audio 
+src="/ref/sines/drums.residual.mp3"
+label='Nicol-LoopE-M residual component'
+/> 
+
+In this case, the decomposition is not so cut and dry in the result. What is interesting though, is that the pitch of the snare drum emerges in the sinusoidal component and most of the remaining characteristics of the drum-kit are left essentially untouched. We can hear some "sparkly" sinusoids that could be attributed to the upper frequencies of the cymbals and hi-hat, but there is nonetheless a prominent tone that is captured and isolated.
+
+For more detailed information on how this method of decomposition works, take a look at the [sinusoidal modelling](/learn/sinusoidal-modelling) article.
+
+## Related Resources
+
+<ResourceLink
+title='SPEAR (Sinusoidal Partial Editing Analysis and Resynthesis)'
+url='https://www.klingbeil.com/spear/'
+blurb='An application for audio analysis, editing and synthesis based on manipulating a sound with many individual sinusoidal tracks.'
+/>
+
+<ResourceLink 
+title='Fast Partial Tracking Algorithm'
+url='https://github.com/jundsp/Fast-Partial-Tracking' 
+blurb='Matlab code that implements a relevant sinusoidal tracking algorithm.'
+/>
 
 

@@ -5,8 +5,7 @@ blurb: |
 tags: 
     - spectral processing
     - sines
-    - sinunsoids
-    - FluidSines
+    - sinusoids
 flair: article
 ---
 
@@ -63,7 +62,7 @@ We can both see and hear that this model struggles more here. The overall spectr
 
 We could process it differently, or just use it to disguise the artefacts of the sinusoidal layer. Alternatively we could do further decomposition, for instance, to try and separate [transients](/reference/transients) from noise. To explore that idea we might use some of the other objects from the FluCoMa toolbox such as [Transients](/reference/transients), [HPSS](/reference/hpss) or [BufNMF](/reference/bufnmf).
 
-You can play with sinusoidal modelling using [FluidSines](/reference/sines).
+You can play with sinusoidal modelling using [Sines](/reference/sines).
 
 ## Related Resources
 
