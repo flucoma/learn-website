@@ -42,7 +42,8 @@ const config = {
 				learn: './src/lib/layouts/learn.svelte',
 				reference: './src/lib/layouts/reference.svelte',
 				explore: './src/lib/layouts/explore.svelte',
-				FrontPage : './src/lib/layouts/FrontPage.svelte'
+				FrontPage : './src/lib/layouts/FrontPage.svelte',
+				ContentIndex : './src/lib/layouts/ContentIndex.svelte'
 			}
 		})
 	],
