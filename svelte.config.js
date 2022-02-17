@@ -39,9 +39,9 @@ const config = {
 				]
 			],
 			layout: {
-				learn: './src/lib/layouts/learn.svelte',
-				reference: './src/lib/layouts/reference.svelte',
-				explore: './src/lib/layouts/explore.svelte',
+				learn: './src/lib/layouts/Content.svelte',
+				reference: './src/lib/layouts/Content.svelte',
+				explore: './src/lib/layouts/Content.svelte',
 				FrontPage : './src/lib/layouts/FrontPage.svelte',
 				ContentIndex : './src/lib/layouts/ContentIndex.svelte'
 			}
