@@ -2,7 +2,7 @@
 title: "FluCoMa Podcast #01: Freida Abtan"
 artist: Freida Abtan
 blurb: |
-    The first episode of the FluCoMa Podcast where Jacob Hart with Freida Abtan.
+    The first episode of the FluCoMa Podcast where Jacob Hart talks with creative coder and educator Freida Abtan.
 tags: 
     - learning
     - teaching
