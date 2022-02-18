@@ -8,4 +8,15 @@ flair: reference
 category: Utility
 ---
 
+<script>
+    import BufSelectEvery from '$lib/widget/BufSelectEvery.svelte';
+</script>
+
+
+
+[BufSelectEvery]() facilitates copying values form a source buffer to a destination buffer by specifiying a number of channels and indices to "hop".
+
+The widget below visually exposes how this copying procedure works.
+
+<BufSelectEvery />
 
