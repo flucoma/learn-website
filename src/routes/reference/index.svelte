@@ -35,35 +35,77 @@
 	}
 </script>
 
-<h1 class='title'>Reference</h1>
+<div class="navigation">
 
-<form>
-	<label class="visually-hidden" for="query"></label>
-	<input 
-	bind:value={query} 
-	on:input={doSearch}
-	placeholder='Enter a search term'
-	>
-</form>
+</div>
 
-<div class="container">
-	{#each Object.entries(categorised) as [category, ref]}
-	{#if ref.length > 0}
-	<section>
-		<h3>{ category }</h3>
-		{#each ref as r}
-		<ul>
-			<li>
-				<a transition:fade={{ duration: 90 }} href={r.url}>{r.title} <ArrowRight /></a>
-			</li>
-		</ul>
+<main class="main">
+
+    <h1 class='title'>Reference</h1>
+
+	<form>
+		<label class="visually-hidden" for="query"></label>
+		<input 
+		bind:value={query} 
+		on:input={doSearch}
+		placeholder='Enter a search term'
+		>
+	</form>
+
+	<div class="container">
+		{#each Object.entries(categorised) as [category, ref]}
+		{#if ref.length > 0}
+		<section>
+			<h3>{ category }</h3>
+			{#each ref as r}
+			<ul>
+				<li>
+					<a transition:fade={{ duration: 90 }} href={r.url}>{r.title} <ArrowRight /></a>
+				</li>
+			</ul>
+			{/each}
+		</section>
+		{/if}
 		{/each}
-	</section>
-	{/if}
-	{/each}
+	</div>
+
+</main>
+
+<div class="related">
+    
 </div>
 
 <style>
+
+	.main {
+        grid-area: main;
+        min-width: var(--min-text-width);
+        max-width: var(--max-text-width);
+        display: flex;
+        flex-direction: column;
+    }
+
+    .navigation {
+        grid-area: navigation;
+        width: 25ch;
+        height: max-content;
+    }
+
+    .related {
+        grid-area: related;
+        width: 25ch;
+    }
+
+    @media (max-width: 1200px) {
+        .navigation {
+            width: 100%;
+        }
+
+        .related {
+            display: none;
+        }
+    }
+
 	form > input {
 		margin-bottom: 0.5em;
 		font-size: 1.5rem;
@@ -112,9 +154,3 @@
 		gap: 0.125em;
 	}
 </style>
-
-
-
-
-
-
