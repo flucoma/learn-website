@@ -39,8 +39,8 @@ const config = {
 				]
 			],
 			layout: {
-				_: './src/lib/layouts/content.svelte',
-				contentindex : './src/lib/layouts/contentindex.svelte'
+				_: './src/lib/layouts/Content.svelte',
+				contentindex : './src/lib/layouts/ContentIndex.svelte'
 			}
 		})
 	],
