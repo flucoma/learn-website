@@ -3,22 +3,27 @@
 	import { structure } from '$lib/app.js';
 	import Related from '$lib/components/Related.svelte'
 
-	$: headings = $structure[$page.url.pathname] || [];
+	let headings = [];
+	$: {
+		let path = $page.url.pathname;
+		path = path.endsWith('/') ? path.slice(0, -1) : path;
+		headings = $structure[path] || [];
+	}
 </script>
 
-{#if headings.length > 0}
 <nav class="container">
 	<div>
+		{#if headings.length > 0}
 		<h3 class="toc">Table of Contents</h3>
 		<div class="headings">
 			{#each headings as h}
 			<a href={h.url}>{h.text}</a>
 			{/each}
 		</div>
+		{/if}
 	</div>
 	<Related />
 </nav>
-{/if}
 
 
 <style lang="postcss">
