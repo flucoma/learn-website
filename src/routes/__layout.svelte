@@ -15,11 +15,9 @@
 	<Header />
 	<Crumbs />
 
-	<div class="content">
-
+	<main class="content">
 		<slot />
-
-	</div>
+	</main>
 	
 	<Footer />
 </div>
@@ -43,7 +41,7 @@
 	@media (min-width: 1200px) {
 		.content {
 			grid-template-columns: auto min(var(--max-text-width), 100%) auto;
-			grid-template-areas: 'navigation main related';
+			grid-template-areas: 'navigation main blank';
 		}
 	}
 
