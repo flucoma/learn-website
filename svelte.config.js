@@ -39,10 +39,7 @@ const config = {
 				]
 			],
 			layout: {
-				learn: './src/lib/layouts/content.svelte',
-				reference: './src/lib/layouts/content.svelte',
-				explore: './src/lib/layouts/content.svelte',
-				frontpage : './src/lib/layouts/frontpage.svelte',
+				_: './src/lib/layouts/content.svelte',
 				contentindex : './src/lib/layouts/contentindex.svelte'
 			}
 		})
