@@ -1,9 +1,8 @@
-<div class="navigation">
+---
+layout: contentindex
+---
 
-</div>
-
-<main class="main">
-
+<div class="main">
     <h1>Choose your creative coding environment</h1>
 
 	<div class="installations">
@@ -20,11 +19,6 @@
 			<img src="/img/pd-logo.png" alt="PureData Logo" />
 		</a>
 	</div>
-
-</main>
-
-<div class="related">
-    
 </div>
 
 <style>
@@ -35,27 +29,6 @@
         max-width: var(--max-text-width);
         display: flex;
         flex-direction: column;
-    }
-
-    .navigation {
-        grid-area: navigation;
-        width: 25ch;
-        height: max-content;
-    }
-
-    .related {
-        grid-area: related;
-        width: 25ch;
-    }
-
-    @media (max-width: 1200px) {
-        .navigation {
-            width: 100%;
-        }
-
-        .related {
-            display: none;
-        }
     }
 
 	.installations {
