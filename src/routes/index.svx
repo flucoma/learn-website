@@ -1,3 +1,7 @@
+---
+layout: contentindex
+---
+
 <script>
     import Landing from '$lib/components/cards/Landing.svelte';
 </script>
