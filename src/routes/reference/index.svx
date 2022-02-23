@@ -1,3 +1,7 @@
+---
+layout: contentindex
+---
+
 <script>
 	import { docs } from '$lib/app';
 	import ArrowRight from '$lib/components/ArrowRight.svelte';
@@ -35,6 +39,9 @@
 	}
 </script>
 
+
+<div class="main">
+
 <h1 class='title'>Reference</h1>
 
 <form>
@@ -63,7 +70,17 @@
 	{/each}
 </div>
 
+</div>
+
 <style>
+	.main {
+        grid-area: main;
+        min-width: var(--min-text-width);
+        max-width: var(--max-text-width);
+        display: flex;
+        flex-direction: column;
+    }
+
 	form > input {
 		margin-bottom: 0.5em;
 		font-size: 1.5rem;
@@ -79,7 +96,7 @@
 		max-height: 550px;
 	}
 
-	@media (max-width: 750px) {
+	@media (max-width: 1000px) {
 		.container {
 			max-height: 1000px;
 		}
@@ -112,9 +129,3 @@
 		gap: 0.125em;
 	}
 </style>
-
-
-
-
-
-
