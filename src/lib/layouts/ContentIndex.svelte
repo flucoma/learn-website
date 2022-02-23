@@ -2,21 +2,15 @@
 	import TOC from '$lib/components/TOC.svelte';
 </script>
 
-
 <div class="navigation">
     <TOC />
 </div>
 
-<main class="main">
-
+<div class="main">
     <slot />
-
-</main>
-
-<div class="related">
-    
 </div>
 
+<div class="related" />
 
 <style lang="postcss">
     .main {
