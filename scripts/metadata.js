@@ -107,6 +107,7 @@ glob('src/**/*.svx', (err, routes) => {
 		if(Object.keys(featured).includes(section)){
 			// Set default stuff here:
 			var entry = {
+				'url' : url,
 				'title' : 'Untitled',
 				'Blurb' : '',
 				'flair' : 'article',
