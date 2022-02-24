@@ -8,11 +8,10 @@ tags:
 flair: reference
 category: Slicing
 ---
----
----
 
 <script>
     import IndentNote from '$lib/components/IndentNote.svelte';
+    import ResourceLink from '$lib/components/ResourceLink.svelte';
 </script>
 
 NoveltySlice provides a broad concept for thinking about how we might be able say _this_ bit of a sound is different from _that_ bit. It's useful for slicing when we want a more general basis for distinguishing between segments than looking for the start of well defined events with [onsets](/reference/onsetslice), [transients](/reference/transientslice) or changes in the envelope. It can be especially useful when we're interested in making longer slices than you might get with these typically more finely-grained methods.
@@ -31,13 +30,21 @@ What we're interested in is how much "novelty" appears to be present from one mo
 
 This kind of approach is very flexible, because it allows us to tune the lengths of the slices that we're interested in, and to remain relatively ambivalent about the exact properties of the signal that denote novelty (meaning that it may be able to pick up on multiple aspects of what we hear). As such, this kind of technique is quite common in what's called "structural segmentation" in the Music Information Retrieval field, where the focus is on slicing a relatively long passage, like a complete song or movement, into a number of broad sections.
 
-## More Resources
+## Related Resources
 
-[The original paper by Jonathan Foote](https://ccrma.stanford.edu/workshops/mir2009/references/Foote_00.pdf)
+<ResourceLink 
+title={'Automatic Audio Segmentation Using A Measure of Audio Novelty'}
+url={'https://ccrma.stanford.edu/workshops/mir2009/references/Foote_00.pdf'}
+blurb={'The original paper describing the novelty algorithm'}
+/>
 
-[A more technical explanation using Python code](https://www.audiolabs-erlangen.de/resources/MIR/FMP/C4/C4S4_NoveltySegmentation.html)
+<ResourceLink 
+title={'Novelty-Based Segmentation'}
+blurb={'A technically oriented exploration of novelty-based segmentation using Python code'}
+url={'https://www.audiolabs-erlangen.de/resources/MIR/FMP/C4/C4S4_NoveltySegmentation.html'}
+/>
 
-[Recurrence Plots](https://en.wikipedia.org/wiki/Recurrence_plot)
+[A more technical explanation using Python code]()
 
 
 
