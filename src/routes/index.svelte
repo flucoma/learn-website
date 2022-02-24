@@ -1,94 +1,95 @@
 <script>
-    import { featured } from '$lib/app.js';
+    import { docs } from '$lib/app.js';
+    import _ from 'lodash';
     import ArrowRight from '$lib/components/ArrowRight.svelte';
 
-    const chosen_learn = choose_items(featured, 'learn', 1);
-    const chosen_explore = choose_items(featured, 'explore', 1);
-    const chosen_reference = choose_items(featured, 'reference', 1);
+    const learn = docs.filter(x => x.section === 'learn');
+    const explore = docs.filter(x => x.section === 'explore');
+    const reference = docs.filter(x => x.section === 'reference');
 
-    function choose_items(full_dict, type, num){
-        var chosen = [];
-        var local_poss = full_dict[type];
+    const rng_learn = _.sample(learn);
+    const rng_explore = _.sample(explore);
+    const rng_ref = _.sample(reference);
 
-        for(var i = 0; i < num; i++){
-            var this_key = Math.floor(Math.random() * Object.keys(local_poss).length);
-            chosen.push(local_poss[Object.keys(local_poss)[this_key]]);
-            delete local_poss[this_key];
-        };
-        return chosen;
-    };
+    const learn_img = rng_ref.feature.featuredimage || _.sample(rng_ref.feature.images) || '/img/logo.svg'
 </script>
 
-<div class="main-container">
+<div class="container">
+    <p class="text-block">
+        Welcome to the <strong>Fluid Corpus Manipulation Learn platform</strong>. 
+        A lot of music making with computers involves working with collections of audio, and these collections are getting bigger and bigger. At the same time, techniques for analysing sound and manipulating data keep being developed. Our project seeks to enable music making with collections of audio by making some of these techniques available for musical creative coding environments, alongside a set of supporting resources on these pages.
+    </p>
+</div>
 
-    <div class="container" style="grid-column: 1/3;">
-        <p class="text-block">
-            Welcome to the <span style="font-weight: bold;">Fluid Corpus Manipulation Learn platform</span>. 
-            A lot of music making with computers involves working with collections of audio, and these collections are getting bigger and bigger. At the same time, techniques for analysing sound and manipulating data keep being developed. Our project seeks to enable music making with collections of audio by making some of these techniques available for musical creative coding environments, alongside a set of supporting resources on these pages.
-        </p>
-    </div>
-
-    <div class="container" style="grid-column: 1;">
+<div class="parent">
+    <div class="container">
         <h2>   
             Learn
         </h2>
-        <p class="text-block">
+        <!-- <p class="text-block">
             A variety of articles and guides discussing machine listening and machine learning, sometimes relating to specific FluCoMa technology and sometimes reflecting more broadly.
-        </p>
+        </p> -->
 
         <div class='flaired-title'>
-            <div class="flair {chosen_learn[0].flair}" />
-            <div>Featured: {chosen_learn[0].title}</div>
+            <div class="flair {rng_learn.flair}" />
+            <div>Featured: {rng_learn.title}</div>
         </div>
         <p>
-            {chosen_learn[0].blurb}
+            {rng_learn.blurb}
         </p>
-        <a href={chosen_learn[0].url}>
+
+        <img class='feature_image' src={rng_learn.feature.featuredimage || _.sample(rng_learn.feature.images) || '/img/logo.svg' }/>
+
+        <a href={rng_learn.url}>
             Learn More <ArrowRight />
         </a>  
     </div>
 
-    <div class="container" style="grid-column: 2;">
-        <h2>   
-            Explore
-        </h2>
-        <p class="text-block">
-            Here we draw attention to people like you. Makers who use the FluCoMa toolkit or are involved in the wider community. We want to highlight what is out there to try and cultivate opportunities for learning and to situate this technology within a community of techno-fluent musicians.
-        </p>
+    <div class="container"
+    style:background-image={`url(${learn_img})`}
+    >
+        <h2>Explore</h2>
+        <!-- <p class="text-block"> -->
+            <!-- Here we draw attention to people like you. Makers who use the FluCoMa toolkit or are involved in the wider community. We want to highlight what is out there to try and cultivate opportunities for learning and to situate this technology within a community of techno-fluent musicians. -->
+        <!-- </p> -->
 
         <div class='flaired-title'>
-            <div class="flair {chosen_explore[0].flair}" />
-            <div>Featured: {chosen_explore[0].title}</div>
+            <div class="flair {rng_explore.flair}" />
+            <div>Featured: {rng_explore.title}</div>
         </div>
         <p>
-            {chosen_explore[0].blurb}
+            {rng_explore.blurb}
         </p>
-        <a href={chosen_explore[0].url}>
+        <!-- <img class='feature_image' src={rng_explore.feature.featuredimage || _.sample(rng_explore.feature.images) || '/img/logo.svg' }/> -->
+
+        <a href={rng_explore.url}>
             Learn More <ArrowRight />
-        </a>
+        </a> 
     </div>
 
-    <div class="container" style="grid-column: 1;">
+    <div class="container">
         <h2>   
             References
         </h2>
-        <p class="text-block">
-            The references outline the underlying algorithms of the FluCoMa toolkit in more detail. We try to steer clear from specific implementation details and instead focus on the concepts behind each algorithm and to help illuminate what goes on under the hood.
-        </p>
+        <!-- <p class="text-block"> -->
+            <!-- The references outline the underlying algorithms of the FluCoMa toolkit in more detail. We try to steer clear from specific implementation details and instead focus on the concepts behind each algorithm and to help illuminate what goes on under the hood. -->
+        <!-- </p> -->
 
         <div class='flaired-title'>
-            <div class="flair reference" />
-            <div>Featured: {chosen_reference[0].title}</div>
+            <div class="flair {rng_ref.flair}" />
+            <div>Featured: {rng_ref.title}</div>
         </div>
         <p>
-            {chosen_reference[0].blurb}
+            {rng_ref.blurb}
         </p>
-        <a href={chosen_reference[0].url}>
+        <img class='feature_image' src={rng_ref.feature.featuredimage || _.sample(rng_ref.feature.images) || '/img/logo.svg'} />
+
+        <a href={rng_ref.url}>
             Learn More <ArrowRight />
-        </a>
+        </a> 
     </div>
 
-    <div class="container" style="grid-column: 2;">
+    <!-- <div class="container" style="grid-column: 2;">
         <h2>   
             Get Involved
         </h2>
@@ -106,22 +107,27 @@
                     Dive into all of our open-source code at <a href="https://github.com/flucoma">GitHub</a>.
                 </li>
             </ol>
-    </div>
+    </div> -->
 </div>
 
 <style>
-
-    .text-block{
-        text-align: justify;
+    .feature_image {
+        position: relative;
+        max-width: 100%;
     }
 
-    .main-container{
+    .parent{
         display: grid;
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(3, 1fr);
+        max-width: 80%;
+        margin: 0 auto;
         grid-gap : 1em;
     }
 
     .container{
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: 50% 50%;
         border-radius: 0.25rem;
         border: 0.063rem solid #dcdee0;
         padding: 0.75em;
