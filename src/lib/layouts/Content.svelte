@@ -5,27 +5,57 @@
     import EditHistory from '$lib/components/EditHistory.svelte';
 </script>
 
-<div class="navigation">
-    <TOC />
-</div>
+<div class="wrapper">
 
-<div class="main">
-    <div class="title-box">
-        <h1>{title}</h1>
-        <p class="blurb">
-            {blurb}
-        </p>
+    <div class="navigation">
+        <TOC />
     </div>
 
-    <slot />
+    <div class="main">
+        <div class="title-box">
+            <h1>{title}</h1>
+            <p class="blurb">
+                {blurb}
+            </p>
+        </div>
 
-    <EditHistory />
+        <slot />
+
+        <EditHistory />
+    </div>
+
+    <div class="blank" />
+
 </div>
-
-<div class="blank" />
 
 
 <style lang="postcss">
+
+    .wrapper {
+		display: grid;
+		justify-content: center;
+		margin-left: 1em;
+		margin-right: 1em;
+		margin-bottom: 1em;
+		flex: 1 0 auto;
+	}
+
+	@media (min-width: 1200px) {
+		.wrapper {
+			grid-template-columns: auto min(var(--max-text-width), 100%) auto;
+			grid-template-areas: 'navigation main blank';
+		}
+	}
+
+	@media (max-width: 1200px) {
+		.wrapper {
+			grid-template-rows: auto auto;
+			grid-template-areas:
+				'navigation'
+				'main';
+		}
+	}
+
     :global(p) {
 		text-align: justify;
 		text-justify: inter-word;
