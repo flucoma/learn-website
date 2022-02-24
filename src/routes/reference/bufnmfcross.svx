@@ -8,4 +8,5 @@ tags:
     - nmf
     - spectral
 flair: reference
+category: Transform
 ---

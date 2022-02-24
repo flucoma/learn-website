@@ -1,0 +1,11 @@
+---
+title: NMFMorph
+blurb: Cross-synthesis using non-negative Matrix Factorisation (NMF)
+tags:
+    - data
+    - nmf
+    - machine learning
+    - spectral
+flair: reference
+category: Transform
+---

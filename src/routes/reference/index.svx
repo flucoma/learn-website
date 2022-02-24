@@ -1,43 +1,131 @@
 ---
-layout: none
+layout: contentindex
 ---
 
 <script>
-	import { info } from '$lib/app.js';
-	import ReferenceEntry from '$lib/components/ReferenceEntry.svelte';
-	import ReferenceSearch from '$lib/components/ReferenceSearch.svelte';
-	import Image from '$lib/components/Image.svelte';
+	import { docs } from '$lib/app';
+	import ArrowRight from '$lib/components/ArrowRight.svelte';
+	import FuzzySearch from 'fuzzy-search';	
+	import { fade } from 'svelte/transition';
 
-	let references = JSON.parse(JSON.stringify($info.reference)); // make a deep copy here for the search
+	let references = docs.filter(d => d.section === 'reference');
+
+	let categorised = {
+		'Analyse Data' : [],
+		'Analyse Sound' : [],
+		'Utility' : [],
+		'Decompose' : [],
+		'Slicing' : [],
+		'Transform' : []
+	}
+
+	references.forEach(r => { categorised[r.category].push(r) });
+
+	let query = ''
+	const search = new FuzzySearch(references, ['title', 'tags', 'blurb', 'category'], {
+		caseSensitive: false,
+		sort: true
+	})
+
+	function doSearch() {
+		const searchResult = search.search(query);
+
+		// Clear categorised table
+		Object.keys(categorised).forEach(c => {
+			categorised[c] = [];
+		});
+
+		searchResult.forEach(r => { categorised[r.category].push(r) });
+	}
 </script>
 
-# Reference
 
-This section of the learn platform outlines each algorithm of the Fluid Corpus Manipulation toolbox. The aim of these outlines is to help you develop a fundamental understanding of the algorithms themselves while also nurturing a musical intuition for how it might be used and applied to creative problems and goals. Use the search box below to search for a specific algorithm.
+<div class="main">
 
-<ReferenceSearch bind:result={references} />
+<h1 class='title'>Reference</h1>
 
-<div class='list'>
-	{#each references as ref}
-		<ReferenceEntry 
-		title={ref.data.title}
-		blurb={ref.data.blurb}
-		url={ref.url}
-		/>
+<form>
+	<label class="visually-hidden" for="query"></label>
+	<input 
+	bind:value={query} 
+	on:input={doSearch}
+	placeholder='Enter a search term'
+	>
+</form>
+
+<div class="container">
+	{#each Object.entries(categorised) as [category, ref]}
+	{#if ref.length > 0}
+	<section>
+		<h3>{ category }</h3>
+		{#each ref as r}
+		<ul>
+			<li>
+				<a transition:fade={{ duration: 90 }} href={r.url}>{r.title} <ArrowRight /></a>
+			</li>
+		</ul>
+		{/each}
+	</section>
+	{/if}
 	{/each}
 </div>
 
+</div>
 
 <style>
-	.list {
+	.main {
+        grid-area: main;
+        min-width: var(--min-text-width);
+        max-width: var(--max-text-width);
+        display: flex;
+        flex-direction: column;
+    }
+
+	form > input {
+		margin-bottom: 0.5em;
+		font-size: 1.5rem;
+		border: none;
+		outline: none;
+		border-bottom: 1px solid grey;
+	}
+
+	.container {
 		display: flex;
 		flex-direction: column;
-		gap: 1em;
+		flex-wrap: wrap;
+		max-height: 550px;
+	}
+
+	@media (max-width: 1000px) {
+		.container {
+			max-height: 1000px;
+		}
+	}
+
+	section {
+		width: max-content;
+	}
+
+	section > h3 {
+		margin-top: 0.25em;
+		margin-bottom: 0.25em;
+	}
+
+	section ul {
+		margin: 0;
+		padding: 0;
+	}
+
+	section ul li {
+		display: block;
+		margin: 0;
+	}
+
+	section ul li a {
+		text-decoration: none;
+		display: grid;
+		grid-template-columns: auto auto;
+		place-items: center;
+		gap: 0.125em;
 	}
 </style>
-
-
-
-
-
-

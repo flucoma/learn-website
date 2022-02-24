@@ -6,6 +6,7 @@ tags:
     - querying
     - classification
 flair: reference
+category: Analyse Data
 ---
 
 

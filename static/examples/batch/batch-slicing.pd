@@ -1,0 +1,154 @@
+#N canvas 1070 415 1422 901 12;
+#X obj 30 224 soundfiler;
+#X obj 30 289 t b;
+#X obj 777 714 output~;
+#X text 439 126 Load a source sound file into the array "src" to start
+processing. Replace this path with one that makes sense for your machine.
+;
+#X obj 427 327 array define slicepoints;
+#X msg 30 142 symbol ~/FluidCorpusManipulation/media/Nicol-LoopE-M.wav
+;
+#X obj 30 365 array size slicepoints;
+#X obj 112 500 until;
+#N canvas 730 215 450 300 counter 0;
+#X obj 22 26 inlet;
+#X obj 95 19 inlet;
+#X obj 27 122 outlet;
+#X obj 23 64 f;
+#X obj 62 76 + 1;
+#X msg 122 72 0;
+#X connect 0 0 3 0;
+#X connect 1 0 5 0;
+#X connect 3 0 4 0;
+#X connect 3 0 2 0;
+#X connect 4 0 3 1;
+#X connect 5 0 3 1;
+#X restore 112 538 pd counter;
+#X obj 112 462 t f 0;
+#X obj 112 424 - 1;
+#X msg 30 186 read -resize \$1 drum;
+#X text 181 185 read the sound file into the array defined as "drum"
+;
+#X obj 115 225 array define drum;
+#X obj 30 327 fluid.bufnoveltyslice -source drum -indices slicepoints
+;
+#X obj 35 720 fluid.dataset data;
+#X msg 115 669 setpoint \$1 slice.mean;
+#X obj 30 398 t b l;
+#X msg 31 459 print;
+#X obj 112 583 t f f, f 26;
+#X floatatom 777 625 5 0 0 0 - - - 0;
+#X obj 97 290 s sr;
+#X msg 97 260 \$1;
+#N canvas 1 26 298 441 slice_playback 0;
+#X obj 53 258 phasor~;
+#X obj 14 311 *~;
+#X obj 13 344 +~;
+#X obj 23 158 t f l;
+#X obj 54 184 expr $f2 - $f1;
+#X obj 55 221 expr $f2 / $f1;
+#X obj 23 134 array get slicepoints 0 2;
+#X obj 13 374 tabread~ drum;
+#X obj 21 64 t f b;
+#X obj 210 132 v sr;
+#X obj 22 16 inlet;
+#X obj 13 416 outlet~;
+#X connect 0 0 1 0;
+#X connect 1 0 2 0;
+#X connect 2 0 7 0;
+#X connect 3 0 2 1;
+#X connect 3 1 4 0;
+#X connect 4 0 1 1;
+#X connect 4 0 5 0;
+#X connect 5 0 0 0;
+#X connect 6 0 3 0;
+#X connect 7 0 11 0;
+#X connect 8 0 6 0;
+#X connect 8 1 9 0;
+#X connect 9 0 5 1;
+#X connect 10 0 8 0;
+#X restore 777 672 pd slice_playback;
+#X obj 912 706 fluid.dataset data;
+#X obj 1034 744 route getpoint;
+#X msg 912 672 getpoint \$1 query;
+#X obj 1049 671 array define query;
+#X obj 1034 779 array get query;
+#X msg 1034 850 2731.07;
+#X msg 1034 814 set \$1;
+#X text 1096 849 mean centroid of slice currently playing;
+#X text 136 288 store the samplerate for playing slices later;
+#X text 195 365 get slice indices as a list;
+#X text 289 661 every analysis iteration store the data in a fluid.dataset
+;
+#X text 820 625 select a slice to playback and see the average centroid
+;
+#N canvas -188 -1174 1062 387 analysis 0;
+#X obj 16 75 array get slicepoints 0 2;
+#X obj 732 299 array define slice.stats;
+#X obj 839 340 array define slice.mean;
+#X obj 168 166 expr $f2 - $f1;
+#X msg 168 198 numframes \$1;
+#X msg 39 192 startframe \$1;
+#X obj 16 128 t b l l;
+#X obj 16 342 fluid.bufselect -source slice.stats -destination slice.mean
+-indices 0, f 71;
+#X obj 15 246 fluid.bufspectralshape -source drum -features slice.analysis
+;
+#X obj 757 246 clone fluid.multiarray 7 slice.analysis;
+#X obj 16 300 fluid.bufstats -source slice.analysis-0 -stats slice.stats
+;
+#X text 280 176 analyse only the slice by setting the start frame and
+the number of frames to analyse;
+#X text 450 245 analyse all spectral moments and store -->;
+#X text 432 299 only calculate stats of spectral centroid;
+#X text 520 342 select the first value from the stats (mean);
+#X obj 16 24 inlet;
+#X text 212 19 iterate over pairs of slice points for example: 0 \,
+1024 \, 2048 \, 5000 \, 10000 becomes: 0 1024 1024 2048 2048 5000 5000
+10000;
+#X connect 0 0 6 0;
+#X connect 3 0 4 0;
+#X connect 4 0 8 0;
+#X connect 5 0 8 0;
+#X connect 6 0 8 0;
+#X connect 6 1 5 0;
+#X connect 6 2 3 0;
+#X connect 8 0 10 0;
+#X connect 10 0 7 0;
+#X connect 15 0 0 0;
+#X restore 290 620 pd analysis;
+#X text 380 620 look in here for how the analysis is performed;
+#X obj 31 88 pdcontrol;
+#X msg 31 55 browse https://learn.flucoma.org/learn/batch-processing
+;
+#X obj 9 16 cnv 15 100 10 empty empty Batch\\\ Processing 20 12 0 36
+#fcfcfc #404040 0;
+#X connect 0 0 1 0;
+#X connect 0 1 22 0;
+#X connect 1 0 14 0;
+#X connect 5 0 11 0;
+#X connect 6 0 17 0;
+#X connect 7 0 8 0;
+#X connect 8 0 19 0;
+#X connect 9 0 7 0;
+#X connect 9 1 8 1;
+#X connect 10 0 9 0;
+#X connect 11 0 0 0;
+#X connect 14 0 6 0;
+#X connect 16 0 15 0;
+#X connect 17 0 18 0;
+#X connect 17 1 10 0;
+#X connect 18 0 15 0;
+#X connect 19 0 16 0;
+#X connect 19 1 36 0;
+#X connect 20 0 23 0;
+#X connect 20 0 26 0;
+#X connect 22 0 21 0;
+#X connect 23 0 2 0;
+#X connect 23 0 2 1;
+#X connect 24 2 25 0;
+#X connect 25 0 28 0;
+#X connect 26 0 24 0;
+#X connect 28 0 30 0;
+#X connect 30 0 29 0;
+#X connect 39 0 38 0;
