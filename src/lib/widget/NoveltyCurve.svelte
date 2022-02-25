@@ -1,19 +1,31 @@
 <script>
     import { onMount } from 'svelte';
     import { Chart, registerables } from 'chart.js';
-    import data from '../../../static/data/novelty_curve.json'
-    let curve = data.curve;
+    import annotationPlugin from 'chartjs-plugin-annotation';
+    import data from '../../../static/ref/noveltyslice/curve.json'
+    const curve = data.curve;
+    const peaks = data.peaks;
+    let peaks_annotation = {}
+    curve.map((x, i) => peaks.includes(i) ? x : 0);
+    peaks.forEach((x, i) => {
+        peaks_annotation[String(i)] = {
+            type: 'line',
+            yMin: 0, 
+            yMax: 1,
+            xMin: x, 
+            xMax: x,
+            borderColor: 'red',
+            borderWidth: 4
+        }
+    })
 
-    console.log(curve.length)
-
-
+    console.log(peaks_annotation)
     let chart, ctx, canvas
 
     onMount(async () => {
         if ('ResizeObserver' in window === false) {
             const module = await import('@juggle/resize-observer');
             window.ResizeObserver = module.ResizeObserver;
-            console.log('using polyfill')
         }
         // Chart
         Chart.register(...registerables);
@@ -25,11 +37,11 @@
                 data: curve,
                 borderColor: 'black',
                 borderWidth: 1,
-                // cubicInterpolationMode: 'monotone',
-                // tension: 0.1,
+                cubicInterpolationMode: 'monotone',
+                tension: 1,
                 pointRadius: 0,
                 animation: { duration: 100 }
-            }
+            },
             ]
         };
         chart = new Chart(ctx, {
@@ -38,8 +50,9 @@
             options: {
                 plugins: {
                     legend: { display: false },
-                    tooltip: {
-                        enabled: false,
+                    tooltip: { enabled: false },
+                    annotation: {
+                        annotations: peaks_annotation
                     }
                 },
                 animation: { duration: 100 },
@@ -51,13 +64,6 @@
                 maintainAspectRatio: false,
                 scales: {
                     x: {
-                        ticks: {
-                            autoSkip: true,
-                            callback: (value) => {
-                                return value
-                            },
-                            autoSkipPadding: 14
-                        },
                         display: true,
                         type: 'linear',
                         min: 0,
@@ -67,6 +73,7 @@
                 }
             }
         });
+        console.log(chart)
     });
 </script>
 
