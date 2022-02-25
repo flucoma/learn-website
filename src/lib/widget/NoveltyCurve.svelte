@@ -6,26 +6,23 @@
     const curve = data.curve;
     const peaks = data.peaks;
     let peaks_annotation = {}
-    curve.map((x, i) => peaks.includes(i) ? x : 0);
+    // curve.map((x, i) => peaks.includes(i) ? x : 0);
+
     peaks.forEach((x, i) => {
-        peaks_annotation[String(i)] = {
+        peaks_annotation['line' + String(i)] = {
             type: 'line',
-            yMin: 0, 
-            yMax: 1,
-            xMin: x, 
-            xMax: x,
-            borderColor: 'red',
-            borderWidth: 4
+            yMin: 0, yMax: 1,
+            xMin: x, xMax: x,
+            borderColor: 'rgb(255, 0, 0)',
         }
     })
 
-    console.log(peaks_annotation)
-    let chart, ctx, canvas
+    let chart, ctx, canvas;
 
     onMount(async () => {
         if ('ResizeObserver' in window === false) {
             const module = await import('@juggle/resize-observer');
-            window.ResizeObserver = module.ResizeObserver;
+               window.ResizeObserver = module.ResizeObserver;
         }
         // Chart
         Chart.register(...registerables);
@@ -69,11 +66,10 @@
                         min: 0,
                         max: curve.length
                     },
-                    y: {display: false}
+                    y: {display: true}
                 }
             }
         });
-        console.log(chart)
     });
 </script>
 
