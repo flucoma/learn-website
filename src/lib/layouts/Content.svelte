@@ -1,8 +1,19 @@
 <script>
+    import { onMount } from 'svelte';
     export let title;
 	export let blurb;
 	import TOC from '$lib/components/TOC.svelte';
     import EditHistory from '$lib/components/EditHistory.svelte';
+
+    let docs = {};
+
+    onMount(async () => {
+        const link = 'https://github.com/flucoma/flucoma-docs/releases/download/api/flucoma.api.json'
+        fetch(link, { method: 'GET', redirect: 'follow' } )
+        .then(res => console.log(res))
+    })
+
+
 </script>
 
 <div class="navigation">
