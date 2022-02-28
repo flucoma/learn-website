@@ -124,7 +124,7 @@ src="/learn/seeding-nmf/02_saw_scale_bases.jpg"
 label="Bases from BufNMF analysis of C major scale created with sawtooth waves."
 />
 
-One can see how the activations clearly delineate the different notes in time and the harmonic structure of the sawtooth waves are represented in the bases. It's interesting to notice how the activation for the C at the top of the scale (the blue activation) indicates some presence of the C at the bottom of the scale (the activation for which is purple). This is because the harmonic structures of these two notes (one octave apart) are similar enough to make decomposing them difficult for BufNMF.
+One can see how the activations clearly delineate the different notes in time and the harmonic structure of the sawtooth waves are represented in the bases. It's interesting to notice how the activation for the C at the top of the scale (the purple activation) indicates some presence of the C at the bottom of the scale (the activation for which is green). This is because the harmonic structures of these two notes (one octave apart) are similar enough to make decomposing them difficult for BufNMF.
 
 Using these bases as a seed to decompose the following melody gives BufNMF a strict idea of what to be looking for in the source buffer. For this example we'll set `basesMode` = 2 so that BufNMF uses the provided bases as seed, but won't alter them in the process of decomposition. This is because we want to find how present and where these notes are in the melody, rather than having BufNMF take these bases as a starting point and transforming them to be more like the spectral content in the melody.
 
