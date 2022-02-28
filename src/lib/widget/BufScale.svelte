@@ -42,7 +42,7 @@
 
         <div>
             <label for=clip>Clipping</label>
-            <input type=checkbox id=clip bind:checked={clipping} />
+            <input class='tog' type=checkbox id=clip bind:checked={clipping} />
         </div>
     </form>
     
@@ -90,6 +90,8 @@
         display: grid;
         grid-template-columns: 13ch 5ch;
     }
+
+    .tog { margin: 0 }
 
     .data {
         display: flex;
