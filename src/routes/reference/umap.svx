@@ -15,6 +15,7 @@ category: Analyse Data
     import UMAP from '$lib/widget/UMAP.svelte';
     import YouTube from '$lib/components/YouTube.svelte';
     import ResourceLink from '$lib/components/ResourceLink.svelte';
+    import Docs from '$lib/components/Docs.svelte';
 </script>
 
 <!-- This will eventually link to an overview on dimension reduction IMO -->
@@ -38,6 +39,8 @@ You can think of the `numneighbours` parameter as a control that determines how 
 
 ### Iterations
 UMAP works iteratively to calculate the lower-dimension representation of the input data. As such, performing more or less iterations will drastically effect the result. It is hard to say whether the results will be "better" or "worse" in any case. In fact, you might find something musically useful at any given point of the process. That said, if you find that the low-dimension embedding that UMAP gives you doesn't make sense it might be the case that more iterations can help it to discern some structure of your data.
+
+<Docs obj={"UMAP"}/>
 
 ## Related Resources
 
