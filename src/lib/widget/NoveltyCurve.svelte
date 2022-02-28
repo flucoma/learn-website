@@ -6,14 +6,15 @@
     const curve = data.curve;
     const peaks = data.peaks;
     let peaks_annotation = {}
-    // curve.map((x, i) => peaks.includes(i) ? x : 0);
+
+    console.log(curve)
 
     peaks.forEach((x, i) => {
         peaks_annotation['line' + String(i)] = {
             type: 'line',
-            yMin: 0, yMax: 1,
+            yMin: 0, yMax: Math.max(...curve),
             xMin: x, xMax: x,
-            borderColor: 'rgb(255, 0, 0)',
+            borderColor: 'rgba(255, 0, 0, 0.5)',
         }
     })
 
@@ -25,7 +26,7 @@
                window.ResizeObserver = module.ResizeObserver;
         }
         // Chart
-        Chart.register(...registerables);
+        Chart.register(...registerables, annotationPlugin);
         ctx = canvas.getContext('2d');
         const data = {
             labels: curve.map((x, i) => i),
@@ -52,7 +53,7 @@
                         annotations: peaks_annotation
                     }
                 },
-                animation: { duration: 100 },
+                animation: { duration: 1000 },
                 datasets: {
                     line: { pointRadius: 3 }
                 },
@@ -62,11 +63,14 @@
                 scales: {
                     x: {
                         display: true,
-                        type: 'linear',
                         min: 0,
                         max: curve.length
                     },
-                    y: {display: true}
+                    y: {
+                        display: true,
+                        min: 0,
+                        max: Math.max(...curve)
+                    }
                 }
             }
         });
@@ -74,10 +78,23 @@
 </script>
 
 <div class="container">
+    <div class="title">Novelty Curve computed with a 41 size kernel</div>
     <canvas bind:this={canvas}></canvas>
 </div>
 
 <style>
+    .container {
+        display: flex;
+        flex-direction: column;
+        place-items: center;
+        gap: 1em;
+        margin-top: 1em;
+        margin-bottom: 1em;
+    }
+
+    .title {
+        font-style: italic;
+    }
     canvas {
         width: 100%;
         max-height: 280px;
