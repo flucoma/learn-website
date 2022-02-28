@@ -16,5 +16,5 @@
 {#await get_docs()}
 <p>Loading...</p>
 {:then docs}
-<p>{ docs[obj].client_name }</p>
+<p>{ docs[obj].description }</p>
 {/await}
