@@ -62,21 +62,21 @@ These bases have been created manually by calclutating each positon in the basis
     </TabPanel>
     <TabPanel>
     
-    <CodeBlock>
-    
-    ```
-    ~bases = Buffer.loadCollection(s,513.collect{
-      arg i;
-      var kick = 0;
-      var snare = 0;
-      var hh = i.linlin(0,512,0.0,pi).sin;
-      if(i < 10,{kick = 1});
-      if((i > 10) && (i < 100),{snare = 1});
-      [kick,snare,hh];
-    }.flatten,3);
-    ```
-    
-    </CodeBlock>
+<CodeBlock>
+
+```
+~bases = Buffer.loadCollection(s,513.collect{
+  arg i;
+  var kick = 0;
+  var snare = 0;
+  var hh = i.linlin(0,512,0.0,pi).sin;
+  if(i < 10,{kick = 1});
+  if((i > 10) && (i < 100),{snare = 1});
+  [kick,snare,hh];
+}.flatten,3);
+```
+
+</CodeBlock>
 
     </TabPanel>
 </Tabs>
