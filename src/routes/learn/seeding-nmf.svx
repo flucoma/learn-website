@@ -49,6 +49,7 @@ label="The three bases seeded to BufNMF for decomposing the drum loop that very 
 These bases have been created manually by calclutating each positon in the basis to have either a 0, 1, or some number in between. Download the code below to see how these values were created.
 
 ### Example Code to create these bases
+
 <Tabs>
     <TabList>
         <Tab>Max</Tab>
@@ -63,8 +64,8 @@ These bases have been created manually by calclutating each positon in the basis
     
     <CodeBlock>
     
-    SuperCollider code can be copied from here.
-    <!-- ~bases = Buffer.loadCollection(s,513.collect{
+    ```
+    ~bases = Buffer.loadCollection(s,513.collect{
       arg i;
       var kick = 0;
       var snare = 0;
@@ -72,7 +73,8 @@ These bases have been created manually by calclutating each positon in the basis
       if(i < 10,{kick = 1});
       if((i > 10) && (i < 100),{snare = 1});
       [kick,snare,hh];
-    }.flatten,3); -->
+    }.flatten,3);
+    ```
     
     </CodeBlock>
 
