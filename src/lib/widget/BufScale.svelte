@@ -87,7 +87,7 @@
 
     .data-view {    
         display: grid;
-        grid-template-columns: 12ch auto;
+        grid-template-columns: 1ch auto;
     }
 
     .data-view > span:nth-child(1) {

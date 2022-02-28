@@ -1,6 +1,6 @@
 ---
 title: DataSetQuery
-blurb: Programatically query a FluidDataSet
+blurb: Programatically query a DataSet
 tags: 
     - utlity
     - data
@@ -8,5 +8,13 @@ tags:
 flair: reference
 category: Analyse Data
 ---
+
+<script>
+    import DataSetQuery from '$lib/widget/DataSetQuery.svelte';
+</script>
+
+[DataSetQuery]() is a powerful tool for _querying_ data from a [DataSet](/reference/dataset). To use the object, we first create a query by chaining together preset operations from a selection of logical operators such as greater than, less than, equal to. Once the query is constructed, we can then execute it, causing the source dataset to be filtered and copied to a destination dataset. The basic premise is that certain columns or ranges of columns can be extracted from the source based on the values of other columns across all identifiers of a dataset. This is a powerful way to curate statistics and data conditionally. Use the widget below to see how a small subset of the possible operations can be used together to extract specific identifiers and columns of information. The left [DataSet](/reference/dataset) is the source which is filtered and then copied to the right [DataSet](/reference/dataset).
+
+<DataSetQuery />
 
 
