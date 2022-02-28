@@ -29,7 +29,7 @@ This overview builds on information found in the [BufNMF Overview](/learn/bufnmf
 
 </IndentNote>
 
-Non-negative matrix factorisation can be "seeded," meaning that it is given some information to begin the process from. You can provide bases and/or activations that you think will "point the algorithm" in the direction toward what you're hoping it will decompose. Without seeding, NMF activations and bases are both initialised with random values.
+Non-negative matrix factorisation can be "seeded," meaning that it is given some information to begin the decomposition process from. You can provide bases and/or activations that you think will "point the algorithm" in the direction toward what you're hoping it will decompose. Without seeding, NMF activations and bases are both initialised with random values.
 
 Both [NMFFilter](/reference/nmffilter) and [NMFMatch](/reference/nmfmatch) work from seeded bases, providing audio and activation outputs respectively, in real-time. This overview covers seeding the NMF process with BufNMF.
 
