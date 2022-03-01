@@ -35,6 +35,10 @@ Freida Abtan is a Canadian audiovisual composer and multi-disciplinary artist wi
 url={'UYSa73RvJQE'}
 />
 
+## Overview
+
+In this first episode of the FluCoMa podcast I talk to Dr. Freida Abtan. We talk about some of the projects she has worked on, and her approach to creative programming in general. She discusses how *computational* approaches can be found at the heart of her *artistic* practice, and what the concept of *reactive audio design* means for her. As well as being an artist, Freida is also an educator, and we discuss her ideas around the teaching, dissemination and learning of technologies such as those found in the FluCoMa tools.
+
 ## Links
 
 Here are the links to some of the things that were discussed during the podcast:
