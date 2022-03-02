@@ -31,3 +31,8 @@
 .raisedbox, .raisedbox:hover {
     transition: box-shadow 200ms ease-in-out;
 }
+
+.noscroll {
+    height: 100%;
+    overflow-y: hidden;
+}
