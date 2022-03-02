@@ -4,37 +4,56 @@
     import _ from 'lodash';
     import ArrowRight from '$lib/components/ArrowRight.svelte';
 
-    const learn = docs.filter(x => x.section === 'learn');
-    const explore = docs.filter(x => x.section === 'explore');
-    const reference = docs.filter(x => x.section === 'reference');
+    var learn = docs.filter(x => x.section === 'learn');
+    var explore = docs.filter(x => x.section === 'explore');
 
-    const rng_learn = _.sample(learn);
-    const rng_explore = _.sample(explore);
-    const rng_ref = _.sample(reference);
-    _.remove(learn, rng_learn);
-    _.remove(explore, rng_explore);
-    _.remove(reference, rng_ref);
+    const rng_learn = get_item_by_key(learn, 'url', manual_config.front_page.featured_learn.url);
+    const rng_explore = get_item_by_key(explore, 'url', manual_config.front_page.featured_explore.url);
+    learn = remove_element_from_array(learn, rng_learn);
+    explore = remove_element_from_array(explore, rng_explore);
 
-    const learn_1 = _.sample(learn);
-    _.remove(learn, learn_1);
-    const learn_2 = _.sample(learn);
-    _.remove(learn, learn_2);
-    const learn_3 = _.sample(learn);
-    _.remove(learn, learn_3);
+    const learn_random_array = get_random_elements(learn, 3);
+    const explore_random_array = get_random_elements(explore, 3);
 
-    const explore_1 = _.sample(explore);
-    _.remove(explore, explore_1);
-    const explore_2 = _.sample(explore);
-    _.remove(explore, explore_2);
-    const explore_3 = _.sample(explore);
-    _.remove(explore, explore_3);
+    function get_random_elements(search_array, num_entries){
+        // Build an array of three random entries.
+        var to_return = [];
+        for(var i = 0; i < num_entries; i++){
+            var entry_to_add = _.sample(search_array);
+            to_return.push(entry_to_add);
+            _.remove(search_array, entry_to_add);
+        };
+        return to_return;
+    };
+
+    function remove_element_from_array(the_array, element){
+        // Retruns a new array with the element removed.
+        var to_return = [];
+        for(var i = 0; i < the_array.length; i++){
+            if(the_array[i] != element){
+                to_return.push(the_array[i]);
+            };
+        };
+        return to_return;
+    };
+
+    function get_item_by_key(search_array, key_name, val){
+        // For retrieving the manually set content.
+        var to_return = {};
+        for(var i = 0; i < search_array.length; i++){
+            if (search_array[i][key_name] == val){
+                to_return =  search_array[i];
+            };
+        };
+        return to_return;
+    };
 
 </script>
 
 <div class="main_wrapper">
 
-    <div class="top_container">
-        <p class="text-block">
+    <div class="full_text_container">
+        <p>
             Welcome to the <strong>Fluid Corpus Manipulation Learn platform</strong>. 
             A lot of music making with computers involves working with collections of audio, and these collections are getting bigger and bigger. At the same time, techniques for analysing sound and manipulating data keep being developed. Our project seeks to enable music making with collections of audio by making some of these techniques available for musical creative coding environments, alongside a set of supporting resources on these pages.
         </p>
@@ -53,10 +72,6 @@
             <div class='feature_image' style="background-image: url({rng_explore.feature.featuredimage || _.sample(rng_explore.feature.images) || '/general/explore_default.jpeg' });"></div>
         </div>
 
-        <div class="container">
-            <div class='feature_image' style="background-image: url({rng_ref.feature.featuredimage || _.sample(rng_ref.feature.images) || '/general/reference_default.jpeg' });"></div>
-        </div>
-
         <div class='flaired-title'>
             <div class="flair {rng_learn.flair}" />
             <div>Learn: {rng_learn.title}</div>
@@ -67,11 +82,6 @@
             <div>Explore: {rng_explore.title}</div>
         </div>
 
-        <div class='flaired-title'>
-            <div class="flair {rng_ref.flair}" />
-            <div>Reference: {rng_ref.title}</div>
-        </div>
-
         <a class="learn_more_link" href={rng_learn.url}>
             Learn More <ArrowRight />
         </a>  
@@ -79,10 +89,7 @@
         <a class="learn_more_link" href={rng_explore.url}>
             Learn More <ArrowRight />
         </a>  
-
-        <a class="learn_more_link" href={rng_ref.url}>
-            Learn More <ArrowRight />
-        </a>   
+ 
     </div>
     
     <div class="video_row">
@@ -123,41 +130,41 @@
         </p>
 
         <div class="container">
-            <div class='feature_image' style="background-image: url({learn_1.feature.featuredimage || _.sample(learn_1.feature.images) || '/general/learn_default.jpeg' });"></div>
+            <div class='feature_image' style="background-image: url({learn_random_array[0].feature.featuredimage || _.sample(learn_random_array[0].feature.images) || '/general/learn_default.jpeg' });"></div>
         </div>
 
         <div class="container">
-            <div class='feature_image' style="background-image: url({learn_2.feature.featuredimage || _.sample(learn_2.feature.images) || '/general/learn_default.jpeg' });"></div>
+            <div class='feature_image' style="background-image: url({learn_random_array[1].feature.featuredimage || _.sample(learn_random_array[1].feature.images) || '/general/learn_default.jpeg' });"></div>
         </div>
 
         <div class="container">
-            <div class='feature_image' style="background-image: url({learn_3.feature.featuredimage || _.sample(learn_3.feature.images) || '/general/learn_default.jpeg' });"></div>
+            <div class='feature_image' style="background-image: url({learn_random_array[2].feature.featuredimage || _.sample(learn_random_array[2].feature.images) || '/general/learn_default.jpeg' });"></div>
         </div>
 
         <div class='flaired-title'>
-            <div class="flair {learn_1.flair}" />
-            <div>Learn: {learn_1.title}</div>
+            <div class="flair {learn_random_array[0].flair}" />
+            <div>Learn: {learn_random_array[0].title}</div>
         </div>
 
         <div class='flaired-title'>
-            <div class="flair {learn_2.flair}" />
-            <div>Explore: {learn_2.title}</div>
+            <div class="flair {learn_random_array[1].flair}" />
+            <div>Explore: {learn_random_array[1].title}</div>
         </div>
 
         <div class='flaired-title'>
-            <div class="flair {learn_3.flair}" />
-            <div>Reference: {learn_3.title}</div>
+            <div class="flair {learn_random_array[2].flair}" />
+            <div>Reference: {learn_random_array[2].title}</div>
         </div>
 
-        <a class="learn_more_link" href={learn_1.url}>
+        <a class="learn_more_link" href={learn_random_array[0].url}>
             Learn More <ArrowRight />
         </a>  
 
-        <a class="learn_more_link" href={learn_2.url}>
+        <a class="learn_more_link" href={learn_random_array[1].url}>
             Learn More <ArrowRight />
         </a>  
 
-        <a class="learn_more_link" href={learn_3.url}>
+        <a class="learn_more_link" href={learn_random_array[2].url}>
             Learn More <ArrowRight />
         </a>   
     </div>
@@ -172,57 +179,52 @@
         </p>
 
         <div class="container">
-            <div class='feature_image' style="background-image: url({explore_1.feature.featuredimage || _.sample(explore_1.feature.images) || '/general/explore_default.jpeg' });"></div>
+            <div class='feature_image' style="background-image: url({explore_random_array[0].feature.featuredimage || _.sample(explore_random_array[0].feature.images) || '/general/explore_default.jpeg' });"></div>
         </div>
 
         <div class="container">
-            <div class='feature_image' style="background-image: url({explore_2.feature.featuredimage || _.sample(explore_2.feature.images) || '/general/explore_default.jpeg' });"></div>
+            <div class='feature_image' style="background-image: url({explore_random_array[1].feature.featuredimage || _.sample(explore_random_array[1].feature.images) || '/general/explore_default.jpeg' });"></div>
         </div>
 
         <div class="container">
-            <div class='feature_image' style="background-image: url({explore_3.feature.featuredimage || _.sample(explore_3.feature.images) || '/general/explore_default.jpeg' });"></div>
+            <div class='feature_image' style="background-image: url({explore_random_array[2].feature.featuredimage || _.sample(explore_random_array[2].feature.images) || '/general/explore_default.jpeg' });"></div>
         </div>
 
         <div class='flaired-title'>
-            <div class="flair {explore_1.flair}" />
-            <div>Learn: {explore_1.title}</div>
+            <div class="flair {explore_random_array[0].flair}" />
+            <div>Learn: {explore_random_array[0].title}</div>
         </div>
 
         <div class='flaired-title'>
-            <div class="flair {explore_2.flair}" />
-            <div>Explore: {explore_2.title}</div>
+            <div class="flair {explore_random_array[1].flair}" />
+            <div>Explore: {explore_random_array[1].title}</div>
         </div>
 
         <div class='flaired-title'>
-            <div class="flair {explore_3.flair}" />
-            <div>Reference: {explore_3.title}</div>
+            <div class="flair {explore_random_array[2].flair}" />
+            <div>Reference: {explore_random_array[1].title}</div>
         </div>
 
-        <a class="learn_more_link" href={explore_1.url}>
+        <a class="learn_more_link" href={explore_random_array[0].url}>
             Learn More <ArrowRight />
         </a>  
 
-        <a class="learn_more_link" href={explore_2.url}>
+        <a class="learn_more_link" href={explore_random_array[1].url}>
             Learn More <ArrowRight />
         </a>  
 
-        <a class="learn_more_link" href={explore_3.url}>
+        <a class="learn_more_link" href={explore_random_array[2].url}>
             Learn More <ArrowRight />
         </a>   
     </div>
 
 
-
-
-
-
-
-
-    <div class="top_container">
+    <!--This may end up being put into another tab.-->
+    <div class="full_text_container">
             <h2>   
                 Get Involved
             </h2>
-            <p class="text-block">
+            <p>
                 With these pages we're aiming to help musicians learn about how some of these techniques work, taking advantage of some of the excellent resources already online where possible. However, we also want to fill what we see as something of a gap, by exploring the creative musical possibilities of these techniques. This site will grow as these musical possibilities reveal themselves, particularly – we hope – through people sharing their discoveries and insights on our <a href="https://discourse.flucoma.org">discussion forum</a>! There many ways you can get involved with FluCoMa either by contributing to the code and documentation or just by using the software:
             </p>
                 <ol>
@@ -247,6 +249,16 @@
 
     .learn_more_link{
         margin: 0em 0em 0.5em 0.5em;
+    }
+
+    .container{
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: 50% 50%;
+        border-radius: 0.25rem;
+        padding: 0em 0.75em 0em 0.75em;
+        margin-top: 0em;
+        margin-bottom: 0.5em;
     }
 
     .container p{
@@ -311,31 +323,9 @@
        /* border: 0.063rem solid #dcdee0;*/
     }
 
-    .container{
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-position: 50% 50%;
-        border-radius: 0.25rem;
-        padding: 0em 0.75em 0em 0.75em;
-        margin-top: 0em;
-        margin-bottom: 0.5em;
-    }
+    
 
-    .top_container{
-        padding: 0.75em;
-        margin-top: 0.5em;
-        margin-bottom: 0.5em;
-        max-width: 80%;
-        margin: 0 auto;
-    }
-
-    .top_container p {
-        font-size: 0.8em;
-    }
-
-    .top_container li {
-        font-size: 0.8em;
-    }
+    
 
     .flaired-title {
         display: grid;
@@ -348,6 +338,24 @@
         gap: 0.25em;
     }
 
+    /* The intro and get involved text like elements*/
+    .full_text_container{
+        padding: 0.75em;
+        margin-top: 0.5em;
+        margin-bottom: 0.5em;
+        max-width: 80%;
+        margin: 0 auto;
+    }
+
+    .full_text_container p {
+        font-size: 0.8em;
+    }
+
+    .full_text_container li {
+        font-size: 0.8em;
+    }
+
+    /* Coloured oxes for flairs */
     .flair {
         width: 10px;
         height: 10px;
