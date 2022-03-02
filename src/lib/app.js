@@ -1,4 +1,4 @@
-import { readable } from 'svelte/store';
+import { readable, writable } from 'svelte/store';
 import FuzzySearch from 'fuzzy-search';
 
 import t from '../../static/tag.json';
@@ -7,6 +7,7 @@ import e from '../../static/edits.json';
 import s from '../../static/structure.json';
 import database from '../../static/db.json';
 
+export const nav_expanded = writable(false);
 export const tags = readable(t);
 export const breadcrumbs = readable(c);
 export const edits = readable(e);
