@@ -118,7 +118,7 @@
 
 
 
-    
+
     <div class="row_parent">
         <h2 class="row_title">
             Learn
@@ -257,6 +257,12 @@
         grid-row: 2 / 4;
     }
 
+    .row_title{
+        grid-column: 1 / 4;
+        padding: 0.75em 0.75em 0em 0.75em;
+        margin-top: 0em;
+        margin-bottom: 0em;
+    }
 
 
 
@@ -266,9 +272,7 @@
         padding: 0.5em;
     }
 
-    .learn_more_link{
-        margin: 0em 0em 0.5em 0.5em;
-    }
+    
 
     .container{
         background-repeat: no-repeat;
@@ -280,12 +284,7 @@
         margin-bottom: 0.5em;
     }
 
-    .row_title{
-        grid-column: 1 / 4;
-        padding: 0.75em 0.75em 0em 0.75em;
-        margin-top: 0em;
-        margin-bottom: 0em;
-    }
+    
 
     .main_wrapper{
         margin-left: 1em;
@@ -325,10 +324,14 @@
         grid-template-columns: 10px auto;
         justify-content: left;
         align-items: center;
-        margin: 0em 0em 0em 0.5em;
+        margin: 0em 0em 0.5em 0em;
         font-family: var(--font);
         font-weight: bold;
         gap: 0.25em;
+    }
+
+    .learn_more_link{
+        margin: 0em 0em 0.5em 0em;
     }
 
     /* The intro and get involved text like elements*/
