@@ -59,75 +59,70 @@
         </p>
     </div>
 
-    <div class="row_parent">
+    <div class="row_featured">
         <h2 class="row_title">
             Featured
         </h2>
 
-        <div class="container">
+        <div class="row_featured_article">
             <div class='feature_image' style="background-image: url({rng_learn.feature.featuredimage || _.sample(rng_learn.feature.images) || '/general/learn_default.jpeg' });"></div>
+
+            <div class='flaired-title'>
+                <div class="flair {rng_learn.flair}" />
+                <div>Learn: {rng_learn.title}</div>
+            </div>
+
+            <a class="learn_more_link" href={rng_learn.url}>
+                Learn More <ArrowRight />
+            </a>  
         </div>
 
-        <div class="container">
+        <div class="row_featured_video">
+
+            <div class="front_page_video_container">
+                <iframe
+                title=""
+                    width=100%
+                    height=300px
+                    src={`https://www.youtube.com/embed/${manual_config.front_page.featured_video.url}`}
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen
+                />
+            </div>
+    
+            <div>
+                <p>
+                    {manual_config.front_page.featured_video.blurb}
+                </p>
+            </div>
+    
+        </div>
+
+        <div class="row_featured_article">
             <div class='feature_image' style="background-image: url({rng_explore.feature.featuredimage || _.sample(rng_explore.feature.images) || '/general/explore_default.jpeg' });"></div>
+        
+            <div class='flaired-title'>
+                <div class="flair {rng_explore.flair}" />
+                <div>Explore: {rng_explore.title}</div>
+            </div>
+
+            <a class="learn_more_link" href={rng_explore.url}>
+                Learn More <ArrowRight />
+            </a> 
         </div>
 
-        <div class='flaired-title'>
-            <div class="flair {rng_learn.flair}" />
-            <div>Learn: {rng_learn.title}</div>
-        </div>
-
-        <div class='flaired-title'>
-            <div class="flair {rng_explore.flair}" />
-            <div>Explore: {rng_explore.title}</div>
-        </div>
-
-        <a class="learn_more_link" href={rng_learn.url}>
-            Learn More <ArrowRight />
-        </a>  
-
-        <a class="learn_more_link" href={rng_explore.url}>
-            Learn More <ArrowRight />
-        </a>  
- 
     </div>
     
-    <div class="video_row">
-
-        <div class="front_page_video_container">
-            <iframe
-            title=""
-                width=100%
-                height=300px
-                src={`https://www.youtube.com/embed/6p_R2pVSMVg`}
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen
-            />
-        </div>
-
-        <div>
-
-            <h3>
-                Liminal spaces yeah
-            </h3>
-            <p>
-                Video description
-            </p>
-           
-        </div>
-
-    </div>
 
 
+
+
+    
     <div class="row_parent">
-        <h2 class="row_title_secondary">
+        <h2 class="row_title">
             Learn
         </h2>
-
-        <p class="row_blurb">
-            A variety of articles and guides discussing machine listening and machine learning, sometimes relating to specific FluCoMa technology and sometimes reflecting more broadly.
-        </p>
 
         <div class="container">
             <div class='feature_image' style="background-image: url({learn_random_array[0].feature.featuredimage || _.sample(learn_random_array[0].feature.images) || '/general/learn_default.jpeg' });"></div>
@@ -170,13 +165,9 @@
     </div>
 
     <div class="row_parent">
-        <h2 class="row_title_secondary">
+        <h2 class="row_title">
             Explore
         </h2>
-
-        <p class="row_blurb">
-            The references outline the underlying algorithms of the FluCoMa toolkit in more detail. We try to steer clear from specific implementation details and instead focus on the concepts behind each algorithm and to help illuminate what goes on under the hood.
-        </p>
 
         <div class="container">
             <div class='feature_image' style="background-image: url({explore_random_array[0].feature.featuredimage || _.sample(explore_random_array[0].feature.images) || '/general/explore_default.jpeg' });"></div>
@@ -243,6 +234,34 @@
 
 <style>
 
+    /* Top featured div */
+    .row_featured{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        max-width: 80%;
+        margin: 0 auto;
+        margin-bottom: 5em;
+        grid-gap : 1em;
+    }
+
+    .row_featured_article{
+        grid-column: 1;
+        border-radius: 0.25rem;
+        padding: 0em 0.75em 0em 0.75em;
+        margin-top: 0em;
+        margin-bottom: 0.5em;
+    }
+
+    .row_featured_video{
+        grid-column: 2;
+        grid-row: 2 / 4;
+    }
+
+
+
+
+
+
     .front_page_video_container{
         padding: 0.5em;
     }
@@ -261,29 +280,11 @@
         margin-bottom: 0.5em;
     }
 
-    .container p{
-        font-size: 0.9em;
-    }
-
     .row_title{
         grid-column: 1 / 4;
         padding: 0.75em 0.75em 0em 0.75em;
         margin-top: 0em;
         margin-bottom: 0em;
-    }
-
-    .row_title_secondary{
-        padding: 0.75em 0.75em 0em 0.75em;
-        margin-top: 0em;
-        margin-bottom: 0em;
-    }
-
-    .row_blurb{
-        padding: 0.75em 0.75em 0em 0.75em;
-        margin-top: 0em;
-        margin-bottom: 0em;
-        grid-column: 2 / 4;
-        font-size: 0.8em;
     }
 
     .main_wrapper{
@@ -303,16 +304,6 @@
         background-size: cover; 
     }
 
-    .video_row{
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        max-width: 80%;
-        margin: 0 auto;
-        margin-bottom: 5em;
-        grid-gap : 1em;
-        /*border: 0.063rem solid #dcdee0;*/
-    }
-
     .row_parent{
         display: grid;
         grid-template-columns: repeat(3, 1fr);
@@ -322,6 +313,8 @@
         grid-gap : 1em;
        /* border: 0.063rem solid #dcdee0;*/
     }
+
+    
 
     
 
@@ -340,8 +333,7 @@
 
     /* The intro and get involved text like elements*/
     .full_text_container{
-        padding: 0.75em;
-        margin-top: 0.5em;
+        padding: 3em 0.75em 0.75em 0.75em;
         margin-bottom: 0.5em;
         max-width: 80%;
         margin: 0 auto;
