@@ -2,42 +2,47 @@
 	import { onMount } from 'svelte';
 	export let src: string = '';
 	export let label: string = '';
+	export let waveform: boolean = true;
 
 	let Peaks, instance, overview, audio, ctx;
 
 	onMount(async() => {
-		ctx = new (AudioContext || webkitAudioContext)()
-        const module = await import("peaks.js");
-        Peaks = module.default;
-        const options = {
-            containers: {
-                overview: overview
-            },
-			webAudio: {
-				audioContext: ctx,
-				scale: 128,
-				multiChannel: false
-			},
-            mediaElement: audio,
-            waveformColor: 'rgb(28, 164, 252)',
-            playheadColor: 'rgba(0, 0, 0, 1)',
-            playheadTextColor: '#aaa',
-            showPlayheadTime: false,
-        }
-        instance = Peaks.init(options, (err, p) => {
-            if (err) {
-                console.log(err)
-            } else {
-                instance = p
-                instance.views.getView('overview').fitToContainer();
-            }
-        });
+		if (waveform) {
+			ctx = new (AudioContext || webkitAudioContext)()
+			const module = await import("peaks.js");
+			Peaks = module.default;
+			const options = {
+				containers: {
+					overview: overview
+				},
+				webAudio: {
+					audioContext: ctx,
+					scale: 128,
+					multiChannel: false
+				},
+				mediaElement: audio,
+				waveformColor: 'rgb(28, 164, 252)',
+				playheadColor: 'rgba(0, 0, 0, 1)',
+				playheadTextColor: '#aaa',
+				showPlayheadTime: false,
+			}
+			instance = Peaks.init(options, (err, p) => {
+				if (err) {
+					console.log(err)
+				} else {
+					instance = p
+					instance.views.getView('overview').fitToContainer();
+				}
+			});
+		}
 	})
 </script>
 
 <div class="container">
+	{#if waveform}
 	<div class='waveform' bind:this={overview} />
-
+	{/if}
+	
 	<div class='audio'>
 		<audio controls bind:this={audio}>
 			<source src={src} type="audio/mp3">
