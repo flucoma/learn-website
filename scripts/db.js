@@ -41,7 +41,7 @@ glob('src/routes/*(reference|learn|explore)/*.svx', (err, routes) => {
 		feature_info.vimeo = spill_to_array(component_dict.Vimeo, 'src');
 		
 		if (Object.keys(fm).includes('featuredimage')){
-			entry['featuredimage'] = fm.featuredimage;
+			feature_info['featuredimage'] = fm.featuredimage;
 		} else{
 			if(component_dict.Image.length != 0){
 				feature_info['featuredimage'] = component_dict.Image[Math.floor(Math.random() * component_dict.Image.length)].src;
