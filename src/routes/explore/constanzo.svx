@@ -10,6 +10,7 @@ tags:
     - batch processing
     - max for live
 flair: article
+featuredimage: /explore/constanzo/kaizo_snare_parent.png
 ---
 
 <script>

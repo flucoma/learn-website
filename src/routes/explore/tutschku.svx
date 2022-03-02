@@ -10,6 +10,7 @@ tags:
     - bach
     - cage
 flair: article
+featuredimage: /explore/tutschku/build_the_nmf_model_example.png
 ---
 
 <script>
