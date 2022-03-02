@@ -178,8 +178,3 @@ Whatever way this is approached in practice, Harker explained that it was an ess
 ## Conclusion
 
 *Drift Shadow* takes a deep dive into the world of oboe multiphonics and creates a situation that allows the performer to explore this environment. We have seen how Harker took some of the FluCoMa tools and combined them with some of his own to allow for this. On a broader level, Harker explained that he saw this piece as a “*step in the journey to a world that’s not sample playback, but not simple synthesis; where you get the complexity of real sounds but some of the flexibility about how you make them*”. Indeed, he shares some of the primary goals with the FluCoMa project: to take a recorded sound and view it as a much more fluid thing; to be able to “*free up a sound and do more things with it, but to keep its identity and character*”. In *Drift Shadow*, not only does he take steps to achieving this with recorded sound, but also with the abstract sound world of a real, vibrating oboe and its player.
-
-To ask alex:
-- Okay to include score?
-- dry oboe
-- samples
