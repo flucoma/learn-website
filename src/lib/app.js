@@ -6,6 +6,7 @@ import c from '../../static/crumbs.json';
 import e from '../../static/edits.json';
 import s from '../../static/structure.json';
 import database from '../../static/db.json';
+import manual from '../../static/manual_config.json';
 
 export const tags = readable(t);
 export const breadcrumbs = readable(c);
@@ -13,6 +14,7 @@ export const edits = readable(e);
 export const structure = readable(s);
 
 const docs = database.docs;
+const manual_config = manual;
 
 const search = new FuzzySearch(docs, ['title', 'tags', 'flair', 'artist', 'blurb'], {
 	caseSensitive: false,
@@ -20,4 +22,4 @@ const search = new FuzzySearch(docs, ['title', 'tags', 'flair', 'artist', 'blurb
 });
 
 const db = search;
-export { db, docs };
+export { db, docs, manual_config };
