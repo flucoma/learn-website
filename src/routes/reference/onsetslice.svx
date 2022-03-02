@@ -8,3 +8,15 @@ tags:
 flair: reference
 category: Slicing
 ---
+
+<script>
+    import OnsetSlice from '$lib/widget/OnsetSlice.svelte';
+</script>
+
+OnsetSlice segments a sound based on changes in its _spectrum_. It compares the difference between frames using one of several available metrics. If the calcualted change is greater than a given threshold, a segment is returned by the algorithm. This makes OnsetSlice one of the more generally applicable algorithms to a wide range of musical materials, as it can be made sensitive to broader aspects of a sound such as timbre.
+
+<OnsetSlice />
+
+<!-- Waveform of a Sound -->
+
+<!-- Feature Curve -->
