@@ -17,7 +17,7 @@ category: Slicing
     import Image from '$lib/components/Image.svelte';
 </script>
 
-OnsetSlice calculates slice points in a sound based on changes in its _spectrum_. To do this,it compares how different contiguous spectral frames are using one of several available metrics. From this it derives a time-series that describes change from one moment to the next. If that change exceeds the given _threshold_ parameter, a slice point for that event is produced. Let's break this process down step-by-step visually.
+OnsetSlice calculates slice points in a sound based on changes in its _spectrum_. To do this, it compares the difference between spectral frames using one of several available metrics. From this, it derives a time-series that describes change from one moment to the next. If that change exceeds the given _threshold_ parameter, a slice point for that event is produced. Let's break this process down step-by-step visually.
 
 Let's first start with this vocal recording:
 
@@ -34,7 +34,7 @@ alt='spectrogram of a voice recording'
 label='Spectrogram of Tremblay-AaS-VoiceQC-B2K'
 />
 
-OnsetSlice measures this change by working pairwise through spectral frames, comparing the difference between successive spectral frames. From this it constructs a feature curve of its own. Points in time where the value of this curve exceeds the threshold are considered as onsets. Furthermore, another condition has to be met: the previous value must be _less than the threshold_. Below is an interactive widget that lets you visualise adjusting the _threshold_ (the horizontal red line) and how this results in the detection of time slices (the vertical red lines).
+OnsetSlice measures this change by working pairwise through spectral frames, comparing the difference between successive spectral frames. From this it constructs a feature curve of its own. Points in time when the value of this curve exceeds the threshold are considered as onsets. Furthermore, another condition has to be met: the previous value must be _less than the threshold_. Below is an interactive widget that lets you visualise adjusting the _threshold_ (the horizontal red line) and how this results in the detection of time slices (the vertical red lines).
 
 <OnsetSlice />
 
@@ -43,5 +43,5 @@ OnsetSlice measures this change by working pairwise through spectral frames, com
 <ResourceLink 
 title='Onset Detection Revisited'
 url='https://www.eecs.qmul.ac.uk/~simond/pub/2006/dafx.pdf'
-blurb='A paper by Simon Dixon describing some of the metrics used in OnsetSlice'
+blurb='A paper by Simon Dixon describing some metrics used in OnsetSlice'
 />
