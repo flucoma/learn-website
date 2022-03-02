@@ -3,7 +3,10 @@
 	export let blurb;
 	import TOC from '$lib/components/TOC.svelte';
     import EditHistory from '$lib/components/EditHistory.svelte';
+    import Crumbs from '$lib/components/Crumbs.svelte';
 </script>
+
+<Crumbs />
 
 <div class="wrapper">
 

@@ -1,6 +1,9 @@
 <script>
 	import TOC from '$lib/components/TOC.svelte';
+    import Crumbs from '$lib/components/Crumbs.svelte';
 </script>
+
+<Crumbs />
 
 <div class="wrapper">
 
