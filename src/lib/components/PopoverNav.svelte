@@ -8,25 +8,25 @@
 <nav class='popover' 
 transition:fly={{ duration:200, y:0, x:-200 }}
 >
-	<h2>Navigation</h2>
+	<h3>Navigation</h3>
 	<Landing link='/learn'>
 		<h2 slot="title">Learn</h2>
 		<p slot="blurb" class='blurb'>
-		A variety of articles and guides discussing machine listening and machine learning, sometimes relating to specific FluCoMa technology and sometimes reflecting more broadly.
+		Articles discussing machine learning and machine listening, sometimes relating to FluCoMa technology and sometimes reflecting more broadly.
 		</p>
 	</Landing>
 	
 	<Landing link='/reference'>
 		<h2 slot="title">References</h2>
 		<p slot="blurb" class='blurb'>
-		The references outline the underlying algorithms of the FluCoMa toolkit in more detail. We try to steer clear from specific implementation details and instead focus on the concepts behind each algorithm and to help illuminate what goes on under the hood.
+		The references outline the underlying algorithms of the FluCoMa toolkit in more detail.
 		</p>
 	</Landing>
 	
 	<Landing link='/explore'>
 		<h2 slot="title">Explore</h2>
 		<p slot="blurb" class='blurb'>
-		Made with FluCoMa draws attention to people like you. Makers who use the FluCoMa toolkit or are involved in the wider community. We want to highlight what is out there to try and cultivate opportunities for learning and to situate this technology within a community of techno-fluent musicians.
+		Explore draws attention to the FluCoMa community. It highlights how people are using FluCoMa (and related technology) through podcasts and deep explorations of their work.
 		</p>
 	</Landing>
 </nav>
