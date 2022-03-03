@@ -8,6 +8,7 @@ tags:
     - sinunsoids
     - FluidSines
 flair: article
+featuredimage: /learn/sinusoidal-modelling/synth-tracks.png
 ---
 
 <script>
