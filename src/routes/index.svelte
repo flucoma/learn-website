@@ -127,42 +127,42 @@
             Learn
         </h2>
 
-        <div class="container">
+        <div class="img_container" style="grid-area: contentImg1;">
             <div class='feature_image' style="background-image: url({learn_random_array[0].feature.featuredimage || _.sample(learn_random_array[0].feature.images) || '/general/learn_default.jpeg' });"></div>
         </div>
 
-        <div class="container">
+        <div class="img_container" style="grid-area: contentImg2;">
             <div class='feature_image' style="background-image: url({learn_random_array[1].feature.featuredimage || _.sample(learn_random_array[1].feature.images) || '/general/learn_default.jpeg' });"></div>
         </div>
 
-        <div class="container">
+        <div class="img_container" style="grid-area: contentImg3;">
             <div class='feature_image' style="background-image: url({learn_random_array[2].feature.featuredimage || _.sample(learn_random_array[2].feature.images) || '/general/learn_default.jpeg' });"></div>
         </div>
 
-        <div class='flaired-title'>
+        <div class='flaired-title' style="grid-area: contentTitle1;">
             <div class="flair {learn_random_array[0].flair}" />
             <div>Learn: {learn_random_array[0].title}</div>
         </div>
 
-        <div class='flaired-title'>
+        <div class='flaired-title' style="grid-area: contentTitle2;">
             <div class="flair {learn_random_array[1].flair}" />
             <div>Explore: {learn_random_array[1].title}</div>
         </div>
 
-        <div class='flaired-title'>
+        <div class='flaired-title' style="grid-area: contentTitle3;">
             <div class="flair {learn_random_array[2].flair}" />
             <div>Reference: {learn_random_array[2].title}</div>
         </div>
 
-        <a class="learn_more_link" href={learn_random_array[0].url}>
+        <a class="learn_more_link" style="grid-area: contentLink1;" href={learn_random_array[0].url}>
             Learn More <ArrowRight />
         </a>  
 
-        <a class="learn_more_link" href={learn_random_array[1].url}>
+        <a class="learn_more_link" style="grid-area: contentLink2;" href={learn_random_array[1].url}>
             Learn More <ArrowRight />
         </a>  
 
-        <a class="learn_more_link" href={learn_random_array[2].url}>
+        <a class="learn_more_link" style="grid-area: contentLink3;" href={learn_random_array[2].url}>
             Learn More <ArrowRight />
         </a>   
     </div>
@@ -172,42 +172,42 @@
             Explore
         </h2>
 
-        <div class="container">
+        <div class="img_container" style="grid-area: contentImg1;">
             <div class='feature_image' style="background-image: url({explore_random_array[0].feature.featuredimage || _.sample(explore_random_array[0].feature.images) || '/general/explore_default.jpeg' });"></div>
         </div>
 
-        <div class="container">
+        <div class="img_container" style="grid-area: contentImg2;">
             <div class='feature_image' style="background-image: url({explore_random_array[1].feature.featuredimage || _.sample(explore_random_array[1].feature.images) || '/general/explore_default.jpeg' });"></div>
         </div>
 
-        <div class="container">
+        <div class="img_container" style="grid-area: contentImg3;">
             <div class='feature_image' style="background-image: url({explore_random_array[2].feature.featuredimage || _.sample(explore_random_array[2].feature.images) || '/general/explore_default.jpeg' });"></div>
         </div>
 
-        <div class='flaired-title'>
+        <div class='flaired-title' style="grid-area: contentTitle1;">
             <div class="flair {explore_random_array[0].flair}" />
             <div>Learn: {explore_random_array[0].title}</div>
         </div>
 
-        <div class='flaired-title'>
+        <div class='flaired-title' style="grid-area: contentTitle2;">
             <div class="flair {explore_random_array[1].flair}" />
             <div>Explore: {explore_random_array[1].title}</div>
         </div>
 
-        <div class='flaired-title'>
+        <div class='flaired-title' style="grid-area: contentTitle3;">
             <div class="flair {explore_random_array[2].flair}" />
             <div>Reference: {explore_random_array[1].title}</div>
         </div>
 
-        <a class="learn_more_link" href={explore_random_array[0].url}>
+        <a class="learn_more_link" style="grid-area: contentLink1;" href={explore_random_array[0].url}>
             Learn More <ArrowRight />
         </a>  
 
-        <a class="learn_more_link" href={explore_random_array[1].url}>
+        <a class="learn_more_link" style="grid-area: contentLink2;" href={explore_random_array[1].url}>
             Learn More <ArrowRight />
         </a>  
 
-        <a class="learn_more_link" href={explore_random_array[2].url}>
+        <a class="learn_more_link" style="grid-area: contentLink3;" href={explore_random_array[2].url}>
             Learn More <ArrowRight />
         </a>   
     </div>
@@ -236,6 +236,12 @@
 </div>
 
 <style>
+
+    .main_wrapper{
+        margin-left: 1em;
+		margin-right: 1em;
+		margin-bottom: 1em;
+    }
 
     /* Top featured div */
     .row_featured{
@@ -270,39 +276,27 @@
         margin-bottom: 0em;
     }
 
-    @media (min-width: 1200px) {
-		.row_featured {
-			grid-template-columns: repeat(2, 1fr);
-            grid-template-areas: 
-        "featuredTitle featuredTitle"
-        "featuredArticle1 featuredVideo"
-        "featuredArticle2 featuredVideo";
-		}
-	}
-
-	@media (max-width: 1200px) {
-		.row_featured {
-			grid-template-columns: repeat(1, 1fr);
-            
-			grid-template-areas: 
-        "featuredTitle"
-        "featuredArticle1"
-        "featuredArticle2"
-        "featuredVideo";
-		}
-	}
-
-
-
-
-
     .front_page_video_container{
         padding: 0.5em;
     }
 
-    
+    /*Other sections*/
+    .row_parent{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        max-width: 80%;
+        margin: 0 auto;
+        margin-bottom: 5em;
+        grid-gap : 1em;
 
-    .container{
+        grid-template-areas: 
+        "featuredTitle featuredTitle featuredTitle"
+        "contentImg1 contentImg2 contentImg3"
+        "contentTitle1 contentTitle2 contentTitle3"
+        "contentLink1 contentLink2 contentLink3";
+    }
+
+    .img_container{
         background-repeat: no-repeat;
         background-size: cover;
         background-position: 50% 50%;
@@ -311,41 +305,6 @@
         margin-top: 0em;
         margin-bottom: 0.5em;
     }
-
-    
-
-    .main_wrapper{
-        margin-left: 1em;
-		margin-right: 1em;
-		margin-bottom: 1em;
-    }
-
-    .feature_image {
-        position: relative;
-        max-width: 100%;
-        height: 10em;
-        margin: 0.5em 0em 0.5em 0em;
-        border: 0.063rem solid #dcdee0;
-        background-position: center; /* Center the image */
-        background-repeat: no-repeat; /* Do not repeat the image */
-        background-size: cover; 
-    }
-
-    .row_parent{
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        max-width: 80%;
-        margin: 0 auto;
-        margin-bottom: 5em;
-        grid-gap : 1em;
-       /* border: 0.063rem solid #dcdee0;*/
-    }
-
-    
-
-    
-
-    
 
     .flaired-title {
         display: grid;
@@ -361,6 +320,63 @@
     .learn_more_link{
         margin: 0em 0em 0.5em 0em;
     }
+
+    .feature_image {
+        position: relative;
+        max-width: 100%;
+        height: 10em;
+        margin: 0.5em 0em 0.5em 0em;
+        border: 0.063rem solid #dcdee0;
+        background-position: center; /* Center the image */
+        background-repeat: no-repeat; /* Do not repeat the image */
+        background-size: cover; 
+    }
+
+    /*Screen size stuff*/
+    @media (min-width: 1200px) {
+		.row_featured {
+			grid-template-columns: repeat(2, 1fr);
+            grid-template-areas: 
+        "featuredTitle featuredTitle"
+        "featuredArticle1 featuredVideo"
+        "featuredArticle2 featuredVideo";
+		}
+
+        .row_parent{
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-areas: 
+        "featuredTitle featuredTitle featuredTitle"
+        "contentImg1 contentImg2 contentImg3"
+        "contentTitle1 contentTitle2 contentTitle3"
+        "contentLink1 contentLink2 contentLink3";
+        }
+	}
+
+	@media (max-width: 1200px) {
+		.row_featured {
+			grid-template-columns: repeat(1, 1fr);
+			grid-template-areas: 
+        "featuredTitle"
+        "featuredArticle1"
+        "featuredArticle2"
+        "featuredVideo";
+		}
+
+        .row_parent{
+            grid-template-columns: repeat(1, 1fr);
+            grid-template-areas: 
+        "featuredTitle"
+        "contentImg1"
+        "contentTitle1"
+        "contentLink1"
+        "contentImg2"
+        "contentTitle2"
+        "contentLink2"
+        "contentImg3"
+        "contentTitle3"
+        "contentLink3";
+        }
+	}
 
     /* The intro and get involved text like elements*/
     .full_text_container{
