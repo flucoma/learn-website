@@ -6,6 +6,7 @@
 
     var learn = docs.filter(x => x.section === 'learn');
     var explore = docs.filter(x => x.section === 'explore');
+    var reference = docs.filter(x => x.section === 'reference');
 
     const rng_learn = get_item_by_key(learn, 'url', manual_config.front_page.featured_learn.url);
     const rng_explore = get_item_by_key(explore, 'url', manual_config.front_page.featured_explore.url);
@@ -14,6 +15,7 @@
 
     const learn_random_array = get_random_elements(learn, 3);
     const explore_random_array = get_random_elements(explore, 3);
+    const reference_random_array = get_random_elements(reference, 3);
 
     function get_random_elements(search_array, num_entries){
         // Build an array of three random entries.
@@ -52,6 +54,7 @@
 
 <div class="main_wrapper">
 
+    <!--Introductory text-->
     <div class="full_text_container">
         <p>
             Welcome to the <strong>Fluid Corpus Manipulation Learn platform</strong>. 
@@ -59,6 +62,7 @@
         </p>
     </div>
 
+    <!--Top featured section-->
     <div class="row_featured">
         <h2 class="row_title">
             Featured
@@ -67,12 +71,12 @@
         <div class="row_featured_article" style="grid-area: featuredArticle1;">
             <div class='feature_image' style="background-image: url({rng_learn.feature.featuredimage || _.sample(rng_learn.feature.images) || '/general/learn_default.jpeg' });"></div>
 
-            <div class='flaired-title'>
+            <div class='flaired-title-featured'>
                 <div class="flair {rng_learn.flair}" />
                 <div>Learn: {rng_learn.title}</div>
             </div>
 
-            <a class="learn_more_link" href={rng_learn.url}>
+            <a class="learn_more_link-featured" href={rng_learn.url}>
                 Learn More <ArrowRight />
             </a>  
         </div>
@@ -82,12 +86,12 @@
         <div class="row_featured_article" style="grid-area: featuredArticle2;">
             <div class='feature_image' style="background-image: url({rng_explore.feature.featuredimage || _.sample(rng_explore.feature.images) || '/general/explore_default.jpeg' });"></div>
         
-            <div class='flaired-title'>
+            <div class='flaired-title-featured'>
                 <div class="flair {rng_explore.flair}" />
                 <div>Explore: {rng_explore.title}</div>
             </div>
 
-            <a class="learn_more_link" href={rng_explore.url}>
+            <a class="learn_more_link-featured" href={rng_explore.url}>
                 Learn More <ArrowRight />
             </a> 
         </div>
@@ -107,7 +111,10 @@
                 />
             </div>
     
-            <div>
+            <div class="video_description">
+                <h3>
+                    {manual_config.front_page.featured_video.title}
+                </h3>
                 <p>
                     {manual_config.front_page.featured_video.blurb}
                 </p>
@@ -117,11 +124,7 @@
 
     </div>
     
-
-
-
-
-
+    <!--Learn Section-->
     <div class="row_parent">
         <h2 class="row_title">
             Learn
@@ -167,6 +170,7 @@
         </a>   
     </div>
 
+    <!--Explore Section-->
     <div class="row_parent">
         <h2 class="row_title">
             Explore
@@ -212,27 +216,51 @@
         </a>   
     </div>
 
+     <!--Reference Section-->
+     <div class="row_parent">
+        <h2 class="row_title">
+            Reference
+        </h2>
 
-    <!--This may end up being put into another tab.-->
-    <div class="full_text_container">
-            <h2>   
-                Get Involved
-            </h2>
-            <p>
-                With these pages we're aiming to help musicians learn about how some of these techniques work, taking advantage of some of the excellent resources already online where possible. However, we also want to fill what we see as something of a gap, by exploring the creative musical possibilities of these techniques. This site will grow as these musical possibilities reveal themselves, particularly – we hope – through people sharing their discoveries and insights on our <a href="https://discourse.flucoma.org">discussion forum</a>! There many ways you can get involved with FluCoMa either by contributing to the code and documentation or just by using the software:
-            </p>
-                <ol>
-                    <li>
-                        Download the <a href="https://github.com/flucoma/flucoma-max/releases/latest">Max</a>, <a href="https://github.com/flucoma/flucoma-sc/releases/latest">SuperCollider</a> or <a href="https://github.com/flucoma/flucoma-pd/releases/latest">Pd</a> package. You can follow the <a href="/installation">installation instructions</a> for your environment of choice.
-                    </li>
-                    <li>
-                        Discuss, ask questions, or share what you've been using FluCoMa for in the <a href="https://discourse.flucoma.org/">discourse forum</a>. This is a community-driven place where we welcome anyone and especially encourage beginners as part of their learning experience. 
-                    </li>
-                    <li>
-                        Dive into all of our open-source code at <a href="https://github.com/flucoma">GitHub</a>.
-                    </li>
-                </ol>
+        <div class="img_container" style="grid-area: contentImg1;">
+            <div class='feature_image' style="background-image: url({reference_random_array[0].feature.featuredimage || _.sample(reference_random_array[0].feature.images) || '/general/reference_default.jpeg' });"></div>
         </div>
+
+        <div class="img_container" style="grid-area: contentImg2;">
+            <div class='feature_image' style="background-image: url({reference_random_array[1].feature.featuredimage || _.sample(reference_random_array[1].feature.images) || '/general/reference_default.jpeg' });"></div>
+        </div>
+
+        <div class="img_container" style="grid-area: contentImg3;">
+            <div class='feature_image' style="background-image: url({reference_random_array[2].feature.featuredimage || _.sample(reference_random_array[2].feature.images) || '/general/reference_default.jpeg' });"></div>
+        </div>
+
+        <div class='flaired-title' style="grid-area: contentTitle1;">
+            <div class="flair {reference_random_array[0].flair}" />
+            <div>Learn: {reference_random_array[0].title}</div>
+        </div>
+
+        <div class='flaired-title' style="grid-area: contentTitle2;">
+            <div class="flair {reference_random_array[1].flair}" />
+            <div>Explore: {reference_random_array[1].title}</div>
+        </div>
+
+        <div class='flaired-title' style="grid-area: contentTitle3;">
+            <div class="flair {reference_random_array[2].flair}" />
+            <div>Reference: {reference_random_array[1].title}</div>
+        </div>
+
+        <a class="learn_more_link" style="grid-area: contentLink1;" href={reference_random_array[0].url}>
+            Learn More <ArrowRight />
+        </a>  
+
+        <a class="learn_more_link" style="grid-area: contentLink2;" href={reference_random_array[1].url}>
+            Learn More <ArrowRight />
+        </a>  
+
+        <a class="learn_more_link" style="grid-area: contentLink3;" href={reference_random_array[2].url}>
+            Learn More <ArrowRight />
+        </a>   
+    </div>
 </div>
 
 <style>
@@ -271,13 +299,32 @@
 
     .row_title{
         grid-area: featuredTitle;
-        padding: 0.75em 0.75em 0em 0.75em;
+        padding: 0.75em 0.75em 0em 0.5em;
         margin-top: 0em;
         margin-bottom: 0em;
     }
 
     .front_page_video_container{
         padding: 0.5em;
+    }
+
+    .video_description{
+        padding: 0em 0.5em 0em 0.5em;
+    }
+
+    .flaired-title-featured {
+        display: grid;
+        grid-template-columns: 10px auto;
+        justify-content: left;
+        align-items: center;
+        margin: 0em 0em 0.5em 0em;
+        font-family: var(--font);
+        font-weight: bold;
+        gap: 0.25em;
+    }
+
+    .learn_more_link-featured{
+        margin: 0em 0em 0.5em 0em;
     }
 
     /*Other sections*/
@@ -301,9 +348,9 @@
         background-size: cover;
         background-position: 50% 50%;
         border-radius: 0.25rem;
-        padding: 0em 0.75em 0em 0.75em;
+        padding: 0em 0em 0em 0.75em;
         margin-top: 0em;
-        margin-bottom: 0.5em;
+        margin-bottom: 0.25em;
     }
 
     .flaired-title {
@@ -312,6 +359,7 @@
         justify-content: left;
         align-items: center;
         margin: 0em 0em 0.5em 0em;
+        padding: 0em 0em 0em 0.75em;
         font-family: var(--font);
         font-weight: bold;
         gap: 0.25em;
@@ -319,6 +367,7 @@
 
     .learn_more_link{
         margin: 0em 0em 0.5em 0em;
+        padding: 0em 0em 0em 0.75em;
     }
 
     .feature_image {
@@ -327,8 +376,8 @@
         height: 10em;
         margin: 0.5em 0em 0.5em 0em;
         border: 0.063rem solid #dcdee0;
-        background-position: center; /* Center the image */
-        background-repeat: no-repeat; /* Do not repeat the image */
+        background-position: center;
+        background-repeat: no-repeat;
         background-size: cover; 
     }
 
