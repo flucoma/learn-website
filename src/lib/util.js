@@ -43,3 +43,10 @@ export const max_scale = (x, imin, imax, omin, omax, exp) => {
     // duped from https://docs.cycling74.com/max8/refpages/scale
     return ((x-imin)/(imax-imin) == 0) ? omin : (((x-imin)/(imax-imin)) > 0) ? (omin + (omax-omin) * Math.pow(((x-imin)/(imax-imin)), exp)) : (omin + (omax-omin) * -Math.pow(((-x+imin)/(imax-imin)), exp))
 }
+
+
+export const pairwise = (arr, func) => {
+    for(var i=0; i < arr.length - 1; i++){
+        func(arr[i], arr[i + 1], i)
+    }
+}
