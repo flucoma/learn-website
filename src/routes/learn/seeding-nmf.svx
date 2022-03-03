@@ -8,6 +8,7 @@ tags:
     - basesMode
     - activations
 flair: article
+featuredimage: /learn/for-featured-images/seeding-nmf.png
 ---
 
 ## Seeding BufNMF with Bases and/or Activations
