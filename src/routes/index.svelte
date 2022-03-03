@@ -57,8 +57,13 @@
     <!--Introductory text-->
     <div class="full_text_container">
         <p>
-            Welcome to the <strong>Fluid Corpus Manipulation Learn platform</strong>. 
-            A lot of music making with computers involves working with collections of audio, and these collections are getting bigger and bigger. At the same time, techniques for analysing sound and manipulating data keep being developed. Our project seeks to enable music making with collections of audio by making some of these techniques available for musical creative coding environments, alongside a set of supporting resources on these pages.
+            <span style="font-size: 1.2em;">Welcome to the <strong>Fluid Corpus Manipulation Learn platform</strong>.</span>
+            <br>
+            <a href="/learn">Learn</a> how to use the FluCoMa toolkit.
+            <br>
+            <a href="/explore">Explore</a> what other people are doing.
+            <br>
+            <a href="/reference">References</a> for all the algorithms in the toolkit.
         </p>
     </div>
 
@@ -301,6 +306,7 @@
 
         max-width: 80%;
         margin: 0 auto;
+        /*margin-top: 1em;*/
         margin-bottom: 5em;
         grid-gap : 1em;
     }
@@ -511,11 +517,12 @@
     }
 
     .full_text_container p {
-        font-size: 0.8em;
+        font-size: 1em;
+        text-align: center;
     }
 
     .full_text_container li {
-        font-size: 0.8em;
+        font-size: 1em;
     }
 
     /* Coloured oxes for flairs */
