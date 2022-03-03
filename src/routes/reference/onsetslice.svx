@@ -17,13 +17,18 @@ category: Slicing
     import Image from '$lib/components/Image.svelte';
 </script>
 
-OnsetSlice calculates slice points in a sound based on changes in its _spectrum_. To do this, it compares the difference between spectral frames using one of several available metrics. From this, it derives a time-series that describes change from one moment to the next. If that change exceeds the given _threshold_ parameter, a slice point for that event is produced. Let's break this process down step-by-step visually.
+## Introduction
+
+OnsetSlice calculates slice points in a sound based on changes in its _spectrum_. It makes these judgements based on one of several available metrics which each have their own characteristics. From this, it derives a time-series that describes change from one moment to the next. If that change exceeds the given _threshold_ parameter, a slice point for that event is produced. Let's break this process down step-by-step visually.
+
+## A Visual Example
 
 Let's first start with this vocal recording:
 
 <Audio 
 src='/audio/Tremblay-AaS-VoiceQC-B2K.mp3'
 label='Tremblay-AaS-VoiceQC-B2K vocal recording'
+waveform={true}
 />
 
 If we create a spectrogram from this sound, it visually explicit where significant changes in the spectrum occur. If we align these aurally, these changes coincide with the utterance of each letter from the alphabet.
