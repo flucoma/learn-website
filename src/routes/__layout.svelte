@@ -5,6 +5,12 @@
 	import Crumbs from '$lib/components/Crumbs.svelte';
 	import { fly } from 'svelte/transition';
 	import { nav_expanded } from '$lib/app';
+
+	const scroll = (e) => {
+		if ($nav_expanded) {
+			e.preventDefault();
+		}
+	}
 </script>
 
 <svelte:head>
@@ -13,7 +19,7 @@
 	</title>
 </svelte:head>
 
-<svelte:body class:noscroll={$nav_expanded} />
+<svelte:body class:noscroll={ $nav_expanded === true } on:mousewheel|nonpassive={scroll} />
 
 {#if $nav_expanded}
 <div transition:fly={{duration:200}} class="overlay" on:click={ () => { $nav_expanded = false }}></div>
