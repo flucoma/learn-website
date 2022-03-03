@@ -130,6 +130,10 @@
             Learn
         </h2>
 
+        <a class="learn_more_link-section" style="grid-area: sectionLearnMore;" href="/learn">
+            More <ArrowRight />
+        </a> 
+
         <div class="img_container" style="grid-area: contentImg1;">
             <div class='feature_image' style="background-image: url({learn_random_array[0].feature.featuredimage || _.sample(learn_random_array[0].feature.images) || '/general/learn_default.jpeg' });"></div>
         </div>
@@ -176,6 +180,10 @@
             Explore
         </h2>
 
+        <a class="learn_more_link-section" style="grid-area: sectionLearnMore;" href="/explore">
+            More <ArrowRight />
+        </a> 
+
         <div class="img_container" style="grid-area: contentImg1;">
             <div class='feature_image' style="background-image: url({explore_random_array[0].feature.featuredimage || _.sample(explore_random_array[0].feature.images) || '/general/explore_default.jpeg' });"></div>
         </div>
@@ -221,6 +229,10 @@
         <h2 class="row_title">
             Algorithms
         </h2>
+
+        <a class="learn_more_link-section" style="grid-area: sectionLearnMore;" href="/reference">
+            More <ArrowRight />
+        </a> 
 
         <div class='flaired-title' style="grid-area: algoTitle1;">
             <div class="flair {reference_random_array[0].flair}" />
@@ -344,7 +356,7 @@
         grid-gap : 1em;
 
         grid-template-areas: 
-        "featuredTitle featuredTitle featuredTitle"
+        "featuredTitle featuredTitle sectionLearnMore"
         "contentImg1 contentImg2 contentImg3"
         "contentTitle1 contentTitle2 contentTitle3"
         "contentLink1 contentLink2 contentLink3";
@@ -377,6 +389,13 @@
         padding: 0em 0em 0em 0.75em;
     }
 
+    .learn_more_link-section{
+        padding: 0.75em 0.75em 0em 0.75em;
+        width: 100%;
+        justify-self: end;
+        align-self: center;
+    }
+
     .feature_image {
         position: relative;
         max-width: 100%;
@@ -402,7 +421,7 @@
         grid-gap : 1em;
 
         grid-template-areas: 
-        "featuredTitle featuredTitle featuredTitle"
+        "featuredTitle featuredTitle sectionLearnMore"
         "algoTitle1 algoBlurb1 contentLink1"
         "algoTitle2 algoBlurb2 contentLink2"
         "algoTitle3 algoBlurb3 contentLink3";
@@ -426,7 +445,7 @@
         .row_parent{
             grid-template-columns: repeat(3, 1fr);
             grid-template-areas: 
-        "featuredTitle featuredTitle featuredTitle"
+        "featuredTitle featuredTitle sectionLearnMore"
         "contentImg1 contentImg2 contentImg3"
         "contentTitle1 contentTitle2 contentTitle3"
         "contentLink1 contentLink2 contentLink3";
@@ -435,7 +454,7 @@
         .algos_row{
             grid-template-columns: 1fr 3fr 1fr;
             grid-template-areas: 
-        "featuredTitle featuredTitle featuredTitle"
+        "featuredTitle featuredTitle sectionLearnMore"
         "algoTitle1 algoBlurb1 contentLink1"
         "algoTitle2 algoBlurb2 contentLink2"
         "algoTitle3 algoBlurb3 contentLink3";
@@ -453,33 +472,33 @@
 		}
 
         .row_parent{
-            grid-template-columns: repeat(1, 1fr);
+            grid-template-columns: repeat(2, 1fr);
             grid-template-areas: 
-        "featuredTitle"
-        "contentImg1"
-        "contentTitle1"
-        "contentLink1"
-        "contentImg2"
-        "contentTitle2"
-        "contentLink2"
-        "contentImg3"
-        "contentTitle3"
-        "contentLink3";
+        "featuredTitle sectionLearnMore"
+        "contentImg1 contentImg1"
+        "contentTitle1 contentTitle1"
+        "contentLink1 contentLink1"
+        "contentImg2 contentImg2"
+        "contentTitle2 contentTitle2"
+        "contentLink2 contentLink2"
+        "contentImg3 contentImg3"
+        "contentTitle3 contentTitle3"
+        "contentLink3 contentLink3";
         }
 
         .algos_row{
-            grid-template-columns: repeat(1, 1fr);
+            grid-template-columns: repeat(2, 1fr);
             grid-template-areas: 
-        "featuredTitle"
-        "algoTitle1"
-        "algoBlurb1"
-        "contentLink1"
-        "algoTitle2"
-        "algoBlurb2"
-        "contentLink2"
-        "algoTitle3"
-        "algoBlurb3"
-        "contentLink3";
+        "featuredTitle sectionLearnMore"
+        "algoTitle1 algoTitle1"
+        "algoBlurb1 algoBlurb1"
+        "contentLink1 contentLink1"
+        "algoTitle2 algoTitle2"
+        "algoBlurb2 algoBlurb2"
+        "contentLink2 contentLink2"
+        "algoTitle3 algoTitle3"
+        "algoBlurb3 algoBlurb3"
+        "contentLink3 contentLink3";
         }
 	}
 
