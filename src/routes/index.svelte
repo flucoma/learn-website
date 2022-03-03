@@ -381,6 +381,10 @@
         background-size: cover; 
     }
 
+    .feature_image:hover {
+        /*filter: blur(8px);*/
+    }
+
     /*Screen size stuff*/
     @media (min-width: 1200px) {
 		.row_featured {
