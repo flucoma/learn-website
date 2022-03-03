@@ -13,8 +13,8 @@
 		<a class="logo-link" href="/">
 			<img class="logo" src="/img/onlylogo.svg" alt="FluCoMa Logo" />
 		</a>
-		<Search />
 	</div>
+	<Search />
 </header>
 
 <PopoverNav />
@@ -26,12 +26,12 @@
 		place-items: center;
 		background: var(--dark-blue);
 		gap: 3em;
-		height: 50px;
+		height: 40px;
 	}
 
 	.logo {
-		width: 2em;
-		height: 2.2em;
+		width: 27px;
+		height: 30px;
 		margin-top: 0.3em;
 	}
 
