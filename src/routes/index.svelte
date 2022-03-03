@@ -144,17 +144,17 @@
 
         <div class='flaired-title' style="grid-area: contentTitle1;">
             <div class="flair {learn_random_array[0].flair}" />
-            <div>Learn: {learn_random_array[0].title}</div>
+            <div>{learn_random_array[0].title}</div>
         </div>
 
         <div class='flaired-title' style="grid-area: contentTitle2;">
             <div class="flair {learn_random_array[1].flair}" />
-            <div>Explore: {learn_random_array[1].title}</div>
+            <div>{learn_random_array[1].title}</div>
         </div>
 
         <div class='flaired-title' style="grid-area: contentTitle3;">
             <div class="flair {learn_random_array[2].flair}" />
-            <div>Reference: {learn_random_array[2].title}</div>
+            <div>{learn_random_array[2].title}</div>
         </div>
 
         <a class="learn_more_link" style="grid-area: contentLink1;" href={learn_random_array[0].url}>
@@ -190,17 +190,17 @@
 
         <div class='flaired-title' style="grid-area: contentTitle1;">
             <div class="flair {explore_random_array[0].flair}" />
-            <div>Learn: {explore_random_array[0].title}</div>
+            <div>{explore_random_array[0].title}</div>
         </div>
 
         <div class='flaired-title' style="grid-area: contentTitle2;">
             <div class="flair {explore_random_array[1].flair}" />
-            <div>Explore: {explore_random_array[1].title}</div>
+            <div>{explore_random_array[1].title}</div>
         </div>
 
         <div class='flaired-title' style="grid-area: contentTitle3;">
             <div class="flair {explore_random_array[2].flair}" />
-            <div>Reference: {explore_random_array[1].title}</div>
+            <div>{explore_random_array[1].title}</div>
         </div>
 
         <a class="learn_more_link" style="grid-area: contentLink1;" href={explore_random_array[0].url}>
@@ -236,17 +236,17 @@
 
         <div class='flaired-title' style="grid-area: contentTitle1;">
             <div class="flair {reference_random_array[0].flair}" />
-            <div>Learn: {reference_random_array[0].title}</div>
+            <div>{reference_random_array[0].title}</div>
         </div>
 
         <div class='flaired-title' style="grid-area: contentTitle2;">
             <div class="flair {reference_random_array[1].flair}" />
-            <div>Explore: {reference_random_array[1].title}</div>
+            <div>{reference_random_array[1].title}</div>
         </div>
 
         <div class='flaired-title' style="grid-area: contentTitle3;">
             <div class="flair {reference_random_array[2].flair}" />
-            <div>Reference: {reference_random_array[1].title}</div>
+            <div>{reference_random_array[1].title}</div>
         </div>
 
         <a class="learn_more_link" style="grid-area: contentLink1;" href={reference_random_array[0].url}>
