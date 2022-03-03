@@ -200,7 +200,7 @@
 
         <div class='flaired-title' style="grid-area: contentTitle3;">
             <div class="flair {explore_random_array[2].flair}" />
-            <div>{explore_random_array[1].title}</div>
+            <div>{explore_random_array[2].title}</div>
         </div>
 
         <a class="learn_more_link" style="grid-area: contentLink1;" href={explore_random_array[0].url}>
@@ -246,7 +246,7 @@
 
         <div class='flaired-title' style="grid-area: contentTitle3;">
             <div class="flair {reference_random_array[2].flair}" />
-            <div>{reference_random_array[1].title}</div>
+            <div>{reference_random_array[2].title}</div>
         </div>
 
         <a class="learn_more_link" style="grid-area: contentLink1;" href={reference_random_array[0].url}>
