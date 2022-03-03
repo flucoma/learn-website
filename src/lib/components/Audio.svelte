@@ -2,7 +2,7 @@
 	import { onMount } from 'svelte';
 	export let src: string = '';
 	export let label: string = '';
-	export let waveform: boolean = true;
+	export let waveform: boolean = false;
 
 	let Peaks, instance, overview, audio, ctx;
 
