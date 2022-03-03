@@ -22,16 +22,16 @@
 <style lang="postcss">
 	header {
 		display: grid;
-		grid-template-columns: auto auto auto;
+		grid-template-columns: 20% auto 20%;
 		place-items: center;
+		justify-content: space-around;
 		background: var(--dark-blue);
-		gap: 3em;
 		height: 40px;
 	}
 
 	.logo {
-		width: 27px;
-		height: 30px;
+		width: 24px;
+		height: 27px;
 		margin-top: 0.3em;
 	}
 
