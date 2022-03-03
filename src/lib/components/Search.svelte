@@ -7,7 +7,7 @@
 	let query = '';
 	let searchBar;
 	let focused = false;
-	$: placeholder = focused ? 'Enter your search term' : 'Site search... (Press "CMD + /" to focus)';
+	$: placeholder = focused ? 'Enter your search term' : 'Site search...';
 	$: results = search(query);
 
 	function clickResult(link) {
@@ -34,23 +34,28 @@
 
 	function keyDown(e) {
 		if (e.key === '/' && e.metaKey) {
-			searchBar.focus();
+			focusSearch()
 		}
 
 		if (e.key === 'ArrowUp') {
+			e.preventDefault();
 			focusedEntry -= 1;
 			updateFocus()
 		}
 
 		if (e.key === 'ArrowDown') {
+			e.preventDefault();
 			focusedEntry += 1;
 			updateFocus()
 		}
 
-		if (e.key == 'Enter') {
+		if (e.key === 'Enter') {
 			entries[focusedEntry].click();
 		}
 
+		if (e.key === 'Escape') {
+			blurSearch();
+		}
 	}
 
 	let focusedEntry = -1;
@@ -103,9 +108,9 @@
 
 <style lang="postcss">
 	:root {
-		--radius: 0px;
-		--w: min(90%, 400px);
-		--border: 2px solid var(--dark-blue);
+		--radius: 10px;
+		--w: min(90%, 300px);
+		--border: 1px solid var(--dark-blue);
 		--search-pad: 10px;
 	}
 
@@ -120,17 +125,19 @@
 		border-radius: var(--radius);
 		padding: var(--search-pad);
 		width: 100%;
+		height: 5px;
 	}
 
 	.results {
 		display: flex;
 		flex-direction: column;
 		position: absolute;
-		width: calc(100% + 2 * var(--search-pad));
+		width: calc(150% + 2 * var(--search-pad));
 		background: rgb(255, 255, 255, 1);
-		border: var(--border);
+		border: 2px solid var(--light-blue);
 		border-radius: var(--radius);
 		z-index: 0;
+		left: calc(var(--w) * -0.3);
 		gap: 0em;
 	}
 
@@ -160,8 +167,6 @@
 		text-overflow: ellipsis;
 		font-size: 0.8rem;
 	}
-
-
 
 	.result:hover, .entryhover {
 		background-color: rgba(128, 128, 128, 0.112);
