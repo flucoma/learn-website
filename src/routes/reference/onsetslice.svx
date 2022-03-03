@@ -84,3 +84,10 @@ title='Onset Detection Revisited'
 url='https://www.eecs.qmul.ac.uk/~simond/pub/2006/dafx.pdf'
 blurb='A paper by Simon Dixon describing some metrics used in OnsetSlice'
 />
+
+<ResourceLink
+title='Onset Detection in Musical Audio Signals'
+url='https://quod.lib.umich.edu/cgi/p/pod/dod-idx/onset-detection-in-musical-audio-signals.pdf?c=icmc;idno=bbp2372.2003.047;format=pdf'
+blurb='This paper presents work on changepoint detection in musical audio signals, focusing on the case where there are note
+changes with low associated energy variation.'
+/>
