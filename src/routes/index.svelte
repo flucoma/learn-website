@@ -217,49 +217,56 @@
     </div>
 
      <!--Reference Section-->
-     <div class="row_parent">
+     <div class="algos_row">
         <h2 class="row_title">
-            Reference
+            Algorithms
         </h2>
 
-        <div class="img_container" style="grid-area: contentImg1;">
-            <div class='feature_image' style="background-image: url({reference_random_array[0].feature.featuredimage || _.sample(reference_random_array[0].feature.images) || '/general/reference_default.jpeg' });"></div>
-        </div>
-
-        <div class="img_container" style="grid-area: contentImg2;">
-            <div class='feature_image' style="background-image: url({reference_random_array[1].feature.featuredimage || _.sample(reference_random_array[1].feature.images) || '/general/reference_default.jpeg' });"></div>
-        </div>
-
-        <div class="img_container" style="grid-area: contentImg3;">
-            <div class='feature_image' style="background-image: url({reference_random_array[2].feature.featuredimage || _.sample(reference_random_array[2].feature.images) || '/general/reference_default.jpeg' });"></div>
-        </div>
-
-        <div class='flaired-title' style="grid-area: contentTitle1;">
+        <div class='flaired-title' style="grid-area: algoTitle1;">
             <div class="flair {reference_random_array[0].flair}" />
             <div>{reference_random_array[0].title}</div>
         </div>
 
-        <div class='flaired-title' style="grid-area: contentTitle2;">
-            <div class="flair {reference_random_array[1].flair}" />
-            <div>{reference_random_array[1].title}</div>
-        </div>
-
-        <div class='flaired-title' style="grid-area: contentTitle3;">
-            <div class="flair {reference_random_array[2].flair}" />
-            <div>{reference_random_array[2].title}</div>
+        <div class="algo_blurb" style="grid-area: algoBlurb1;" >
+            <p>
+                {reference_random_array[0].blurb}
+            </p>
         </div>
 
         <a class="learn_more_link" style="grid-area: contentLink1;" href={reference_random_array[0].url}>
             Learn More <ArrowRight />
         </a>  
 
+        <div class='flaired-title' style="grid-area: algoTitle2;">
+            <div class="flair {reference_random_array[1].flair}" />
+            <div>{reference_random_array[1].title}</div>
+        </div>
+
+        <div class="algo_blurb" style="grid-area: algoBlurb2;" >
+            <p>
+                {reference_random_array[1].blurb}
+            </p>
+        </div>
+
         <a class="learn_more_link" style="grid-area: contentLink2;" href={reference_random_array[1].url}>
             Learn More <ArrowRight />
         </a>  
 
+        <div class='flaired-title' style="grid-area: algoTitle3;">
+            <div class="flair {reference_random_array[2].flair}" />
+            <div>{reference_random_array[2].title}</div>
+        </div>
+
+        <div class="algo_blurb" style="grid-area: algoBlurb3;" >
+            <p>
+                {reference_random_array[2].blurb}
+            </p>
+        </div>
+
         <a class="learn_more_link" style="grid-area: contentLink3;" href={reference_random_array[2].url}>
             Learn More <ArrowRight />
-        </a>   
+        </a> 
+ 
     </div>
 </div>
 
@@ -385,6 +392,27 @@
         /*filter: blur(8px);*/
     }
 
+    /*Algorithms row*/
+    .algos_row{
+        display: grid;
+        grid-template-columns: 1fr 3fr 1fr;
+        max-width: 80%;
+        margin: 0 auto;
+        margin-bottom: 5em;
+        grid-gap : 1em;
+
+        grid-template-areas: 
+        "featuredTitle featuredTitle featuredTitle"
+        "algoTitle1 algoBlurb1 contentLink1"
+        "algoTitle2 algoBlurb2 contentLink2"
+        "algoTitle3 algoBlurb3 contentLink3";
+    }
+
+    .algo_blurb{
+        padding: 0em 0.75em 0em 0.75em;
+        font-style: italic;
+    }
+
     /*Screen size stuff*/
     @media (min-width: 1200px) {
 		.row_featured {
@@ -402,6 +430,15 @@
         "contentImg1 contentImg2 contentImg3"
         "contentTitle1 contentTitle2 contentTitle3"
         "contentLink1 contentLink2 contentLink3";
+        }
+
+        .algos_row{
+            grid-template-columns: 1fr 3fr 1fr;
+            grid-template-areas: 
+        "featuredTitle featuredTitle featuredTitle"
+        "algoTitle1 algoBlurb1 contentLink1"
+        "algoTitle2 algoBlurb2 contentLink2"
+        "algoTitle3 algoBlurb3 contentLink3";
         }
 	}
 
@@ -427,6 +464,21 @@
         "contentLink2"
         "contentImg3"
         "contentTitle3"
+        "contentLink3";
+        }
+
+        .algos_row{
+            grid-template-columns: repeat(1, 1fr);
+            grid-template-areas: 
+        "featuredTitle"
+        "algoTitle1"
+        "algoBlurb1"
+        "contentLink1"
+        "algoTitle2"
+        "algoBlurb2"
+        "contentLink2"
+        "algoTitle3"
+        "algoBlurb3"
         "contentLink3";
         }
 	}
