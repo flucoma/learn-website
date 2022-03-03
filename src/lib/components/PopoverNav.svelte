@@ -37,15 +37,15 @@ transition:fly={{ duration:200, y:0, x:-200 }}
 		opacity: 1;
 		display: flex;
 		flex-direction: column;
-		gap: 1em;
+		gap: 0.5em;
 		position: fixed;
-		top: 50px; left: 0;
+		top: 40px; left: 0;
 		background-color: white;
 		opacity: 1;
 		width: min(500px, 50%);
 		height: 100vh;
 		text-align: left;
-		padding: 1.5em;
+		padding: 2em;
 		z-index: 99;
 	}
 
