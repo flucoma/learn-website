@@ -9,10 +9,12 @@
 
 <header>
 	<Hamburger on:click={expandHandler} />
-	<Search />
-	<a class="logo-link" href="/">
-		<img class="logo" src="/img/onlylogo.svg" alt="FluCoMa Logo" />
-	</a>
+	<div class="central-area">
+		<a class="logo-link" href="/">
+			<img class="logo" src="/img/onlylogo.svg" alt="FluCoMa Logo" />
+		</a>
+		<Search />
+	</div>
 </header>
 
 <PopoverNav />
