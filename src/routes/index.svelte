@@ -64,7 +64,7 @@
             Featured
         </h2>
 
-        <div class="row_featured_article">
+        <div class="row_featured_article" style="grid-area: featuredArticle1;">
             <div class='feature_image' style="background-image: url({rng_learn.feature.featuredimage || _.sample(rng_learn.feature.images) || '/general/learn_default.jpeg' });"></div>
 
             <div class='flaired-title'>
@@ -76,6 +76,22 @@
                 Learn More <ArrowRight />
             </a>  
         </div>
+
+        
+
+        <div class="row_featured_article" style="grid-area: featuredArticle2;">
+            <div class='feature_image' style="background-image: url({rng_explore.feature.featuredimage || _.sample(rng_explore.feature.images) || '/general/explore_default.jpeg' });"></div>
+        
+            <div class='flaired-title'>
+                <div class="flair {rng_explore.flair}" />
+                <div>Explore: {rng_explore.title}</div>
+            </div>
+
+            <a class="learn_more_link" href={rng_explore.url}>
+                Learn More <ArrowRight />
+            </a> 
+        </div>
+
 
         <div class="row_featured_video">
 
@@ -97,19 +113,6 @@
                 </p>
             </div>
     
-        </div>
-
-        <div class="row_featured_article">
-            <div class='feature_image' style="background-image: url({rng_explore.feature.featuredimage || _.sample(rng_explore.feature.images) || '/general/explore_default.jpeg' });"></div>
-        
-            <div class='flaired-title'>
-                <div class="flair {rng_explore.flair}" />
-                <div>Explore: {rng_explore.title}</div>
-            </div>
-
-            <a class="learn_more_link" href={rng_explore.url}>
-                Learn More <ArrowRight />
-            </a> 
         </div>
 
     </div>
@@ -238,6 +241,11 @@
     .row_featured{
         display: grid;
         grid-template-columns: repeat(2, 1fr);
+        grid-template-areas: 
+        "featuredTitle featuredTitle"
+        "featuredArticle1 featuredVideo"
+        "featuredArticle2 featuredVideo";
+
         max-width: 80%;
         margin: 0 auto;
         margin-bottom: 5em;
@@ -245,7 +253,6 @@
     }
 
     .row_featured_article{
-        grid-column: 1;
         border-radius: 0.25rem;
         padding: 0em 0.75em 0em 0.75em;
         margin-top: 0em;
@@ -253,16 +260,37 @@
     }
 
     .row_featured_video{
-        grid-column: 2;
-        grid-row: 2 / 4;
+        grid-area: featuredVideo;
     }
 
     .row_title{
-        grid-column: 1 / 4;
+        grid-area: featuredTitle;
         padding: 0.75em 0.75em 0em 0.75em;
         margin-top: 0em;
         margin-bottom: 0em;
     }
+
+    @media (min-width: 1200px) {
+		.row_featured {
+			grid-template-columns: repeat(2, 1fr);
+            grid-template-areas: 
+        "featuredTitle featuredTitle"
+        "featuredArticle1 featuredVideo"
+        "featuredArticle2 featuredVideo";
+		}
+	}
+
+	@media (max-width: 1200px) {
+		.row_featured {
+			grid-template-columns: repeat(1, 1fr);
+            
+			grid-template-areas: 
+        "featuredTitle"
+        "featuredArticle1"
+        "featuredArticle2"
+        "featuredVideo";
+		}
+	}
 
 
 
