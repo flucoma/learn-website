@@ -18,9 +18,11 @@
 		background: transparent;
 		outline: none;
 		border: none;
+		padding: 0;
 	}
 	svg {
-		min-height: 24px;
+		min-width: 24;
+		min-height: 20;
 		background: none;
 		transition: transform 0.3s ease-in-out;
 	}
