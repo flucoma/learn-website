@@ -1,13 +1,20 @@
 <script lang='ts'>
-    import { scale } from '$lib/util.js';
+    import { max_scale, clip } from '$lib/util.js';
     let input: number[] = [1, 2, 3, 4, 5];
     let output: number[] = [];
     let iMin = 1;
     let iMax = 5;
     let oMin = 0;
     let oMax = 1;
+    let clipping = false;
     
-    $: output = input.map(x => scale(x, [iMin, iMax], [oMin, oMax]));
+    $: output = input.map(x => {
+        const o = max_scale(x, iMin, iMax, oMin, oMax, 1.0)
+        if (clipping) {
+            return clip(o, oMin, oMax)
+        }
+        return o
+    });
 </script>
 
 <div class="container">
@@ -31,6 +38,11 @@
         <div>
             <label for='imax'>Output Maximum</label>
             <input type="number" id="omax" bind:value={oMax}/>
+        </div>
+
+        <div>
+            <label for=clip>Clipping</label>
+            <input class='tog' type=checkbox id=clip bind:checked={clipping} />
         </div>
     </form>
     
@@ -79,6 +91,8 @@
         grid-template-columns: 13ch 5ch;
     }
 
+    .tog { margin: 0 }
+
     .data {
         display: flex;
         flex-direction: column;
@@ -87,7 +101,7 @@
 
     .data-view {    
         display: grid;
-        grid-template-columns: 1ch auto;
+        grid-template-columns: 12ch auto;
     }
 
     .data-view > span:nth-child(1) {
