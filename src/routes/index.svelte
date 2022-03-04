@@ -132,7 +132,7 @@
     <!--Learn Section-->
     <div class="row_parent">
         <h2 class="row_title">
-            Learn
+            Previously Featured: Learn
         </h2>
 
         <a class="learn_more_link-section" style="grid-area: sectionLearnMore;" href="/learn">
@@ -182,7 +182,7 @@
     <!--Explore Section-->
     <div class="row_parent">
         <h2 class="row_title">
-            Explore
+            Previously Featured: Explore
         </h2>
 
         <a class="learn_more_link-section" style="grid-area: sectionLearnMore;" href="/explore">
@@ -232,7 +232,7 @@
      <!--Reference Section-->
      <div class="algos_row">
         <h2 class="row_title">
-            Algorithms
+            Some Random Algorithms...
         </h2>
 
         <a class="learn_more_link-section" style="grid-area: sectionLearnMore;" href="/reference">
@@ -416,6 +416,7 @@
     .feature_image:hover {
         /*filter: blur(8px);*/
     }
+
 
     /*Algorithms row*/
     .algos_row{
