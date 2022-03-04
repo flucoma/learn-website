@@ -13,6 +13,9 @@
 		<a class="logo-link" href="/">
 			<img class="logo" src="/img/onlylogo.svg" alt="FluCoMa Logo" />
 		</a>
+		<a href='/'>
+			FluCoMa Learn
+		</a>
 	</div>
 	<Search />
 </header>
@@ -27,6 +30,18 @@
 		justify-content: space-around;
 		background: var(--dark-blue);
 		height: 40px;
+	}
+
+	.central-area {
+		display: grid;
+		grid-template-columns: auto auto;
+		place-items: center;
+		gap: 0.5em;
+		font-family: var(--font);
+	}
+
+	.central-area > a {
+		
 	}
 
 	.logo {
