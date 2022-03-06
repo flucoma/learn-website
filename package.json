@@ -51,6 +51,7 @@
 		"numpy-parser": "^1.2.3",
 		"peaks.js": "^0.27.0",
 		"pts": "^0.10.9",
+		"remark-jargon": "^2.20.6",
 		"seedrandom": "~2.4.4",
 		"svelte-select": "^4.4.7",
 		"tf-kmeans": "^0.0.3",

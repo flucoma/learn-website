@@ -8,6 +8,10 @@ layout: contentindex
 
 # Welcome
 
+_remark_
+
+_freesewing_
+
 Welcome to the Fluid Corpus Manipulation Learn platform. 
 A lot of music making with computers involves working with collections of audio, and these collections are getting bigger and bigger. At the same time, techniques for analysing sound and manipulating data keep being developed. Our project seeks to enable music making with collections of audio by making some of these techniques available for musical creative coding environments, alongside a set of supporting resources on these pages.
 
