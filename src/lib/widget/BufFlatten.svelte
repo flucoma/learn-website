@@ -26,11 +26,18 @@
   
   let numFrames_error = '';
   let numChans_error = ''; 
+  let startFrame_error = '';
+  let startChan_error = '';
     
   $:{
+    numFrames = srcFrames;
+    numChans = srcChans;
+    
     numFrames_error = '';
     numChans_error = '';
-    
+    startFrame_error = '';
+    startChan_error = '';
+        
     if(displayNumFrames===0){
       numFrames_error = 'numFrames cannot = 0';
     } 
@@ -41,20 +48,20 @@
     
     numFrames = displayNumFrames===-1 ? srcFrames : displayNumFrames;
     numChans = displayNumChans===-1 ? srcChans : displayNumChans;
-    
-    if(startFrame+numFrames > srcFrames){
-      startFrame_error = 'startFrame + numFrames cannot be > the number of frames in the soruce';
-    } 
-    
-    if(startFrame+numFrames > srcFrames){
-      startFrame_error = 'startFrame + numFrames cannot be > the number of frames in the soruce';
-    } 
-    
+
     let endFrame = Math.min(startFrame+numFrames,srcFrames)
     let endChan = Math.min(startChan+numChans,srcChans)
     
     numFrames = endFrame - startFrame;
     numChans = endChan - startChan;
+    
+    if(startFrame+displayNumFrames > srcFrames){
+      startFrame_error = 'startFrame + numFrames cannot be > the number of frames in the soruce';
+    } 
+    
+    if(startChan+displayNumChans > srcChans){
+      startChan_error = 'startFrame + numFrames cannot be > the number of frames in the soruce';
+    } 
   }
   
 </script>
@@ -62,23 +69,25 @@
 <form>
     <label class='numberboxlabel' for='start_frame'>Start Frame</label>
     <input class='numberbox' id='start_frame' bind:value={startFrame} type=number min=0 max={srcFrames-1} />
+    <div class='error'>{startFrame_error}</div>
 </form>
 
 <form>
     <label class='numberboxlabel' for='num_frames'>Num Frames</label>
-    <input class='numberbox' id='num_frames' bind:value={displayNumFrames} type=number min=-1 max={srcFrames-startFrame} />
-    <label class="error">{ numFrames_error }</label>
+    <input class='numberbox' id='num_frames' bind:value={displayNumFrames} type=number min=-1 max={srcFrames} />
+    <div class="error">{ numFrames_error }</div>
 </form>
 
 <form>
     <label class='numberboxlabel' for='start_chan'>Start Chan</label>
     <input class='numberbox' id='start_chan' bind:value={startChan} type=number min=0 max={srcChans-1}/>
+    <div class="error">{ startChan_error }</div>
 </form>
 
 <form>
     <label class='numberboxlabel' for='num_chans'>Num Chans</label>
-    <input class='numberbox' id='num_chans' bind:value={displayNumChans} type=number min=-1 max={srcChans-startChan}/>
-    <label class="error">{ numChans_error }</label>
+    <input class='numberbox' id='num_chans' bind:value={displayNumChans} type=number min=-1 max={srcChans}/>
+    <div class="error">{ numChans_error }</div>
 </form>
 
 <form>
@@ -168,7 +177,8 @@
 
     form {
         display: grid;
-        grid-template-columns: 10ch auto;
+        gap: 0.5em;
+        grid-template-columns: 10ch auto auto;
         justify-content: left;
         margin-bottom: 0.5em;
     }
