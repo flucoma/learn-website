@@ -12,21 +12,21 @@ transition:fly={{ duration:200, y:0, x:-200 }}
 	<Landing link='/learn'>
 		<h2 slot="title">Learn</h2>
 		<p slot="blurb" class='blurb'>
-		Articles discussing machine learning and machine listening, sometimes relating to FluCoMa technology and sometimes reflecting more broadly.
+			Learn how to use the FluCoMa toolkit.
 		</p>
 	</Landing>
 	
 	<Landing link='/reference'>
 		<h2 slot="title">References</h2>
 		<p slot="blurb" class='blurb'>
-		The references outline the underlying algorithms of the FluCoMa toolkit in more detail.
+			References for all the toolkit algorithms.
 		</p>
 	</Landing>
 	
 	<Landing link='/explore'>
 		<h2 slot="title">Explore</h2>
 		<p slot="blurb" class='blurb'>
-		Explore draws attention to the FluCoMa community. It highlights how people are using FluCoMa (and related technology) through podcasts and deep explorations of their work.
+			Explore what other people are doing.
 		</p>
 	</Landing>
 </nav>
