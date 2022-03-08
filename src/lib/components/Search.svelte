@@ -7,7 +7,7 @@
 	let query = '';
 	let searchBar;
 	let focused = false;
-	$: placeholder = focused ? 'Enter your search term' : 'Site search...';
+	$: placeholder = focused ? 'Enter your search term' : 'Search';
 	$: results = search(query);
 
 	function clickResult(link) {
@@ -67,7 +67,7 @@
 <svelte:window on:keydown={keyDown} />
 
 <div class="search">
-	<form role="search">
+	<form id='search-input' role="search">
 		<label class="visually-hidden" for="search-term">Search The Learn Platform</label>
 		<input
 			class="query"
@@ -80,29 +80,30 @@
 	</form>
 
 	{#if results.length >= 1 && focused}
-		<div class="results" tabindex="0">
-			{#each filteredResults as r, i}
-				<div class="result" 
-					on:mousedown={() => clickResult(r.url)}
-					on:click={ () => clickResult(r.url) }
-					on:focus={focusSearch}
-					on:blur={blurSearch}
-					bind:this={entries[i]}
-					class:entryhover={i === focusedEntry}
-					role="button"
-					tabindex="-1"
-				>
-					<div class="top">
-						<div class="title">{r.title}</div>
-						<Flair flair={r.flair} />
-					</div>
-
-					<div class="bottom">
-						{r.blurb}
-					</div>
+	<div class="results" tabindex="0">
+		{#each filteredResults as r, i}
+			<div class="result" 
+				on:mousedown={() => clickResult(r.url)}
+				on:mouseenter={() => { focusedEntry = i}}
+				on:click={ () => clickResult(r.url) }
+				on:focus={focusSearch}
+				on:blur={blurSearch}
+				bind:this={entries[i]}
+				class:entryhover={i === focusedEntry}
+				role="button"
+				tabindex="-1"
+			>
+				<div class="top">
+					<div class="title">{r.title}</div>
+					<Flair flair={r.flair} />
 				</div>
-			{/each}
-		</div>
+
+				<div class="bottom">
+					{r.blurb}
+				</div>
+			</div>
+		{/each}
+	</div>
 	{/if}
 </div>
 
@@ -113,34 +114,35 @@
 		--border: 1px solid var(--dark-blue);
 		--search-pad: 10px;
 	}
-
 	.search {
 		width: var(--w);
 		position: relative;
-		z-index: 2;	
+		z-index: 2;
 	}
-
 	.query {
 		font-size: 1rem;
 		border-radius: var(--radius);
 		padding: var(--search-pad);
-		width: 100%;
+		width: 90%;
 		height: 5px;
+		border: 0;
+		box-sizing: none;
+		border-radius: 2rem;
+		outline: 0;
 	}
-
 	.results {
 		display: flex;
 		flex-direction: column;
 		position: absolute;
-		width: calc(150% + 2 * var(--search-pad));
+		right: -1em;
+		width: 300px;
+		padding: 0.25em;
 		background: rgb(255, 255, 255, 1);
-		border: 2px solid var(--light-blue);
-		border-radius: var(--radius);
+		border: 1px solid hsl(240, 5%, 50%);
+		border-radius: 8px;
 		z-index: 0;
-		left: calc(var(--w) * -0.3);
-		gap: 0em;
+		gap: 0.25em;
 	}
-
 	.result {
 		max-width: 100%;
 		padding: 0.5em;
@@ -149,27 +151,27 @@
 		gap: 0.5em;
 		text-align: justify;
 		display: block;
+		outline: 0;
+		border-radius: 4px;
 	}
+	.result:hover, .entryhover {
+		background-color: hsl(240, 5%, 80%);
 
+		cursor: pointer;
+	}
 	.top {
 		display: flex;
 		flex-direction: row;
 		justify-content: space-between;
 		gap: 0.5em;
 	}
-
 	.title {
 		font-weight: bold;
 		text-align: left;
 	}
 	.bottom {
-		color: grey;
+		color: hsl(240, 5%, 30%); 
 		text-overflow: ellipsis;
 		font-size: 0.8rem;
-	}
-
-	.result:hover, .entryhover {
-		background-color: rgba(128, 128, 128, 0.112);
-		cursor: pointer;
 	}
 </style>
