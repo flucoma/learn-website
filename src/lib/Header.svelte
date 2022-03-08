@@ -13,7 +13,7 @@
 		<a class="logo-link" href="/">
 			<img class="logo" src="/img/onlylogo.svg" alt="FluCoMa Logo" />
 		</a>
-		<a href='/'>
+		<a class='title' href='/'>
 			FluCoMa Learn
 		</a>
 	</div>
@@ -30,6 +30,16 @@
 		justify-content: space-around;
 		background: var(--dark-blue);
 		height: 40px;
+	}
+
+	.title {
+		color: white;
+		text-decoration: none;
+	}
+
+	.title:hover {
+		text-decoration: underline;
+		background-color: transparent;
 	}
 
 	.central-area {
