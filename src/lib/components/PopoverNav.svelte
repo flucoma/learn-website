@@ -42,7 +42,7 @@ transition:fly={{ duration:200, y:0, x:-200 }}
 		top: 40px; left: 0;
 		background-color: white;
 		opacity: 1;
-		width: min(500px, 50%);
+		width: min(300px, 50%);
 		height: 100vh;
 		text-align: left;
 		padding: 2em;
