@@ -16,17 +16,17 @@ transition:fly={{ duration:200, y:0, x:-200 }}
 		</p>
 	</Landing>
 	
-	<Landing link='/reference'>
-		<h2 slot="title">References</h2>
-		<p slot="blurb" class='blurb'>
-			References for all the toolkit algorithms.
-		</p>
-	</Landing>
-	
 	<Landing link='/explore'>
 		<h2 slot="title">Explore</h2>
 		<p slot="blurb" class='blurb'>
 			Explore what other people are doing.
+		</p>
+	</Landing>
+
+	<Landing link='/reference'>
+		<h2 slot="title">References</h2>
+		<p slot="blurb" class='blurb'>
+			References for all the toolkit algorithms.
 		</p>
 	</Landing>
 </nav>
