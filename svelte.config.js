@@ -46,7 +46,10 @@ const config = {
 	],
 	kit: {
 		adapter: adapter(),
-		trailingSlash: 'always'
+		trailingSlash: 'always',
+		prerender: {
+			default: true
+		}
 	}
 };
 
