@@ -6,6 +6,7 @@ g*/
 @import './fonts.css';
 @import './code.css';
 @import './utils.css';
+@import './jargon.css';
 
 :root {
 	--breakpoint: 1200px;
