@@ -97,6 +97,12 @@ Harker implements his granular freeze with *FrameLib*, as well as his spectral f
 
 Harker worked closely with Dell when developing the piece to explore the multiphonic possibilities of the oboe. A valuable resource for this was [Peter Veale](https://www.musikfabrik.eu/en/ensemble/members/peter-veale/)’s book [*The Techniques of Oboe Playing*](https://www.baerenreiter.com/en/shop/product/details/BVK1210/) which lists over 400 different multiphonics with their corresponding fingers and embouchure. Harker described a first, laborious process of listening to recordings of all of these in order, saying that this was unsatisfying and not very productive. Indeed, it is understandable that listening to a series of 400 strident oboe multiphonics could be seen as somewhat of a hinderance for creative stimulation. 
 
+<IndentNote type='pointer'>
+
+Download a small collection of oboe multiphonics recorded by Harker, performed by Dell <a href='/explore/oboe_multiphonics.zip' download='oboe_multiphonics.zip'>here</a>.
+
+</IndentNote>
+
 <YouTube 
 url={'wKvIUb2zLCQ'}
 />
