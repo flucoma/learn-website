@@ -99,7 +99,7 @@ Harker worked closely with Dell when developing the piece to explore the multiph
 
 <IndentNote type='pointer'>
 
-Download a small collection of oboe multiphonics recorded by Harker, performed by Dell <a href='/explore/oboe_multiphonics.zip' download='oboe_multiphonics.zip'>here</a>.
+Download a small collection of oboe multiphonics recorded by Harker, performed by Dell <a href='https://learn.flucoma.org/explore/oboe_multiphonics.zip' download='oboe_multiphonics.zip'>here</a>.
 
 </IndentNote>
 
