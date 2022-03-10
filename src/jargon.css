@@ -24,9 +24,8 @@
   padding: 1em;
   border-radius: 4px;
   font-size: 0.9rem;
-  min-width: 100px;
-  width: 1500px;
-  max-width: 85vh;
+  min-width: 250px;
+  max-width: 450px;
   z-index: 1;
 }
 
