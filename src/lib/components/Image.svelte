@@ -32,10 +32,12 @@
 
 	.container > a {
 		max-width: 100%;
+		transition: opacity linear 100ms;
 	}
 
 	.container > a:hover {
 		background: transparent;
+		opacity: 0.95;
 	}
 
 	.label {
