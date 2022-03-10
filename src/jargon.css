@@ -1,21 +1,8 @@
 /* // Add a dashed line under jargon terms */
-em:has(.jargon-term) {
-    font-style: normal;
-}
-
 .jargon-term {
-  text-decoration: underline dotted #228be6;
+  text-decoration: underline dotted var(--light-blue);
 }
-/* // Add a question mark behind/above jargon terms */
-.jargon-term::after {
-  font-weight: bold;
-  display: inline-block;
-  transform: translate(0, -0.5em);
-  font-size: 75%;
-  color: #228be6;
-  margin-left: 3px;
-}
-/* // Hover behavior for the therm itself */
+/* // Hover behavior for the term itself */
 .jargon-term:hover {
   position: relative;
   text-decoration: none;
@@ -28,15 +15,21 @@ em:has(.jargon-term) {
 /* // Show info on hover */
 .jargon-term:hover .jargon-info {
   display: block;
+  text-align: left;
   position: absolute;
-  top: 1.5em;
+  top: 1.3em;
   left: 0;
   background: #F8F8F8;
-  border: 1px solid #DCDCDC;
-  padding: 1rem;
+  border: 1px solid hsl(240, 11%, 81%);
+  padding: 1em;
   border-radius: 4px;
-  font-size: 90%;
-  min-width: max-content;
-  max-width: 450px;
+  font-size: 0.9rem;
+  min-width: 100px;
+  width: 1500px;
+  max-width: 85vh;
   z-index: 1;
+}
+
+.jargon-info:hover {
+    display: block;
 }
