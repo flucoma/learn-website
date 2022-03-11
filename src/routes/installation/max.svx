@@ -58,6 +58,14 @@ Now check that the installation worked.
 
 2. Open <a href='/installation/max-install-test.maxpat' download='max-install-test.maxpat'>this patch</a>.
 
+## Step 4: Quarantine
+
+Because we don't sign the `.mxo` externals with developer credentials, macOS will quarantine them and stop them from running. It is trivial to de-quarantine and Max will even do it for you with your permission. If you see the following popup, click OK.
+
+<Image
+src='/installation/max-quarantine.png'
+/>
+
 
 
 

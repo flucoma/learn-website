@@ -14,7 +14,8 @@
 		</a>
 		
 		<a 
-		target='_blank' 
+		target='_blank'
+		rel="external"
 		href='https://flucoma.org'
 		>
 		Go to FluCoMa Home Page <ArrowRight />

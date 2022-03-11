@@ -39,15 +39,17 @@ const config = {
 				]
 			],
 			layout: {
-				overviews: './src/lib/layouts/overviews.svelte',
-				reference: './src/lib/layouts/reference.svelte',
-				madewithflucoma: './src/lib/layouts/madewithflucoma.svelte'
+				_: './src/lib/layouts/Content.svelte',
+				contentindex : './src/lib/layouts/ContentIndex.svelte'
 			}
 		})
 	],
 	kit: {
 		adapter: adapter(),
-		target: '#svelte'
+		trailingSlash: 'always',
+		prerender: {
+			default: true
+		}
 	}
 };
 

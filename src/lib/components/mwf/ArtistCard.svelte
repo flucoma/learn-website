@@ -7,56 +7,40 @@
 <a class="container neutral-link" href={ website }>
 	<div class="top">
 		<img loading="lazy" alt={`${name} profile picture`} {src} />
-		<h2>{ name }</h2>
+		<h3>{ name }</h3>
 	</div>
-	<div class="bio">
-		<slot name="bio"></slot>
-	</div>
+	<!-- <div class="bio"> -->
+		<!-- <slot name="bio"></slot> -->
+	<!-- </div> -->
 </a>
 
 <style lang="postcss">
 	.container {
-		display: flex;
-		flex-direction: column;
 		gap: 0.5em;
 		margin-top: 1em;
-        border: 0.063rem solid #dcdee0;
-		border-radius: 0.25em;
-		padding: 1em;
+		margin-right: 2em;
 	}
-
-    .container:hover {
-        box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-    }
-
-    .container, .container:hover {
-        transition: box-shadow 200ms ease-in-out;
-    }
 
 	.top {
-		display: grid;
-		grid-template-rows: auto auto;
-		gap: 0.5em;
+		display: flex;
+		flex-direction: row;
 		place-items: center;
+		gap: 1em;
 	}
-	.top > h2 {
-		color: black;
-		margin-top: 0;
+
+	h3 {
+		color: var(--med-blue);
+	}
+
+	h3:hover {
+		text-decoration: underline;
 	}
 
 	img {
-		max-width: 200px;
-		max-height: 200px;
-		width: auto; height: auto;
-		border-radius: 0.25rem;
-	}
-
-	.bio {
-		color: grey;
-		text-align: justify;
-	}
-
-	.bio > :global(p) {
-		margin-bottom: 0;
+		max-width: 80px;
+		max-height: 80px;
+		width: auto; 
+		height: auto;
+		border-radius: 50%;
 	}
 </style>

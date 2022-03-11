@@ -1,6 +1,6 @@
 ---
 title: NMFMorph
-blurb: Cross-synthesis using Non-negative Matrix Factorisation (NMF)
+blurb: Cross-synthesis using non-negative Matrix Factorisation (NMF)
 tags:
     - data
     - nmf

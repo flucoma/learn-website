@@ -4,7 +4,7 @@
     export let blurb: string = '';
 </script>
 
-<a class='container' href={url}>
+<a class='container raisedbox' href={url}>
     <h6>{ title }</h6>
     <p>{ blurb }</p>
     <a href={ url }>{ url }</a>
@@ -38,14 +38,6 @@
 
     .container > :global(h6) {
         margin: 0;
-    }
-
-    .container:hover {
-        box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-    }
-
-    .container, .container:hover {
-        transition: box-shadow 200ms ease-in-out;
     }
 </style>
 

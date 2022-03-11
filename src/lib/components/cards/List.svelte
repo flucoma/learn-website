@@ -5,7 +5,7 @@ References are slightly different and use the ReferenceEntry component.
 <script>
 	import { docs } from '$lib/app.js';
 	import Article from '$lib/components/cards/Article.svelte';
-	export let section = 'overviews';
+	export let section = 'learn';
 
 	const items = docs.filter((x) => x.section === section);
 </script>

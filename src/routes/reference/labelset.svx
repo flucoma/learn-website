@@ -5,8 +5,46 @@ tags:
     - data
     - querying
     - labelling
+    - annotation
+    - tags
 flair: reference
 category: Analyse Data
 ---
+
+<script>
+    import LabelSetView from '$lib/components/LabelSetView.svelte';
+    import DataSetView from '$lib/components/DataSetView.svelte';
+</script>
+
+The [LabelSet]() supports building a collection of connected _labels_ and _identifiers_. The interface for doing this is similar to [DataSet](/reference/dataset), only that instead of providing an identifier and some data, you provide an identifier and a symbol (which could be a human-readable string, such as "oboe" for example). Because a [DataSet](/reference/dataset) and a [LabelSet]() can share identifiers, it allows us to create higher-level connections between the identifiers of stored in each one. This is an important part of building, for example, [classification workflows with neural networks](/learn/classification-neural-network) or for inferring the results of clustering such as from [KMeans](/reference/kmeans).
+
+To illustrate this, a [LabelSet]() is depicted below:
+
+<LabelSetView
+data={[
+    { "1" : "trombone" },
+    { "2" : "oboe" },
+    { "3" : "oboe" },
+    { "4" : "trombone" },
+    { "5" : "trombone" }
+]}
+/>
+
+We could use this [LabelSet]() in combination with the [DataSet](/reference/dataset) depicted below to form the basis of an instrumental classification system.
+
+<DataSetView
+data={[
+    { "1" : [132.11, 323.3, 424.44] },
+    { "2" : [0.01, 1.32, 3.14] },
+    { "3" : [2.11, 1.23, 0.84] },
+    { "4" : [233.3, 400.2, 98.3] },
+    { "5" : [244.7, 89.2, 800] }
+]}
+/>
+
+## Some Caveats to Remember
+
+1. Identifiers are unique. You cannot have the same identifier twice in a single [LabelSet](/reference/labelset).
+2. Identifiers and labels are _symbols_. Even if you use a number for either of these, they will be internally represented as a "string" and returned to you as such. This means using `fromsymbol` in Max, for example, if you want the identifier or label to be converted to an actual number.
 
 

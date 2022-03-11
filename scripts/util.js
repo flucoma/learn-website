@@ -6,19 +6,4 @@ const urlFromRoute = (route) => {
 	return `/${base}/${parse.name}`;
 };
 
-const spaces = new RegExp(' ', 'g')
-const sanitiseHashLink = (link) => {
-	link = link.replace('.', '');
-	link = link.replace("'", '');
-	if (link.slice(0, 2) == '--') {
-		link = link.replace('--', '');
-	}
-	link = link.replace('/', '');
-	link = link.replace('(', '');
-	link = link.replace(')', '');
-	link = link.toLowerCase();
-
-	link = link.replace(spaces, '-');
-	return link;
-};
-export { urlFromRoute, sanitiseHashLink };
+export { urlFromRoute };
