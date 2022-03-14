@@ -9,12 +9,12 @@ category: Analyse Sound
 ---
 
 <script>
-    import MFCCScrub from '$lib/widget/MFCCScrub.svelte';
+import MFCC from '$lib/widget/MFCC.svelte';
 </script>
 
 # Mel-Frequency Cepstrum Coefficients (MFCCs)
 
-<MFCCScrub />
+<MFCC />
 
 
 
