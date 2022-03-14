@@ -12,7 +12,29 @@ export const breadcrumbs = readable(c);
 export const edits = readable(e);
 export const structure = readable(s);
 
+const installs = [
+	{
+		title : 'Max Installation',
+		tags : [ 'install', 'max' ],
+		blurb: 'Instructions to install the Max FluCoMa Package',
+		url : '/installation/max'
+	},
+	{
+		title : 'SuperCollider Installation',
+		tags : [ 'install', 'supercollider' ],
+		blurb: 'Instructions to install the SuperCollider FluCoMa Package',
+		url : '/installation/sc',
+	},
+	{
+		title : 'PureData Installation',
+		tags : [ 'install', 'pd', 'puredata' ],
+		blurb: 'Instructions to install the PureData FluCoMa Package',
+		url : '/installation/pd',
+	},
+]
+
 const docs = database.docs;
+installs.forEach((i) => docs.push(i)); // add installation steps
 
 const search = new FuzzySearch(docs, ['title', 'tags', 'flair', 'artist', 'blurb'], {
 	caseSensitive: false,
