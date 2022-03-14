@@ -10,15 +10,19 @@
     export let func = () => {};
     export let display_value = null;
     export let invert = false;
-    export let bipolar = false;
-    export let fill = false;
 
-    let thumb, bar, rect;
+    let thumb, bar, rect, posfill, negfill;
     let down = false;
     let prev_touch = false;
     let prev_value = null;
     
-    $: thumb_y = clip(scale(value, [max, min], [0, bar_height]), 0, bar_height - thumb_height)
+    $: thumb_y = (
+        clip(scale(value, [max, min], [0, bar_height]), 0, bar_height - thumb_height)
+    )
+
+    $: fill_height = scale(value, [max, min], [0, bar_height])
+    $: fill_y = thumb_y >= bar_height/2 ?
+        
             
     const move = (e) => {
         rect = bar.getBoundingClientRect();
@@ -73,6 +77,12 @@ class="container">
         bind:this={thumb} 
         width={width} height={thumb_height}
         />
+        <rect 
+        bind:this={posfill}
+        y={fill_y}
+        width={width} height={fill_height}
+        class='fill'
+        />
     </svg>
     <div class='no_hover'>
         {#if display_value !== null}
@@ -95,6 +105,11 @@ class="container">
     rect {
         fill: var(--primary);
         stroke: var(--primary);
+    }
+
+    .fill {
+        fill: rgba(255, 0, 0, 0.204);
+        stroke: rgba(255, 0, 0, 0.204);
     }
 
     .active {
