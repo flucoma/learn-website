@@ -95,10 +95,7 @@
         filteredNoiseSource = new Tone.Noise("white")
         .connect(filter).start();
 
-        sampler = new Tone.Player(
-            '/audio/oboe-m.mp3', 
-            () => { samplerReady = true }
-        );
+        sampler = new Tone.Player();
         sampler.loop = true;
         
         // Some Init
@@ -120,8 +117,7 @@
     $: if (activeNode) patch(sourceType)
 </script>
 
-<div id="controls">
-    
+<div class="controls">
     <form>
         <fieldset id="source-selector">
             <legend>Source</legend>
@@ -150,10 +146,36 @@
     <div id="source-parameters">
         
         {#if (activeNode === sampler)}
-        
-        <button on:click={sampler.start()}>
-            play
-        </button>
+        <div class='samples'>
+            <button on:click={ async() => {
+                sampler.load('/audio/oboe-m.mp3')
+                .then(() => sampler.start());
+            }
+            }> 
+                oboe
+            </button>
+            <button on:click={ async() => {
+                sampler.load('/audio/bass-m.mp3')
+                .then(() => sampler.start());
+            }
+            }> 
+                bass
+            </button>
+            <button on:click={ async() => {
+                sampler.load('/audio/piano-m.mp3')
+                .then(() => sampler.start());
+            }
+            }> 
+                piano
+            </button>
+            <button on:click={ async() => {
+                sampler.load('/audio/Tremblay-AaS-VoiceQC-B2K.mp3')
+                .then(() => sampler.start());
+            }
+            }> 
+                voice
+            </button>
+        </div>
         {/if}
         
         {#if (activeNode === osc)}
@@ -228,6 +250,11 @@
 
 
 <style>
+    .controls {
+        display: grid;
+        grid-template-columns: auto auto;
+        gap: 1em;
+    }
     #source-selector {
         display: flex;
         flex-direction: column;
@@ -237,5 +264,11 @@
     #source-parameters {
         display: flex;
         flex-direction: column;
+    }
+
+    .samples {
+        display: flex;
+        flex-direction: column;
+        padding-top: 1em;
     }
 </style>

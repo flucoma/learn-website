@@ -80,7 +80,6 @@
 	height = 'max-content'
 	disabled={enabled}
 	/>
-	<br>
 
 	<Spectrogram bind:chart={chart}/>
 	
@@ -94,8 +93,14 @@
 		<div class="values">
 			{#each Object.entries(shape) as [k, v]}
 			<div class="descriptor">
-				<div>{ k }:</div>
-				<div>{ v.toFixed(1) }</div>
+				<div 
+				class:centroid={k === 'centroid'}
+				class:rolloff={k === 'rolloff'}
+				>{ k }:</div>
+				<div 
+				class:centroid={k === 'centroid'}
+				class:rolloff={k === 'rolloff'}
+				>{ v.toFixed(1) }</div>
 			</div>
 			{/each}
 		</div>
@@ -103,6 +108,8 @@
 </div>
 
 <style>
+	.centroid { color: red }
+	.rolloff { color: blue }
 	.container {
 		display: flex;
 		flex-direction: column;
@@ -116,16 +123,17 @@
 	.controllers {
 		display: flex;
 		flex-direction: row;
+		justify-content: space-between;
 	}
 
 	.values {
-		font-family: monospace;
+		font-size: 0.75rem;
 		display: flex;
 		flex-direction: column;
 	}
 
 	.descriptor {
 		display: grid;
-		grid-template-columns: 100px auto;
+		grid-template-columns: 75px 8ch;
 	}
 </style>

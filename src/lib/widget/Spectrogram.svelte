@@ -42,13 +42,13 @@
                                 type: 'line',
                                 yMin: 0, yMax: 10000,
                                 xMin: 600, xMax: 600,
-                                borderColor: 'rgba(256,0,0,0.25)',
+                                borderColor: 'rgba(256,0,0,0.75)',
                             },
                             rolloff : {
                                 type: 'line',
                                 yMin: 0, yMax: 10000,
                                 xMin: 0, xMax: 0,
-                                borderColor: 'rgba(0,0,256,0.25)'
+                                borderColor: 'rgba(0,0,256,0.75)'
                             }
                         }
                     },
@@ -113,7 +113,6 @@
             <option value={0}>Linear</option>
             <option value={1}>Logarthmic</option>
         </select>
-        <label for="scaling">spectrogram scaling</label>
     </form>
     <canvas id="vis" bind:this={canvas} />
 </div>
@@ -134,10 +133,6 @@
         display: flex;
         flex-direction: row;
         place-items: center;
-    }
-
-    label {
-        font-size: 12px;
     }
 
     #scaling {
