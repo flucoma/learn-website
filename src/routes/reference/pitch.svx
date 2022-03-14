@@ -8,4 +8,44 @@ flair: reference
 category: Analyse Sound
 ---
 
+<script>
+  import ResourceLink from '$lib/components/ResourceLink.svelte';
+  import Image from '$lib/components/Image.svelte';
+  import Audio from '$lib/components/Audio.svelte';
+</script>
 
+
+FluCoMa's Pitch object returns both pitch and confidence values. When no pitch can be detected, a pitch of 0 Hz is returned (or -999.0 when the unit is in MIDI note mode).
+
+The confidence output is a value between 0 and 1 indicating how confident the algorithm is _that there is_ a pitch. In effect this can be an estimation of how "noisy" (closer to 0) or "harmonic" (closer to 1) the spectrum is.
+
+<Image
+src='/ref/pitch/220304_123101_pitch.jpg'
+label='Pitch (blue) and confidence (orange) analyses for a series of trombone tones. Note how in the silences the pitch analysis is not stable, but also the confidence value is much lower.'
+/>
+<Audio
+src='/audio/trombone-m.mp3'
+label=''
+/>
+
+The Pitch object has three algorithms to choose from (by setting the `algorithm` parameter):
+
+0. **Cepstrum:** Returns a pitch estimate as the location of the second highest peak in the Cepstrum of the signal (after DC).
+1. **Harmonic Product Spectrum:** Implements the Harmonic Product Spectrum algorithm for pitch detection. See reference below.
+2. **YinFFT:** (the default) Implements the frequency domain version of the YIN algorithm. See reference below.
+
+The `unit` argument indicates whether the pitch output should be in hertz (indicated by 0) or MIDI note numbers (indicated by 1).
+
+## Related Resources
+
+<ResourceLink
+title='An Introduction to Audio Content Analysis: Applications in Signal Processing and Music Informatics.'
+url='https://onlinelibrary.wiley.com/doi/book/10.1002/9781118393550'
+blurb='Paper by A. Lerch describing the implementation of the Harmonic Product Spectrum algorithm'
+/>
+
+<ResourceLink
+title='Automatic Annotation of Musical Audio for Interactive Applications.'
+url='https://essentia.upf.edu/documentation/reference/streaming_PitchYinFFT.html'
+blurb='Paper by P. M. Brossier describing the implementation of the YIN algorithm'
+/>
