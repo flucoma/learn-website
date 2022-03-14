@@ -6,9 +6,10 @@ blurb: |
 tags: 
     - learning
     - teaching
-    - documentation
-    - mapping
+    - pitch
     - neural networks
+    - mapping
+    - buffers
 flair: podcast
 ---
 
@@ -35,17 +36,62 @@ url={'lV0NwPZQT5w'}
 
 ## Overview
 
-In this first episode of the FluCoMa podcast I talk to Dr. Freida Abtan. We talk about some of the projects she has worked on, and her approach to creative programming in general. She discusses how *computational* approaches can be found at the heart of her *artistic* practice, and what the concept of *reactive audio design* means for her. As well as being an artist, Freida is also an educator, and we discuss her ideas around the teaching, dissemination and learning of technologies such as those found in the FluCoMa tools.
+In this second episode of the FluCoMa podcast I talk with Jorrit Tamminga. We discuss his creative process and approach to musicking through some of his collaborations with people like Wim Henderickx and Erik Bosgraaf. We also discuss how he is beginning to incorporate some of the FluCoMa tools into his practice, and how he approaches the learning and teaching of computational techniques.
 
 ## Links
 
 Here are the links to some of the things that were discussed during the podcast:
 
-- Conservatorium van Amsterdam
+- [Conservatorium van Amsterdam](https://www.conservatoriumvanamsterdam.nl/).
 
-- UK Utrecht
+- [HK Utrecht](https://www.hku.nl/).
 
-- 2007 Festival Oude Muziek
+- 2007 [Festival Oude Muziek](http://www.oudemuziek.nl/).
 
-- ZX Spectrum
+- [ZX Spectrum](https://en.wikipedia.org/wiki/ZX_Spectrum).
 
+- *Empty Mind*, [Wim Henderickx](https://www.wimhenderickx.com/), Oboe and electronics. 
+
+<YouTube 
+url={'0MseJsOYy_E'}
+/>
+
+- [Antwerp symphony orchestra](https://www.antwerpsymphonyorchestra.be/).
+
+<YouTube 
+url={'nkkfvqESYIQ'}
+/>
+
+- [Champ d'Action ensemble](https://newaud.org/ensembles/champ-d%E2%80%99action).
+
+- [Chris Kiefer](https://profiles.sussex.ac.uk/p208667-chris-kiefer): [work for FluCoMa](/explore/eldridge-kiefer).
+
+- [Erik Bosgraaf](https://www.erikbosgraaf.com/).
+
+- *Dialogues* 
+
+<YouTube 
+url={'ZD5sRoTlCnE'}
+/>
+
+-  *Dialogue de l'ombre double*, Pierre Boulez
+
+<YouTube 
+url={'tRALrBqln8s'}
+/>
+
+- [Jacob van Eyck](https://en.wikipedia.org/wiki/Jacob_van_Eyck).
+
+<YouTube 
+url={'XWzZQUBut6g'}
+/>
+
+- Nick Collins' [SCMIR](https://composerprogrammer.com/research/scmir.pdf) (download [here](https://composerprogrammer.com/code.html)).
+
+- *Vox 5*, Trevor Wishart
+
+<YouTube 
+url={'y23kobWHs8M'}
+/>
+
+- [Rodrigo Constanzo](https://rodrigoconstanzo.com/): [Confetti](https://rodrigoconstanzo.com/confetti/).
