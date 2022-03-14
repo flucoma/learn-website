@@ -1,5 +1,5 @@
 ---
-title: "FluCoMa Podcast #01: Jorrit Tamminga"
+title: "FluCoMa Podcast #02: Jorrit Tamminga"
 artist: Jorrit Tamminga
 blurb: |
     The second episode of the FluCoMa podcast. Jacob Hart talks with creative coder and educator Jorrit Tamminga.
@@ -68,13 +68,13 @@ url={'nkkfvqESYIQ'}
 
 - [Erik Bosgraaf](https://www.erikbosgraaf.com/).
 
-- *Dialogues* 
+- *Dialogues*, Tamminga and Bosgraaf.
 
 <YouTube 
 url={'ZD5sRoTlCnE'}
 />
 
--  *Dialogue de l'ombre double*, Pierre Boulez
+-  *Dialogue de l'ombre double*, Pierre Boulez.
 
 <YouTube 
 url={'tRALrBqln8s'}
@@ -88,7 +88,7 @@ url={'XWzZQUBut6g'}
 
 - Nick Collins' [SCMIR](https://composerprogrammer.com/research/scmir.pdf) (download [here](https://composerprogrammer.com/code.html)).
 
-- *Vox 5*, Trevor Wishart
+- *Vox 5*, Trevor Wishart.
 
 <YouTube 
 url={'y23kobWHs8M'}
