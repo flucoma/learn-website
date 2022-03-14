@@ -1,0 +1,51 @@
+---
+title: "FluCoMa Podcast #01: Jorrit Tamminga"
+artist: Jorrit Tamminga
+blurb: |
+    The second episode of the FluCoMa podcast. Jacob Hart talks with creative coder and educator Jorrit Tamminga.
+tags: 
+    - learning
+    - teaching
+    - documentation
+    - mapping
+    - neural networks
+flair: podcast
+---
+
+<script>
+    import YouTube from '$lib/components/YouTube.svelte';
+    import ArtistCard from '$lib/components/mwf/ArtistCard.svelte';
+</script>
+
+<ArtistCard
+src = "/explore/tamminga/profile_pic.jpeg"
+name = "Jorrit Tamminga"
+website = "http://www.jorrittamminga.nl/?page_id=2"
+>
+<p slot="bio">
+Jorrit Tamminga studied Music & Technology at the Utrecht School of the Arts and at the Institute of Sonology at the Royal Conservatoire in The Hague. During both studies he focused on electronic composition, live electronics, spatialization and sound synthesis. His work sounds regularly in different settings all over the globe: in concert halls and venues (Madrid, Amsterdam, Berlin, Istanbul, Venice), festivals (Huddersfield, Murcia, Zürich, Stavanger), churches (Mechelen, Utrecht, Antwerp), on the streets, in factories (Goes, Twente) and from towers (New York, Kaunas, Almere).
+</p>
+</ArtistCard>
+
+## The Podcast
+
+<YouTube 
+url={'lV0NwPZQT5w'}
+/>
+
+## Overview
+
+In this first episode of the FluCoMa podcast I talk to Dr. Freida Abtan. We talk about some of the projects she has worked on, and her approach to creative programming in general. She discusses how *computational* approaches can be found at the heart of her *artistic* practice, and what the concept of *reactive audio design* means for her. As well as being an artist, Freida is also an educator, and we discuss her ideas around the teaching, dissemination and learning of technologies such as those found in the FluCoMa tools.
+
+## Links
+
+Here are the links to some of the things that were discussed during the podcast:
+
+- Conservatorium van Amsterdam
+
+- UK Utrecht
+
+- 2007 Festival Oude Muziek
+
+- ZX Spectrum
+
