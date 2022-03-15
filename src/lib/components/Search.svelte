@@ -62,7 +62,7 @@
 
 	let focusedEntry = -1;
 	let entries = [];
-	$: filteredResults = results.slice(0, 7).filter(x => x !== null);
+	$: filteredResults = results.slice(0, 8).filter(x => x !== null);
 	$: entries = entries.filter(x => x !== null);
 </script>
 
