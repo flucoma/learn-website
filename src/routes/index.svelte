@@ -145,52 +145,27 @@
             </div>
         </div> 
 
+        {#each learn_random_array as item, i}
+            <div class="img_container" style="grid-area: contentImg{i + 1};">
+                <div class='feature_image' style="background-image: url({item.feature.featuredimage || _.sample(learn_random_array[0].feature.images) || '/general/learn_default.jpeg' });"></div>
+            </div>
+        {/each}
 
+        {#each learn_random_array as item, i}
+            <div class='flaired-title' style="grid-area: contentTitle{i + 1};">
+                <div class="flair {item.flair}" />
+                <div>{item.title}</div>
+            </div>
+        {/each}
 
-        <div class="img_container" style="grid-area: contentImg1;">
-            <div class='feature_image' style="background-image: url({learn_random_array[0].feature.featuredimage || _.sample(learn_random_array[0].feature.images) || '/general/learn_default.jpeg' });"></div>
-        </div>
-
-        <div class="img_container" style="grid-area: contentImg2;">
-            <div class='feature_image' style="background-image: url({learn_random_array[1].feature.featuredimage || _.sample(learn_random_array[1].feature.images) || '/general/learn_default.jpeg' });"></div>
-        </div>
-
-        <div class="img_container" style="grid-area: contentImg3;">
-            <div class='feature_image' style="background-image: url({learn_random_array[2].feature.featuredimage || _.sample(learn_random_array[2].feature.images) || '/general/learn_default.jpeg' });"></div>
-        </div>
-
-        <div class='flaired-title' style="grid-area: contentTitle1;">
-            <div class="flair {learn_random_array[0].flair}" />
-            <div>{learn_random_array[0].title}</div>
-        </div>
-
-        <div class='flaired-title' style="grid-area: contentTitle2;">
-            <div class="flair {learn_random_array[1].flair}" />
-            <div>{learn_random_array[1].title}</div>
-        </div>
-
-        <div class='flaired-title' style="grid-area: contentTitle3;">
-            <div class="flair {learn_random_array[2].flair}" />
-            <div>{learn_random_array[2].title}</div>
-        </div>
-
-        <div class="learn_more_link" style="grid-area: contentLink1;">
-            <LearnMoreArrow 
-            link={learn_random_array[0].url}
-            />
-        </div>  
-
-        <div class="learn_more_link" style="grid-area: contentLink2;">
-            <LearnMoreArrow 
-            link={learn_random_array[1].url}
-            />
-        </div>  
-
-        <div class="learn_more_link" style="grid-area: contentLink3;">
-            <LearnMoreArrow 
-            link={learn_random_array[2].url}
-            />
-        </div>   
+        {#each learn_random_array as item, i}
+            <div class="learn_more_link" style="grid-area: contentLink{i + 1};">
+                <LearnMoreArrow 
+                link={item.url}
+                />
+            </div>  
+        {/each}
+        
     </div>
 
     <!--Explore Section-->
@@ -205,50 +180,27 @@
             />
         </div> 
 
-        <div class="img_container" style="grid-area: contentImg1;">
-            <div class='feature_image' style="background-image: url({explore_random_array[0].feature.featuredimage || _.sample(explore_random_array[0].feature.images) || '/general/explore_default.jpeg' });"></div>
-        </div>
+        {#each explore_random_array as item, i}
+            <div class="img_container" style="grid-area: contentImg{i + 1};">
+                <div class='feature_image' style="background-image: url({item.feature.featuredimage || _.sample(learn_random_array[0].feature.images) || '/general/learn_default.jpeg' });"></div>
+            </div>
+        {/each}
 
-        <div class="img_container" style="grid-area: contentImg2;">
-            <div class='feature_image' style="background-image: url({explore_random_array[1].feature.featuredimage || _.sample(explore_random_array[1].feature.images) || '/general/explore_default.jpeg' });"></div>
-        </div>
+        {#each explore_random_array as item, i}
+            <div class='flaired-title' style="grid-area: contentTitle{i + 1};">
+                <div class="flair {item.flair}" />
+                <div>{item.title}</div>
+            </div>
+        {/each}
 
-        <div class="img_container" style="grid-area: contentImg3;">
-            <div class='feature_image' style="background-image: url({explore_random_array[2].feature.featuredimage || _.sample(explore_random_array[2].feature.images) || '/general/explore_default.jpeg' });"></div>
-        </div>
+        {#each explore_random_array as item, i}
+            <div class="learn_more_link" style="grid-area: contentLink{i + 1};">
+                <LearnMoreArrow 
+                link={item.url}
+                />
+            </div>  
+        {/each}
 
-        <div class='flaired-title' style="grid-area: contentTitle1;">
-            <div class="flair {explore_random_array[0].flair}" />
-            <div>{explore_random_array[0].title}</div>
-        </div>
-
-        <div class='flaired-title' style="grid-area: contentTitle2;">
-            <div class="flair {explore_random_array[1].flair}" />
-            <div>{explore_random_array[1].title}</div>
-        </div>
-
-        <div class='flaired-title' style="grid-area: contentTitle3;">
-            <div class="flair {explore_random_array[2].flair}" />
-            <div>{explore_random_array[2].title}</div>
-        </div>
-
-        <div class="learn_more_link" style="grid-area: contentLink1;">
-            <LearnMoreArrow 
-            link={explore_random_array[0].url}
-            />
-        </div>  
-
-        <div class="learn_more_link" style="grid-area: contentLink2;">
-            <LearnMoreArrow 
-            link={explore_random_array[1].url}
-            />
-        </div>  
-
-        <div class="learn_more_link" style="grid-area: contentLink3;">
-            <LearnMoreArrow 
-            link={explore_random_array[2].url}
-            />
-        </div>   
     </div>
 
      <!--Reference Section-->
@@ -263,56 +215,24 @@
             />
         </div> 
 
-        <div class='flaired-title' style="grid-area: algoTitle1;">
-            <div class="flair {reference_random_array[0].flair}" />
-            <div>{reference_random_array[0].title}</div>
-        </div>
+        {#each reference_random_array as item, i}
+            <div class='flaired-title' style="grid-area: algoTitle{i + 1};">
+                <div class="flair {item.flair}" />
+                <div>{item.title}</div>
+            </div>
 
-        <div class="algo_blurb" style="grid-area: algoBlurb1;" >
-            <p>
-                {reference_random_array[0].blurb}
-            </p>
-        </div>
+            <div class="algo_blurb" style="grid-area: algoBlurb{i + 1};" >
+                <p>
+                    {item.blurb}
+                </p>
+            </div>
 
-        <div class="learn_more_link-algo" style="grid-area: contentLink1;">
-            <LearnMoreArrow 
-            link={reference_random_array[0].url}
-            />
-        </div>  
-
-        <div class='flaired-title' style="grid-area: algoTitle2;">
-            <div class="flair {reference_random_array[1].flair}" />
-            <div>{reference_random_array[1].title}</div>
-        </div>
-
-        <div class="algo_blurb" style="grid-area: algoBlurb2;" >
-            <p>
-                {reference_random_array[1].blurb}
-            </p>
-        </div>
-
-        <div class="learn_more_link-algo" style="grid-area: contentLink2;">
-            <LearnMoreArrow 
-            link={reference_random_array[1].url}
-            />
-        </div>  
-
-        <div class='flaired-title' style="grid-area: algoTitle3;">
-            <div class="flair {reference_random_array[2].flair}" />
-            <div>{reference_random_array[2].title}</div>
-        </div>
-
-        <div class="algo_blurb" style="grid-area: algoBlurb3;" >
-            <p>
-                {reference_random_array[2].blurb}
-            </p>
-        </div>
-
-        <div class="learn_more_link-algo" style="grid-area: contentLink3;">
-            <LearnMoreArrow 
-            link={reference_random_array[2].url}
-            />
-        </div> 
+            <div class="learn_more_link-algo" style="grid-area: contentLink{i + 1};">
+                <LearnMoreArrow 
+                link={item.url}
+                />
+            </div>  
+        {/each}
  
     </div>
 </div>
