@@ -44,7 +44,7 @@
 	.container {
 		display: grid;
 		grid-template-columns: auto min(var(--max-text-width), 100%) auto;
-		margin: 1em;
+		padding: 1em;
 	}
 	.crumbs {
 		font-size: 0.8rem;
