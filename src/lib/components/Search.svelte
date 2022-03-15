@@ -7,7 +7,7 @@
 	let query = '';
 	let searchBar;
 	let focused = false;
-	$: placeholder = focused ? 'Enter your search term' : 'Search';
+	$: placeholder = focused ? 'Enter your search term' : '?';
 	$: results = search(query);
 
 	function clickResult(link) {
@@ -120,11 +120,12 @@
 		width: var(--w);
 		position: relative;
 		z-index: 999;
+		align-items: center;
 	}
 	.query {
 		font-size: 1rem;
 		border-radius: var(--radius);
-		width: 90%;
+		width: 2ch;
 		height: 100%;
 		border: 0;
 		box-sizing: none;
@@ -132,6 +133,13 @@
 		padding: 0.25em;
 		border: 2px solid transparent; /* visually hiden so no extra movement */
 		transition: border cubic-bezier(0.075, 0.82, 0.165, 1) 300ms;
+		transition: width linear 50ms;
+		text-align: center;
+	}
+	.query:focus {
+		width: 90%;
+		text-align: left;
+		padding-left: 0.5em;
 	}
 	.query:hover {
 		border: 2px solid var(--light-blue)
