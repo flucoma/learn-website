@@ -45,7 +45,7 @@ transition:fly={{ duration:200, y:0, x:-200 }}
 		width: min(300px, 50%);
 		height: 100vh;
 		text-align: left;
-		padding: 2em;
+		padding: 1em 2em;
 		z-index: 99;
 	}
 
