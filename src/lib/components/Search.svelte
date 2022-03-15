@@ -139,7 +139,7 @@
 		flex-direction: column;
 		position: absolute;
 		right: -1em;
-		width: 400px;
+		width: min(90vw, 400px);
 		padding: 0.25em;
 		background: rgb(255, 255, 255, 1);
 		border: 1px solid hsl(240, 5%, 50%);
