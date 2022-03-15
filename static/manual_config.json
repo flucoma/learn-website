@@ -1,39 +1,15 @@
 {
-
     "front_page" : {
-
         "featured_learn" : {
-
             "url" : "/learn/2d-corpus-explorer"
-
         },
-
         "featured_explore" : {
-
             "url" : "/explore/constanzo"
-
         },
-
         "featured_video" : {
-
             "url" : "6p_R2pVSMVg",
             "title" : "Liminal Spaces Concert",
             "blurb" : "The second FluCoMa gig happened at Dialogues Festival 2021 in sunny Edinburgh."
-
-        },
-
-        "code" : {
-
-            "name" : "Onset slicing",
-            "desc" : "Use fluid.onsetslice to detect onsets in a piece of audio and create a new corpus of sounds from those slices!",
-            "max_string" : "<pre><code>\n----------begin_max5_patcher----------\n3489.3oc6bs0caaiD9Y6eEbU2G1cqkLAA3stuT6bq4rM4jtts4g183CEIjDp\noH0gjxWZOM+12A.jTjhWkrnhSON4DYG.RhY9vLCFf4S7ON8jQSCumFOR4aT9",
-            "sc_string" : "(\n//prep some buffers\nb = Buffer.read(s,FluidFilesPath(\"Nicol-LoopE-M.wav\"));\nc = Buffer.new(s);\n)",
-            "pd_string" : "<pre><code>\n----------begin_max5_patcher----------\n3489.3oc6bs0caaiD9Y6eEbU2G1cqkLAA3stuT6bq4rM4jtts4g183CEIjDp\noH0gjxWZOM+12A.jTjhWkrnhSON4DYG.RhY9vLCFf4S7ON8jQSCumFOR4aT9\n3489.3oc6bs0caaiD9Y6eEbU2G1cqkLAA3stuT6bq4rM4jtts4g183CEIjDp\noH0gjxWZOM+12A.jTjhWkrnhSON4DYG.RhY9vLCFf4S7ON8jQSCumFOR4aT9\n3489.3oc6bs0caaiD9Y6eEbU2G1cqkLAA3stuT6bq4rM4jtts4g183CEIjDp\noH0gjxWZOM+12A.jTjhWkrnhSON4DYG.RhY9vLCFf4S7ON8jQSCumFOR4aT9",
-            "video_url" : "lbVdyPZiOLM"
-
-
         }
-
     }
-
 }
