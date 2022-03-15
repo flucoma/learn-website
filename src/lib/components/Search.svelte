@@ -122,20 +122,24 @@
 	.query {
 		font-size: 1rem;
 		border-radius: var(--radius);
-		padding: var(--search-pad);
 		width: 90%;
-		height: 5px;
+		height: 100%;
 		border: 0;
 		box-sizing: none;
 		border-radius: 2rem;
-		outline: 0;
+		padding: 0.25em;
+		border: 2px solid transparent; /* visually hiden so no extra movement */
+		transition: border cubic-bezier(0.075, 0.82, 0.165, 1) 300ms;
+	}
+	.query:hover {
+		border: 2px solid var(--light-blue)
 	}
 	.results {
 		display: flex;
 		flex-direction: column;
 		position: absolute;
 		right: -1em;
-		width: 300px;
+		width: 400px;
 		padding: 0.25em;
 		background: rgb(255, 255, 255, 1);
 		border: 1px solid hsl(240, 5%, 50%);
