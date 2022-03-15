@@ -5,4 +5,27 @@ blurb: |
 tags: 
     - archive
 flair: article
+featuredimage: /general/explore_default.jpeg
 ---
+
+<script>
+    import Archive from '$lib/components/Archive.svelte';
+</script>
+
+## Commissions
+
+<Archive
+section_name = {"commissions"}
+/>
+
+## Pieces
+
+<Archive
+section_name = {"pieces"}
+/>
+
+## Software
+
+<Archive
+section_name = {"software"}
+/>
