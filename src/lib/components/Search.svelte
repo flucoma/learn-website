@@ -4,8 +4,8 @@
 	import { goto } from '$app/navigation';
 	import Flair from '$lib/components/Flair.svelte';
 
-	let query = '';
 	let searchBar;
+	let query = '';
 	let focused = false;
 	$: placeholder = focused ? 'Enter your search term' : 'Search';
 	$: results = search(query);
@@ -36,7 +36,9 @@
 
 	function keyDown(e) {
 		if (e.key === '/' && e.metaKey) {
+			e.preventDefault();
 			focusSearch()
+			searchBar.focus();
 		}
 
 		if (e.key === 'ArrowUp') {
