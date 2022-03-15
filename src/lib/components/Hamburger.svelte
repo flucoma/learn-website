@@ -1,11 +1,8 @@
 <script>
 	import { createEventDispatcher } from 'svelte';
-
 	const dispatch = createEventDispatcher();
 
-	function doStuff() {
-		dispatch('click');
-	}
+	function doStuff() { dispatch('click') };
 </script>
 
 <button on:click={doStuff} class="btn">
@@ -21,9 +18,11 @@
 		background: transparent;
 		outline: none;
 		border: none;
+		padding: 0;
 	}
 	svg {
-		min-height: 24px;
+		min-width: 24;
+		min-height: 20;
 		background: none;
 		transition: transform 0.3s ease-in-out;
 	}
