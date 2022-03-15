@@ -88,8 +88,6 @@
             </div>  
         </div>
 
-        
-
         <div class="row_featured_article" style="grid-area: featuredArticle2;">
             <div class='feature_image' style="background-image: url({rng_explore.feature.featuredimage || _.sample(rng_explore.feature.images) || '/general/explore_default.jpeg' });"></div>
         
@@ -140,10 +138,14 @@
         </h2>
 
         <div class="learn_more_link-section" style="grid-area: sectionLearnMore;">
-            <LearnMoreArrow 
-            link="/learn"
-            />
+            <div >
+                <LearnMoreArrow 
+                link="/learn"
+                />
+            </div>
         </div> 
+
+
 
         <div class="img_container" style="grid-area: contentImg1;">
             <div class='feature_image' style="background-image: url({learn_random_array[0].feature.featuredimage || _.sample(learn_random_array[0].feature.images) || '/general/learn_default.jpeg' });"></div>
@@ -252,7 +254,7 @@
      <!--Reference Section-->
      <div class="algos_row">
         <h2 class="row_title_lower">
-            Some Random Algorithms...
+            Discover an Algorithm
         </h2>
 
         <div class="learn_more_link-section" style="grid-area: sectionLearnMore;">
@@ -272,7 +274,7 @@
             </p>
         </div>
 
-        <div class="learn_more_link" style="grid-area: contentLink1;">
+        <div class="learn_more_link-algo" style="grid-area: contentLink1;">
             <LearnMoreArrow 
             link={reference_random_array[0].url}
             />
@@ -289,7 +291,7 @@
             </p>
         </div>
 
-        <div class="learn_more_link" style="grid-area: contentLink2;">
+        <div class="learn_more_link-algo" style="grid-area: contentLink2;">
             <LearnMoreArrow 
             link={reference_random_array[1].url}
             />
@@ -306,7 +308,7 @@
             </p>
         </div>
 
-        <div class="learn_more_link" style="grid-area: contentLink3;">
+        <div class="learn_more_link-algo" style="grid-area: contentLink3;">
             <LearnMoreArrow 
             link={reference_random_array[2].url}
             />
@@ -428,11 +430,19 @@
         padding: 0em 0em 0em 0.75em;
     }
 
+    .learn_more_link-algo{
+        padding: 0.75em 0.75em 0em 0.75em;
+        align-self: center;
+        justify-self: end; 
+        justify-content: end;
+    }
+
     .learn_more_link-section{
         padding: 0.75em 0.75em 0em 0.75em;
-        width: 100%;
         justify-self: end;
         align-self: center;
+        justify-self: end; 
+        justify-content: end;
     }
 
     .feature_image {
@@ -493,6 +503,13 @@
         "algoTitle2 algoBlurb2 contentLink2"
         "algoTitle3 algoBlurb3 contentLink3";
         }
+
+        .learn_more_link-algo{
+        padding: 0.75em 0.75em 0em 0.75em;
+        align-self: center;
+        justify-self: end; 
+        justify-content: end;
+    }
 	}
 
 	@media (max-width: 1200px) {
@@ -534,6 +551,13 @@
         "algoBlurb3 algoBlurb3"
         "contentLink3 contentLink3";
         }
+
+        .learn_more_link-algo{
+        padding: 0em 0.75em 0.75em 0.75em;
+        align-self: center;
+        justify-self: left; 
+        justify-content: left;
+    }
 
 	}
 
