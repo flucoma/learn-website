@@ -6,6 +6,8 @@ import c from '../../static/crumbs.json';
 import e from '../../static/edits.json';
 import s from '../../static/structure.json';
 import database from '../../static/db.json';
+import commissions from '../../static/www-data/commissions.json';
+import made_with from '../../static/www-data/made-with.json';
 
 // interface state
 export const nav_expanded = writable(false);
@@ -45,5 +47,10 @@ const search = new FuzzySearch(docs, ['title', 'tags', 'flair', 'artist', 'blurb
 	sort: true
 });
 
+const madewithdata = {}
+madewithdata["commissions"] = commissions
+madewithdata["pieces"] = made_with["music"]
+madewithdata["software"] = made_with["software"]
+
 const db = search;
-export { db, docs };
+export { db, docs, madewithdata };

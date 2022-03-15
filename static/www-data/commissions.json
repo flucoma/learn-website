@@ -1,0 +1,63 @@
+{
+    "first":[
+        {
+          "by":"Lauren Hayes",
+          "site": "https://laurensarahhayes.com/",
+          "title": "Moon via Spirit",
+          "url": "https://youtu.be/BzSRs_7S9cg",
+          "note":"My work as an improviser has been necessarily and profoundly influenced by playing music together with people in various scenarios ranging from the conservatoire to the primary school classroom; the family home to the day care centre; the stage to the lecture theatre; the hospital to the party; and the national park to the mine shaft. This improvisation is the culmination of these lived encounters, where in each case I have found more or less tolerance for ambiguity and risk taking, more or less exchange of ideas, and more or less openness to curiosity and the welcoming of new possibilities. While hybrid analogue/digital technology has been my means of exploring and sculpting sound, it is in these shared collective experiences that new modes of being and creating have truly been nourished."
+        },
+        {
+          "by":"Leafcutter John",
+          "site": "http://leafcutterjohn.com/",
+          "title": "Line Crossing",
+          "url": "https://youtu.be/hYaZq1JCTQo",
+          "note":"Line Crossing takes ideas commonly associated with generative visual art and applies them to the performance of musical material. Using a simple set of behaviours a graphical score is generated and used to control the playback and manipulation of sounds created by the performer. These sounds influence the score creation in real time which in turn affect the sonic output of the system creating an unpredictable feedback loop. "
+        },
+        {
+          "by":"Olivier Pasquet",
+          "site": "https://www.opasquet.fr/",
+          "title": "Herbig-Haro (HH)",
+          "url": "https://youtu.be/qqR_gORRwRA",
+          "note":"Man is dust only, the feather duster is held by himself. This thought points up many subjective inner convolutions like Kurt Gödel’s incompleteness theorem. These loops also matter beyond science and entail self-consciousness into existence. Herbig–Haro, HH, immerses the audience into a rhythmic dust storm. Particles aggregate together making a central sonic sculpture. Individual listeners are free to move around and hear different perspectives. This intangible generated object, made of moiré patterns, manipulates millions of grains set together according to sonic characteristics."
+        },
+        {
+          "by":"Rodrigo Constanzo",
+          "site":"http://www.rodrigoconstanzo.com/",
+          "title": "Kaizo Snare",
+          "url": "https://youtu.be/MTWklm1oXWQ",
+          "note":"A solo improvisation on drums and electronics, using old and new software instruments to expand an already expanded drum set."
+        }
+    ],
+    "second":[{
+      "by":"Alex Harker",
+      "site": "http://www.alexanderjharker.co.uk",
+      "title": "Drift Shadow",
+      "url": "https://youtu.be/xdygL-zm3j8?t=2710",
+      "note":"Here the oboe conjures up a world of fragile unstable textures, complex timbres and noise. The live player is continuously shadowed by the electronics, which seek to follow her moves through a set of open areas for exploration, stretching out fleeting moments into dense masses of sound. I am indebted to Niamh Dell for her generosity of time and spirit on this project."
+    },{
+      "by":"Alice Eldridge & Chris Kiefer",
+      "site": "https://www.feedbackcell.info/",
+      "title": "feedbackfeedforward",
+      "url": "https://youtu.be/xdygL-zm3j8?t=1015",
+      "note":"Feedback Cell is the open-ended experimental luthiary and performance project of Chris Kiefer and Alice Eldridge. The project develops Feedback Musicianship through iteratively making, playing, measuring, and thinking about feedback resonator instruments. Feedback cellos are made from hacked acoustic cellos, custom fitted with pick-ups, built-in speakers and on-body transducers, analogue and digital processing to create instruments that self-resonate."
+    },{
+      "by":"Hans Tutschku",
+      "site": "https://www.tutschku.com",
+      "title": "Sparks",
+      "url": "https://youtu.be/xdygL-zm3j8?t=4551",
+      "note":"Sparks is the next step in my 30 years of investigating the relationship between piano and live-electronics - immersive - fast - trying out the limits. The score oscillates between exact indications in traditional notation and moments of interpretative freedom. The live electronics generate musical textures and responses to the piano part in real-time without relying on pre-produced phrases. The sounds and spatial configurations are driven by the way the pianist is interpreting the score. And in the more elastic time moments, the pianist is invited to make decisions based on what the electronics are producing at that moment. I'm hoping for a two-way interaction between both."
+    },{
+      "by":"Richard Devine",
+      "site": "https://www.devinesound.net",
+      "title": "Recursion Constructors",
+      "url": "https://youtu.be/xdygL-zm3j8?t=5543",
+      "note":"Richard performs an acousmatic piece, utilizing mixed media which comprises a customized modular system with robotic triggers, mechanical springs, coils, exotic metallic percussion, and waterphone, from his studio in Atlanta GA."
+    },{
+      "by":"Sam Pluta",
+      "site": "http://sampluta.com/",
+      "title": "Neural Duo I & II",
+      "url": "https://youtu.be/xdygL-zm3j8?t=1908",
+      "note":"This improvised work is an extension of Evans and Pluta’s decade-plus making music together as a duo. A commission from the FluCoMa project, the electronics focus on Pluta’s Neural Network Synths, a system of high dimensional synthesis algorithms that are controlled with traditional controllers via neural networks found in the FluCoMa project."
+    }]
+  }
