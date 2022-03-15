@@ -182,7 +182,7 @@
 
         {#each explore_random_array as item, i}
             <div class="img_container" style="grid-area: contentImg{i + 1};">
-                <div class='feature_image' style="background-image: url({item.feature.featuredimage || _.sample(learn_random_array[0].feature.images) || '/general/learn_default.jpeg' });"></div>
+                <div class='feature_image' style="background-image: url({item.feature.featuredimage || _.sample(learn_random_array[0].feature.images) || '/general/explore_default.jpeg' });"></div>
             </div>
         {/each}
 
