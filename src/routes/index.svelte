@@ -133,7 +133,7 @@
     
     <!--Learn Section-->
     <div class="row_parent">
-        <h2 class="row_title">
+        <h2 class="row_title_lower">
             Previously Featured: Learn
         </h2>
 
@@ -183,7 +183,7 @@
 
     <!--Explore Section-->
     <div class="row_parent">
-        <h2 class="row_title">
+        <h2 class="row_title_lower">
             Previously Featured: Explore
         </h2>
 
@@ -233,7 +233,7 @@
 
      <!--Reference Section-->
      <div class="algos_row">
-        <h2 class="row_title">
+        <h2 class="row_title_lower">
             Some Random Algorithms...
         </h2>
 
@@ -291,6 +291,7 @@
 
 <style>
 
+    /*Main div*/
     .main_wrapper{
         margin-left: 1em;
 		margin-right: 1em;
@@ -305,10 +306,8 @@
         "featuredTitle featuredTitle"
         "featuredArticle1 featuredVideo"
         "featuredArticle2 featuredVideo";
-
         max-width: 80%;
         margin: 0 auto;
-        /*margin-top: 1em;*/
         margin-bottom: 5em;
         grid-gap : 1em;
     }
@@ -362,12 +361,18 @@
         margin: 0 auto;
         margin-bottom: 5em;
         grid-gap : 1em;
-
         grid-template-areas: 
         "featuredTitle featuredTitle sectionLearnMore"
         "contentImg1 contentImg2 contentImg3"
         "contentTitle1 contentTitle2 contentTitle3"
         "contentLink1 contentLink2 contentLink3";
+    }
+
+    .row_title_lower{
+        grid-area: featuredTitle;
+        padding: 0.75em 0.75em 0em 0.5em;
+        margin-top: 0em;
+        margin-bottom: 0em;
     }
 
     .img_container{
@@ -423,7 +428,6 @@
         margin: 0 auto;
         margin-bottom: 5em;
         grid-gap : 1em;
-
         grid-template-areas: 
         "featuredTitle featuredTitle sectionLearnMore"
         "algoTitle1 algoBlurb1 contentLink1"
@@ -436,7 +440,7 @@
         font-style: italic;
     }
 
-    /*Screen size stuff*/
+    /*Screen resizing stuff*/
     @media (min-width: 1200px) {
 		.row_featured {
 			grid-template-columns: repeat(2, 1fr);
@@ -507,7 +511,7 @@
 
 	}
 
-    /* The intro and get involved text like elements*/
+    /* Top introductiory text*/
     .full_text_container{
         padding: 3em 0.75em 0.75em 0.75em;
         margin-bottom: 0.5em;
@@ -520,7 +524,7 @@
         text-align: center;
     }
 
-    /* Coloured oxes for flairs */
+    /* Coloured boxes for flairs */
     .flair {
         width: 10px;
         height: 10px;
