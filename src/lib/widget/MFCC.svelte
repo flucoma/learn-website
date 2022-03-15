@@ -1,11 +1,18 @@
 <script>
     import BipolarSlider from '$lib/components/BipolarSlider.svelte';
-    let v = 0;
-    const slider = {
-      min: -80,
-      max: 80,
-      step: 1
-    }
+    let values = Array(13).fill(0);
+    const slider = {min: -80, max: 80, step: 1}
 </script>
 
-<BipolarSlider {...slider} bind:value={v}/>
+<div class="multislider">
+  {#each Array(13) as _, i}
+  <BipolarSlider {...slider} bind:value={values[i]}/>
+  {/each}
+</div>
+
+<style>
+  .multislider {
+    display: flex;
+    flex-direction: row;
+  }
+</style>

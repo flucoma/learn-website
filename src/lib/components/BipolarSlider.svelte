@@ -19,11 +19,15 @@
     $: thumb_y = (
         clip(scale(value, [max, min], [0, bar_height]), 0, bar_height - thumb_height)
     )
-
-    $: fill_height = scale(value, [max, min], [0, bar_height])
-    $: fill_y = thumb_y >= bar_height/2 ?
-        
-            
+    // scale(value, [max, min], [0, bar_height])
+    $: fill_height = thumb_y <= bar_height/2 ?
+        bar_height/2 - thumb_y :
+        thumb_y - bar_height/2
+    $: fill_y = thumb_y <= bar_height/2 ?
+        fill_y = thumb_y :
+        fill_y = bar_height/2
+    // if thumb_y is above half, then the fill_y changes with the thumb and the rest is filled
+    // if thumb_y is below half, then the fill_y stays at half, and the fill changes
     const move = (e) => {
         rect = bar.getBoundingClientRect();
         if (down) {
@@ -63,7 +67,7 @@ on:touchend={ handle_touchend }
 />
 
 <div 
-class="container">
+class="container nodrag">
     <svg
     on:mousedown={ handle_controldown }
     on:touchstart={ handle_controldown }
@@ -99,7 +103,7 @@ class="container">
         background-color: white;
         stroke-width: 1px;
         stroke: black;
-        outline: 1px solid rgb(136, 136, 136);
+        /* outline: 1px solid rgb(136, 136, 136); */
     }
 
     rect {

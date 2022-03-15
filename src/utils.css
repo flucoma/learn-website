@@ -31,3 +31,12 @@
 .raisedbox, .raisedbox:hover {
     transition: box-shadow 200ms ease-in-out;
 }
+
+.nodrag {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
