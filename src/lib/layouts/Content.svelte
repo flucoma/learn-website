@@ -37,10 +37,7 @@
     .wrapper {
 		display: grid;
 		justify-content: center;
-		margin-left: 1em;
-		margin-right: 1em;
-		margin-bottom: 1em;
-		flex: 1 0 auto;
+        margin: 0 1em;
 	}
 
 	@media (min-width: 1200px) {
