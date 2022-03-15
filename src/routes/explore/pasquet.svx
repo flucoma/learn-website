@@ -42,7 +42,7 @@ Download the demonstration patches for this article <a href='/explore/pasquet/Ol
 </IndentNote>
 
 Today we’ll be looking at some of the work that Olivier Pasquet did using the FluCoMa tools.
-His piece, *Herbig-Haro*, was performed at the [first FluCoMa gig](/explore/reactive-flows) at [HCMF](https://hcmf.co.uk/) 2019.
+His piece, *Herbig-Haro*, was performed at the [first FluCoMa gig](https://www.flucoma.org/commissions/) at [HCMF](https://hcmf.co.uk/) 2019.
 Compared to the other performances – which all featured the musician centre-stage with lights focused on them – his felt much more like an installation.
 The room was plunged into darkness, Pasquet was barely visible at the back of the stage, discreetly sat behind a laptop.
 The audience was engulfed in the music: thick bass tones and high, scraping clicks were spatialised across the loudspeakers around the whole performance area; spotlights placed around the space were mapped to flicker on various clicks, pulling the listener into the overarching rhythms that seemed to drive the chaotic material.
