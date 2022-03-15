@@ -14,11 +14,15 @@ featuredimage: /general/explore_default.jpeg
 
 ## Commissions
 
+There are two sets of commissions as part of the project, in order to ensure that the tools and ideas are subjected to some serious early interrogation from outside the team. The first wave of commissions worked with alpha versions of our first toolkit, and presented their work in autumn 2019. The second wave are working with alpha versions of the second toolkit, and are due to present their work early in 2021.
+
 <Archive
 section_name = {"commissions"}
 />
 
 ## Pieces
+
+Below are pieces of music and software that have made use of the FluCoMa tools, in additions to the official project commissions. Interrogating our design choices through early creative, practical use is integral to the project, and we are very excited that people outside the project team have started to use the tools for their own work. If you've used them, and would like your project to appear here, let us know on the forum.
 
 <Archive
 section_name = {"pieces"}
