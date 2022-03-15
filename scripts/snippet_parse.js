@@ -16,6 +16,8 @@ glob('static/snippets/*', (err, routes) => {
             "meta_data" : meta_data
         }
 
+        this_entry["meta_data"]["folder"] = route.split('/')[route.split('/').length - 1]
+
         code_files.forEach((file) => {
             var file_data = fs.readFileSync(file, 'utf8');
             this_entry[file.replace(/^.*[\\\/]/, '').split('.')[0]] = file_data
