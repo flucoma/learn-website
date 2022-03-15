@@ -1,0 +1,43 @@
+// Create a simple a one-dimensional data set, three ways
+// Using routine
+s.reboot;
+(
+fork{
+    ~ds = FluidDataSet.new(s);
+    ~point = Buffer.alloc(s,1,1);
+    s.sync;
+    10.do{|i|
+        ~point.set(0,i);
+        ~ds.addPoint(i.asString,~point,{("addPoint"+i).postln});
+        s.sync;
+    };
+    ~ds.dump;
+    s.sync;
+    ~ds.free;
+};
+)
+
+//Using Dictionary
+(
+d = Dictionary.new;
+d.add(\cols -> 1);
+d.add(\data -> Dictionary.newFrom(10.collect{|i|[i.asString, [i.asFloat]]}.flatten));
+fork{
+    ~ds = FluidDataSet.new(s);
+    ~ds.load(d); s.sync;
+    ~ds.dump; s.sync; ~ds.free;
+}
+)
+
+// Using a synth
+(
+~ds = FluidDataSet.new(s);
+{
+    var trig = Impulse.kr(20);
+    var count = PulseCount.kr(trig) - 1;
+    var buf = LocalBuf(1);
+    BufWr.kr(count, buf);
+    FluidDataSetWr.kr(~ds.asUGenInput, idNumber: count, buf: buf, trig: trig);
+    FreeSelf.kr(count - 8);
+}.play.onFree{~ds.dump{|o| o.postln;~ds.free}}
+)

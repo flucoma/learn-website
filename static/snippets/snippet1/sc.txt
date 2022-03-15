@@ -1,0 +1,75 @@
+//create a monitoring window for the values
+
+(
+b = Bus.new(\control,0,13);
+w = Window("MFCCs Monitor", Rect(10, 10, 420, 320)).front;
+a = MultiSliderView(w,Rect(10, 10, 400, 300)).elasticMode_(1).isFilled_(1);
+a.reference_(Array.fill(13,{0.5})); //make a center line to show 0
+)
+
+//run the window updating routine.
+(
+~winRange = 20;
+
+r = Routine {
+    {
+        b.get({ arg val;
+            {
+                if(w.isClosed.not) {
+                    //val.postln;
+                    a.value = val.linlin(~winRange.neg,~winRange,0,1);
+                }
+            }.defer
+        });
+        0.01.wait;
+    }.loop
+}.play
+)
+
+//play a simple sound to observe the values
+(
+x = {arg type = 0;
+    var source = Select.ar(type,[SinOsc.ar(220),Saw.ar(220),Pulse.ar(220)]) * LFTri.kr(0.1).exprange(0.01,0.1);
+    Out.kr(b,FluidMFCC.kr(source,maxNumCoeffs:13));
+    source.dup;
+}.play;
+)
+
+// change the wave types, observe the amplitude invariance of the descriptors, apart from the leftmost coefficient
+x.set(\type, 1)
+~winRange = 40; //adjust the range above and below 0 to zoom in or out on the MFCC
+x.set(\type, 2)
+x.set(\type, 0)
+// free this source
+x.free
+
+// load a more exciting one
+c = Buffer.read(s,FluidFilesPath("Tremblay-AaS-SynthTwoVoices-M.wav"));
+
+// analyse with parameters to be changed
+(
+x = {arg bands = 40, low = 20, high = 20000;
+    var source = PlayBuf.ar(1,c,loop:1);
+    Out.kr(b,FluidMFCC.kr(source, numCoeffs: 13, numBands: bands, minFreq: low, maxFreq: high, maxNumCoeffs: 13) / 10);
+    source.dup;
+}.play;
+)
+~winRange = 10; //adjust the range above and below 0 to zoom in or out on the MFCC
+
+// observe the number of bands. The unused ones at the top are not updated
+x.set(\bands,20)
+
+// back to the full range
+x.set(\bands,40)
+
+// focus all the bands on a mid range
+x.set(\low,320, \high, 800)
+
+// focusing on the low end shows the fft resolution issue. One could restart the analysis with a larger fft to show more precision
+x.set(\low,20, \high, 160)
+
+// back to full range
+x.set(\low,20, \high, 20000)
+
+// free everything
+x.free;b.free;c.free;r.stop;
