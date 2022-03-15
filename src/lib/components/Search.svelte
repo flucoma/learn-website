@@ -1,5 +1,5 @@
 <script>
-	import { db } from '$lib/app';
+	import { db, blur } from '$lib/app';
 	import { wrap } from '$lib/util';
 	import { goto } from '$app/navigation';
 	import Flair from '$lib/components/Flair.svelte';
@@ -21,10 +21,12 @@
 
 	function blurSearch() {
 		focused = false;
+		$blur = false;
 	}
 
 	function focusSearch() {
 		focused = true;
+		$blur = true;
 	}
 
 	function updateFocus() {
@@ -117,7 +119,7 @@
 	.search {
 		width: var(--w);
 		position: relative;
-		z-index: 2;
+		z-index: 999;
 	}
 	.query {
 		font-size: 1rem;

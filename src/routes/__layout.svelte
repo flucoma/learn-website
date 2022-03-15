@@ -4,7 +4,7 @@
 	import Footer from '$lib/Footer.svelte';
 	import Crumbs from '$lib/components/Crumbs.svelte';
 	import { fly } from 'svelte/transition';
-	import { nav_expanded } from '$lib/app';
+	import { nav_expanded, blur } from '$lib/app';
 
 	const scroll = (e) => {
 		if ($nav_expanded) {
@@ -21,7 +21,7 @@
 
 <svelte:body class:noscroll={ $nav_expanded === true } on:mousewheel|nonpassive={scroll} />
 
-{#if $nav_expanded}
+{#if $nav_expanded || $blur}
 <div transition:fly={{duration:200}} class="overlay" on:click={ () => { $nav_expanded = false }}></div>
 {/if}
 
