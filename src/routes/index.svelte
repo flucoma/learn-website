@@ -2,7 +2,7 @@
     import { docs } from '$lib/app.js';
     import { manual_config } from '$lib/app.js';
     import _ from 'lodash';
-    import ArrowRight from '$lib/components/ArrowRight.svelte';
+    import LearnMoreArrow from '$lib/components/LearnMoreArrow.svelte';
 
     var learn = docs.filter(x => x.section === 'learn');
     var explore = docs.filter(x => x.section === 'explore');
@@ -16,8 +16,6 @@
     const learn_random_array = get_random_elements(learn, 3);
     const explore_random_array = get_random_elements(explore, 3);
     const reference_random_array = get_random_elements(reference, 3);
-
-    const featured_code = manual_config.front_page.code;
 
     function get_random_elements(search_array, num_entries){
         // Build an array of three random entries.
@@ -83,9 +81,11 @@
                 <div>Learn: {rng_learn.title}</div>
             </div>
 
-            <a class="learn_more_link-featured" href={rng_learn.url}>
-                Learn More <ArrowRight />
-            </a>  
+            <div class="learn_more_link-featured">
+                <LearnMoreArrow 
+                link={rng_learn.url}
+                />
+            </div>  
         </div>
 
         
@@ -98,9 +98,11 @@
                 <div>Explore: {rng_explore.title}</div>
             </div>
 
-            <a class="learn_more_link-featured" href={rng_explore.url}>
-                Learn More <ArrowRight />
-            </a> 
+            <div class="learn_more_link-featured">
+                <LearnMoreArrow 
+                link={rng_explore.url}
+                />
+            </div> 
         </div>
 
 
@@ -137,9 +139,11 @@
             Previously Featured: Learn
         </h2>
 
-        <a class="learn_more_link-section" style="grid-area: sectionLearnMore;" href="/learn">
-            More <ArrowRight />
-        </a> 
+        <div class="learn_more_link-section" style="grid-area: sectionLearnMore;">
+            <LearnMoreArrow 
+            link="/learn"
+            />
+        </div> 
 
         <div class="img_container" style="grid-area: contentImg1;">
             <div class='feature_image' style="background-image: url({learn_random_array[0].feature.featuredimage || _.sample(learn_random_array[0].feature.images) || '/general/learn_default.jpeg' });"></div>
@@ -168,17 +172,23 @@
             <div>{learn_random_array[2].title}</div>
         </div>
 
-        <a class="learn_more_link" style="grid-area: contentLink1;" href={learn_random_array[0].url}>
-            Learn More <ArrowRight />
-        </a>  
+        <div class="learn_more_link" style="grid-area: contentLink1;">
+            <LearnMoreArrow 
+            link={learn_random_array[0].url}
+            />
+        </div>  
 
-        <a class="learn_more_link" style="grid-area: contentLink2;" href={learn_random_array[1].url}>
-            Learn More <ArrowRight />
-        </a>  
+        <div class="learn_more_link" style="grid-area: contentLink2;">
+            <LearnMoreArrow 
+            link={learn_random_array[1].url}
+            />
+        </div>  
 
-        <a class="learn_more_link" style="grid-area: contentLink3;" href={learn_random_array[2].url}>
-            Learn More <ArrowRight />
-        </a>   
+        <div class="learn_more_link" style="grid-area: contentLink3;">
+            <LearnMoreArrow 
+            link={learn_random_array[2].url}
+            />
+        </div>   
     </div>
 
     <!--Explore Section-->
@@ -187,9 +197,11 @@
             Previously Featured: Explore
         </h2>
 
-        <a class="learn_more_link-section" style="grid-area: sectionLearnMore;" href="/explore">
-            More <ArrowRight />
-        </a> 
+        <div class="learn_more_link-section" style="grid-area: sectionLearnMore;">
+            <LearnMoreArrow 
+            link="/explore"
+            />
+        </div> 
 
         <div class="img_container" style="grid-area: contentImg1;">
             <div class='feature_image' style="background-image: url({explore_random_array[0].feature.featuredimage || _.sample(explore_random_array[0].feature.images) || '/general/explore_default.jpeg' });"></div>
@@ -218,17 +230,23 @@
             <div>{explore_random_array[2].title}</div>
         </div>
 
-        <a class="learn_more_link" style="grid-area: contentLink1;" href={explore_random_array[0].url}>
-            Learn More <ArrowRight />
-        </a>  
+        <div class="learn_more_link" style="grid-area: contentLink1;">
+            <LearnMoreArrow 
+            link={explore_random_array[0].url}
+            />
+        </div>  
 
-        <a class="learn_more_link" style="grid-area: contentLink2;" href={explore_random_array[1].url}>
-            Learn More <ArrowRight />
-        </a>  
+        <div class="learn_more_link" style="grid-area: contentLink2;">
+            <LearnMoreArrow 
+            link={explore_random_array[1].url}
+            />
+        </div>  
 
-        <a class="learn_more_link" style="grid-area: contentLink3;" href={explore_random_array[2].url}>
-            Learn More <ArrowRight />
-        </a>   
+        <div class="learn_more_link" style="grid-area: contentLink3;">
+            <LearnMoreArrow 
+            link={explore_random_array[2].url}
+            />
+        </div>   
     </div>
 
      <!--Reference Section-->
@@ -237,9 +255,11 @@
             Some Random Algorithms...
         </h2>
 
-        <a class="learn_more_link-section" style="grid-area: sectionLearnMore;" href="/reference">
-            More <ArrowRight />
-        </a> 
+        <div class="learn_more_link-section" style="grid-area: sectionLearnMore;">
+            <LearnMoreArrow 
+            link="/reference"
+            />
+        </div> 
 
         <div class='flaired-title' style="grid-area: algoTitle1;">
             <div class="flair {reference_random_array[0].flair}" />
@@ -252,9 +272,11 @@
             </p>
         </div>
 
-        <a class="learn_more_link" style="grid-area: contentLink1;" href={reference_random_array[0].url}>
-            Learn More <ArrowRight />
-        </a>  
+        <div class="learn_more_link" style="grid-area: contentLink1;">
+            <LearnMoreArrow 
+            link={reference_random_array[0].url}
+            />
+        </div>  
 
         <div class='flaired-title' style="grid-area: algoTitle2;">
             <div class="flair {reference_random_array[1].flair}" />
@@ -267,9 +289,11 @@
             </p>
         </div>
 
-        <a class="learn_more_link" style="grid-area: contentLink2;" href={reference_random_array[1].url}>
-            Learn More <ArrowRight />
-        </a>  
+        <div class="learn_more_link" style="grid-area: contentLink2;">
+            <LearnMoreArrow 
+            link={reference_random_array[1].url}
+            />
+        </div>  
 
         <div class='flaired-title' style="grid-area: algoTitle3;">
             <div class="flair {reference_random_array[2].flair}" />
@@ -282,9 +306,11 @@
             </p>
         </div>
 
-        <a class="learn_more_link" style="grid-area: contentLink3;" href={reference_random_array[2].url}>
-            Learn More <ArrowRight />
-        </a> 
+        <div class="learn_more_link" style="grid-area: contentLink3;">
+            <LearnMoreArrow 
+            link={reference_random_array[2].url}
+            />
+        </div> 
  
     </div>
 </div>
