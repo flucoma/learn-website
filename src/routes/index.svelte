@@ -351,7 +351,7 @@
     }
 
     .learn_more_link-algo{
-        padding: 0.75em 0.75em 0em 0.75em;
+        padding : 0em 0.75em 0.75em 0.75em;
         align-self: center;
         justify-self: end; 
         justify-content: end;
@@ -425,7 +425,7 @@
         }
 
         .learn_more_link-algo{
-        padding: 0.75em 0.75em 0em 0.75em;
+        padding : 0em 0.75em 0.75em 0.75em;
         align-self: center;
         justify-self: end; 
         justify-content: end;
