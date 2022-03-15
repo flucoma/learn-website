@@ -10,6 +10,7 @@ tags:
     - mapping
     - neural networks
 flair: podcast
+featuredimage: /explore/abtan/profile_pic.jpeg
 ---
 
 <script>

@@ -11,6 +11,7 @@ tags:
     - improvisation
     - hpss
 flair: article
+featuredimage: /explore/hayes/delicate_instruments_img.png
 ---
 
 <script>

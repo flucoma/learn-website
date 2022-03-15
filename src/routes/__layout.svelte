@@ -27,7 +27,6 @@
 
 <div class="container">
 	<Header />
-	<Crumbs />
 
 	<main class="content">
 		<slot />
@@ -62,21 +61,5 @@
 		padding-right: 1em;
 		margin-bottom: 1em;
 		flex: 1 0 auto;
-	}
-
-	@media (min-width: 1200px) {
-		.content {
-			grid-template-columns: auto min(var(--max-text-width), 100%) auto;
-			grid-template-areas: 'navigation main blank';
-		}
-	}
-
-	@media (max-width: 1200px) {
-		.content {
-			grid-template-rows: auto auto;
-			grid-template-areas:
-				'navigation'
-				'main';
-		}
 	}
 </style>
