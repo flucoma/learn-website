@@ -36,7 +36,6 @@
 
 	function keyDown(e) {
 		if (e.key === '/' && e.metaKey) {
-			e.preventDefault();
 			focusSearch()
 			searchBar.focus();
 		}
