@@ -101,7 +101,7 @@
 				</div>
 
 				<div class="bottom">
-					{r.blurb}
+					{r.blurb.slice(0, 150) + '...'}
 				</div>
 			</div>
 		{/each}
