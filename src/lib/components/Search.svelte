@@ -112,7 +112,6 @@
 	{/if}
 </div>
 
-{ focusedEntry }
 <style lang="postcss">
 	:root {
 		--radius: 10px;
