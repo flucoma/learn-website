@@ -9,7 +9,7 @@
 	let focused = false;
 	let focusedEntry = -1;
 	let entries = [];
-	$: placeholder = focused ? 'Enter your search term' : 'Search';
+	$: placeholder = focused ? 'Enter your query' : '?';
 	$: results = search(query);
 
 	function clickResult(link) {
@@ -129,7 +129,7 @@
 	.query {
 		font-size: 1rem;
 		border-radius: var(--radius);
-		width: 2ch;
+		width: 90%;
 		height: 100%;
 		border: 0;
 		box-sizing: none;
@@ -141,9 +141,12 @@
 		text-align: center;
 	}
 	.query:focus {
-		width: 90%;
 		text-align: left;
 		padding-left: 0.5em;
+	}
+
+	.query:not(:focus) {
+		width: 2rem;
 	}
 	.query:hover {
 		border: 2px solid var(--light-blue)
