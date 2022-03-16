@@ -4,10 +4,12 @@
 	import { goto } from '$app/navigation';
 	import Flair from '$lib/components/Flair.svelte';
 
-	let query = '';
 	let searchBar;
+	let query = '';
 	let focused = false;
-	$: placeholder = focused ? 'Enter your search term' : '?';
+	let focusedEntry = -1;
+	let entries = [];
+	$: placeholder = focused ? 'Enter your search term' : 'Search';
 	$: results = search(query);
 
 	function clickResult(link) {
@@ -22,9 +24,11 @@
 	function blurSearch() {
 		focused = false;
 		$blur = false;
+		searchBar.blur();
 	}
 
 	function focusSearch() {
+		// searchBar.focus();
 		focused = true;
 		$blur = true;
 	}
@@ -52,16 +56,14 @@
 		}
 
 		if (e.key === 'Enter') {
-			entries[focusedEntry].click();
+			// entries[focusedEntry].click();
+			clickResult(filteredResults[focusedEntry].url)
 		}
 
 		if (e.key === 'Escape') {
 			blurSearch();
 		}
 	}
-
-	let focusedEntry = -1;
-	let entries = [];
 	$: filteredResults = results.slice(0, 8).filter(x => x !== null);
 	$: entries = entries.filter(x => x !== null);
 </script>
@@ -86,12 +88,13 @@
 		{#each filteredResults as r, i}
 			<div class="result" 
 				on:mousedown={() => clickResult(r.url)}
-				on:mouseenter={() => { focusedEntry = i}}
+				on:mouseleave={ () => { focusedEntry = -1 }}
+				on:mouseenter={() => { focusedEntry = i} }
+				class:entryhover={i === focusedEntry}
 				on:click={ () => clickResult(r.url) }
 				on:focus={focusSearch}
 				on:blur={blurSearch}
 				bind:this={entries[i]}
-				class:entryhover={i === focusedEntry}
 				role="button"
 				tabindex="-1"
 			>
@@ -109,6 +112,7 @@
 	{/if}
 </div>
 
+{ focusedEntry }
 <style lang="postcss">
 	:root {
 		--radius: 10px;
@@ -168,9 +172,8 @@
 		outline: 0;
 		border-radius: 4px;
 	}
-	.result:hover, .entryhover {
+	.entryhover {
 		background-color: hsl(240, 5%, 80%);
-
 		cursor: pointer;
 	}
 	.top {

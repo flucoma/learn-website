@@ -7,7 +7,7 @@
 	import { nav_expanded, blur } from '$lib/app';
 
 	const scroll = (e) => {
-		if ($nav_expanded || $blur) {
+		if ($nav_expanded) {
 			e.preventDefault();
 		}
 	}
@@ -19,7 +19,7 @@
 	</title>
 </svelte:head>
 
-<svelte:body class:noscroll={ $nav_expanded === true || $blur === true } on:mousewheel|nonpassive={scroll} />
+<svelte:body class:noscroll={ $nav_expanded === true } on:mousewheel|nonpassive={scroll} />
 
 {#if $nav_expanded || $blur}
 <div transition:fly={{duration:200}} class="overlay" on:click={ () => { $nav_expanded = false }}></div>
@@ -27,7 +27,6 @@
 
 <div class="container">
 	<Header />
-	<Crumbs />
 
 	<main class="content">
 		<slot />
@@ -39,10 +38,10 @@
 <style lang="postcss">
 	.overlay {
 		background-color: hsl(240, 11%, 81%);
-		min-height: 100%;
+		height: 1000vh;
 		width: 100%;
-		position: absolute;
 		opacity: 0.6;
+		position: absolute;
 		top: 0;
 		left: 0;
 		cursor: pointer;
@@ -62,21 +61,5 @@
 		padding-right: 1em;
 		margin-bottom: 1em;
 		flex: 1 0 auto;
-	}
-
-	@media (min-width: 1200px) {
-		.content {
-			grid-template-columns: auto min(var(--max-text-width), 100%) auto;
-			grid-template-areas: 'navigation main blank';
-		}
-	}
-
-	@media (max-width: 1200px) {
-		.content {
-			grid-template-rows: auto auto;
-			grid-template-areas:
-				'navigation'
-				'main';
-		}
 	}
 </style>

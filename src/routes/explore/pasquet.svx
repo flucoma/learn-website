@@ -12,6 +12,7 @@ tags:
     - cage
     - markov chains
 flair: article
+featuredimage: /explore/pasquet/nmf_piano_roll.png
 ---
 
 <script>
