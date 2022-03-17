@@ -8,6 +8,7 @@ tags:
     - filters
     - hpss
 flair: article
+featuredimage: /learn/median-filters/median-filter.png
 ---
 
 <script>

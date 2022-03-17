@@ -8,6 +8,7 @@ tags:
     - regression
     - neural network
 flair: tutorial
+featuredimage: /learn/for-featured-images/mlp-regressor.png
 ---
 
 <script>

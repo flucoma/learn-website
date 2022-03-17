@@ -11,6 +11,7 @@ tags:
     - mlpregressor
     - modular synthesis
 flair: article
+featuredimage: /explore/eldridge/modular-patch.jpg
 ---
 
 <script>

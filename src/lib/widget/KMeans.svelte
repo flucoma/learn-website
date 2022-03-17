@@ -28,6 +28,8 @@
     
     // Chart.js
     let ctx, canvas, chart;
+
+    let trainDisabled = false;
     
     // Essentially rename the colour generation function
     var genColour = d3.interpolateSinebow;
@@ -87,7 +89,7 @@
                 maintainAspectRatio: false,
                 plugins: { legend: { display: false }},
                 animation: {
-                    duration: 1000
+                    duration: 750
                 },
                 scales: { 
                     x: { display: false },
@@ -96,8 +98,17 @@
             }
         })
     });
+
+    const sleep = (milliseconds) => {
+        return new Promise(resolve => setTimeout(resolve, milliseconds))
+    }
     
     doMeans = async() => {
+        trainDisabled = true;
+        let predictionsPath = [];
+        let centroidsPath = []; 
+        let coloursPath = [];
+        let radPath = [];
         const tfData = tf.tensor(data);
         // Create an instance of the kmeans model
         kmeans = new KMeans({
@@ -105,32 +116,41 @@
             maxIter: 40,
         });
         
-        kmeans.TrainAsync(tfData,
-        async(i, cent, pred) => {
-            iteration = i;
-            predictions = await pred.array();
-            centroids = await cent.array();
-            
-            // Append centroids to the dataset
-            let d = JSON.parse(JSON.stringify(data))
-            d.push(...centroids);
-            
-            // Compute all the colours
-            let colours = predictions.map(p => genColour(p / centroids.length));
-            let centroidColours = centroids.map((c, i) => genColour(i / centroids.length));
-            colours.push(...centroidColours);
-            
-            // Now calculate all the point radii
-            // The last k points shold be the centroids so they need to be larger and in charger
-            let rad = d.map((p, i) => i+1 <= predictions.length ? 3 : 10);
-            
-            chart.data.datasets[0].data = formatForChart(d)
-            chart.data.datasets[0].pointBackgroundColor = colours;
-            chart.data.datasets[0].pointBorderColor = colours;
-            chart.data.datasets[0].pointRadius = rad;
-            chart.update();
-        }
+        await kmeans.TrainAsync(tfData,
+            async(i, cent, pred) => {
+                predictions = await pred.array();
+                centroids = await cent.array();
+
+                centroidsPath.push(centroids);
+
+                // Append centroids to the dataset
+                let d = JSON.parse(JSON.stringify(data))
+                d.push(...centroids);
+                predictionsPath.push(d)
+                
+                // Compute all the colours
+                let colours = predictions.map(p => genColour(p / centroids.length));
+                let centroidColours = centroids.map((_, i) => genColour(i / centroids.length));
+                colours.push(...centroidColours);
+                coloursPath.push(colours);
+                // Now calculate all the point radii
+                // The last k points shold be the centroids so they need to be larger and in charger
+                let rad = d.map((p, i) => i+1 <= predictions.length ? 3 : 10);
+                radPath.push(rad);
+            }
         );
+
+        for (let i=0; i < predictionsPath.length; i++) {
+            iteration = i + 1;
+            chart.data.datasets[0].data = formatForChart(predictionsPath[i])
+            chart.data.datasets[0].pointBackgroundColor = coloursPath[i];
+            chart.data.datasets[0].pointBorderColor = coloursPath[i];
+            chart.data.datasets[0].pointRadius = radPath[i];
+            chart.update();
+            await sleep(1000)
+        }
+        trainDisabled = false;
+
     };
     
     const updateData = (e) => {
@@ -156,8 +176,9 @@
 <div class="container">
     
     <Button on:click={doMeans} 
-    label={'Calculate Means'}
-    width={'100%'}
+    label='Calculate Means'
+    width='100%'
+    disabled={trainDisabled}
     />
     
     <div class="controls">

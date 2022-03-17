@@ -1,19 +1,17 @@
 <script>
     import ArrowRight from '$lib/components/ArrowRight.svelte';
+    import { nav_expanded } from '$lib/app';
     export let link = '/'
 </script>
 
-<div class="container raisedbox">
-        <slot name='title' />
-        <slot name='blurb' />
-        <a  class='linkout' href={link}>Learn More <ArrowRight /></a>
+<div class="container">
+    <slot name='title' />
+    <slot name='blurb' />
+    <a on:click={() => { $nav_expanded = false }} class='linkout' href={link}>Learn More <ArrowRight /></a>
 </div>
 
 <style>
     .container {
-        border-radius: 0.25rem;
-        border: 0.063rem solid #dcdee0;
-        padding: 0.75em;
         margin-top: 0.5em;
         margin-bottom: 0.5em;
     }

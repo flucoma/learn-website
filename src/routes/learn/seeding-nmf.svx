@@ -12,6 +12,7 @@ tags:
     - bufnmf
     - seed
 flair: article
+featuredimage: /learn/for-featured-images/seeding-nmf.png
 ---
 
 <script>

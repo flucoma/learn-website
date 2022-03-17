@@ -1,18 +1,51 @@
 <script>
 	import TOC from '$lib/components/TOC.svelte';
+    import Crumbs from '$lib/components/Crumbs.svelte';
 </script>
 
-<div class="navigation">
-    <TOC />
-</div>
+<Crumbs />
 
-<div class="main">
-    <slot />
-</div>
+<div class="wrapper">
 
-<div class="related" />
+    <div class="navigation">
+        <TOC />
+    </div>
+
+    <div class="main">
+        <slot />
+    </div>
+
+    <div class="related" />
+
+</div>
 
 <style lang="postcss">
+
+    .wrapper {
+		display: grid;
+		justify-content: center;
+		margin-left: 1em;
+		margin-right: 1em;
+		margin-bottom: 1em;
+		flex: 1 0 auto;
+	}
+
+	@media (min-width: 1200px) {
+		.wrapper {
+			grid-template-columns: auto min(var(--max-text-width), 100%) auto;
+			grid-template-areas: 'navigation main blank';
+		}
+	}
+
+	@media (max-width: 1200px) {
+		.wrapper {
+			grid-template-rows: auto auto;
+			grid-template-areas:
+				'navigation'
+				'main';
+		}
+	}
+
     .main {
         grid-area: main;
         min-width: var(--min-text-width);
