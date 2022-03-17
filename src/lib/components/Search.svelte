@@ -62,8 +62,7 @@
 		}
 		
 		if (e.key === 'Enter') {
-			if (focusedEntry !== -1 && query !== '') {
-				console.log('FOIUASDFIOAOIFOS')
+			if (focusedEntry !== -1) {
 				clickResult(filteredResults[focusedEntry].url)
 				e.preventDefault();
 			}
