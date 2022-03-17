@@ -107,7 +107,9 @@
 			>
 				<div class="top">
 					<div class="title">{r.title}</div>
+					{#if r.flair}
 					<Flair flair={r.flair} />
+					{/if}
 				</div>
 
 				<div class="bottom">
