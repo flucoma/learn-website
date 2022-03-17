@@ -28,7 +28,7 @@
 	}
 
 	function focusSearch() {
-		// searchBar.focus();
+		searchBar.focus();
 		focused = true;
 		$blur = true;
 	}
@@ -36,6 +36,12 @@
 	function updateFocus() {
 		focusedEntry = wrap(focusedEntry, 0, entries.length);
 		entries[focusedEntry].focus()
+	}
+
+	function formpress(e) {
+		if (e.key === 'Enter') {
+			e.preventDefault();
+		}
 	}
 
 	function keyDown(e) {
@@ -54,10 +60,13 @@
 			focusedEntry += 1;
 			updateFocus()
 		}
-
+		
 		if (e.key === 'Enter') {
-			// entries[focusedEntry].click();
-			clickResult(filteredResults[focusedEntry].url)
+			if (focusedEntry !== -1 && query !== '') {
+				console.log('FOIUASDFIOAOIFOS')
+				clickResult(filteredResults[focusedEntry].url)
+				e.preventDefault();
+			}
 		}
 
 		if (e.key === 'Escape') {
@@ -69,9 +78,8 @@
 </script>
 
 <svelte:window on:keydown={keyDown} />
-
 <div class="search">
-	<form id='search-input' role="search">
+	<form id='search-input' role="search" on:keypress={formpress} on:keydown={formpress}>
 		<label class="visually-hidden" for="search-term">Search The Learn Platform</label>
 		<input
 			class="query"
