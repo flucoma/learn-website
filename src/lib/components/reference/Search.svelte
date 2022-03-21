@@ -19,7 +19,6 @@
 
 	function doSearch() {
 		result = referenceSearch.search(query);
-		console.log(result)
 	}
 </script>
 

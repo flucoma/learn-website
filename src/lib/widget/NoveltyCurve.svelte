@@ -7,8 +7,6 @@
     const peaks = data.peaks;
     let peaks_annotation = {}
 
-    console.log(curve)
-
     peaks.forEach((x, i) => {
         peaks_annotation['line' + String(i)] = {
             type: 'line',

@@ -8,7 +8,6 @@
 		let d = [];
 		path = path.split('/');
 		path.shift(); path.pop();
-		//console.log(path)
 
 		let accum = '';
 		path.forEach((p, i) => {
