@@ -44,7 +44,6 @@
 		drumPlayer.connect(meter);
 
 		Tone.loaded().then(() => {
-			console.log('loaded!');
 			ready = true;
 		});
 
