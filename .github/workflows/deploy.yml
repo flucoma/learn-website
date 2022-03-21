@@ -38,7 +38,7 @@ jobs:
         run: |
           git clone https://github.com/flucoma/MFCC-interactive-widget.git mfccwidget
           mkdir -p ./build/reference/mfcc/explain
-          cp -r mfccwidget/p5/ build/reference/mfcc/explain/
+          cp -r mfccwidget/p5/* build/reference/mfcc/explain/
 
       - name: Upload To Droplet
         run: |
