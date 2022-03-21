@@ -34,6 +34,12 @@ jobs:
           pnpm i
           pnpm run build
 
+      - name: Merge MFCC Widget
+        run: |
+          git clone https://github.com/flucoma/MFCC-interactive-widget.git mfccwidget
+          mkdir -p ./build/reference/mfcc/explain
+          cp -r ./mfccwidget/p5 ./build/reference/mfcc/explain
+
       - name: Upload To Droplet
         run: |
           rsync -avz --delete --no-times --no-o --no-g --no-perms ./build/ james@${{ secrets.DO_IP }}:/home/learn/www/
