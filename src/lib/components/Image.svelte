@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { markdown } from 'markdown';
+
 	export let src: string = '';
 	export let alt: string = '';
 	export let label: string = '';
@@ -10,7 +12,7 @@
 		<img loading="lazy" {alt} {src} />
 	</a>
 	<figcaption class="label">
-		{label}
+		{@html markdown.toHTML(label)}
 	</figcaption>
 </figure >
 
