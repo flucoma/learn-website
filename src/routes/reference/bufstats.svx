@@ -10,14 +10,15 @@ flair: reference
 category: Analyse Data
 ---
 
-
 <script>
     import CodeBlock from '$lib/components/CodeBlock.svelte';
     import { Tabs, TabList, TabPanel, Tab } from '$lib/components/tabs/tabs';
     import Image from '$lib/components/Image.svelte';
+    import ResourceLink from '$lib/components/ResourceLink.svelte';
+    import IndentNote from '$lib/components/IndentNote.svelte';
 </script>
 
-BufStats statistically summarises a set of values that are in a buffer channel, returning seven statistical properties: the [mean](/reference/bufstats/#mean), [standard deviation](/reference/bufstats/#standard-deviation), [skewness](/reference/bufstats/#skewness), [kurtosis](/reference/bufstats/#kurtosis), [minimum](/reference/bufstats/#minimum), [median](/reference/bufstats/#median), and [maximum](/reference/bufstats/#maximum) values. 
+BufStats statistically summarises a set of values that are in a buffer channel, returning seven statistical properties: the [mean](/reference/bufstats/#mean), [standard deviation](/reference/bufstats/#standard-deviation), [skewness](/reference/bufstats/#skewness), [kurtosis](/reference/bufstats/#kurtosis), [minimum](/reference/bufstats/#minimum), [median](/reference/bufstats/#median), and [maximum](/reference/bufstats/#maximum) values. The mean and median are a measure of the central tendency of the data, while the others offer a measure of the variability in the data.
 
 A buffer typically holds time-series information as "frames," either in the form of audio samples (as an audio buffer for playback) or as a series of audio descriptors created by an analysis process (as is the case with FluCoMa's buffer-based analyses). If the time-series of descriptors are all a different number of frames (such as with sound slices of different durations), it may be difficult to compare them. The statistical summary provided by BufStats can be useful for comparing these time series (for example, the mean analysis value from one time-series can be compared to the mean analysis value from another time series even if the original time series are different lengths).
 
@@ -27,80 +28,58 @@ In addition to computing these statistical representations on the original buffe
 * apply [weights](/reference/bufstats/#weights) to the various frames to produce a weighted statistical summary
 * find and remove [outliers](/reference/bufstats/#outliers) from the frames included in the statistical calculations 
 
+<IndentNote type='pointer'>
+
+While it can be difficult to discern how to use some of these analyses functionally (i.e., what does a kurtosis of the first derivative of spectral centroid indicate?) these statistical summaries can sometimes represent differences between analyses that dimensionality reduction and machine learning algorithms can pick up on. Including these statistical descriptions in training or analysis may provide better distinction between data points.
+
+</IndentNote>
+
 ## Mean
 
-The average value of the data. This is calculated by adding up all the numbers and the dividing by how many numbers there are. The mean can be used to describe the central tendency of a set of values. If the data is normally distributed (the distribution looks like the "bell curve"), the mean can be a good estimate of where most of the data lies. 
+The average value of the data. This is calculated by adding up all the numbers and the dividing by how many numbers there are. The mean can be used to describe the central tendency of a set of values. 
 
 ## Standard Deviation
 
 Standard deviation describes of the amount of variation in the data (using the same units as the data itself). A lower standard deviation indicates that the values are generally nearer to the mean, while a higher standard deviation indicates that the values are more spread out, further from the mean.
 
-Standard deviation could also help calculate where most of our data points can be found. If a collection of values is normally distributed, one can expect to find ~68% of the data within one standard deviation of the mean. If a [SpectralShape](/reference/spectralshape)'s spectral centroid time-series is analysed with BufStats and returns a mean of 8000 Hz and a standard deviation off 1000 Hz, one can estimate that ~68% of the spectral centroids in that time series fall between 7000 and 9000 Hz (8000 Hz ± 1000 Hz). Similarly, one could estimate that ~95% of the data will fall within two standard deviations of the mean and ~99.7% will fall within three standard deviations of the mean. Keep in mind that if the data is not normally distributed, this will likely not hold true. Use the example code below to see the distribution of dimensions in a dataset and how much they look like a bell curve.
+Standard deviation could also help calculate where most of our data points can be found. If a collection of values is normally distributed, one can expect to find ~68% of the data within one standard deviation of the mean. For example if a [SpectralShape](/reference/spectralshape)'s spectral centroid time-series is analysed with BufStats and returns a mean of 8000 Hz and a standard deviation off 1000 Hz, one can estimate that ~68% of the spectral centroids in that time series fall between 7000 and 9000 Hz (8000 Hz ± 1000 Hz). Similarly, one could estimate that ~95% of the data will fall within two standard deviations of the mean and ~99.7% will fall within three standard deviations of the mean. Keep in mind that if the data is not normally distributed, this will likely not hold true.
 
 <Image
 src="/reference/bufstats/Standard_deviation_diagram.png"
-label="When data is normally distributed, it follows the 68/95/99 rule, indicating how much of the data is found within standard deviations of the mean. (image reproduced from Wikipedia https://en.wikipedia.org/wiki/Standard_deviation)"
+label="When data is normally distributed, it follows the 68/95/99.7 rule, indicating how much of the data is found within standard deviations of the mean. (image reproduced from [Wikipedia](https://en.wikipedia.org/wiki/Standard_deviation))"
 />
-
-### Example code to check the distribution of dimensions in a [DataSet](/reference/dataset)
-
-<Tabs>
-    <TabList>
-        <Tab>Max</Tab>
-        <Tab>SuperCollider</Tab>
-    </TabList>
-    <TabPanel>
-
-    TODO
-
-    </TabPanel>
-    <TabPanel>
-    
-<CodeBlock>
-
-```
-~distributions = {
-	arg dataset, steps = 100;
-	dataset.dump({
-		arg dict;
-		var data = dict["data"].values.flop;
-		var histograms = data.collect{arg dim; dim.histo(steps)};
-		fork({
-			var win = Window("Distributions",Rect(0,0,800,820));
-			var plotter = Plotter("Distributions",Rect(0,20,win.bounds.width,win.bounds.height-20),win);
-			EZSlider(win,Rect(0,0,win.bounds.width,20),"Dimension:",ControlSpec(0,histograms.size-1,step:1),{
-				arg sl;
-				plotter.value_(histograms[sl.value.asInteger]);
-			},0,true,80);
-			win.front;
-		},AppClock);
-	});
-};
-```
-
-</CodeBlock>
-
-    </TabPanel>
-</Tabs>
-
----  
 
 ## Skewness
 
-Skewness indicates the asymmetry of the distribution of the data. If the data is perfectly normally distributed the left and right sides of the mean will be mirrored, and skewness will be 0. If either side has a longer "tail" than the other, the skewness will not be zero. If the left side (lower values) have a longer tail, the skewness will be less than 0, if the right side (higher values) have a longer tail, the skewness will be greater than 0.
+Skewness indicates the asymmetry of the distribution of the data. If the data is perfectly normally distributed the left and right sides of the mean will be mirrored, and skewness will be 0. If either side has a longer "tail" than the other, the skewness will not be zero. If the left side (lower values) have a longer tail, the skewness will be less than 0, if the right side (higher values) have a longer tail, the skewness will be greater than 0. The larger the tail, the larger the magnitude of the skewness value.
 
 <Image
 src="/reference/bufstats/skewness.png"
-label="Data distributions with a larger tail to the left have a negative skewness while data distributions with a larger tail to the right have a positive skewness."
+label="Data distributions with a larger tail to the left have a negative skewness while data distributions with a larger tail to the right have a positive skewness. (image reproduced from [Wikipedia](https://en.wikipedia.org/wiki/Skewness))  "
 />
 
 ## Kurtosis
 
+Kurtosis describes the degree to which outliers are present in the data, sometimes described as whether the tails (extremities) are "light" or "heavy." While a normal distribution has a kurtosis of 3, distributions with "lighter" tails (fewer and/or less extreme outliers) will be less than 3 (but always ≥ 1) and distributions with "heavier" tails (more and/or more extreme outliers) will be greater than 3 (and can go up to infinity).  
+
+One can see in the image below that the pink rectangle-shaped distribution function has the lowest kurtosis (1.8) because it does not have outliers, all the data falls within the narrow range of the rectangle. The second lowest kurtosis (2) is the blue distribution function which also doesn't have "tails" that spread out on either side. As the kurtosis increases (all the way to the red distribution function of 6), notice how the tails end up being "heavier," or "thicker" and can be seen to spread out farther beyond the mean. 
+
+<Image
+src="/reference/bufstats/Standard_symmetric_distributions-01.jpg"
+label="Kurtosis values (shown in the upper right hand corner) for various symmetric distributions. (image modified from [Wikipedia](https://en.wikipedia.org/wiki/Kurtosis))"
+/>
+
 ## Minimum
+
+The the smallest value in the data. It may be useful to use this statistical description to consider particular extremities in an analysis time-series. For example considering the smallest pitch confidence value in an analysis could indicate if there are _any_ moments in the analysis that get _unpitched_ and if so, to what degree. 
 
 ## Median
 
+The median is the middle value when all the numbers are sorted in order. If there are an even number of values (so there is no "middle") an average of the two middle values is used. This provides a measure of central tendency different from the mean. The median is not affected by extreme outliers, which can decrease how useful a mean is for understanding central tendency.
+
 ## Maximum
+
+The largest value in the data. It may be useful to use this statistical description for analyses in which the largest value has the most impact on a listener's perception. For example, how loud one perceives a drum hit to be may be better correlated with the maximum loudness instead of the mean loudness, which will be brought down by the quieter parts of the decay tail and any silence that exists in the sound slice. (See [Loudness](/reference/loudness))
 
 # Derivatives
 
@@ -132,3 +111,81 @@ The stats output buffer of FluidBufStats will have the same number of channels a
 # Weights
 
 # Outliers
+
+# Distribution and Histograms  
+
+Many of the statistical summaries that BufStats computes are intended to provide some insight on how the data is distributed across the range that it covers. A distribution is often viewed as a histogram, which divides the range covered by the data into discrete bins and then shows how many individual data points fall within each bin.
+
+<Image
+src="/reference/bufstats/histogram.png"
+label="A histogram of 25 bins showing the distribution of MFCC 2 values in an analysis of Nicol-LoopE-M.wav"
+/>
+
+Sometimes the distribution is represented as a curve which can be called a distribution function. This can be thought of as a smoothed out version of a histogram. It shows the likelihood that a data point will exist for any given value in a range. 
+
+<IndentNote type='pointer'>
+
+Keep in mind that the distribution functions are not the functions being analysed by BufStats, but instead represent the distribution of the values in the buffer channel being analysed by BufStats.
+
+</IndentNote>
+
+## Normal Distribution
+
+Normal distribution is a technical term meaning that the distribution of data follows the 68/95/99.7 rule. This rule states that ~68% of the data falls within one standard deviation of the mean, ~95% of the data falls within two standard deviations of the mean, and ~99.7% falls within three standard deviations of the mean. Sometimes a normal distribution is referred to as a "bell curve" because the shape of the distribution function looks like a bell. Use the example code below to see the distribution of dimensions in a dataset and how much they look like a bell curve.
+
+<Image
+src="/reference/bufstats/Standard_deviation_diagram.png"
+label="When data is normally distributed, it follows the 68/95/99.7 rule, indicating how much of the data is found within standard deviations of the mean. (image reproduced from [Wikipedia](https://en.wikipedia.org/wiki/Standard_deviation))"
+/>
+
+### Example code to check the distribution of dimensions in a [DataSet](/reference/dataset) using a histogram
+
+<Tabs>
+    <TabList>
+        <Tab>Max</Tab>
+        <Tab>SuperCollider</Tab>
+    </TabList>
+    <TabPanel>
+
+    TODO
+
+    </TabPanel>
+    <TabPanel>
+    
+<CodeBlock>
+
+```
+~distribution = {
+	arg dataset, steps = 100;
+	dataset.dump({
+		arg dict;
+		var data = dict["data"].values.flop;
+		var histograms = data.collect{arg dim; dim.histo(steps)};
+		fork({
+			var win = Window("Distributions",Rect(0,0,800,820));
+			var plotter = Plotter("Distributions",Rect(0,20,win.bounds.width,win.bounds.height-20),win);
+			plotter.plotMode_(\bars);
+			EZSlider(win,Rect(0,0,win.bounds.width,20),"Dimension:",ControlSpec(0,histograms.size-1,step:1),{
+				arg sl;
+				plotter.value_(histograms[sl.value.asInteger]);
+			},0,true,80);
+			win.front;
+		},AppClock);
+	});
+};
+```
+
+</CodeBlock>
+
+    </TabPanel>
+</Tabs>
+
+---  
+
+# Related Resources
+
+<ResourceLink
+title='Kurtosis as Peakedness, 1905 – 2014. R.I.P.'
+url='https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4321753/pdf/nihms-599845.pdf'
+blurb='Paper by Peter H. Westfall (2014) describing a common misconception about kurtosis.'
+/>
