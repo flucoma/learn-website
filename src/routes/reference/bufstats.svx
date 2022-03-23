@@ -1,6 +1,6 @@
 ---
 title: BufStats
-blurb: Calculate statistics on time-series as buffers
+blurb: Statistical analysis of buffer channels
 tags: 
     - buffer
     - statistics
@@ -11,3 +11,124 @@ category: Analyse Data
 ---
 
 
+<script>
+    import CodeBlock from '$lib/components/CodeBlock.svelte';
+    import { Tabs, TabList, TabPanel, Tab } from '$lib/components/tabs/tabs';
+    import Image from '$lib/components/Image.svelte';
+</script>
+
+BufStats statistically summarises a set of values that are in a buffer channel, returning seven statistical properties: the [mean](/reference/bufstats/#mean), [standard deviation](/reference/bufstats/#standard-deviation), [skewness](/reference/bufstats/#skewness), [kurtosis](/reference/bufstats/#kurtosis), [minimum](/reference/bufstats/#minimum), [median](/reference/bufstats/#median), and [maximum](/reference/bufstats/#maximum) values. 
+
+A buffer typically holds time-series information as "frames," either in the form of audio samples (as an audio buffer for playback) or as a series of audio descriptors created by an analysis process (as is the case with FluCoMa's buffer-based analyses). If the time-series of descriptors are all a different number of frames (such as with sound slices of different durations), it may be difficult to compare them. The statistical summary provided by BufStats can be useful for comparing these time series (for example, the mean analysis value from one time-series can be compared to the mean analysis value from another time series even if the original time series are different lengths).
+
+In addition to computing these statistical representations on the original buffer channel, BufStats can also:
+
+* compute these statistics  on [derivatives](/reference/bufstats/#derivatives) of the original time-series 
+* apply [weights](/reference/bufstats/#weights) to the various frames to produce a weighted statistical summary
+* find and remove [outliers](/reference/bufstats/#outliers) from the frames included in the statistical calculations 
+
+## Mean
+
+The average value of the data. This is calculated by adding up all the numbers and the dividing by how many numbers there are. The mean can be used to describe the central tendency of a set of values. If the data is normally distributed (the distribution looks like the "bell curve"), the mean can be a good estimate of where most of the data lies. 
+
+## Standard Deviation
+
+Standard deviation describes of the amount of variation in the data (using the same units as the data itself). A lower standard deviation indicates that the values are generally nearer to the mean, while a higher standard deviation indicates that the values are more spread out, further from the mean.
+
+Standard deviation could also help calculate where most of our data points can be found. If a collection of values is normally distributed, one can expect to find ~68% of the data within one standard deviation of the mean. If a [SpectralShape](/reference/spectralshape)'s spectral centroid time-series is analysed with BufStats and returns a mean of 8000 Hz and a standard deviation off 1000 Hz, one can estimate that ~68% of the spectral centroids in that time series fall between 7000 and 9000 Hz (8000 Hz ± 1000 Hz). Similarly, one could estimate that ~95% of the data will fall within two standard deviations of the mean and ~99.7% will fall within three standard deviations of the mean. Keep in mind that if the data is not normally distributed, this will likely not hold true. Use the example code below to see the distribution of dimensions in a dataset and how much they look like a bell curve.
+
+<Image
+src="/reference/bufstats/Standard_deviation_diagram.png"
+label="When data is normally distributed, it follows the 68/95/99 rule, indicating how much of the data is found within standard deviations of the mean. (image reproduced from Wikipedia https://en.wikipedia.org/wiki/Standard_deviation)"
+/>
+
+### Example code to check the distribution of dimensions in a [DataSet](/reference/dataset)
+
+<Tabs>
+    <TabList>
+        <Tab>Max</Tab>
+        <Tab>SuperCollider</Tab>
+    </TabList>
+    <TabPanel>
+
+    TODO
+
+    </TabPanel>
+    <TabPanel>
+    
+<CodeBlock>
+
+```
+~distributions = {
+	arg dataset, steps = 100;
+	dataset.dump({
+		arg dict;
+		var data = dict["data"].values.flop;
+		var histograms = data.collect{arg dim; dim.histo(steps)};
+		fork({
+			var win = Window("Distributions",Rect(0,0,800,820));
+			var plotter = Plotter("Distributions",Rect(0,20,win.bounds.width,win.bounds.height-20),win);
+			EZSlider(win,Rect(0,0,win.bounds.width,20),"Dimension:",ControlSpec(0,histograms.size-1,step:1),{
+				arg sl;
+				plotter.value_(histograms[sl.value.asInteger]);
+			},0,true,80);
+			win.front;
+		},AppClock);
+	});
+};
+```
+
+</CodeBlock>
+
+    </TabPanel>
+</Tabs>
+
+---  
+
+## Skewness
+
+Skewness indicates the asymmetry of the distribution of the data. If the data is perfectly normally distributed the left and right sides of the mean will be mirrored, and skewness will be 0. If either side has a longer "tail" than the other, the skewness will not be zero. If the left side (lower values) have a longer tail, the skewness will be less than 0, if the right side (higher values) have a longer tail, the skewness will be greater than 0.
+
+<Image
+src="/reference/bufstats/skewness.png"
+label="Data distributions with a larger tail to the left have a negative skewness while data distributions with a larger tail to the right have a positive skewness."
+/>
+
+## Kurtosis
+
+## Minimum
+
+## Median
+
+## Maximum
+
+# Derivatives
+
+Setting the parameter `numDerivs` > 0 will return the same seven statistics computed on consecutive derivatives of the channel's time-series. BufStats computes a derivative by finding the _difference_ between each consecutive value in a series. For example, the derivative of the input time-series in the top row is seen in the bottom row:
+
+| A time-series and it's derivative |
+|:---------------------|:--:|:--:|:---:|:--:|:---:|:---:|:--:|:--:|:--:|
+| Original Time-Series | 10 | 15 | 30  | 20 | 25  | 12  | 0  | 24 | 40 |
+| First Derivative     | 5  | 15 | -10 | 5  | -13 | -12 | 24 | 16 |    |
+
+---
+
+Note that the derivative has one fewer value than the original series because each represents the amount and direction of change between two consecutive values in the original. To find the second derivative, BufStats computes the derivative of the first derivative:
+
+| A time-series and two derivatives |
+|:---------------------|:--:|:---:|:---:|:---:|:---:|:---:|:--:|:--:|:--:|
+| Original Time-Series | 10 | 15  | 30  | 20  | 25  | 12  | 0  | 24 | 40 |
+| First Derivative     | 5  | 15  | -10 | 5   | -13 | -12 | 24 | 16 |    |
+| Second Derivative    | 10 | -25 | 15  | -18 | 1   | 36  | -8 |    |    |
+
+---
+
+After computing the number of derivatives indicated by the user (with `numDerivs`) BufStats calculates the same seven statistical summaries on these new series of numbers: mean, standard deviation, skewness, kurtosis, minimum, median, and maximum.
+
+(numDerivs = 1 will return the channel's statistics and the statistics of the first derivative, numDerivs = 2 will return the channel's statistics and the statistics of the first and second derivatives, etc.) The derivative statistics are useful to describe the rate of change of the time series.
+
+The stats output buffer of FluidBufStats will have the same number of channels as the input buffer, each one containing the statistics of it's corresponding channel in the input buffer. Because the dimension of time is summarised statistically, the frames in the stats buffer do not represent time as they normally would. The first seven frames in every channel of the stats buffer will have the seven statistics computed on the input buffer channel. After these first seven frames, there will be seven more frames for each derivative requested, each containing the seven statistical summaries for the corresponding derivative.
+
+# Weights
+
+# Outliers
