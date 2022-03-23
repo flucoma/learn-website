@@ -17,7 +17,7 @@ category: Analyse Sound
     import { Tabs, TabList, TabPanel, Tab } from '$lib/components/tabs/tabs';
 </script>
 
-MelBands returns a Mel-Frequency Spectrum which is computed by bundling subsets of FFT bin magnitudes according to their relationship to the [Mel scale](https://en.wikipedia.org/wiki/Mel_scale). The Mel scale represents frequency space logarithmically, mimicking how humans perceive distance in pitch space. (The name "Mel" derives from the word "melody".)
+MelBands returns a Mel-Frequency Spectrum which is computed by bundling subsets of FFT bin magnitudes according to their relationship to the [Mel scale](https://en.wikipedia.org/wiki/Mel_scale) (the name "Mel" derives from the word "melody"). The Mel scale represents frequency space linearly up to 700 Hz and logarithmically above that, mimicking how humans perceive pitch space. Because the Mel-Frequency Spectrum relates to how humans perceive the spectral shape of sound, it can make for a more relevant audio descriptor (than FFT spectra) for considering how humans compare and hear different sounds.
 
 <YouTube
 url='UCLlVAj0PPY'
@@ -39,8 +39,6 @@ label="Normalized Triangle Filters"
 src="/ref/melbands/norm=False.jpg"
 label="Unnormalized Triangle Filters"
 />
-
-Because the Mel-Frequency Spectrum relates to how humans perceive the spectral shape of sound, it can make for a more relevant audio descriptor (than FFT spectra) for considering how humans compare and hear different sounds.
 
 The Hz-to-Mel conversion used by `MelBands` is `mel = 1127.01048 * log((hz / 700.0) + 1.0)`.
 
