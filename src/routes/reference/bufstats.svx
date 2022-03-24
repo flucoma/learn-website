@@ -18,7 +18,7 @@ category: Analyse Data
     import IndentNote from '$lib/components/IndentNote.svelte';
 </script>
 
-BufStats statistically summarises a set of values that are in a buffer channel, returning seven statistical properties: the [mean](#mean), [standard deviation](#standard-deviation), [skewness](#skewness), [kurtosis](#kurtosis), [low](#low), [middle](#middle), and [high](#high) values. The mean and median (received when middle = 50) are a measure of the central tendency of the data, while the others offer a measure of the variability in the data.
+BufStats statistically summarises a set of values that are in a buffer channel, returning seven statistical properties: the [mean](#mean), [standard deviation](#standard-deviation), [skewness](#skewness), [kurtosis](#kurtosis), [low](#low) (by default the minimum), [middle](#middle) (by default the median), and [high](#high) (by default the maximum) values. The mean and median are a measure of the central tendency of the data, while the others offer a measure of the variability in the data.
 
 A buffer typically holds time-series information as "frames," either in the form of audio samples (as an audio buffer for playback) or as a series of audio descriptors created by an analysis process (as is the case with FluCoMa's buffer-based analyses). If different time-series (such as slices) are all a different number of frames long, it may be difficult to compare them. The statistical summary provided by BufStats can be useful for comparing these time series (for example, the mean analysis value from one time-series can be compared to the mean analysis value from another time series even if the original time series are different lengths).
 
@@ -87,7 +87,7 @@ The value returned will be the data point at the [percentile](#percentiles) indi
 
 # Percentiles
 
-The values returned as [low](#low), [middle](#middle), and [high](#high) are percentiles values from the dataset (specified by the ``low``, ``middle``, and ``high`` parameters between 0 and 100). A percentile is a value at or below which a certain percentage of the values in the data will fall. For example, if the 15th percentile is 3000, that means that 15% of the values in the data are equal to or below 3000. The 50th percentile indicates the value which splits the data in half. This is also called the median. The 0th percentile will return the smallest value in the data and the 100th percentile will return the largest value in the data. When the number of values don't make clear which point from the data should be used, the [nearest rank method](https://en.wikipedia.org/wiki/Percentile) is used.
+The values returned as [low](#low), [middle](#middle), and [high](#high) are percentiles values from the dataset (specified by the ``low``, ``middle``, and ``high`` parameters between 0 and 100). A percentile is a value at or below which a certain percentage of the values in the data will fall. For example, if the 15th percentile is 3000, that means that 15% of the values in the data are equal to or below 3000. The 50th percentile indicates the value which splits the data in half. This is also called the median. The 0th percentile will return the smallest value in the data and the 100th percentile will return the largest value in the data. When the quantity of values do not make clear which point from the data should be used as a percentile, the [nearest rank method](https://en.wikipedia.org/wiki/Percentile) is used.
 
 # Derivatives
 
@@ -145,9 +145,9 @@ Not providing a ``weights`` buffer will cause all the frames to be considered eq
 
 # Outliers
 
-The parameter ``outliersCutoff`` is a ratio of the _interquartile_ range (IQR) that defines a range from the median, outside of which data will be considered an outlier and not used to compute the statistical summary. 
+The parameter ``outliersCutoff`` is a ratio of the _interquartile range_ (IQR) that defines a range from the median, outside of which data will be considered an outlier and not used to compute the statistical summary. 
 
-For each frame, if a single value in any channel of that frame is considered an outlier (when compared to the rest of the values in it's channel), the whole frame (on all channels) will not be used for statistical calculations. The default of -1 bypasses this function, keeping all frames in the statistical measurements. For more information on this statistical process, please refer to the concept of inter quantile range IQR and how the whiskers of a box plot are computed here (https://en.wikipedia.org/wiki/Box_plot)
+For each frame, if a single value in any channel of that frame is considered an outlier (when compared to the rest of the values in it's channel), the whole frame (on all channels) will not be used for statistical calculations. The default of -1 bypasses this function, using all the frames in the statistical measurements. For more information on this statistical process, please refer to how the whiskers of a [box plot](https://en.wikipedia.org/wiki/Box_plot) are computed.
 
 # Distribution and Histograms  
 
