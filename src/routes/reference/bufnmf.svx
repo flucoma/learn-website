@@ -21,6 +21,9 @@ category: Decompose
 
 BufNMF uses non-negative matrix factorisation (NMF) to decompose the magnitudes of a spectrogram into a number of components specified by the user. Each component is represented by the combination of two elements: a spectral template (“basis”, plural: “bases”) and an amplitude envelope (“activation”). Activations and bases can be used in various ways, including to resynthesize the audio of a single decomposed component. NMF is a popular technique in signal processing research for things like source separation and transcription.
 
+### A Useful Simile
+NMF could be thought as a vocoder, in which each bandpass filter is instead a finely tuned spectral template, for which its respective activation is the envelope.
+
 ### Example Code
 <a href='/learn/bufnmf/bufnmf-overview-example.scd' download='bufnmf-overview-example.scd'>SuperCollider Example</a>
 <a href='/learn/bufnmf/bufnmf-overview-example.maxpat' download='bufnmf-overview-example.maxpat'>Max Example</a>
