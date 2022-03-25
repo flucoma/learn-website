@@ -10,10 +10,31 @@ category: Analyse Sound
 
 <script>
     import MFCCScrub from '$lib/widget/MFCCScrub.svelte';
+    import IndentNote from '$lib/components/IndentNote.svelte';
 </script>
 
-MFCC stands for Mel-Frequency Cepstral Coefficients ("cepstral" is pronounced like "kepstral"). This analysis is often used for timbral description and timbral comparison. The MFCC values are derived by first computing a mel-frequency spectrum, just as with the FluCoMa [MelBands](/reference/MelBands) object. A user specified number of "coefficients" are then calculated by using that mel-frequency spectrum as input to the discrete cosine transform. This means that the shape of the mel-frequency spectrum is compared to a number of cosine wave shapes (different cosines shapes created from different different frequencies). Each MFCC value (i.e., "coefficient") represents how similar the mel-frequency spectrum is to one of these cosine shapes. 
+MFCC stands for Mel-Frequency Cepstral Coefficients ("cepstral" is pronounced like "kepstral"). This analysis is often used for timbral description and timbral comparison. It compresses the overall spectrum into a smaller number of coefficients that, when taken together, describe the general contour the the spectrum.
+   
+The MFCC values are derived by first computing a mel-frequency spectrum, just as in [MelBands](/reference/melbands). ``numCoeffs`` coefficients are then calculated by using that mel-frequency spectrum as input to the discrete cosine transform. This means that the shape of the mel-frequency spectrum is compared to a number of cosine wave shapes (different cosines shapes created from different different frequencies). Each MFCC value (i.e., "coefficient") represents how similar the mel-frequency spectrum is to one of these cosine shapes. 
 
-Other that the 0th coefficient (they start counting from zero), MFCCs are unchanged by differences in the overall energy of the spectrum (which relates to how we perceive loudness). This means that timbres that are the same will have the same MFCC values (other than MFCC 0) even if they're analysed at different loudnesses. MFCC 0 can still be useful if a measure of the overall energy in the spectrum is important for an analysis. If MFCC 0 is not desired, the parameter ``startCoeff`` can tell this object to return MFCCs starting at a coefficient other than 0 (most often 1). 
+<IndentNote type="pointer">
+
+Learn more about this process in an [interactive demonstration](https://learn.flucoma.org/reference/mfcc/explain/).
+
+</IndentNote>
+
+---
+
+## MFCC 0
+
+Other that the 0th coefficient, MFCCs are unchanged by differences in the overall energy of the spectrum (which relates to how we perceive loudness). This means that timbres with similar spectral contours, but different volumes, will still have similar MFCC values, other than MFCC 0. To remove any indication of loudness but keep the information about timbre, we can ignore MFCC 0 by setting the parameter ``startCoeff`` = 1. 
+
+This can be useful when you want the timbres used in a classification or analysis to be unaffected by loudness. For example, if using an [MLPClassifier](/reference/mlpclassifier) to classify the difference between a trombone and an oboe, you'll want the classifier to distinguish between these instruments regardless of how loud or quiet the instrumentalists are playing.
+
+## MFCCs as a form of data compression
+
+In the demo below, use the slider to adjust the number of coefficients (MFCCs) used to represent the spectrum. With more coefficients, the spectrum (orange line on) is more accurately represented by the blue line. With fewer coefficients, the blue line looses precision in representing the spectrum, but still reflects the general spectral contour. This demonstrates why using a lower number of coefficients can still provide relevant information about the contour of the spectrum.
+
+Note that the blue line seen on the right is not the actual coefficients of the MFCC. Instead it is an inverse discrete cosine transform of the cepstrum used here for display purposes. The blurriness of the spectrogram on the left mirrors the lower resolution spectral representation that MFCCs offer.
 
 <MFCCScrub />
