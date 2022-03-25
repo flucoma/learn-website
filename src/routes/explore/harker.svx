@@ -99,7 +99,7 @@ Harker worked closely with Dell when developing the piece to explore the multiph
 
 <IndentNote type='pointer'>
 
-Download a small collection of oboe multiphonics recorded by Harker, performed by Dell <a href='https://learn.flucoma.org/explore/Oboe-Multiphonics-Samples.zip' download='Oboe-Multiphonics-Samples.zip'>here</a>.
+Download a small collection of oboe multiphonics recorded by Harker, performed by Dell <a href='http://learn.flucoma.org/explore/oboe-multi-samples.zip' download='oboe-multi-samples.zip'>here</a>.
 
 </IndentNote>
 
@@ -156,7 +156,7 @@ src="/explore/harker/real_time_analysis_example.png"
 label="An overview of the example patch 04 Real-Time Analysis."
 />
 
-In example patch *04 Real-Time Analysis*, we see how this classifier is used in the actual piece. This patch pre-loads with the training data that Harker used for the piece, and you can use the <a href='https://learn.flucoma.org/explore/Niamh-Dell-Oboe-Stem.wav' download='Niamh-Dell-Oboe-Stem.wav'>dry oboe recording</a> of Dell’s performance as the analysis source. We see that with another *FrameLib* network, Harker is again retrieving the spectral magnitude of the signal and performing the same kind of pre-processing before predicting the data every analysis frame (every 2048 samples). We see that Harker also retrieves a whole host of other descriptor data – not all of them are used in the actual piece.
+In example patch *04 Real-Time Analysis*, we see how this classifier is used in the actual piece. This patch pre-loads with the training data that Harker used for the piece, and you can use the <a href='https://learn.flucoma.org/explore/niamh-dell-oboe-stem.wav' download='niamh-dell-oboe-stem.wav'>dry oboe recording</a> of Dell’s performance as the analysis source. We see that with another *FrameLib* network, Harker is again retrieving the spectral magnitude of the signal and performing the same kind of pre-processing before predicting the data every analysis frame (every 2048 samples). We see that Harker also retrieves a whole host of other descriptor data – not all of them are used in the actual piece.
 
 Harker wanted his oboe tracker to be fast – hence the tracking triggering with every analysis frame (roughly every 40ms). This was actually something that began to cause Harker problems: indeed, the [*fluid.mlpclassifier~*](/reference/mlpclassifier) object is designed to always return an answer. However, Harker wished to find a way of only returning a classification if the neural network was sure about its prediction.
 
