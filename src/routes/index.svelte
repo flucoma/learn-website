@@ -1,5 +1,6 @@
 <script>
     import { docs } from '$lib/app.js';
+    import { featured_snippet } from '$lib/app.js';
     import { manual_config } from '$lib/app.js';
     import _ from 'lodash';
     import LearnMoreArrow from '$lib/components/LearnMoreArrow.svelte';
@@ -49,6 +50,57 @@
         };
         return to_return;
     };
+
+
+
+
+
+    // For code block:
+    import { browser } from '$app/env';
+            let block;
+
+            function copyCode(element_id) {
+                if (browser) {
+                    let code = document.getElementById(element_id);
+                    console.log(code.innerText);
+
+                    var range, selection;
+
+                    if (document.body.createTextRange) {
+                        range = document.body.createTextRange();
+                        range.moveToElementText(code);
+                        range.select();
+                    } else if (window.getSelection) {
+                        selection = window.getSelection();
+                        range = document.createRange();
+                        range.selectNodeContents(code);
+                        selection.removeAllRanges();
+                        selection.addRange(range);
+                    }
+                    
+                    navigator.clipboard.writeText(code.innerText);
+
+                    var tick_id = 'pd_tick';
+                    if(element_id == 'max_code'){
+                        tick_id = "max_tick";
+                    }else if(element_id == 'sc_code'){
+                        tick_id = "sc_tick";
+                    }
+
+                    var fadeTarget = document.getElementById(tick_id);
+                    fadeTarget.style.opacity = 1;
+                    var fadeEffect = setInterval(function() {
+                    if (fadeTarget.style.opacity < 0.1)
+                    {
+                    clearInterval(fadeEffect);
+                    }
+                    else
+                    {
+                    fadeTarget.style.opacity -= 0.1;
+                    }
+                    }, 200);
+                }
+            }
 
 </script>
 
@@ -131,6 +183,77 @@
 
     </div>
     
+
+
+
+
+
+
+
+
+
+    <!--Snippet section-->
+    <div class="snippet_section">
+        
+        <h2 style="grid-area: snippetTitle;">Snippet of the day: {featured_snippet.meta_data.title}</h2>
+
+        <p style="grid-area: snippetDesc;">{featured_snippet.meta_data.blurb}</p>
+
+
+        <div style="grid-area: snippetVid;">
+
+            <div class="front_page_video_container_snippet">
+                <iframe
+                title=""
+                    width=100%
+                    height=200px
+                    src={`https://www.youtube.com/embed/${featured_snippet.meta_data.video_url}`}
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen
+                />
+            </div>
+    
+        </div>
+
+        <div bind:this={block} class="code_block" style="grid-area: codeBlock1;">
+            <h3>Max</h3>
+            <button on:click={() => copyCode("max_code")} class="codebtn">📋</button>
+            <div class="copied_tick" id="max_tick">✓</div>
+            <div >
+<pre class="code_container"><code id="max_code">{featured_snippet.max}</code></pre>
+            </div>
+        </div>
+
+        <div bind:this={block} class="code_block" style="grid-area: codeBlock2;">
+            <h3>SuperCollider</h3>
+            <button on:click={() => copyCode("sc_code")} class="codebtn">copy</button>
+            <div class="copied_tick" id="sc_tick">✓</div>
+            <div >
+<pre class="code_container"><code id="sc_code">{featured_snippet.sc}</code></pre>
+            </div>
+        </div>
+
+        <div bind:this={block} class="code_block" style="grid-area: codeBlock3;">
+            <h3>PureData</h3>
+            <button on:click={() => copyCode("pd_code")} class="codebtn">copy</button>
+            <div class="copied_tick" id="pd_tick">✓</div>
+            <div >
+<pre class="code_container"><code id="pd_code">{featured_snippet.pd}</code></pre>
+            </div>
+        </div>
+           
+
+    </div>
+
+
+
+
+
+
+
+
+
     <!--Learn Section-->
     <div class="row_parent">
         <h2 class="row_title_lower">
@@ -238,6 +361,66 @@
 </div>
 
 <style>
+
+.snippet_section{
+        max-width: 80%;
+        margin: 0 auto;
+        /*margin-top: 1em;*/
+        margin-bottom: 5em;
+        grid-gap : 1em;
+
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-areas: 
+        "snippetTitle snippetTitle snippetVid"
+        "snippetDesc snippetDesc snippetVid"
+        "codeBlock1 codeBlock2 codeBlock3";
+    }
+
+    .front_page_video_container_snippet{
+        padding: 0.5em;
+    }
+
+    .code_container{
+        border: 0.063rem solid #dcdee0;
+        height: 10em;
+        
+
+        white-space: pre-wrap;
+        word-wrap: break-word; 
+        overflow-y: scroll;
+    }
+
+    .code_block {
+		position: relative;
+        overflow-x: auto;
+	}
+
+	.codebtn {
+		font-family: var(--font);
+		position: absolute;
+		right: 0;
+        margin: 0.5em;
+	}
+
+    .copied_tick{
+        position: absolute;
+		right: 0;
+        bottom: 0;
+        color: green;
+        font-size: 2em;
+        padding: 0.5em;
+        opacity: 0;
+    }
+
+
+
+
+
+
+
+
+
 
     /*Main div*/
     .main_wrapper{
@@ -429,7 +612,16 @@
         align-self: center;
         justify-self: end; 
         justify-content: end;
-    }
+        
+        }
+
+        .snippet_section{
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-areas: 
+            "snippetTitle snippetTitle snippetVid"
+            "snippetDesc snippetDesc snippetVid"
+            "codeBlock1 codeBlock2 codeBlock3";
+        }
 	}
 
 	@media (max-width: 1200px) {
@@ -477,7 +669,18 @@
         align-self: center;
         justify-self: left; 
         justify-content: left;
-    }
+        }
+
+        .snippet_section{
+                grid-template-columns: repeat(1, 1fr);
+                grid-template-areas: 
+                "snippetTitle"
+                "snippetVid"
+                "snippetDesc"
+                "codeBlock1"
+                "codeBlock2"
+                "codeBlock3";
+            }
 
 	}
 

@@ -7,6 +7,7 @@ import e from '../../static/edits.json';
 import s from '../../static/structure.json';
 import database from '../../static/db.json';
 import manual from '../../static/manual_config.json';
+import snippet_data from '../../static/snippets.json';
 
 // interface state
 export const nav_expanded = writable(false);
@@ -42,6 +43,13 @@ const docs = database.docs;
 installs.forEach((i) => docs.push(i)); // add installation steps
 
 const manual_config = manual;
+let featured_snippet;
+snippet_data["snippets"].forEach((spt) => {
+	if(spt.meta_data.folder == manual_config.front_page.featured_snippet){
+		featured_snippet = spt;
+	}
+});
+
 
 const search = new FuzzySearch(docs, ['title', 'tags', 'flair', 'artist', 'blurb'], {
 	caseSensitive: false,
@@ -49,4 +57,4 @@ const search = new FuzzySearch(docs, ['title', 'tags', 'flair', 'artist', 'blurb
 });
 
 const db = search;
-export { db, docs, manual_config };
+export { db, docs, manual_config, featured_snippet };
