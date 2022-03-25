@@ -16,6 +16,18 @@ category: Analyse Data
     import Image from '$lib/components/Image.svelte';
     import ResourceLink from '$lib/components/ResourceLink.svelte';
     import IndentNote from '$lib/components/IndentNote.svelte';
+    
+    import tables from '../../../static/reference/bufstats/bufstats.json';
+    
+    let spectral_shape = tables["FluidSpectralShape"];
+    let spectral_shape_rows = ["Centroid","Spread","Skewness","Kurtosis","Rolloff","Flatness","Crest"];
+    let iqrs = tables["percentiles_range_bounds"];
+    let bounds = iqrs.map(x => [x[4],x[5]])
+    
+    let cutoff_stats = tables["FluidBufStats_outliersCutoff!=-1"];
+    let original_stats = tables["FluidBufStats_outliersCutoff=-1"];
+    let stats_headers = ["Mean","Std Dev","Skewness","Kurtosis","Low","Middle","High"];
+    // console.log(bounds)
 </script>
 
 BufStats statistically summarises a set of values that are in a buffer channel, returning seven statistical properties: the [mean](#mean), [standard deviation](#standard-deviation), [skewness](#skewness), [kurtosis](#kurtosis), [low](#low) (by default the minimum), [middle](#middle) (by default the median), and [high](#high) (by default the maximum) values. The mean and median are a measure of the central tendency of the data, while the others offer a measure of the variability in the data.
@@ -24,7 +36,7 @@ A buffer typically holds time-series information as "frames," either in the form
 
 In addition to computing these statistical representations on the original buffer channel, BufStats can also:
 
-* compute these statistics on [derivatives](#derivatives) of the original time-series with the `numDerivs` parameter
+* compute these statistics on up to two [derivatives](#derivatives) of the original time-series with the `numDerivs` parameter
 * apply [weights](#weights) to the various frames to produce a weighted statistical summary using a `weights` buffer
 * find and remove [outliers](#outliers) from the frames included in the statistical calculations with `outliersCutoff`
 
@@ -91,7 +103,7 @@ The values returned as [low](#low), [middle](#middle), and [high](#high) are per
 
 # Derivatives
 
-Setting the parameter `numDerivs` > 0 will return the same seven statistics computed on consecutive derivatives of the channel's time-series. The derivative of a time-series is computed by finding the _difference_ between each consecutive value in a series. For example, the derivative of the input time-series in the top row is seen in the bottom row:
+Setting the parameter `numDerivs` > 0 (the maximum is 2) will return the same seven statistics computed on consecutive derivatives of the channel's time-series. The derivative of a time-series is computed by finding the _difference_ between each consecutive value in a series. For example, the derivative of the input time-series in the top row is seen in the bottom row:
 
 | A time-series and it's derivative |
 |:---------------------|:--:|:--:|:---:|:--:|:---:|:---:|:--:|:--:|:--:|
@@ -130,11 +142,11 @@ label="A reversed snare hit and its loudness analysis."
 
 The ``weights`` parameter can be passed a buffer, the values of which will be used for relative weighting of each corresponding frame in the ``source`` buffer. This will create "weighted" statistics where some values in the data have more impact on the resulting statistical summary than others. All seven of the resulting statistics may be affected by using the weights. 
 
-This can be useful for weighting certain moments in descriptor time-series by the value of other descriptors. For example, one might want to weigh the pitch analysis with the pitch confidence descriptor so the resulting mean pitch value is more strongly influenced by moments in the analysis when the pitch confidence is high. Similarly, one might want to weigh a descriptor time-series by amplitude so the louder moments of sound have greater impact on the resulting statistical summary than quieter moments.
+This can be useful for weighting certain moments in descriptor time-series by the value of other descriptors. For example, one might want to weight the pitch analysis with the pitch confidence descriptor so the resulting mean pitch value is more strongly influenced by moments in the analysis when the pitch confidence is high. Similarly, one might want to weigh a descriptor time-series by amplitude so the louder moments of sound have greater impact on the resulting statistical summary than quieter moments.
 
 <IndentNote type='pointer'>
 
-For an example of using a ``weights`` buffer to influence the statistical summary in a musical way, visit the [Weighing Stats]() Overview.
+For an example of using a ``weights`` buffer to influence the statistical summary in a musical way, visit the [Weighting Stats]() Overview.
 
 </IndentNote>
 
@@ -145,11 +157,170 @@ Not providing a ``weights`` buffer will cause all the frames to be considered eq
 
 # Outliers
 
-The parameter ``outliersCutoff`` is a ratio of the _interquartile range_ (IQR) that defines a range from the median, outside of which data will be considered an outlier and not used to compute the statistical summary. 
+BufStats can find and remove outliers by using an analysis of the data to set boundaries for each channel in the buffer. Any frames that have a value outside the its channel's boundaries will not be used to compute the statistics. This can be useful because many of the statistical measures BufStats provides can be greatly affected by extreme outliers, making them less respresentative of the majority of the data. Removing these outliers before computing the statistics will prevent them from affecting the statiscal summary so the output of BufStats is a better representation of the majority of the data.
 
-For each frame, if a single value in any channel of that frame is considered an outlier (when compared to the rest of the values in it's channel), the whole frame (on all channels) will not be used for statistical calculations. The default of -1 bypasses this function, using all the frames in the statistical measurements. For more information on this statistical process, please refer to how the whiskers of a [box plot](https://en.wikipedia.org/wiki/Box_plot) are computed.
+The boundaries of each channel are computed using the _interquartile range_, thereby ensuring that the boundaries are relative to the scale and distribution of values. The lower bound of this range is the 25th percentile - (the interquartile range \* the parameter ``outliersCutoff``). The upper bound of this range is the 75th percentile + (the interquartile range \* the parameter ``outliersCutoff``). The 25th and 75th percentiles are also called "Q1" and "Q3" respectively, short for the 1st Quantile and 3rd Quantile.
 
-# Distribution and Histograms  
+The default of -1 bypasses this function, using all the frames in the statistical measurements. For more information on this statistical process, please refer to how the whiskers of a [box plot](https://en.wikipedia.org/wiki/Box_plot) are computed.
+
+To demonstrate how this works, consider this output of a [SpectralShape](/reference/spectralshape) analysis (colums are frames and rows are channels of the ``features`` buffer):
+
+<table>
+    <thead>
+        <tr>
+        <td class="border-less"></td>
+            {#each spectral_shape[0] as _,i}
+                <th><b>FFT Frame {i+1}</b></th>
+            {/each}
+        </tr>
+    </thead>
+    <tbody>
+        {#each spectral_shape as row,i}
+          <tr>
+          <th align="left"><b>{spectral_shape_rows[i]}</b></th>
+            {#each row as cell}
+              <td>{+cell.toFixed(2)}</td>
+            {/each}
+          </tr>
+        {/each}
+    </tbody>
+</table>
+
+---
+
+First, BufStats will find the Q1 and Q3. Using these it will calculate the interquartile range (IQR) which is the difference between these two values (Q3 - Q1). Next a "Margin" is calculated as the IQR * the ``outliersCutoff`` parameter passed to FluidBufStats (in this example, ``outliersCutoff`` = 1.1). Finally, the lower and upper bounds are calculated as a "Margin distance" below Q1 and above Q3. Lower bound = Q1 - Margin. Upper bound = Q3 + Margin.
+
+<table>
+    <thead>
+        <tr>
+        <td class="border-less"></td>
+        <th><b>Q1</b></th>
+        <th><b>Q3</b></th>
+        <th><b>IQR</b></th>
+        <th><b>Margin</b></th>
+        <th><b>Lower Bound</b></th>
+        <th><b>Upper Bound</b></th>
+        </tr>
+    </thead>
+    <tbody>
+        {#each iqrs as row,i}
+          <tr>
+          <th align="left"><b>{spectral_shape_rows[i]}</b></th>
+            {#each row as cell}
+              <td>{+cell.toFixed(2)}</td>
+            {/each}
+          </tr>
+        {/each}
+    </tbody>
+</table>
+
+---
+
+Now, using the lower and upper bounds, we can check the original values in the buffer and see if any fall outside this range.
+
+<table>
+    <thead>
+        <tr>
+        <td class="border-less"></td>
+            {#each spectral_shape[0] as _,i}
+                <th><b>FFT Frame {i+1}</b></th>
+            {/each}
+        </tr>
+    </thead>
+    <tbody>
+        {#each spectral_shape as row,i}
+          <tr>
+          <th align="left"><b>{spectral_shape_rows[i]}</b></th>
+            {#each row as cell}
+            {#if cell < bounds[i][0] || cell > bounds[i][1]}
+              <td bgcolor="FF7A7F">{+cell.toFixed(2)}</td>
+            {:else}
+              <td>{+cell.toFixed(2)}</td>
+            {/if}
+            {/each}
+          </tr>
+        {/each}
+    </tbody>
+</table>
+
+---
+
+Frames 1, 2, and 3 all have values that fall outside the boundaries. Each of these three frames will be removed from what is used to compute the statistical summary leaving:
+
+<table>
+    <thead>
+        <tr>
+        <td class="border-less"></td>
+            {#each Array(5) as _,i}
+                <th><b>FFT Frame {i+4}</b></th>
+            {/each}
+        </tr>
+    </thead>
+    <tbody>
+        {#each spectral_shape as row,i}
+          <tr>
+          <th align="left"><b>{spectral_shape_rows[i]}</b></th>
+            {#each Array(5) as _,j}
+              <td>{+row[j+3].toFixed(2)}</td>
+            {/each}
+          </tr>
+        {/each}
+    </tbody>
+</table>
+
+---
+
+Here are the statistics these selected frames produce:
+
+<table>
+    <thead>
+        <tr>
+        <td class="border-less"></td>
+            {#each stats_headers as stat}
+                <th><b>{stat}</b></th>
+            {/each}
+        </tr>
+    </thead>
+    <tbody>
+        {#each cutoff_stats as row,i}
+          <tr>
+          <th align="left"><b>{spectral_shape_rows[i]}</b></th>
+            {#each row as cell}
+              <td>{+cell.toFixed(2)}</td>
+            {/each}
+          </tr>
+        {/each}
+    </tbody>
+</table>
+
+---
+
+Compared to the statistics if all the frames were included:
+
+<table>
+    <thead>
+        <tr>
+        <td class="border-less"></td>
+            {#each stats_headers as stat}
+                <th><b>{stat}</b></th>
+            {/each}
+        </tr>
+    </thead>
+    <tbody>
+        {#each original_stats as row,i}
+          <tr>
+          <th align="left"><b>{spectral_shape_rows[i]}</b></th>
+            {#each row as cell}
+              <td>{+cell.toFixed(2)}</td>
+            {/each}
+          </tr>
+        {/each}
+    </tbody>
+</table>
+
+---
+
+# Distribution and Histograms
 
 Many of the statistical summaries that BufStats computes are intended to provide some insight on how the data is distributed across the range that it covers. A distribution is often viewed as a histogram, which divides the range covered by the data into discrete bins and then shows how many individual data points fall within each bin.
 
@@ -231,3 +402,26 @@ title='Kurtosis as Peakedness, 1905 – 2014. R.I.P.'
 url='https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4321753/pdf/nihms-599845.pdf'
 blurb='Paper by Peter H. Westfall (2014) describing a common misconception about kurtosis.'
 />
+
+<style>
+
+    table, th, td {
+      font-size: 12px;
+      border: 1px solid black;
+      border-collapse: collapse;
+    }
+    
+    td {
+      text-align: center;
+    }
+    
+    th {
+      background-color: #DDDDDD;
+    }
+    
+    .border-less {
+        border-top: 1px solid #FFFFFF;
+        border-left: 1px solid #FFFFFF;
+    }
+    
+</style>
