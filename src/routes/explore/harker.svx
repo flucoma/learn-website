@@ -43,7 +43,7 @@ Today we’ll be looking at some of the work that Alex Harker did for the FluCoM
 *Drift Shadow*, for oboe and live electronics, was premiered at the second [FluCoMa concert](/explore/liminal-spaces) as part of [Dialogues Festival 2021](https://digital.eca.ed.ac.uk/dialogues/liminal-spaces-flucomadialogues/) in Edinburgh. It was performed by Dell, and Harker was sat behind the desk, overseeing the electronics. The piece is characteristically emergent and flowing – gestures ease into each other. Time dilates and suspends itself as we are immersed within the ringing, delicate relationships of partials and complex microtones of the multiphonics. Things are simultaneously frozen and constantly shimmering; we are aware of a subtle interaction between the oboe and electronics which continually materialise from each other. With controlled fades and glissandi, the piece progresses through a series of intricate timbral textures that bring us into intimate proximity with the oboe.
 
 <YouTube 
-url={'xdygL-zm3j8?t=2704'}
+url={'lHEWsysupaA'}
 />
 
 It is a remarkable and complex piece. Upon listening, it is obvious that a very deep reflection around the timbral possibilities of the oboe’s multiphonics has occurred – both by the composer and the performer. We shall begin by discussing some of the elements that Harker wished to explore in this composition and what is happening on stage. Then we shall look at how he used the FluCoMa tools for Computer-Aided Composition (CAC), and how he approached MLP classification for tracking of the oboe.
