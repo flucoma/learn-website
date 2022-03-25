@@ -31,7 +31,6 @@
 
 </div>
 
-
 <style lang="postcss">
 
     .wrapper {
