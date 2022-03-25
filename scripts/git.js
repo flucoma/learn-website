@@ -16,15 +16,26 @@ const parseGitLog = (logString) => {
 const extractGit = (routes) => {
 	let container = {};
 	routes.forEach((route) => {
+		let info = {};
 		let cmd = `git log -1 ${route}`;
 		const out = execSync(cmd, { encoding: 'utf8' });
-		const [commit, author, time] = parseGitLog(out);
-		const info = {
-			commit: commit,
-			author: author,
-			time: time,
-			url: route
-		};
+		
+		if (out.length > 0) {
+			const [commit, author, time] = parseGitLog(out);
+			info = {
+				commit: commit,
+				author: author,
+				time: time,
+				url: route
+			};
+		} else {
+			info = {
+				commit: 'No git data',
+				author: 'No git data',
+				time: 'No git data',
+				url: 'No git data'
+			}
+		}
 
 		const key = urlFromRoute(route);
 		container[key] = info;

@@ -1,0 +1,35 @@
+---
+title: 2D Corpus Exploring
+blurb: |
+    A video tutorial guiding that teaches you how to build a two-dimensional corpus exploration patch in Max.
+tags: 
+    - unsupervised learning
+    - dimension reduction
+    - video
+    - catart
+    - corpus
+    - segmentation
+    - audio descriptors
+flair: tutorial
+featuredimage: /learn/for-featured-images/2D-corpus-explorer.png
+---
+
+<script>
+    import YouTube from '$lib/components/YouTube.svelte';
+</script>
+
+## A Brief Synopsis
+This tutorial guides you through building a two-dimensional corpus exploration patch in Max. If you'ever come into contact with software such as [CataRT](http://imtr.ircam.fr/imtr/CataRT), [LjudMAP](https://github.com/victorwegeborn/LjudMAP) or [XO](https://www.xlnaudio.com/products/xo) then this way of working might be familiar. Briefly, the musical motivation for making a patch like this is quite diffuse. You might:
+
+1. Explore a relatively unknown collection of sounds in a visual space
+2. Exploit the sample's spatial positioning for creative inspiration
+3. Inform your selection of materials in real-time, such as for improvisation
+
+The tutorial starts off by showing you how to segment a sound file and analyse each segment with the [Loudness](/reference/loudness) and [SpectralShape](/reference/spectralshape) descriptors. This information is then used to drive a looping playback mechanism, kind of like an automated drum chopper / sequencer. The notion of descriptor-driven playback is then expanded: the descriptor values are processed and made usable as as coordinates so that each sound segment can be placed on to a `fluid.plotter` canvas. This creates the visual space that can be navigated with the mouse.
+
+Each fundamental component of the patch is separated out so that you can tinker and experiment with the workflow in a more bespoke way (once you're comfortable with the basics). You could try changing the descriptors or modifying how you interact with the data. Using `fluid.plotter` is just one way to think about this!
+
+<YouTube 
+url='4dsX5uRips8'
+/>
+

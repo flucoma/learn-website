@@ -2,34 +2,22 @@
 	import { page } from '$app/stores';
 	import { breadcrumbs } from '$lib/app';
 
-	// Sanitise some special links where need be
-	const lookup = {
-		madewithflucoma: 'Made with FluCoMa',
-		reference: 'Reference',
-		guides: 'Guides',
-		overviews: 'Overviews',
-		installation: 'Installation'
-	};
-
-	function formatCrumb(crumb) {
-		if (crumb in lookup) return lookup[crumb];
-		return crumb;
-	}
-
 	function splitPath(path) {
 		// Splits a full page path into an array of parts
 		// This can be used to then construct the breadcrumbs
 		let d = [];
 		path = path.split('/');
-		path.shift();
+		path.shift(); path.pop();
 
 		let accum = '';
 		path.forEach((p, i) => {
 			let sanitisedText = '';
 			if (i >= 1) {
-				sanitisedText = $breadcrumbs[$page.url.pathname];
+				let path = $page.url.pathname; 
+				path = path.endsWith('/') ? path.slice(0, -1) : path;
+				sanitisedText = $breadcrumbs[path];
 			} else {
-				sanitisedText = formatCrumb(p);
+				sanitisedText = p[0].toUpperCase() + p.slice(1);
 			}
 			accum += `/${p}`;
 			let crumb = { url: accum, text: sanitisedText };
@@ -40,7 +28,6 @@
 	$: crumbs = splitPath($page.url.pathname);
 </script>
 
-<!-- Breadcrumbs -->
 <nav class="container">
 	<div class="left" />
 	<div class="crumbs">
@@ -56,7 +43,7 @@
 	.container {
 		display: grid;
 		grid-template-columns: auto min(var(--max-text-width), 100%) auto;
-		margin: 1em;
+		padding: 1em;
 	}
 	.crumbs {
 		font-size: 0.8rem;

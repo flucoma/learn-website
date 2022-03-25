@@ -3,7 +3,14 @@
 	import Header from '$lib/Header.svelte';
 	import Footer from '$lib/Footer.svelte';
 	import Crumbs from '$lib/components/Crumbs.svelte';
-	import TOC from '$lib/components/TOC.svelte';
+	import { fly } from 'svelte/transition';
+	import { nav_expanded, blur } from '$lib/app';
+
+	const scroll = (e) => {
+		if ($nav_expanded) {
+			e.preventDefault();
+		}
+	}
 </script>
 
 <svelte:head>
@@ -12,25 +19,35 @@
 	</title>
 </svelte:head>
 
+<svelte:body class:noscroll={ $nav_expanded === true } on:mousewheel|nonpassive={scroll} />
+
+{#if $nav_expanded || $blur}
+<div transition:fly={{duration:200}} class="overlay" on:click={ () => { $nav_expanded = false }}></div>
+{/if}
+
 <div class="container">
 	<Header />
-	<Crumbs />
 
-	<div class="content">
-		<div class="navigation">
-			<TOC />
-		</div>
-
-		<main class="main">
-			<slot />
-		</main>
-
-		<div class="empty-right" />
-	</div>
+	<main class="content">
+		<slot />
+	</main> 
+	
 	<Footer />
 </div>
 
 <style lang="postcss">
+	.overlay {
+		background-color: hsl(240, 11%, 81%);
+		height: 1000vh;
+		width: 100%;
+		opacity: 0.6;
+		position: absolute;
+		top: 0;
+		left: 0;
+		cursor: pointer;
+		z-index: 98
+	}
+
 	.container {
 		display: flex;
 		flex-direction: column;
@@ -40,46 +57,9 @@
 	.content {
 		display: grid;
 		justify-content: center;
-		margin-left: 1em;
-		margin-right: 1em;
+		padding-left: 1em;
+		padding-right: 1em;
 		margin-bottom: 1em;
-	}
-
-	.main {
-		grid-area: main;
-		min-width: var(--min-text-width);
-		max-width: var(--max-text-width);
-	}
-
-	.navigation {
-		grid-area: navigation;
-		width: 25ch;
-		height: max-content;
-	}
-
-	.empty-right {
-		grid-area: empty-right;
-		width: 25ch;
-	}
-
-	/* Media Queries */
-	@media (min-width: 1200px) {
-		.content {
-			grid-template-columns: auto min(var(--max-text-width), 100%) auto;
-			grid-template-areas: 'navigation main empty-right';
-		}
-	}
-
-	@media (max-width: 1200px) {
-		.content {
-			grid-template-rows: auto auto;
-			grid-template-areas:
-				'navigation'
-				'main';
-		}
-
-		.empty-right {
-			display: none;
-		}
+		flex: 1 0 auto;
 	}
 </style>

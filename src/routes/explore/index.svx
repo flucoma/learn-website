@@ -1,0 +1,13 @@
+---
+layout: contentindex
+---
+
+<script>
+    import CardList from '$lib/components/cards/List.svelte';
+</script>
+
+# Explore
+
+Explore highlights projects and practices where FluCoMa is used.
+
+<CardList section='explore' />
