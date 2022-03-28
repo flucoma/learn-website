@@ -1,7 +1,7 @@
 ---
 title: The Short Time Fourier Transform (STFT)
-blurb: |
-    Transforming the time domain to the frequency domain.
+blurb: | 
+    Commonly used spectral analysis method
 tags: 
     - spectral processing
     - analysis
@@ -15,33 +15,33 @@ flair: article
     import STFTWindows from '$lib/widget/STFTWindows.svelte';
 </script>
 
-## Introduction
+The Fourier Transform is, by far, the most commonly used frequency analysis method in audio analysis and machine listening. Most of the FluCoMa audio descriptors use this algorithm as the basis of their computation. Because a wealth of [resources](#resources) already exist that explain the Fourier Transform in more general terms, the focus of this resource is going to be on the practicalities of using it for music: why one would change parameters and the limitations of the FFT.
 
-The Fourier Transform is, by far, the most commonly used frequency analysis method in audio analysis and machine listening. Our goal here is to present a musically focused discussion of the scheme that is used to analyse signals which vary over time, the Short Time Fourier Transform (STFT). Because there is a wealth of resources already out there that explain the Fourier Transform in more general terms (see the [resources](#resources) section), our focus is going to be on the practicalities of using in for music: how it works, what it can tell you, and caveats for using it.
+## Window Size
 
-Perhaps because the Fourier Transform is so ubiquitous in signal analysis, you may notice that discussions of it tend to use a lot of acronyms as a short hand. Unfortunately, this can create some confusion when getting orientated with the general topic, especially with respect to how various things (DFTs, FFTs, and STFTs) actually relate to each other. Briefly:
-
-### Windowing
 The first step in the STFT is to cut the incoming signals into overlapping windows, allowing us to to calculate the spectrum over time. The two parameters here are the window size (how many samples we analyse), and the hop size (how often we analyse).
 
 <STFTWindows />
 
 Each slice is then processed with a Discrete Fourier Transform (DFT). See the resources below for much more detail on what this means. The key points to bear in mind are that the DFT uses a discrete frequency scale: the territory between 0 Hz and the sampling frequency is divided into as many chunks as the size of the transform we take. Additionally, for a real-valued signal (normally the case), half of the DFT information is just a mirror of the other half, so we end up with half as many frequency bins. What the transform 'tells' us is how correlated the input signal is with a sinusoid at this bin frequency.
 
-### Uncertainty
-The longer the window we take, the finer the frequency-grid we get from the DFT. This means that there is a trade-off between temporal resolution and frequency resolution. A long window means we are (sort of) averaging information about the signal over a longer time, but getting more detailed information about the spectrum in return. Correspondingly, short windows give us a better impression of moment-to-moment dynamics, but a rougher idea about frequency.
+## Hop Size
 
-### FFT Size
+## FFT Size
+
 Note that the size of the DFT doesn't have to be the same as the window size (but it can't be smaller). In fact, we are normally constrained to use a power of two DFT size because we almost always use an efficient DFT algorithm (the Fast Fourier Transform, FFT) that has this constraint. Sometimes using a bigger DFT / FFT size than the window can be beneficial because it gives us high quality interpolation across frequency for the 'extra' bins we've added.
 
 Note that this is not the same as getting a more precise analysis from the same window: the constraint on how close together in frequency things can be distinguished is governed still by the size of the window we're analysing.
 
-### Re-synthesising
+# Uncertainty
+The longer the window we take, the finer the frequency-grid we get from the DFT. This means that there is a trade-off between temporal resolution and frequency resolution. A long window means we are (sort of) averaging information about the signal over a longer time, but getting more detailed information about the spectrum in return. Correspondingly, short windows give us a better impression of moment-to-moment dynamics, but a rougher idea about frequency.
+
+# Re-synthesising
 One reason the STFT is so common is that it is simple to get back to our original signal by taking an inverse DFT. We can then sum together our overlapping slices to get back to where we were (provided we didn't change anything in the Fourier domain).
 
 Under certain conditions, we can get back (almost) exactly what we put in, but we have to be careful. When we make our windows, it is usual to apply a particular shape to them, called a window function. Different window functions have different requirements for being able to provide perfect reconstruction. This generally depends on how much overlap we have between windows (i.e. the hop size in relation to the window size). In general, the overlap factor should be an whole number of at least two (the window should be at least twice as big as the hop). For some windows, you will need a factor of at least four.
 
-## Phase Vocoder
+# Phase Vocoder
 The Phase Vocoder is a name for the most common model people use when doing spectral processing in the STFT domain. It represents a set of assumptions that allow us to work with intuitive quantities like amplitude and frequency, rather than directly with raw DFT output.
 
 The DFT works with complex numbers, which can be represented in a range of different ways. Complex numbers are a convenient way to work with quantities where we need to express some notion of frequency. The form the DFT yields its results in tells us about how much our signal correlates with a cosine and a sine at each bin frequency (so we have two numbers for each bin). This isn't very intuitive to work with, so it is more common to switch to another form ('polar form'), that expresses the number as an amplitude and a phase for each bin.
@@ -63,11 +63,3 @@ https://www.jezzamon.com/fourier/
 https://jackschaedler.github.io/circles-sines-signals/
 
 https://cycling74.com/tutorials/the-phase-vocoder-%E2%80%93-part-i
-
-
-
-
-
-
-
-
