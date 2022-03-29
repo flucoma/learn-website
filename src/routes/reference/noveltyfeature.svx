@@ -1,0 +1,12 @@
+---
+title: NoveltyFeature
+blurb: 
+tags:
+    - segmentation
+    - slicing
+    - time series
+flair: reference
+category: Analyse Sound
+---
+
+For now, see [NoveltySlice](/reference/noveltyslice)
