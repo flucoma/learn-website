@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { markdown } from 'markdown';
+
 	export let src: string = '';
 	export let alt: string = '';
 	export let label: string = '';
@@ -10,7 +12,7 @@
 		<img loading="lazy" {alt} {src} />
 	</a>
 	<figcaption class="label">
-		{label}
+		{@html markdown.toHTML(label)}
 	</figcaption>
 </figure >
 
@@ -32,10 +34,12 @@
 
 	.container > a {
 		max-width: 100%;
+		transition: opacity linear 100ms;
 	}
 
 	.container > a:hover {
 		background: transparent;
+		opacity: 0.95;
 	}
 
 	.label {

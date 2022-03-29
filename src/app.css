@@ -6,10 +6,11 @@ g*/
 @import './fonts.css';
 @import './code.css';
 @import './utils.css';
+@import './jargon.css';
 
 :root {
 	--breakpoint: 1200px;
-	--font: 'Overpass', sans-serif;
+	--font: 'overpassregular', sans-serif;
 	--mono: 'Overpass Mono', monospace;
 	--dark-blue: rgb(8, 60, 100);
 	--med-blue: rgb(3, 113, 181);
@@ -20,7 +21,7 @@ g*/
 }
 
 html {
-	font-family: -apple-system, BlinkMacSystemFont, sans-serif, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue';
+	font-family: var(--font);
 	font-size: 16px;
 	-ms-text-size-adjust: 100%;
     -webkit-text-size-adjust: 100%;
@@ -83,7 +84,7 @@ a:hover {
 
 code {
 	font-family: var(--mono);
-	font-size: calc(1em - 2px);
+	font-size: 1em;
 	color: #555;
 	background-color: #f0f0f0;
 	padding: 0.1em 0.1em;

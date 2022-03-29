@@ -1,7 +1,13 @@
 <script>
 	import { page } from '$app/stores';
     import related from '../../../static/related.json';
-    $: links = related[$page.url.pathname] || [];
+    
+    let links = [];
+    $: {
+		let path = $page.url.pathname;
+		path = path.endsWith('/') ? path.slice(0, -1) : path;
+        links = related[path ] || [];
+    }
     $: references = links.filter(x => x.flair === 'reference');
     $: articles = links.filter(x => x.flair === 'article');
     $: tutorials = links.filter(x => x.flair === 'tutorial');

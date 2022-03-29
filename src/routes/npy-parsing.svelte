@@ -9,7 +9,6 @@
 			.then((response) => response.arrayBuffer())
 			.then((arr) => {
 				d = fromArrayBuffer(arr);
-				console.log(d);
 			});
 	}
 </script>
