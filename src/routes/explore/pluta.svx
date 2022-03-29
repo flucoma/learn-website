@@ -1,0 +1,41 @@
+---
+title: Interface Design with FluCoMa
+artist: Sam Pluta
+blurb: |
+    In this article, we take a look at some of the work that Sam Pluta did for the project. We look at his journey into exploring the possibilities of MLP regression, and how it has become an integral part of his practice.
+tags: 
+    - MLP
+    - mapping
+    - controllers
+    - multidimensional
+    - interface
+    - HCI
+flair: article
+featuredimage: /explore/pluta/pluta_featured_img.png
+---
+
+<script>
+    import Image from '$lib/components/Image.svelte';
+    import YouTube from '$lib/components/YouTube.svelte';
+    import ArtistCard from '$lib/components/mwf/ArtistCard.svelte';
+    import IndentNote from '$lib/components/IndentNote.svelte';
+</script>
+
+<ArtistCard
+src = "/explore/pluta/bio_img.jpeg"
+name = "Sam Pluta"
+website = "http://www.sampluta.com/index.html"
+>
+<p slot="bio">
+Sam Pluta is a Chicago-based composer, laptop improviser, electronics performer, and sound artist. Though his work has a wide breadth, his central focus is on the laptop as a performance instrument capable of sharing the stage with groups ranging from new music ensembles to world-class improvisers. By creating unique interactions of electronics, instruments, and sonic spaces, Pluta's vibrant musical universe fuses the traditionally separate sound worlds of acoustic instruments and electronics, creating sonic spaces which envelop the audience and resulting in a music focused on visceral interaction of instrumental performers with reactive computerized sound worlds.
+</p>
+</ArtistCard>
+
+## Introduction
+
+<IndentNote type='pointer'>
+
+Download the demonstration patches for this article <a href='/explore/pluta/Sam Pluta Examples.zip' download='Sam Pluta Examples.zip'>here</a>.
+
+</IndentNote>
+
