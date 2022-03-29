@@ -1,6 +1,6 @@
 ---
 title: AmpFeature
-blurb: 
+blurb: Calculate the amplitude differential feature of audio.
 tags:
     - segmentation
     - slicing

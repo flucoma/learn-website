@@ -1,6 +1,6 @@
 ---
 title: NoveltyFeature
-blurb: 
+blurb: Calculates the novelty feature of audio.
 tags:
     - segmentation
     - slicing

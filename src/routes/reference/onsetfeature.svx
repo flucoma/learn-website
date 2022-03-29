@@ -1,6 +1,6 @@
 ---
 title: OnsetFeature
-blurb: 
+blurb: Calculates the spectral difference feature of audio.
 tags:
     - segmentation
     - slicing
