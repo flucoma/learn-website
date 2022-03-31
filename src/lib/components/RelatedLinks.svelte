@@ -14,14 +14,9 @@
 	$: renderables = [articles, tutorials, references]
 	let hoverable;
 	let hover = false;
-	let hoverInfo = {
-		flair : '',
-		blurb : ''
-	}
-	let hoverPos = {
-		x : 0,
-		y : 0
-	}
+	let hoverInfo = { flair : '', blurb : '' };
+	let hoverPos = { x : 0, y : 0 };
+	function stopHover() { hover = false };
 
 	function mouseenter(e, link) {
 		hoverInfo = link;
@@ -32,12 +27,7 @@
 		hoverPos.offset = rect.height + 5;
 	}
 
-	function stopHover() {
-		hover = false
-	}
 </script>
-
-<!-- <svelte:window on:mousemove={mousemove} /> -->
 
 {#if hover}
 <div 
