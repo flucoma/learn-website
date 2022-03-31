@@ -34,6 +34,7 @@ glob('src/routes/*(reference|learn|explore)/*.svx', (err, routes) => {
 					title: branchFm.title,
 					url: link,
 					flair: branchFm.flair,
+					blurb: branchFm.blurb
 				})
 			}
 		})
