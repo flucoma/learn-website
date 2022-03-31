@@ -29,6 +29,13 @@ transition:fly={{ duration:200, y:0, x:-200 }}
 			References for all the toolkit algorithms.
 		</p>
 	</Landing>
+
+	<Landing link='/getting-started'>
+		<h2 slot="title">Getting Started</h2>
+		<p slot="blurb" class='blurb'>
+			New to FluCoMa? Start here!
+		</p>
+	</Landing>
 </nav>
 {/if}
 
