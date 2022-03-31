@@ -2,6 +2,7 @@
     export let title;
 	export let blurb;
 	import TOC from '$lib/components/TOC.svelte';
+    import RelatepdLinks from '$lib/components/RelatedLinks.svelte';
     import EditHistory from '$lib/components/EditHistory.svelte';
     import Crumbs from '$lib/components/Crumbs.svelte';
 </script>
@@ -10,16 +11,12 @@
 
 <div class="wrapper">
 
-    <div class="navigation">
-        <TOC />
-    </div>
+    <div class="navigation"><TOC /></div>
 
     <div class="main">
         <div class="title-box">
             <h1>{title}</h1>
-            <p class="blurb">
-                {blurb}
-            </p>
+            <p class="blurb">{blurb}</p>
         </div>
 
         <slot />
@@ -28,15 +25,13 @@
     </div>
 
     <div class="blank" />
-
 </div>
 
 <style lang="postcss">
-
     .wrapper {
 		display: grid;
 		justify-content: center;
-        margin: 0 1em;
+        margin: 0;
 	}
 
 	@media (min-width: 1200px) {
