@@ -18,6 +18,11 @@ g*/
 	--max-text-width: 70ch;
 	--min-text-width: 30ch;
 	--footer-height: 42px;
+	--event-flair: rgb(235, 161, 23);
+	--article-flair: var(--light-blue);
+	--reference-flair: forestgreen;
+	--podcast-flair: palevioletred;
+	--tutorial-flair: rgba(102, 103, 171, 255);
 }
 
 html {
