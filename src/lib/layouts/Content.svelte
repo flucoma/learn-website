@@ -2,9 +2,11 @@
     export let title;
 	export let blurb;
 	import TOC from '$lib/components/TOC.svelte';
-    import RelatepdLinks from '$lib/components/RelatedLinks.svelte';
+    import RelatedLinks from '$lib/components/RelatedLinks.svelte';
     import EditHistory from '$lib/components/EditHistory.svelte';
     import Crumbs from '$lib/components/Crumbs.svelte';
+
+    
 </script>
 
 <Crumbs />
@@ -18,8 +20,10 @@
             <h1>{title}</h1>
             <p class="blurb">{blurb}</p>
         </div>
-
-        <slot />
+        
+        <slot name='bio'></slot>
+        <RelatedLinks />
+        <slot></slot>
 
         <EditHistory />
     </div>
