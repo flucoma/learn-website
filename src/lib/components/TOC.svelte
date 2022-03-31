@@ -31,14 +31,13 @@
 				};
 			}
 			else{
-
 				toc_container.style.top = "0px";
 				toc_container.style.maxHeight = "100%";
 				toc_container.style.overflowY = "none";
 			}
 		};
 		can_exec = true;
-	}
+	};
 
 	onMount(async () => {
 		can_exec = true;
@@ -46,7 +45,7 @@
 
 		function reportWindowSize() {
 			handle_scroll(scrollY)
-		}
+		};
 
 		window.onresize = reportWindowSize;
 	});
