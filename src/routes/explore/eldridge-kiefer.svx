@@ -34,6 +34,7 @@ featuredimage: /explore/eldridge/modular-patch.jpg
 
 <div class="artist-cards">
     <ArtistCard
+slot="bio"
     src = "/explore/eldridge/alice-profile.jpeg"
     name = "Alice Eldridge"
     website = "https://profiles.sussex.ac.uk/p127749-alice-eldridge"
@@ -43,6 +44,7 @@ featuredimage: /explore/eldridge/modular-patch.jpg
     </p>
     </ArtistCard>
     <ArtistCard
+slot="bio"
     src = "/explore/eldridge/chris-profile.jpeg"
     name = "Chris Kiefer"
     website = "https://profiles.sussex.ac.uk/p208667-chris-kiefer"
