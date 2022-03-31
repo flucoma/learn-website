@@ -7,6 +7,14 @@ import markdownLinkExtractor from 'markdown-link-extractor';
 
 let db = {};
 
+const add = (key, reference) => {
+	if (!(db[key] instanceof Set)) {
+		db[key] = new Set([reference])
+	} else {
+		db[key].add(reference)
+	}
+}
+
 glob('src/routes/*(reference|learn|explore)/*.svx', (err, routes) => {
 	routes = routes.filter((p) => path.basename(p) !== 'index.svx');
 
@@ -21,27 +29,30 @@ glob('src/routes/*(reference|learn|explore)/*.svx', (err, routes) => {
 		links = [...new Set(links)];
 
 		let fm = frontmatter(data).attributes;
+		let backreference = {
+			'title': fm.title,
+			'flair': fm.flair,
+			'url': url
+		}
 
 		let payload = [];
-
 		links.forEach(link => {
 			const length = link.split('/').filter(x => x != '').length; // filter out index.svx type situations
 			if (length > 1 && link !== url) {
-				const branchUrl = `src/routes${link}.svx`;
-				const branch = fs.readFileSync(branchUrl, 'utf8');
-				const branchFm = frontmatter(branch).attributes;
-				payload.push({
-					title: branchFm.title,
+				add(link, backreference)
+				const branch = fs.readFileSync(`src/routes${link}.svx`, 'utf8');
+				const branchfm = frontmatter(branch).attributes;
+				const fwdreference = {
+					title: branchfm.title,
+					flair: branchfm.flair,
 					url: link,
-					flair: branchFm.flair,
-					blurb: branchFm.blurb
-				})
+				}
+				add(url, fwdreference)
 			}
 		})
-
-		db[url] = payload
 	});
-
+	// Convert sets to arrays for valid JSON 
+	for (const key in db) { db[key] = Array.from(db[key]) };
 	// Write out results
 	fs.writeFile('static/related.json', JSON.stringify(db), 'utf8', () => {
 		console.log('Relationships file written to static/related.json')
