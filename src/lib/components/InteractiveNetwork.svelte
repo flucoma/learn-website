@@ -17,7 +17,8 @@
             .style("display", "block")
             .style("margin", "0 auto")
             .style("text-align", "center")
-            .style("border", "0.063rem solid #dcdee0");
+            .style("border", "0.063rem solid #dcdee0")
+            .style("cursor", "crosshair");
 
         var svg_g = svg.append('g');
 
@@ -70,8 +71,13 @@
         };
 
         function init(){
-            init_nodes();
+            graph.nodes.forEach(function(d){
+                d.x = Math.random() * width;
+                d.y = Math.random() * height;
+            });
+            
             init_links();
+            init_nodes();
         };
 
         function init_links(){
@@ -88,29 +94,30 @@
 
         function init_nodes(){
             graph.nodes.forEach(function(d){
-                d.x = Math.random() * width;
-                d.y = Math.random() * height;
+                
 
                 var this_g = svg_g.append("g")
                     .attr("id", "unique_id_node_" + String(d.id))
+                    .style("cursor", "grab");
                 
                 this_g.append("circle")
                     .attr("cx", d.x)
                     .attr("cy", d.y)
-                    .attr("r", r);
+                    .attr("r", r)
+                    .style("fill", "#" + d.color);
 
                 this_g.append("text")
                     .attr("x", d.x)
                     .attr("y", d.y)
-                    .style("fill", "red")
+                    .style("fill", "black")
                     .html(d.name); 
             });
         };
 
         function process_selection(node_info){
-            console.log(node_info.name);
-            var to_change = document.getElementById('display_name')
-            to_change.innerHTML = node_info.name
+            document.getElementById('display_name').innerHTML = node_info.name;
+            document.getElementById('display_blurb').innerHTML = node_info.blurb;
+            document.getElementById('display_link').setAttribute("href", node_info.url);
         };
 
         svg.call(d3.drag()
@@ -122,7 +129,8 @@
         );
 
         svg.on("click", function(){
-            var clicked_on = dragsubject(event);
+            //console.log(event);
+           // var clicked_on = dragsubject(event);
         })
 
         function dragsubject(event){
