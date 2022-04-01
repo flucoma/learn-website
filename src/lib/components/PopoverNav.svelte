@@ -30,7 +30,7 @@ transition:fly={{ duration:200, y:0, x:-200 }}
 		</p>
 	</Landing>
 
-	<Landing link='/getting-started'>
+	<Landing link='/other/getting-started'>
 		<h2 slot="title">Getting Started</h2>
 		<p slot="blurb" class='blurb'>
 			New to FluCoMa? Start here!

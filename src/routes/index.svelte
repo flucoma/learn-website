@@ -65,7 +65,7 @@
             <br>
             <a href="/reference">References</a> for all the algorithms in the toolkit.
             <br>
-            <a href="/getting-started">Getting Started</a> with FluCoMa? Start here!
+            <a href="/other/getting-started">Getting Started</a> with FluCoMa? Start here!
         </p>
     </div>
 
