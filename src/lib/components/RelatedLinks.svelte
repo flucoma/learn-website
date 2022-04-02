@@ -16,6 +16,7 @@
 	let hover = false;
 	let hoverInfo = { flair : '', blurb : '' };
 	let hoverPos = { x : 0, y : 0 };
+
 	function stopHover() { hover = false };
 
 	function mouseenter(e, link) {
@@ -75,6 +76,7 @@ bind:this={hoverable}
 		padding: 0.5em;
 		outline-width: 2px;
 		font-size: 0.8rem;
+		border-radius: 0.25rem;
 	}
 	.container {
 		font-size: 0.8rem;
@@ -87,6 +89,7 @@ bind:this={hoverable}
 	.link {
 		padding: 0.25em;
 		text-decoration: none;
+		border-radius: 0.25rem;
 	}
 
 	.link:hover {
