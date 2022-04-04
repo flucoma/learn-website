@@ -1,0 +1,59 @@
+{
+    "nodes": [
+      {
+        "id": 1,
+        "name": "FluCoMa",
+        "blurb" : "FluCoMa stands for Fluid Corpus Manipulation. It's all about dealing with large amounts of digital audio.",
+        "url" : "/",
+        "color": "33BEFF"
+      },
+      {
+        "id": 2,
+        "name": "Signal Decomposition",
+        "blurb" : "Signal decomposition is about taking digital audio (in real-time or recorded) and breaking it into different things.",
+        "url" : "https://www.audiolabs-erlangen.de/content/resources/MIR/00-2017_TutorialAudioMIR_ISMIR/2017_MuellerWeiss_ISMIR_AudioDecomp.pdf",
+        "color": "33BEFF"
+      },
+      {
+        "id": 3,
+        "name": "Layers",
+        "blurb" : "One way we can decompose audio is by splitting its spectrum into layers.",
+        "url" : "/reference/hpss",
+        "color": "33BEFF"
+      },
+      {
+        "id": 4,
+        "name": "Slices",
+        "blurb": "One way we can decompose audio is by splitting it in time into slices.",
+        "url": "/reference/noveltyslice",
+        "color": "33BEFF"
+      },
+      {
+        "id": 5,
+        "name": "Objects",
+        "blurb": "One way we can decompose audio is by trying to find different objects in the spectrum and time.",
+        "url" : "/reference/bufnmf",
+        "color": "33BEFF"
+      }
+    ],
+    "links": [
+  
+      {
+        "source": 1,
+        "target": 2
+      },
+      {
+        "source": 2,
+        "target": 3
+      },
+      {
+        "source": 2,
+        "target": 4
+      },
+  
+      {
+        "source": 2,
+        "target": 5
+      }
+    ]
+  }
