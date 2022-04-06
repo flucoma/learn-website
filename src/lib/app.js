@@ -7,7 +7,6 @@ import e from '../../static/edits.json';
 import s from '../../static/structure.json';
 import database from '../../static/db.json';
 import manual from '../../static/manual_config.json';
-import getting_started from '../../static/getting_started_network.json';
 
 // interface state
 export const nav_expanded = writable(false);
@@ -50,4 +49,4 @@ const search = new FuzzySearch(docs, ['title', 'tags', 'flair', 'artist', 'blurb
 });
 
 const db = search;
-export { db, docs, manual_config, getting_started };
+export { db, docs, manual_config };
