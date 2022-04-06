@@ -111,9 +111,18 @@ src="/explore/pluta/cross_feedback_synth.png"
 label="The Cross Feedback Synth patch."
 />
 
+!!!
+WILL PROBABLY BE REMOVING MAX PATCHES
+!!!
+
 <CodeBlock>
 
 ```js
+
+// --------------------------------------------------
+// This will be updated
+// --------------------------------------------------
+
 CrossFeedback0_NNMod : NN_Synth_Mod {
 	*initClass {
 		StartUp.add {
@@ -231,6 +240,200 @@ In the video above, he explains that the idea was more or less to create as many
 
 Pluta will iteratively build up a _corpus of mappings_, iteratively build up his instrument. We have built some example environments in Max and SuperCollider using the cross feedback synth that should allow you to experiment with this same kind of process. This can be done with a digital control surface; however, we suggest finding a physical [HID](https://en.wikipedia.org/wiki/Human_interface_device) – even if it’s just a mouse! We shall discuss how Pluta approaches the selection of his HIDs in the next section.
 
+<Image
+src="/explore/pluta/corpus_of_mappings_image.png"
+label="The Corpud of Mappings patch."
+/>
+
+!!!
+WILL PROBABLY BE REMOVING MAX PATCHES
+!!!
+
+<CodeBlock>
+
+```js
+
+//-----------------------------------------------------------------------------
+// Corpus of Mappings
+//-----------------------------------------------------------------------------
+
+// This is based on the "Neural Network Controls Synth from 2D Space" example,
+// found in the FluCoMa Examples folder. For a more detailed description about
+// what is happening, please consult that example.
+
+// Here, we have created an environment which allows the user to build up a
+// "corpus of mappings" between a 2-dimensional pad and the 16 control
+// dimensions of Pluta's "cross feedback synth".
+
+(
+s.waitForBoot{
+
+	//-------------------------------------------------------------------------
+	// Data
+	//-------------------------------------------------------------------------
+
+	// Creating datasets and buffers for storing input and output information:
+	~ds_input = FluidDataSet(s);
+	~ds_output = FluidDataSet(s);
+	~x_buf = Buffer.alloc(s,2);
+	~y_buf = Buffer.alloc(s,16);
+
+	// This counter creates the unique identifier for each point that will be
+	// added to the datasets:
+	~counter = 0;
+
+	// The neural network (feel free to change these parameters):
+	~nn = FluidMLPRegressor(s,[7],
+		FluidMLPRegressor.sigmoid,
+		FluidMLPRegressor.sigmoid,
+		learnRate:0.1,
+		batchSize:1,
+		validation:0);
+
+	//-------------------------------------------------------------------------
+	// GUI & Training
+	//-------------------------------------------------------------------------
+	Window.closeAll;
+	~win = Window("MLP Regressor",Rect(0,0,1000,400));
+
+	// Input slider:
+	Slider2D(~win,Rect(0,0,400,400))
+	.action_({
+		arg s2d;
+		~synth.set(\x,s2d.x,\y,s2d.y);
+	});
+
+	// Output slider:
+	~multisliderview = MultiSliderView(~win,Rect(400,0,400,400))
+	.size_(16)
+	.elasticMode_(true)
+	.action_({
+		arg msv;
+		~y_buf.setn(0,msv.value);
+	});
+
+	// Add randomize button:
+	Button(~win,Rect(800,0,200,20))
+	.states_([["Randomize"]])
+	.action_({
+		arg but;
+		var rand_values = ({ 1.0.rand } ! 16);
+		~y_buf.setn(0,rand_values);
+		~multisliderview.value = rand_values;
+	});
+
+	// Add point button:
+	Button(~win,Rect(800,20,200,20))
+	.states_([["Add Point"]])
+	.action_({
+		arg but;
+		var id = "example-%".format(~counter);
+		~ds_input.addPoint(id,~x_buf);
+		~ds_output.addPoint(id,~y_buf);
+		~counter = ~counter + 1;
+		~ds_input.print;
+		~ds_output.print;
+	});
+
+	// Train button:
+	Button(~win,Rect(800,40,200,20))
+	.states_([["Train"]])
+	.action_({
+		arg but;
+		~nn.fit(~ds_input,~ds_output,{
+			arg loss;
+			"loss: %".format(loss).postln;
+		});
+	});
+
+	// Predicting toggle:
+	Button(~win,Rect(800,60,200,20))
+	.states_([["Not Predicting",Color.yellow,Color.black],
+		["Is Predicting",Color.green,Color.black]])
+	.action_({
+		arg but;
+		~synth.set(\predicting,but.value);
+	});
+
+	// Clear all button:
+	Button(~win,Rect(800,80,200,20))
+	.states_([["Clear all"]])
+	.action_({
+		arg but;
+		~nn.clear();
+		~ds_input.clear();
+		~ds_output.clear();
+	});
+
+	// Add save button:
+	Button(~win,Rect(800,110,200,20))
+	.states_([["Save Mapping"]])
+	.action_({
+		arg but;
+		Dialog.savePanel({
+			arg path;
+			~nn.write(path);
+		});
+	});
+
+	// Add load button:
+	Button(~win,Rect(800,130,200,20))
+	.states_([["Load Mapping"]])
+	.action_({
+		arg but;
+		Dialog.openPanel({
+			arg path;
+			~nn.clear();
+			~ds_input.clear();
+			~ds_output.clear();
+			~nn.read(path);
+		});
+	});
+
+	~win.front;
+
+	//-------------------------------------------------------------------------
+	// Prediction & Synthesis
+	//-------------------------------------------------------------------------
+
+	~synth = {
+		arg predicting = 0, x = 0, y = 0;
+		var val, trig, osc1, osc2, feed1, feed2, base1=69, base2=69, base3 = 130;
+
+		// Writing the xy pad values to the input buffer:
+		FluidKrToBuf.kr([x,y],~x_buf);
+
+		// If prediction = 1, predict (30 predictions/second):
+		trig = Impulse.kr(30) * predicting;
+		~nn.kr(trig,~x_buf,~y_buf);
+
+		// Retrieve the prediction from the buffer:
+		val = FluidBufToKr.kr(~y_buf);
+
+		// Show the prediction on the UI:
+		SendReply.kr(trig,"/predictions",val);
+
+		// Synthesis:
+		#feed2,feed1 = LocalIn.ar(2);
+		osc1 = MoogFF.ar(SinOsc.ar((((feed1 * val[0]) +  val[1]) * base1).midicps,mul: (val[2] * 50).dbamp).atan,(base3 - (val[3] * (FluidLoudness.kr(feed2, 1, 0, hopSize: 64)[0].clip(-120,0) + 120))).lag(128/44100).midicps, val[4] * 3.5);
+		osc2 = MoogFF.ar(SinOsc.ar((((feed2 * val[5]) +  val[6]) * base2).midicps,mul: (val[7] * 50).dbamp).atan,(base3 - (val[8] * (FluidLoudness.kr(feed1, 1, 0, hopSize: 64)[0].clip(-120,0) + 120))).lag(128/44100).midicps, val[9] * 3.5);
+		Out.ar(0,LeakDC.ar([osc1,osc2],mul: 0.1));
+		LocalOut.ar([osc1,osc2]);
+
+
+	}.play;
+
+	// Show the prediction on the UI:
+	OSCdef(\predictions,{
+		arg msg;
+		{~multisliderview.value_(msg[3..])}.defer;
+	},"/predictions");
+}
+)
+```
+
+</CodeBlock>
+
 When it comes to mapping and the training of the neural network, Pluta explained that it is something that is quite hard to explain to people who are more driven by the data-science side of things. He says that there is a randomness to it that he embraces. He explained that faced with such a huge multidimensional space, at first there is nothing one can do but play around with the sliders, tweaking them until one finds those afore-mentioned _glorious pockets of sonic change_. He will move and tweak the sliders around until he finds a sound that he likes. Once he finds something, he will map it to where he intuitively feels it belongs in his low-dimensional control space, be it with his joystick or an xy pad on his iPad.
 
 <Image
@@ -268,7 +471,7 @@ These shall be mapped to synthesizers:
 - On the one hand we have the DX7 synths which Pluta describes as “_really soupy_”.
 - On the other we have the cross feedback synths which are much more jerky, cutting, and chaotic. 
 
-On the one hand Pluta explained that he developed the various synthesizers with specific controllers in mind, while playing with that specific controller; yet on the other he describes for example how the xy pad naturally “_makes sense with my fingers_” when mapped to the DX7, and the same for the joystick and the cross feedback synth. It seems that there is a cybernetic feedback loop between HID, synth, mapping, and the way all of these things are conceived of in Pluta’s mind which is very difficult to disentangle. 
+Pluta explained that he developed the various synthesizers with specific controllers in mind, while playing with that specific controller; he also describes, for example, how the xy pad naturally “_makes sense with my fingers_” when mapped to the DX7, and the same for the joystick and the cross feedback synth. There is clearly a cybernetic feedback loop between HID, synth, mapping, and the way all of these things are conceived of in Pluta’s mind which is very difficult to disentangle. 
 
 It is important to understand this perspective when looking at Pluta’s instrument design. For example, when taken on its own, an HID is just a silent object with no inherently musical or interesting properties. Pluta discussed how, in his view, “_all we have in electronic music are sliders and buttons_”: he described cases where people can somewhat miss the mark when developing crazy controllers - at the end of the day, the interesting thing is how they will interact with the music. The important element is not the controller itself, but “_how do you set up sliders and buttons in the way that allows us to be musically expressive?_” The same can be said for the synthesizer – on its own it is just sound, there is nothing particularly interesting about it. It’s how it allows us to be _musically expressive_ that is important.
 
