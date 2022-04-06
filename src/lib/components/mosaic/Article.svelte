@@ -46,6 +46,7 @@
 .container >a{
     color: black;
     text-decoration: none;
+    width: 100%;
 }
 
     .flair_link_wrapper{
@@ -64,11 +65,12 @@
     .img_container{ 
         background-repeat: no-repeat;
         background-size: cover;
+        width: 100%;
     }
 
     .feature_image {
         position: relative;
-        max-width: 100%;
+        width: 100%;
         height: 10em;
         background-position: center;
         background-repeat: no-repeat;
@@ -82,6 +84,7 @@
         width: fit-content;
         height: fit-content;
         margin-bottom: 1em;
+        width: 100%;
     }
 
     .container > p {
