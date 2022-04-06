@@ -242,7 +242,7 @@ Pluta will iteratively build up a _corpus of mappings_, iteratively build up his
 
 <Image
 src="/explore/pluta/corpus_of_mappings_image.png"
-label="The Corpud of Mappings patch."
+label="The Corpus of Mappings patch."
 />
 
 !!!
@@ -252,7 +252,6 @@ WILL PROBABLY BE REMOVING MAX PATCHES
 <CodeBlock>
 
 ```js
-
 //-----------------------------------------------------------------------------
 // Corpus of Mappings
 //-----------------------------------------------------------------------------
@@ -300,7 +299,7 @@ s.waitForBoot{
 	Slider2D(~win,Rect(0,0,400,400))
 	.action_({
 		arg s2d;
-		~synth.set(\x,s2d.x,\y,s2d.y);
+		~synth.set(\\x,s2d.x,\\y,s2d.y);
 	});
 
 	// Output slider:
@@ -352,7 +351,7 @@ s.waitForBoot{
 		["Is Predicting",Color.green,Color.black]])
 	.action_({
 		arg but;
-		~synth.set(\predicting,but.value);
+		~synth.set(\\predicting,but.value);
 	});
 
 	// Clear all button:
@@ -424,7 +423,7 @@ s.waitForBoot{
 	}.play;
 
 	// Show the prediction on the UI:
-	OSCdef(\predictions,{
+	OSCdef(\\predictions,{
 		arg msg;
 		{~multisliderview.value_(msg[3..])}.defer;
 	},"/predictions");
