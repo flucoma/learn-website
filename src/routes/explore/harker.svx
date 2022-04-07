@@ -22,7 +22,6 @@ featuredimage: /explore/harker/umap_explorer_example.png
 </script>
 
 <ArtistCard
-slot="bio"
 src="/explore/harker/harker_profile_pic.jpg"
 name="Alex Harker"
 website="https://www.alexanderjharker.co.uk/"

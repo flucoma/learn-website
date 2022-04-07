@@ -23,7 +23,6 @@ featuredimage: /explore/constanzo/kaizo_snare_parent.png
 </script>
 
 <ArtistCard
-slot="bio"
 src = "/explore/constanzo/constanzo_bio_pic.jpeg"
 name = "Rodrigo Constanzo"
 website = "https://rodrigoconstanzo.com/"

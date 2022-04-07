@@ -25,7 +25,6 @@ featuredimage: /explore/pasquet/nmf_piano_roll.png
 </script>
 
 <ArtistCard
-slot="bio"
 src = "/explore/pasquet/profile.jpeg"
 name = "Olivier Pasquet"
 website = "https://www.opasquet.fr/"

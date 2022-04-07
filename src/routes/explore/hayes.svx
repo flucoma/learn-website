@@ -23,7 +23,6 @@ featuredimage: /explore/hayes/delicate_instruments_img.png
 </script>
 
 <ArtistCard
-slot="bio"
 src = "/explore/hayes/hayes_profile_2.png"
 name = "Lauren Sarah Hayes"
 website = "https://www.laurensarahhayes.com/"

@@ -20,7 +20,6 @@ featuredimage: /explore/tamminga/featured_img.jpeg
 </script>
 
 <ArtistCard
-slot="bio"
 src = "/explore/tamminga/profile_pic.jpeg"
 name = "Jorrit Tamminga"
 website = "http://www.jorrittamminga.nl/?page_id=2"

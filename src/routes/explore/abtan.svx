@@ -21,7 +21,6 @@ featuredimage: /explore/abtan/profile_pic.jpeg
 </script>
 
 <ArtistCard
-slot="bio"
 src = "/explore/abtan/profile_pic.jpeg"
 name = "Freida Abtan"
 website = "https://www.cmu.edu/cfa/music/people/Bios/abtan_freida.html"

@@ -21,7 +21,6 @@ featuredimage: /explore/tutschku/build_the_nmf_model_example.png
 </script>
 
 <ArtistCard
-slot="bio"
 src = "/explore/tutschku/bio_pic.jpeg"
 name = "Hans Tutschku"
 website = "https://tutschku.com/"
