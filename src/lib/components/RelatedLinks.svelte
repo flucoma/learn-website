@@ -43,7 +43,6 @@ bind:this={hoverable}
 </div>
 {/if}
 
-<h2>Related Links</h2>
 <div class='container'>
 	{#each renderables as c}
 	{#each c as link}
@@ -58,6 +57,14 @@ bind:this={hoverable}
 </div>
 
 <style>
+	.container {
+		font-size: 0.8rem;
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		gap: 1em;
+		margin-bottom: 1.5em;
+	}
 	.flair {
 		font-size: 1rem;
 		font-weight: bold;
@@ -77,13 +84,6 @@ bind:this={hoverable}
 		outline-width: 2px;
 		font-size: 0.8rem;
 		border-radius: 0.25rem;
-	}
-	.container {
-		font-size: 0.8rem;
-		display: flex;
-		flex-direction: row;
-		flex-wrap: wrap;
-		gap: 1em;
 	}
 
 	.link {

@@ -19,10 +19,9 @@
         <div class="title-box">
             <h1>{title}</h1>
             <p class="blurb">{blurb}</p>
+            <RelatedLinks />
         </div>
         
-        <slot name='bio'></slot>
-        <RelatedLinks />
         <slot></slot>
 
         <EditHistory />
@@ -37,6 +36,11 @@
 		justify-content: center;
         margin: 0;
 	}
+
+    @media (max-width: 1200px) {
+        .navigation { width: 100% }
+        .blank { display: none }
+    }
 
 	@media (min-width: 1200px) {
 		.wrapper {
@@ -59,13 +63,9 @@
 		text-justify: inter-word;
 	}
 
-	.blurb {
-		color: grey;
-	}
+	.blurb { color: grey }
 
-	p {
-		text-align: justify;
-	}
+	p { text-align: justify }
 
     .main {
         grid-area: main;
@@ -84,15 +84,5 @@
     .blank {
         grid-area: blank;
         width: 25ch;
-    }
-
-    @media (max-width: 1200px) {
-        .navigation {
-            width: 100%;
-        }
-
-        .blank {
-            display: none;
-        }
     }
 </style>
