@@ -48,28 +48,28 @@
 		if (e.key === '/' && e.metaKey) {
 			focusSearch()
 		}
-
-		if (e.key === 'ArrowUp') {
-			e.preventDefault();
-			focusedEntry -= 1;
-			updateFocus()
-		}
-
-		if (e.key === 'ArrowDown') {
-			e.preventDefault();
-			focusedEntry += 1;
-			updateFocus()
-		}
-		
-		if (e.key === 'Enter') {
-			if (focusedEntry !== -1) {
-				clickResult(filteredResults[focusedEntry].url)
-				e.preventDefault();
-			}
-		}
-
 		if (e.key === 'Escape') {
 			blurSearch();
+		}
+		if (focused) {
+			if (e.key === 'ArrowUp') {
+				e.preventDefault();
+				focusedEntry -= 1;
+				updateFocus()
+			}
+
+			if (e.key === 'ArrowDown') {
+				e.preventDefault();
+				focusedEntry += 1;
+				updateFocus()
+			}
+			
+			if (e.key === 'Enter') {
+				if (focusedEntry !== -1) {
+					clickResult(filteredResults[focusedEntry].url)
+					e.preventDefault();
+				}
+			}
 		}
 	}
 	$: filteredResults = results.slice(0, 8).filter(x => x !== null);
