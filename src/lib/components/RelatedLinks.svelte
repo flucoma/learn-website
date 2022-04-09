@@ -57,6 +57,15 @@ bind:this={hoverable}
 </div>
 
 <style>
+	.link {
+		padding: 0.25em;
+		text-decoration: none;
+		border-radius: 0.25rem;
+	}
+
+	.link:hover {
+		color: white;
+	}
 	.container {
 		font-size: 0.8rem;
 		display: flex;
@@ -86,19 +95,9 @@ bind:this={hoverable}
 		border-radius: 0.25rem;
 	}
 
-	.link {
-		padding: 0.25em;
-		text-decoration: none;
-		border-radius: 0.25rem;
-	}
-
-	.link:hover {
-		color: white;
-	}
-
 	.tutorial {
 		color: var(--tutorial-flair); 
-		outline: 2px solid var(--tutorial-flair);
+		border: 2px solid var(--tutorial-flair);
 	}
 
 	.tutorial:hover {
@@ -107,7 +106,7 @@ bind:this={hoverable}
 
 	.reference {
 		color: var(--reference-flair);
-		outline: 2px solid var(--reference-flair);
+		border: 2px solid var(--reference-flair);
 	}
 
 	.reference:hover {
@@ -116,7 +115,7 @@ bind:this={hoverable}
 
 	.article {
 		color: var(--article-flair);
-		outline: 2px solid var(--article-flair);
+		border: 2px solid var(--article-flair);
 	}
 
 	.article:hover {
