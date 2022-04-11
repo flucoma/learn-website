@@ -111,111 +111,107 @@ src="/explore/pluta/cross_feedback_synth.png"
 label="The Cross Feedback Synth patch."
 />
 
-!!!
-WILL PROBABLY BE REMOVING MAX PATCHES
-!!!
-
 <CodeBlock>
 
 ```js
+//-----------------------------------------------------------------------------
+// Cross Feedback Synth
+//-----------------------------------------------------------------------------
 
-// --------------------------------------------------
-// This will be updated
-// --------------------------------------------------
+// This is a recreation of Sam Pluta's Cross Feedback Synth from his
+// live modular performances system:
+// https://github.com/spluta/LiveModularInstrument
 
-CrossFeedback0_NNMod : NN_Synth_Mod {
-	*initClass {
-		StartUp.add {
-			SynthDef("CrossFeedback0_NNMod",{
-				var localIn, noise1, osc1, osc1a, osc1b, osc2, out, foldNum, dust, trigEnv, filtMod, envs, onOffSwitch;
+(
+s.waitForBoot{
 
-				var mlpVals = In.kr(\dataInBus.kr, 16);
+	//-------------------------------------------------------------------------
+	// Data
+	//-------------------------------------------------------------------------
 
-				var freq1 = Lag.kr(mlpVals[0], 0.05).linexp(0,1,2,10000);
-				var freq2 = Lag.kr(mlpVals[1], 0.05).linexp(0,1, 5, 10000);
-				var modVol1 = mlpVals[2].linlin(0, 1, 0, 3000);
-				var modVol2 = mlpVals[3].linlin(0, 1, 0, 3000);
-				var noiseVol = mlpVals[4].linlin(0, 1, 0, 3000);
-				var impulse = mlpVals[5].linexp(0,1, 100, 20000);
-				var filterFreq = Lag.kr(mlpVals[6], 0.05).linexp(0, 1, 200, 10000);
-				var rq = Lag.kr(mlpVals[7],  0.05).linlin(0, 1, 0.2, 2);
-				var fold = mlpVals[8].linlin(0,1,0.1,1);
-				var dustRate = mlpVals[9].linlin(0,1, 1000, 1);
-				var attack = mlpVals[10].linexp(0, 1, 0.001, 0.01);
-				var release = mlpVals[11].linexp(0, 1, 0.001, 0.01);
-				var outFilterFreq = Lag.kr(mlpVals[12],  0.05).linexp(0, 1, 20, 20000);
-				var outFilterRQ = mlpVals[13].linexp(0, 1, 0.1, 1);
-				var filtModFreq = mlpVals[14].linlin(0, 1, 0, 30);
-				var filtModAmp = mlpVals[15].lincurve(0, 1, 0, 1, 1);
+	// Buffer for storing control data:
+	~y_buf = Buffer.alloc(s,16);
 
-				localIn = LocalIn.ar(1);
+	//-------------------------------------------------------------------------
+	// GUI
+	//-------------------------------------------------------------------------
 
-				noise1 = RLPF.ar(Latch.ar(WhiteNoise.ar(noiseVol), Impulse.ar(impulse)), filterFreq, rq);
-				//Poll.kr(Impulse.kr(2)*\isCurrent.kr, noise1);
+	Window.closeAll;
+	~win = Window("Cross Feedback Synth",Rect(0,0,600,400));
 
-				osc1 = SinOscFB.ar(freq1+(localIn*modVol1)+noise1, freq1.linlin(100, 300, 2, 0.0));
-				osc1 = SelectX.ar(freq1, [osc1.linlin(-1.0,1.0, 0.0, 1.0), osc1]);
-				osc2 = LFTri.ar(freq2+(osc1*modVol2));
-				osc2 = LeakDC.ar(osc2);
+	// Output slider:
+	~multisliderview = MultiSliderView(~win,Rect(0,0,400,400))
+	.size_(16)
+	.elasticMode_(true)
+	.action_({
+		arg msv;
+		~y_buf.setn(0,msv.value);
+	});
 
-				LocalOut.ar(osc2);
+	// Add randomize button:
+	Button(~win,Rect(400,0,200,20))
+	.states_([["Randomize"]])
+	.action_({
+		arg but;
+		var rand_values = ({ 1.0.rand } ! 16);
+		~y_buf.setn(0,rand_values);
+		~multisliderview.value = rand_values;
+	});
 
-				out = [osc2.fold2(fold), osc2.fold2(fold*0.99)]/fold;
-				dust = LagUD.ar(Trig1.ar(Dust.ar(dustRate), attack + release), attack, release);
+	~win.front;
 
-				out = SelectX.ar((dustRate<800), [out, out*dust]);
-				onOffSwitch = (\onOff0.kr(0, 0.01)+\onOff1.kr(0, 0.01)).clip(0,1);
-				onOffSwitch = Select.kr(\switchState.kr(0), [\isCurrent.kr(0, 0.05), \isCurrent.kr*onOffSwitch, onOffSwitch]);
-				out = out*Lag.kr(In.kr(\volBus.kr), 0.05).clip(0,1)*Lag.kr(In.kr(\chanVolBus.kr), 0.05).clip(0,1)*onOffSwitch;
+	//-------------------------------------------------------------------------
+	// Synthesis
+	//-------------------------------------------------------------------------
 
+	~synth = {
+		// Setting variables and retrieving control data:
+		var localIn, noise1, osc1, osc1a, osc1b, osc2, out, foldNum, dust, trigEnv, filtMod, envs, onOffSwitch;
+		var mlpVals = FluidBufToKr.kr(~y_buf);
 
-				outFilterFreq = (LFTri.ar(filtModFreq)*filtModAmp).linexp(-1.0, 1.0, (outFilterFreq/2).clip(40, 18000), (outFilterFreq*2).clip(40, 18000));
-				out = RLPF.ar(out, outFilterFreq, outFilterRQ);
-				out = LeakDC.ar(out);
+		// Setting parameters from control data:
+		var freq1 = Lag.kr(mlpVals[0], 0.05).linexp(0,1,2,10000);
+		var freq2 = Lag.kr(mlpVals[1], 0.05).linexp(0,1, 5, 10000);
+		var modVol1 = mlpVals[2].linlin(0, 1, 0, 3000);
+		var modVol2 = mlpVals[3].linlin(0, 1, 0, 3000);
+		var noiseVol = mlpVals[4].linlin(0, 1, 0, 3000);
+		var impulse = mlpVals[5].linexp(0,1, 100, 20000);
+		var filterFreq = Lag.kr(mlpVals[6], 0.05).linexp(0, 1, 200, 10000);
+		var rq = Lag.kr(mlpVals[7],  0.05).linlin(0, 1, 0.2, 2);
+		var fold = mlpVals[8].linlin(0,1,0.1,1);
+		var dustRate = mlpVals[9].linlin(0,1, 1000, 1);
+		var attack = mlpVals[10].linexp(0, 1, 0.001, 0.01);
+		var release = mlpVals[11].linexp(0, 1, 0.001, 0.01);
+		var outFilterFreq = Lag.kr(mlpVals[12],  0.05).linexp(0, 1, 20, 20000);
+		var outFilterRQ = mlpVals[13].linexp(0, 1, 0.1, 1);
+		var filtModFreq = mlpVals[14].linlin(0, 1, 0, 30);
+		var filtModAmp = mlpVals[15].lincurve(0, 1, 0, 1, 1);
 
-				envs = Envs.kr(\muteGate.kr(1), \pauseGate.kr(1), \gate.kr(1));
+		// Synthesis:
+		localIn = LocalIn.ar(1);
 
-				Out.ar(\outBus.kr, out*envs);
-			}).writeDefFile;
-		}
-	}
+		noise1 = RLPF.ar(Latch.ar(WhiteNoise.ar(noiseVol), Impulse.ar(impulse)), filterFreq, rq);
 
-	setAllVals {
+		osc1 = SinOscFB.ar(freq1+(localIn*modVol1)+noise1, freq1.linlin(100, 300, 2, 0.0));
+		osc1 = SelectX.ar(freq1, [osc1.linlin(-1.0,1.0, 0.0, 1.0), osc1]);
+		osc2 = LFTri.ar(freq2+(osc1*modVol2));
+		osc2 = LeakDC.ar(osc2);
 
-		allValsList = List.fill(8, {List[0,0,0,0,0,1,1,1,1,0,0,0,1,1,0,0,0,0,0,0]});
-	}
+		LocalOut.ar(osc2);
 
-	init {
+		out = [osc2.fold2(fold), osc2.fold2(fold*0.99)]/fold;
+		dust = LagUD.ar(Trig1.ar(Dust.ar(dustRate), attack + release), attack, release);
 
-		this.makeWindow("CrossFeedback0", Rect(0, 0, 200, 40));
+		out = SelectX.ar((dustRate<800), [out, out*dust]);
 
-		numModels = 8;
-		sizeOfNN = 16;
+		outFilterFreq = (LFTri.ar(filtModFreq)*filtModAmp).linexp(-1.0, 1.0, (outFilterFreq/2).clip(40, 18000), (outFilterFreq*2).clip(40, 18000));
+		out = RLPF.ar(out, outFilterFreq, outFilterRQ);
+		out = LeakDC.ar(out);
 
-		this.initControlsAndSynths(sizeOfNN);
-
-		dontLoadControls = (0..(sizeOfNN-1));
-
-		nnVals = [[\freq1, ControlSpec(1, 10000, \exp)],
-			[\freq2, ControlSpec(5, 10000, \exp)],
-			[\modVol1, ControlSpec(0, 3000)],
-			[\modVol2, ControlSpec(0, 3000)],
-			[\noiseVol, ControlSpec(0, 3000)],
-			[\impulse, ControlSpec(100, 20000, \exp)],
-			[\filterFreq, ControlSpec(100, 20000, \exp)],
-			[\rq, ControlSpec(0.1, 2)],
-			[\fold, ControlSpec(0.1, 1)],
-			[\dustRate, ControlSpec(1000, 1)],
-			[\attack, ControlSpec(0.001, 0.01, \exp)],
-			[\release, ControlSpec(0.001, 0.01, \exp)],
-			[\outFilterFreq, ControlSpec(20, 20000, \exp)],
-			[\outFilterRQ, ControlSpec(0.1, 2, \exp)],
-			[\filtModFreq, ControlSpec(0, 30, \lin)],
-			[\filtModAmp, ControlSpec(0, 1, \amp)]
-
-		];
-	}
+		Out.ar(0,LeakDC.ar(out,mul: 0.1));
+	}.play;
 }
+)
 ```
 
 </CodeBlock>
@@ -244,10 +240,6 @@ Pluta will iteratively build up a _corpus of mappings_, iteratively build up his
 src="/explore/pluta/corpus_of_mappings_image.png"
 label="The Corpus of Mappings patch."
 />
-
-!!!
-WILL PROBABLY BE REMOVING MAX PATCHES
-!!!
 
 <CodeBlock>
 
@@ -397,7 +389,7 @@ s.waitForBoot{
 
 	~synth = {
 		arg predicting = 0, x = 0, y = 0;
-		var val, trig, osc1, osc2, feed1, feed2, base1=69, base2=69, base3 = 130;
+		var mlpVals, trig, localIn, noise1, osc1, osc1a, osc1b, osc2, out, foldNum, dust, trigEnv, filtMod, freq1, freq2, modVol1, modVol2, noiseVol, impulse, filterFreq, rq, fold, dustRate, attack, release, outFilterFreq, outFilterRQ, filtModFreq, filtModAmp;
 
 		// Writing the xy pad values to the input buffer:
 		FluidKrToBuf.kr([x,y],~x_buf);
@@ -407,20 +399,56 @@ s.waitForBoot{
 		~nn.kr(trig,~x_buf,~y_buf);
 
 		// Retrieve the prediction from the buffer:
-		val = FluidBufToKr.kr(~y_buf);
+		mlpVals = FluidBufToKr.kr(~y_buf);
 
 		// Show the prediction on the UI:
-		SendReply.kr(trig,"/predictions",val);
+		SendReply.kr(trig,"/predictions",mlpVals);
+
+
+		// Setting parameters from control data:
+		freq1 = Lag.kr(mlpVals[0], 0.05).linexp(0,1,2,10000);
+		freq2 = Lag.kr(mlpVals[1], 0.05).linexp(0,1, 5, 10000);
+		modVol1 = mlpVals[2].linlin(0, 1, 0, 3000);
+		modVol2 = mlpVals[3].linlin(0, 1, 0, 3000);
+		noiseVol = mlpVals[4].linlin(0, 1, 0, 3000);
+		impulse = mlpVals[5].linexp(0,1, 100, 20000);
+		filterFreq = Lag.kr(mlpVals[6], 0.05).linexp(0, 1, 200, 10000);
+		rq = Lag.kr(mlpVals[7],  0.05).linlin(0, 1, 0.2, 2);
+		fold = mlpVals[8].linlin(0,1,0.1,1);
+		dustRate = mlpVals[9].linlin(0,1, 1000, 1);
+		attack = mlpVals[10].linexp(0, 1, 0.001, 0.01);
+		release = mlpVals[11].linexp(0, 1, 0.001, 0.01);
+		outFilterFreq = Lag.kr(mlpVals[12],  0.05).linexp(0, 1, 20, 20000);
+		outFilterRQ = mlpVals[13].linexp(0, 1, 0.1, 1);
+		filtModFreq = mlpVals[14].linlin(0, 1, 0, 30);
+		filtModAmp = mlpVals[15].lincurve(0, 1, 0, 1, 1);
 
 		// Synthesis:
-		#feed2,feed1 = LocalIn.ar(2);
-		osc1 = MoogFF.ar(SinOsc.ar((((feed1 * val[0]) +  val[1]) * base1).midicps,mul: (val[2] * 50).dbamp).atan,(base3 - (val[3] * (FluidLoudness.kr(feed2, 1, 0, hopSize: 64)[0].clip(-120,0) + 120))).lag(128/44100).midicps, val[4] * 3.5);
-		osc2 = MoogFF.ar(SinOsc.ar((((feed2 * val[5]) +  val[6]) * base2).midicps,mul: (val[7] * 50).dbamp).atan,(base3 - (val[8] * (FluidLoudness.kr(feed1, 1, 0, hopSize: 64)[0].clip(-120,0) + 120))).lag(128/44100).midicps, val[9] * 3.5);
-		Out.ar(0,LeakDC.ar([osc1,osc2],mul: 0.1));
-		LocalOut.ar([osc1,osc2]);
+		localIn = LocalIn.ar(1);
+
+		noise1 = RLPF.ar(Latch.ar(WhiteNoise.ar(noiseVol), Impulse.ar(impulse)), filterFreq, rq);
+
+		osc1 = SinOscFB.ar(freq1+(localIn*modVol1)+noise1, freq1.linlin(100, 300, 2, 0.0));
+		osc1 = SelectX.ar(freq1, [osc1.linlin(-1.0,1.0, 0.0, 1.0), osc1]);
+		osc2 = LFTri.ar(freq2+(osc1*modVol2));
+		osc2 = LeakDC.ar(osc2);
+
+		LocalOut.ar(osc2);
+
+		out = [osc2.fold2(fold), osc2.fold2(fold*0.99)]/fold;
+		dust = LagUD.ar(Trig1.ar(Dust.ar(dustRate), attack + release), attack, release);
+
+		out = SelectX.ar((dustRate<800), [out, out*dust]);
+
+		outFilterFreq = (LFTri.ar(filtModFreq)*filtModAmp).linexp(-1.0, 1.0, (outFilterFreq/2).clip(40, 18000), (outFilterFreq*2).clip(40, 18000));
+		out = RLPF.ar(out, outFilterFreq, outFilterRQ);
+		out = LeakDC.ar(out);
+		Out.ar(0,LeakDC.ar(out,mul: 0.1));
 
 
 	}.play;
+
+
 
 	// Show the prediction on the UI:
 	OSCdef(\\predictions,{
