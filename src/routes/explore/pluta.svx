@@ -44,13 +44,13 @@ Download the demonstration patches for this article <a href='/explore/pluta/Sam 
 In this article we will be looking at some of the work that Sam Pluta did for the project, and notably how he used MLP regression to augment his already well-developed SuperCollider modular system. We shall start by taking a look at his piece, a duo with trumpetist [Peter Evans](https://www.peterevanstrumpet.com/) (in two parts: _Neural Duo I_ and _II_) and an overview of Pluta’s instrument. Then we shall explore some of Pluta’s thoughts on MLP regression and his approach to training; before finally discussing some wider ideas around instrument design. As with all the "[Explore](/explore)" articles, there is a series of demonstration patches that can be <a href='/explore/pluta/Sam Pluta Examples.zip' download='Sam Pluta Examples.zip'>downloaded</a> and interacted with if you wish to explore the inner workings of the software.
 
 <YouTube 
-url={'DZ65P7KVQWU'}
+url={'jWwJd9UmixQ'}
 />
 
 Due to travel restrictions at the time, both parts of the performance were pre-recorded and projected on the night of the [second FluCoMa performance](/explore/liminal-spaces) at [Dialogues Festival 2021](https://digital.eca.ed.ac.uk/dialogues/). The videos are edited in a way that give us a good view on what was happening: we have close-up angles of both Pluta and his various controllers (joystick, 2 iPads and a laptop) and Evans and his trumpet. The pair have been [long-time collaborators](http://www.sampluta.com/discography.html), meaning that this was far from their first performance together. However, as we shall discuss below, in addition to pre-recording the performance, the pandemic also imposed another aspect on the performance which made it particularly unique for them.
 
 <YouTube 
-url={'xdygL-zm3j8?t=4011'}
+url={'Nyoj9hX66gY'}
 />
 
 The two performances are a fascinating counterpoint between the harsh digital noises of Pluta’s system and the wide spectrum of extended techniques performed on Evans’ traditional instrument. The two parts are different in nature: with the first, we are thrown straight into the action – the audience is immediately pulled along by an enthralling intensity of activity from beginning to end. The second eases us into a delicate and curious world of sounds that build into an enchanting dialogue between the two musicians. Through the two pieces, we understand that these two performers, and two instruments, propose a scope of sounds far beyond what we may expect.
@@ -221,7 +221,7 @@ As one experiences when experimenting with the synthesizer, it is a difficult in
 One of these failed (but not abandoned) experiments was the idea to ring-modulate the real-time centroid and pitch analysis of the incoming trumpet signal with the x and y data of an xy pad to control a neural network. One of the main setbacks for this was issues with latency. Indeed, latency is a question that is dealt with by all creative coders who operate in the real-time, live domain. There are various examples of this across the “Explore” articles – for example the articles on [Lauren Sarah Hayes’](/explore/hayes) work or [Rodrigo Constanzo’s](/explore/constanzo) work.
 
 <YouTube 
-url={'g-xPeby3j_w'}
+url={'EQlTcy8Dj-s'}
 />
 
 Another experiment was a 2-dimensional space into which Pluta projected the [PCA](/reference/pca) dimensionality-reduction of [MFCC](/reference/mfcc) analysis data of a 3000-sample dataset, explained in the video above. Check out this [FluCoMa tutorial](/learn/2d-corpus-explorer) on building your own 2D corpus explorer. He would navigate this digital space with his joystick, using the [_fluid.kdtree~_](/reference/kdtree) object to retrieve the nearest neighbours and play back the samples. In the end, he didn’t persue this avenue, notably because he much prefers to use synthesis than samples. However, parts of this can help us to understand his approach to instrument making, and to training the neural network.
@@ -470,7 +470,7 @@ src="/explore/pluta/rhizome_DO_NOT_USE.jpeg"
 This is a starting point – Pluta compared it to a seed in [NMF](/reference/bufnmf). Indeed, the seed is random, and it will greatly shape the rest of the process. Once this seed is planted, the rest of the mapping will grow naturally out from it. For example, if he placed a ‘low’ sound in the lower-right of his control space, he may look to find a ‘higher’ sound that may go in the upper-right. The definition of this next point will in turn combine with the first to condition how he will find the next point, and so on. 
 
 <YouTube 
-url={'BYUe6jlNIKY '}
+url={'BYUe6jlNIKY'}
 />
 
 Each training he makes will have at least 4 points, but no more than 10: Pluta cited something said by [Rebecca Fiebrink](https://www.doc.gold.ac.uk/~mas01rf/homepage/) at her keynote that seemed to resonate with many of the artists on the FluCoMa project – that _small data is beautiful_. Once this mapping is made, he will make another one, and another one, and after maybe 4 or 5 of them, he will assess what he has. He explained that, possibly one may not be very good – but you can throw it away, because training another would be so quick!
