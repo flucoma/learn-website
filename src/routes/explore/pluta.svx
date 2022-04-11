@@ -463,10 +463,6 @@ s.waitForBoot{
 
 When it comes to mapping and the training of the neural network, Pluta explained that it is something that is quite hard to explain to people who are more driven by the data-science side of things. He says that there is a randomness to it that he embraces. He explained that faced with such a huge multidimensional space, at first there is nothing one can do but play around with the sliders, tweaking them until one finds those afore-mentioned _glorious pockets of sonic change_. He will move and tweak the sliders around until he finds a sound that he likes. Once he finds something, he will map it to where he intuitively feels it belongs in his low-dimensional control space, be it with his joystick or an xy pad on his iPad.
 
-<Image
-src="/explore/pluta/rhizome_DO_NOT_USE.jpeg"
-/>
-
 This is a starting point – Pluta compared it to a seed in [NMF](/reference/bufnmf). Indeed, the seed is random, and it will greatly shape the rest of the process. Once this seed is planted, the rest of the mapping will grow naturally out from it. For example, if he placed a ‘low’ sound in the lower-right of his control space, he may look to find a ‘higher’ sound that may go in the upper-right. The definition of this next point will in turn combine with the first to condition how he will find the next point, and so on. 
 
 <YouTube 
