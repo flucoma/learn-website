@@ -41,7 +41,7 @@
 	}
 
 	.entry {
-		color: grey;
+		color: var(--grey);
 		text-align: left;
 	}
 </style>

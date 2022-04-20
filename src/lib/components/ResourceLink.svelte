@@ -21,7 +21,7 @@
     }
 
     .container > p {
-        color: grey;
+        color: var(--grey);
         margin: 0;
     }
 

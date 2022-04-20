@@ -32,6 +32,6 @@
 		font-weight: bold;
 	}
 	.blurb {
-		color: grey;
+		color: var(--grey);
 	}
 </style>
