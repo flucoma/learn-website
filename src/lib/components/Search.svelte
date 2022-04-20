@@ -87,6 +87,7 @@
 			bind:this={searchBar}
 			on:focus={focusSearch}
 			on:blur={blurSearch}
+			id="search-term"
 		/>
 	</form>
 

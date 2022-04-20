@@ -63,7 +63,9 @@
 		text-justify: inter-word;
 	}
 
-	.blurb { color: grey }
+	.blurb { 
+        color: var(--grey); 
+    }
 
 	p { text-align: justify }
 

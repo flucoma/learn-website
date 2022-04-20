@@ -53,7 +53,7 @@
 	.entry {
 		display: grid;
 		gap: 1em;
-		color: grey;
+		color: var(--grey);
 		text-align: left;
 	}
 </style>
