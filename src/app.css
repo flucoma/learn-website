@@ -23,6 +23,7 @@ g*/
 	--reference-flair: forestgreen;
 	--podcast-flair: palevioletred;
 	--tutorial-flair: rgba(102, 103, 171, 255);
+	--grey: rgb(89, 89, 89);
 }
 
 html {
