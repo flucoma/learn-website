@@ -22,13 +22,12 @@
     
     <div class="category">
         <div class='flaired-title'>
-            <div class="flair article" />
             <div>Articles</div>
         </div>
 
         <div class='links'>
             {#each articles as link}
-            <a  class='link' href="{link.url}">{link.title}</a>
+            <a  class='link article' href="{link.url}">{link.title}</a>
             {/each}
         </div>
     </div>
@@ -37,13 +36,12 @@
     {#if tutorials.length > 0}
     <div class="category">
         <div class='flaired-title'>
-            <div class="flair tutorial" />
             <div>Articles</div>
         </div>
 
         <div class='links'>
             {#each tutorials as link}
-            <a  class='link' href="{link.url}">{link.title}</a>
+            <a  class='link tutorial' href="{link.url}">{link.title}</a>
             {/each}
         </div>
     </div>
@@ -52,13 +50,12 @@
     {#if references.length > 0}
     <div class="category">
         <div class='flaired-title'>
-            <div class="flair reference" />
             <div class='title'>Reference</div>
         </div>
 
         <div class='links'>
             {#each references as link}
-            <a  class='link' href="{link.url}">{link.title}</a>
+            <a  class='link reference' href="{link.url}">{link.title}</a>
             {/each}
         </div>
     </div>
@@ -84,18 +81,20 @@
 
     .links {
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
+        flex-wrap: wrap;
         gap: 0.5em;
     }
 
     .link {
         text-decoration: none;
 		font-size: 0.8rem;
+        padding: 5px;
+        border-radius: 3px;
+        color: white;
     }
 
     .link:hover {
-        color: var(--med-blue);
-        background-color: transparent;
         text-decoration: underline;
     }
 

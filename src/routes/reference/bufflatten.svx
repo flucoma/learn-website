@@ -15,7 +15,7 @@ category: Utility
 
 BufFlatten is used to reorganise the values in a multichannel buffer into a single channel buffer. Therefore the `destination` buffer will always have only one channel. This can be useful to structure values such that they can be added to a [DataSet](/reference/dataset).
 
-The `axis` argument determines how the flattening is arranged. The default value, 1, flattens channel-wise (keeping values in the same frame next to each other, similar to how audio files are stored), while `axis` = 0 flattens frame-wise (keeping values in the same channels next to each other).
+The `axis` argument determines how the flattening is arranged. The default value, 1, flattens channel-wise (keeping values in the same frame next to each other, similar to how most interleaved multichannel audio is stored), while `axis` = 0 flattens frame-wise (keeping values in the same channels next to each other).
 
 In the illustration below, different colours represent different frames left to right, while the different shapes represent different channels top top to bottom.
 

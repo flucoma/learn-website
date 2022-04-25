@@ -20,6 +20,8 @@
 <style lang="postcss">
 	.code {
 		position: relative;
+		max-height: 500px;
+		overflow: scroll;
 	}
 
 	.btn {
