@@ -11,6 +11,8 @@ tags:
 flair: tutorial
 ---
 
+point to this? https://www.geckoboard.com/best-practice/statistical-fallacies/
+
 ## Gaussian Assumptions in Machine Learning
 
 Importantly (IMO), just as the FFT gets used as a TF representation so often because it is well understood and easy to work numerically with, rather than being in any sense The Best Thing, likewise Gaussian assumptions are extremely common in ML models because they're well understood and easy to work with.
