@@ -116,10 +116,8 @@ url={'r3uHMXmlPRo'}
 
 The second form that Devine cited as being extremely important was with [James Bradbury](https://www.jamesbradbury.net/)’s implementation of some of the tools in the [Reaper](https://www.reaper.fm/) DAW, [ReaCoMa](https://www.reacoma.xyz/). ReaCoMa allowed him to navigate sliced audio using [novelty slice](/reference/noveltyslice), and also create new audio from pre-existing content with tools such as [HPSS](/reference/hpss). For analysis, Devine provided us with a collection of sounds he used as source material for creating his new sounds: these vary from loops, to drones, to gestures.
 
-EXAMPLE VID
-
 <YouTube 
-url={''}
+url={'IQWtmF8hC4w'}
 />
 
 Naturally, the process of transformation from these original source samples to the content that is found on the *Morphagene* reels is difficult to document, however we can begin to understand some of it using the *03 Source Manipulation* patch. Some of Devine’s samples are commercially-sourced, so we can’t distribute them, but in the video above you can see and hear some examples of analysis (the patch is still available with the examples for your use).
