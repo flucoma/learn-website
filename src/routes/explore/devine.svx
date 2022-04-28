@@ -34,11 +34,11 @@ Richard Devine is an Atlanta-based electronic musician and sound designer. He is
 ## Introduction
 <IndentNote type='pointer'>
 
-Download the demonstration patches for this article <a href='/explore/devine/Richard Devine Examples.zip' download='Richard Devine Examples.zip'>here</a>.
+Download the demonstration patches for this article here.
 
 </IndentNote>
 
-In this article we’ll be taking a look at the work that Richard Devine did for the project around his piece *Recursion Constructors*. This will be an opportunity to discover how the FluCoMa tools and principles of fluid corpus manipulation can stretch beyond the confines of a creative coding environment, and be utilised in the [DAW](https://en.wikipedia.org/wiki/Digital_audio_workstation), and in a [modular synthesizer](https://en.wikipedia.org/wiki/Modular_synthesizer) system. We shall be examining how Devine used some of the FluCoMa tools to build up a corpus and how the idea of slices can be approached in a modular context. As with all the "[Explore](/explore)" articles, there is a series of demonstration patches that can be <a href='/explore/devine/Richard Devine Examples.zip' download='Richard Devine Examples.zip'>downloaded</a> and interacted with if you wish to explore the inner workings of the software.
+In this article we’ll be taking a look at the work that Richard Devine did for the project around his piece *Recursion Constructors*. This will be an opportunity to discover how the FluCoMa tools and principles of fluid corpus manipulation can stretch beyond the confines of a creative coding environment, and be utilised in the [DAW](https://en.wikipedia.org/wiki/Digital_audio_workstation), and in a [modular synthesizer](https://en.wikipedia.org/wiki/Modular_synthesizer) system. We shall be examining how Devine used some of the FluCoMa tools to build up a corpus and how the idea of slices can be approached in a modular context. As with all the "[Explore](/explore)" articles, there is a series of demonstration patches that can be downloaded and interacted with if you wish to explore the inner workings of the software.
 
 <YouTube 
 url={'F0iCU_uqJHg'}
