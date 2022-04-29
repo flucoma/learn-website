@@ -1,0 +1,93 @@
+---
+title: MLP Parameters and Training
+blurb: |
+    An overview on the control parameters of multi-layer perceptrons.
+tags: 
+    - mlp
+    - multi-layer perceptron
+    - supervised learning
+    - neural network
+    - machine learning
+    - regression
+    - classification
+flair: article
+---
+
+<script>
+    import IndentNote from '$lib/components/IndentNote.svelte';
+    import Image from '$lib/components/Image.svelte';
+</script>
+
+This article provides guidance on using the neural networks found in the FluCoMa toolkit, including explanation of the parameters, intuition about how neural networks learn, and some recommendations for training. FluCoMa contains two neural network objects, the MLPClassifier and MLPRegressor. "MLP" stand for multi-layer perceptron, which is a type of neural network (described more below). "Classifier" and "Regressor" refer to the task that each MLP can be trained to do. 
+
+<IndentNote type='pointer'>
+
+For more information on the tasks [Classification](/reference/mlpclassifier) and [Regression](/reference/mlpregressor), visit the linked object references. 
+
+</IndentNote>
+
+## Supervised Learning
+
+Both the MLPClassifier and MLPRegressor are supervised learning algorithms meaning that they learn from input-output example pairs. The MLPClassifier can learn to predict output labels (in a [LabelSet](/reference/labelset)) from the labels' paired input data points (in a [DataSet](/reference/dataset)). The MLPRegressor can learn to predict output data points from their paired input data points.
+
+Supervised learning is contrasted with unsupervised learning which tries to find patterns in data that is not labeled or paired with other data. FluCoMa also has unsupervised learning algorithms such as [PCA](/reference/pca), [KMeans](/reference/kmeans), [MDS](/reference/mds), [UMAP](/reference/umap), and [Grid](/reference/grid).
+
+## Classification and Regression: MLP vs. KNN
+
+FluCoMa has another pair of objects that do classification and regression with supervised learning: the [KNNClassifier](/reference/knnclassifier) and [KNNRegressor](/reference/knnregressor). The KNN objects work quite differently from the MLP objects, each having their strengths and weaknesses. You can learn more about how KNNs work at their respective reference pages. The main differences to know are that 1) the flexibility of the MLP objects make them generally more capable of learning complex relationships between inputs and outputs, 2) the MLP objects take much longer to `fit` and involve more parameters and options than the KNN objects, and 3) the KNN objects will likely take longer to make predictions than the MLP objects, depending on the size of the dataset (although they're still quite quick!).
+
+## The training process
+
+### Training Data and Testing Data
+
+Before training a neural network it may be important to separate the input-output example pairs into a "training set" and "testing set". The training set will be used to do the actual training of the neural network and the testing set will be used after the training to test how well it is performing. This can be important to simulate how the neural network might perform in the actual use-case you're aiming for. For example, if you [train an MLPClassifier to distinguish oboe and trombone timbres](/learn/classification-neural-network) so that during a live performance it can know which instrument is sounding, you would train on a "training set" of audio analyses that have corresponding labels: either "trombone" or "oboe". Then, to test the effectiveness of the training, you would make predictions using a "testing set" that has both oboe and trombone examples which were not part of the training set. This simulates the future use-case: having the neural network make predictions when a trombone and oboe are on stage making sounds.
+
+One common way of creating training data and testing data is to start with one big dataset of the input-output example pairs. Then, split off a certain portion of the pairs and set them aside as the testing set (depending on the amount of data 20% might be a good amount). Train the neural network using the rest of the data (the training set). When the training is complete, use the set-aside testing set to see how it is performing.
+
+Using a testing set can help determine if a neural net is overfitting. Overfitting means that the neural network has learned to _really accurately_ make predictions on the data it was trained with, but as soon as it is shown data it has never seen before it performs quite poorly. If you're neural network is able to perform well on both the training data and the testing data, it is likely not overfit.
+
+<IndentNote type='pointer'>
+
+For another strategy to prevent overfitting, see the `validation` parameter below.
+
+</IndentNote>
+
+## How does a neural network learn?
+
+The message that tells an MLP to train is `fit` (see more in the [parameters](/#parameters) section below). `fit` is synonymous with "train". Its terminology is similar to finding a "line of best fit" or "fitting a curve to data". This section outlines some important things to consider when training a neural network.
+
+Training a neural network is an iterative process meaning that it does the same procedure many times (often thousands) making small adjustments each time until is performing to desirable a degree accuracy. During the training process of an MLP neural network, it uses all the data points from the input [DataSet](/reference/dataset) and predicts output guesses (either a label for MLPClassifier or a data point for MLPRegressor). At first these guesses will be quite wrong because the MLP begins in a randomised state. After each of these output guesses it checks what the _desired_ output is for the given input and measures how wrong the guess is. This measure is called the _error_. The MLPRegressor will then adjust its internal state slightly based on the error so that it can be more accurate the next time it makes a prediction on this input. After training on each data point thousands of times, these small adjustments enable the neural network to (hopefully!) make accurate predictions on the data points in the DataSet, as well as on data points it has never seen before.
+
+<Image
+src="211220_01_synth_control_sc.txt.jpg"
+label="A multi-layer perceptron neural network that takes two inputs and predicts ten outputs."
+/>
+
+### Tweaking the MLP Parameters
+
+Training a neural network is an iterative process
+
+## Parameters
+
+  * `Hidden`: A list of numbers that specifies the structure of the neural network. Each number in the list represents one hidden layer of the neural network, the value of which is the number of neurons in that layer. For example, 3 3 (which is the default) specifies two hidden layers with three neurons each. The number of neurons in the input and output layers are determined from the corresponding datasets when training begins.
+  * `Activation`: An integer representing which activation function each neuron in the hidden layers will use. The default is 3 ('relu'). The options are<sup>1</sup>:
+    - 0: 'identity' uses f(x) = x
+    - 1: 'sigmoid' uses the logistic sigmoid function, f(x) = 1 / (1 + exp(-x))
+    - 2: 'relu' uses the rectified linear unit function, f(x) = max(x,0)
+    - 3: 'tanh' uses the hyperbolic tan function, f(x) = tanh(x)
+    
+  * `Output Activation`: An integer representing which activation function each neuron in the output layer will use. The options are the same as for `Activation`. The default is 0 ('identity').
+  * `Batch Size`: The number of data points to use in between adjustments of the MLP's internal parameters. Higher values will speed up the training and smooth out the neural networks adjustments as it makes the adjustments based on batches of data points.
+  * `Max Iterations`: How many epochs to train when `fit` is called on the object. An Epoch is consists of training on all the data points one time.
+  * `Learn Rate`: A scalar for how drastically to adjust the internal parameters during training. It can be useful to begin at a relatively high value, such as 0.1 to try to quickly get the neural network in the general area of the solution. Then after a few fittings, decrease the learning rate to a smaller value, maybe 0.01, to slow down the adjustments and let the neural network hone in on a solution. This is the most important parameter to adjust while training a neural network. Different data will require different uses of learning rate. Experimenting with the learning rate for a given dataset is a good way to determine what might be best for a given task.
+  * `Validation`: A percentage (represented as a decimal) of the data point to set aside and not use for training. Instead these points will be used after each epoch to check how the neural network is performing. If it is found to no longer be improving, training will stop. This is useful if there are many data points. With a very small dataset validation should be 0.
+  * `Momentum`: A scalar to apply smoothing to the adjustments made to the internal parameters.
+  * `Tap In`: Sets which layer the neural network will use as input. This can be used to access different parts of a trained neural network such as the encoder or decoder of an [autoencoder](https://towardsdatascience.com/auto-encoder-what-is-it-and-what-is-it-used-for-part-1-3e5c6f017726).
+  * `Tap Out`: Sets which layer the neural network will output values from. This can be used to access different parts of a trained neural network such as the encoder or decoder of an [autoencoder](https://towardsdatascience.com/auto-encoder-what-is-it-and-what-is-it-used-for-part-1-3e5c6f017726).
+
+## Methods / Messages
+
+* `Fit`: Train the neural network to map between a source and target FluidLabelSet.
+* `Predict`: Predict outputs for all the data points in a provided FluidDataSet.
+* `Predict Point`: Predict an output for a single data point.
+* `Clear`: Reset all the MLP's internal parameters to a randomised state. This will erase all the learning that the neural network has done.
