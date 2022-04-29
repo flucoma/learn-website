@@ -1,0 +1,109 @@
+---
+title: "FluCoMa Podcast #04: Simon Smith"
+artist: Simon Smith
+blurb: |
+    Episode 4 of the FluCoMa Podcast where Jacob Hart talks to creative coder and BEAST studio technician Simon Smith.
+tags: 
+    - kyma
+    - emg bracelets
+    - mapping
+    - corpus exploration
+    - community
+    - diffusion
+flair: podcast
+featuredimage: /explore/smith/featured.jpeg
+---
+
+<script>
+    import YouTube from '$lib/components/YouTube.svelte';
+    import ArtistCard from '$lib/components/mwf/ArtistCard.svelte';
+    import Vimeo from '$lib/components/mwf/Vimeo.svelte';
+</script>
+
+<ArtistCard
+src = "/explore/smith/profile.jpeg"
+name = "Simon Smith"
+website = "https://uk.linkedin.com/in/simon-barry-smith73"
+>
+<p slot="bio">
+Simon Smith is the studio technician at the Birmingham Electroacoustic Sound Theatre. He obtained an MA from De Montfort University for his research on the listening to acousmatic music in the concert hall. His creative practice takes many forms, from installations to solo performance.
+</p>
+</ArtistCard>
+
+## The Podcast
+
+<YouTube 
+url={''}
+/>
+
+## Overview
+
+In this episode of the FluCoMa Podcast I talk to Simon Smith who is currently the studio technician at the Birmingham Electroacoustic Sound Theatre (BEAST). We talk about Simon’s approach to diffusion, an important part of electronic music. We also discuss Simon’s creative practice which spans from installations to solo performance; emerges from a host of different environments from Kyma to Max; and makes use of bespoke pieces of hardware such as EMG bracelets. Simon explains how he has recently incorporated some of the FluCoMa tools into his workflow, and the important role they have played in his recent work.
+
+## Links
+
+Here are the links to some of the things that were discussed during the podcast:
+
+- [Birmingham Electroacoustic Sound Theatre](http://www.beast.bham.ac.uk/) (BEAST).
+
+- [De Montfort University](https://www.dmu.ac.uk/international/en/eu.aspx?gclid=Cj0KCQjwma6TBhDIARIsAOKuANyjRe-76Hw2ADITsAmjc8tvgvTE0-xzLpBaLr3494mbBQ08_x0vYtMaAk9GEALw_wcB).
+
+- Simon's MA research ["*An Exploration of Listening to Acousmatic Music in the Concert Hall*"](https://www.dropbox.com/s/o4v5euewndmtwpd/2016-%20MA%20Listening%20to%20Acousmatic%20Music%20in%20the%20Concert%20Hall.pdf?dl=0).
+
+- [BEAST FEaST](http://www.beast.bham.ac.uk/beast-feast-2021/).
+
+- John Richards' [Dirty Electronics](https://dirtyelectronics.org/).
+
+<YouTube 
+url={'2FVlizBzJDU'}
+/>
+
+- [Kyma](https://kyma.symbolicsound.com/) and the [Kyma Community](https://kyma.symbolicsound.com/community-2/).
+
+<YouTube 
+url={'0IPxIvbc_cs?t=921'}
+/>
+
+- [Carla Scaletti](https://carlascaletti.com/bio/).
+
+- [MYO EMG Bracelets](https://wearabletech.io/myo-bracelet/).
+
+<YouTube 
+url={'oqAZ5_hlwLg'}
+/>
+
+<YouTube 
+url={'sM4fs1eV7A0'}
+/>
+
+- [John Chowning](https://en.wikipedia.org/wiki/John_Chowning)'s [*FM Theory and Applications*](https://www.amazon.com/Fm-Theory-Applications-Musicians/dp/4636174828).
+
+- [Simon Emmerson](https://en.wikipedia.org/wiki/Simon_Emmerson_(composer))'s [*The Language of Electroacoustic Music*](https://www.jstor.org/stable/855252).
+
+- [Middlesex University](https://www.mdx.ac.uk/). [John Dack](http://adri.mdx.ac.uk/dack-dr-john), [Salome Voegelin](https://www.salomevoegelin.net/), [Martin Robinson](https://uk.linkedin.com/in/0x4d52?challengeId=AQETf6GyYoa09AAAAYB0gfNeFIgfOibs0iRk8AZQYMjsQ6zObHa7uFr7RO8WgKV4Wns7HS6gV1XTz9rfMAgwpx0WHURWXaoBMw&submissionId=5b0407d2-c351-ea16-3809-290ece9b2948), [Hugh Davies](https://eprints.mdx.ac.uk/17408/).
+
+- [University of Manchester](https://www.manchester.ac.uk/).
+
+- [Pauline Oliveros](https://en.wikipedia.org/wiki/Pauline_Oliveros), [Merzbow](https://en.wikipedia.org/wiki/Merzbow), [Keith Rowe](https://en.wikipedia.org/wiki/Keith_Rowe), [Francis Dhomont](https://en.wikipedia.org/wiki/Francis_Dhomont).
+
+- [Pierre Schaeffer](https://en.wikipedia.org/wiki/Pierre_Schaeffer).
+
+- [Groupe des Recherches Musicales](https://inagrm.com/en) (GRM).
+
+- [Hear This Space](https://www.ahillav.co.uk/hear-this-space/) (with [Andrew Hill](https://www.ahillav.co.uk) and [Mike Gatt](https://www.kingston.ac.uk/staff/profile/dr-michael-gatt-113/)).
+
+<Vimeo 
+url={'https://player.vimeo.com/video/22597217?h=dbdf22de9d'}
+/>
+
+- [Huddersfield Immersive Sound System](https://www.thehiss.org/) (HISS).
+
+- [Electric Spring](https://electricspring.co.uk/).
+
+- [Jonty Harrison](https://en.wikipedia.org/wiki/Jonty_Harrison).
+
+- [Leicester Museum](https://www.leicestermuseums.org/leicester-museum-art-gallery/).
+
+- Centrala
+HPD3lZpG69c with scott wilson
+HRFcspWA4K8
