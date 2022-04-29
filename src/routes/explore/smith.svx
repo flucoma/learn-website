@@ -17,7 +17,9 @@ featuredimage: /explore/smith/featured.jpeg
 <script>
     import YouTube from '$lib/components/YouTube.svelte';
     import ArtistCard from '$lib/components/mwf/ArtistCard.svelte';
-    import Vimeo from '$lib/components/mwf/Vimeo.svelte';
+    import Vimeo from '$lib/components/Vimeo.svelte';
+    import Soundcloud from '$lib/components/Soundcloud.svelte';
+    import BandCamp from '$lib/components/BandCamp.svelte';
 </script>
 
 <ArtistCard
@@ -103,6 +105,36 @@ url={'https://player.vimeo.com/video/22597217?h=dbdf22de9d'}
 - [Jonty Harrison](https://en.wikipedia.org/wiki/Jonty_Harrison).
 
 - [Leicester Museum](https://www.leicestermuseums.org/leicester-museum-art-gallery/).
+
+- Two Left Ears project.
+
+<Soundcloud 
+id='https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/59981114&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true'
+/>
+
+<Soundcloud 
+id='https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/298399532&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true'
+/>
+
+- [Kyma International Sound Symposium 2017](https://kiss2017.symbolicsound.com/), Oslo.
+
+- [Electrive Mute](https://electivemute.bandcamp.com).
+
+<BandCamp 
+id='473579093'
+/>
+
+- [John Wall](https://johnwall.bandcamp.com).
+
+- [Brona Martin](https://www.bronamartin.org).
+
+- [Ben Burtt](https://en.wikipedia.org/wiki/Ben_Burtt).
+
+- [Rodrigo Constanzo](https://rodrigoconstanzo.com/).
+
+<YouTube 
+url={'TL-L9weQxeM'}
+/>
 
 - Centrala
 HPD3lZpG69c with scott wilson
