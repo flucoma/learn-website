@@ -9,7 +9,7 @@ References are slightly different and use the ReferenceEntry component.
 	
 	export let section = 'learn';
 	
-	let [minColWidth, maxColWidth, gap] = [200, 800, 20]
+	let [minColWidth, maxColWidth, gap] = [300, 800, 15]
 	let width, height;
 
 	const items = docs.filter((x) => x.section === section);
