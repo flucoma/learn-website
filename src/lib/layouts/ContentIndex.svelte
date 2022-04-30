@@ -39,7 +39,6 @@
 
 	@media (max-width: 1200px) {
 		.wrapper {
-            width: 100%;
 			grid-template-rows: auto auto;
 			grid-template-areas:
 				'navigation'
