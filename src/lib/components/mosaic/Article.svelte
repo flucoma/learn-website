@@ -1,38 +1,26 @@
-<script lang="ts">
+<script>
     import ArrowRight from '$lib/components/ArrowRight.svelte';
     import Flair from '$lib/components/Flair.svelte';
     import _ from 'lodash';
     
-    type ArticleData = {
-        title: string,
-        blurb: string,
-        tags: string[],
-        flair: string,
-        url: string,
-        section: string,
-        artist?: string,
-        crumb?: string,
-        related?: string
-    }
-    
-    export let data: ArticleData = {};
+    export let item = {};
 </script>
 
 <div class="container raisedbox">
     
-    <a href="{data.url}">
+    <a href="{item.url}">
         
         <div class="img_container">
-            <div class='feature_image' style="background-image: url({data.feature.featuredimage || _.sample(data.feature.images) || '/general/learn_default.jpeg' });"></div>
+            <div class='feature_image' style="background-image: url({item.feature.featuredimage || _.sample(item.feature.images) || '/general/learn_default.jpeg' });"></div>
         </div>
         
         <div class="text_cont">
-            <h2>{data.title}</h2>
-            <p class='blurb'>{data.blurb}</p>
+            <h2>{item.title}</h2>
+            <p class='blurb'>{item.blurb}</p>
             
             <div class="flair_link_wrapper">
-                <div class="flair_wrapper"><Flair flair={data.flair}/></div>
-                <a  class='linkout' href={data.url}>Learn More <ArrowRight /></a>
+                <div class="flair_wrapper"><Flair flair={item.flair}/></div>
+                <a  class='linkout' href={item.url}>Learn More <ArrowRight /></a>
             </div>
             
         </div>
