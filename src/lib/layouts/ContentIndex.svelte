@@ -39,6 +39,7 @@
 
 	@media (max-width: 1200px) {
 		.wrapper {
+            width: 100%;
 			grid-template-rows: auto auto;
 			grid-template-areas:
 				'navigation'
@@ -48,8 +49,6 @@
 
     .main {
         grid-area: main;
-        /* min-width: var(--min-text-width);
-        max-width: var(--max-text-width); */
         display: flex;
         flex-direction: column;
     }
