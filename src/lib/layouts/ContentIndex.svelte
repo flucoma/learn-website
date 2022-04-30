@@ -32,13 +32,14 @@
 
 	@media (min-width: 1200px) {
 		.wrapper {
-			grid-template-columns: auto min(var(--max-text-width), 100%) auto;
-			grid-template-areas: 'navigation main blank';
+			grid-template-columns: auto 75% auto;
+            grid-template-areas: 'navigation main blank';
 		}
 	}
 
 	@media (max-width: 1200px) {
 		.wrapper {
+            width: 100%;
 			grid-template-rows: auto auto;
 			grid-template-areas:
 				'navigation'
@@ -48,8 +49,6 @@
 
     .main {
         grid-area: main;
-        min-width: var(--min-text-width);
-        max-width: var(--max-text-width);
         display: flex;
         flex-direction: column;
     }

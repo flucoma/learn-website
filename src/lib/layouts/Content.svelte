@@ -5,8 +5,6 @@
     import RelatedLinks from '$lib/components/RelatedLinks.svelte';
     import EditHistory from '$lib/components/EditHistory.svelte';
     import Crumbs from '$lib/components/Crumbs.svelte';
-
-    
 </script>
 
 <Crumbs />
