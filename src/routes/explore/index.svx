@@ -3,11 +3,11 @@ layout: contentindex
 ---
 
 <script>
-    import CardList from '$lib/components/mosaic/List.svelte';
+    import List from '$lib/components/mosaic/List.svelte';
 </script>
 
 # Explore
 
 Explore highlights projects and practices where FluCoMa is used.
 
-<CardList section='explore' />
+<List section='explore' />
