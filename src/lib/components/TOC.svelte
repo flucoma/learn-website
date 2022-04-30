@@ -22,9 +22,9 @@
 		</div>
 		{/if}
 	</div>
-	<Related />
 </nav>
 
+<svelte:window />
 
 <style lang="postcss">
 	.container {

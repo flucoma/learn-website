@@ -1,16 +1,15 @@
-~trombone = Buffer.read(s,File.realpath(FluidMLPClassifier.class.filenameSymbol).dirname.withTrailingSlash ++ "../AudioFiles/Olencki-TenTromboneLongTones-M.wav");
-~oboe = Buffer.read(s,File.realpath(FluidMLPClassifier.class.filenameSymbol).dirname.withTrailingSlash ++ "../AudioFiles/Harker-DS-TenOboeMultiphonics-M.wav");
+~trombone = Buffer.read(s,FluidFilesPath("Olencki-TenTromboneLongTones-M.wav"));
+~oboe = Buffer.read(s,FluidFilesPath("Harker-DS-TenOboeMultiphonics-M.wav"));
 
 ~trombone.play;
 ~oboe.play;
 
-~trombone_train = Buffer.read(s,File.realpath(FluidMLPClassifier.class.filenameSymbol).dirname.withTrailingSlash ++ "../AudioFiles/Olencki-TenTromboneLongTones-M.wav",0,1783040);
-~oboe_train = Buffer.read(s,File.realpath(FluidMLPClassifier.class.filenameSymbol).dirname.withTrailingSlash ++ "../AudioFiles/Harker-DS-TenOboeMultiphonics-M.wav",0,1783040);
+~trombone_train = Buffer.read(s,FluidFilesPath("Olencki-TenTromboneLongTones-M.wav"),0,1783040);
+~oboe_train = Buffer.read(s,FluidFilesPath("Harker-DS-TenOboeMultiphonics-M.wav"),0,1783040);
 
-~trombone_test = Buffer.read(s,File.realpath(FluidMLPClassifier.class.filenameSymbol).dirname.withTrailingSlash ++ "../AudioFiles/Olencki-TenTromboneLongTones-M.wav",1783040);
-~oboe_test = Buffer.read(s,File.realpath(FluidMLPClassifier.class.filenameSymbol).dirname.withTrailingSlash ++ "../AudioFiles/Harker-DS-TenOboeMultiphonics-M.wav",1783040);
+~trombone_test = Buffer.read(s,FluidFilesPath("Olencki-TenTromboneLongTones-M.wav"),1783040);
+~oboe_test = Buffer.read(s,FluidFilesPath("Harker-DS-TenOboeMultiphonics-M.wav"),1783040);
 
-// FluidWaveform(~oboe_test);
 
 (
 ~nmfccs = 13;
@@ -41,16 +40,22 @@
 ~timbredata.clear;
 ~labels.clear;
 
+// play the playback+analysis function with the trombone sound
 ~realtime_analysis.(~trombone_train);
+// execute the add point function as many times as you want points
 ~add_point.("trombone");
 
+// do the same with the oboe sound
 ~realtime_analysis.(~oboe_train);
+// and add a similar number of points
 ~add_point.("oboe");
 
+// create a classifier
 (
 ~nn = FluidMLPClassifier(s,hidden:[5],activation:1,maxIter:1000,learnRate:0.1,momentum:0.9,batchSize:5,validation:0);
 )
 
+// run this fitting function for as long as the error is not acceptable
 (
 ~nn.fit(~timbredata,~labels,{
 	arg loss;
@@ -58,6 +63,7 @@
 });
 )
 
+// define a querying function on the synth
 (
 ~predictions = Buffer.alloc(s,1);
 ~server_predictions = {
@@ -82,15 +88,19 @@
 };
 )
 
+// run it with trombone test sounds...
 ~server_predictions.(~trombone_test);
+// ... and with oboe test sounds
 ~server_predictions.(~oboe_test);
 
-/*(
+// one could also query on the language side and get the label back as symbol
+~realtime_analysis.(~trombone_test);
+~realtime_analysis.(~oboe_test);
+
+// execute the code below
+(
 ~nn.predictPoint(~mfccbuf,{
 arg label;
 label.postln;
 });
 )
-
-~realtime_analysis.(~trombone_test);
-~realtime_analysis.(~oboe_test);*/

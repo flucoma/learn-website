@@ -7,7 +7,12 @@
 </script>
 
 <div class="container">
-	<iframe src={url} width="{width}" height="{height}" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen>
+	<iframe 
+	title={title}
+	width={width} 
+	height={height} 
+	src={url}
+	frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen>
 	</iframe>
 	<div class="caption">
 		<p>{caption}</p>

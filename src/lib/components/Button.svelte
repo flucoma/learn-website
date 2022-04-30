@@ -4,11 +4,6 @@
 	export let width: string = '100px';
 	export let height:string = '38px';
 	export let disabled: boolean = false;
-	const dispatch = createEventDispatcher();
-
-	function clickHandler() {
-		dispatch('click');
-	}
 </script>
 
 <button
@@ -16,7 +11,7 @@ class="btn"
 style:width={width} 
 style:height={height} 
 class:disabled 
-on:click={clickHandler} 
+on:click
 {disabled}
 >
 	{label}

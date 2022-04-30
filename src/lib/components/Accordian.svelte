@@ -10,7 +10,7 @@
 </script>
 
 <div class="container" {id}>
-	<button id="top-bar" on:click={clickHandler}>
+	<button aria-label="toggle accordian" id="top-bar" on:click={clickHandler}>
 		<div id="caption">
 			<div id="status">
 				{#if expanded}-{:else}+{/if}

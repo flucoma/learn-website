@@ -50,7 +50,7 @@ transition:fly={{ duration:200, y:0, x:-200 }}
 	}
 
 	.blurb {
-		color: grey;
+		color: var(--grey);
 		text-align: left;
 	}
 </style>

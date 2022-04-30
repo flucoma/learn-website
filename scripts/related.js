@@ -32,6 +32,7 @@ glob('src/routes/*(reference|learn|explore)/*.svx', (err, routes) => {
 		let backreference = {
 			'title': fm.title,
 			'flair': fm.flair,
+			'blurb': fm.blurb,
 			'url': url
 		}
 
@@ -45,6 +46,7 @@ glob('src/routes/*(reference|learn|explore)/*.svx', (err, routes) => {
 				const fwdreference = {
 					title: branchfm.title,
 					flair: branchfm.flair,
+					blurb: branchfm.blurb,
 					url: link,
 				}
 				add(url, fwdreference)

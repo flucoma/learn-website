@@ -62,7 +62,7 @@
 
 	.text {
 		font-size: 10px;
-		color: grey;
+		color: var(--grey);
 	}
 	.min {
 		text-align: right;
