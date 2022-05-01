@@ -48,8 +48,6 @@
         curve = raw.data;
         const imins = [ Math.min(...curve), Math.max(...curve) ]; 
         curve = raw.data.map(x => scale(x, imins, [0, 1]));
-        console.log(curve)
-        
 
         if ('ResizeObserver' in window === false) {
             const module = await import('@juggle/resize-observer');

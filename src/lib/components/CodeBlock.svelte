@@ -13,13 +13,15 @@
 </script>
 
 <div bind:this={block} class="code">
-	<button on:click={copyCode} class="btn">copy</button>
+	<button aria-label="copy code" on:click={copyCode} class="btn">copy</button>
 	<slot />
 </div>
 
 <style lang="postcss">
 	.code {
 		position: relative;
+		max-height: 500px;
+		overflow: scroll;
 	}
 
 	.btn {

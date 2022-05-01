@@ -2,6 +2,7 @@
     export let title;
 	export let blurb;
 	import TOC from '$lib/components/TOC.svelte';
+    import RelatedLinks from '$lib/components/RelatedLinks.svelte';
     import EditHistory from '$lib/components/EditHistory.svelte';
     import Crumbs from '$lib/components/Crumbs.svelte';
 </script>
@@ -10,35 +11,34 @@
 
 <div class="wrapper">
 
-    <div class="navigation">
-        <TOC />
-    </div>
+    <div class="navigation"><TOC /></div>
 
     <div class="main">
         <div class="title-box">
             <h1>{title}</h1>
-            <p class="blurb">
-                {blurb}
-            </p>
+            <p class="blurb">{blurb}</p>
+            <RelatedLinks />
         </div>
-
-        <slot />
+        
+        <slot></slot>
 
         <EditHistory />
     </div>
 
     <div class="blank" />
-
 </div>
 
-
 <style lang="postcss">
-
     .wrapper {
 		display: grid;
 		justify-content: center;
-        margin: 0 1em;
+        margin: 0;
 	}
+
+    @media (max-width: 1200px) {
+        .navigation { width: 100% }
+        .blank { display: none }
+    }
 
 	@media (min-width: 1200px) {
 		.wrapper {
@@ -61,13 +61,11 @@
 		text-justify: inter-word;
 	}
 
-	.blurb {
-		color: grey;
-	}
+	.blurb { 
+        color: var(--grey); 
+    }
 
-	p {
-		text-align: justify;
-	}
+	p { text-align: justify }
 
     .main {
         grid-area: main;
@@ -86,15 +84,5 @@
     .blank {
         grid-area: blank;
         width: 25ch;
-    }
-
-    @media (max-width: 1200px) {
-        .navigation {
-            width: 100%;
-        }
-
-        .blank {
-            display: none;
-        }
     }
 </style>

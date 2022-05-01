@@ -13,8 +13,6 @@ flair: article
     import { Tabs, TabList, TabPanel, Tab } from '$lib/components/tabs/tabs';
 </script>
 
-# Max Installation Instructions
-
 ## Step 1: Download the Max Package
 
 Download the latest version of the Max package from GitHub releases.

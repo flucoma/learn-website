@@ -28,7 +28,7 @@
 	}
 
 	function focusSearch() {
-		// searchBar.focus();
+		searchBar.focus();
 		focused = true;
 		$blur = true;
 	}
@@ -38,30 +38,38 @@
 		entries[focusedEntry].focus()
 	}
 
+	function formpress(e) {
+		if (e.key === 'Enter') {
+			e.preventDefault();
+		}
+	}
+
 	function keyDown(e) {
 		if (e.key === '/' && e.metaKey) {
 			focusSearch()
 		}
-
-		if (e.key === 'ArrowUp') {
-			e.preventDefault();
-			focusedEntry -= 1;
-			updateFocus()
-		}
-
-		if (e.key === 'ArrowDown') {
-			e.preventDefault();
-			focusedEntry += 1;
-			updateFocus()
-		}
-
-		if (e.key === 'Enter') {
-			// entries[focusedEntry].click();
-			clickResult(filteredResults[focusedEntry].url)
-		}
-
 		if (e.key === 'Escape') {
 			blurSearch();
+		}
+		if (focused) {
+			if (e.key === 'ArrowUp') {
+				e.preventDefault();
+				focusedEntry -= 1;
+				updateFocus()
+			}
+
+			if (e.key === 'ArrowDown') {
+				e.preventDefault();
+				focusedEntry += 1;
+				updateFocus()
+			}
+			
+			if (e.key === 'Enter') {
+				if (focusedEntry !== -1) {
+					clickResult(filteredResults[focusedEntry].url)
+					e.preventDefault();
+				}
+			}
 		}
 	}
 	$: filteredResults = results.slice(0, 8).filter(x => x !== null);
@@ -69,9 +77,8 @@
 </script>
 
 <svelte:window on:keydown={keyDown} />
-
 <div class="search">
-	<form id='search-input' role="search">
+	<form id='search-input' role="search" on:keypress={formpress} on:keydown={formpress}>
 		<label class="visually-hidden" for="search-term">Search The Learn Platform</label>
 		<input
 			class="query"
@@ -80,6 +87,7 @@
 			bind:this={searchBar}
 			on:focus={focusSearch}
 			on:blur={blurSearch}
+			id="search-term"
 		/>
 	</form>
 
@@ -100,7 +108,9 @@
 			>
 				<div class="top">
 					<div class="title">{r.title}</div>
+					{#if r.flair}
 					<Flair flair={r.flair} />
+					{/if}
 				</div>
 
 				<div class="bottom">
@@ -112,7 +122,6 @@
 	{/if}
 </div>
 
-{ focusedEntry }
 <style lang="postcss">
 	:root {
 		--radius: 10px;

@@ -6,6 +6,7 @@ g*/
 @import './fonts.css';
 @import './code.css';
 @import './utils.css';
+@import './jargon.css';
 
 :root {
 	--breakpoint: 1200px;
@@ -17,6 +18,12 @@ g*/
 	--max-text-width: 70ch;
 	--min-text-width: 30ch;
 	--footer-height: 42px;
+	--event-flair: rgb(235, 161, 23);
+	--article-flair: var(--light-blue);
+	--reference-flair: forestgreen;
+	--podcast-flair: palevioletred;
+	--tutorial-flair: rgba(102, 103, 171, 255);
+	--grey: rgb(89, 89, 89);
 }
 
 html {
@@ -83,7 +90,7 @@ a:hover {
 
 code {
 	font-family: var(--mono);
-	font-size: calc(1em - 2px);
+	font-size: 1em;
 	color: #555;
 	background-color: #f0f0f0;
 	padding: 0.1em 0.1em;

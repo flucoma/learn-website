@@ -65,7 +65,7 @@
     }
 
     .container > p {
-        color: grey;
+        color: var(--grey);
         text-align: justify;
         text-justify: inter-word;
     }

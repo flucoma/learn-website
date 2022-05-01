@@ -171,3 +171,17 @@ label="Percussive Component Output Spectrogram (created using a Soft Mask)"
 src="/reference/hpss/220121_180534_01_percussive_component_Soft_Mask.mp3"
 label="Percussive Component Output (created using a Soft Mask)"
 />
+
+## Related Resources
+
+<ResourceLink
+title='Harmonic/Percussive Separation using Median Filtering'
+url='http://dafx10.iem.at/papers/DerryFitzGerald_DAFx10_P15.pdf'
+blurb='Paper by Derry FitzGerald (2010) describing an implementation of the Harmonic/Percussive Source Separation algorithm.'
+/>
+
+<ResourceLink
+title='Extending Harmonic-Percussive Separation of Audio Signals.'
+url='https://archives.ismir.net/ismir2014/paper/000127.pdf'
+blurb='Paper by Jonathan Driedger, Muller, and Disch (2014)'
+/>

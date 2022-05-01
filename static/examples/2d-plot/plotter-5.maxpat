@@ -3,8 +3,8 @@
 		"fileversion" : 1,
 		"appversion" : 		{
 			"major" : 8,
-			"minor" : 2,
-			"revision" : 2,
+			"minor" : 1,
+			"revision" : 11,
 			"architecture" : "x64",
 			"modernui" : 1
 		}
@@ -87,8 +87,8 @@
 						"fileversion" : 1,
 						"appversion" : 						{
 							"major" : 8,
-							"minor" : 2,
-							"revision" : 2,
+							"minor" : 1,
+							"revision" : 11,
 							"architecture" : "x64",
 							"modernui" : 1
 						}
@@ -324,8 +324,8 @@
 						"fileversion" : 1,
 						"appversion" : 						{
 							"major" : 8,
-							"minor" : 2,
-							"revision" : 2,
+							"minor" : 1,
+							"revision" : 11,
 							"architecture" : "x64",
 							"modernui" : 1
 						}
@@ -506,8 +506,8 @@
 						"fileversion" : 1,
 						"appversion" : 						{
 							"major" : 8,
-							"minor" : 2,
-							"revision" : 2,
+							"minor" : 1,
+							"revision" : 11,
 							"architecture" : "x64",
 							"modernui" : 1
 						}
@@ -659,8 +659,8 @@
 						"fileversion" : 1,
 						"appversion" : 						{
 							"major" : 8,
-							"minor" : 2,
-							"revision" : 2,
+							"minor" : 1,
+							"revision" : 11,
 							"architecture" : "x64",
 							"modernui" : 1
 						}
@@ -918,8 +918,8 @@
 						"fileversion" : 1,
 						"appversion" : 						{
 							"major" : 8,
-							"minor" : 2,
-							"revision" : 2,
+							"minor" : 1,
+							"revision" : 11,
 							"architecture" : "x64",
 							"modernui" : 1
 						}
@@ -1542,8 +1542,8 @@
 					"id" : "obj-37",
 					"maxclass" : "jsui",
 					"numinlets" : 2,
-					"numoutlets" : 1,
-					"outlettype" : [ "" ],
+					"numoutlets" : 2,
+					"outlettype" : [ "", "" ],
 					"parameter_enable" : 0,
 					"patching_rect" : [ 144.0, 557.0, 182.0, 182.0 ],
 					"presentation" : 1,
@@ -1571,7 +1571,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 257.0, 334.0, 148.0, 22.0 ],
-					"text" : "markers slicepoints 44100"
+					"text" : "markers slicepoints sound"
 				}
 
 			}
@@ -1592,7 +1592,7 @@
 					"filename" : "fluid.waveform~",
 					"id" : "obj-67",
 					"maxclass" : "jsui",
-					"numinlets" : 3,
+					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"parameter_enable" : 0,
@@ -1757,6 +1757,21 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "signal", "signal" ],
 					"patching_rect" : [ 652.0, 484.0, 136.0, 22.0 ],
+					"saved_object_attributes" : 					{
+						"basictuning" : 440,
+						"followglobaltempo" : 0,
+						"formantcorrection" : 0,
+						"loopend" : [ 0.0, "ms" ],
+						"loopstart" : [ 0.0, "ms" ],
+						"mode" : "basic",
+						"originallength" : [ 0.0, "ticks" ],
+						"originaltempo" : 120.0,
+						"phase" : [ 0.0, "ticks" ],
+						"pitchcorrection" : 0,
+						"quality" : "basic",
+						"timestretch" : [ 0 ]
+					}
+,
 					"text" : "groove~ sound @loop 1"
 				}
 
@@ -2153,42 +2168,36 @@
 		}
 ,
 		"dependency_cache" : [ 			{
-				"name" : "fluid.audiofilesin.maxpat",
-				"bootpath" : "~/dev/flucoma/max/patchers",
-				"patcherrelativepath" : "../dev/flucoma/max/patchers",
-				"type" : "JSON",
+				"name" : "fluid.waveform~.js",
+				"bootpath" : "~/dev/flucoma/waveform/max-package/jsui",
+				"patcherrelativepath" : "../../../../waveform/max-package/jsui",
+				"type" : "TEXT",
 				"implicit" : 1
 			}
 , 			{
-				"name" : "fluid.buf2list.mxo",
-				"type" : "iLaX"
+				"name" : "fluid.plotter.js",
+				"bootpath" : "~/dev/flucoma/max/jsui",
+				"patcherrelativepath" : "../../../../max/jsui",
+				"type" : "TEXT",
+				"implicit" : 1
 			}
 , 			{
-				"name" : "fluid.bufcompose~.mxo",
-				"type" : "iLaX"
-			}
-, 			{
-				"name" : "fluid.bufflatten~.mxo",
-				"type" : "iLaX"
-			}
-, 			{
-				"name" : "fluid.bufmfcc~.mxo",
-				"type" : "iLaX"
-			}
-, 			{
-				"name" : "fluid.bufnoveltyslice~.mxo",
-				"type" : "iLaX"
-			}
-, 			{
-				"name" : "fluid.bufstats~.mxo",
-				"type" : "iLaX"
+				"name" : "fluid.audiofilesin.maxpat",
+				"bootpath" : "~/dev/flucoma/max/patchers",
+				"patcherrelativepath" : "../../../../max/patchers",
+				"type" : "JSON",
+				"implicit" : 1
 			}
 , 			{
 				"name" : "fluid.concataudiofiles.maxpat",
 				"bootpath" : "~/dev/flucoma/max/patchers",
-				"patcherrelativepath" : "../dev/flucoma/max/patchers",
+				"patcherrelativepath" : "../../../../max/patchers",
 				"type" : "JSON",
 				"implicit" : 1
+			}
+, 			{
+				"name" : "fluid.bufnoveltyslice~.mxo",
+				"type" : "iLaX"
 			}
 , 			{
 				"name" : "fluid.libmanipulation.mxo",
@@ -2199,18 +2208,36 @@
 				"type" : "iLaX"
 			}
 , 			{
-				"name" : "fluid.plotter.js",
-				"bootpath" : "~/dev/flucoma/max/jsui",
-				"patcherrelativepath" : "../dev/flucoma/max/jsui",
-				"type" : "TEXT",
-				"implicit" : 1
+				"name" : "fluid.buf2list.mxo",
+				"type" : "iLaX"
 			}
 , 			{
-				"name" : "fluid.waveform~.js",
-				"bootpath" : "~/dev/flucoma/max/jsui",
-				"patcherrelativepath" : "../dev/flucoma/max/jsui",
-				"type" : "TEXT",
-				"implicit" : 1
+				"name" : "fluid.bufmfcc~.mxo",
+				"type" : "iLaX"
+			}
+, 			{
+				"name" : "fluid.bufstats~.mxo",
+				"type" : "iLaX"
+			}
+, 			{
+				"name" : "fluid.bufflatten~.mxo",
+				"type" : "iLaX"
+			}
+, 			{
+				"name" : "fluid.libmanipulation.mxo",
+				"type" : "iLaX"
+			}
+, 			{
+				"name" : "fluid.libmanipulation.mxo",
+				"type" : "iLaX"
+			}
+, 			{
+				"name" : "fluid.bufcompose~.mxo",
+				"type" : "iLaX"
+			}
+, 			{
+				"name" : "fluid.libmanipulation.mxo",
+				"type" : "iLaX"
 			}
  ],
 		"autosave" : 0
