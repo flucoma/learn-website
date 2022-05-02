@@ -4,7 +4,7 @@
 	
 	export let items = [];
 
-	let [minColWidth, maxColWidth, gap] = [100, 400, 50]
+	let [minColWidth, maxColWidth, gap] = [100, 200, 15]
 	let width, height;
 </script>
 
@@ -13,6 +13,7 @@
 	{minColWidth}
 	{maxColWidth}
 	{gap}
+	animate={false}
 	let:item
 	bind:width
 	bind:height

@@ -4,14 +4,21 @@
     const ref = item[1];
 </script>
 
-<h3>{title}</h3>
-<ul>
-    {#each ref as r}
-    <li><a href={r.url}>{r.title}</a></li>
-    {/each}
-</ul>
+<div>
+    <h3>{title}</h3>
+    <ul>
+        {#each ref as r}
+        <li><a href={r.url}>{r.title}</a></li>
+        {/each}
+    </ul>
+</div>
 
 <style>
+    div {
+        min-width: max-content;
+        display: flex;
+        flex-direction: column;
+    }
     h3 {
         margin-top: 0.25em;
 		margin-bottom: 0.25em;

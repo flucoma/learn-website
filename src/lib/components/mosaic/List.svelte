@@ -20,6 +20,7 @@ References are slightly different and use the ReferenceEntry component.
 	{minColWidth}
 	{maxColWidth}
 	{gap}
+	animate={false}
 	let:item
 	bind:width
 	bind:height
