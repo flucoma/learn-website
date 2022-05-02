@@ -1,6 +1,7 @@
 import glob from 'glob';
 import path from 'path';
 import fs from 'fs';
+import _ from 'lodash';
 import frontmatter from 'front-matter';
 import { urlFromRoute } from './util.js';
 import markdownLinkExtractor from 'markdown-link-extractor';
@@ -8,10 +9,10 @@ import markdownLinkExtractor from 'markdown-link-extractor';
 let db = {};
 
 const add = (key, reference) => {
-	if (!(db[key] instanceof Set)) {
-		db[key] = new Set([reference])
+	if (!(db[key] instanceof Array)) {
+		db[key] = [reference]
 	} else {
-		db[key].add(reference)
+		db[key].push(reference)
 	}
 }
 
@@ -53,8 +54,11 @@ glob('src/routes/*(reference|learn|explore)/*.svx', (err, routes) => {
 			}
 		})
 	});
-	// Convert sets to arrays for valid JSON 
-	for (const key in db) { db[key] = Array.from(db[key]) };
+
+	// De-duplicate arrays
+	for (const key in db) { 
+		db[key] = _.uniqWith(db[key], _.isEqual)
+	};
 	// Write out results
 	fs.writeFile('static/related.json', JSON.stringify(db), 'utf8', () => {
 		console.log('Relationships file written to static/related.json')
