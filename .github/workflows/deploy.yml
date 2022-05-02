@@ -26,13 +26,10 @@ jobs:
           mkdir -p ~/.ssh
           ssh-keyscan -H ${{ secrets.DO_IP }} >> ~/.ssh/known_hosts
 
-      - name: Install pnpm
-        run: npm i -g pnpm
-
       - name: Build Site
         run: |
-          pnpm i
-          pnpm run build
+          npm i
+          npm run build
 
       - name: Merge MFCC Widget
         run: |
