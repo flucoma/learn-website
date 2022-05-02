@@ -4,7 +4,7 @@
 	
 	export let items = [];
 
-	let [minColWidth, maxColWidth, gap] = [100, 200, 15]
+	let [minColWidth, maxColWidth, gap] = [130, 400, 15]
 	let width, height;
 </script>
 
