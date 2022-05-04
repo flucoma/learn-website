@@ -130,12 +130,72 @@ id='473579093'
 
 - [Ben Burtt](https://en.wikipedia.org/wiki/Ben_Burtt).
 
-- [Rodrigo Constanzo](https://rodrigoconstanzo.com/).
+- [Rodrigo Constanzo](https://rodrigoconstanzo.com/), learn about his work for the project [here](/explore/constanzo), and *C-C-Combine* [here](https://rodrigoconstanzo.com/combine/).
 
 <YouTube 
 url={'TL-L9weQxeM'}
 />
 
-- Centrala
-HPD3lZpG69c with scott wilson
-HRFcspWA4K8
+- Concert at [Centrala](http://centrala-space.org.uk/event/centrala-and-beast-present-responses---an-experimental-music-night).
+
+<YouTube 
+url={'HPD3lZpG69c'}
+/>
+
+<YouTube 
+url={'HRFcspWA4K8'}
+/>
+
+- [Atau Tanaka](https://www.gold.ac.uk/computing/people/tanaka-atau/).
+
+<YouTube 
+url={'qKyLDEO77Y8'}
+/>
+
+- [RapidMix](https://www.doc.gold.ac.uk/eavi/rapidmixapi.com/) and [Wekinator](http://www.wekinator.org).
+
+- Michel Waisvsz.
+
+<YouTube 
+url={'pYfRORkuPX8'}
+/>
+
+<YouTube 
+url={'SIfumZa2TKY'}
+/>
+
+<YouTube 
+url={'U1L-mVGqug4'}
+/>
+
+- [Freida Abtan](https://www.cmu.edu/cfa/music/people/Bios/abtan_freida.html)'s episode on the [FluCoMa Podcast](/explore/abtan).
+
+- [3D Corpus Explorer](https://discourse.flucoma.org/t/fluid-datasetplot-abstraction-for-2d-3d-visualization/783/83) by [Balint Laczko](https://github.com/balintlaczko).
+
+- [Milad Mardakheh](https://mardakhehmusic.com) and [Scott Wilson](https://scottwilson.ca).
+
+- [Gerard Roma](https://g-roma.github.io/)'s 2D Corpus Explorer.
+
+<YouTube 
+url={'MV4_S2fUyEY'}
+/>
+
+- [IRCAM](https://www.ircam.fr/)'s [CataRT](https://ismm.ircam.fr/catart/#:~:text=The%20concatenative%20real%2Dtime%20sound,position%20in%20the%20descriptor%20space.).
+
+- [Leafcutter John](http://leafcutterjohn.com/), learn about his work for the project [here]().
+
+- [Rebecca Fiebrink](https://www.arts.ac.uk/research/ual-staff-researchers/rebecca-fiebrink).
+
+<YouTube 
+url={'Qo6n8MuEgdQ'}
+/>
+
+- [Article](/explore/pluta) about [Sam Pluta](http://www.sampluta.com/biographyText.html)'s approach to mapping with the [*fluid.mlpregressor~*](/reference/mlpregressor). 
+
+- [Georgina Born](https://www.isca.ox.ac.uk/people/professor-georgina-born): [Gender, Creativity and Education in Digital Musics and Sound Art](https://ora.ox.ac.uk/catalog/uuid:1b83f5fb-eb8c-4451-8aad-14380f4ac59b/download_file?file_format=application%2Fpdf&safe_filename=BornandDevine%2BIntroduction%2B-%2BGender%2BCreativity%2Band%2BEducation%2Bin%2BDigital%2BMusics%2Band%2BSound%2BArt%2BAS%2BACCEPTED%2BMay16.pdf), [MusDig](https://musdig.music.ox.ac.uk).
+
+- [Madison Heying](https://music.ucsc.edu/people/madison-heying): [A Complex and Interactive Network: Carla Scaletti, the Kyma System, and the Kyma User Community](https://escholarship.org/uc/item/31c988ds).
+
+- [Elizabeth Dobson](https://pure.hud.ac.uk/en/persons/elizabeth-dobson): [Yorkshire Sound Women Network](https://yorkshiresoundwomen.com).
+
+- [Annette Vande Gorne](https://en.wikipedia.org/wiki/Annette_Vande_Gorne): [l'espace du son](http://www.lespaceduson.be/annette-vande-gorne.html).
