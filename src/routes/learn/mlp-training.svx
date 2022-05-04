@@ -47,7 +47,7 @@ FluCoMa has another pair of objects that do classification and regression with s
 The internal structure of a multi-layer perceptron (MLP) creates a "feedforward" network in which input values are received at input neurons, passed through sequential hidden layers of neurons which compute values that are passed on to the following layer, eventually arriving at output neurons which provide their values as the output of the neural network. These sequential layers are "fully connected", meaning that each neuron in one layer connects to every neuron in the following layer. These connections are weights that control how much each neuron's output influences the neurons it is connected to. The neurons (except in the input layer) also use a bias (an added offset) and an [activation function](/#activation) to compute its output. The weights and biases are internal parameters that are not controlled at all by the user. 
 
 <Image
-src="211220_01_synth_control_sc.txt.jpg"
+src="/learn/mlp/211220_01_synth_control_sc.txt.jpg"
 label="A multi-layer perceptron neural network that takes two inputs, has one hidden layer of seven neurons, and predicts ten outputs."
 />
 
