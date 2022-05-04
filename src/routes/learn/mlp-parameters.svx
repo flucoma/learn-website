@@ -15,6 +15,11 @@ tags:
 flair: article
 ---
 
+<script>
+    import IndentNote from '$lib/components/IndentNote.svelte';
+    import Image from '$lib/components/Image.svelte';
+</script>
+
 This article provides guidance on using the parameters of the neural networks found in the FluCoMa toolkit. FluCoMa contains two neural network objects, the [MLPClassifier](/reference/mlpclassifier) and [MLPRegressor](/reference/mlpregressor). "MLP" stand for multi-layer perceptron, which is a type of neural network (more info [below](/#feed-forward)). "Classifier" and "Regressor" refer to the task that each MLP can be trained to do. 
 
 <IndentNote type='pointer'>
@@ -40,7 +45,7 @@ Generally speaking, the larger the internal structure of a neural network is, th
 For example, consider a neural network with 13 input neurons, two hidden layers of 5 and 4 neurons, and an output layer of 3 neurons. The total number of weights is `( 13 * 5 ) + ( 5 * 4 ) + ( 4 * 3 ) = 97`. The total number of biases is `5 + 4 + 3 = 12`. Which makes the total number of parameters `97 + 12 = 109`. The general-principle suggests that it would be good to have around 1,000 data points (about ten times as many) to successfully train this neural network. In practice, a neural network of this size may be able to learn from many fewer points. It completely depends on how clearly patterns in the data are represented. This general-principle may become important if your training is not going well--consider how many point you have and how that compares to how may internal parameters are in your neural nentwork. Based on these numbers consider changing the size of your neural network or using a different number of data points and see if your neural network improves.
 
 <Image
-src="13-5-4-3.txt.png"
+src="/learn/mlp/13-5-4-3.txt.png"
 label="A multi-layer perceptron neural network with 109 total parameters."
 />
 
@@ -59,7 +64,7 @@ The options are:
     - 3: "tanh" uses the hyperbolic tan function: `f(x) = tanh(x)` (the output will always be greather than -1 and less than 1)
 
 <Image
-src="activation_functions.png"
+src="/learn/mlp/activation_functions.png"
 label="The four activation functions available in the FluCoMa MLP objects. (image reproduced from [here](https://www.nbshare.io/notebook/512285365/PyTorch-Tutorial-A-Complete-Use-Case-Example/))"
 />
 
@@ -102,7 +107,7 @@ Higher values will:
 Sets which layer the neural network will use as input. This can be used to access different parts of a trained neural network such as the encoder or decoder of an [autoencoder](https://towardsdatascience.com/auto-encoder-what-is-it-and-what-is-it-used-for-part-1-3e5c6f017726).
 
 <Image
-src="Autoencoder_structure.png"
+src="/learn/mlp/Autoencoder_structure.png"
 label="The internal structure of an autoencoder neural network showing the encoder and decoder portions (image by [Chervinskii](https://commons.wikimedia.org/w/index.php?curid=45555552) - Own work, CC BY-SA 4.0)."
 />
 
