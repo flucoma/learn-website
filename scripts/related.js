@@ -42,6 +42,7 @@ glob('src/routes/*(reference|learn|explore)/*.svx', (err, routes) => {
 			const length = link.split('/').filter(x => x != '').length; // filter out index.svx type situations
 			if (length > 1 && link !== url) {
 				add(link, backreference)
+				link = link.split('#')[0] // remove anchors like learn/mlp#validation
 				const branch = fs.readFileSync(`src/routes${link}.svx`, 'utf8');
 				const branchfm = frontmatter(branch).attributes;
 				const fwdreference = {
