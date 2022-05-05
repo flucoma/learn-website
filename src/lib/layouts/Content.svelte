@@ -1,9 +1,11 @@
 <script>
     export let title;
 	export let blurb;
+    export let author;
 	import TOC from '$lib/components/TOC.svelte';
     import RelatedLinks from '$lib/components/RelatedLinks.svelte';
     import EditHistory from '$lib/components/EditHistory.svelte';
+    import AuthorTag from '$lib/components/AuthorTag.svelte';
     import Crumbs from '$lib/components/Crumbs.svelte';
 </script>
 
@@ -16,6 +18,7 @@
     <div class="main">
         <div class="title-box">
             <h1>{title}</h1>
+            <AuthorTag author={author} />
             <p class="blurb">{blurb}</p>
             <RelatedLinks />
         </div>
