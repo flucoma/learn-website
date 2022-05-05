@@ -20,13 +20,7 @@ flair: article
     import Image from '$lib/components/Image.svelte';
 </script>
 
-This article provides guidance on using the parameters of the neural networks found in the FluCoMa toolkit. FluCoMa contains two neural network objects, the [MLPClassifier](/reference/mlpclassifier) and [MLPRegressor](/reference/mlpregressor). "MLP" stand for multi-layer perceptron, which is a type of neural network (more info [below](/#feed-forward)). "Classifier" and "Regressor" refer to the task that each MLP can be trained to do. 
-
-<IndentNote type='pointer'>
-
-For more information on the tasks [Classification](/reference/mlpclassifier) and [Regression](/reference/mlpregressor), visit the linked object references. 
-
-</IndentNote>
+This article provides guidance on using the parameters of the neural networks found in the FluCoMa toolkit. FluCoMa contains two neural network objects, the [MLPClassifier](/reference/mlpclassifier) and [MLPRegressor](/reference/mlpregressor). "MLP" stand for multi-layer perceptron, which is a type of neural network (more info [below](/#feed-forward)). "Classifier" and "Regressor" refer to the task that each MLP can be trained to do. For a deeper understanding of how the MLP training process works, visit [MLP Training](/learn/mlp-training).
 
 ## Parameters
 
@@ -37,6 +31,8 @@ A list of numbers that specifies the internal structure of the neural network. E
 When deciding what the internal structure of your neural network should be, a good place to begin is using one hidden layer with a number of neurons between the number of inputs and the number of outputs creating a "funnel" shape (if using MLPClassifier, the number of outputs is the number of classes). For example, if my neural network is taking in 13 [MFCC](/reference/mfcc)s as the input and 3 synthesis parameters as the output, starting with one hidden layer of 8 (right in the middle), would be a good place to start.
 
 If the neural network is not learning as well as you would like it to, you may consider adding more neurons to this single hidden layer. If it is still not learning, you might add some more layers (again considering the funnel shape). If it is still not learning how you would like, it may be the case that your data doesn't have strong enough patterns for the MLP to learn!
+
+Because changing `hidden` changes the internal structure of the neural network, the internal state of the neural network is necessarily reset and any training that has been done will be lost. Even so, it is a good idea to play with this parameters because it can have a significant impact on how well and how quickly the neural network is able to learn from the data. 
 
 ### Total Number of Internal Parameters
 
@@ -54,7 +50,9 @@ label="A multi-layer perceptron neural network with 109 total parameters."
 * _The MLPClassifier has the parameter_ `activation`
 * _The MLPRegressor has the parameters_ `activation` _and_ `outputActivation`
 
-`activation` is an integer indicating which activation function each neuron in the hidden layer(s) will use. The MLPRegressor has the additional parameter `outputActivation`, which uses the same set of integers to specify an activation to be used in the output layer of the neural network. Each neuron in the hidden and output layers processes its output by the activation function before it is passed along to the next layer. These activtion functions are non-linear functions (except for "identity") which allow the neural network to learn non-linear relationships bewteen the input and output data. Each of the activation functions transform values in different ways and will create different training processes, learned mappings, and output predictions in a neural network, so they all may be worth trying during traininig to see what creates the best result.
+`activation` is an integer indicating which activation function each neuron in the hidden layer(s) will use. The MLPRegressor has the additional parameter `outputActivation`, which uses the same set of integers to specify an activation to be used in the output layer of the neural network. Each neuron in the hidden and output layers processes its output by the activation function before it is passed along to the next layer. These activation functions are non-linear functions (except for "identity") which allow the neural network to learn non-linear relationships between the input and output data. Each of the activation functions transform values in different ways and will create different training processes, learned mappings, and output predictions in a neural network, so they all may be worth trying during training to see what creates the best result.
+
+Because changing `activation` or `outputActivation` changes the internal structure of the neural network, the internal state of the neural network is necessarily reset and any training that has been done will be lost. Even so, it is a good idea to play with these parameters because they can have a significant impact on how well and how quickly the neural network is able to learn from the data. 
 
 The options are:
 
@@ -68,23 +66,23 @@ src="/learn/mlp/activation_functions.png"
 label="The four activation functions available in the FluCoMa MLP objects. (image reproduced from [here](https://www.nbshare.io/notebook/512285365/PyTorch-Tutorial-A-Complete-Use-Case-Example/))"
 />
 
-When choosing an activation function it is important to consider the output ranges of each and how it relates to the data being used for training. For example if an MLPRegressor is being trained to predict synthesis parameters that range in the thousands of hertz, using a sigmoid function for the `outputActivation` would be a bad choice since it will never be able to output a value greather than 1. In this case one could either user a scaler ([Normalize](/reference/normalize), [Standardize](/reference/standardize), or [RobustScale](/reference/robustscale)) to modify the ranges of the data in the dataset or use an activation function that allows for outputs in the range of the data (such as "identity") for the `outputActivation`.
+When choosing an activation function it is important to consider the output ranges of each and how it relates to the data being used for training. For example if an MLPRegressor is being trained to predict synthesis parameters that range in the thousands of hertz, using a sigmoid function for the `outputActivation` would be a bad choice since it will never be able to output a value greater than 1. In this case one could either user a scaler ([Normalize](/reference/normalize), [Standardize](/reference/standardize), or [RobustScale](/reference/robustscale)) to modify the ranges of the data in the dataset or use an activation function that allows for outputs in the range of the data (such as "identity") for the `outputActivation`.
 
 ## `learnRate`
 
-The `learnRate` is a scalar for indicating how much the neural network should adjust its internal parameters during [training](/#training). This is the most important parameter to adjust while training a neural network. It can be useful to begin at a relatively high value, such as 0.1 to try to quickly get the neural network in the general area of a solution. Then after a few fittings, decrease the learning rate to a smaller value, maybe 0.01, to slow down the adjustments and let the neural network hone in on a solution.
+The `learnRate` is a scalar for indicating how much the neural network should adjust its internal parameters during training. This is the most important parameter to adjust while training a neural network. It can be useful to begin at a relatively high value, such as 0.1 to try to quickly get the neural network in the general area of a solution. Then after a few fittings, decrease the learning rate to a smaller value, maybe 0.01, to slow down the adjustments and let the neural network hone in on a solution.
 
 ## `maxIter` 
 
-`maxIter` indicates how many epochs to train when `fit` is called on the object. An epoch is consists of training on all the data points one time. For example, if `maxIter` is set to 100, when `fit` is called the neural network will use each input-output example pair 100 times before returning the "error" to report how it is performing. The reason it represents a _maximum_ number of epochs is related to the [`validation`](/#validation) (below).
+`maxIter` indicates how many epochs to train for when `fit` is called on the object. An epoch is consists of training on all the data points one time. For example, if `maxIter` is set to 100, when `fit` is called the neural network will use each input-output example pair 100 times before returning the "error" to report how it is performing. The reason it represents a _maximum_ number of epochs is related to the [`validation`](/#validation) (below).
 
 ## `validation`
 
-`validation` is a percentage (represented as a decimal) of the data points to randomly select, set aside, and not use for training (this "validation set" is reselected on each `fit`ting). Instead these points will be used after each _epoch_ to check how the neural network is performing. If it is found to no longer be improving, training will stop, even if a `fit` has not reached its [`maxIter`](/#maxIter) number of epochs. This is useful if there are many data points such that each `fit` takes a long time--using a `validation` set can allow the neural network to stop training early to save you time. 
+`validation` is a percentage (represented as a decimal) of the data points to randomly select, set aside, and not use for training (this "validation set" is reselected on each `fit`ting). Instead these points will be used after each _epoch_ to check how the neural network is performing. If it is found to be no longer improving, training will stop, even if a `fit` has not reached its [`maxIter`](/#maxIter) number of epochs. This is useful if there are many data points such that each `fit` takes a long time--using a `validation` set can allow the neural network to stop training early to save you time. 
 
-Using `validation` only makes sense when you have a lot of data such that when it is randomly split, each portion will very likely still maintain the input-output associations you want the neural network to learn.
+A `validation` set can also help prevent [overfitting](/learn/training-testing-split#overfitting). If after an epoch, the neural network finds that it is performing poorly on the validation set, this means that in its current state, it is not even able to _generalise_ to the part of the _testing set_ that was split off to make the validation set. If it's not even able to generalise to the validation set, it probably won't be able to generalise to the testing set that was split off either, which is an indication of overfitting. At this point the neural network will stop training and return the current error, in order to prevent further overfitting.
 
-For some tasks it does not make sense to use `validation` (so it should be set to zero). If you're [using a neural network to control a synthesiser](/learn/regression-neural-network) and you're training it with only 5 or so points, setting aside any of the points would be eliminating one of the input-output associations you're hoping it will learn! Also, having a validation set of just a few points won't provide good validation for your neural network because they could make it _look_ like the neural network isn't improving, when actually it just so happens that the few validation points set aside represent a different aspect of the data. In these cases, you'll want to just use all the points to train the neural network (`validation = 0`). 
+Using `validation` only makes sense when you have a lot of data such that when it is randomly split, each portion will very likely still maintain the input-output associations you want the neural network to learn. If this is not the case, validation should be set to zero. For example, if you're [using a neural network to control a synthesiser](/learn/regression-neural-network) and you're training it with only 5 or so points, setting aside any of the points would be eliminating one of the input-output associations you're hoping it will learn! Also, having a validation set of just a few points won't provide good validation for your neural network because they could make it _look_ like the neural network isn't improving, when actually it just so happens that the few validation points set aside represent a different aspect of the data. In these cases, you'll want to just use all the points to train the neural network (`validation` = 0). 
 
 A validation set is similar to a [testing set](/learn/training-testing-split) because it is set aside and used to test the performance of the neural network. It is different in that it is selected differently on each `fit` and is used differently in the overall training process.
 
