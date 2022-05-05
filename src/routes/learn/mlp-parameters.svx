@@ -100,6 +100,8 @@ Higher values will:
 
 `momentum` is a scalar that applies a portion of previous adjustments to a current adjustment being made by the neural network during training. This has many benefits--an intuitive one is that even if some data point(s) suggest the neural network make some drastic, unique adjustments in a new direction, the history of adjustments from other points (it's "momentum") will prevent it from going too far off course of where most of the data is directing it. See this great [article](https://distill.pub/2017/momentum/) for an interactive visual representation of momentum (the text gets pretty technical pretty quickly, but the interactivity at the top can help build some intuition about how and why momentum is valuable).
 
+### MLPRegressor only:
+
 ## `tapIn`
 
 Sets which layer the neural network will use as input. This can be used to access different parts of a trained neural network such as the encoder or decoder of an [autoencoder](https://towardsdatascience.com/auto-encoder-what-is-it-and-what-is-it-used-for-part-1-3e5c6f017726).
@@ -108,7 +110,6 @@ Sets which layer the neural network will use as input. This can be used to acces
 src="/learn/mlp/Autoencoder_structure.png"
 label="The internal structure of an autoencoder neural network showing the encoder and decoder portions (image by [Chervinskii](https://commons.wikimedia.org/w/index.php?curid=45555552) - Own work, CC BY-SA 4.0)."
 />
-
 
 ## `tapOut`
 
