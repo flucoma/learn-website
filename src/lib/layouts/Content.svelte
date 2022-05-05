@@ -8,10 +8,7 @@
     import AuthorTag from '$lib/components/AuthorTag.svelte';
     import Crumbs from '$lib/components/Crumbs.svelte';
 
-    var display_author = false;
-    if(author != undefined){
-        display_author = true;
-    };
+    let display_author = author === undefined;
 </script>
 
 <Crumbs />
