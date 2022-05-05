@@ -100,7 +100,7 @@ Higher values will:
 
 `momentum` is a scalar that applies a portion of previous adjustments to a current adjustment being made by the neural network during training. This has many benefits--an intuitive one is that even if some data point(s) suggest the neural network make some drastic, unique adjustments in a new direction, the history of adjustments from other points (it's "momentum") will prevent it from going too far off course of where most of the data is directing it. See this great [article](https://distill.pub/2017/momentum/) for an interactive visual representation of momentum (the text gets pretty technical pretty quickly, but the interactivity at the top can help build some intuition about how and why momentum is valuable).
 
-### MLPRegressor only:
+# MLPRegressor Only:
 
 ## `tapIn`
 
