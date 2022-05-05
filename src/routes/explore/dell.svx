@@ -11,6 +11,7 @@ tags:
     - acoustic
 flair: podcast
 featuredimage: /explore/dell/featured_img.jpeg
+author: Jacob
 ---
 
 <script>

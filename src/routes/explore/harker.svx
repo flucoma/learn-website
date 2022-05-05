@@ -12,6 +12,7 @@ tags:
     - dimensionality reduction
 flair: article
 featuredimage: /explore/harker/umap_explorer_example.png
+author: Jacob
 ---
 
 <script>
