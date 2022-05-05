@@ -8,7 +8,7 @@
     import AuthorTag from '$lib/components/AuthorTag.svelte';
     import Crumbs from '$lib/components/Crumbs.svelte';
 
-    let display_author = author === undefined;
+    let display_author = author === undefined ? false : true
 </script>
 
 <Crumbs />
