@@ -46,6 +46,7 @@ glob('src/**/*.svx', (err, routes) => {
 				const text = rawText
 				.flat()
 				.filter(x => !x.includes('em'))
+				.filter(x => !x.includes('inlinecode'))
 				.join('')
 				
 				slugger.reset();
