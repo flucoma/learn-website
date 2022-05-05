@@ -1,5 +1,5 @@
 <script lang="ts">
-    import KMeans from 'tf-kmeans';
+    import KMeans from '@flucoma/tf-kmeans';
     import * as tf from '@tensorflow/tfjs';
     import * as d3 from 'd3';
     import { onMount } from 'svelte';
