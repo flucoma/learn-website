@@ -9,7 +9,6 @@ tags:
     - neural network
 flair: tutorial
 featuredimage: /learn/for-featured-images/nn-classification.png
-author: James
 ---
 
 <script>

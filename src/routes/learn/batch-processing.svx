@@ -8,7 +8,6 @@ tags:
     - corpus
 flair: article
 featuredimage: /examples/batch/add.png
-author: James
 ---
 
 <script>

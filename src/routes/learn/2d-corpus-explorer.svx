@@ -12,7 +12,6 @@ tags:
     - audio descriptors
 flair: tutorial
 featuredimage: /learn/for-featured-images/2D-corpus-explorer.png
-author: James
 ---
 
 <script>
