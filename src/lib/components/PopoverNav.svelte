@@ -8,7 +8,6 @@
 <nav class='popover' 
 transition:fly={{ duration:200, y:0, x:-200 }}
 >
-	<h3>Navigation</h3>
 	<Landing link='/learn'>
 		<h2 slot="title">Learn</h2>
 		<p slot="blurb" class='blurb'>
@@ -29,6 +28,12 @@ transition:fly={{ duration:200, y:0, x:-200 }}
 			References for all the toolkit algorithms.
 		</p>
 	</Landing>
+
+	<hr>
+
+	<div class="acknowledgements">
+		The development of Learn is led by <a href="https://jamesbradbury.net">James Bradbury</a>, <a href="https://jacob-hart.com">Jacob Hart</a> and <a href="https://www.tedmooremusic.com">Ted Moore</a>.
+	</div>
 </nav>
 {/if}
 
