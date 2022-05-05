@@ -70,7 +70,7 @@ When choosing an activation function it is important to consider the output rang
 
 ## `learnRate`
 
-The `learnRate` is a scalar for indicating how much the neural network should adjust its internal parameters during training. This is the most important parameter to adjust while training a neural network. It can be useful to begin at a relatively high value, such as 0.1 to try to quickly get the neural network in the general area of a solution. Then after a few fittings, decrease the learning rate to a smaller value, maybe 0.01, to slow down the adjustments and let the neural network hone in on a solution.
+The `learnRate` is a scalar for indicating how much the neural network should adjust its internal parameters during training. This is the most important parameter to adjust while training a neural network. Without context, it's difficult to reason about what actual value is most appropriate, however, it can be useful to begin at a relatively high value, such as 0.1, to try to quickly get the neural network in the general area of a solution. Then after a few fittings, decrease the learning rate to a smaller value, maybe 0.01, to slow down the adjustments and let the neural network hone in on a solution. Going as low as 0.0001 is not rare.
 
 ## `maxIter` 
 
@@ -104,7 +104,7 @@ Higher values will:
 
 ## `tapIn`
 
-Sets which layer the neural network will use as input. This can be used to access different parts of a trained neural network such as the encoder or decoder of an [autoencoder](https://towardsdatascience.com/auto-encoder-what-is-it-and-what-is-it-used-for-part-1-3e5c6f017726).
+Sets which layer the neural network will use as input (zero counting). This can be used to access different parts of a trained neural network such as the encoder or decoder of an [autoencoder](https://towardsdatascience.com/auto-encoder-what-is-it-and-what-is-it-used-for-part-1-3e5c6f017726).
 
 <Image
 src="/learn/mlp/Autoencoder_structure.png"
