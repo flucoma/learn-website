@@ -9,6 +9,7 @@ tags:
     - machine learning
 flair: article
 featuredimage: /learn/bufnmf/00_original_spectrogram_mel_color.png
+author: James
 ---
 
 <script>

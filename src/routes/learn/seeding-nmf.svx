@@ -13,6 +13,7 @@ tags:
     - seed
 flair: article
 featuredimage: /learn/for-featured-images/seeding-nmf.png
+author: James
 ---
 
 <script>
