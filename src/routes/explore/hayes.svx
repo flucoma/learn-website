@@ -12,6 +12,7 @@ tags:
     - hpss
 flair: article
 featuredimage: /explore/hayes/delicate_instruments_img.png
+author: Jacob
 ---
 
 <script>

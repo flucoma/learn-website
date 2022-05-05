@@ -11,6 +11,7 @@ tags:
     - neural networks
 flair: podcast
 featuredimage: /explore/abtan/profile_pic.jpeg
+author: Jacob
 ---
 
 <script>

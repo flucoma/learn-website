@@ -12,6 +12,7 @@ tags:
     - buffers
 flair: podcast
 featuredimage: /explore/tamminga/featured_img.jpeg
+author: Jacob
 ---
 
 <script>
