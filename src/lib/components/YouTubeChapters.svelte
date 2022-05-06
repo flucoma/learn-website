@@ -1,14 +1,12 @@
 <script>
     import YouTube from 'svelte-youtube';
-    export let videoId = '';
+    export let url = '';
     let instance;
 
     export let chapters = [];
 
-    function chapterClick(ev) {
-        var selected_chap = chapters[parseInt(ev.target.id)];
-
-        instance.seekTo(convertTime(selected_chap));
+    function chapterClick(chapter) {
+        instance.seekTo(convertTime(chapter));
     };
 
     function convertTime(entry){
@@ -18,21 +16,21 @@
 
 <div class="container">
 <YouTube
-    videoId={videoId}
+    videoId={url}
     on:ready={ e => instance = e.detail.target }
 />
 </div>
 
-<div class="chapter_container">
+<div class="chapter-container">
     {#each chapters as chapter, i}
-        <div id={i} class="chap" on:click={event => chapterClick(event)}>
-            <p id={i}>{chapter.label} ({chapter.start[0]}:{chapter.start[1]})</p>   
+        <div class="chapter" on:click={() => chapterClick(chapter)}>
+            <p>{chapter.label} ({chapter.start[0]}:{chapter.start[1]})</p>   
         </div>
     {/each}
 </div>
 
 <style>
-    .chap{
+    .chapter {
         padding: 0.25em;
 		text-decoration: none;
 		border-radius: 0.25rem;
@@ -41,11 +39,26 @@
         border-color: grey;
     }
 
-    .chap>p{
+    .chapter > p {
         margin: 0px;
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+    .chapter:hover {
+        background-color: grey;
+        color: white;
     }
 
-    .chapter_container{
+    .chapter:active {
+        background-color: rgb(96, 96, 96);
+        color: white;
+    }
+
+    .chapter-container{
         font-size: 0.8rem;
 		display: flex;
 		flex-direction: row;
