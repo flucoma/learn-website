@@ -1,5 +1,4 @@
 <script>
-    
     import { onMount } from 'svelte';
     import { fromArrayBuffer } from 'numpy-parser';
     import { Chart, registerables } from 'chart.js';
@@ -106,7 +105,6 @@
     })
     
 </script>
-
 
 <div class="container">
     <canvas bind:this={canvas}></canvas>
