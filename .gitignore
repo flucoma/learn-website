@@ -1,19 +1,12 @@
 .DS_Store
 node_modules
-/.svelte-kit
-/package
-static/structure.json
-static/pages.json
+.svelte-kit
+packge
+static
 build
-static/tag.json
 
 # Lock Files
 pnpm-lock.yaml
 package-lock.json
 .pnpm-debug.log
-static/edits.json
-static/crumbs.json
 scripts/__pycache__
-static/info.json
-static/db.json
-static/related.json
