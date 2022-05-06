@@ -29,11 +29,10 @@ transition:fly={{ duration:200, y:0, x:-200 }}
 		</p>
 	</Landing>
 
-	<hr>
 
-	<div class="acknowledgements">
+	<p class="acknowledgements">
 		The development of Learn is led by <a href="https://jamesbradbury.net">James Bradbury</a>, <a href="https://jacob-hart.com">Jacob Hart</a> and <a href="https://www.tedmooremusic.com">Ted Moore</a>.
-	</div>
+	</p>
 </nav>
 {/if}
 
@@ -57,5 +56,10 @@ transition:fly={{ duration:200, y:0, x:-200 }}
 	.blurb {
 		color: var(--grey);
 		text-align: left;
+	}
+
+	.acknowledgements {
+		margin-top: 1em;
+		font-size: 0.9rem;
 	}
 </style>
