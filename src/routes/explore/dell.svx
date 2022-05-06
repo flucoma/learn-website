@@ -17,6 +17,7 @@ author: Jacob
 <script>
     import YouTube from '$lib/components/YouTube.svelte';
     import ArtistCard from '$lib/components/mwf/ArtistCard.svelte';
+    import YouTubeChapters from '$lib/components/YouTubeChapters.svelte';
 </script>
 
 <ArtistCard
@@ -31,8 +32,24 @@ Niamh Dell is an Australian oboist currently undertaking a PhD in contemporary p
 
 ## The Podcast
 
-<YouTube 
-url={'2CyHymm10ig'}
+<YouTubeChapters 
+videoId={'2CyHymm10ig'}
+chapters={[
+    {"label" : "Introduction", "start" : [0, 0]},
+    {"label" : "Approach to playing the oboe", "start" : [1, 54]},
+    {"label" : "Oboe repertoire", "start" : [4, 4]},
+    {"label" : "Multiphonics in oboe repertoire", "start" : [7, 28]},
+    {"label" : "Experience working with electronics", "start" : [11, 8]},
+    {"label" : "Introduction to the piece Drift Shadow", "start" : [12, 27]},
+    {"label" : "The development process", "start" : [15, 20]},
+    {"label" : "The iterative process and learning about the oboe", "start" : [20, 45]},
+    {"label" : "Physical parameters", "start" : [24, 5]},
+    {"label" : "Performing the piece", "start" : [30, 30]},
+    {"label" : "Freedom in performance", "start" : [32, 20]},
+    {"label" : "Comparing to performing other pieces", "start" : [37, 7]},
+    {"label" : "Comparing to performing with other people", "start" : [44, 38]},
+    {"label" : "How the piece developed Niamh's approach", "start" : [49, 12]}
+]}
 />
 
 ## Overview
