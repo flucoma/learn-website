@@ -42,6 +42,7 @@ One reason the STFT is so common is that it is simple to get back to our origina
 Under certain conditions, we can get back (almost) exactly what we put in, but we have to be careful. When we make our windows, it is usual to apply a particular shape to them, called a window function. Different window functions have different requirements for being able to provide perfect reconstruction. This generally depends on how much overlap we have between windows (i.e. the hop size in relation to the window size). In general, the overlap factor should be an whole number of at least two (the window should be at least twice as big as the hop). For some windows, you will need a factor of at least four.
 
 # Phase Vocoder
+
 The Phase Vocoder is a name for the most common model people use when doing spectral processing in the STFT domain. It represents a set of assumptions that allow us to work with intuitive quantities like amplitude and frequency, rather than directly with raw DFT output.
 
 The DFT works with complex numbers, which can be represented in a range of different ways. Complex numbers are a convenient way to work with quantities where we need to express some notion of frequency. The form the DFT yields its results in tells us about how much our signal correlates with a cosine and a sine at each bin frequency (so we have two numbers for each bin). This isn't very intuitive to work with, so it is more common to switch to another form ('polar form'), that expresses the number as an amplitude and a phase for each bin.
@@ -63,3 +64,37 @@ https://www.jezzamon.com/fourier/
 https://jackschaedler.github.io/circles-sines-signals/
 
 https://cycling74.com/tutorials/the-phase-vocoder-%E2%80%93-part-i
+
+### notes from meeting with PA 220506
+
+stft vs fft
+
+* frequency domain
+  - magnitude and phase
+  - fragile perfect transform (if anything is)
+  - pre-ring (same as smearing) happens if you touch anything (magnitudes or phase)
+  - square wave example
+* over lap add (mention hanning window)
+* time vs freq resolution
+* in many things people try to hide away the FFT parameters and processes. in these objects, these have a huge impact and are even creative sound design parameters
+* linear so it is way too top heavy (compare with mels) (piano keyboard vs. linear spectrogram)
+  - show just hte bottom octave of the piano vs. where the bins line up
+
+- fftSize: will always pick the next power of two up, it zero pads
+  - over sampling 
+  - look at the spectrogram if yoou put two sine waves within a bin
+  - using fluid pitch within supercollider with and iwthout oversampling, using oversampling did not give higher resolution in the low end but it did give hihger resolution in the high end
+
+* myths
+  - fragile perfect transform
+    - if you touch nothing it's perfect
+    - as soon as you touch one thing it's not perfect
+    - as soon as you touch the phase it's not perfect
+    - square wave is a good example for phase manipulation because making those partials out of phase will f up the 
+  - linear so it's way too top heavy (compare with mels)
+  - time vs. frequency resolution
+  - bufstft uses hanning window
+  - pre-ring
+  - Phase Vocoder algorithm (find a better explanation for this and point to that)
+  - fft has artifacts
+    - pre-ring (has to do with the size of the window) (make the window bigger looses low frequency resolution)
