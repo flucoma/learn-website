@@ -22,7 +22,7 @@ flair: article
 
 This article provides guidance on using the parameters of the neural networks found in the FluCoMa toolkit. FluCoMa contains two neural network objects, the [MLPClassifier](/reference/mlpclassifier) and [MLPRegressor](/reference/mlpregressor). "MLP" stand for multi-layer perceptron, which is a type of neural network (more info [below](/#feed-forward)). "Classifier" and "Regressor" refer to the task that each MLP can be trained to do. For a deeper understanding of how the MLP training process works, visit [MLP Training](/learn/mlp-training).
 
-## Parameters
+# Parameters
 
 ## `hidden`
 
@@ -104,7 +104,7 @@ Higher values will:
 
 ## `tapIn`
 
-Sets which layer the neural network will use as input (zero counting). This can be used to access different parts of a trained neural network such as the encoder or decoder of an [autoencoder](https://towardsdatascience.com/auto-encoder-what-is-it-and-what-is-it-used-for-part-1-3e5c6f017726).
+The index of the layer to use as input to the neural network for `predict` and `predictPoint` (zero counting). The default of 0 is the first layer (the original input layer), 1 is the first hidden layer, etc. This can be used to access different parts of a trained neural network such as the encoder or decoder of an [autoencoder](https://towardsdatascience.com/auto-encoder-what-is-it-and-what-is-it-used-for-part-1-3e5c6f017726).
 
 <Image
 src="/learn/mlp/Autoencoder_structure.png"
@@ -113,4 +113,4 @@ label="The internal structure of an autoencoder neural network showing the encod
 
 ## `tapOut`
 
-Sets which layer the neural network will output values from. This can be used to access different parts of a trained neural network such as the encoder or decoder of an [autoencoder](https://towardsdatascience.com/auto-encoder-what-is-it-and-what-is-it-used-for-part-1-3e5c6f017726).
+The index of the layer to use as output of the neural network for `predict` and `predictPoint` (zero counting). The default of -1 is the last layer (the original output layer). This can be used to access different parts of a trained neural network such as the encoder or decoder of an [autoencoder](https://towardsdatascience.com/auto-encoder-what-is-it-and-what-is-it-used-for-part-1-3e5c6f017726).
