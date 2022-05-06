@@ -15,9 +15,14 @@ featuredimage: /explore/abtan/profile_pic.jpeg
 
 <script>
     import YouTube from '$lib/components/YouTube.svelte';
+    import YouTubeChapters from '$lib/components/YouTubeChapters.svelte';
     import ArtistCard from '$lib/components/mwf/ArtistCard.svelte';
     import BandCamp from '$lib/components/BandCamp.svelte';
     import Vimeo from '$lib/components/Vimeo.svelte';
+
+    let player1;
+    let player1State;
+    import YouTubeNew from '$lib/components/YouTubeNew.svelte';
 </script>
 
 <ArtistCard
