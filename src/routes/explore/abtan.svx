@@ -35,7 +35,7 @@ Freida Abtan is a Canadian audiovisual composer and multi-disciplinary artist wi
 ## The Podcast
 
 <YouTubeChapters 
-videoId={'UYSa73RvJQE'}
+url={'UYSa73RvJQE'}
 chapters={[
     {"label" : "Introduction", "start" : [0, 0]},
     {"label" : "Getting into the world of audiovisual composition", "start" : [1, 40]},
