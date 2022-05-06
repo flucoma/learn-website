@@ -1,7 +1,6 @@
 <script>
 	import { page } from '$app/stores';
 	import { structure } from '$lib/app.js';
-	import Related from '$lib/components/Related.svelte'
 
 	let headings = [];
 	$: {

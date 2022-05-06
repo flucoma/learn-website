@@ -130,10 +130,6 @@
         place-items: center;
     }
 
-    label {
-        font-size: 12px;
-    }
-
     #scaling {
         width: max-content;
     }

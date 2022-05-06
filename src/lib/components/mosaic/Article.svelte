@@ -7,9 +7,7 @@
 </script>
 
 <div class="container raisedbox">
-    
     <a href="{item.url}">
-        
         <div class="img_container">
             <div class='feature_image' style="background-image: url({item.feature.featuredimage || _.sample(item.feature.images) || '/general/learn_default.jpeg' });"></div>
         </div>
@@ -22,11 +20,8 @@
                 <div class="flair_wrapper"><Flair flair={item.flair}/></div>
                 <a  class='linkout' href={item.url}>Learn More <ArrowRight /></a>
             </div>
-            
         </div>
-        
     </a>
-    
 </div>
 
 <style>
@@ -81,12 +76,6 @@
         height: fit-content;
         margin-bottom: 1em;
         width: 100%;
-    }
-    
-    .container > p {
-        color: grey;
-        text-align: justify;
-        text-justify: inter-word;
     }
     
     /* Overwrite hover behaviour */
