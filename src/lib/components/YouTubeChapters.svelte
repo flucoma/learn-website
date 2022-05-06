@@ -30,6 +30,14 @@
 </div>
 
 <style>
+    .container {
+        padding-top: 1em;
+        padding-bottom: 1em;
+        max-width: 100%;
+        margin: 0 auto;
+        display: block;
+    }
+    
     .chapter {
         padding: 0.25em;
 		text-decoration: none;
@@ -65,13 +73,5 @@
 		flex-wrap: wrap;
 		gap: 1em;
 		margin-bottom: 1.5em;
-    }
-
-    .container {
-        padding-top: 1em;
-        padding-bottom: 1em;
-        max-width: 100%;
-        margin: 0 auto;
-        display: block;
     }
 </style>
