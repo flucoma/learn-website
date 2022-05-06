@@ -1,5 +1,5 @@
 ---
-title: Neural Network (MLP) Training
+title: Neural Network Training
 blurb: An overview of how neural networks learn.
 tags: 
     - mlp
@@ -10,6 +10,7 @@ tags:
     - regression
     - classification
 flair: article
+featuredimage: /learn/mlp/211220_01_synth_control_sc.txt.jpg
 ---
 
 <script>

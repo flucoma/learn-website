@@ -13,8 +13,16 @@ flair: reference
 category: Analyse Data
 ---
 
-The `MLPRegressor` is an object that can be used to perform _regression_. In machine learning, _regression_ can be thought of as a mapping from one space to another, much like mapping a controller onto synthesis parameters. 'MLP' stands for multi-layer perceptron which is a type of neural network.
+<script>
+    import IndentNote from '$lib/components/IndentNote.svelte';
+</script>
 
-By providing input and output data as `FluidDataSets`, the neural network is trained using _supervised learning_ to predict output data points based on input datapoints.
+The MLPRegressor is a neural network that can be used to perform regression. In machine learning, regression can be thought of as a mapping from one space to another where each space can be any number of dimensions. "MLP" stands for multi-layer perceptron which is a type of neural network.
 
-See this [YouTube tutorial](https://youtu.be/3XSy297v9vk) that controls a synthesizer with 10 control parameters using 2 control parameters of an XY pad.
+<IndentNote type="pointer">
+
+For more information on using this object, visit [MLP Training](/learn/mlp-training), [MLP Parameters](/learn/mlp-parameters), and [Training-Testing Split](/learn/training-testing-split)
+
+</IndentNote>
+
+By providing input and output data as [DataSets](/reference/dataset), the neural network is trained using _supervised learning_ to predict output data points based on input data points. See this [YouTube tutorial](https://youtu.be/3XSy297v9vk) that uses the MLPRegressor to control a synthesiser with 10 control parameters (as the output) using only 2 control parameters of an XY pad (as the input).

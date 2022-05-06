@@ -10,6 +10,7 @@ tags:
     - regression
     - classification
 flair: article
+featuredimage: /learn/mlp/211220_01_synth_control_sc.txt.jpg
 ---
 
 ### Training Data and Testing Data
