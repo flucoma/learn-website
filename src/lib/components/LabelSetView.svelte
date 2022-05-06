@@ -14,7 +14,6 @@
 			{/each}
 		{/each}
 	</div>
-
 </div>
 
 <style lang="postcss">

@@ -6,24 +6,15 @@ References are slightly different and use the ReferenceEntry component.
 	import { docs } from '$lib/app.js';
 	import Article from '$lib/components/mosaic/Article.svelte';
 	import Masonry from 'svelte-bricks';
-	
+
 	export let section = 'learn';
-	
-	let [minColWidth, maxColWidth, gap] = [300, 800, 15]
+
+	let [minColWidth, maxColWidth, gap] = [300, 800, 15];
 	let width, height;
 
-	const items = docs.filter((x) => x.section === section);
+	const items = docs.filter(x => x.section === section);
 </script>
 
-<Masonry 
-	{items}
-	{minColWidth}
-	{maxColWidth}
-	{gap}
-	animate={false}
-	let:item
-	bind:width
-	bind:height
->
-<Article {item} />
+<Masonry {items} {minColWidth} {maxColWidth} {gap} animate={false} let:item bind:width bind:height>
+	<Article {item} />
 </Masonry>

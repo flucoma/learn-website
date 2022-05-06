@@ -3,9 +3,7 @@
 // WARNING
 
 const definitions = {
-    spectrum: "See the <a href='https://en.wikipedia.org/wiki/Spectrogram'>wikipedia article</a>."
-}
-
-
+	spectrum: "See the <a href='https://en.wikipedia.org/wiki/Spectrogram'>wikipedia article</a>."
+};
 
 export default { definitions };
