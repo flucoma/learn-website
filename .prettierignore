@@ -1,0 +1,7 @@
+.git
+.gitignore
+static
+mfccwidget
+*.maxpat
+*.scd
+*.json
