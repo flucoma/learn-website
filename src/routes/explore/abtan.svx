@@ -19,6 +19,7 @@ author: Jacob
     import ArtistCard from '$lib/components/mwf/ArtistCard.svelte';
     import BandCamp from '$lib/components/BandCamp.svelte';
     import Vimeo from '$lib/components/Vimeo.svelte';
+    import YouTubeChapters from '$lib/components/YouTubeChapters.svelte';
 </script>
 
 <ArtistCard
@@ -33,8 +34,18 @@ Freida Abtan is a Canadian audiovisual composer and multi-disciplinary artist wi
 
 ## The Podcast
 
-<YouTube 
-url={'UYSa73RvJQE'}
+<YouTubeChapters 
+videoId={'UYSa73RvJQE'}
+chapters={[
+    {"label" : "Introduction", "start" : [0, 0]},
+    {"label" : "Getting into the world of audiovisual composition", "start" : [1, 40]},
+    {"label" : "Describing Freida's practice", "start" : [5, 20]},
+    {"label" : "Perspective on reactive audio design and gesture", "start" : [9, 3]},
+    {"label" : "Using FluCoMa-related technologies", "start" : [14, 3]},
+    {"label" : "Using systems at different scales", "start" : [25, 58]},
+    {"label" : "Learning and teaching technologies", "start" : [28, 22]},
+    {"label" : "What are computational ideas?", "start" : [44, 53]}
+]}
 />
 
 ## Overview
