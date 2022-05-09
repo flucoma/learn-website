@@ -1,5 +1,5 @@
 ---
-title: The Short Time Fourier Transform (STFT)
+title: Short Time Fourier Transform (STFT)
 blurb: | 
     Commonly used spectral analysis method
 tags: 
@@ -15,7 +15,7 @@ flair: article
     import STFTWindows from '$lib/widget/STFTWindows.svelte';
 </script>
 
-The Fourier Transform is, by far, the most commonly used frequency analysis method in audio analysis and machine listening. Most of the FluCoMa audio descriptors use this algorithm as the basis of their computation. Because a wealth of [resources](#resources) already exist that explain the Fourier Transform in more general terms, the focus of this resource is going to be on the practicalities of using it for music: why one would change parameters and the limitations of the FFT.
+The Fourier Transform is, by far, the most commonly used spectral analysis method in audio analysis and machine listening. Most of the FluCoMa audio descriptors use this algorithm as the basis of their computation. Because a wealth of [resources](#resources) explaining the Fourier Transform in more general terms already exist, the focus of this resource is going to be on the practicalities of using it for music.
 
 ## Window Size
 
@@ -71,7 +71,7 @@ stft vs fft
 
 * frequency domain
   - magnitude and phase
-  - fragile perfect transform (if anything is)
+  - fragile perfect transform (if anything is touched it can no longer be perfectly reconstructed)
   - pre-ring (same as smearing) happens if you touch anything (magnitudes or phase)
   - square wave example
 * over lap add (mention hanning window)
@@ -85,6 +85,7 @@ stft vs fft
   - look at the spectrogram if yoou put two sine waves within a bin
   - using fluid pitch within supercollider with and iwthout oversampling, using oversampling did not give higher resolution in the low end but it did give hihger resolution in the high end
 
+//========================================================================
 * myths
   - fragile perfect transform
     - if you touch nothing it's perfect
