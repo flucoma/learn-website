@@ -17,30 +17,62 @@ flair: article
 
 The Fourier Transform is, by far, the most commonly used spectral analysis method in audio analysis and machine listening. Most of the FluCoMa audio descriptors use this algorithm as the basis of their computation. Because a wealth of [resources](#resources) explaining the Fourier Transform in more general terms already exist, the focus of this resource is going to be on the practicalities of using it for music.
 
-## Window Size
+### Common Terms and Initialisms
 
-The first step in the STFT is to cut the incoming signals into overlapping windows, allowing us to to calculate the spectrum over time. The two parameters here are the window size (how many samples we analyse), and the hop size (how often we analyse).
+* Fourier Transform: a mathematical operation that decomposes a (continuous) signal into a series of sine wave components
+* Discrete Fourier Transform: a mathematical operation that decomposes a discrete signal into a series of sine wave components
+* Fast Fourier Transform (FFT): an algorithm for efficiently and quickly computing a Fourier Transform on a digital signal 
+* Short-Term Fourier Transform (STFT): segmenting a signal in to windows and performing an FFT on each window
+
+Any FluCoMa object that uses an STFT has three parameters that affect how the STFT is computed: `windowSize`, `hopSize`, and `fftSize`. Each of these is explained more below. Sometimes, adjusting these parameters is necessary to properly analyse a signal (if you're interested in low frequencies for example), however, changing these can also create different sounding results for many of the algorithms. These three parameters don't need to be thought of as "set it and forget it", but instead can explored for the aesthetic differences they might create!
+
+## Frequency Domain
+
+The FFT transforms a signal from the "time domain" (a series of sampled air pressures or voltages) to the "frequency domain". The frequency domain is often represented as a group of magnitude-phase pairs. Each one of these magnitude-phase pairs corresponds to one frequency band (called a "bin", more on that below). The magnitude represents how correlated the signal is with a sine wave its frequency band while the phase represents an estimated phase for a sine tone representing that frequency band.
+
+## Short-Time Fourier Transform (STFT)
+
+When performing analysis, FluCoMa objects use an STFT (or Short-Time Fourier Transform). This means that rather than doing an FFT on an entire buffer or on long duration of sound, a signal is segmented into windows and the FFT is computed on each window. This allows us to know the frequency domain representation for all the windows (different moments in time) in the signal, allowing us to analyse how the frequency domain representation changes across time. Commonly, before a signal is analysed, it is first "windowed" which means an envelope is applied to it that is silent at the beginning and end of the analysis window, and full volume in the middle (with some smooth transition between points, see below).
+
+## Overlap and Add
+
+Overlap and add determines how a signal is segmented in to different frames, each of which will be analysed using an FFT. The parameter `windowSize` determines how big (in audio samples) these windows are. `hopSize` specifies how far apart the _start_ of each window is. Mostly commonly the `hopSize` will be less than the `windowSize` so that the analysis windows _overlap_. 
 
 <STFTWindows />
 
-Each slice is then processed with a Discrete Fourier Transform (DFT). See the resources below for much more detail on what this means. The key points to bear in mind are that the DFT uses a discrete frequency scale: the territory between 0 Hz and the sampling frequency is divided into as many chunks as the size of the transform we take. Additionally, for a real-valued signal (normally the case), half of the DFT information is just a mirror of the other half, so we end up with half as many frequency bins. What the transform 'tells' us is how correlated the input signal is with a sinusoid at this bin frequency.
+Each window is then transformed to the frequency domain using an FFT. The key points to bear in mind are that the DFT uses a discrete frequency scale: the territory between 0 Hz and the sampling frequency is divided into as many chunks as the size of the transform we take. Additionally, for a real-valued signal (normally the case), half of the DFT information is just a mirror of the other half, so we end up with half as many frequency bins. What the transform 'tells' us is how correlated the input signal is with a sinusoid at this bin frequency.
 
-## Hop Size
+### Hop Size
 
-## FFT Size
+### FFT Size
 
-Note that the size of the DFT doesn't have to be the same as the window size (but it can't be smaller). In fact, we are normally constrained to use a power of two DFT size because we almost always use an efficient DFT algorithm (the Fast Fourier Transform, FFT) that has this constraint. Sometimes using a bigger DFT / FFT size than the window can be beneficial because it gives us high quality interpolation across frequency for the 'extra' bins we've added.
+Sometimes using a bigger DFT / FFT size than the window can be beneficial because it gives us high quality interpolation across frequency for the 'extra' bins we've added.
 
 Note that this is not the same as getting a more precise analysis from the same window: the constraint on how close together in frequency things can be distinguished is governed still by the size of the window we're analysing.
-
-# Uncertainty
-The longer the window we take, the finer the frequency-grid we get from the DFT. This means that there is a trade-off between temporal resolution and frequency resolution. A long window means we are (sort of) averaging information about the signal over a longer time, but getting more detailed information about the spectrum in return. Correspondingly, short windows give us a better impression of moment-to-moment dynamics, but a rougher idea about frequency.
 
 # Re-synthesising
 One reason the STFT is so common is that it is simple to get back to our original signal by taking an inverse DFT. We can then sum together our overlapping slices to get back to where we were (provided we didn't change anything in the Fourier domain).
 
 Under certain conditions, we can get back (almost) exactly what we put in, but we have to be careful. When we make our windows, it is usual to apply a particular shape to them, called a window function. Different window functions have different requirements for being able to provide perfect reconstruction. This generally depends on how much overlap we have between windows (i.e. the hop size in relation to the window size). In general, the overlap factor should be an whole number of at least two (the window should be at least twice as big as the hop). For some windows, you will need a factor of at least four.
 
+  - pre-ring (same as smearing) happens if you touch anything (magnitudes or phase) (has to do with the size of the window) (make the window smaller looses low frequency resolution)
+  - square wave example
+* over lap add (mention hanning window)
+
+## time vs freq resolution
+The longer the window we take, the finer the frequency-grid we get from the DFT. This means that there is a trade-off between temporal resolution and frequency resolution. A long window means we are (sort of) averaging information about the signal over a longer time, but getting more detailed information about the spectrum in return. Correspondingly, short windows give us a better impression of moment-to-moment dynamics, but a rougher idea about frequency.
+
+As a rule of thumb, if you want to get reliable tracking of partials in a harmonic(ish) sound, you will want to have a conservative 4 frequency bins between partials (because energy gets smooshed across bins in practice). For instance, to reliably track partials in a 100 Hz signal, this implies a bin resolution of 25 Hz. At 44100Hz sampling rate, this in turn implies a window size / FFT size of 2048 samples (44100/2048 = 21.53Hz).
+
+* linear so it is way too top heavy (compare with mels) (piano keyboard vs. linear spectrogram)
+  - show just hte bottom octave of the piano vs. where the bins line up
+* Phase Vocoder algorithm (find a better explanation for this and point to that)
+
+- fftSize: will always pick the next power of two up, it zero pads
+  - over sampling 
+  - look at the spectrogram if yoou put two sine waves within a bin
+  - using fluid pitch within supercollider with and iwthout oversampling, using oversampling did not give higher resolution in the low end but it did give hihger resolution in the high end
+  
 # Phase Vocoder
 
 The Phase Vocoder is a name for the most common model people use when doing spectral processing in the STFT domain. It represents a set of assumptions that allow us to work with intuitive quantities like amplitude and frequency, rather than directly with raw DFT output.
@@ -53,49 +85,18 @@ If we assume that from window to window, each bin contains some coherent and con
 - that change slowly with respect to the hop size
 - well spaced in frequency with respect to the DFT resolution
 
-As a rule of thumb, if you want to get reliable tracking of partials in a harmonic(ish) sound, you will want to have a conservative 4 frequency bins between partials (because energy gets smooshed across bins in practice). For instance, to reliably track partials in a 100 Hz signal, this implies a bin resolution of 25 Hz. At 44100Hz sampling rate, this in turn implies a window size / FFT size of 2048 samples (44100/2048 = 21.53Hz).
+# Related Resources
 
-# Resources
-
+3Blue1Brown But what is the Fourier Transform? A visual introduction.
 https://www.youtube.com/watch?v=spUNpyF58BY&feature=youtu.be
+
+3Blue1Brown The more general uncertainty principle, beyond quantum
+https://www.youtube.com/watch?v=MBnnXbOM5S4
 
 https://www.jezzamon.com/fourier/
 
 https://jackschaedler.github.io/circles-sines-signals/
 
+https://www.audiolabs-erlangen.de/resources/MIR/FMP/C2/C2_STFT-Window.html
+
 https://cycling74.com/tutorials/the-phase-vocoder-%E2%80%93-part-i
-
-### notes from meeting with PA 220506
-
-stft vs fft
-
-* frequency domain
-  - magnitude and phase
-  - fragile perfect transform (if anything is touched it can no longer be perfectly reconstructed)
-  - pre-ring (same as smearing) happens if you touch anything (magnitudes or phase)
-  - square wave example
-* over lap add (mention hanning window)
-* time vs freq resolution
-* in many things people try to hide away the FFT parameters and processes. in these objects, these have a huge impact and are even creative sound design parameters
-* linear so it is way too top heavy (compare with mels) (piano keyboard vs. linear spectrogram)
-  - show just hte bottom octave of the piano vs. where the bins line up
-
-- fftSize: will always pick the next power of two up, it zero pads
-  - over sampling 
-  - look at the spectrogram if yoou put two sine waves within a bin
-  - using fluid pitch within supercollider with and iwthout oversampling, using oversampling did not give higher resolution in the low end but it did give hihger resolution in the high end
-
-//========================================================================
-* myths
-  - fragile perfect transform
-    - if you touch nothing it's perfect
-    - as soon as you touch one thing it's not perfect
-    - as soon as you touch the phase it's not perfect
-    - square wave is a good example for phase manipulation because making those partials out of phase will f up the 
-  - linear so it's way too top heavy (compare with mels)
-  - time vs. frequency resolution
-  - bufstft uses hanning window
-  - pre-ring
-  - Phase Vocoder algorithm (find a better explanation for this and point to that)
-  - fft has artifacts
-    - pre-ring (has to do with the size of the window) (make the window bigger looses low frequency resolution)
