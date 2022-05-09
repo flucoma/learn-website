@@ -33,7 +33,7 @@ Niamh Dell is an Australian oboist currently undertaking a PhD in contemporary p
 ## The Podcast
 
 <YouTubeChapters 
-videoId={'2CyHymm10ig'}
+url={'2CyHymm10ig'}
 chapters={[
     {"label" : "Introduction", "start" : [0, 0]},
     {"label" : "Approach to playing the oboe", "start" : [1, 54]},

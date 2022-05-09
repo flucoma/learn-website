@@ -34,7 +34,7 @@ Jorrit Tamminga studied Music & Technology at the Utrecht School of the Arts and
 ## The Podcast
 
 <YouTubeChapters 
-videoId={'lV0NwPZQT5w'}
+url={'lV0NwPZQT5w'}
 chapters={[
     {"label" : "Introduction", "start" : [0, 0]},
     {"label" : "Getting into the world of electronic music", "start" : [1, 22]},
