@@ -22,11 +22,11 @@ flair: tutorial
     import IndentNote from '$lib/components/IndentNote.svelte';
 </script>
 
-<IndentNote type='pointer'>
+<!-- <IndentNote type='pointer'>
 
 For a more critical consideration of what these distributions can and cannot tell us, see the page on [Statistical Assumptions](/learn/statistical-assumptions).
 
-</IndentNote>
+</IndentNote> -->
 
 ## Histogram
 
