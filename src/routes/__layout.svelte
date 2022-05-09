@@ -6,23 +6,27 @@
 	import { fly } from 'svelte/transition';
 	import { nav_expanded, blur } from '$lib/app';
 
-	const scroll = (e) => {
+	const scroll = e => {
 		if ($nav_expanded) {
 			e.preventDefault();
 		}
-	}
+	};
 </script>
 
 <svelte:head>
-	<title>
-		Learn FluCoMa
-	</title>
+	<title>Learn FluCoMa</title>
 </svelte:head>
 
-<svelte:body class:noscroll={ $nav_expanded === true } on:mousewheel|nonpassive={scroll} />
+<svelte:body class:noscroll={$nav_expanded === true} on:mousewheel|nonpassive={scroll} />
 
 {#if $nav_expanded || $blur}
-<div transition:fly={{duration:200}} class="overlay" on:click={ () => { $nav_expanded = false }}></div>
+	<div
+		transition:fly={{ duration: 200 }}
+		class="overlay"
+		on:click={() => {
+			$nav_expanded = false;
+		}}
+	/>
 {/if}
 
 <div class="container">
@@ -30,8 +34,8 @@
 
 	<main class="content">
 		<slot />
-	</main> 
-	
+	</main>
+
 	<Footer />
 </div>
 
@@ -45,7 +49,7 @@
 		top: 0;
 		left: 0;
 		cursor: pointer;
-		z-index: 98
+		z-index: 98;
 	}
 
 	.container {

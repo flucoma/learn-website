@@ -2,10 +2,12 @@
 	import { createEventDispatcher } from 'svelte';
 	const dispatch = createEventDispatcher();
 
-	function doStuff() { dispatch('click') };
+	function doStuff() {
+		dispatch('click');
+	}
 </script>
 
-<button on:click={doStuff} class="btn">
+<button aria-label="expand/contract navigation" on:click={doStuff} class="btn">
 	<svg width="24" height="20">
 		<line x1="0" y1="4" x2="24" y2="4" />
 		<line x1="0" y1="11" x2="24" y2="11" />

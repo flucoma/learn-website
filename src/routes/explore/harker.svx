@@ -12,6 +12,7 @@ tags:
     - dimensionality reduction
 flair: article
 featuredimage: /explore/harker/umap_explorer_example.png
+author: Jacob
 ---
 
 <script>
@@ -22,17 +23,12 @@ featuredimage: /explore/harker/umap_explorer_example.png
 </script>
 
 <ArtistCard
-src = "/explore/harker/harker_profile_pic.jpg"
-name = "Alex Harker"
-website = "https://www.alexanderjharker.co.uk/"
->
-<p slot="bio">
-Alex Harker is a composer, creative programmer, and lecturer at the University of Huddersfield. Harker’s works have been programmed as part of concert series, festivals and conferences in the UK, France, Denmark, Switzerland, Korea, and the USA, including the International Computer Music Conference, Sound and Music Computing Conference and Huddersfield Contemporary Music Festival. As a programmer, Harker’s software is in use internationally both inside and outside of academia in wide variety of fields, such as psychoacoustics, concert hall virtualisation, realtime audiovisual dj'ing and compositional work.
-</p>
-</ArtistCard>
+src="/explore/harker/harker_profile_pic.jpg"
+name="Alex Harker"
+website="https://www.alexanderjharker.co.uk/"
+/>
 
 ## Introduction
-
 <IndentNote type='pointer'>
 
 Download the demonstration patches for this article <a href='/explore/harker/Alex Harker Examples.zip' download='Alex Harker Examples.zip'>here</a>.

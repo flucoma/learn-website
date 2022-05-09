@@ -14,8 +14,6 @@ flair: article
     import CodeBlock from '$lib/components/CodeBlock.svelte';
 </script>
 
-# SuperCollider Installation Instructions
-
 ## Step 1: Download the FluCoMa SuperCollider Extension Package
 
 Download the latest version of the extension from GitHub releases. Choose the appropriate release for your operating system.

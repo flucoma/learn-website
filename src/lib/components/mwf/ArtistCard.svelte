@@ -4,13 +4,13 @@
 	export let website = '';
 </script>
 
-<a class="container neutral-link" href={ website }>
+<a class="container neutral-link" href={website}>
 	<div class="top">
 		<img loading="lazy" alt={`${name} profile picture`} {src} />
-		<h3>{ name }</h3>
+		<h3>{name}</h3>
 	</div>
 	<!-- <div class="bio"> -->
-		<!-- <slot name="bio"></slot> -->
+	<!-- <slot name="bio"></slot> -->
 	<!-- </div> -->
 </a>
 
@@ -39,7 +39,7 @@
 	img {
 		max-width: 80px;
 		max-height: 80px;
-		width: auto; 
+		width: auto;
 		height: auto;
 		border-radius: 50%;
 	}

@@ -35,7 +35,7 @@
 
 	function updateFocus() {
 		focusedEntry = wrap(focusedEntry, 0, entries.length);
-		entries[focusedEntry].focus()
+		entries[focusedEntry].focus();
 	}
 
 	function formpress(e) {
@@ -46,30 +46,30 @@
 
 	function keyDown(e) {
 		if (e.key === '/' && e.metaKey) {
-			focusSearch()
+			focusSearch();
 		}
-
-		if (e.key === 'ArrowUp') {
-			e.preventDefault();
-			focusedEntry -= 1;
-			updateFocus()
-		}
-
-		if (e.key === 'ArrowDown') {
-			e.preventDefault();
-			focusedEntry += 1;
-			updateFocus()
-		}
-		
-		if (e.key === 'Enter') {
-			if (focusedEntry !== -1) {
-				clickResult(filteredResults[focusedEntry].url)
-				e.preventDefault();
-			}
-		}
-
 		if (e.key === 'Escape') {
 			blurSearch();
+		}
+		if (focused) {
+			if (e.key === 'ArrowUp') {
+				e.preventDefault();
+				focusedEntry -= 1;
+				updateFocus();
+			}
+
+			if (e.key === 'ArrowDown') {
+				e.preventDefault();
+				focusedEntry += 1;
+				updateFocus();
+			}
+
+			if (e.key === 'Enter') {
+				if (focusedEntry !== -1) {
+					clickResult(filteredResults[focusedEntry].url);
+					e.preventDefault();
+				}
+			}
 		}
 	}
 	$: filteredResults = results.slice(0, 8).filter(x => x !== null);
@@ -78,7 +78,7 @@
 
 <svelte:window on:keydown={keyDown} />
 <div class="search">
-	<form id='search-input' role="search" on:keypress={formpress} on:keydown={formpress}>
+	<form id="search-input" role="search" on:keypress={formpress} on:keydown={formpress}>
 		<label class="visually-hidden" for="search-term">Search The Learn Platform</label>
 		<input
 			class="query"
@@ -87,37 +87,43 @@
 			bind:this={searchBar}
 			on:focus={focusSearch}
 			on:blur={blurSearch}
+			id="search-term"
 		/>
 	</form>
 
 	{#if results.length >= 1 && focused}
-	<div class="results" tabindex="0">
-		{#each filteredResults as r, i}
-			<div class="result" 
-				on:mousedown={() => clickResult(r.url)}
-				on:mouseleave={ () => { focusedEntry = -1 }}
-				on:mouseenter={() => { focusedEntry = i} }
-				class:entryhover={i === focusedEntry}
-				on:click={ () => clickResult(r.url) }
-				on:focus={focusSearch}
-				on:blur={blurSearch}
-				bind:this={entries[i]}
-				role="button"
-				tabindex="-1"
-			>
-				<div class="top">
-					<div class="title">{r.title}</div>
-					{#if r.flair}
-					<Flair flair={r.flair} />
-					{/if}
-				</div>
+		<div class="results" tabindex="0">
+			{#each filteredResults as r, i}
+				<div
+					class="result"
+					on:mousedown={() => clickResult(r.url)}
+					on:mouseleave={() => {
+						focusedEntry = -1;
+					}}
+					on:mouseenter={() => {
+						focusedEntry = i;
+					}}
+					class:entryhover={i === focusedEntry}
+					on:click={() => clickResult(r.url)}
+					on:focus={focusSearch}
+					on:blur={blurSearch}
+					bind:this={entries[i]}
+					role="button"
+					tabindex="-1"
+				>
+					<div class="top">
+						<div class="title">{r.title}</div>
+						{#if r.flair}
+							<Flair flair={r.flair} />
+						{/if}
+					</div>
 
-				<div class="bottom">
-					{r.blurb.slice(0, 150) + '...'}
+					<div class="bottom">
+						{r.blurb.slice(0, 150) + '...'}
+					</div>
 				</div>
-			</div>
-		{/each}
-	</div>
+			{/each}
+		</div>
 	{/if}
 </div>
 
@@ -146,7 +152,7 @@
 		transition: border cubic-bezier(0.075, 0.82, 0.165, 1) 300ms;
 	}
 	.query:hover {
-		border: 2px solid var(--light-blue)
+		border: 2px solid var(--light-blue);
 	}
 	.results {
 		display: flex;
@@ -187,7 +193,7 @@
 		text-align: left;
 	}
 	.bottom {
-		color: hsl(240, 5%, 30%); 
+		color: hsl(240, 5%, 30%);
 		text-overflow: ellipsis;
 		font-size: 0.8rem;
 	}

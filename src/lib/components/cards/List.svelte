@@ -7,12 +7,12 @@ References are slightly different and use the ReferenceEntry component.
 	import Article from '$lib/components/cards/Article.svelte';
 	export let section = 'learn';
 
-	const items = docs.filter((x) => x.section === section);
+	const items = docs.filter(x => x.section === section);
 </script>
 
 <div class="overview-list">
 	{#each items as item}
-		<Article data={item}/>
+		<Article data={item} />
 	{/each}
 </div>
 

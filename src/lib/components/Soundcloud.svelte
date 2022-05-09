@@ -4,16 +4,9 @@
 </script>
 
 <div class="container">
-    <iframe width="100%" 
-            height="166" 
-            scrolling="no" 
-            frameborder="no" 
-            allow="autoplay" 
-            src={id}>
-    </iframe>
-    
+	<iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" title={caption} src={id} />
 
-    <div class="caption">
+	<div class="caption">
 		<p>{caption}</p>
 	</div>
 </div>

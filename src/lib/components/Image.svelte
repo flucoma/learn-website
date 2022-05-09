@@ -14,7 +14,7 @@
 	<figcaption class="label">
 		{@html markdown.toHTML(label)}
 	</figcaption>
-</figure >
+</figure>
 
 <style lang="postcss">
 	.container {
