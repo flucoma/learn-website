@@ -1,5 +1,6 @@
 ---
 title: Audio Decomposition using BufNMF
+author: Ted
 blurb: |
     Decompose an audio buffer into component parts using non-negative matrix factorisation.
 tags:
