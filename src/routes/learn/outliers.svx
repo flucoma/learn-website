@@ -14,6 +14,7 @@ featuredimage: /learn/outliers/220427_125149_trumpet_tone_all_three.jpg
 
 <script>
     import Image from '$lib/components/Image.svelte';
+    import Audio from '$lib/components/Audio.svelte';
 </script>
 
 ## What is an outlier?
@@ -30,6 +31,27 @@ To take one example, consider a recording of one trumpet tone (perhaps from a sa
 <Image
 src="220427_124008_trumpet_tone.jpg"
 label="A trumpet tone with the pitch analysis overlaid."
+/>
+
+For another example, consider the plot below. One might visually identify the cluster of points in the top left area to be outliers because them seem to be significantly separated from the rest of the data. 
+
+<Image
+src="plot_with_outliers.png"
+label="A plot with outlier candidates in the upper left section."
+/>
+
+The data that created this plot is a [UMAP](/reference/umap) reduction of [MFCC](/reference/mfcc) analyses from the sound file below.
+
+<Audio
+src="/learn/outliers/sus_with_clicks.mp3"
+label="A mostly sustained timbre with some clicks sprinkled throughout."
+/>
+
+You can hear that most of the sound file contains a slow static timbre, but there are a few click sounds sprinkled throughout. You might be (correctly) assuming that the outliers are the MFCC analyses of the moments with clicks. By using the mouse function of the Plotter, you can find what values distinguish the cluster in the upper left from the rest of the data points (either in the 2 dimensional UMAP space, or in the original 13 dimensional MFCC space). Then, using [DataSetQuery](/reference/) you could remove these outliers from a [DataSet](/reference/dataset) if you don't want them included in your analyses. (Or, if clicks are what you're interested in, you could remove the rest!)
+
+<Image
+src="plot_without_outliers.png"
+label="A plot with the identifier outliers removed."
 />
 
 ### What could cause outliers?
