@@ -7,7 +7,6 @@ import e from '../../static/edits.json';
 import s from '../../static/structure.json';
 import database from '../../static/db.json';
 import manual from '../../static/manual_config.json';
-import author_list from '../../static/authors.json';
 
 // interface state
 export const nav_expanded = writable(false);
@@ -43,12 +42,10 @@ const docs = database.docs;
 installs.forEach(i => docs.push(i)); // add installation steps
 
 const manual_config = manual;
-const authors = author_list;
-
 const search = new FuzzySearch(docs, ['title', 'tags', 'flair', 'artist', 'blurb'], {
 	caseSensitive: false,
 	sort: true
 });
 
 const db = search;
-export { db, docs, manual_config, authors };
+export { db, docs, manual_config };
