@@ -19,10 +19,10 @@ The Fourier Transform is, by far, the most commonly used spectral analysis metho
 
 ### Common Terms and Initialisms
 
-* Fourier Transform: a mathematical operation that decomposes a continuous signal into sine wave components
-* Discrete Fourier Transform (DFT): a mathematical operation that computes a Fourier Transform on a discrete signal
-* Fast Fourier Transform (FFT): an algorithm for efficiently and quickly computing a DFT on a digital signal 
-* Short-Term Fourier Transform (STFT): segmenting a signal in to windows and performing an FFT on each window
+* **Fourier Transform:** a mathematical operation that decomposes a continuous signal into sine wave components
+* **Discrete Fourier Transform (DFT):** a mathematical operation that computes a Fourier Transform on a discrete signal
+* **Fast Fourier Transform (FFT):** an algorithm for efficiently and quickly computing a DFT on a digital signal 
+* **Short-Term Fourier Transform (STFT):** segmenting a signal in to windows and performing an FFT on each window
 
 # Parameters
 
