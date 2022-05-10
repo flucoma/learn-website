@@ -9,6 +9,7 @@ tags:
     - normal
     - histogram
 flair: tutorial
+featuredimage: /learn/outliers/220427_125149_trumpet_tone_all_three.jpg
 ---
 
 <script>
@@ -52,7 +53,7 @@ Outliers are not always problematic. They may be musically more relevant than th
 
 If outliers are creating a misrepresentation and causing a misunderstanding of the data, there are some strategies one can use to mitigate these negative effects. Using the _median_ (also called the 50th percentile) as a measure of central tendency is robust to outliers, meaning that it is not affected by outliers that are very distant from this central tendency. The _mean_ as a measure of central tendency is not robust to outliers, which can negatively impact it's explanatory power. See [BufStats](/reference/bufstats) for more on using the median and mean.
 
-### RobustScaler
+### RobustScale
 
 The scalers [Normalize](/reference/normalize) and [Standardize](/reference/standardize) are not robust to outliers so may provide results that misrepresent the majority of the data. The scaler [RobustScaler](/reference/robustscale) uses percentiles (also called order statistics) for scaling data, making it, ahem, _robust_ to outliers.
 

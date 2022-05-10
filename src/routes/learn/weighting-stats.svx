@@ -7,6 +7,7 @@ tags:
     - mean
     - median
 flair: tutorial
+featuredimage: /learn/weighting-stats/05_src_with_pitch_and_conf.jpg
 ---
 
 <script>

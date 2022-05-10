@@ -13,6 +13,7 @@ tags:
     - stats
     - statistics
 flair: tutorial
+featuredimage: /learn/bufstats/Standard_deviation_diagram.png
 ---
 
 <script>

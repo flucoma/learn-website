@@ -9,6 +9,7 @@ tags:
     - normal
     - outlier
 flair: tutorial
+featuredimage: /learn/outliers/removing_outliers.jpg
 ---
 
 <script>
