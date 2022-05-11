@@ -1,0 +1,34 @@
+/* // Add a dashed line under jargon terms */
+.jargon-term {
+	text-decoration: underline dotted var(--light-blue);
+}
+/* // Hover behavior for the term itself */
+.jargon-term:hover {
+	position: relative;
+	text-decoration: none;
+	cursor: help;
+}
+/* // Hide info by default */
+.jargon-term .jargon-info {
+	display: none;
+}
+/* // Show info on hover */
+.jargon-term:hover .jargon-info {
+	display: block;
+	text-align: left;
+	position: absolute;
+	top: 1.3em;
+	left: 0;
+	background: #f8f8f8;
+	border: 1px solid hsl(240, 11%, 81%);
+	padding: 1em;
+	border-radius: 4px;
+	font-size: 0.9rem;
+	min-width: 250px;
+	max-width: 450px;
+	z-index: 1;
+}
+
+.jargon-info:hover {
+	display: block;
+}

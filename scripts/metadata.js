@@ -14,12 +14,17 @@ let structure = {};
 let tags = {};
 let crumbs = {};
 let edits = {};
+let featured = {
+	reference: {},
+	learn: {},
+	explore: {}
+};
 
 glob('src/**/*.svx', (err, routes) => {
-	routes = routes.filter((p) => path.basename(p) !== 'index.svx');
+	routes = routes.filter(p => path.basename(p) !== 'index.svx');
 	edits = extractGit(routes);
 
-	routes.forEach((route) => {
+	routes.forEach(route => {
 		let section = route.split('/')[2];
 
 		let url = urlFromRoute(route);
@@ -33,19 +38,18 @@ glob('src/**/*.svx', (err, routes) => {
 			structure[url] = [];
 		}
 
-		tree.forEach((el) => {
-			
+		tree.forEach(el => {
 			if (el[0] === 'header' && el[1].level === 2) {
 				const rawText = el.slice(2);
 
 				const text = rawText
 					.flat()
 					.filter(x => !x.includes('em'))
-					.join('')
+					.join('');
 
 				slugger.reset();
 				let hashPart = slugger.slug(text);
-				
+
 				structure[url].push({
 					url: `${url}#${hashPart}`,
 					text: el[2]
@@ -59,6 +63,7 @@ glob('src/**/*.svx', (err, routes) => {
 		if (!Object.keys(info).includes(section)) {
 			info[section] = [];
 		}
+
 		// Structure
 		info[section].push({
 			url: url,
@@ -67,7 +72,7 @@ glob('src/**/*.svx', (err, routes) => {
 
 		// Tags
 		if (Object.keys(fm).includes('tags')) {
-			fm.tags.forEach((tag) => {
+			fm.tags.forEach(tag => {
 				if (!Object.keys(tags).includes(tag)) {
 					tags[tag] = [];
 				}
@@ -100,9 +105,9 @@ glob('src/**/*.svx', (err, routes) => {
 	});
 
 	// Write out results
-	fs.writeFile('static/tag.json', JSON.stringify(tags), 'utf8', () => {});
-	fs.writeFile('static/info.json', JSON.stringify(info), 'utf8', () => {});
-	fs.writeFile('static/structure.json', JSON.stringify(structure), 'utf8', () => {});
-	fs.writeFile('static/crumbs.json', JSON.stringify(crumbs), 'utf8', () => {});
-	fs.writeFile('static/edits.json', JSON.stringify(edits), 'utf8', () => {});
+	fs.writeFile('static/tag.json', JSON.stringify(tags, null, 2), 'utf8', () => {});
+	fs.writeFile('static/info.json', JSON.stringify(info, null, 4), 'utf8', () => {});
+	fs.writeFile('static/structure.json', JSON.stringify(structure, null, 2), 'utf8', () => {});
+	fs.writeFile('static/crumbs.json', JSON.stringify(crumbs, null, 2), 'utf8', () => {});
+	fs.writeFile('static/edits.json', JSON.stringify(edits, null, 2), 'utf8', () => {});
 });

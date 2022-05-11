@@ -1,5 +1,6 @@
 ---
 title: Batch Processing with FluCoMa
+author: James
 blurb: |
     Batch processing corpora with the Fluid Corpus Manipulation toolkit. 
 tags: 
@@ -7,6 +8,7 @@ tags:
     - batch processing
     - corpus
 flair: article
+featuredimage: /examples/batch/add.png
 ---
 
 <script>

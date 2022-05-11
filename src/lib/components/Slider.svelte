@@ -10,12 +10,12 @@
 	const dispatch = createEventDispatcher();
 
 	const changeHandler = () => {
-		dispatch('change')
-	}
+		dispatch('change');
+	};
 
 	const inputHandler = () => {
-		dispatch('input')
-	}
+		dispatch('input');
+	};
 </script>
 
 <div class="container">
@@ -62,7 +62,7 @@
 
 	.text {
 		font-size: 10px;
-		color: grey;
+		color: var(--grey);
 	}
 	.min {
 		text-align: right;

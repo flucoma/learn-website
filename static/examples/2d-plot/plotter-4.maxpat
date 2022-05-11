@@ -3,8 +3,8 @@
 		"fileversion" : 1,
 		"appversion" : 		{
 			"major" : 8,
-			"minor" : 2,
-			"revision" : 0,
+			"minor" : 1,
+			"revision" : 11,
 			"architecture" : "x64",
 			"modernui" : 1
 		}
@@ -96,8 +96,8 @@
 						"fileversion" : 1,
 						"appversion" : 						{
 							"major" : 8,
-							"minor" : 2,
-							"revision" : 0,
+							"minor" : 1,
+							"revision" : 11,
 							"architecture" : "x64",
 							"modernui" : 1
 						}
@@ -278,8 +278,8 @@
 						"fileversion" : 1,
 						"appversion" : 						{
 							"major" : 8,
-							"minor" : 2,
-							"revision" : 0,
+							"minor" : 1,
+							"revision" : 11,
 							"architecture" : "x64",
 							"modernui" : 1
 						}
@@ -432,8 +432,8 @@
 						"fileversion" : 1,
 						"appversion" : 						{
 							"major" : 8,
-							"minor" : 2,
-							"revision" : 0,
+							"minor" : 1,
+							"revision" : 11,
 							"architecture" : "x64",
 							"modernui" : 1
 						}
@@ -692,8 +692,8 @@
 						"fileversion" : 1,
 						"appversion" : 						{
 							"major" : 8,
-							"minor" : 2,
-							"revision" : 0,
+							"minor" : 1,
+							"revision" : 11,
 							"architecture" : "x64",
 							"modernui" : 1
 						}
@@ -1516,8 +1516,8 @@
 					"id" : "obj-37",
 					"maxclass" : "jsui",
 					"numinlets" : 2,
-					"numoutlets" : 1,
-					"outlettype" : [ "" ],
+					"numoutlets" : 2,
+					"outlettype" : [ "", "" ],
 					"parameter_enable" : 0,
 					"patching_rect" : [ 144.0, 557.0, 182.0, 182.0 ],
 					"presentation" : 1,
@@ -1544,8 +1544,8 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 219.0, 324.0, 148.0, 22.0 ],
-					"text" : "markers slicepoints 44100"
+					"patching_rect" : [ 219.0, 324.0, 147.0, 22.0 ],
+					"text" : "markers slicepoints sound"
 				}
 
 			}
@@ -1566,7 +1566,7 @@
 					"filename" : "fluid.waveform~",
 					"id" : "obj-67",
 					"maxclass" : "jsui",
-					"numinlets" : 3,
+					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"parameter_enable" : 0,
@@ -1731,6 +1731,21 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "signal", "signal" ],
 					"patching_rect" : [ 607.0, 619.0, 136.0, 22.0 ],
+					"saved_object_attributes" : 					{
+						"basictuning" : 440,
+						"followglobaltempo" : 0,
+						"formantcorrection" : 0,
+						"loopend" : [ 0.0, "ms" ],
+						"loopstart" : [ 0.0, "ms" ],
+						"mode" : "basic",
+						"originallength" : [ 0.0, "ticks" ],
+						"originaltempo" : 120.0,
+						"phase" : [ 0.0, "ticks" ],
+						"pitchcorrection" : 0,
+						"quality" : "basic",
+						"timestretch" : [ 0 ]
+					}
+,
 					"text" : "groove~ sound @loop 1"
 				}
 
@@ -2100,8 +2115,8 @@
 ,
 		"dependency_cache" : [ 			{
 				"name" : "fluid.waveform~.js",
-				"bootpath" : "~/dev/flucoma/max/jsui",
-				"patcherrelativepath" : "../../../../max/jsui",
+				"bootpath" : "~/dev/flucoma/waveform/max-package/jsui",
+				"patcherrelativepath" : "../../../../waveform/max-package/jsui",
 				"type" : "TEXT",
 				"implicit" : 1
 			}

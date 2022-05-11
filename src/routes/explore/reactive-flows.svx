@@ -12,6 +12,8 @@ tags:
     - rodrigo constanzo
 flair: event
 crumb: Reactive Flows
+featuredimage: /general/gig_spotlight.jpeg
+author: Jacob
 ---
 
 <script>

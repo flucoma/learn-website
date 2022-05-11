@@ -1,5 +1,6 @@
 ---
 title: 2D Corpus Exploring
+author: James
 blurb: |
     A video tutorial guiding that teaches you how to build a two-dimensional corpus exploration patch in Max.
 tags: 
@@ -11,6 +12,7 @@ tags:
     - segmentation
     - audio descriptors
 flair: tutorial
+featuredimage: /learn/for-featured-images/2D-corpus-explorer.png
 ---
 
 <script>

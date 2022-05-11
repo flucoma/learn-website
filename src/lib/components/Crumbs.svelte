@@ -7,14 +7,14 @@
 		// This can be used to then construct the breadcrumbs
 		let d = [];
 		path = path.split('/');
-		path.shift(); path.pop();
-		console.log(path)
+		path.shift();
+		path.pop();
 
 		let accum = '';
 		path.forEach((p, i) => {
 			let sanitisedText = '';
 			if (i >= 1) {
-				let path = $page.url.pathname; 
+				let path = $page.url.pathname;
 				path = path.endsWith('/') ? path.slice(0, -1) : path;
 				sanitisedText = $breadcrumbs[path];
 			} else {
@@ -44,7 +44,7 @@
 	.container {
 		display: grid;
 		grid-template-columns: auto min(var(--max-text-width), 100%) auto;
-		margin: 1em;
+		padding: 0.5em;
 	}
 	.crumbs {
 		font-size: 0.8rem;
