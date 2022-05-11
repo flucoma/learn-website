@@ -31,7 +31,7 @@
 		}
 		wglp.update();
 		requestAnimationFrame(newFrame);
-	}
+	};
 
 	onMount(async () => {
 		// Tone.js setup
@@ -44,7 +44,6 @@
 		drumPlayer.connect(meter);
 
 		Tone.loaded().then(() => {
-			console.log('loaded!');
 			ready = true;
 		});
 
@@ -55,7 +54,7 @@
 		features = new Array(canvas.width).fill(0.0);
 	});
 
-	const updateWaveform = (choice) => {
+	const updateWaveform = choice => {
 		if (choice === 'drum') {
 			bassPlayer.stop();
 			pianoPlayer.stop();

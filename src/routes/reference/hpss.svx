@@ -37,7 +37,7 @@ label="Guitar strums seen as a spectrogram above."
 HPSS attempts to separate out each of these components by first creating a “harmonic-enhanced” spectrogram and a “percussive-enhanced” spectrogram.
 
 ## Harmonic-Enhanced Spectrogram
-HPSS creates the harmonic-enhanced spectrogram by running a [median filter](/overviews/median-filters) over each row of this spectrogram (one row here contains the magnitudes of a single FFT bin, or frequency range, over the all the frames of the spectrogram).
+HPSS creates the harmonic-enhanced spectrogram by running a [median filter](/learn/median-filters) over each row of this spectrogram (one row here contains the magnitudes of a single FFT bin, or frequency range, over the all the frames of the spectrogram).
 
 <Image
 src="/reference/hpss/220112_205334_00_Original_Spectrogram_single_row.png"
@@ -170,4 +170,18 @@ label="Percussive Component Output Spectrogram (created using a Soft Mask)"
 <Audio
 src="/reference/hpss/220121_180534_01_percussive_component_Soft_Mask.mp3"
 label="Percussive Component Output (created using a Soft Mask)"
+/>
+
+## Related Resources
+
+<ResourceLink
+title='Harmonic/Percussive Separation using Median Filtering'
+url='http://dafx10.iem.at/papers/DerryFitzGerald_DAFx10_P15.pdf'
+blurb='Paper by Derry FitzGerald (2010) describing an implementation of the Harmonic/Percussive Source Separation algorithm.'
+/>
+
+<ResourceLink
+title='Extending Harmonic-Percussive Separation of Audio Signals.'
+url='https://archives.ismir.net/ismir2014/paper/000127.pdf'
+blurb='Paper by Jonathan Driedger, Muller, and Disch (2014)'
 />

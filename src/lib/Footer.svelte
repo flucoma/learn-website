@@ -6,18 +6,12 @@
 <footer>
 	<HR />
 	<div class="content">
-		<a 
-		target='_blank' 
-		href='https://github.com/flucoma/learn-website/issues/new'
-		>
-		Problem? File an issue <ArrowRight />
+		<a target="_blank" href="https://github.com/flucoma/learn-website/issues/new">
+			Problem? File an issue <ArrowRight />
 		</a>
-		
-		<a 
-		target='_blank' 
-		href='https://flucoma.org'
-		>
-		Go to FluCoMa Home Page <ArrowRight />
+
+		<a target="_blank" rel="external" href="https://flucoma.org">
+			Go to FluCoMa Home Page <ArrowRight />
 		</a>
 	</div>
 </footer>
@@ -46,5 +40,4 @@
 		background-color: transparent;
 		color: var(--med-blue);
 	}
-
 </style>

@@ -1,6 +1,5 @@
 <script>
 	import { createEventDispatcher } from 'svelte';
-
 	const dispatch = createEventDispatcher();
 
 	function doStuff() {
@@ -8,7 +7,7 @@
 	}
 </script>
 
-<button on:click={doStuff} class="btn">
+<button aria-label="expand/contract navigation" on:click={doStuff} class="btn">
 	<svg width="24" height="20">
 		<line x1="0" y1="4" x2="24" y2="4" />
 		<line x1="0" y1="11" x2="24" y2="11" />
@@ -21,9 +20,11 @@
 		background: transparent;
 		outline: none;
 		border: none;
+		padding: 0;
 	}
 	svg {
-		min-height: 24px;
+		min-width: 24;
+		min-height: 20;
 		background: none;
 		transition: transform 0.3s ease-in-out;
 	}

@@ -20,7 +20,7 @@ category: Slicing
 
 <!--In the widget above, experiment by moving the slider to change how _smooth_ the slow envelope is. With lots of smoothing you'll visually be able to see how changes in the amplitude barely cause the envelope to fluctuate. On the flip side with no smoothing the slow envelope should look identical to the fast envelope. Remember, the algorithm is comparing the _relative difference_ between the slow and fast envelopes.-->  
 
-AmpSlice determines when an amplitude onset has occurred by comparing two amplitude envelope followers on the same audio signal. One envelope follower is “fast” meaning that it responds quickly to changes in amplitude. The other is “slow” meaning that it responds more slowly to changes. AmpSlice compares the difference between the slow and fast envelopes to determine if there has been a _relative_ spike in amplitude in the short term, compared to the longer term trend. When the difference between the two envelopes goes above the `onThreshold`, it is identified as an onset.
+AmpSlice determines when an amplitude onset has occurred by comparing two amplitude envelope followers on the same audio signal. One envelope follower is “fast” meaning that it responds quickly to changes in amplitude. The other is “slow” meaning that it responds more slowly to changes. AmpSlice compares the difference between the slow and fast envelopes to determine if there has been a _relative_ spike in amplitude in the short term, when compared to the longer term trend. When the difference between the two envelopes goes above the `onThreshold`, it is identified as an onset.
 
 <IndentNote type='pointer'>
 
@@ -70,3 +70,5 @@ Below offers a close look at the two envelope followers (blue is “fast”, ora
  src="/reference/ampslice/ampslice-4.jpg"
  label="Once the relative envelope goes below the 'offThreshold', and 'offset' is identified, allowing AmpSlice to trigger another onset."
  />
+ 
+ Another important parameter to consider is `floor` which indicates (in decibels) an absolute threshold the signal must be above in order for onsets to be triggered. 

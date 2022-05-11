@@ -1,0 +1,13 @@
+---
+layout: contentindex
+---
+
+<script>
+    import List from '$lib/components/mosaic/List.svelte';
+</script>
+
+# Explore
+
+Explore highlights projects and practices where FluCoMa is used.
+
+<List section='explore' />

@@ -21,23 +21,26 @@ category: Decompose
 
 BufNMF uses non-negative matrix factorisation (NMF) to decompose the magnitudes of a spectrogram into a number of components specified by the user. Each component is represented by the combination of two elements: a spectral template (“basis”, plural: “bases”) and an amplitude envelope (“activation”). Activations and bases can be used in various ways, including to resynthesize the audio of a single decomposed component. NMF is a popular technique in signal processing research for things like source separation and transcription.
 
+### A Useful Simile
+NMF could be thought as a [vocoder](https://en.wikipedia.org/wiki/Vocoder#Artistic_effects), in which each bandpass filter is instead a finely tuned spectral template, for which its respective activation is the envelope.
+
 ### Example Code
-<a href='/overviews/bufnmf/bufnmf-overview-example.scd' download='bufnmf-overview-example.scd'>SuperCollider Example</a>
-<a href='/overviews/bufnmf/bufnmf-overview-example.maxpat' download='bufnmf-overview-example.maxpat'>Max Example</a>
+<a href='/learn/bufnmf/bufnmf-overview-example.scd' download='bufnmf-overview-example.scd'>SuperCollider Example</a>
+<a href='/learn/bufnmf/bufnmf-overview-example.maxpat' download='bufnmf-overview-example.maxpat'>Max Example</a>
 
 <IndentNote type='pointer'>
 
-For an example of audio decomposition using NMF, see the [Decomposition with NMF](/overviews/bufnmf) Overview.
+For an example of audio decomposition using NMF, see the [Decomposition with NMF](/learn/bufnmf) Overview.
 
 </IndentNote>
 
 <Image
-src="/overviews/bufnmf/01_Bases_plot.png"
+src="/learn/bufnmf/01_Bases_plot.png"
 label="Bases or 'Spectral Templates' of a decomposed drum loop. Each is a spectrum of magnitudes. (blue = kick drum, orange = snare drum, green = hi-hat)"
 />
 
 <Image
-src="/overviews/bufnmf/00_resynth_buffer_with_activations.png"
+src="/learn/bufnmf/00_resynth_buffer_with_activations.png"
 label="Activations from the same decomposed drum loop, overlaid on the decomposed audio components. (blue = kick drum, orange = snare drum, green = hi-hat)"
 />
 
@@ -62,7 +65,7 @@ If either of these arguments are set to 2, BufNMF will not modify the supplied c
 
 <IndentNote type='pointer'>
 
-For more information on using `basesMode` and `actMode`, see the [Seeding NMF](/overviews/seeding-nmf) Overview.
+For more information on using `basesMode` and `actMode`, see the [Seeding NMF](/learn/seeding-nmf) Overview.
 
 </IndentNote>
 

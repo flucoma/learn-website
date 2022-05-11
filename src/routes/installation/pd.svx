@@ -11,9 +11,8 @@ flair: article
 
 <script>
     import Image from '$lib/components/Image.svelte';
+    import CodeBlock from '$lib/components/CodeBlock.svelte';
 </script>
-
-# Pd Installation Instructions
 
 ## Step 1: Download the Pure Data Package
 
@@ -25,7 +24,7 @@ https://github.com/flucoma/flucoma-pd/releases/latest
 src="/installation/pd-step-1.png"
 />
 
-## Step 2: Move the Package Folder
+## Step 2: Add the Package to the Search Path
 
 To install a Pure Data package you need to place it in the Pure Data search path by adding the package folder _to_ the search path.
 
@@ -53,7 +52,19 @@ src="/installation/pd-mac-3-3.png"
 
 4. Click OK
 
-## Step 4: Run Pure Data and Test
+## Step 4: Dequarantine (macOS only)
+
+Binaries for macOS are currently not signed. This means that you will have to "dequarantine" them. For Pure Data this is most easily achieved by modifying the attribute of the binaries on the command line. The command below will recursively do this for you if you provide it the valid path to the FluCoMa package.
+
+<CodeBlock>
+
+```sh
+xattr -d -r com.apple.quarantine <path_to_package>
+```
+
+</CodeBlock>
+
+## Step 5: Run and Test
 
 Now check that the installation worked.
 

@@ -6,10 +6,11 @@ g*/
 @import './fonts.css';
 @import './code.css';
 @import './utils.css';
+@import './jargon.css';
 
 :root {
 	--breakpoint: 1200px;
-	--font: 'Overpass', sans-serif;
+	--font: 'overpassregular', sans-serif;
 	--mono: 'Overpass Mono', monospace;
 	--dark-blue: rgb(8, 60, 100);
 	--med-blue: rgb(3, 113, 181);
@@ -17,13 +18,19 @@ g*/
 	--max-text-width: 70ch;
 	--min-text-width: 30ch;
 	--footer-height: 42px;
+	--event-flair: rgb(235, 161, 23);
+	--article-flair: var(--light-blue);
+	--reference-flair: forestgreen;
+	--podcast-flair: palevioletred;
+	--tutorial-flair: rgba(102, 103, 171, 255);
+	--grey: rgb(89, 89, 89);
 }
 
 html {
-	font-family: -apple-system, BlinkMacSystemFont, sans-serif, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue';
+	font-family: var(--font);
 	font-size: 16px;
 	-ms-text-size-adjust: 100%;
-    -webkit-text-size-adjust: 100%;
+	-webkit-text-size-adjust: 100%;
 }
 
 body {
@@ -33,12 +40,20 @@ body {
 	-moz-osx-font-smoothing: grayscale;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
 	font-family: var(--font);
-	margin: 0.6em 0; 
+	margin: 0.6em 0;
 }
 
-p, ul, ol, blockquote {
+p,
+ul,
+ol,
+blockquote {
 	margin-top: 0;
 	margin-bottom: 1em;
 	margin-left: 0;
@@ -52,15 +67,31 @@ li {
 	margin-right: 0;
 }
 
-h1 {font-size: 2.625em; line-height: 1.2}
+h1 {
+	font-size: 2.625em;
+	line-height: 1.2;
+}
 
-h2 {font-size: 1.625em; line-height: 1.2}
+h2 {
+	font-size: 1.625em;
+	line-height: 1.2;
+}
 
-h3 {font-size: 1.3125em; line-height: 1.24}
+h3 {
+	font-size: 1.3125em;
+	line-height: 1.24;
+}
 
-h4 {font-size: 1.1875em; line-height: 1.23}
+h4 {
+	font-size: 1.1875em;
+	line-height: 1.23;
+}
 
-h5,h6 {font-size: 1em; font-weight:bold}
+h5,
+h6 {
+	font-size: 1em;
+	font-weight: bold;
+}
 
 a {
 	color: var(--med-blue);
@@ -83,7 +114,7 @@ a:hover {
 
 code {
 	font-family: var(--mono);
-	font-size: calc(1em - 2px);
+	font-size: 1em;
 	color: #555;
 	background-color: #f0f0f0;
 	padding: 0.1em 0.1em;

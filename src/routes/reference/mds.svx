@@ -1,6 +1,6 @@
 ---
 title: MDS
-blurb: Multi-dimensional scaling of a FluiDataSet
+blurb: Multi-dimensional scaling of a FluidDataSet
 tags: 
     - data
     - dimension reduction

@@ -21,11 +21,11 @@ category: Transform
 
 <IndentNote type='pointer'>
 
-NMFFilter is designed to work with bases taken from a [BufNMF](/overviews/bufnmf) analysis. Please visit the [BufNMF](/overviews/bufnmf) page to learn about bases before proceeding.
+NMFFilter is designed to work with bases taken from a [BufNMF](/learn/bufnmf) analysis. Please visit the [BufNMF](/learn/bufnmf) page to learn about bases before proceeding.
 
 </IndentNote>
 
-NMFFilter splits an incoming audio signal into different audio streams based on a set of spectral templates provided by the user (such as bases from a [BufNMF](/overviews/bufnmf) analysis). It does this by performing non-negative matrix factorisation on a single spectral frame using the provided bases as seeds. Learn more about the seeding process in the [Seeding NMF Overview](/overviews/seeding-nmf).
+NMFFilter splits an incoming audio signal into different audio streams based on a set of spectral templates provided by the user (such as bases from a [BufNMF](/learn/bufnmf) analysis). It does this by performing non-negative matrix factorisation on a single spectral frame using the provided bases as seeds. Learn more about the seeding process in the [Seeding NMF Overview](/learn/seeding-nmf).
 
 <Image
 src="/reference/nmffilter/flowchart.jpg"
@@ -52,7 +52,7 @@ label="One stream of audio is split into three streams based on three spectral t
 
 ---
 
-In this example, we’ll use the bases from the analysis on the [BufNMF](/overviews/bufnmf) page. These bases contain spectral templates for the (1) kick drum, (2) snare drum, and (3) hi-hat components of the original drum loop.
+In this example, we’ll use the bases from the analysis on the [BufNMF](/learn/bufnmf) page. These bases contain spectral templates for the (1) kick drum, (2) snare drum, and (3) hi-hat components of the original drum loop.
 
 <Audio
 src="/audio/Nicol-LoopE-M.mp3"
@@ -81,7 +81,7 @@ label="The output audio of the original drum loop filtered by basis 3 in NMFFilt
 
 This will give us very similar sounding results as BufNMF’s resynthesized buffer–the difference here is that results are produced in real-time. This means that one could send a live input of this drummer and (hopefully) get similarly successful results decomposing the drum loop into the individual drum instruments in real-time.
 
-## Audio input from a different source
+## Audio Input From a Different Source
 
 One could also send a different audio signal through these bases using NMFFilter. Here we’ll use an excerpt from an ensemble recording that also has kick drum, snare drum, and hi-hat.
 

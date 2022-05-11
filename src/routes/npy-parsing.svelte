@@ -6,10 +6,9 @@
 	let d = {};
 	if (browser) {
 		fetch(url)
-			.then((response) => response.arrayBuffer())
-			.then((arr) => {
+			.then(response => response.arrayBuffer())
+			.then(arr => {
 				d = fromArrayBuffer(arr);
-				console.log(d);
 			});
 	}
 </script>
