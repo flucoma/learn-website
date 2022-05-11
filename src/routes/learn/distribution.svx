@@ -13,7 +13,7 @@ tags:
     - stats
     - statistics
 flair: tutorial
-featuredimage: /learn/bufstats/Standard_deviation_diagram.png
+featuredimage: /learn/distribution/stddev_diagram.png
 ---
 
 <script>
@@ -68,7 +68,7 @@ If a collection of values is normally distributed, it follows the 68/95/99.7 rul
 For example if a [SpectralShape](/reference/spectralshape)'s spectral centroid time-series is analysed and BufStats returns a mean of 8000 Hz and a standard deviation off 1000 Hz, one can estimate that ~68% of the spectral centroids in that time series fall between 7000 and 9000 Hz (8000 Hz ± 1000 Hz). Similarly, one could estimate that ~95% of the data will fall between 6000 and 10,000 Hz (8000 Hz ± 2000 Hz) and ~99.7% will fall within between 5000 and 11,000 Hz (8000 Hz ± 3000 Hz). Keep in mind that if the data is not normally distributed, this will not hold true.
 
 <Image
-src="Standard_deviation_diagram.png"
+src="/learn/distribution/stddev_diagram.png"
 label="When data is normally distributed, it follows the 68/95/99.7 rule, indicating how much of the data is found within standard deviations of the mean. (image reproduced from [Wikipedia](https://en.wikipedia.org/wiki/Standard_deviation))"
 />
 

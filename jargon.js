@@ -9,6 +9,7 @@ const definitions = {
     median: "The value at or below which 50% of the values in the data will fall, also called the 50th percentile.",
     mode: "The value that occurs most frequently in a set of data.",
 	"Nyquist Frequency": "The highest frequency a digital signal can encode, which is half of the sampling rate. The sampling rate is the frequency at which an analog-to-digital converter samples voltages to create a digital audio signal. Common sampling rates are 44,100 and 48,000 Hz."
+    glissandi: "A continuous slide upwards or downwards between two notes."
 }
 
 export default { definitions };
