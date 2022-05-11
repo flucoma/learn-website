@@ -1,5 +1,6 @@
 ---
 title: Median Filters
+author: Owen
 blurb: |
     A small overview for how median filters work.
 tags: 

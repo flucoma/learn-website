@@ -1,5 +1,6 @@
 ---
 title: Classifying sounds using a Neural Network
+author: Ted
 blurb: |
     This video tutorial guides you through building a flexible sound classifier.
 tags: 

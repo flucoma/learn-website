@@ -1,5 +1,6 @@
 ---
 title: Seeding Bases and Activations with BufNMF
+author: Ted
 blurb: |
     Initialize non-negative matrix factorization with seeded elements.
 tags:
@@ -21,7 +22,6 @@ featuredimage: /learn/for-featured-images/seeding-nmf.png
     import CodeBlock from '$lib/components/CodeBlock.svelte';
     import { Tabs, TabList, TabPanel, Tab } from '$lib/components/tabs/tabs';
     import Audio from '$lib/components/Audio.svelte';
-    // import ResourceLink from '$lib/components/ResourceLink.svelte';
 </script>
 
 <IndentNote type="pointer">
