@@ -11,7 +11,12 @@ category: Transform
 
 <script>
     import ResourceLink from '$lib/components/ResourceLink.svelte';
+    import Video from '$lib/components/Video.svelte';
 </script>
+
+<Video 
+url={'/reference/audiotransport/interpolation.mp4'}
+/>
 
 https://pythonot.github.io/auto_examples/plot_OT_2D_samples.html#sphx-glr-auto-examples-plot-ot-2d-samples-py
 
@@ -22,8 +27,6 @@ https://pythonot.github.io/auto_examples/barycenters/plot_barycenter_lp_vs_entro
 https://pythonot.github.io/auto_examples/barycenters/plot_convolutional_barycenter.html#sphx-glr-auto-examples-barycenters-plot-convolutional-barycenter-py
 
 https://www.youtube.com/watch?v=LXqZMKXSPJo
-
-
 
 ## Related Resources
 
