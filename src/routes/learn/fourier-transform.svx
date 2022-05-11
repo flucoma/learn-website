@@ -11,9 +11,9 @@ flair: article
 ---
 
 <script>
-    import YouTube from '$lib/components/YouTube.svelte';
-    import STFTWindows from '$lib/widget/STFTWindows.svelte';
+    import Image from '$lib/components/Image.svelte';
     import ResourceLink from '$lib/components/ResourceLink.svelte';
+    import { Tabs, TabList, TabPanel, Tab } from '$lib/components/tabs/tabs';
 </script>
 
 The Fourier Transform is, by far, the most commonly used spectral analysis method in audio analysis and machine listening. Most of the FluCoMa audio descriptors use this algorithm as the basis of their computation. Because a wealth of [resources](#related-resources) explaining the Fourier Transform in more general terms already exist, the focus of this resource is going to be on the practicalities of using it within FluCoMa. If unfamiliar with the Fourier Transform or digital sampling, we highly recommend this [interactive explanation](https://jackschaedler.github.io/circles-sines-signals/part3.html).
@@ -36,7 +36,7 @@ Any FluCoMa object that uses an STFT has three parameters that affect how the ST
 ## Time vs Frequency Resolution
 The larger the `windowSize`, the finer the frequency resolution the FFT provides, however, a larger `windowSize` also means there is less precision about _when_ the frequency information of the FFT has occurred (because a particular frequency component could be from anywhere within the window). This means that there is a trade-off between the time and frequency resolution of a FFT. A longer `windowSize` means we are (sort of) averaging information about the signal over a longer time, but getting more detailed information about the spectrum in return. Correspondingly, a shorter `windowSize` gives us a better understanding about when-in-time information is from, but a coarser idea about frequency.
 
-### FFT Bin Frequency Resolution for Different `windowSize`s
+### FFT Bin Frequency Resolution (just in the piano range) for Different `windowSize`s
 <Tabs>
     <TabList>
         <Tab>128</Tab>
@@ -49,37 +49,37 @@ The larger the `windowSize`, the finer the frequency resolution the FFT provides
     <TabPanel>
       <Image
       src="/learn/fourier-transform/1_windowSize=128.png"
-      label="FFT Bin Frequency Resolution for a windowSize of 128 samples."
+      label="FFT Bin Frequency Resolution (just in the piano range) for a windowSize of 128 samples."
       />
     </TabPanel>
     <TabPanel>
       <Image
-      src="/learn/fourier-transform/1_windowSize=256.png"
-      label="FFT Bin Frequency Resolution for a windowSize of 256 samples."
+      src="/learn/fourier-transform/2_windowSize=256.png"
+      label="FFT Bin Frequency Resolution (just in the piano range) for a windowSize of 256 samples."
       />
     </TabPanel>
     <TabPanel>
       <Image
-      src="/learn/fourier-transform/1_windowSize=512.png"
-      label="FFT Bin Frequency Resolution for a windowSize of 512 samples."
+      src="/learn/fourier-transform/3_windowSize=512.png"
+      label="FFT Bin Frequency Resolution (just in the piano range) for a windowSize of 512 samples."
       />
     </TabPanel>
     <TabPanel>
       <Image
-      src="/learn/fourier-transform/1_windowSize=1024.png"
-      label="FFT Bin Frequency Resolution for a windowSize of 1024 samples."
+      src="/learn/fourier-transform/4_windowSize=1024.png"
+      label="FFT Bin Frequency Resolution (just in the piano range) for a windowSize of 1024 samples."
       />
     </TabPanel>
     <TabPanel>
       <Image
-      src="/learn/fourier-transform/1_windowSize=2048.png"
-      label="FFT Bin Frequency Resolution for a windowSize of 2048 samples."
+      src="/learn/fourier-transform/5_windowSize=2048.png"
+      label="FFT Bin Frequency Resolution (just in the piano range) for a windowSize of 2048 samples."
       />
     </TabPanel>
     <TabPanel>
       <Image
-      src="/learn/fourier-transform/1_windowSize=4096.png"
-      label="FFT Bin Frequency Resolution for a windowSize of 4096 samples."
+      src="/learn/fourier-transform/6_windowSize=4096.png"
+      label="FFT Bin Frequency Resolution (just in the piano range) for a windowSize of 4096 samples."
       />
     </TabPanel>
 </Tabs>
