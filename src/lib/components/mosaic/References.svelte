@@ -8,6 +8,6 @@
 	let width, height;
 </script>
 
-<Masonry {items} {minColWidth} {maxColWidth} {gap} animate={false} let:item bind:width bind:height>
+<Masonry {items} {minColWidth} {maxColWidth} {gap} idKey={'category'} animate={false} let:item bind:width bind:height>
 	<RefCategory {item} />
 </Masonry>
