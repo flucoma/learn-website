@@ -15,6 +15,6 @@ References are slightly different and use the ReferenceEntry component.
 	const items = docs.filter(x => x.section === section);
 </script>
 
-<Masonry {items} {minColWidth} {maxColWidth} {gap} animate={false} let:item bind:width bind:height>
+<Masonry {items} {minColWidth} {maxColWidth} {gap} idKey={'url'} animate={false} let:item bind:width bind:height>
 	<Article {item} />
 </Masonry>

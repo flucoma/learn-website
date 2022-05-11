@@ -1,5 +1,6 @@
 ---
 title: Controlling a Synth using a Neural Network
+author: Ted
 blurb: |
     Video tutorial introduccing the FluidMLPRegressor neural network.
 tags: 
