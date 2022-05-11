@@ -23,7 +23,7 @@ For some tasks it may not make sense to set aside testing data. If you're [using
 
 ### Overfitting
 
-Using a testing set can help determine if a neural network _model_ is overfitting. Overfitting means that the neural network has learned to _really accurately_ make predictions on the data it was trained with, but as soon as it is shown data it has never seen before it performs quite poorly. Another way of stating this is that the moodel cannot _generalise_ to data it hasn't seen before. If a model is able to perform well on both the training data and the testing data, it is likely not overfit. If a model is able to perform well on the training data but does poorly on the testing data that was split off, it is probably overfit to the training data. In this case, there are few thing to try to prevent overfitting:
+Using a testing set can help determine if a neural network _model_ is overfitting. Overfitting means that the neural network has learned to _really accurately_ make predictions on the data it was trained with, but as soon as it is shown data it has never seen before it performs quite poorly. Another way of stating this is that the model cannot _generalise_ to data it hasn't seen before. If a model is able to perform well on both the training data and the testing data, it is likely not overfit. If a model is able to perform well on the training data but does poorly on the testing data that was split off, it is probably overfit to the training data. In this case, there are few thing to try to prevent overfitting:
 
 * If you have enough data such that it makes sense, use a [`validation`](/learn/mlp-parameters#validation) set.
 * Try training the neural network to a not-as-low loss value. This may stop it from reaching a state of overfitting.
@@ -31,4 +31,4 @@ Using a testing set can help determine if a neural network _model_ is overfittin
 
 ### Underfitting 
 
-Overfitting can be contrasted with underfitting in which a _model_ also cannot _generalise_, in this case because it probably has not been trained enough. A model that performs poorly on the testing set, but also performs poorly on the training set is likely underfit. 
+Overfitting can be contrasted with underfitting in which a _model_ also cannot _generalise_, in this case because it probably has not been trained enough. A model that performs poorly on the testing set, but also performs poorly on the training set is likely underfitted. 
