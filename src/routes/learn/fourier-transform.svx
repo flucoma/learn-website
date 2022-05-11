@@ -36,7 +36,53 @@ Any FluCoMa object that uses an STFT has three parameters that affect how the ST
 ## Time vs Frequency Resolution
 The larger the `windowSize`, the finer the frequency resolution the FFT provides, however, a larger `windowSize` also means there is less precision about _when_ the frequency information of the FFT has occurred (because a particular frequency component could be from anywhere within the window). This means that there is a trade-off between the time and frequency resolution of a FFT. A longer `windowSize` means we are (sort of) averaging information about the signal over a longer time, but getting more detailed information about the spectrum in return. Correspondingly, a shorter `windowSize` gives us a better understanding about when-in-time information is from, but a coarser idea about frequency.
 
-piano keyboard
+### FFT Bin Frequency Resolution for Different `windowSize`s
+<Tabs>
+    <TabList>
+        <Tab>128</Tab>
+        <Tab>256</Tab>
+        <Tab>512</Tab>
+        <Tab>1024</Tab>
+        <Tab>2048</Tab>
+        <Tab>4096</Tab>
+    </TabList>
+    <TabPanel>
+      <Image
+      src="/learn/fourier-transform/1_windowSize=128.png"
+      label="FFT Bin Frequency Resolution for a windowSize of 128 samples."
+      />
+    </TabPanel>
+    <TabPanel>
+      <Image
+      src="/learn/fourier-transform/1_windowSize=256.png"
+      label="FFT Bin Frequency Resolution for a windowSize of 256 samples."
+      />
+    </TabPanel>
+    <TabPanel>
+      <Image
+      src="/learn/fourier-transform/1_windowSize=512.png"
+      label="FFT Bin Frequency Resolution for a windowSize of 512 samples."
+      />
+    </TabPanel>
+    <TabPanel>
+      <Image
+      src="/learn/fourier-transform/1_windowSize=1024.png"
+      label="FFT Bin Frequency Resolution for a windowSize of 1024 samples."
+      />
+    </TabPanel>
+    <TabPanel>
+      <Image
+      src="/learn/fourier-transform/1_windowSize=2048.png"
+      label="FFT Bin Frequency Resolution for a windowSize of 2048 samples."
+      />
+    </TabPanel>
+    <TabPanel>
+      <Image
+      src="/learn/fourier-transform/1_windowSize=4096.png"
+      label="FFT Bin Frequency Resolution for a windowSize of 4096 samples."
+      />
+    </TabPanel>
+</Tabs>
 
 As a general principle, if you want to get reliable tracking of partials in a harmonic(ish) sound, you will want to have a conservative 4 frequency bins between partials (because in practice energy gets smooshed across bins). For instance, to reliably identify and track the partials of a sawtooth wave at 100 Hz, you would want a bin resolution of 25 Hz. At a sampling rate of 44100 Hz, this would require a `windowSize` of 2048 samples (**frequency resolution = sample rate / `fftSize`**, or **44100 / 2048 = 21.53 Hz**).
 
