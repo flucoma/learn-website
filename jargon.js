@@ -7,7 +7,8 @@ const definitions = {
     spectrum: "See the <a href='https://en.wikipedia.org/wiki/Spectrogram'>wikipedia article</a>.",
     mean: "The average value of the data. This is calculated by adding up all the numbers and the dividing by how many numbers there are.",
     median: "The value at or below which 50% of the values in the data will fall, also called the 50th percentile.",
-    mode: "The value that occurs most frequently in a set of data."
+    mode: "The value that occurs most frequently in a set of data.",
+    glissandi: "A continuous slide upwards or downwards between two notes."
 }
 
 export default { definitions };
