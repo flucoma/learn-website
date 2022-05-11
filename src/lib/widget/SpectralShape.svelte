@@ -118,6 +118,7 @@
         border: 0.063rem solid #dcdee0;
 		border-radius: 0.25em;
 		padding: 0.5em;
+		gap: 0.25em;
 	}
 
 	.controllers {
