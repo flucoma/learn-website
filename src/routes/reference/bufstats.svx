@@ -47,7 +47,7 @@ Standard deviation describes of the amount of variation within the data _in rela
 Standard deviation could also help calculate where most of our data points can be found. For more information about the normal distribution and the 68/95/99.7 rule see the learn page on [distribution and histograms](/learn/distribution).
 
 <Image
-src="Standard_deviation_diagram.png"
+src="/learn/distribution/stddev_diagram.png"
 label="When data is normally distributed, it follows the 68/95/99.7 rule, indicating how much of the data is found within standard deviations of the mean. (image reproduced from [Wikipedia](https://en.wikipedia.org/wiki/Standard_deviation))"
 />
 

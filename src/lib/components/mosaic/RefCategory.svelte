@@ -1,13 +1,11 @@
 <script>
 	export let item = {};
-	const title = item[0];
-	const ref = item[1];
 </script>
 
 <section>
-	<h3>{title}</h3>
+	<h3>{item.category}</h3>
 	<ul>
-		{#each ref as r}
+		{#each item.refs as r}
 			<li><a href={r.url}>{r.title}</a></li>
 		{/each}
 	</ul>
