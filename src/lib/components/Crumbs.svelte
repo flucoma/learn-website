@@ -7,13 +7,14 @@
 		// This can be used to then construct the breadcrumbs
 		let d = [];
 		path = path.split('/');
-		path.shift(); path.pop();
+		path.shift();
+		path.pop();
 
 		let accum = '';
 		path.forEach((p, i) => {
 			let sanitisedText = '';
 			if (i >= 1) {
-				let path = $page.url.pathname; 
+				let path = $page.url.pathname;
 				path = path.endsWith('/') ? path.slice(0, -1) : path;
 				sanitisedText = $breadcrumbs[path];
 			} else {

@@ -1,23 +1,25 @@
 <script>
 	import { page } from '$app/stores';
-    import related from '../../../static/related.json';
-    
-    let links = [];
-    $: {
+	import related from '../../../static/related.json';
+
+	let links = [];
+	$: {
 		let path = $page.url.pathname;
 		path = path.endsWith('/') ? path.slice(0, -1) : path;
-        links = related[path ] || [];
-    }
-    $: references = links.filter(x => x.flair === 'reference') || []
-    $: articles = links.filter(x => x.flair === 'article') || []
-    $: tutorials = links.filter(x => x.flair === 'tutorial') || []
-	$: renderables = [articles, tutorials, references]
+		links = related[path] || [];
+	}
+	$: references = links.filter(x => x.flair === 'reference') || [];
+	$: articles = links.filter(x => x.flair === 'article') || [];
+	$: tutorials = links.filter(x => x.flair === 'tutorial') || [];
+	$: renderables = [articles, tutorials, references];
 	let hoverable;
 	let hover = false;
-	let hoverInfo = { flair : '', blurb : '' };
-	let hoverPos = { x : 0, y : 0 };
+	let hoverInfo = { flair: '', blurb: '' };
+	let hoverPos = { x: 0, y: 0 };
 
-	function stopHover() { hover = false };
+	function stopHover() {
+		hover = false;
+	}
 
 	function mouseenter(e, link) {
 		hoverInfo = link;
@@ -27,32 +29,32 @@
 		hoverPos.y = rect.y + window.scrollY + 2.5;
 		hoverPos.offset = rect.height + 5;
 	}
-
 </script>
 
 {#if hover}
-<div 
-class={`hoverable ${hoverInfo.flair}`} 
-style:left={`${hoverPos.x}px`}
-style:top={`${hoverPos.y + hoverPos.offset}px`}
-bind:this={hoverable}
->
-	<div class="flair">{ hoverInfo.flair }</div>
-	<hr class=hoverInfo.flair>
-	<div class="blurb">{ hoverInfo.blurb }</div>
-</div>
+	<div
+		class={`hoverable ${hoverInfo.flair}`}
+		style:left={`${hoverPos.x}px`}
+		style:top={`${hoverPos.y + hoverPos.offset}px`}
+		bind:this={hoverable}
+	>
+		<div class="flair">{hoverInfo.flair}</div>
+		<hr class="hoverInfo.flair" />
+		<div class="blurb">{hoverInfo.blurb}</div>
+	</div>
 {/if}
 
-<div class='container'>
+<div class="container">
 	{#each renderables as c}
-	{#each c as link}
-	<a
-	class={`link ${link.flair}`}
-	href="{link.url}" 
-	on:mouseenter={(e) => mouseenter(e, link)} 
-	on:mouseleave={stopHover}>{link.title}
-	</a>
-	{/each}
+		{#each c as link}
+			<a
+				class={`link ${link.flair}`}
+				href={link.url}
+				on:mouseenter={e => mouseenter(e, link)}
+				on:mouseleave={stopHover}
+				>{link.title}
+			</a>
+		{/each}
 	{/each}
 </div>
 
@@ -78,8 +80,8 @@ bind:this={hoverable}
 		font-size: 1rem;
 		font-weight: bold;
 	}
-	.flair::first-letter { 
-    	text-transform:capitalize;
+	.flair::first-letter {
+		text-transform: capitalize;
 	}
 	.blurb {
 		color: black;
@@ -96,12 +98,12 @@ bind:this={hoverable}
 	}
 
 	.tutorial {
-		color: var(--tutorial-flair); 
+		color: var(--tutorial-flair);
 		border: 2px solid var(--tutorial-flair);
 	}
 
 	.tutorial:hover {
-		background-color: var(--tutorial-flair); 
+		background-color: var(--tutorial-flair);
 	}
 
 	.reference {
@@ -110,7 +112,7 @@ bind:this={hoverable}
 	}
 
 	.reference:hover {
-		background-color: var(--reference-flair); 
+		background-color: var(--reference-flair);
 	}
 
 	.article {

@@ -6,10 +6,10 @@
 
 	let Peaks, instance, overview, audio, ctx;
 
-	onMount(async() => {
+	onMount(async () => {
 		if (waveform) {
-			ctx = new (AudioContext || webkitAudioContext)()
-			const module = await import("peaks.js");
+			ctx = new (AudioContext || webkitAudioContext)();
+			const module = await import('peaks.js');
 			Peaks = module.default;
 			const options = {
 				containers: {
@@ -24,34 +24,33 @@
 				waveformColor: 'rgb(28, 164, 252)',
 				playheadColor: 'rgba(0, 0, 0, 1)',
 				playheadTextColor: '#aaa',
-				showPlayheadTime: false,
-			}
+				showPlayheadTime: false
+			};
 			instance = Peaks.init(options, (err, p) => {
 				if (err) {
-					console.log(err)
+					console.log(err);
 				} else {
-					instance = p
+					instance = p;
 					instance.views.getView('overview').fitToContainer();
 				}
 			});
 		}
-	})
+	});
 </script>
 
 <div class="container">
 	{#if waveform}
-	<div class='waveform' bind:this={overview} />
+		<div class="waveform" bind:this={overview} />
 	{/if}
-	
-	<div class='audio'>
+
+	<div class="audio">
 		<audio controls bind:this={audio}>
-			<source src={src} type="audio/mp3">
+			<source {src} type="audio/mp3" />
 			Your browser does not support the audio tag.
 		</audio>
-		<div class="label">{ label }</div>
+		<div class="label">{label}</div>
 	</div>
 </div>
-
 
 <style lang="postcss">
 	.container {
@@ -78,6 +77,6 @@
 
 	.waveform {
 		width: 100%;
-        height: 65px;
-    }
+		height: 65px;
+	}
 </style>

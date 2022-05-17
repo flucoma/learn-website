@@ -4,7 +4,7 @@
 	export let url: string = '';
 </script>
 
-<a  href={url} class="container neutral-link raisedbox">
+<a href={url} class="container neutral-link raisedbox">
 	<h4 class="title">
 		{title}
 	</h4>

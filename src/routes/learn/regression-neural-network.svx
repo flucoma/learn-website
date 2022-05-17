@@ -1,7 +1,8 @@
 ---
 title: Controlling a Synth using a Neural Network
+author: Ted
 blurb: |
-    This video tutorial guides you through building a flexible sound classifier.
+    Video tutorial introduccing the FluidMLPRegressor neural network.
 tags: 
     - supervised learning
     - video
@@ -27,4 +28,3 @@ This tutorial guides you through building a bespoke synthesis controller. It lev
 <YouTube 
 url='3XSy297v9vk'
 />
-
