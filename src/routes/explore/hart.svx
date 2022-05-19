@@ -1,0 +1,42 @@
+---
+title: Filling the Shell
+artist: Jacob Hart
+blurb: |
+    In this article we’ll be looking at the work Leafcutter John did for the project with his piece Line Crossing. We’ll take a detailed look at the workings of the piece, and how he used audio analysis to drive his bespoke audio modules.
+tags: 
+    - graphic score
+    - melbands
+    - stochastic
+    - loudness
+    - descriptors
+flair: article
+featuredimage: /explore/burton/final_score_cut.JPG
+author: Jacob
+---
+
+<script>
+    import Image from '$lib/components/Image.svelte';
+    import YouTube from '$lib/components/YouTube.svelte';
+    import ArtistCard from '$lib/components/mwf/ArtistCard.svelte';
+    import IndentNote from '$lib/components/IndentNote.svelte';
+</script>
+
+<ArtistCard
+src = "/explore/hart/profile.jpg"
+name = "Jacob Hart"
+website = "https://jacob-hart.com/"
+>
+<p slot="bio">
+Jacob was the PhD researcher on the FluCoMa project. His mission was to track the creative process of the nine techno-fluent composers on the project. He is a computational musicologist. His other research interests include the nature of the contemporary ear, ludomusicology, experiemental musical analysis and digital sound visualisation.
+</p>
+</ArtistCard>
+
+## Introduction
+
+<IndentNote type='pointer'>
+
+Download the demonstration patches for this article <a href='/explore/burton/Jacob Hart Examples.zip' download='Jacob Hart Examples.zip'>here</a>.
+
+</IndentNote>
+
+Today we’ll be looking at the work John Burton (a.k.a. Leafcutter John) did for the project. A member of the first cohort of composers, he performed his piece *Line Crossing* at the [first FluCoMa concert](/explore/reactive-flows) at [HCMF 2019](https://hcmf.co.uk/2019-programme/). The piece is fairly unique compared to others on the project: it is one of the only ones to have a specifically designed visual element as well as a sonic one. We shall be taking a dive into Burton’s musical and visual world, taking a detailed look at how this graphic score works and how he used some of the FluCoMa tools to drive some of its elements. As with all the "[Explore](/explore)" articles, there is a series of demonstration patches that can be <a href='/explore/burton/Leafcutter John Examples.zip' download='Leafcutter John Examples.zip'>downloaded</a> and interacted with if you wish to explore the inner workings of the software.
