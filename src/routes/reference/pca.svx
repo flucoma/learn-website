@@ -17,7 +17,7 @@ category: Analyse Data
     import ResourceLink from '$lib/components/ResourceLink.svelte';
 </script>
 
-Principal Component Analysis (PCA) fits to a [DataSet](/reference/DataSet) to determine its _principal components_, each of which is a new axis through the data that maximises the variance, or "differences", within the Data. PCA can then transform the original DataSet or individual points to position them in relation to the principal components (i.e., "new axes") for better comparing how they differ from other points in the DataSet. PCA is often used for dimensionality reduction (see below) and is also useful for removing redundancy (i.e., correlation) and/or noise (i.e., dimensions that are [uniformly distributed](/learn/distribution)) from a DataSet.
+Principal Component Analysis (PCA) fits to a [DataSet](/reference/dataset) to determine its _principal components_, each of which is a new axis through the data that maximises the variance, or "differences", within the Data. PCA can then transform the original DataSet or individual points to position them in relation to the principal components (i.e., "new axes") for better comparing how they differ from other points in the DataSet. PCA is often used for dimensionality reduction (see below) and is also useful for removing redundancy (i.e., correlation) and/or noise (i.e., dimensions that are [uniformly distributed](/learn/distribution)) from a DataSet.
 
 For a great visual explanation of PCA, watch this Computerphile video:
 
