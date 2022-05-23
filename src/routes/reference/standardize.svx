@@ -9,3 +9,14 @@ tags:
 flair: reference
 category: Analyse Data
 ---
+
+<script>
+    import Image from '$lib/components/Image.svelte';
+</script>
+
+Standardized data means that every dimension in the data set has a [mean](/reference/bufstats) of 0 and a [standard deviation](/reference/bufstats) of 1. This scaling can be useful for many machine learning algorithms, but since most data in the wild does not fit this criteria, standardizing data is often employed. Standardizing data (and scaling data generally) can also be important for transforming a [DataSet](/reference/dataset) so that all of the dimensions have similar ranges. With similar ranges, the distance metrics (such as euclidian distance) used by many machine learning algorithms will similarly weight each of the dimensions when calculating now near or far (similar or dissimilar) two data points are from each other.
+
+<Image
+src="/learn/distribution/stddev_diagram.png"
+label="When data is normally distributed, it follows the 68/95/99.7 rule, indicating how much of the data is found within standard deviations of the mean. (image reproduced from [Wikipedia](https://en.wikipedia.org/wiki/Standard_deviation))"
+/>
