@@ -17,7 +17,7 @@ Robust-Scaled data means that each dimension in the data meets two criteria:
 
 RobustScale transforms a [DataSet](/reference/dataset) so it meets the above criteria by analysing the DataSet for the appropriate statistics and scaling each dimension accordingly.
 
-Because RobustScale is based on percentiles, it is less affected by extreme [outliers](/learn/outliers) than other scalers (such as [Standardize](/reference/standardize) and [Normalize](/reference/normalize)). This may help RobustScale position the majority of the data in a -1 to 1 -ish range better than other scalers.
+Because RobustScale is based on percentiles, the scaling of the data is less affected by extreme [outliers](/learn/outliers) than other scalers (such as [Standardize](/reference/standardize) and [Normalize](/reference/normalize)). This may help RobustScale position the majority of the data in a -1 to 1 -ish range better than other scalers.
 
 ## `high` and `low`
 
