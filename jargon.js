@@ -10,7 +10,8 @@ const definitions = {
     mean: "The average value of the data. This is calculated by adding up all the numbers and the dividing by how many numbers there are.",
     median: "The value at or below which 50% of the values in the data will fall, also called the 50th percentile.",
     mode: "The value that occurs most frequently in a set of data.",
-    glissandi: "A continuous slide upwards or downwards between two notes."
+    glissandi: "A continuous slide upwards or downwards between two notes.",
+    "euclidean distance":"Using the Pythagorean Theorem (but often in more than two dimensions) to compute the distance between any two points in a multi-dimensional space."
 }
 
 export default { definitions };
