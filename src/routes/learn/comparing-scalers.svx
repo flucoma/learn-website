@@ -9,7 +9,7 @@ tags:
     - standard deviation
     - percentile
 flair: tutorial
-featuredimage: /learn/outliers/removing_outliers.jpg
+featuredimage: /learn/comparing-scalers/08_norm with 2 neighbors.png
 ---
 
 <script>
