@@ -129,3 +129,9 @@ title='The more general uncertainty principle, beyond quantum'
 url='https://www.youtube.com/watch?v=MBnnXbOM5S4'
 blurb='YouTube video by 3Blue1Brown'
 />
+
+<ResourceLink
+title='intuitive Digital Signal Processing'
+url='https://thierrydutoit.github.io/iDSP/'
+blurb='A set of interactive demonstrations of DSP principles'
+/>
