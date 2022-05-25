@@ -24,7 +24,7 @@ This article provides guidance on using the parameters of the neural networks fo
 
 # Parameters
 
-## `hidden`
+## `hiddenLayers`
 
 A list of numbers that specifies the internal structure of the neural network. Each number in the list represents one hidden layer of the neural network, the value of which is the number of neurons in that layer. For example, 3 3 (which is the default) specifies two hidden layers with three neurons each. The number of neurons in the input and output layers are determined from the corresponding datasets when training begins.
 
@@ -32,7 +32,7 @@ When deciding what the internal structure of your neural network should be, a go
 
 If the neural network is not learning as well as you would like it to, you may consider adding more neurons to this single hidden layer. If it is still not learning, you might add some more layers (again considering the funnel shape). If it is still not learning how you would like, it may be the case that your data doesn't have strong enough patterns for the MLP to learn!
 
-Because changing `hidden` changes the internal structure of the neural network, the internal state of the neural network is necessarily reset and any training that has been done will be lost. Even so, it is a good idea to play with this parameters because it can have a significant impact on how well and how quickly the neural network is able to learn from the data. 
+Because changing `hiddenLayers` changes the internal structure of the neural network, the internal state of the neural network is necessarily reset and any training that has been done will be lost. Even so, it is a good idea to play with this parameters because it can have a significant impact on how well and how quickly the neural network is able to learn from the data. 
 
 ### Total Number of Internal Parameters
 

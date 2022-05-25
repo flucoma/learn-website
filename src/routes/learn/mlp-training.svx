@@ -67,7 +67,7 @@ There isn't any way to objectively reason about how low of an error is "low enou
 
 As you are observing how the error changes over multiple fittings, it may be useful to change some of the neural network's parameters between fittings to see if it can achieve a lower error, or change how the error is decreasing. See the [parameter descriptions](/learn/mlp-parameters) below for more information about why and how you might tweak each of them specifically.
 
-Because the parameters [`hidden`](/learn/mlp-parameters#hidden), [`activation`](/learn/mlp-parameters#activation-functions), and [`outputActivation`](/learn/mlp-parameters#activation-functions) change the internal structure of the neural network, the internal state of the neural network is necessarily reset and any training that has been done will be lost. Even so, it is a good idea to play with these parameters because they can have a significant impact on how well and how quickly the neural network is able to learn from your data. All the other parameters can be changed without losing the internal state. 
+Because the parameters [`hiddenLayers`](/learn/mlp-parameters#hiddenlayers), [`activation`](/learn/mlp-parameters#activation-functions), and [`outputActivation`](/learn/mlp-parameters#activation-functions) change the internal structure of the neural network, the internal state of the neural network is necessarily reset and any training that has been done will be lost. Even so, it is a good idea to play with these parameters because they can have a significant impact on how well and how quickly the neural network is able to learn from your data. All the other parameters can be changed without losing the internal state. 
 
 One strategy of training the neural network is to set [`maxIter`](/learn/mlp-parameters#maxiter) rather low (between 10 and 50 maybe) and repeatedly call `fit` on the neural network. In Max or Pure Data, this might be using a [metro] (or [qmetro]). In SuperCollider this could be done by creating a function that recursively calls `fit` unless a flag is set to `false` (see the example code below). While these sequential `fit`s are happening, watch how the error changes over time and adjust some of the MLP parameters _as it is training_ to see how they affect the change and rate of change of the error value. Finding which parameters create a good training (_convergence_ at a low error) is often a process of testing various combinations of parameters to see what works best. All of the parameters are worth experimenting with! And as always, make sure to [test the performance](/learn/training-testing-split) of the neural network _model_ to see if it really does what you hope!
 
@@ -154,7 +154,7 @@ FluidNormalize(s).fitTransform(~dataSet,~dataSet);
 ~mlp.validation_(0.05); // won't reset the neural network
 ~mlp.momentum_(0.95);   // won't reset the neural network
 
-~mlp.hidden_([2]);      // *will* reset the neural network
+~mlp.hiddenLayers_([2]);      // *will* reset the neural network
 ~mlp.activation_(FluidMLPClassifier.tanh); // *will* reset the neural network
 
 // when the loss has decreased and then leveled out, stop the recursive training:
