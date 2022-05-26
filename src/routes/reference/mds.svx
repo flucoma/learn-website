@@ -5,12 +5,131 @@ tags:
     - data
     - dimension reduction
     - dimensionality reduction
-    - mapping
     - statistics
     - preprocessing
 flair: reference
 category: Analyse Data
 ---
 
+<script>
+    import Image from '$lib/components/Image.svelte';
+    import { Tabs, TabList, TabPanel, Tab } from '$lib/components/tabs/tabs';
+    import ResourceLink from '$lib/components/ResourceLink.svelte';
+    import IndentNote from '$lib/components/IndentNote.svelte';
+</script>
 
-https://www.youtube.com/watch?v=GH4QgpK9_Sc
+Multidimensional Scaling transforms a [DataSet](/reference/dataset) to a lower number of dimensions while trying to preserve the distance relationships between the data points, so that even with fewer dimensions, the differences and similarities between points can still be observed and used effectively. 
+
+First, MDS computes a distance matrix by calculating the distance between every pair of points in the dataset. It then positions all the points in the lower number of dimensions (specified by ``numDimensions``) and iteratively shifts them around until the distances between all the points in the lower number of dimensions is as close as possible to the distances in the original dimensional space.
+
+What makes MDS more flexible than the other dimensionality reduction algorithms in FluCoMa ([PCA](/reference/pca) and [UMAP](/reference/umap)) is that MDS allows for different measures of distance to be used when computing the distance matrix (see the list below). This allows you to explore different ways of measuring the distance of the data points (i.e., comparing their similarity or difference) during the during the dimensionality reduction process. Exploring different measures of difference may create different musical relationships between points in the data.
+
+### Comparing Measures of Distance 
+
+Below are plots different two dimensional representations of the same MFCC analyses (originally in 13 dimensions) using all the distance metrics available in MDS.
+
+<Tabs>
+    <TabList>
+        <Tab>Manhattan</Tab>
+        <Tab>Euclidean</Tab>
+        <Tab>Squared Euclidean</Tab>
+        <Tab>Minkowski Max</Tab>
+        <Tab>Minkowski Min</Tab>
+        <Tab>Symmetric Kullback Leibler</Tab>
+        <!-- <Tab>Cosine</Tab> -->
+    </TabList>
+    <TabPanel>
+      <Image
+      src="/ref/mds/0_Manhattan.png"
+      label="MFCC analyses reduced to two dimensions using Manhattan Distance."
+      />
+    </TabPanel>
+
+    <TabPanel>
+      <Image
+      src="/ref/mds/1_Euclidean.png"
+      label="MFCC analyses reduced to two dimensions using Euclidean Distance."
+      />
+    </TabPanel>
+    
+    <TabPanel>
+      <Image
+      src="/ref/mds/2_SquaredEuclidean.png"
+      label="MFCC analyses reduced to two dimensions using Squared Euclidean Distance."
+      />
+    </TabPanel>
+    
+    <TabPanel>
+      <Image
+      src="/ref/mds/3_MinkowskiMax.png"
+      label="MFCC analyses reduced to two dimensions using Minkowski Max Distance."
+      />
+    </TabPanel>
+    
+    <TabPanel>
+      <Image
+      src="/ref/mds/4_MinkowskiMin.png"
+      label="MFCC analyses reduced to two dimensions using Minkowski Min Distance."
+      />
+    </TabPanel>
+    
+    <TabPanel>
+      <Image
+      src="/ref/mds/5_SymmetricKullbackLeibler.png"
+      label="MFCC analyses reduced to two dimensions using Symmetric Kullback Leibler Distance."
+      />
+    </TabPanel>
+    
+    <!-- <TabPanel>
+      <Image
+      src="/ref/mds/6_Cosine.png"
+      label="MFCC analyses reduced to two dimensions using Cosine Distance."
+      />
+    </TabPanel> -->
+</Tabs>
+
+Just by looking at these plots, there's no real way of knowing which distance measure might be best for a given data set or application, however, using different distance measures will create different lower dimensional representations of data that may have significant musical impacts!
+
+Note that unlike the other dimensionality reduction algorithms, MDS does not have a ``fit`` or ``transform`` method, nor does it have the ability to transform data points in buffers. This is essentially because the algorithm needs to do the fit & transform as one process using just the data provided in the source DataSet and therefore incorporating new data points would require a re-fitting of the model.
+
+## Distance Measures:
+
+* [**Manhattan Distance:**](https://en.wikipedia.org/wiki/Taxicab_geometry) The sum of the absolute value difference between points in each dimension. This is also called the Taxicab Metric.
+* [**Euclidean Distance:**](https://en.wikipedia.org/wiki/Euclidean_distance) Square root of the sum of the squared differences between points in each dimension (Pythagorean Theorem). This metric is the default, as it is the most commonly used.
+* [**Squared Euclidean Distance:**](https://en.wikipedia.org/wiki/Euclidean_distance#Squared_Euclidean_distance) Square the Euclidean Distance between points. This distance measure more strongly penalises larger distances, making them seem more distant, which may reveal more clustered points. 
+* [**Minkowski Max Distance:**](https://en.wikipedia.org/wiki/Chebyshev_distance) The distance between two points is reported as the largest difference between those two points in any one dimension. Also called the Chebyshev Distance or the Chessboard Distance.
+* **Minkowski Min Distance:** The distance between two points is reported as the smallest difference between those two points in any one dimension.
+* [**Symmetric Kullback Leibler Divergence:**](https://en.wikipedia.org/wiki/Kullback%E2%80%93Leibler_divergence#Symmetrised_divergence) The Symmetric Kullback Leibler Divergence computes the distance between two points by finding the relative entropy when comparing each to the other: given point A, how likely is point B, and, given point B, how likely is point A? These differences sum to create the measured distance between two points. Because the first part of this computation uses the logarithm of the values, using the Symmetric Kullback Leibler Divergence only makes sense with non-negative data. 
+<!-- * [**Cosine Distance:**](https://en.wikipedia.org/wiki/Cosine_similarity) Cosine Distance considers each data point a vector in Cartesian space and computes the angle between the two points. It first normalizes these vectors so they both sit on the unit circle and then finds the dot product of the two vectors which returns a calculation of the angle. Therefore this measure does not consider the magnitudes of the vectors when computing distance. -->
+
+## Related Resources
+
+<ResourceLink
+title='Data Mining - Principal Component Analysis (PCA) and Multidimensional Scaling (MDS)'
+url='https://www.youtube.com/watch?v=8QLlz-NvfxA'
+blurb='7 minute YouTube Video explaining PCA and MDS'
+/>
+
+<ResourceLink
+title='Multidimensional Scaling'
+url='https://www.youtube.com/watch?v=GH4QgpK9_Sc'
+blurb='15 minute YouTube video providing some intuition about MDS'
+/>
+
+<ResourceLink
+title='Entropy (for data science) Clearly Explained!!!'
+url='https://www.youtube.com/watch?v=YtebGVx-Fxw'
+blurb='StatQuest YouTube Video about calculating Surprise, Entropy, and the Kullback Leibler Divergence (however not the Symmetrical KL Divergence, but useful nonetheless!)'
+/>
+
+<ResourceLink
+title='Euclidean Distance & Cosine Similarity'
+url='https://www.youtube.com/watch?v=Dd16LVt5ct4'
+blurb='Short YouTube video comparing Euclidean and Cosine Distance.'
+/>
+
+<!-- <ResourceLink
+title='Cosine Similarity'
+url='https://www.youtube.com/watch?v=3VsaLblELP0'
+blurb='Short YouTube video explaining how Cosine Similarity is computed.'
+/> -->
