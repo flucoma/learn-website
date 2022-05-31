@@ -40,7 +40,7 @@ glob('src/routes/*(reference|learn|explore)/*.svx', (err, routes) => {
 		let payload = [];
 		links.forEach(link => {
 			const length = link.split('/').filter(x => x != '').length; // filter out index.svx type situations
-			link = link.split('#')[0]
+			link = link.split('#')[0];
 			if (length > 1 && link !== url) {
 				add(link, backreference);
 				const branch = fs.readFileSync(`src/routes${link}.svx`, 'utf8');
