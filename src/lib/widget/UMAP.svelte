@@ -1,32 +1,30 @@
-<script lang="ts">
+<script>
 	import { UMAP } from 'umap-js';
 	import { onMount } from 'svelte';
 	import { Chart, registerables } from 'chart.js';
-	import type { Vectors } from 'umap-js/dist/umap';
 	import Slider from '$lib/components/Slider.svelte';
 	import Button from '$lib/components/Button.svelte';
 	import * as d3 from 'd3';
 
-	// Chart.js
-	let canvas, chart: Chart, ctx;
+	let canvas, chart, ctx;
 
 	// A timer to simulate the animation
-	let timeout: number; // setInterval() returns an ID which is a number
+	let timeout; // setInterval() returns an ID which is a number
 
-	let stepInterval: number = 5;
-	let smoothing: number = 230;
+	let stepInterval = 5;
+	let smoothing = 230;
 
 	// UMAP params
-	let neighbors: number = 10;
-	let minDist: number = 0.3;
-	let epochs: number = 500;
-	let transform: Vectors;
-
+	let neighbors = 10;
+	let minDist = 0.3;
+	let epochs = 500;
+	
 	// UMAP Data
-	let epoch: number = 0;
-	let numEpochs: number = 0;
-	let originalData: Array<Array<number>> = [];
-	let umap: UMAP;
+	let epoch = 0;
+	let numEpochs = 0;
+	let originalData= [];
+	let transform;
+	let umap;
 
 	const newData = () => {
 		epoch = 0;
@@ -131,7 +129,8 @@
 			datasets: [
 				{
 					data: getPositions(transform),
-					backgroundColor: getColours(originalData)
+					backgroundColor: getColours(originalData),
+					pointRadius: 5
 				}
 			]
 		};
@@ -187,7 +186,6 @@
 	.plot {
 		max-height: 400px;
 		max-width: 100%;
-		border: 1px solid rgb(232, 232, 232);
 	}
 
 	.controls {
