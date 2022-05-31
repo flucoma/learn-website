@@ -20,7 +20,7 @@ When trying to determine how similar or different data points are (for example, 
 
 The most common reason for scaling (probably using [Normalize](/reference/normalize), [Standardize](/reference/standardize), or [RobustScale](/reference/robustscale)) is to transform a DataSet that has dimensions with very different ranges so all the of the dimensions are in a similar range. If dimensions with very different ranges are used to compute the distance between points, the distances computed would be more greatly influenced by the dimensions with greater ranges. If all dimensions should be considered equally when computing distance, it is important all the dimensions have similar ranges.
 
-Many machine learning algorithms base their calculations and results on these distance measures (including [PCA](/reference/pca), [UMAP](/reference/umap), [MDS](/reference/mds), [KMEANS](/reference/kmeans), [KDTree](/reference/kdtree), [Grid](/reference/grid), [KNNRegressor](/reference/knnregressor), and [KNNClassifier](/reference/knnclassifier)). Therefore it's very important to be aware of what the ranges of the data's dimensions are and what affects these ranges could have on the results.
+Many machine learning algorithms base their calculations and results on these distance measures (including [PCA](/reference/pca), [UMAP](/reference/umap), [MDS](/reference/mds), [KMeans](/reference/kmeans), [KDTree](/reference/kdtree), [Grid](/reference/grid), [KNNRegressor](/reference/knnregressor), and [KNNClassifier](/reference/knnclassifier)). Therefore it's very important to be aware of what the ranges of the data's dimensions are and what affects these ranges could have on the results.
 
 For example, we are going to compute the [similarity between sound slices](/learn/2d-corpus-explorer) that are represented by two attributes with very different ranges: spectral centroid in Hz and loudness in dB. The spectral centroids could have a range of about 10,000 Hz (maybe 2,000 Hz to 12,000 Hz), while the loudnesses might have a range of only about 100 dB (-100 dB to 0 dB). If we were to plot these spatially such that 1 Hz = 1 dB we'll see what looks like a flat line: because the ranges are so different (two orders of magnitude), we're really only able to see the differences in one of the dimensions.
 
@@ -62,6 +62,8 @@ Using a scaler (such as [Normalize](/reference/normalize), [Standardize](/refere
 src="/learn/comparing-scalers/normalized_distance.png"
 label="Finding the distance between two points using the Pythagorean Theorem where the two dimensions have been normalized between 0 and 1."
 />
+
+## Linear vs Logarithmic Scales
 
 For more information about scaling, see the reference of the respective scalers ([Normalize](/reference/normalize), [Standardize](/reference/standardize), and [RobustScale](/reference/robustscale)) as well as the page [Comparing Scalers](/learn/comparing-scalers).
 
