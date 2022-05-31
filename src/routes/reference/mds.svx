@@ -16,7 +16,9 @@ category: Analyse Data
     import { Tabs, TabList, TabPanel, Tab } from '$lib/components/tabs/tabs';
     import ResourceLink from '$lib/components/ResourceLink.svelte';
     import IndentNote from '$lib/components/IndentNote.svelte';
+    import MDS from '$lib/widget/MDS.svelte';
 </script>
+
 
 Multidimensional Scaling transforms a [DataSet](/reference/dataset) to a lower number of dimensions while trying to preserve the distance relationships between the data points, so that even with fewer dimensions, the differences and similarities between points can still be observed and used effectively. 
 
@@ -30,65 +32,7 @@ What makes MDS more flexible than the other dimensionality reduction algorithms 
 
 Below are plots different two dimensional representations of the same MFCC analyses (originally in 13 dimensions) using all the distance metrics available in MDS.
 
-<Tabs>
-    <TabList>
-        <Tab>Manhattan</Tab>
-        <Tab>Euclidean</Tab>
-        <Tab>Squared Euclidean</Tab>
-        <Tab>Minkowski Max</Tab>
-        <Tab>Minkowski Min</Tab>
-        <Tab>Symmetric Kullback Leibler</Tab>
-        <!-- <Tab>Cosine</Tab> -->
-    </TabList>
-    <TabPanel>
-      <Image
-      src="/ref/mds/0_Manhattan.png"
-      label="MFCC analyses reduced to two dimensions using Manhattan Distance."
-      />
-    </TabPanel>
-
-    <TabPanel>
-      <Image
-      src="/ref/mds/1_Euclidean.png"
-      label="MFCC analyses reduced to two dimensions using Euclidean Distance."
-      />
-    </TabPanel>
-    
-    <TabPanel>
-      <Image
-      src="/ref/mds/2_SquaredEuclidean.png"
-      label="MFCC analyses reduced to two dimensions using Squared Euclidean Distance."
-      />
-    </TabPanel>
-    
-    <TabPanel>
-      <Image
-      src="/ref/mds/3_MinkowskiMax.png"
-      label="MFCC analyses reduced to two dimensions using Minkowski Max Distance."
-      />
-    </TabPanel>
-    
-    <TabPanel>
-      <Image
-      src="/ref/mds/4_MinkowskiMin.png"
-      label="MFCC analyses reduced to two dimensions using Minkowski Min Distance."
-      />
-    </TabPanel>
-    
-    <TabPanel>
-      <Image
-      src="/ref/mds/5_SymmetricKullbackLeibler.png"
-      label="MFCC analyses reduced to two dimensions using Symmetric Kullback Leibler Distance."
-      />
-    </TabPanel>
-    
-    <!-- <TabPanel>
-      <Image
-      src="/ref/mds/6_Cosine.png"
-      label="MFCC analyses reduced to two dimensions using Cosine Distance."
-      />
-    </TabPanel> -->
-</Tabs>
+<MDS />
 
 Just by looking at these plots, there's no real way of knowing which distance measure might be best for a given data set or application, however, using different distance measures will create different lower dimensional representations of data that may have significant musical impacts!
 
