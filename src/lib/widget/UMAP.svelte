@@ -18,11 +18,11 @@
 	let neighbors = 10;
 	let minDist = 0.3;
 	let epochs = 500;
-	
+
 	// UMAP Data
 	let epoch = 0;
 	let numEpochs = 0;
-	let originalData= [];
+	let originalData = [];
 	let transform;
 	let umap;
 

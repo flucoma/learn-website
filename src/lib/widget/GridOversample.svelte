@@ -16,7 +16,7 @@
 
 	const btnWidth = '180px';
 
-	const raw = Object.values(gaussian4.data)
+	const raw = Object.values(gaussian4.data);
 	const colours = raw.map(x => d3.interpolateSinebow(x[0] * x[1]));
 
 	onMount(async () => {
