@@ -12,11 +12,18 @@ featuredimage: /learn/comparing-scalers/city_distance.png
 
 <script>
     import Image from '$lib/components/Image.svelte';
+    import IndentNote from '$lib/components/IndentNote.svelte';
     import { Tabs, TabList, TabPanel, Tab } from '$lib/components/tabs/tabs';
     import ResourceLink from '$lib/components/ResourceLink.svelte';
 </script>
 
 When trying to determine how similar or different data points are (for example, two [MFCC](/reference/mfcc) analyses with 13 values each) we often measure the "distance" between the points in their multidimensional space as a consideration of their "similarity" (in this case, "multidimensional" means the 13 MFCC dimensions). Points that are closer in multidimensional space are regarded as being more similar while points farther away are assumed to be more different. These distances are often computed as the _euclidean distance_ between two points, however other [measures of distance](https://www.analyticsvidhya.com/blog/2020/02/4-types-of-distance-metrics-in-machine-learning/) also exist.
+
+<IndentNote type='pointer'>
+
+For more information about scaling, see the reference of the respective scalers ([Normalize](/reference/normalize), [Standardize](/reference/standardize), and [RobustScale](/reference/robustscale)) as well as the page [Comparing Scalers](/learn/comparing-scalers).
+
+</IndentNote>
 
 The most common reason for scaling (probably using [Normalize](/reference/normalize), [Standardize](/reference/standardize), or [RobustScale](/reference/robustscale)) is to transform a DataSet that has dimensions with very different ranges so all the of the dimensions are in a similar range. If dimensions with very different ranges are used to compute the distance between points, the distances computed would be more greatly influenced by the dimensions with greater ranges. If all dimensions should be considered equally when computing distance, it is important all the dimensions have similar ranges.
 
@@ -65,7 +72,9 @@ label="Finding the distance between two points using the Pythagorean Theorem whe
 
 ## Linear vs Logarithmic Scales
 
-For more information about scaling, see the reference of the respective scalers ([Normalize](/reference/normalize), [Standardize](/reference/standardize), and [RobustScale](/reference/robustscale)) as well as the page [Comparing Scalers](/learn/comparing-scalers).
+Some audio analyses, namely pitch/frequency and amplitude/loudness, are commonly portrayed on a _logarithmic_ scale instead of a linear one. Because logarithms distort ranges and scales (often in a useful way!), choosing one or the other will affect the distances calculated between points. It's important to know which scale is being provided by an analysis and how it might affect your data. See the `unit` parameter in [Pitch](/reference/pitch) and [SpectralShape](/reference/spectralshape) for control over linear and logarithmic scaling.
+
+For example, frequency analyses might be provided in hertz (which is on a linear scale), however this doesn't reflect how humans actually perceive pitch distance. For a more perceptually relevant scale it is displayed logarithmically in pitch space (perhaps labeled as MIDI notes or semitones). If measuring in hertz, the distance from the A4 down one octave to A3 is 220 hertz, while the distance from A4 up one octave to A5 is 440 hertz--twice as far even though we perceive them to both be one octave! Measuring these distances in semitones however will reflect they way we perceive them: both a distance of 12.
 
 ## Related Resources
 
