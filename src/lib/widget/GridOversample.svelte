@@ -16,7 +16,7 @@
 
 	const btnWidth = '180px';
 
-	const raw = Object.values(gaussian4.data).map(x => x);
+	const raw = Object.values(gaussian4.data);
 	const colours = raw.map(x => d3.interpolateSinebow(x[0] * x[1]));
 
 	onMount(async () => {
@@ -28,7 +28,7 @@
 				{
 					data: raw,
 					backgroundColor: colours,
-					pointRadius: 6
+					pointRadius: 5
 				}
 			]
 		};
@@ -118,8 +118,6 @@
 	#scatter-plot {
 		max-height: 400px;
 		max-width: 100%;
-		border: 1px solid rgb(232, 232, 232);
-		border-radius: 0.25em;
 	}
 
 	#controls {

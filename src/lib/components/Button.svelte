@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { createEventDispatcher } from 'svelte';
 	export let label: string = 'button';
 	export let width: string = '100px';
 	export let height: string = '38px';
