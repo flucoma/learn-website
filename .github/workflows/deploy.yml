@@ -1,42 +1,42 @@
 name: deploy
 
 on:
-  push:
-    branches: [main]
+    push:
+        branches: [main]
 
-  workflow_dispatch:
+    workflow_dispatch:
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
+    build:
+        runs-on: ubuntu-latest
 
-    steps:
-      - uses: actions/checkout@v2
-        with:
-          fetch-depth: '0'
+        steps:
+            - uses: actions/checkout@v2
+              with:
+                  fetch-depth: '0'
 
-      - name: Setup SSH
-        uses: shimataro/ssh-key-action@v2
-        with:
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
-          known_hosts: 'placeholder'
+            - name: Setup SSH
+              uses: shimataro/ssh-key-action@v2
+              with:
+                  key: ${{ secrets.SSH_PRIVATE_KEY }}
+                  known_hosts: 'placeholder'
 
-      - name: Adding Known Hosts
-        run: |
-          mkdir -p ~/.ssh
-          ssh-keyscan -H ${{ secrets.DO_IP }} >> ~/.ssh/known_hosts
+            - name: Adding Known Hosts
+              run: |
+                  mkdir -p ~/.ssh
+                  ssh-keyscan -H ${{ secrets.DO_IP }} >> ~/.ssh/known_hosts
 
-      - name: Build Site
-        run: |
-          npm i
-          npm run build
+            - name: Build Site
+              run: |
+                  npm i
+                  npm run build
 
-      - name: Merge MFCC Widget
-        run: |
-          git clone https://github.com/flucoma/MFCC-interactive-widget.git mfccwidget
-          mkdir -p ./build/reference/mfcc/explain
-          cp -r mfccwidget/p5/* build/reference/mfcc/explain/
+            - name: Merge MFCC Widget
+              run: |
+                  git clone https://github.com/flucoma/MFCC-interactive-widget.git mfccwidget
+                  mkdir -p ./build/reference/mfcc/explain
+                  cp -r mfccwidget/p5/* build/reference/mfcc/explain/
 
-      - name: Upload To Droplet
-        run: |
-          rsync -avz --delete --no-times --no-o --no-g --no-perms ./build/ james@${{ secrets.DO_IP }}:/home/learn/www/
+            - name: Upload To Droplet
+              run: |
+                  rsync -avz --delete --no-times --no-o --no-g --no-perms ./build/ james@${{ secrets.DO_IP }}:/home/learn/www/

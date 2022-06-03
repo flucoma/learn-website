@@ -5,7 +5,7 @@
 	function copyCode() {
 		if (browser) {
 			let code = block.querySelectorAll('pre > code');
-			code.forEach((c) => {
+			code.forEach(c => {
 				navigator.clipboard.writeText(c.innerText);
 			});
 		}

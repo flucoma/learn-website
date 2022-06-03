@@ -2,7 +2,9 @@
 	import { createEventDispatcher } from 'svelte';
 	const dispatch = createEventDispatcher();
 
-	function doStuff() { dispatch('click') };
+	function doStuff() {
+		dispatch('click');
+	}
 </script>
 
 <button aria-label="expand/contract navigation" on:click={doStuff} class="btn">

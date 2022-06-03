@@ -1,7 +1,7 @@
 import { exec, execSync } from 'child_process';
 import { urlFromRoute } from './util.js';
 
-const parseGitLog = (logString) => {
+const parseGitLog = logString => {
 	let outputSplit = logString.split('\n');
 	let commitData = outputSplit[0];
 	let authorData = outputSplit[1];
@@ -13,13 +13,13 @@ const parseGitLog = (logString) => {
 	return [lastCommit, lastAuthor, lastEdited];
 };
 
-const extractGit = (routes) => {
+const extractGit = routes => {
 	let container = {};
-	routes.forEach((route) => {
+	routes.forEach(route => {
 		let info = {};
 		let cmd = `git log -1 ${route}`;
 		const out = execSync(cmd, { encoding: 'utf8' });
-		
+
 		if (out.length > 0) {
 			const [commit, author, time] = parseGitLog(out);
 			info = {
@@ -34,7 +34,7 @@ const extractGit = (routes) => {
 				author: 'No git data',
 				time: 'No git data',
 				url: 'No git data'
-			}
+			};
 		}
 
 		const key = urlFromRoute(route);

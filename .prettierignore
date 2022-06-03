@@ -1,0 +1,22 @@
+.git
+.gitignore
+static
+mfccwidget
+*.maxpat
+*.scd
+*.json
+.svelte-kit
+build
+
+.DS_Store
+node_modules
+.svelte-kit
+packge
+static
+build
+
+# Lock Files
+pnpm-lock.yaml
+package-lock.json
+.pnpm-debug.log
+scripts/__pycache__

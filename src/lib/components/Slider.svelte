@@ -10,12 +10,12 @@
 	const dispatch = createEventDispatcher();
 
 	const changeHandler = () => {
-		dispatch('change')
-	}
+		dispatch('change');
+	};
 
 	const inputHandler = () => {
-		dispatch('input')
-	}
+		dispatch('input');
+	};
 </script>
 
 <div class="container">

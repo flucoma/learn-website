@@ -13,12 +13,12 @@
 <nav class="container">
 	<div>
 		{#if headings.length > 0}
-		<h3 class="toc">Table of Contents</h3>
-		<div class="headings">
-			{#each headings as h}
-			<a href={h.url}>{h.text}</a>
-			{/each}
-		</div>
+			<h3 class="toc">Table of Contents</h3>
+			<div class="headings">
+				{#each headings as h}
+					<a href={h.url}>{h.text}</a>
+				{/each}
+			</div>
 		{/if}
 	</div>
 </nav>

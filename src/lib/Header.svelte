@@ -4,7 +4,9 @@
 	import PopoverNav from '$lib/components/PopoverNav.svelte';
 	import { nav_expanded } from '$lib/app';
 
-	const expandHandler = () => { $nav_expanded = !$nav_expanded };
+	const expandHandler = () => {
+		$nav_expanded = !$nav_expanded;
+	};
 </script>
 
 <header>
@@ -13,9 +15,7 @@
 		<a class="logo-link" href="/">
 			<img class="logo" src="/img/onlylogo.svg" alt="FluCoMa Logo" />
 		</a>
-		<a class='title' href='/'>
-			FluCoMa Learn
-		</a>
+		<a class="title" href="/"> FluCoMa Learn </a>
 	</div>
 	<Search />
 </header>
@@ -51,7 +51,6 @@
 	}
 
 	.central-area > a {
-		
 	}
 
 	.logo {

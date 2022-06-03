@@ -17,6 +17,7 @@ tags:
 flair: event
 crumb: Liminal Spaces
 featuredimage: /general/gig_spotlight.jpeg
+author: Jacob
 ---
 
 <script>

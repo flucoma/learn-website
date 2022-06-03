@@ -30,7 +30,7 @@ html {
 	font-family: var(--font);
 	font-size: 16px;
 	-ms-text-size-adjust: 100%;
-    -webkit-text-size-adjust: 100%;
+	-webkit-text-size-adjust: 100%;
 }
 
 body {
@@ -40,12 +40,20 @@ body {
 	-moz-osx-font-smoothing: grayscale;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
 	font-family: var(--font);
-	margin: 0.6em 0; 
+	margin: 0.6em 0;
 }
 
-p, ul, ol, blockquote {
+p,
+ul,
+ol,
+blockquote {
 	margin-top: 0;
 	margin-bottom: 1em;
 	margin-left: 0;
@@ -59,15 +67,31 @@ li {
 	margin-right: 0;
 }
 
-h1 {font-size: 2.625em; line-height: 1.2}
+h1 {
+	font-size: 2.625em;
+	line-height: 1.2;
+}
 
-h2 {font-size: 1.625em; line-height: 1.2}
+h2 {
+	font-size: 1.625em;
+	line-height: 1.2;
+}
 
-h3 {font-size: 1.3125em; line-height: 1.24}
+h3 {
+	font-size: 1.3125em;
+	line-height: 1.24;
+}
 
-h4 {font-size: 1.1875em; line-height: 1.23}
+h4 {
+	font-size: 1.1875em;
+	line-height: 1.23;
+}
 
-h5,h6 {font-size: 1em; font-weight:bold}
+h5,
+h6 {
+	font-size: 1em;
+	font-weight: bold;
+}
 
 a {
 	color: var(--med-blue);
