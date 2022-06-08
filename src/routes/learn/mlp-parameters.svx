@@ -20,7 +20,7 @@ flair: article
     import Image from '$lib/components/Image.svelte';
 </script>
 
-This article provides guidance on using the parameters of the neural networks found in the FluCoMa toolkit. FluCoMa contains two neural network objects, the [MLPClassifier](/reference/mlpclassifier) and [MLPRegressor](/reference/mlpregressor). "MLP" stand for multi-layer perceptron, which is a type of neural network (more info [below](/#feed-forward)). "Classifier" and "Regressor" refer to the task that each MLP can be trained to do. For a deeper understanding of how the MLP training process works, visit [MLP Training](/learn/mlp-training).
+This article provides guidance on using the parameters of the neural networks found in the FluCoMa toolkit. FluCoMa contains two neural network objects, the [MLPClassifier](/reference/mlpclassifier) and [MLPRegressor](/reference/mlpregressor). "MLP" stand for multi-layer perceptron, which is a type of neural network. "Classifier" and "Regressor" refer to the task that each MLP can be trained to do. For a deeper understanding of how the MLP training process works, visit [MLP Training](/learn/mlp-training).
 
 # Parameters
 
@@ -70,7 +70,7 @@ When choosing an activation function it is important to consider the output rang
 
 ## `learnRate`
 
-The `learnRate` is a scalar for indicating how much the neural network should adjust its internal parameters during training. This is the most important parameter to adjust while training a neural network. Without context, it's difficult to reason about what actual value is most appropriate, however, it can be useful to begin at a relatively high value, such as 0.1, to try to quickly get the neural network in the general area of a solution. Then after a few fittings, decrease the learning rate to a smaller value, maybe 0.01, to slow down the adjustments and let the neural network hone in on a solution. Going as low as 0.0001 is not rare.
+The `learnRate` is a scalar for indicating how much the neural network should adjust its internal parameters during training. This is the most important parameter to adjust while training a neural network. Without context, it's difficult to reason about what actual value is most appropriate, however, it can be useful to begin at a relatively high value, such as 0.1, to try to quickly get the neural network in the general area of a solution. Then after a few fittings, decrease the learning rate to a smaller value, maybe 0.01, to slow down the adjustments and let the neural network hone in on a solution. Going as low as 0.0001 is not rare. If the learning rate is too high, you might see the error value "bouncing" around--it will alternate increasing and decreasing a bit, but not making any progress downward. This would be a good moment to decrease the learning rate.
 
 ## `maxIter` 
 
@@ -88,7 +88,7 @@ A validation set is similar to a [testing set](/learn/training-testing-split) be
 
 ## `batchSize` 
 
-The number of data points to use in between adjustments of the MLP's internal parameters during training. For example, if `batchProcessing` is set to 5, the neural network will [feedforward](/#feedforward) 5 input points and determine how wrong each of the 5 output guesses is (their error) compared to the points' desired output pairing. Then it will combine the error of these five points and use that adjust its internal parameters (using [backpropagation](https://en.wikipedia.org/wiki/Backpropagation)) so that it can hope to make better guesses the next time it sees any one of these 5 input points. 
+The number of data points to use in between adjustments of the MLP's internal parameters during training. For example, if `batchSize` is set to 5, the neural network will [feedforward](/#feedforward) 5 input points and determine how wrong each of the 5 output guesses is (their error) compared to the points' desired output pairing. Then it will combine the error of these five points and use that adjust its internal parameters (using [backpropagation](https://en.wikipedia.org/wiki/Backpropagation)) so that it can hope to make better guesses the next time it sees any one of these 5 input points. 
 
 Higher values will:
 

@@ -25,4 +25,4 @@ For more information on using this object, visit [MLP Training](/learn/mlp-train
 
 </IndentNote>
 
-By providing input and output data as [DataSets](/reference/dataset), the neural network is trained using _supervised learning_ to predict output data points based on input data points. See this [YouTube tutorial](https://youtu.be/3XSy297v9vk) that uses the MLPRegressor to control a synthesiser with 10 control parameters (as the output) using only 2 control parameters of an XY pad (as the input).
+By providing input and output data as [DataSets](/reference/dataset), the neural network is trained using _supervised learning_ to predict output data points based on input data points. See this [YouTube tutorial](/learn/regression-neural-network) that uses the MLPRegressor to control a synthesiser with 10 control parameters (as the output) using only 2 control parameters of an XY pad (as the input).
