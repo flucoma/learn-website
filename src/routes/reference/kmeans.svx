@@ -27,20 +27,10 @@ In the widget below you can select from several different datasets. If you're on
 
 2. Inertia is not a normalised metric and exists on a scale of 0 to infinity. The only assumption we can make is that lower inertia values are better and 0 is ideal. In high-dimensional spaces, the [curse of dimensionality]() comes into play and the Euclidian distance values can become inflated, thus effecting the value of the inertia. If you are dealing with a high number of dimensions and [KMeans](/reference/kmeans) is not producing a useful clustering, then preprocessing the data with a dimension reduction algorithm such as [UMAP](/reference/umap), [MDS](/reference/mds) or [PCA](/reference/pca) can be valuable.
 
-## Spherical KMeans
-
-The FluCoMa toolset also provides another metric to compute distance to cluster. Instead of taking the Euclidian distance to each center of each cluster like [KMeans](/reference/kmeans) does, SKMeans takes the angular distance of the normalised vector in high dimension. This is also named cosine similarity. More information can be found [in this article](https://machinelearningcatalogue.com/algorithm/alg_spherical-k-means.html).
-
 ## Related Resources
 
 <ResourceLink
 title='SciKit Learn Reference on KMeans'
 url='https://scikit-learn.org/stable/modules/clustering.html#k-means'
 blurb='A good explanation of the general algorithm.'
-/>
-
-<ResourceLink
-title='Classic vs Spherical KMeans'
-url='https://stats.stackexchange.com/questions/63558/difference-between-standard-and-spherical-k-means-algorithms'
-blurb='A quite thorough explanation of the difference between "classic" and spherical KMeans '
 />
