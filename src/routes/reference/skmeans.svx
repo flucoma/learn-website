@@ -1,0 +1,42 @@
+---
+title: SKMeans
+blurb: Learn features from data
+tags: 
+    - data
+    - querying
+    - clustering
+    - semi-supervised
+    - unsupervised
+    - feature learning
+flair: reference
+category: Analyse Data
+---
+
+[SKMeans](/reference/skmeans) is an object that facilitates learning _features_ from data. It is very similar to [KMeans](/reference/kmeans) but with 2 distinctions. 
+
+1. Instead of taking the Euclidian distance to each center of each cluster like [KMeans](/reference/kmeans) does, SKMeans takes the angular distance of the normalised vector in high dimension. This is also named cosine similarity.
+
+2. Once the cluster are found, the distance are encoded with an 'alpha' function, in effect promoting a sparser representations where smaller similarities are penalised.
+
+In effect, SKMeans is mostly used to learn features in a higher dimension space than the original data, with the assumption that it would help untangle near clusters.
+
+## Related Resources
+
+<ResourceLink
+title='Spherical KMeans @Machine Learning Catalogue'
+url='https://machinelearningcatalogue.com/algorithm/alg_spherical-k-means.html'
+blurb='A terse definition of the algorithm.'
+/>
+
+<ResourceLink
+title='Classic vs Spherical KMeans'
+url='https://stats.stackexchange.com/questions/63558/difference-between-standard-and-spherical-k-means-algorithms'
+blurb='A quite thorough explanation of the difference between "classic" and spherical KMeans.'
+/>
+
+<ResourceLink
+title='Coates and Ng - Learning Feature Representations with K-means'
+url='https://www-cs.stanford.edu/~acoates/papers/coatesng_nntot2012.pdf'
+blurb='The original paper describing the implementation of encoded activations in feature learning.'
+/>
+

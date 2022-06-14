@@ -29,13 +29,6 @@ Both the MLPClassifier and MLPRegressor are supervised learning algorithms meani
 
 Supervised learning is contrasted with unsupervised learning which tries to find patterns in data that is not labeled or paired with other data. FluCoMa also has unsupervised learning algorithms such as [PCA](/reference/pca), [KMeans](/reference/kmeans), [MDS](/reference/mds), [UMAP](/reference/umap), and [Grid](/reference/grid).
 
-## Comparing MLP and KNN
-
-FluCoMa has another pair of objects that do classification and regression with supervised learning: the [KNNClassifier](/reference/knnclassifier) and [KNNRegressor](/reference/knnregressor). The KNN objects work quite differently from the MLP objects, each having their strengths and weaknesses. You can learn more about how KNNs work at their respective reference pages. The main differences to know are that: 
-1. the flexibility of the MLP objects make them generally more capable of learning complex relationships between inputs and outputs, 
-2. the MLP objects involve more parameters and will take much longer to `fit` (aka. train) than the KNN objects, and 
-3. the KNN objects will likely take longer to make predictions than the MLP objects, depending on the size of the dataset (although they're still quite quick!).
-
 ## The Training Process
 
 ### Feed-forward
@@ -216,6 +209,13 @@ ae3WO7u.wV.18
 </CodeBlock>
     </TabPanel>
 </Tabs>
+
+## Comparing MLP and KNN
+
+FluCoMa has another pair of objects that do classification and regression with supervised learning: the [KNNClassifier](/reference/knnclassifier) and [KNNRegressor](/reference/knnregressor). The KNN objects work quite differently from the MLP objects, each having their strengths and weaknesses. You can learn more about how KNNs work at their respective reference pages. The main differences to know are that: 
+1. the flexibility of the MLP objects make them generally more capable of learning complex relationships between inputs and outputs, 
+2. the MLP objects involve more parameters and will take much longer to `fit` (aka. train) than the KNN objects, and 
+3. the KNN objects will likely take longer to make predictions than the MLP objects, depending on the size of the dataset (although they're still quite quick!).
 
 # Related Resources
 

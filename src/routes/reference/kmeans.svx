@@ -27,3 +27,10 @@ In the widget below you can select from several different datasets. If you're on
 
 2. Inertia is not a normalised metric and exists on a scale of 0 to infinity. The only assumption we can make is that lower inertia values are better and 0 is ideal. In high-dimensional spaces, the [curse of dimensionality]() comes into play and the Euclidian distance values can become inflated, thus effecting the value of the inertia. If you are dealing with a high number of dimensions and [KMeans](/reference/kmeans) is not producing a useful clustering, then preprocessing the data with a dimension reduction algorithm such as [UMAP](/reference/umap), [MDS](/reference/mds) or [PCA](/reference/pca) can be valuable.
 
+## Related Resources
+
+<ResourceLink
+title='SciKit Learn Reference on KMeans'
+url='https://scikit-learn.org/stable/modules/clustering.html#k-means'
+blurb='A good explanation of the general algorithm.'
+/>

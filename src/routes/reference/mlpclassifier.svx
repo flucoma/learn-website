@@ -25,4 +25,4 @@ For more information on using this object, visit [MLP Training](/learn/mlp-train
 
 </IndentNote>
 
-By providing input data as a [DataSet](/reference/dataset) and output labels as a [LabelSet](/reference/labelset), the neural network is trained using _supervised learning_ so that it can predict the most probable label for a given data point input. See this YouTube tutorial for [Max](https://youtu.be/_QGQE-1RX-o) and [SuperCollider](https://www.youtube.com/watch?v=Y1cHmtbQPSk) where we train the MLPClassifier to classify oboe and trombone sounds in real-time.
+By providing input data as a [DataSet](/reference/dataset) and output labels as a [LabelSet](/reference/labelset), the neural network is trained using _supervised learning_ so that it can predict the most probable label for a given data point input. See this [YouTube tutorial](/learn/classification-neural-network) where we train the MLPClassifier to classify oboe and trombone sounds in real-time.
