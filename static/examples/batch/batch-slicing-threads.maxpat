@@ -3,14 +3,14 @@
 		"fileversion" : 1,
 		"appversion" : 		{
 			"major" : 8,
-			"minor" : 2,
+			"minor" : 3,
 			"revision" : 0,
 			"architecture" : "x64",
 			"modernui" : 1
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 35.0, 88.0, 1290.0, 802.0 ],
+		"rect" : [ 35.0, 88.0, 1370.0, 777.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 12.0,
@@ -40,6 +40,42 @@
 		"assistshowspatchername" : 0,
 		"boxes" : [ 			{
 				"box" : 				{
+					"id" : "obj-15",
+					"maxclass" : "newobj",
+					"numinlets" : 2,
+					"numoutlets" : 2,
+					"outlettype" : [ "", "" ],
+					"patching_rect" : [ 681.0, 593.0, 69.0, 22.0 ],
+					"text" : "route dump"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-13",
+					"maxclass" : "button",
+					"numinlets" : 1,
+					"numoutlets" : 1,
+					"outlettype" : [ "bang" ],
+					"parameter_enable" : 0,
+					"patching_rect" : [ 593.0, 430.0, 24.0, 24.0 ]
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-4",
+					"maxclass" : "button",
+					"numinlets" : 1,
+					"numoutlets" : 1,
+					"outlettype" : [ "bang" ],
+					"parameter_enable" : 0,
+					"patching_rect" : [ 23.0, 153.0, 24.0, 24.0 ]
+				}
+
+			}
+, 			{
+				"box" : 				{
 					"id" : "obj-2",
 					"linecount" : 2,
 					"maxclass" : "comment",
@@ -56,12 +92,12 @@
 					"maxclass" : "newobj",
 					"numinlets" : 1,
 					"numoutlets" : 1,
-					"outlettype" : [ "list" ],
+					"outlettype" : [ "buffer" ],
 					"patcher" : 					{
 						"fileversion" : 1,
 						"appversion" : 						{
 							"major" : 8,
-							"minor" : 2,
+							"minor" : 3,
 							"revision" : 0,
 							"architecture" : "x64",
 							"modernui" : 1
@@ -126,7 +162,7 @@
 									"maxclass" : "newobj",
 									"numinlets" : 1,
 									"numoutlets" : 1,
-									"outlettype" : [ "list" ],
+									"outlettype" : [ "buffer" ],
 									"patching_rect" : [ 18.0, 341.0, 179.0, 22.0 ],
 									"text" : "fluid.list2buf @destination slices"
 								}
@@ -324,30 +360,6 @@
 			}
 , 			{
 				"box" : 				{
-					"id" : "obj-103",
-					"maxclass" : "comment",
-					"numinlets" : 1,
-					"numoutlets" : 0,
-					"patching_rect" : [ 311.0, 173.0, 121.0, 20.0 ],
-					"text" : "Progress of the slicer"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"format" : 6,
-					"id" : "obj-101",
-					"maxclass" : "flonum",
-					"numinlets" : 1,
-					"numoutlets" : 2,
-					"outlettype" : [ "", "bang" ],
-					"parameter_enable" : 0,
-					"patching_rect" : [ 259.0, 173.0, 50.0, 22.0 ]
-				}
-
-			}
-, 			{
-				"box" : 				{
 					"bgcolor" : [ 1.0, 0.788235, 0.470588, 1.0 ],
 					"fontname" : "Arial Bold",
 					"hint" : "",
@@ -419,7 +431,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 680.5, 607.0, 54.0, 22.0 ],
+					"patching_rect" : [ 593.0, 633.0, 54.0, 22.0 ],
 					"text" : "deferlow"
 				}
 
@@ -430,12 +442,12 @@
 					"maxclass" : "newobj",
 					"numinlets" : 1,
 					"numoutlets" : 1,
-					"outlettype" : [ "bang" ],
+					"outlettype" : [ "" ],
 					"patcher" : 					{
 						"fileversion" : 1,
 						"appversion" : 						{
 							"major" : 8,
-							"minor" : 2,
+							"minor" : 3,
 							"revision" : 0,
 							"architecture" : "x64",
 							"modernui" : 1
@@ -503,8 +515,8 @@
 									"id" : "obj-1",
 									"maxclass" : "newobj",
 									"numinlets" : 1,
-									"numoutlets" : 3,
-									"outlettype" : [ "bang", "float", "" ],
+									"numoutlets" : 2,
+									"outlettype" : [ "", "" ],
 									"patching_rect" : [ 13.0, 108.0, 504.0, 22.0 ],
 									"text" : "fluid.bufselect~ @source slice.analysis @destination slice.centroid @channels 0 @blocking 0"
 								}
@@ -529,8 +541,8 @@
 									"id" : "obj-13",
 									"maxclass" : "newobj",
 									"numinlets" : 1,
-									"numoutlets" : 3,
-									"outlettype" : [ "bang", "float", "" ],
+									"numoutlets" : 2,
+									"outlettype" : [ "", "" ],
 									"patching_rect" : [ 13.0, 208.0, 463.0, 22.0 ],
 									"text" : "fluid.bufselect~ @source slice.stats @destination slice.mean @indices 0 @blocking 0"
 								}
@@ -554,9 +566,9 @@
 									"color" : [ 0.254901960784314, 0.905882352941176, 0.450980392156863, 1.0 ],
 									"id" : "obj-58",
 									"maxclass" : "newobj",
-									"numinlets" : 1,
-									"numoutlets" : 3,
-									"outlettype" : [ "bang", "float", "" ],
+									"numinlets" : 2,
+									"numoutlets" : 2,
+									"outlettype" : [ "", "" ],
 									"patching_rect" : [ 13.0, 158.0, 455.0, 22.0 ],
 									"text" : "fluid.bufstats~ @source slice.centroid @stats slice.stats @numchans 1 @blocking 0"
 								}
@@ -581,8 +593,8 @@
 									"id" : "obj-23",
 									"maxclass" : "newobj",
 									"numinlets" : 1,
-									"numoutlets" : 3,
-									"outlettype" : [ "bang", "float", "" ],
+									"numoutlets" : 2,
+									"outlettype" : [ "", "" ],
 									"patching_rect" : [ 13.0, 57.0, 417.0, 22.0 ],
 									"text" : "fluid.bufspectralshape~ @source drum @features slice.analysis @blocking 0"
 								}
@@ -727,7 +739,7 @@
 						"fileversion" : 1,
 						"appversion" : 						{
 							"major" : 8,
-							"minor" : 2,
+							"minor" : 3,
 							"revision" : 0,
 							"architecture" : "x64",
 							"modernui" : 1
@@ -1317,7 +1329,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 770.0, 497.0, 470.0, 60.0 ],
+					"patching_rect" : [ 770.5, 510.0, 470.0, 60.0 ],
 					"text" : "Add the data in the buffer~ named slice.mean to the dataset and associate to the identifer produced by counter. Because the segments are analysed in order and the counter increments by 1, the identifier is then an indiciation of which segment number was analysed. Each time, dump the contents of the fluid.dataset~."
 				}
 
@@ -1328,7 +1340,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 662.5, 457.0, 591.0, 20.0 ],
+					"patching_rect" : [ 663.0, 470.0, 591.0, 20.0 ],
 					"text" : "Everytime analysis completes the counter is incremented and used as the identifier for the addpoint message."
 				}
 
@@ -1337,11 +1349,11 @@
 				"box" : 				{
 					"id" : "obj-53",
 					"maxclass" : "newobj",
-					"numinlets" : 3,
-					"numoutlets" : 3,
-					"outlettype" : [ "", "", "" ],
-					"patching_rect" : [ 680.5, 567.0, 169.5, 22.0 ],
-					"text" : "route addpoint dump"
+					"numinlets" : 2,
+					"numoutlets" : 2,
+					"outlettype" : [ "", "" ],
+					"patching_rect" : [ 593.0, 593.0, 85.0, 22.0 ],
+					"text" : "route addpoint"
 				}
 
 			}
@@ -1428,7 +1440,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 9,
 					"outlettype" : [ "float", "list", "float", "float", "float", "float", "float", "", "int" ],
-					"patching_rect" : [ 22.5, 173.0, 103.0, 22.0 ],
+					"patching_rect" : [ 23.0, 190.0, 103.0, 22.0 ],
 					"text" : "info~ drum"
 				}
 
@@ -1464,7 +1476,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 22.5, 223.0, 170.0, 22.0 ],
+					"patching_rect" : [ 23.0, 229.0, 170.0, 22.0 ],
 					"text" : "buffer drum, markers slices $1"
 				}
 
@@ -1474,7 +1486,7 @@
 					"filename" : "fluid.waveform~",
 					"id" : "obj-11",
 					"maxclass" : "jsui",
-					"numinlets" : 3,
+					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"parameter_enable" : 0,
@@ -1488,7 +1500,7 @@
 					"maxclass" : "dict.view",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 755.75, 607.0, 154.25, 170.0 ]
+					"patching_rect" : [ 681.0, 633.0, 169.5, 100.0 ]
 				}
 
 			}
@@ -1499,7 +1511,7 @@
 					"numinlets" : 5,
 					"numoutlets" : 4,
 					"outlettype" : [ "int", "", "", "int" ],
-					"patching_rect" : [ 592.5, 457.0, 61.0, 22.0 ],
+					"patching_rect" : [ 593.0, 470.0, 61.0, 22.0 ],
 					"text" : "counter"
 				}
 
@@ -1511,7 +1523,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 592.5, 497.0, 169.0, 22.0 ],
+					"patching_rect" : [ 593.0, 510.0, 169.0, 22.0 ],
 					"text" : "addpoint $1 slice.mean, dump"
 				}
 
@@ -1522,9 +1534,9 @@
 					"id" : "obj-10",
 					"maxclass" : "newobj",
 					"numinlets" : 1,
-					"numoutlets" : 3,
-					"outlettype" : [ "bang", "float", "" ],
-					"patching_rect" : [ 592.5, 537.0, 107.0, 22.0 ],
+					"numoutlets" : 2,
+					"outlettype" : [ "", "" ],
+					"patching_rect" : [ 593.0, 550.0, 107.0, 22.0 ],
 					"text" : "fluid.dataset~ data"
 				}
 
@@ -1590,8 +1602,8 @@
 					"id" : "obj-22",
 					"maxclass" : "newobj",
 					"numinlets" : 1,
-					"numoutlets" : 3,
-					"outlettype" : [ "bang", "float", "" ],
+					"numoutlets" : 2,
+					"outlettype" : [ "", "" ],
 					"patching_rect" : [ 22.5, 123.0, 492.0, 22.0 ],
 					"text" : "fluid.bufonsetslice~ @metric 9 @threshold 0.5 @source drum @indices slices @blocking 0"
 				}
@@ -1609,7 +1621,7 @@
 					"mode" : 0,
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 552.625, 70.0, 710.75, 720.0 ],
+					"patching_rect" : [ 552.625, 70.0, 708.75, 680.0 ],
 					"proportion" : 0.5
 				}
 
@@ -1634,8 +1646,15 @@
  ],
 		"lines" : [ 			{
 				"patchline" : 				{
+					"destination" : [ "obj-15", 0 ],
+					"source" : [ "obj-10", 1 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
 					"destination" : [ "obj-53", 0 ],
-					"source" : [ "obj-10", 2 ]
+					"source" : [ "obj-10", 0 ]
 				}
 
 			}
@@ -1648,8 +1667,22 @@
 			}
 , 			{
 				"patchline" : 				{
+					"destination" : [ "obj-19", 0 ],
+					"source" : [ "obj-13", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-9", 0 ],
+					"source" : [ "obj-15", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
 					"destination" : [ "obj-10", 0 ],
-					"midpoints" : [ 602.0, 531.0, 602.0, 531.0 ],
+					"midpoints" : [ 602.5, 544.0, 602.5, 544.0 ],
 					"source" : [ "obj-18", 0 ]
 				}
 
@@ -1657,7 +1690,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-18", 0 ],
-					"midpoints" : [ 602.0, 482.0, 602.0, 482.0 ],
+					"midpoints" : [ 602.5, 495.0, 602.5, 495.0 ],
 					"source" : [ "obj-19", 0 ]
 				}
 
@@ -1671,14 +1704,7 @@
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-101", 0 ],
-					"source" : [ "obj-22", 1 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-12", 0 ],
+					"destination" : [ "obj-4", 0 ],
 					"source" : [ "obj-22", 0 ]
 				}
 
@@ -1693,7 +1719,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-10", 0 ],
-					"midpoints" : [ 773.0, 212.0, 579.0, 212.0, 579.0, 533.0, 602.0, 533.0 ],
+					"midpoints" : [ 773.0, 212.0, 579.0, 212.0, 579.0, 533.0, 602.5, 533.0 ],
 					"source" : [ "obj-28", 2 ]
 				}
 
@@ -1701,7 +1727,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-19", 2 ],
-					"midpoints" : [ 687.5, 211.0, 579.0, 211.0, 579.0, 443.0, 623.0, 443.0 ],
+					"midpoints" : [ 687.5, 213.0, 579.0, 213.0, 579.0, 465.0, 623.5, 465.0 ],
 					"source" : [ "obj-28", 1 ]
 				}
 
@@ -1718,6 +1744,13 @@
 					"destination" : [ "obj-44", 0 ],
 					"midpoints" : [ 719.5, 336.0, 719.5, 336.0 ],
 					"source" : [ "obj-32", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-12", 0 ],
+					"source" : [ "obj-4", 0 ]
 				}
 
 			}
@@ -1763,13 +1796,6 @@
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-9", 0 ],
-					"source" : [ "obj-53", 1 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
 					"destination" : [ "obj-91", 0 ],
 					"source" : [ "obj-53", 0 ]
 				}
@@ -1798,8 +1824,8 @@
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-19", 0 ],
-					"midpoints" : [ 602.0, 422.0, 602.0, 422.0 ],
+					"destination" : [ "obj-13", 0 ],
+					"midpoints" : [ 602.0, 422.0, 602.5, 422.0 ],
 					"source" : [ "obj-89", 0 ]
 				}
 
@@ -1807,46 +1833,10 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-86", 1 ],
-					"midpoints" : [ 690.0, 632.0, 579.0, 632.0, 579.0, 212.0, 639.0, 212.0 ],
+					"midpoints" : [ 602.5, 657.0, 579.0, 657.0, 579.0, 213.0, 639.0, 213.0 ],
 					"source" : [ "obj-91", 0 ]
 				}
 
-			}
- ],
-		"dependency_cache" : [ 			{
-				"name" : "fluid.waveform~.js",
-				"bootpath" : "~/dev/flucoma/max/jsui",
-				"patcherrelativepath" : "../../../../max/jsui",
-				"type" : "TEXT",
-				"implicit" : 1
-			}
-, 			{
-				"name" : "fluid.bufonsetslice~.mxo",
-				"type" : "iLaX"
-			}
-, 			{
-				"name" : "fluid.libmanipulation.mxo",
-				"type" : "iLaX"
-			}
-, 			{
-				"name" : "fluid.bufspectralshape~.mxo",
-				"type" : "iLaX"
-			}
-, 			{
-				"name" : "fluid.bufstats~.mxo",
-				"type" : "iLaX"
-			}
-, 			{
-				"name" : "fluid.bufselect~.mxo",
-				"type" : "iLaX"
-			}
-, 			{
-				"name" : "fluid.buf2list.mxo",
-				"type" : "iLaX"
-			}
-, 			{
-				"name" : "fluid.list2buf.mxo",
-				"type" : "iLaX"
 			}
  ],
 		"autosave" : 0,
@@ -1873,17 +1863,17 @@
 , 			{
 				"name" : "max6message",
 				"default" : 				{
-					"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ],
 					"bgfillcolor" : 					{
-						"type" : "gradient",
+						"angle" : 270.0,
+						"autogradient" : 0,
+						"color" : [ 0.290196, 0.309804, 0.301961, 1.0 ],
 						"color1" : [ 0.866667, 0.866667, 0.866667, 1.0 ],
 						"color2" : [ 0.788235, 0.788235, 0.788235, 1.0 ],
-						"color" : [ 0.290196, 0.309804, 0.301961, 1.0 ],
-						"angle" : 270.0,
 						"proportion" : 0.39,
-						"autogradient" : 0
+						"type" : "gradient"
 					}
-
+,
+					"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ]
 				}
 ,
 				"parentstyle" : "max6box",
