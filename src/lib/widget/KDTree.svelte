@@ -2,7 +2,7 @@
     Refer to:
     https://ptsjs.org/guide/op-0400
  -->
-<script lang="ts">
+<script type="ts">
 	import { onMount } from 'svelte';
 	import { CanvasSpace, Create, GroupLike, Circle } from 'pts';
 	import Slider from '$lib/components/Slider.svelte';

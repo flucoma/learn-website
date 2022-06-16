@@ -13,6 +13,7 @@ category: Analyse Data
 
 <script>
     import KMeans from '$lib/widget/KMeans.svelte';
+    import ResourceLink from '$lib/components/ResourceLink.svelte';
 </script>
 
 [KMeans](/reference/kmeans) is an object that facilitates learning _clusters_ from data. Given a collection of points and a user-specified _number of clusters_, [KMeans](/reference/kmeans) partitions those points into clusters, assigning a discrete membership to each one. To do this, the algorithm iteratively calculates the positions of a set of _centroids_: 1 for each cluster. The centroid is an indication of where a mass of points exists, ideally positioning itself at the centre of this mass. Points are then spatially related to these centroids, and this defines which cluster they belong to.

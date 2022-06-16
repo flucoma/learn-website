@@ -1,8 +1,8 @@
-<script lang="ts">
+<script>
 	import { slide } from 'svelte/transition';
-	export let id: string = '';
-	export let caption: string = '';
-	export let expanded: boolean = false;
+	export let id = '';
+	export let caption = '';
+	export let expanded = false;
 
 	function clickHandler() {
 		expanded = !expanded;

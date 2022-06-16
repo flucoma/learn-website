@@ -217,7 +217,7 @@ FluCoMa has another pair of objects that do classification and regression with s
 2. the MLP objects involve more parameters and will take much longer to `fit` (aka. train) than the KNN objects, and 
 3. the KNN objects will likely take longer to make predictions than the MLP objects, depending on the size of the dataset (although they're still quite quick!).
 
-# Related Resources
+## Related Resources
 
 <ResourceLink
 title='3Blue1Brown YouTube playlist all about Neural Networks'

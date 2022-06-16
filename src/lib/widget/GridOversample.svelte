@@ -1,14 +1,14 @@
-<script lang="ts">
+<script type="ts">
 	import { onMount } from 'svelte';
 	import { Chart, registerables } from 'chart.js';
 	import * as d3 from 'd3';
 	import Button from '$lib/components/Button.svelte';
 	import gaussian4 from '../../../static/data/gaussian4.json';
-	import oversample1 from '../../../static/ref/grid/help.grid.oversample.1.json';
-	import oversample2 from '../../../static/ref/grid/help.grid.oversample.2.json';
-	import oversample3 from '../../../static/ref/grid/help.grid.oversample.3.json';
-	import oversample4 from '../../../static/ref/grid/help.grid.oversample.4.json';
-	import oversample5 from '../../../static/ref/grid/help.grid.oversample.5.json';
+	import oversample1 from '../../../static/reference/grid/help.grid.oversample.1.json';
+	import oversample2 from '../../../static/reference/grid/help.grid.oversample.2.json';
+	import oversample3 from '../../../static/reference/grid/help.grid.oversample.3.json';
+	import oversample4 from '../../../static/reference/grid/help.grid.oversample.4.json';
+	import oversample5 from '../../../static/reference/grid/help.grid.oversample.5.json';
 
 	let canvas: HTMLCanvasElement;
 	let ctx: RenderingContext;

@@ -1,10 +1,10 @@
-<script lang="ts">
+<script type="ts">
 	import { onMount } from 'svelte';
 	import { Chart, registerables } from 'chart.js';
 	import * as d3 from 'd3';
 	import Button from '$lib/components/Button.svelte';
 	import gaussian4 from '../../../static/data/gaussian4.json';
-	import out from '../../../static/ref/grid/out.json';
+	import out from '../../../static/reference/grid/out.json';
 
 	let canvas, ctx, chart;
 

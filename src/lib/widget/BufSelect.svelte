@@ -1,4 +1,4 @@
-<script lang="ts">
+<script type="ts">
 	import Button from '$lib/components/Button.svelte';
 
 	let w: number = 4; // Grid width

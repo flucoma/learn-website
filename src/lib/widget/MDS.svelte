@@ -3,12 +3,12 @@
 	import { Chart, registerables } from 'chart.js';
 	import * as d3 from 'd3';
 	import Button from '$lib/components/Button.svelte';
-	import metric0 from '../../../static/ref/mds/metric_0.json';
-	import metric1 from '../../../static/ref/mds/metric_1.json';
-	import metric2 from '../../../static/ref/mds/metric_2.json';
-	import metric3 from '../../../static/ref/mds/metric_3.json';
-	import metric4 from '../../../static/ref/mds/metric_4.json';
-	import metric5 from '../../../static/ref/mds/metric_5.json';
+	import metric0 from '../../../static/reference/mds/metric_0.json';
+	import metric1 from '../../../static/reference/mds/metric_1.json';
+	import metric2 from '../../../static/reference/mds/metric_2.json';
+	import metric3 from '../../../static/reference/mds/metric_3.json';
+	import metric4 from '../../../static/reference/mds/metric_4.json';
+	import metric5 from '../../../static/reference/mds/metric_5.json';
 
 	let canvas, ctx, chart;
 

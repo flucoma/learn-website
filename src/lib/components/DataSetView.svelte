@@ -1,4 +1,4 @@
-<script lang="ts">
+<script type="ts">
 	export let data = [];
 	function sanitiseData(x) {
 		return x.map(d => d.toFixed(2));

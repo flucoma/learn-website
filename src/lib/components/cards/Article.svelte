@@ -1,4 +1,4 @@
-<script lang="ts">
+<script type="ts">
 	import ArrowRight from '$lib/components/ArrowRight.svelte';
 	import Flair from '$lib/components/Flair.svelte';
 	import _ from 'lodash';

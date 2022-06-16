@@ -4,9 +4,9 @@
 	import * as d3 from 'd3';
 	import Button from '$lib/components/Button.svelte';
 	import gaussian4 from '../../../static/data/gaussian4.json';
-	import extent1 from '../../../static/ref/grid/extent.2.v.json';
-	import extent2 from '../../../static/ref/grid/extent.5.h.json';
-	import extent3 from '../../../static/ref/grid/extent.10.h.json';
+	import extent1 from '../../../static/reference/grid/extent.2.v.json';
+	import extent2 from '../../../static/reference/grid/extent.5.h.json';
+	import extent3 from '../../../static/reference/grid/extent.10.h.json';
 
 	let canvas, ctx, chart;
 
