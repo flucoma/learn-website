@@ -56,7 +56,7 @@ label="When data is normally distributed, it follows the 68/95/99.7 rule, indica
 Skewness indicates asymmetry in the [distribution](/learn/distribution) of the data in relation to the mean. If the data is perfectly normally distributed, the distribution to the left and right sides of the mean will be mirrored, and skewness will be 0. If either side has a longer "tail" than the other, the skewness will not be zero. If the left side (lower values) have a longer tail, the skewness will be less than 0, if the right side (higher values) have a longer tail, the skewness will be greater than 0. The larger the tail, the larger the magnitude of the skewness value.
 
 <Image
-src="bufstats/skewness_diagram-01.jpg"
+src="/reference/bufstats/skewness_diagram-01.jpg"
 label="Data distributions with a larger tail to the left have a negative skewness while data distributions with a larger tail to the right have a positive skewness. (image reproduced from [Wikipedia](https://en.wikipedia.org/wiki/Skewness))"
 />
 
@@ -67,7 +67,7 @@ Kurtosis describes the degree to which [outliers](/learn/outliers) are present i
 One can see in the image below that the pink rectangle-shaped distribution function has the lowest kurtosis (1.8) because it essentially doesn't have outliers: all the data falls within range of the rectangle. The second lowest kurtosis (2) is the blue distribution function which also doesn't have "tails" that spread out on either side. As the kurtosis increases (all the way to 6 for the red distribution function), notice how the tails end up being "heavier," or "thicker" and can be seen to spread out farther beyond the mean. 
 
 <Image
-src="bufstats/Standard_symmetric_distributions-01.jpg"
+src="/reference/bufstats/Standard_symmetric_distributions-01.jpg"
 label="Kurtosis values (shown in the upper right hand corner) for various symmetric distributions. (image modified from [Wikipedia](https://en.wikipedia.org/wiki/Kurtosis))"
 />
 
@@ -100,12 +100,12 @@ Setting the parameter `numDerivs` > 0 (the maximum is 2) will return BufStats' s
 Derivatives can indicate how a time-series (of an audio descriptor for example) changes over time. Consider the two sounds below. The top one is a snare hit with its loudness analysis overlaid. The bottom is the same snare hit but reversed. The mean [Loudness](/reference/loudness) for both of these is about -33 dB, therefore it's not useful to distinguish the two. Looking at the derivative can help. In the top chart one can see that the change between adjacent loudness measures tends to be negative (go down), so the derivative will be mostly negative numbers--and therefore the derivative mean will be negative. In the bottom chart, the change tends to be positive (go up), so the derivative will be mostly positive numbers--and therefore the derivative mean will be positive. Sure enough, the mean derivative for the top chart is -0.8 dB and the mean derivative for the bottom chart is 0.9 dB. These numbers can now be useful in distinguishing these two sounds.
 
 <Image
-src="bufstats/00_loudness_derivative.jpg"
+src="/reference/bufstats/00_loudness_derivative.jpg"
 label="A single snare hit and its loudness analysis."
 />
 
 <Image
-src="bufstats/01_reversed_loudness_derivative.jpg"
+src="/reference/bufstats/01_reversed_loudness_derivative.jpg"
 label="A reversed snare hit and its loudness analysis."
 />
 
