@@ -30,13 +30,13 @@ One can choose whether to `normalize` triangle filters used to compute the MelBa
 
 ### Normalized Triangle Filters (the default)
 <Image
-src="/ref/melbands/norm=True.jpg"
+src="/reference/melbands/norm=True.jpg"
 label="Normalized Triangle Filters"
 />
 
 ### Unnormalized Triangle Filters
 <Image
-src="/ref/melbands/norm=False.jpg"
+src="/reference/melbands/norm=False.jpg"
 label="Unnormalized Triangle Filters"
 />
 
@@ -52,13 +52,13 @@ When using a high value for `numBands`, you may end up with empty channels (fill
     </TabList>
     <TabPanel>
       <Image
-      src="/ref/melbands/220303_150004_Nicol-LoopE-M_norm=True_log=False_16_MelBands_frame=100.jpg"
+      src="/reference/melbands/220303_150004_Nicol-LoopE-M_norm=True_log=False_16_MelBands_frame=100.jpg"
       label="One spectral frame from a drum loop with accompanying triangle filters (normalized) and MelBands."
       />
     </TabPanel>
     <TabPanel>
       <Image
-      src="/ref/melbands/220303_150004_Nicol-LoopE-M_norm=False_log=False_16_MelBands_frame=100.jpg"
+      src="/reference/melbands/220303_150004_Nicol-LoopE-M_norm=False_log=False_16_MelBands_frame=100.jpg"
       label="One spectral frame from a drum loop with accompanying triangle filters (not normalized) and MelBands."
       />
     </TabPanel>
@@ -72,13 +72,13 @@ When using a high value for `numBands`, you may end up with empty channels (fill
     </TabList>
     <TabPanel>
       <Image
-      src="/ref/melbands/220303_150004_Olencki-TenTromboneLongTones-M_norm=True_log=False_16_MelBands_frame=100.jpg"
+      src="/reference/melbands/220303_150004_Olencki-TenTromboneLongTones-M_norm=True_log=False_16_MelBands_frame=100.jpg"
       label="One spectral frame from a trombone tone with accompanying triangle filters (normalized) and MelBands."
       />
     </TabPanel>
     <TabPanel>
       <Image
-      src="/ref/melbands/220303_150004_Olencki-TenTromboneLongTones-M_norm=False_log=False_16_MelBands_frame=100.jpg"
+      src="/reference/melbands/220303_150004_Olencki-TenTromboneLongTones-M_norm=False_log=False_16_MelBands_frame=100.jpg"
       label="One spectral frame from a trombone tone with accompanying triangle filters (not normalized) and MelBands."
       />    
     </TabPanel>

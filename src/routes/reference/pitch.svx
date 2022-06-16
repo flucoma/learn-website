@@ -20,7 +20,7 @@ The Pitch object returns both pitch and confidence values. The 3 algorithms prov
 The confidence output is a value between 0 and 1 indicating how confident the algorithm is in validity of the pitch estimation it provides. In effect, the confidence output can describe how "noisy" (closer to 0) or "harmonic" (closer to 1) the spectrum is. The pitch confidence may also be low when a signal contains polyphony, as the algorithms are not intended for multiple pitch streams.
 
 <Image
-src='/ref/pitch/220304_123101_pitch.jpg'
+src='/reference/pitch/220304_123101_pitch.jpg'
 label='Pitch (blue) and confidence (orange) analyses for a series of trombone tones. Note how in the silences the pitch analysis is not stable, but also the confidence value is much lower.'
 />
 <Audio

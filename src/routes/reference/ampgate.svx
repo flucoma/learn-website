@@ -18,7 +18,7 @@ category: Slicing
 AmpGate is an absolute amplitude threshold gate detector. In this object, the term "gate" refers to a signal that reports whether or not there is the presence of sound above the provided amplitude threshold. The gate detects an onset (opens) when the internal envelope follower (controlled by ``rampUp`` and ``rampDown``) goes above a specified ``onThreshold`` (in dB) for at least ``minLengthAbove`` samples. The gate will stay open until the envelope follower goes below ``offThreshold`` (in dB) for at least ``minLengthBelow`` samples, which triggers an offset. ``minSliceLength`` and ``minSilenceLength`` specify a duration of time (in samples) to ignore any state changes after an onset and offset (respectively).
 
 <Image
-src="/ref/ampgate/ampgate-01.jpg"
+src="/reference/ampgate/ampgate-01.jpg"
 label="Temporal relationship of many of the AmpGate parameters (see descriptions below)."
 />
 

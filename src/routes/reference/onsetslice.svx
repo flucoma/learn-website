@@ -34,7 +34,7 @@ waveform={true}
 If we create a spectrogram from this sound, it is visually explicit where significant changes in the spectrum occur. Aligning these visual differences, they seem to coincide with the utterances of each letter from the alphabet.
 
 <Image 
-src='/ref/onsetslice/voice-spec.jpg'
+src='/reference/onsetslice/voice-spec.jpg'
 alt='spectrogram of a voice recording'
 label='Spectrogram of Tremblay-AaS-VoiceQC-B2K'
 />
