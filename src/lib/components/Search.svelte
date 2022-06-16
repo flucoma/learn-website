@@ -147,7 +147,7 @@
 		border: 0;
 		box-sizing: none;
 		border-radius: 10px;
-		padding: 0.5em;
+		padding: 0.25em 1em 0.25em 1em;
 		border: 2px solid transparent;
 		transition: border cubic-bezier(0.075, 0.82, 0.165, 1) 300ms;
 	}
