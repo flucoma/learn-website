@@ -1,5 +1,5 @@
-<script lang="ts">
-	export let author: string = '';
+<script>
+	export let author = '';
 
 	const authors = new Map(
 		Object.entries({

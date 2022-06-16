@@ -9,9 +9,8 @@
 	const smoothing = 100;
 
 	// Canvas
-	let canvas: HTMLCanvasElement | null;
-	let ctx: RenderingContext;
-	export let chart: Chart;
+	export let chart;
+	let canvas, ctx
 
 	onMount(async () => {
 		// Chart
