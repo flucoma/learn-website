@@ -9,7 +9,7 @@
 	let focused = false;
 	let focusedEntry = -1;
 	let entries = [];
-	$: placeholder = focused ? 'Enter your search term' : 'Search';
+	$: placeholder = focused ? '' : 'Search';
 	$: results = search(query);
 
 	function clickResult(link) {
@@ -130,7 +130,7 @@
 <style lang="postcss">
 	:root {
 		--radius: 10px;
-		--w: min(90%, 300px);
+		--w: min(90%, 250px);
 		--border: 1px solid var(--dark-blue);
 		--search-pad: 10px;
 	}
@@ -140,15 +140,15 @@
 		z-index: 999;
 	}
 	.query {
+		font-family: var(--font);
 		font-size: 1rem;
 		border-radius: var(--radius);
 		width: 90%;
-		height: 100%;
 		border: 0;
 		box-sizing: none;
-		border-radius: 2rem;
-		padding: 0.25em;
-		border: 2px solid transparent; /* visually hiden so no extra movement */
+		border-radius: 10px;
+		padding: 0.5em;
+		border: 2px solid transparent;
 		transition: border cubic-bezier(0.075, 0.82, 0.165, 1) 300ms;
 	}
 	.query:hover {
