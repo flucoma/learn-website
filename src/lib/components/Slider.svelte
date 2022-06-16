@@ -1,4 +1,4 @@
-<script lang="ts">
+<script type="ts">
 	import { createEventDispatcher } from 'svelte';
 
 	export let value: string | number;

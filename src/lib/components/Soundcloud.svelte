@@ -1,4 +1,4 @@
-<script lang="ts">
+<script type="ts">
 	export let id: string = '';
 	export let caption: string = '';
 </script>

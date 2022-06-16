@@ -1,4 +1,4 @@
-<script lang="ts">
+<script type="ts">
 	import { markdown } from 'markdown';
 
 	export let src: string = '';

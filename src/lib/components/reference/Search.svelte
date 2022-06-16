@@ -1,4 +1,4 @@
-<script lang="ts">
+<script type="ts">
 	import { docs } from '$lib/app.js';
 	import FuzzySearch from 'fuzzy-search';
 

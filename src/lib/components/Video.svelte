@@ -1,4 +1,4 @@
-<script lang="ts">
+<script type="ts">
 	export let url: string = '';
 	export let label = '';
 

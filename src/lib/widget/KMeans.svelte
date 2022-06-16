@@ -1,4 +1,4 @@
-<script lang="ts">
+<script type="ts">
 	import KMeans from '@flucoma/tf-kmeans';
 	import * as tf from '@tensorflow/tfjs';
 	import * as d3 from 'd3';

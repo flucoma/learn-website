@@ -1,4 +1,4 @@
-<script lang="ts">
+<script type="ts">
 	import { max_scale, clip } from '$lib/util.js';
 	let input: number[] = [1, 2, 3, 4, 5];
 	let output: number[] = [];

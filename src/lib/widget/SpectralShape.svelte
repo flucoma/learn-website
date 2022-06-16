@@ -1,4 +1,4 @@
-<script lang="ts">
+<script type="ts">
 	import * as Meyda from 'meyda';
 	import * as Tone from 'tone';
 	import { binToHz } from '$lib/utils';

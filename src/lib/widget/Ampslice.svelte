@@ -1,4 +1,4 @@
-<script lang="ts">
+<script type="ts">
 	import { WebglPlot, WebglLine, ColorRGBA } from 'webgl-plot';
 	import { onMount } from 'svelte';
 	import * as Tone from 'tone';
