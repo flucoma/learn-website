@@ -21,6 +21,7 @@
 			<h1>{title}</h1>
 			{#if display_author}
 				<AuthorTag {author} />
+				<Author
 			{/if}
 			<p class="blurb">{blurb}</p>
 			<RelatedLinks />
