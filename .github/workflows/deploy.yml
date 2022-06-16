@@ -21,6 +21,9 @@ jobs:
                   key: ${{ secrets.SSH_PRIVATE_KEY }}
                   known_hosts: 'placeholder'
 
+            - name: pnpm
+              run: npm i -g pnpm
+
             - name: Adding Known Hosts
               run: |
                   mkdir -p ~/.ssh
@@ -28,8 +31,8 @@ jobs:
 
             - name: Build Site
               run: |
-                  npm i
-                  npm run build
+                  pnpm i
+                  pnpm run build
 
             - name: Merge MFCC Widget
               run: |
