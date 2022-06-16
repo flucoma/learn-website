@@ -34,14 +34,14 @@ For a more critical consideration of what these distributions can and cannot tel
 Many of the statistical summaries that BufStats computes are intended to provide some insight on how the data is distributed across the range that it covers. A distribution is often approximated as a histogram, which divides the range covered by the data into discrete bins and then shows how many values in the data fall within each bin. The way a histogram ends up looking (and how informative it may be) is quite dependent on how many bins are used and their width.
 
 <Image
-src="histogram.png"
+src="distribution/histogram.png"
 label="A histogram of 25 bins showing the distribution of MFCC 2 values in an analysis of Nicol-LoopE-M.wav"
 />
 
 Sometimes the distribution is represented as a curve which can be called a distribution function. It shows the likelihood that a data point will exist for any given value in the range. 
 
 <Image
-src="distribution_function.png"
+src="distribution/distribution_function.png"
 label="Distribution function based on the same data as the histogram above."
 />
 
@@ -57,7 +57,7 @@ Normal distribution (also called a Gaussian Distribution) is a technical term me
 
 * The _mean_, _median_, and _mode_ are all coincident, meaning they are the same value.
 * The distribution function is symmetrical around this coincident value.
-* The data follows the [68/95/99.7 rule](/#the-68-95-99.7-rule). 
+* The data follows the 68/95/99.7 rule. 
 
 Sometimes a normal distribution is referred to as a "bell curve" because the shape of the distribution function looks like a bell. Use the [example code below](/#example-code-to-check-distribution) to see the distribution of dimensions in a dataset and how much they look like a bell curve.
 
@@ -68,7 +68,7 @@ If a collection of values is normally distributed, it follows the 68/95/99.7 rul
 For example if a [SpectralShape](/reference/spectralshape)'s spectral centroid time-series is analysed and BufStats returns a mean of 8000 Hz and a standard deviation off 1000 Hz, one can estimate that ~68% of the spectral centroids in that time series fall between 7000 and 9000 Hz (8000 Hz ± 1000 Hz). Similarly, one could estimate that ~95% of the data will fall between 6000 and 10,000 Hz (8000 Hz ± 2000 Hz) and ~99.7% will fall within between 5000 and 11,000 Hz (8000 Hz ± 3000 Hz). Keep in mind that if the data is not normally distributed, this will not hold true.
 
 <Image
-src="/learn/distribution/stddev_diagram.png"
+src="distribution/stddev_diagram.png"
 label="When data is normally distributed, it follows the 68/95/99.7 rule, indicating how much of the data is found within standard deviations of the mean. (image reproduced from [Wikipedia](https://en.wikipedia.org/wiki/Standard_deviation))"
 />
 
@@ -79,7 +79,7 @@ Uniform distribution indicates that any value within a range is equally likely t
 Although the uniform distribution is sometimes associated with randomness, it does not necessarily mean that the values in the dataset are random, it just means that they are uniformly distributed. For example, if one creates a dataset of pitch analyses using one recording for every note on the piano, the dataset will be uniformly distributed across the range of MIDI values 21-108 (this would be a discrete distribution, rather than continuous). A randomly chosen point from the dataset would be equally likely to have any MIDI value 21-108.
 
 <Image
-src="uniform.jpg"
+src="distribution/uniform.jpg"
 label="A uniform distribution function for the range of values between _a_ and _b_. (image modified from [Wikipedia](https://en.wikipedia.org/wiki/Continuous_uniform_distribution))"
 />
 
