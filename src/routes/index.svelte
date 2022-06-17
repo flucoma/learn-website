@@ -1,6 +1,7 @@
 <script>
 	import { docs } from '$lib/app.js';
 	import { manual_config } from '$lib/app.js';
+	import { goto } from '$app/navigation';
 	import _ from 'lodash';
 	import LearnMoreArrow from '$lib/components/LearnMoreArrow.svelte';
 
@@ -77,6 +78,7 @@
 				style="background-image: url({rng_learn.feature.featuredimage ||
 					_.sample(rng_learn.feature.images) ||
 					'/general/learn_default.jpeg'});"
+				on:click={() => goto(rng_learn.url) }
 			/>
 
 			<div class="flaired-title-featured">
@@ -354,6 +356,7 @@
 	}
 
 	.feature_image {
+		box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 		position: relative;
 		max-width: 100%;
 		height: 10em;
@@ -362,6 +365,7 @@
 		background-position: center;
 		background-repeat: no-repeat;
 		background-size: cover;
+		cursor: pointer;
 	}
 
 	/*Algorithms row*/
