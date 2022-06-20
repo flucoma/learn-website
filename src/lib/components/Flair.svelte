@@ -23,24 +23,4 @@
 		padding: 3px;
 		height: 15px;
 	}
-
-	.event {
-		background-color: rgb(235, 161, 23);
-	}
-
-	.article {
-		background-color: var(--light-blue);
-	}
-
-	.reference {
-		background-color: forestgreen;
-	}
-
-	.podcast {
-		background-color: palevioletred;
-	}
-
-	.tutorial {
-		background-color: rgba(102, 103, 171, 255);
-	}
 </style>

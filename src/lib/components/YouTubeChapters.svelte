@@ -10,7 +10,11 @@
 	}
 
 	function convertTime(entry) {
-		return entry.start[0] * 60 + entry.start[1];
+		if (entry.start.length == 2) {
+			return entry.start[0] * 60 + entry.start[1];
+		} else {
+			return entry.start[0] * 60 * 60 + entry.start[1] * 60 + entry.start[2];
+		}
 	}
 </script>
 
@@ -21,7 +25,11 @@
 <div class="chapter-container">
 	{#each chapters as chapter, i}
 		<div class="chapter" on:click={() => chapterClick(chapter)}>
-			<p>{chapter.label} ({chapter.start[0]}:{chapter.start[1]})</p>
+			{#if chapter.start.length == 2}
+				<p>{chapter.label} ({chapter.start[0]}:{chapter.start[1]})</p>
+			{:else}
+				<p>{chapter.label} ({chapter.start[0]}:{chapter.start[1]}:{chapter.start[2]})</p>
+			{/if}
 		</div>
 	{/each}
 </div>

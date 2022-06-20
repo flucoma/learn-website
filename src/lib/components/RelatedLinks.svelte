@@ -33,7 +33,7 @@
 
 {#if hover}
 	<div
-		class={`hoverable ${hoverInfo.flair}`}
+		class={`hoverable rel-${hoverInfo.flair}`}
 		style:left={`${hoverPos.x}px`}
 		style:top={`${hoverPos.y + hoverPos.offset}px`}
 		bind:this={hoverable}
@@ -48,7 +48,7 @@
 	{#each renderables as c}
 		{#each c as link}
 			<a
-				class={`link ${link.flair}`}
+				class={`link rel-${link.flair}`}
 				href={link.url}
 				on:mouseenter={e => mouseenter(e, link)}
 				on:mouseleave={stopHover}
@@ -63,6 +63,7 @@
 		padding: 0.25em;
 		text-decoration: none;
 		border-radius: 0.25rem;
+		color: white;
 	}
 
 	.link:hover {
@@ -97,30 +98,30 @@
 		border-radius: 0.25rem;
 	}
 
-	.tutorial {
+	.rel-tutorial {
 		color: var(--tutorial-flair);
 		border: 2px solid var(--tutorial-flair);
 	}
 
-	.tutorial:hover {
+	.rel-tutorial:hover {
 		background-color: var(--tutorial-flair);
 	}
 
-	.reference {
+	.rel-reference {
 		color: var(--reference-flair);
 		border: 2px solid var(--reference-flair);
 	}
 
-	.reference:hover {
+	.rel-reference:hover {
 		background-color: var(--reference-flair);
 	}
 
-	.article {
+	.rel-article {
 		color: var(--article-flair);
 		border: 2px solid var(--article-flair);
 	}
 
-	.article:hover {
+	.rel-article:hover {
 		background-color: var(--article-flair);
 	}
 </style>

@@ -1,4 +1,4 @@
-<script lang="ts">
+<script type="ts">
 	import { edits } from '$lib/app.js';
 	import { page } from '$app/stores';
 	let path = $page.url.pathname;

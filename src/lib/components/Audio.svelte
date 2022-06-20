@@ -1,8 +1,8 @@
-<script lang="ts">
+<script>
 	import { onMount } from 'svelte';
-	export let src: string = '';
-	export let label: string = '';
-	export let waveform: boolean = false;
+	export let src = ''
+	export let label = '';
+	export let waveform = false;
 
 	let Peaks, instance, overview, audio, ctx;
 

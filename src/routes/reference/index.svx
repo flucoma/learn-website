@@ -18,14 +18,19 @@ layout: contentindex
 		'Decompose' : [],
 		'Slicing' : [],
 		'Transform' : []
-	}
+	};
 
 	let items = [];
-	$: items = Object.entries(categorised);
+	$: items = Object.entries(categorised).map(k => {
+		return {
+			"category" : k[0],
+			"refs" : k[1]
+		}
+	});
 
 	references.forEach(r => { categorised[r.category].push(r) });
 
-	let query = ''
+	let query = '';
 	const search = new FuzzySearch(references, ['title', 'tags', 'blurb', 'category'], {
 		caseSensitive: false,
 		sort: true
