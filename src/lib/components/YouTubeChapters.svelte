@@ -10,13 +10,12 @@
 	}
 
 	function convertTime(entry) {
-		if(entry.start.length == 2){
+		if (entry.start.length == 2) {
 			return entry.start[0] * 60 + entry.start[1];
+		} else {
+			return entry.start[0] * 60 * 60 + entry.start[1] * 60 + entry.start[2];
 		}
-		else{
-			return ((entry.start[0] * 60) * 60) + (entry.start[1] * 60) + entry.start[2];
-		};	
-	};
+	}
 </script>
 
 <div class="container">

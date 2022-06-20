@@ -1,4 +1,4 @@
-<script lang="ts">
+<script type="ts">
 	import type { PeaksInstance } from 'peaks.js';
 	import { onMount } from 'svelte';
 	import { Chart, registerables } from 'chart.js';
