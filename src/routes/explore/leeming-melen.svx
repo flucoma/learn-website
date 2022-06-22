@@ -60,10 +60,54 @@ chapters={[
 
 ## Overview
 
-In the 5th episode of the FluCoMa Podcast I talk with two people from Royal Northern College of Music’s PRiSM research centre (Practice and Research in Science and Music). I talk with composer Zakiya Leeming, who undertook her PhD at the centre, and was recently appointed the position of Artist and Producer in Residence. I also talk to Chirstopher Melen who has been the Research Software Engineer at PRiSM since 2019. In the podcast we discuss their relationship of composer and engineer, working on Zakiya’s piece *Sad Dog Eating* which made use of PRiSM’s implementation of *SampleRNN*, a deep-learning algorithm that learns from a corpus of audio to generate new content.
+In the 5th episode of the FluCoMa Podcast I talk with two people from Royal Northern College of Music’s PRiSM research centre (Practice and Research in Science and Music). I talk with composer Zakiya Leeming, who undertook her PhD at the centre, and was recently appointed the position of Artist and Producer in Residence. I also talk to Christopher Melen who has been the Research Software Engineer at PRiSM since 2019. In the podcast we discuss their relationship of composer and engineer, working on Zakiya’s piece *Sad Dog Eating* which made use of PRiSM’s implementation of *SampleRNN*, a deep-learning algorithm that learns from a corpus of audio to generate new content.
 
 ## Links
 
 Here are the links to some of the things that were discussed during the podcast:
 
-- 
+- [Royal Northern College of Music](https://www.rncm.ac.uk/) (RNCM) & the [Practice and Research in Science and Music](https://www.rncm.ac.uk/research/research-centres-rncm/prism/) (PRiSM) research centre.
+
+- Sad Dog Eating (2021).
+
+<YouTube 
+url={'UjK4lkDedPI'}
+/>
+
+- [Unsupervised](https://www.unsupervised.uk/) Concert Series.
+
+- [8 Cubed](https://www.rncm.ac.uk/research/research-centres-rncm/prism/prism-blog/prism-8-cubed/) Concert Series.
+
+- [AHRC](https://www.ukri.org/councils/ahrc/)-funded *John Cage and the Concert for Piano and Orchestra* [project](https://cageconcert.org/) at the [University of Huddersfield](https://www.hud.ac.uk/).
+
+- [Emily Howard](https://www.emilyhoward.com/).
+
+- [PRiSM SampleRNN](https://www.rncm.ac.uk/research/research-centres-rncm/prism/prism-collaborations/prism-samplernn/) and it's git [repo](https://github.com/rncm-prism/prism-samplernn). Implementation of [this](https://arxiv.org/abs/1612.07837) paper.
+
+- Beethoven Piano Sonatas.
+
+<YouTube 
+url={'G7sDg8_26N8'}
+/>
+
+- Dadabots.
+
+<YouTube 
+url={'MwtVkPKx3RA'}
+/>
+
+- Output VI (2021). Claranetists Yanke Dai, Laurel Saunders and Grace White. 
+
+- [Alex Harker](https://www.alexanderjharker.co.uk/)'s piece [Drift Shadow](https://www.youtube.com/watch?v=lHEWsysupaA) with oboist [Niamh Dell](https://www.collectivelovemusic.com/niamh-dell). Read the article about the piece [here](/explore/harker).
+
+- The Garden of Forking Paths project, run by [Scott Mclaughlin](https://ahc.leeds.ac.uk/music/staff/362/dr-scott-mclaughlin).
+
+<YouTube 
+url={'Sw3G2HpQ9fs'}
+/>
+
+- [IRCAM](https://forum.ircam.fr/)'s [OpenMusic](https://forum.ircam.fr/projects/detail/openmusic/).
+
+- [TensorFlow 2](https://www.tensorflow.org/tutorials/quickstart/beginner) and [TensorBoard](https://www.tensorflow.org/tensorboard).
+
+- FluCoMa [Podcast](/explore/smith) with [Simon Smith](https://beast.cal.bham.ac.uk/about/the-team/).
