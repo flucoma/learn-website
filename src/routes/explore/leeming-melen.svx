@@ -111,3 +111,15 @@ url={'Sw3G2HpQ9fs'}
 - [TensorFlow 2](https://www.tensorflow.org/tutorials/quickstart/beginner) and [TensorBoard](https://www.tensorflow.org/tensorboard).
 
 - FluCoMa [Podcast](/explore/smith) with [Simon Smith](https://beast.cal.bham.ac.uk/about/the-team/).
+
+- [Sam Salem](https://www.rncm.ac.uk/people/sam-salem/).
+
+- [Riot Ensemble](https://www.riotensemble.com/).
+
+- PRiSM SampleRNN [Google Colab Notebook](https://colab.research.google.com/gist/relativeflux/10573e9e1b10b1ff45e3a00099259741/prism-samplernn.ipynb).
+
+- [*Connected Health Cities: Hub*](https://www.rncm.ac.uk/research/research-centres-rncm/prism/prism-collaborations/connected-health-cities/connected-health-cities-hub/): [Connected Health Cities](https://healthinnovationmanchester.com/the-guide/connected-health-cities/), with [Kirstie Andrews](https://www.mmu.ac.uk/engineering/staff/profile/dr-kirstie-andrews).
+
+<YouTube 
+url={'l03WffQh2UE'}
+/>
