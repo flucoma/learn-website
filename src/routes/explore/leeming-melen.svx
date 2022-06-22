@@ -1,0 +1,69 @@
+---
+title: "FluCoMa Podcast #05: Zakiya Leeming and Christopher Melen"
+artist: Zakiya Leeming & Christopher Melen
+blurb: |
+    The fifth episode of the FluCoMa podcast where Jacob Hart talks to PRiSM’s Zakiya Leeming and Christopher Melen.
+tags: 
+    - deep learning
+    - samplernn
+    - generative
+    - prism
+flair: podcast
+featuredimage: /explore/leeming-melen/featured.png
+author: Jacob
+---
+
+<script>
+    import YouTube from '$lib/components/YouTube.svelte';
+    import ArtistCard from '$lib/components/mwf/ArtistCard.svelte';
+    import BandCamp from '$lib/components/BandCamp.svelte';
+    import Vimeo from '$lib/components/Vimeo.svelte';
+    import YouTubeChapters from '$lib/components/YouTubeChapters.svelte';
+</script>
+
+<div class="artist-cards">
+    <ArtistCard
+    src = "/explore/leeming-melen/leeming-profile.jpeg"
+    name = "Zakiya Leeming"
+    website = "https://www.zakiyaleeming.com/"
+    >
+    <p slot="bio">
+    Zakiya Leeming is a Manchester based composer who specialises in collaborations with scientists and health data researchers to create music informed by their work. Zakiya has recently completed a piece for Ensemble Recherche in collaboration with University of Liverpool Chemist Professor Mathias Brust and ISARIC4C, an international consortium of scientists whose outputs informed the UK government on COVID-19. Other commissions include Psappha, Explore Ensemble, Bury Choral Society, Aurora Percussion Duo and more. Zakiya was the recipient of the Examiner Newspaper Scholarship and the Dean's award for Excellence with Honours during her undergraduate degree at the University of Tasmania. In her Masters degree, Zakiya was awarded the Soroptimists International Manchester Award in Composition, The Edward Hecht Prize and a Gold Medal in composition. Zakiya is founding co-director of composer collective Incógnito.
+    </p>
+    </ArtistCard>
+    <ArtistCard
+    src = "/explore/leeming-melen/melen-profile.jpeg"
+    name = "Christopher Melen"
+    website = "https://www.rncm.ac.uk/people/christopher-melen/"
+    >
+    <p slot="bio">
+    A native of Swansea, South Wales, I am by training and vocation a composer, having obtained my PhD in Composition from the School of Music in Cardiff University in 2006. Since then I have worked mostly outside of the adacemic sector as a software developer, both in the UK and the US. During my postgraduate studies I became interested in computer-assisted composition, and started to write code, which eventually grew into a broader involvment in software development. I returned to music and academia in 2015 when I joined the team of the AHMRC-funded John Cage and the Concert for Piano and Orchestra project at Huddersfield University, developing the project’s interactive website and apps. I have been working at RNCM since 2019 as a Research Software Engineer within PRiSM, the first occupant of such a role in the College’s history.
+    </p>
+    </ArtistCard>
+</div>
+
+## The Podcast
+
+<YouTubeChapters 
+url={'UYSa73RvJQE'}
+chapters={[
+    {"label" : "Introduction", "start" : [0, 0]},
+    {"label" : "Getting into the world of audiovisual composition", "start" : [1, 40]},
+    {"label" : "Describing Freida's practice", "start" : [5, 20]},
+    {"label" : "Perspective on reactive audio design and gesture", "start" : [9, 3]},
+    {"label" : "Using FluCoMa-related technologies", "start" : [14, 3]},
+    {"label" : "Using systems at different scales", "start" : [25, 58]},
+    {"label" : "Learning and teaching technologies", "start" : [28, 22]},
+    {"label" : "What are computational ideas?", "start" : [44, 53]}
+]}
+/>
+
+## Overview
+
+In the 5th episode of the FluCoMa Podcast I talk with two people from Royal Northern College of Music’s PRiSM research centre (Practice and Research in Science and Music). I talk with composer Zakiya Leeming, who undertook her PhD at the centre, and was recently appointed the position of Artist and Producer in Residence. I also talk to Chirstopher Melen who has been the Research Software Engineer at PRiSM since 2019. In the podcast we discuss their relationship of composer and engineer, working on Zakiya’s piece *Sad Dog Eating* which made use of PRiSM’s implementation of *SampleRNN*, a deep-learning algorithm that learns from a corpus of audio to generate new content.
+
+## Links
+
+Here are the links to some of the things that were discussed during the podcast:
+
+- 
