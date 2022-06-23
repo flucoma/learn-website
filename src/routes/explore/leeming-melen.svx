@@ -16,8 +16,6 @@ author: Jacob
 <script>
     import YouTube from '$lib/components/YouTube.svelte';
     import ArtistCard from '$lib/components/mwf/ArtistCard.svelte';
-    import BandCamp from '$lib/components/BandCamp.svelte';
-    import Vimeo from '$lib/components/Vimeo.svelte';
     import YouTubeChapters from '$lib/components/YouTubeChapters.svelte';
 </script>
 
@@ -45,16 +43,24 @@ author: Jacob
 ## The Podcast
 
 <YouTubeChapters 
-url={'UYSa73RvJQE'}
+url={'LxGuZulidTE'}
 chapters={[
     {"label" : "Introduction", "start" : [0, 0]},
-    {"label" : "Getting into the world of audiovisual composition", "start" : [1, 40]},
-    {"label" : "Describing Freida's practice", "start" : [5, 20]},
-    {"label" : "Perspective on reactive audio design and gesture", "start" : [9, 3]},
-    {"label" : "Using FluCoMa-related technologies", "start" : [14, 3]},
-    {"label" : "Using systems at different scales", "start" : [25, 58]},
-    {"label" : "Learning and teaching technologies", "start" : [28, 22]},
-    {"label" : "What are computational ideas?", "start" : [44, 53]}
+    {"label" : "Zakiya & Christopher present themselves", "start" : [1, 52]},
+    {"label" : "What is PRiSM?", "start" : [4, 53]},
+    {"label" : "What is SampleRNN?", "start" : [10, 43]},
+    {"label" : "The premise for Sad Dog Eating", "start" : [15, 5]},
+    {"label" : "Clarinet multiphonics", "start" : [24, 12]},
+    {"label" : "How does Christopher approach his practice?", "start" : [29, 58]},
+    {"label" : "Working with SampleRNN", "start" : [35, 30]},
+    {"label" : "Composing with SampleRNN", "start" : [40, 20]},
+    {"label" : "The latent machine learning sound", "start" : [52, 32]},
+    {"label" : "Pairing this approach with FluCoMa for the engineer’s workflow…", "start" : [57, 3]},
+    {"label" : "…and for the composer’s workflow", "start" : [1, 2, 12]},
+    {"label" : "SampleRNN content in Sad Dog Eating", "start" : [1, 8, 58]},
+    {"label" : "Running SampleRNN at home", "start" : [1, 16, 7]},
+    {"label" : "Approaches to data as an aesthetic object", "start" : [1, 20, 21]},
+    {"label" : "Data and audio in all their forms", "start" : [1, 25, 19]}
 ]}
 />
 
