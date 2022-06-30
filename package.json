@@ -54,7 +54,7 @@
 		"pts": "^0.10.12",
 		"remark": "13.0.0",
 		"remark-html": "13.0.1",
-		"remark-jargon": "^2.20.8",
+		"remark-jargon": "2.20.8",
 		"seedrandom": "~2.4.4",
 		"svelte-bricks": "^0.1.7",
 		"svelte-select": "^4.4.7",
