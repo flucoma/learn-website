@@ -1,13 +1,13 @@
 <script>
-	import { docs } from '$lib/app.js';
+	import { db } from '$lib/app.js';
 	import { config } from '$lib/app.js';
 	import { goto } from '$app/navigation';
 	import _ from 'lodash';
 	import LearnMoreArrow from '$lib/components/LearnMoreArrow.svelte';
 
-	var learn = docs.filter(x => x.section === 'learn');
-	var explore = docs.filter(x => x.section === 'explore');
-	var reference = docs.filter(x => x.section === 'reference');
+	var learn = db.filter(x => x.section === 'learn');
+	var explore = db.filter(x => x.section === 'explore');
+	var reference = db.filter(x => x.section === 'reference');
 
 	const rng_learn = get_item_by_key(learn, 'url', config.front_page.featured_learn.url);
 	const rng_explore = get_item_by_key(explore, 'url', config.front_page.featured_explore.url);
