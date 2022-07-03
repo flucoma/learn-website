@@ -1,6 +1,6 @@
 <script>
 	import { page } from '$app/stores';
-	import related from '../../../static/related.json';
+	import related from '../../../static/meta/related.json';
 
 	let links = [];
 	$: {

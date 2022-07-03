@@ -61,7 +61,7 @@ glob('src/routes/*(reference|learn|explore)/*.svx', (err, routes) => {
 		db[key] = _.uniqWith(db[key], _.isEqual);
 	}
 	// Write out results
-	fs.writeFile('static/related.json', JSON.stringify(db), 'utf8', () => {
+	fs.writeFile('static/meta/related.json', JSON.stringify(db), 'utf8', () => {
 		console.log('Relationships file written to static/related.json');
 	});
 });

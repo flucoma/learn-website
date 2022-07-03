@@ -134,5 +134,5 @@ glob('src/**/*.svx', (err, routes) => {
 		db: db
 	}
 	// Write out results
-	fs.writeFile('static/metadata.json', JSON.stringify(preprocData, null, 4), 'utf8', () => {});
+	fs.writeFile('static/meta/metadata.json', JSON.stringify(preprocData, null, 4), 'utf8', () => {});
 });
