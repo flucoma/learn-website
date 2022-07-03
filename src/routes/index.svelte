@@ -1,6 +1,6 @@
 <script>
 	import { docs } from '$lib/app.js';
-	import { manual_config } from '$lib/app.js';
+	import { config } from '$lib/app.js';
 	import { goto } from '$app/navigation';
 	import _ from 'lodash';
 	import LearnMoreArrow from '$lib/components/LearnMoreArrow.svelte';
@@ -9,8 +9,8 @@
 	var explore = docs.filter(x => x.section === 'explore');
 	var reference = docs.filter(x => x.section === 'reference');
 
-	const rng_learn = get_item_by_key(learn, 'url', manual_config.front_page.featured_learn.url);
-	const rng_explore = get_item_by_key(explore, 'url', manual_config.front_page.featured_explore.url);
+	const rng_learn = get_item_by_key(learn, 'url', config.front_page.featured_learn.url);
+	const rng_explore = get_item_by_key(explore, 'url', config.front_page.featured_explore.url);
 	learn = remove_element_from_array(learn, rng_learn);
 	explore = remove_element_from_array(explore, rng_explore);
 
@@ -115,7 +115,7 @@
 					title=""
 					width="100%"
 					height="300px"
-					src={`https://www.youtube.com/embed/${manual_config.front_page.featured_video.url}`}
+					src={`https://www.youtube.com/embed/${config.front_page.featured_video.url}`}
 					frameborder="0"
 					allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
 					allowfullscreen
@@ -124,10 +124,10 @@
 
 			<div class="video_description">
 				<h3>
-					{manual_config.front_page.featured_video.title}
+					{config.front_page.featured_video.title}
 				</h3>
 				<p>
-					{manual_config.front_page.featured_video.blurb}
+					{config.front_page.featured_video.blurb}
 				</p>
 			</div>
 		</div>
