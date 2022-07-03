@@ -1,21 +1,12 @@
 import { readable, writable } from 'svelte/store';
 import FuzzySearch from 'fuzzy-search';
 
-import t from '../../static/tag.json';
-import c from '../../static/crumbs.json';
-import e from '../../static/edits.json';
-import s from '../../static/structure.json';
-import database from '../../static/db.json';
+import metadata from '../../static/metadata.json';
 import config from '../../static/config.json';
 
 // interface state
 export const nav_expanded = writable(false);
 export const blur = writable(false);
-
-export const tags = readable(t);
-export const breadcrumbs = readable(c);
-export const edits = readable(e);
-export const structure = readable(s);
 
 const installs = [
 	{
@@ -38,13 +29,16 @@ const installs = [
 	}
 ];
 
-const docs = database.docs;
-installs.forEach(i => docs.push(i)); // add installation steps
 
-const search = new FuzzySearch(docs, ['title', 'tags', 'flair', 'artist', 'blurb'], {
+installs.forEach(i => metadata.db.push(i)); // add installation steps
+
+const search = new FuzzySearch(metadata.docs, ['title', 'tags', 'flair', 'artist', 'blurb'], {
 	caseSensitive: false,
 	sort: true
 });
 
-const db = search;
-export { db, docs, config };
+const edits = metadata.edits;
+const structure = metadata.structure;
+const db = metadata.db;
+
+export { structure, db, edits, search, config };
