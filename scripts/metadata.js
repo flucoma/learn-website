@@ -53,7 +53,7 @@ glob('src/**/*.svx', (err, routes) => {
 
 				structure[url].push({
 					url: `${url}#${hashPart}`,
-					text: el[2]
+					text: text
 				});
 			}
 		});
