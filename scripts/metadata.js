@@ -107,7 +107,6 @@ glob('src/**/*.svx', (err, routes) => {
 
 	// Write out results
 	fs.writeFile('static/tag.json', JSON.stringify(tags, null, 2), 'utf8', () => {});
-	fs.writeFile('static/info.json', JSON.stringify(info, null, 4), 'utf8', () => {});
 	fs.writeFile('static/structure.json', JSON.stringify(structure, null, 2), 'utf8', () => {});
 	fs.writeFile('static/crumbs.json', JSON.stringify(crumbs, null, 2), 'utf8', () => {});
 	fs.writeFile('static/edits.json', JSON.stringify(edits, null, 2), 'utf8', () => {});
