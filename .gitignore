@@ -19,3 +19,4 @@ pnpm-lock.yaml
 package-lock.json
 .pnpm-debug.log
 scripts/__pycache__
+static/metadata.json
