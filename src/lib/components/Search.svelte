@@ -1,5 +1,5 @@
 <script>
-	import { db, blur } from '$lib/app';
+	import { search, blur } from '$lib/app';
 	import { wrap } from '$lib/util';
 	import { goto } from '$app/navigation';
 	import Flair from '$lib/components/Flair.svelte';
@@ -10,15 +10,15 @@
 	let focusedEntry = -1;
 	let entries = [];
 	$: placeholder = focused ? '' : 'Search';
-	$: results = search(query);
+	$: results = doSearch(query);
 
 	function clickResult(link) {
 		query = '';
 		goto(link);
 	}
 
-	function search(query) {
-		return db.search(query);
+	function doSearch(query) {
+		return search.search(query);
 	}
 
 	function blurSearch() {

@@ -5,8 +5,8 @@ import metadata from '../../static/metadata.json';
 import config from '../../static/config.json';
 
 // interface state
-export const nav_expanded = writable(false);
-export const blur = writable(false);
+const nav_expanded = writable(false);
+const blur = writable(false);
 
 const installs = [
 	{
@@ -40,5 +40,15 @@ const search = new FuzzySearch(metadata.docs, ['title', 'tags', 'flair', 'artist
 const edits = metadata.edits;
 const structure = metadata.structure;
 const db = metadata.db;
+const crumbs = metadata.crumbs;
 
-export { structure, db, edits, search, config };
+export { 
+	crumbs, 
+	structure, 
+	db, 
+	edits, 
+	search, 
+	config, 
+	nav_expanded, 
+	blur 
+};

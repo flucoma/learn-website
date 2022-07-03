@@ -12,7 +12,7 @@ References are slightly different and use the ReferenceEntry component.
 	let [minColWidth, maxColWidth, gap] = [300, 800, 15];
 	let width, height;
 
-	const items = docs.filter(x => x.section === section);
+	const items = db.filter(x => x.section === section);
 </script>
 
 <Masonry {items} {minColWidth} {maxColWidth} {gap} idKey={'url'} animate={false} let:item bind:width bind:height>
