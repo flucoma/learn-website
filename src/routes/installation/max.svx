@@ -11,6 +11,7 @@ flair: article
 <script>
     import Image from '$lib/components/Image.svelte';
     import { Tabs, TabList, TabPanel, Tab } from '$lib/components/tabs/tabs';
+    import CodeBlock from '$lib/components/CodeBlock.svelte';
     import IndentNote from '$lib/components/IndentNote.svelte';
 </script>
 
