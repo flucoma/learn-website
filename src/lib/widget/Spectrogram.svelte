@@ -10,7 +10,7 @@
 
 	// Canvas
 	export let chart;
-	let canvas, ctx
+	let canvas, ctx;
 
 	onMount(async () => {
 		// Chart

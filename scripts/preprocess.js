@@ -31,7 +31,6 @@ const add = (key, reference) => {
 	}
 };
 
-
 glob('src/routes/*(reference|learn|explore|installation)/*.svx', (err, routes) => {
 	routes = routes.filter(p => path.basename(p) !== 'index.svx');
 	edits = extractGit(routes);
@@ -137,8 +136,7 @@ glob('src/routes/*(reference|learn|explore|installation)/*.svx', (err, routes) =
 		db.push(fm);
 
 		// Related Links
-		let links = markdownLinkExtractor(data, false)
-			.filter(x => x.startsWith('/'));
+		let links = markdownLinkExtractor(data, false).filter(x => x.startsWith('/'));
 		links = [...new Set(links)];
 
 		let backreference = {
@@ -178,7 +176,7 @@ glob('src/routes/*(reference|learn|explore|installation)/*.svx', (err, routes) =
 		edits: edits,
 		db: db,
 		related: related
-	}
+	};
 	// Write out results
 	fs.writeFile('static/meta/metadata.json', JSON.stringify(preprocData, null, 0), 'utf8', () => {});
 });

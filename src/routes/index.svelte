@@ -78,7 +78,7 @@
 				style="background-image: url({rng_learn.feature.featuredimage ||
 					_.sample(rng_learn.feature.images) ||
 					'/general/learn_default.jpeg'});"
-				on:click={() => goto(rng_learn.url) }
+				on:click={() => goto(rng_learn.url)}
 			/>
 
 			<div class="flaired-title-featured">

@@ -1,6 +1,6 @@
 <script>
 	import { onMount } from 'svelte';
-	export let src = ''
+	export let src = '';
 	export let label = '';
 	export let waveform = false;
 
