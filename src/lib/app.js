@@ -32,7 +32,7 @@ const installs = [
 
 installs.forEach(i => metadata.db.push(i)); // add installation steps
 
-const search = new FuzzySearch(metadata.docs, ['title', 'tags', 'flair', 'artist', 'blurb'], {
+const search = new FuzzySearch(metadata.db, ['title', 'tags', 'flair', 'artist', 'blurb'], {
 	caseSensitive: false,
 	sort: true
 });
@@ -41,11 +41,13 @@ const edits = metadata.edits;
 const structure = metadata.structure;
 const db = metadata.db;
 const crumbs = metadata.crumbs;
+const related = metadata.related;
 
 export { 
 	crumbs, 
 	structure, 
 	db, 
+	related,
 	edits, 
 	search, 
 	config, 

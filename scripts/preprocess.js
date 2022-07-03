@@ -1,5 +1,7 @@
+import markdownLinkExtractor from 'markdown-link-extractor';
 import glob from 'glob';
 import path from 'path';
+import _ from 'lodash';
 import fs from 'fs';
 import GithubSlugger from 'github-slugger';
 import frontmatter from 'front-matter';
@@ -13,6 +15,7 @@ let structure = {};
 let tags = {};
 let crumbs = {};
 let edits = {};
+let related = {};
 let featured = {
 	reference: {},
 	learn: {},
@@ -20,7 +23,16 @@ let featured = {
 };
 let db = [];
 
-glob('src/**/*.svx', (err, routes) => {
+const add = (key, reference) => {
+	if (!(related[key] instanceof Array)) {
+		related[key] = [reference];
+	} else {
+		related[key].push(reference);
+	}
+};
+
+
+glob('src/routes/*(reference|learn|explore|installation)/*.svx', (err, routes) => {
 	routes = routes.filter(p => path.basename(p) !== 'index.svx');
 	edits = extractGit(routes);
 
@@ -122,16 +134,50 @@ glob('src/**/*.svx', (err, routes) => {
 		}
 
 		fm.feature = feature_info;
-
 		db.push(fm);
+
+		// Related Links
+		let links = markdownLinkExtractor(data, false)
+			.filter(x => x.startsWith('/'));
+		links = [...new Set(links)];
+
+		let backreference = {
+			title: fm.title,
+			flair: fm.flair,
+			blurb: fm.blurb,
+			url: url
+		};
+
+		links.forEach(link => {
+			const length = link.split('/').filter(x => x != '').length; // filter out index.svx type situations
+			link = link.split('#')[0];
+			if (length > 1 && link !== url) {
+				add(link, backreference);
+				const branch = fs.readFileSync(`src/routes${link}.svx`, 'utf8');
+				const branchfm = frontmatter(branch).attributes;
+				const fwdreference = {
+					title: branchfm.title,
+					flair: branchfm.flair,
+					blurb: branchfm.blurb,
+					url: link
+				};
+				add(url, fwdreference);
+			}
+		});
 	});
+
+	// De-duplicate Related Links
+	for (const key in related) {
+		related[key] = _.uniqWith(db[key], _.isEqual);
+	}
 
 	let preprocData = {
 		tags: tags,
 		structure: structure,
 		crumbs: crumbs,
 		edits: edits,
-		db: db
+		db: db,
+		related: related
 	}
 	// Write out results
 	fs.writeFile('static/meta/metadata.json', JSON.stringify(preprocData, null, 4), 'utf8', () => {});

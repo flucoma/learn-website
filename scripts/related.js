@@ -6,13 +6,13 @@ import frontmatter from 'front-matter';
 import { urlFromRoute } from './util.js';
 import markdownLinkExtractor from 'markdown-link-extractor';
 
-let db = {};
+let related = {};
 
 const add = (key, reference) => {
-	if (!(db[key] instanceof Array)) {
-		db[key] = [reference];
+	if (!(related[key] instanceof Array)) {
+		related[key] = [reference];
 	} else {
-		db[key].push(reference);
+		related[key].push(reference);
 	}
 };
 
@@ -37,7 +37,6 @@ glob('src/routes/*(reference|learn|explore)/*.svx', (err, routes) => {
 			url: url
 		};
 
-		let payload = [];
 		links.forEach(link => {
 			const length = link.split('/').filter(x => x != '').length; // filter out index.svx type situations
 			link = link.split('#')[0];
@@ -56,12 +55,5 @@ glob('src/routes/*(reference|learn|explore)/*.svx', (err, routes) => {
 		});
 	});
 
-	// De-duplicate arrays
-	for (const key in db) {
-		db[key] = _.uniqWith(db[key], _.isEqual);
-	}
-	// Write out results
-	fs.writeFile('static/meta/related.json', JSON.stringify(db), 'utf8', () => {
-		console.log('Relationships file written to static/related.json');
-	});
+
 });
