@@ -3,13 +3,12 @@ import path from 'path';
 import fs from 'fs';
 import GithubSlugger from 'github-slugger';
 import frontmatter from 'front-matter';
-import { extractGit } from './git.js';
-import { urlFromRoute } from './util.js';
 import { markdown } from 'markdown';
+import { extractGit } from './git.js';
+import { urlFromRoute, spill_to_array, get_components } from './util.js';
 
 const slugger = new GithubSlugger();
 
-let info = {};
 let structure = {};
 let tags = {};
 let crumbs = {};
@@ -19,18 +18,23 @@ let featured = {
 	learn: {},
 	explore: {}
 };
+let db = [];
 
 glob('src/**/*.svx', (err, routes) => {
 	routes = routes.filter(p => path.basename(p) !== 'index.svx');
 	edits = extractGit(routes);
 
 	routes.forEach(route => {
-		let section = route.split('/')[2];
-
+		const section = route.split('/')[2];
 		let url = urlFromRoute(route);
 
 		// Read the page in as a string
-		let data = fs.readFileSync(route, 'utf8');
+		const data = fs.readFileSync(route, 'utf8');
+
+		// Get frontmatter
+		let fm = frontmatter(data).attributes;
+		fm.url = url;
+		fm.section = section;
 
 		// Parse the markdown tree for the headings
 		let tree = markdown.parse(data);
@@ -56,19 +60,6 @@ glob('src/**/*.svx', (err, routes) => {
 					text: text
 				});
 			}
-		});
-
-		// Get frontmatter
-		let fm = frontmatter(data).attributes;
-
-		if (!Object.keys(info).includes(section)) {
-			info[section] = [];
-		}
-
-		// Structure
-		info[section].push({
-			url: url,
-			data: fm
 		});
 
 		// Tags
@@ -103,11 +94,45 @@ glob('src/**/*.svx', (err, routes) => {
 					break;
 			}
 		}
+
+		// Database
+		let feature_info = {
+			featuredimage: '',
+			images: [],
+			video: [],
+			youtube: [],
+			vimeo: []
+		};
+
+		let component_dict = get_components(frontmatter(data).body, ['Image', 'Video', 'YouTube', 'Vimeo']);
+
+		// These wouldn't necessarily have to be spilled to arrays
+		feature_info.images = spill_to_array(component_dict.Image, 'src');
+		feature_info.video = spill_to_array(component_dict.Video, 'url');
+		feature_info.youtube = spill_to_array(component_dict.YouTube, 'url');
+		feature_info.vimeo = spill_to_array(component_dict.Vimeo, 'src');
+
+		if (Object.keys(fm).includes('featuredimage')) {
+			feature_info['featuredimage'] = fm.featuredimage;
+		} else {
+			if (component_dict.Image.length != 0) {
+				feature_info['featuredimage'] =
+					component_dict.Image[Math.floor(Math.random() * component_dict.Image.length)].src;
+			}
+		}
+
+		fm.feature = feature_info;
+
+		db.push(fm);
 	});
 
+	let preprocData = {
+		tags: tags,
+		structure: structure,
+		crumbs: crumbs,
+		edits: edits,
+		db: db
+	}
 	// Write out results
-	fs.writeFile('static/tag.json', JSON.stringify(tags, null, 2), 'utf8', () => {});
-	fs.writeFile('static/structure.json', JSON.stringify(structure, null, 2), 'utf8', () => {});
-	fs.writeFile('static/crumbs.json', JSON.stringify(crumbs, null, 2), 'utf8', () => {});
-	fs.writeFile('static/edits.json', JSON.stringify(edits, null, 2), 'utf8', () => {});
+	fs.writeFile('static/metadata.json', JSON.stringify(preprocData, null, 4), 'utf8', () => {});
 });
