@@ -10,7 +10,7 @@
 	$: {
 		let path = $page.url.pathname;
 		path = path.endsWith('/') ? path.slice(0, -1) : path;
-		headings = $structure[path] || [];
+		headings = structure[path] || [];
 	}
 </script>
 

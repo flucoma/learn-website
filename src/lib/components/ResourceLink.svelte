@@ -1,7 +1,7 @@
-<script type="ts">
-	export let title: string = '';
-	export let url: string = '';
-	export let blurb: string = '';
+<script >
+	export let title = '';
+	export let url = '';
+	export let blurb = '';
 </script>
 
 <a class="container raisedbox" href={url}>

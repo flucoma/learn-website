@@ -29,7 +29,7 @@
 		place-items: center;
 		justify-content: space-around;
 		background: var(--dark-blue);
-		height: 40px;
+		height: 55px;
 	}
 
 	.title {
