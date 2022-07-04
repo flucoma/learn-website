@@ -1,4 +1,4 @@
-<script type="ts">
+<script>
 	import { onMount } from 'svelte';
 	import { Chart, registerables } from 'chart.js';
 	import * as d3 from 'd3';
@@ -10,9 +10,7 @@
 	import oversample4 from '../../../static/reference/grid/help.grid.oversample.4.json';
 	import oversample5 from '../../../static/reference/grid/help.grid.oversample.5.json';
 
-	let canvas: HTMLCanvasElement;
-	let ctx: RenderingContext;
-	let chart: Chart;
+	let canvas, ctx, chart;
 
 	const btnWidth = '180px';
 

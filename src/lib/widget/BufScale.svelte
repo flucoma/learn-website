@@ -1,7 +1,7 @@
-<script type="ts">
+<script >
 	import { max_scale, clip } from '$lib/util.js';
-	let input: number[] = [1, 2, 3, 4, 5];
-	let output: number[] = [];
+	let input = [1, 2, 3, 4, 5];
+	let output = [];
 	let iMin = 1;
 	let iMax = 5;
 	let oMin = 0;

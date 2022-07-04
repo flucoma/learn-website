@@ -1,4 +1,4 @@
-<script type="ts">
+<script>
 	import { page } from '$app/stores';
 	import { crumbs } from '$lib/app';
 

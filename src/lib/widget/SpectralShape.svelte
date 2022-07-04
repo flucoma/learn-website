@@ -1,4 +1,4 @@
-<script type="ts">
+<script>
 	import * as Meyda from 'meyda';
 	import * as Tone from 'tone';
 	import { binToHz } from '$lib/utils';
@@ -11,12 +11,7 @@
 	const bufferSize = windowSize;
 
 	// Visuals
-	let chart;
-
-	// Audio
-	let audioContext: AudioContext;
-	let generator;
-	let source;
+	let chart, audioContext, generator, source;
 	let enabled = false;
 
 	let shape = {
