@@ -1,21 +1,12 @@
 import { readable, writable } from 'svelte/store';
 import FuzzySearch from 'fuzzy-search';
 
-import t from '../../static/tag.json';
-import c from '../../static/crumbs.json';
-import e from '../../static/edits.json';
-import s from '../../static/structure.json';
-import database from '../../static/db.json';
-import manual from '../../static/manual_config.json';
+import metadata from '../../static/meta/metadata.json';
+import config from '../../static/meta/config.json';
 
 // interface state
-export const nav_expanded = writable(false);
-export const blur = writable(false);
-
-export const tags = readable(t);
-export const breadcrumbs = readable(c);
-export const edits = readable(e);
-export const structure = readable(s);
+const nav_expanded = writable(false);
+const blur = writable(false);
 
 const installs = [
 	{
@@ -38,14 +29,17 @@ const installs = [
 	}
 ];
 
-const docs = database.docs;
-installs.forEach(i => docs.push(i)); // add installation steps
+installs.forEach(i => metadata.db.push(i)); // add installation steps
 
-const manual_config = manual;
-const search = new FuzzySearch(docs, ['title', 'tags', 'flair', 'artist', 'blurb'], {
+const search = new FuzzySearch(metadata.db, ['title', 'tags', 'flair', 'artist', 'blurb'], {
 	caseSensitive: false,
 	sort: true
 });
 
-const db = search;
-export { db, docs, manual_config };
+const edits = metadata.edits;
+const structure = metadata.structure;
+const db = metadata.db;
+const crumbs = metadata.crumbs;
+const related = metadata.related;
+
+export { crumbs, structure, db, related, edits, search, config, nav_expanded, blur };

@@ -2,8 +2,8 @@
 	"name": "learn",
 	"version": "0.0.1",
 	"scripts": {
-		"dev": "node scripts/metadata.js && node scripts/db.js && node scripts/related.js && svelte-kit dev --host",
-		"build": "node scripts/metadata.js && node scripts/db.js && node scripts/related.js && svelte-kit build",
+		"dev": "node scripts/preprocess.js && svelte-kit dev --host",
+		"build": "node scripts/preprocess.js && svelte-kit build",
 		"check": "svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-check --tsconfig ./tsconfig.json --watch",
 		"lint": "prettier --check --plugin-search-dir=. . && eslint --ignore-path=.prettierignore .",
