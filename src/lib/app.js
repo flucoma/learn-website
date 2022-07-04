@@ -1,7 +1,7 @@
 import { readable, writable } from 'svelte/store';
 import metadata from '../../static/meta/metadata.json';
 import config from '../../static/meta/config.json';
-import Fuse from 'fuse.js'
+import Fuse from 'fuse.js';
 
 // interface state
 const nav_expanded = writable(false);
@@ -38,10 +38,10 @@ const related = metadata.related;
 
 const fuse = new Fuse(db, {
 	keys: [
-		{ name: 'title', weight: 1.0 }, 
-		{ name: 'artist', weight: 0.8 }, 
-		{ name: 'blurb', weight: 0.4 }, 
-		{ name: 'tags', weight: 0.4 }, 
+		{ name: 'title', weight: 1.0 },
+		{ name: 'artist', weight: 0.8 },
+		{ name: 'blurb', weight: 0.4 },
+		{ name: 'tags', weight: 0.4 },
 		{ name: 'author', weight: 0.2 }
 	]
 });
