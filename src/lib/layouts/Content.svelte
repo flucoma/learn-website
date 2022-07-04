@@ -14,7 +14,9 @@
 <Crumbs />
 
 <div class="wrapper">
-	<div class="navigation"><TOC /></div>
+	<div class="navigation">
+		<TOC/>
+	</div>
 
 	<div class="main">
 		<div class="title-box">
@@ -42,6 +44,12 @@
 	}
 
 	@media (max-width: 1200px) {
+		.wrapper {
+			grid-template-rows: auto auto;
+			grid-template-areas:
+				'navigation'
+				'main';
+		}
 		.navigation {
 			width: 100%;
 		}
@@ -55,14 +63,8 @@
 			grid-template-columns: auto min(var(--max-text-width), 100%) auto;
 			grid-template-areas: 'navigation main blank';
 		}
-	}
-
-	@media (max-width: 1200px) {
-		.wrapper {
-			grid-template-rows: auto auto;
-			grid-template-areas:
-				'navigation'
-				'main';
+		.navigation {
+			width: 25ch;
 		}
 	}
 
@@ -89,7 +91,6 @@
 
 	.navigation {
 		grid-area: navigation;
-		width: 25ch;
 		height: max-content;
 	}
 
