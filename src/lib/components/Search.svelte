@@ -1,5 +1,5 @@
 <script>
-	import { search, blur } from '$lib/app';
+	import { fuse, blur } from '$lib/app';
 	import { wrap } from '$lib/util';
 	import { goto } from '$app/navigation';
 	import Flair from '$lib/components/Flair.svelte';
@@ -10,15 +10,11 @@
 	let focusedEntry = -1;
 	let entries = [];
 	$: placeholder = focused ? '' : 'Search';
-	$: results = doSearch(query);
+	$: results = fuse.search(query);
 
 	function clickResult(link) {
 		query = '';
 		goto(link);
-	}
-
-	function doSearch(query) {
-		return search.search(query);
 	}
 
 	function blurSearch() {
@@ -72,8 +68,6 @@
 			}
 		}
 	}
-	$: filteredResults = results.slice(0, 8).filter(x => x !== null);
-	$: entries = entries.filter(x => x !== null);
 </script>
 
 <svelte:window on:keydown={keyDown} />
@@ -93,10 +87,10 @@
 
 	{#if results.length >= 1 && focused}
 		<div class="results" tabindex="0">
-			{#each filteredResults as r, i}
+			{#each results.slice(0, 8) as r, i}
 				<div
 					class="result"
-					on:mousedown={() => clickResult(r.url)}
+					on:mousedown={() => clickResult(r.item.url)}
 					on:mouseleave={() => {
 						focusedEntry = -1;
 					}}
@@ -104,7 +98,7 @@
 						focusedEntry = i;
 					}}
 					class:entryhover={i === focusedEntry}
-					on:click={() => clickResult(r.url)}
+					on:click={() => clickResult(r.item.url)}
 					on:focus={focusSearch}
 					on:blur={blurSearch}
 					bind:this={entries[i]}
@@ -112,14 +106,14 @@
 					tabindex="-1"
 				>
 					<div class="top">
-						<div class="title">{r.title}</div>
-						{#if r.flair}
-							<Flair flair={r.flair} />
+						<div class="title">{r.item.title}</div>
+						{#if r.item.flair}
+							<Flair flair={r.item.flair} />
 						{/if}
 					</div>
 
 					<div class="bottom">
-						{r.blurb.slice(0, 150) + '...'}
+						{r.item.blurb.slice(0, 150) + '...'}
 					</div>
 				</div>
 			{/each}
