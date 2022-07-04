@@ -2,11 +2,11 @@
 	import { page } from '$app/stores';
 	import { slide } from 'svelte/transition'
 	import { structure } from '$lib/app.js';
-	let w;
+	let w = 0; 	/** @type {string} */
 	let expand = false;
+	let headings = ['']; 	
 	const breakpoint = 600;
-
-	let headings = [];
+	
 	$: {
 		let path = $page.url.pathname;
 		path = path.endsWith('/') ? path.slice(0, -1) : path;
