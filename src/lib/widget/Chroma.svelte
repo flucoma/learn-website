@@ -1,5 +1,4 @@
 <script>
-	import type { PeaksInstance } from 'peaks.js';
 	import { onMount } from 'svelte';
 	import { Chart, registerables } from 'chart.js';
 	import * as Meyda from 'meyda';
