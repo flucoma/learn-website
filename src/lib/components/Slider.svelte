@@ -9,7 +9,7 @@
 	 * @param {number | string} max - The maximum value.
 	 * @param {number | string} title - The title of the slider.
 	 * @param {number | string} max - The step value between min/max.
-	*/
+	 */
 	export let value = '';
 	export let min = '0';
 	export let max = '100';

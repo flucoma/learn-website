@@ -18,7 +18,7 @@
 	let rect;
 	let radius = 0.0;
 	$: calcNeighbours = numNeighbours === 0 ? NUM_POINTS : numNeighbours;
-	
+
 	function getMousePos(canvas, evt) {
 		// We need to do this manually otherwise when shifting the window the resize is not accounted for.
 		rect = canvas.getBoundingClientRect();

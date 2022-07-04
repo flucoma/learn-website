@@ -1,8 +1,7 @@
 import { readable, writable } from 'svelte/store';
-import FuzzySearch from 'fuzzy-search';
-
 import metadata from '../../static/meta/metadata.json';
 import config from '../../static/meta/config.json';
+import Fuse from 'fuse.js';
 
 // interface state
 const nav_expanded = writable(false);
@@ -31,15 +30,20 @@ const installs = [
 
 installs.forEach(i => metadata.db.push(i)); // add installation steps
 
-const search = new FuzzySearch(metadata.db, ['title', 'tags', 'flair', 'artist', 'blurb'], {
-	caseSensitive: false,
-	sort: true
-});
-
 const edits = metadata.edits;
 const structure = metadata.structure;
 const db = metadata.db;
 const crumbs = metadata.crumbs;
 const related = metadata.related;
 
-export { crumbs, structure, db, related, edits, search, config, nav_expanded, blur };
+const fuse = new Fuse(db, {
+	keys: [
+		{ name: 'title', weight: 1.0 },
+		{ name: 'artist', weight: 0.8 },
+		{ name: 'blurb', weight: 0.4 },
+		{ name: 'tags', weight: 0.4 },
+		{ name: 'author', weight: 0.2 }
+	]
+});
+
+export { crumbs, structure, db, related, edits, fuse, config, nav_expanded, blur };

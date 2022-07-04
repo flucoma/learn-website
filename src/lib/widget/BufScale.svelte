@@ -1,4 +1,4 @@
-<script >
+<script>
 	import { max_scale, clip } from '$lib/util.js';
 	let input = [1, 2, 3, 4, 5];
 	let output = [];
