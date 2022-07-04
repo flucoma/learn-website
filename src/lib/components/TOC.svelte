@@ -27,13 +27,16 @@
 		{/if}
 	</div>
 </div>
-{/if}
-{#if w < breakpoint}
+{:else}
 <div class="mobile-toc">
-	<button on:click={()=>{expand=!expand}}>On This Page</button>
+	<button 
+		on:click={()=>{expand=!expand}}
+		class:expand={expand}
+		class:closed={!expand}
+	>On This Page</button>
 	<div class="line"></div>
 	{#if headings.length > 0 && expand}
-	<div class="onthispage" transition:slide={{duration:200}}>
+	<div class="onthispage" transition:slide={{duration:130}}>
 		{#each headings as h}
 			<a href={h.url}>{h.text}</a>
 		{/each}
@@ -46,8 +49,9 @@
 
 <style lang="postcss">
 	.mobile-toc {
+		margin-top: 1em;
 		border-radius: 10px;
-		background-color: var(--med-blue);
+		border: 2px solid var(--med-blue);
 		width: 100%;
 	}
 
@@ -58,11 +62,27 @@
 		background: none;
 		box-shadow: none;
 		border-radius: 0px;
-		color: white;
+		color: var(--med-blue);
+		text-align: left;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+	}
+
+	.expand::after {
+		content: url('/img/arrow.svg');
+		width: 12px;
+		height: 12px;
+	}
+	
+	.closed::after {
+		content: url('/img/arrow.svg');
+		width: 12px;
+		height: 12px;
 	}
 
 	.onthispage {
-		background-color: var(--med-blue);
+		background: none;
 		border-radius: 10px;
 		display: flex;
 		flex-direction: column;
@@ -72,17 +92,17 @@
 
 	.line {
 		height: 1px;
-		background-color: white;
+		color: var(--med-blue);
 	}
 
 	.onthispage > a {
-		color: white;
+		color: var(--med-blue);
 		padding: 6px;
 	}
 
 	.onthispage > a:hover {
-		background-color: var(--dark-blue);
-		border-radius: 10px;
+		text-decoration: underline;
+		background-color: white;
 		
 	}
 
