@@ -1,4 +1,4 @@
-<script type="ts">
+<script>
 	import { onMount } from 'svelte';
 	import { Chart, registerables } from 'chart.js';
 	import annotationPlugin from 'chartjs-plugin-annotation';
@@ -10,7 +10,7 @@
 
 	// Canvas
 	export let chart;
-	let canvas, ctx
+	let canvas, ctx;
 
 	onMount(async () => {
 		// Chart

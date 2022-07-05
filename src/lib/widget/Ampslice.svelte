@@ -1,4 +1,4 @@
-<script type="ts">
+<script>
 	import { WebglPlot, WebglLine, ColorRGBA } from 'webgl-plot';
 	import { onMount } from 'svelte';
 	import * as Tone from 'tone';
@@ -8,17 +8,15 @@
 	// Audio
 	let features = [];
 	let meter, bassPlayer, pianoPlayer, drumPlayer;
-	let ctxStarted: boolean = false;
+	let ctxStarted = false;
 	// Canvas
 	let canvas, pixelRatio;
-	let ready: boolean = false;
+	let ready = false;
 
-	let slowSmooth: number = 50;
+	let slowSmooth = 50;
 
 	// WGLP
-	let line: WebglLine;
-	let smoothedLine: WebglLine;
-	let wglp: WebglPlot;
+	let line, smoothedLine, wglp;
 
 	const newFrame = () => {
 		// let t = smooth(features, 0.0)

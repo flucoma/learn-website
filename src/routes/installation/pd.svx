@@ -12,6 +12,7 @@ flair: article
 <script>
     import Image from '$lib/components/Image.svelte';
     import CodeBlock from '$lib/components/CodeBlock.svelte';
+    import IndentNote from '$lib/components/IndentNote.svelte';
 </script>
 
 ## Step 1: Download the Pure Data Package
@@ -52,9 +53,17 @@ src="/installation/pd-mac-3-3.png"
 
 4. Click OK
 
-## Step 4: Dequarantine (macOS only)
+## Step 4: Run and Test
 
-Binaries for macOS are currently not signed. This means that you will have to "dequarantine" them. For Pure Data this is most easily achieved by modifying the attribute of the binaries on the command line. The command below will recursively do this for you if you provide it the valid path to the FluCoMa package.
+Now check that the installation worked.
+
+1. Restart Pure Data.
+
+2. Open <a href='/installation/pd-install-test.pd' download='pd-install-test.pd'>this patch</a>.
+
+<IndentNote type="danger">
+
+Binaries compiled by us for macOS are signed and notarised. However, you might need to "dequarantine" them. The command below will recursively do this for you if you provide it the valid path to the FluCoMa package, wherever that might be.
 
 <CodeBlock>
 
@@ -64,10 +73,5 @@ xattr -d -r com.apple.quarantine <path_to_package>
 
 </CodeBlock>
 
-## Step 5: Run and Test
+</IndentNote>
 
-Now check that the installation worked.
-
-1. Restart Pure Data.
-
-2. Open <a href='/installation/pd-install-test.pd' download='pd-install-test.pd'>this patch</a>.

@@ -26,5 +26,5 @@ This tutorial guides you through building a bespoke synthesis controller. It lev
 <!-- Hunter + Ted's examples -->
 
 <YouTube 
-url='3XSy297v9vk'
+url='cjk9oHw7PQg'
 />

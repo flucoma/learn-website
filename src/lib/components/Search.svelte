@@ -1,5 +1,5 @@
 <script>
-	import { db, blur } from '$lib/app';
+	import { fuse, blur } from '$lib/app';
 	import { wrap } from '$lib/util';
 	import { goto } from '$app/navigation';
 	import Flair from '$lib/components/Flair.svelte';
@@ -9,16 +9,12 @@
 	let focused = false;
 	let focusedEntry = -1;
 	let entries = [];
-	$: placeholder = focused ? 'Enter your search term' : 'Search';
-	$: results = search(query);
+	$: placeholder = focused ? '' : 'Search';
+	$: results = fuse.search(query);
 
 	function clickResult(link) {
 		query = '';
 		goto(link);
-	}
-
-	function search(query) {
-		return db.search(query);
 	}
 
 	function blurSearch() {
@@ -72,8 +68,6 @@
 			}
 		}
 	}
-	$: filteredResults = results.slice(0, 8).filter(x => x !== null);
-	$: entries = entries.filter(x => x !== null);
 </script>
 
 <svelte:window on:keydown={keyDown} />
@@ -93,10 +87,10 @@
 
 	{#if results.length >= 1 && focused}
 		<div class="results" tabindex="0">
-			{#each filteredResults as r, i}
+			{#each results.slice(0, 8) as r, i}
 				<div
 					class="result"
-					on:mousedown={() => clickResult(r.url)}
+					on:mousedown={() => clickResult(r.item.url)}
 					on:mouseleave={() => {
 						focusedEntry = -1;
 					}}
@@ -104,7 +98,7 @@
 						focusedEntry = i;
 					}}
 					class:entryhover={i === focusedEntry}
-					on:click={() => clickResult(r.url)}
+					on:click={() => clickResult(r.item.url)}
 					on:focus={focusSearch}
 					on:blur={blurSearch}
 					bind:this={entries[i]}
@@ -112,14 +106,14 @@
 					tabindex="-1"
 				>
 					<div class="top">
-						<div class="title">{r.title}</div>
-						{#if r.flair}
-							<Flair flair={r.flair} />
+						<div class="title">{r.item.title}</div>
+						{#if r.item.flair}
+							<Flair flair={r.item.flair} />
 						{/if}
 					</div>
 
 					<div class="bottom">
-						{r.blurb.slice(0, 150) + '...'}
+						{r.item.blurb.slice(0, 150) + '...'}
 					</div>
 				</div>
 			{/each}
@@ -130,7 +124,7 @@
 <style lang="postcss">
 	:root {
 		--radius: 10px;
-		--w: min(90%, 300px);
+		--w: min(90%, 250px);
 		--border: 1px solid var(--dark-blue);
 		--search-pad: 10px;
 	}
@@ -140,15 +134,15 @@
 		z-index: 999;
 	}
 	.query {
+		font-family: var(--font);
 		font-size: 1rem;
 		border-radius: var(--radius);
 		width: 90%;
-		height: 100%;
 		border: 0;
 		box-sizing: none;
-		border-radius: 2rem;
-		padding: 0.25em;
-		border: 2px solid transparent; /* visually hiden so no extra movement */
+		border-radius: 10px;
+		padding: 0.25em 1em 0.25em 1em;
+		border: 2px solid transparent;
 		transition: border cubic-bezier(0.075, 0.82, 0.165, 1) 300ms;
 	}
 	.query:hover {

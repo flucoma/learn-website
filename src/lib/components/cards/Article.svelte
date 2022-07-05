@@ -1,21 +1,9 @@
-<script type="ts">
+<script>
 	import ArrowRight from '$lib/components/ArrowRight.svelte';
 	import Flair from '$lib/components/Flair.svelte';
 	import _ from 'lodash';
 
-	type ArticleData = {
-		title: string;
-		blurb: string;
-		tags: string[];
-		flair: string;
-		url: string;
-		section: string;
-		artist?: string;
-		crumb?: string;
-		related?: string;
-	};
-
-	export let data: ArticleData = {};
+	export let data = {};
 </script>
 
 <a class="container raisedbox" href={data.url}>

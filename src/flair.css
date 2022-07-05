@@ -1,19 +1,19 @@
 .event {
-    background-color: rgb(235, 161, 23);
+	background-color: rgb(235, 161, 23);
 }
 
 .article {
-    background-color: var(--light-blue);
+	background-color: var(--light-blue);
 }
 
 .reference {
-    background-color: forestgreen;
+	background-color: forestgreen;
 }
 
 .podcast {
-    background-color: palevioletred;
+	background-color: palevioletred;
 }
 
 .tutorial {
-    background-color: rgba(102, 103, 171, 255);
+	background-color: rgba(102, 103, 171, 255);
 }
