@@ -34,23 +34,21 @@ Anna is currently a Senior Lecturer in Music and Audio Technology at the Leicest
 ## The Podcast
 
 <YouTubeChapters 
-url={'G2N-JWrTBe8'}
+url={'LzRlHHeob5Q'}
 chapters={[
     {"label" : "Introduction", "start" : [0, 0]},
-    {"label" : "How Simon got into electronic music", "start" : [1, 41]},
-    {"label" : "Music as sound", "start" : [6, 35]},
-    {"label" : "Simon's research", "start" : [8, 40]},
-    {"label" : "Musicking with other people", "start" : [18, 44]},
-    {"label" : "Themes and approaches in Simon's work", "start" : [28, 10]},
-    {"label" : "What is Kyma?", "start" : [34, 20]},
-    {"label" : "The aura left by the CCE", "start" : [39, 23]},
-    {"label" : "Moving from Kyma to Max", "start" : [43, 4]},
-    {"label" : "EMG Bracelet project using FluCoMa", "start" : [46, 24]},
-    {"label" : "Approaching a corpus map", "start" : [55, 14]},
-    {"label" : "Approaches to mapping", "start" : [1, 2, 5]},
-    {"label" : "Electronic music communities", "start" : [1, 17, 27]},
-    {"label" : "Approaches to the diffusion of other people's music", "start" : [1, 25, 36]},
-    {"label" : "Aesthetic approach to diffusion", "start" : [1, 32, 32]}
+    {"label" : "Anna introduces herself and her work", "start" : [2, 40]},
+    {"label" : "MIRLCAuto project presentation", "start" : [6, 27]},
+    {"label" : "Approach to live-coding", "start" : [12, 12]},
+    {"label" : "Legibility, agency and negotiability in performance", "start" : [15, 15]},
+    {"label" : "Show us your screens!", "start" : [20, 43]},
+    {"label" : "General framework for visualisation of sound collections in musical interfaces", "start" : [25, 13]},
+    {"label" : "Collections of sounds as an aesthetic object", "start" : [29, 18]},
+    {"label" : "Spectral modeling synthesis", "start" : [32, 18]},
+    {"label" : "Approach to diffusion", "start" : [36, 29]},
+    {"label" : "Online interfaces", "start" : [39, 23]},
+    {"label" : "Audience-centric approach", "start" : [42, 40]},
+    {"label" : "Music technology post-pandemic", "start" : [48, 44]}
 ]}
 />
 
