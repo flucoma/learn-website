@@ -1,0 +1,1372 @@
+{
+    "explore": [
+        {
+            "url": "/explore/abtan",
+            "data": {
+                "title": "FluCoMa Podcast #01: Freida Abtan",
+                "artist": "Freida Abtan",
+                "blurb": "The first episode of the FluCoMa Podcast where Jacob Hart talks with creative coder and educator Freida Abtan.\n",
+                "tags": [
+                    "learning",
+                    "teaching",
+                    "documentation",
+                    "mapping",
+                    "neural networks"
+                ],
+                "flair": "podcast",
+                "featuredimage": "/explore/abtan/profile_pic.jpeg",
+                "author": "Jacob"
+            }
+        },
+        {
+            "url": "/explore/burton",
+            "data": {
+                "title": "Filling the Shell",
+                "artist": "Leafcutter John",
+                "blurb": "In this article we’ll be looking at the work Leafcutter John did for the project with his piece Line Crossing. We’ll take a detailed look at the workings of the piece, and how he used audio analysis to drive his bespoke audio modules.\n",
+                "tags": [
+                    "graphic score",
+                    "melbands",
+                    "stochastic",
+                    "loudness",
+                    "descriptors"
+                ],
+                "flair": "article",
+                "featuredimage": "/explore/burton/final_score_cut.JPG",
+                "author": "Jacob"
+            }
+        },
+        {
+            "url": "/explore/constanzo",
+            "data": {
+                "title": "Sound into Sound",
+                "artist": "Rodrigo Constanzo",
+                "blurb": "In this article, we take a look at the work Rodrigo Constanzo did for the project and explore how he used the FluCoMa tools for his corpus-based music making.\n",
+                "tags": [
+                    "descriptors",
+                    "matching",
+                    "real-time",
+                    "batch processing",
+                    "max for live"
+                ],
+                "flair": "article",
+                "featuredimage": "/explore/constanzo/kaizo_snare_parent.png",
+                "author": "Jacob"
+            }
+        },
+        {
+            "url": "/explore/dell",
+            "data": {
+                "title": "FluCoMa Podcast #03: Niamh Dell",
+                "artist": "Niamh Dell",
+                "blurb": "The third episode of the FluCoMa Podcast where Jacob Hart talks with oboist Niamh Dell.\n",
+                "tags": [
+                    "oboe",
+                    "instrument",
+                    "mlp",
+                    "performance",
+                    "acoustic"
+                ],
+                "flair": "podcast",
+                "featuredimage": "/explore/dell/featured_img.jpeg",
+                "author": "Jacob"
+            }
+        },
+        {
+            "url": "/explore/devine",
+            "data": {
+                "title": "FluCoMa in the DAW and Modular Synthesizer",
+                "artist": "Richard Devine",
+                "blurb": "In the article we’ll be taking a look at the work Richard Devine did for the project, and how the FluCoMa tools can be incorporated into a workflow across the DAW and modular synthesis.\n",
+                "tags": [
+                    "DAW",
+                    "reaper",
+                    "reacoma",
+                    "modular synthesis",
+                    "morphagene"
+                ],
+                "flair": "article",
+                "featuredimage": "/explore/devine/morphagene_reels_patch.png",
+                "author": "Jacob"
+            }
+        },
+        {
+            "url": "/explore/eldridge-kiefer",
+            "data": {
+                "title": "Using FluCoMa to Make a Shared Instrument",
+                "artist": "Alice Eldridge & Chris Kiefer",
+                "blurb": "In this article we explore the work of Alice Eldridge and Chris Kiefer and how they used the FluCoMa tools to augment their Feedback Cello to create a shared, adaptive instrument.\n",
+                "tags": [
+                    "feedback",
+                    "mfcc",
+                    "mlp",
+                    "regression",
+                    "mlpregressor",
+                    "modular synthesis"
+                ],
+                "flair": "article",
+                "featuredimage": "/explore/eldridge/modular-patch.jpg",
+                "author": "Jacob"
+            }
+        },
+        {
+            "url": "/explore/harker",
+            "data": {
+                "title": "Exploring the Oboe with FluCoMa",
+                "artist": "Alex Harker",
+                "blurb": "In this article, we take a look at the work that Alex Harker did for the project, and how, in his piece Drift Shadow, he used the FluCoMa tools to explore the multiphonic possibilities of the oboe.\n",
+                "tags": [
+                    "mlp classification",
+                    "framelib",
+                    "oboe",
+                    "2D exploration",
+                    "umap",
+                    "dimensionality reduction"
+                ],
+                "flair": "article",
+                "featuredimage": "/explore/harker/umap_explorer_example.png",
+                "author": "Jacob"
+            }
+        },
+        {
+            "url": "/explore/hart",
+            "data": {
+                "title": "FluCoMa and Musicological Analysis",
+                "artist": "Jacob Hart",
+                "blurb": "In this article we take a look at how Jacob Hart used some of the FluCoMa tools for musicological analysis.\n",
+                "tags": [
+                    "musicology",
+                    "analysis",
+                    "corpus exploration"
+                ],
+                "flair": "article",
+                "featuredimage": "/explore/hart/yfiles_radial.png",
+                "author": "Jacob"
+            }
+        },
+        {
+            "url": "/explore/hayes",
+            "data": {
+                "title": "Event Detection and Improvisation",
+                "artist": "Lauren Sarah Hayes",
+                "blurb": "In this article we explore Lauren Sarah Hayes' work using some of the FluCoMa tools for her piece Moon via Spirit. \nWe examine how she incorporated some of the slicing tools into her improvisational practice, and how they can provide different approaches to event detection.\n",
+                "tags": [
+                    "transient slicing",
+                    "novelty slicing",
+                    "pitch tracking",
+                    "improvisation",
+                    "hpss"
+                ],
+                "flair": "article",
+                "featuredimage": "/explore/hayes/delicate_instruments_img.png",
+                "author": "Jacob"
+            }
+        },
+        {
+            "url": "/explore/leeming-melen",
+            "data": {
+                "title": "FluCoMa Podcast #05: Zakiya Leeming and Christopher Melen",
+                "artist": "Zakiya Leeming & Christopher Melen",
+                "blurb": "The fifth episode of the FluCoMa podcast where Jacob Hart talks to PRiSM’s Zakiya Leeming and Christopher Melen.\n",
+                "tags": [
+                    "deep learning",
+                    "samplernn",
+                    "generative",
+                    "prism"
+                ],
+                "flair": "podcast",
+                "featuredimage": "/explore/leeming-melen/featured.png",
+                "author": "Jacob"
+            }
+        },
+        {
+            "url": "/explore/liminal-spaces",
+            "data": {
+                "title": "Liminal Spaces (Dialogues Festival 2021)",
+                "blurb": "An overview of the second FluCoMa gig that happened on 9th July 2021 at Dialogues Festival.\n",
+                "tags": [
+                    "concert",
+                    "dialogues festival",
+                    "alice eldridge",
+                    "chris kiefer",
+                    "sam pluta",
+                    "peter evans",
+                    "alex harker",
+                    "niamh dell",
+                    "hans tutschku",
+                    "mark knoop",
+                    "richard devine"
+                ],
+                "flair": "event",
+                "crumb": "Liminal Spaces",
+                "featuredimage": "/general/gig_spotlight.jpeg",
+                "author": "Jacob"
+            }
+        },
+        {
+            "url": "/explore/pasquet",
+            "data": {
+                "title": "​​Combining FluCoMa with bach",
+                "artist": "Olivier Pasquet",
+                "blurb": "In this article we explore how Olivier Pasquet used the FluCoMa tools to yield artefacts that can be used by other tools such as bach and jtol. \nThe article is accompanied by a series of demonstration patches allowing you to explore the inner workings of the software.\n",
+                "tags": [
+                    "nmf",
+                    "onset slicing",
+                    "pitch detection",
+                    "bach",
+                    "cage",
+                    "markov chains"
+                ],
+                "flair": "article",
+                "featuredimage": "/explore/pasquet/nmf_piano_roll.png",
+                "author": "Jacob"
+            }
+        },
+        {
+            "url": "/explore/pluta",
+            "data": {
+                "title": "Interface Design with FluCoMa",
+                "artist": "Sam Pluta",
+                "blurb": "In this article, we take a look at some of the work that Sam Pluta did for the project. We look at his journey into exploring the possibilities of MLP regression, and how it has become an integral part of his practice.\n",
+                "tags": [
+                    "MLP",
+                    "mapping",
+                    "controllers",
+                    "multidimensional",
+                    "interface",
+                    "HCI"
+                ],
+                "flair": "article",
+                "featuredimage": "/explore/pluta/pluta_featured_img.png",
+                "author": "Jacob"
+            }
+        },
+        {
+            "url": "/explore/reactive-flows",
+            "data": {
+                "title": "Reactive Flows (HCMF 2019)",
+                "blurb": "An overview of the first FluCoMa gig that happened on 21st November 2019 at HCMF.\n",
+                "tags": [
+                    "concert",
+                    "hcmf",
+                    "olivier pasquet",
+                    "owen green",
+                    "lauren sarah hayes",
+                    "leafcutter john",
+                    "rodrigo constanzo"
+                ],
+                "flair": "event",
+                "crumb": "Reactive Flows",
+                "featuredimage": "/general/gig_spotlight.jpeg",
+                "author": "Jacob"
+            }
+        },
+        {
+            "url": "/explore/smith",
+            "data": {
+                "title": "FluCoMa Podcast #04: Simon Smith",
+                "artist": "Simon Smith",
+                "blurb": "Episode 4 of the FluCoMa Podcast where Jacob Hart talks to creative coder and BEAST studio technician Simon Smith.\n",
+                "tags": [
+                    "kyma",
+                    "emg bracelets",
+                    "mapping",
+                    "corpus exploration",
+                    "community",
+                    "diffusion"
+                ],
+                "flair": "podcast",
+                "featuredimage": "/explore/smith/featured.jpg"
+            }
+        },
+        {
+            "url": "/explore/tamminga",
+            "data": {
+                "title": "FluCoMa Podcast #02: Jorrit Tamminga",
+                "artist": "Jorrit Tamminga",
+                "blurb": "The second episode of the FluCoMa podcast. Jacob Hart talks with creative coder and educator Jorrit Tamminga.\n",
+                "tags": [
+                    "learning",
+                    "teaching",
+                    "pitch",
+                    "neural networks",
+                    "mapping",
+                    "buffers"
+                ],
+                "flair": "podcast",
+                "featuredimage": "/explore/tamminga/featured_img.jpeg",
+                "author": "Jacob"
+            }
+        },
+        {
+            "url": "/explore/tutschku",
+            "data": {
+                "title": "NMF Piano Tracker for Symbolic Audio Effects",
+                "artist": "Hans Tutschku",
+                "blurb": "In this article, we’ll take a look at some of the work that Hans Tutschku did using the FluCoMa tools, notably the conception of a piano tracker that uses NMF and how this allows him to perform symbolic operations on audio.\n",
+                "tags": [
+                    "nmf",
+                    "mark knoop",
+                    "nmfmatch",
+                    "bach",
+                    "cage"
+                ],
+                "flair": "article",
+                "featuredimage": "/explore/tutschku/build_the_nmf_model_example.png",
+                "author": "Jacob"
+            }
+        }
+    ],
+    "installation": [
+        {
+            "url": "/installation/max",
+            "data": {
+                "title": "Max Installation Instructions",
+                "blurb": "Step-by-step guide for installing the FluCoMa package for Max\n",
+                "tags": [
+                    "installation",
+                    "max"
+                ],
+                "flair": "article"
+            }
+        },
+        {
+            "url": "/installation/pd",
+            "data": {
+                "title": "Pure Data Installation Instructions",
+                "blurb": "Step-by-step guide for installing the FluCoMa package for Pure Data\n",
+                "tags": [
+                    "installation",
+                    "pd",
+                    "pure data"
+                ],
+                "flair": "article"
+            }
+        },
+        {
+            "url": "/installation/sc",
+            "data": {
+                "title": "SuperCollider Installation Instructions",
+                "blurb": "Step-by-step guide for installing the FluCoMa package for SuperCollider\n",
+                "tags": [
+                    "installation",
+                    "sc",
+                    "supercollider"
+                ],
+                "flair": "article"
+            }
+        }
+    ],
+    "learn": [
+        {
+            "url": "/learn/2d-corpus-explorer",
+            "data": {
+                "title": "2D Corpus Exploring",
+                "author": "James",
+                "blurb": "A video tutorial guiding that teaches you how to build a two-dimensional corpus exploration patch in Max.\n",
+                "tags": [
+                    "unsupervised learning",
+                    "dimension reduction",
+                    "video",
+                    "catart",
+                    "corpus",
+                    "segmentation",
+                    "audio descriptors"
+                ],
+                "flair": "tutorial",
+                "featuredimage": "/learn/for-featured-images/2D-corpus-explorer.png"
+            }
+        },
+        {
+            "url": "/learn/batch-processing",
+            "data": {
+                "title": "Batch Processing with FluCoMa",
+                "author": "James",
+                "blurb": "Batch processing corpora with the Fluid Corpus Manipulation toolkit. \n",
+                "tags": [
+                    "workflow",
+                    "batch processing",
+                    "corpus"
+                ],
+                "flair": "article",
+                "featuredimage": "/examples/batch/add.png"
+            }
+        },
+        {
+            "url": "/learn/bufnmf",
+            "data": {
+                "title": "Audio Decomposition using BufNMF",
+                "author": "Ted",
+                "blurb": "Decompose an audio buffer into component parts using non-negative matrix factorisation.\n",
+                "tags": [
+                    "decomposition",
+                    "nmf",
+                    "analysis",
+                    "machine learning"
+                ],
+                "flair": "article",
+                "featuredimage": "/learn/bufnmf/00_original_spectrogram_mel_color.png"
+            }
+        },
+        {
+            "url": "/learn/classification-neural-network",
+            "data": {
+                "title": "Classifying sounds using a Neural Network",
+                "author": "Ted",
+                "blurb": "This video tutorial guides you through building a flexible sound classifier.\n",
+                "tags": [
+                    "supervised learning",
+                    "video",
+                    "classification",
+                    "neural network"
+                ],
+                "flair": "tutorial",
+                "featuredimage": "/learn/for-featured-images/nn-classification.png"
+            }
+        },
+        {
+            "url": "/learn/comparing-scalers",
+            "data": {
+                "title": "Comparing Scalers",
+                "blurb": "Normalize, Standardize, & RobustScale\n",
+                "tags": [
+                    "mean",
+                    "median",
+                    "scale",
+                    "standard deviation",
+                    "percentile"
+                ],
+                "flair": "tutorial",
+                "featuredimage": "/learn/comparing-scalers/08_norm with 2 neighbors.png"
+            }
+        },
+        {
+            "url": "/learn/distribution",
+            "data": {
+                "title": "Distribution and Histograms",
+                "blurb": "Histograms, distribution functions, and the normal distribution\n",
+                "tags": [
+                    "distribution",
+                    "standard deviation",
+                    "mean",
+                    "median",
+                    "mode",
+                    "normal",
+                    "histogram",
+                    "stats",
+                    "statistics"
+                ],
+                "flair": "tutorial",
+                "featuredimage": "/learn/distribution/stddev_diagram.png"
+            }
+        },
+        {
+            "url": "/learn/median-filters",
+            "data": {
+                "title": "Median Filters",
+                "author": "Owen",
+                "blurb": "A small overview for how median filters work.\n",
+                "tags": [
+                    "smoothing",
+                    "preprocessing",
+                    "filters",
+                    "hpss"
+                ],
+                "flair": "article",
+                "featuredimage": "/learn/median-filters/median-filter.png"
+            }
+        },
+        {
+            "url": "/learn/mlp-parameters",
+            "data": {
+                "title": "Neural Network Parameters",
+                "blurb": "A guide on using the parameters of and MLP.",
+                "featuredimage": "/learn/mlp/13-5-4-3.txt.png",
+                "tags": [
+                    "mlp",
+                    "multi-layer perceptron",
+                    "supervised learning",
+                    "neural network",
+                    "machine learning",
+                    "regression",
+                    "classification",
+                    "mlpregressor",
+                    "mlpclassifier"
+                ],
+                "flair": "article"
+            }
+        },
+        {
+            "url": "/learn/mlp-training",
+            "data": {
+                "title": "Neural Network Training",
+                "blurb": "An overview of how neural networks learn.",
+                "tags": [
+                    "mlp",
+                    "multi-layer perceptron",
+                    "supervised learning",
+                    "neural network",
+                    "machine learning",
+                    "regression",
+                    "classification"
+                ],
+                "flair": "article",
+                "featuredimage": "/learn/mlp/211220_01_synth_control_sc.txt.jpg"
+            }
+        },
+        {
+            "url": "/learn/outliers",
+            "data": {
+                "title": "Outliers",
+                "blurb": "Some thinking about outliers and how to manage them.\n",
+                "tags": [
+                    "mean",
+                    "median",
+                    "mode",
+                    "normal",
+                    "histogram"
+                ],
+                "flair": "tutorial",
+                "featuredimage": "/learn/outliers/220427_125149_trumpet_tone_all_three.jpg"
+            }
+        },
+        {
+            "url": "/learn/regression-neural-network",
+            "data": {
+                "title": "Controlling a Synth using a Neural Network",
+                "author": "Ted",
+                "blurb": "Video tutorial introduccing the FluidMLPRegressor neural network.\n",
+                "tags": [
+                    "supervised learning",
+                    "video",
+                    "regression",
+                    "neural network"
+                ],
+                "flair": "tutorial",
+                "featuredimage": "/learn/for-featured-images/mlp-regressor.png"
+            }
+        },
+        {
+            "url": "/learn/removing-outliers",
+            "data": {
+                "title": "Removing Outliers with BufStats",
+                "blurb": "Prevent outliers from negatively impacting BufStats' statistical summary.\n",
+                "tags": [
+                    "mean",
+                    "median",
+                    "mode",
+                    "normal",
+                    "outlier"
+                ],
+                "flair": "tutorial",
+                "featuredimage": "/learn/outliers/removing_outliers.jpg"
+            }
+        },
+        {
+            "url": "/learn/seeding-nmf",
+            "data": {
+                "title": "Seeding Bases and Activations with BufNMF",
+                "author": "Ted",
+                "blurb": "Initialize non-negative matrix factorization with seeded elements.\n",
+                "tags": [
+                    "decomposition",
+                    "non-negative matrix factorization",
+                    "basesMode",
+                    "activations",
+                    "actMode",
+                    "nmf",
+                    "bufnmf",
+                    "seed"
+                ],
+                "flair": "article",
+                "featuredimage": "/learn/for-featured-images/seeding-nmf.png"
+            }
+        },
+        {
+            "url": "/learn/training-testing-split",
+            "data": {
+                "title": "Training and Testing Data",
+                "blurb": "Determine if a neural network is overfit by reserving some testing data",
+                "tags": [
+                    "mlp",
+                    "multi-layer perceptron",
+                    "supervised learning",
+                    "neural network",
+                    "machine learning",
+                    "regression",
+                    "classification"
+                ],
+                "flair": "article",
+                "featuredimage": "/learn/mlp/211220_01_synth_control_sc.txt.jpg"
+            }
+        },
+        {
+            "url": "/learn/weighting-stats",
+            "data": {
+                "title": "Weighting Stats",
+                "blurb": "Apply weights to BufStats\n",
+                "tags": [
+                    "stats",
+                    "mean",
+                    "median"
+                ],
+                "flair": "tutorial",
+                "featuredimage": "/learn/weighting-stats/05_src_with_pitch_and_conf.jpg"
+            }
+        },
+        {
+            "url": "/learn/why-scale",
+            "data": {
+                "title": "Why Scale? Distance as Similarity",
+                "blurb": "The affects of scaling on measures of similarity\n",
+                "tags": [
+                    "standardize",
+                    "normalize",
+                    "robust"
+                ],
+                "flair": "tutorial",
+                "featuredimage": "/learn/comparing-scalers/city_distance.png"
+            }
+        }
+    ],
+    "reference": [
+        {
+            "url": "/reference/ampfeature",
+            "data": {
+                "title": "AmpFeature",
+                "blurb": "Calculate the amplitude differential feature of audio.",
+                "tags": [
+                    "segmentation",
+                    "slicing",
+                    "time series"
+                ],
+                "flair": "reference",
+                "category": "Analyse Sound"
+            }
+        },
+        {
+            "url": "/reference/ampgate",
+            "data": {
+                "title": "AmpGate",
+                "blurb": "Absolute amplitude threshold gate detection",
+                "tags": [
+                    "slicing",
+                    "segmentation",
+                    "gate",
+                    "threshold",
+                    "amplitude"
+                ],
+                "flair": "reference",
+                "category": "Slicing"
+            }
+        },
+        {
+            "url": "/reference/ampslice",
+            "data": {
+                "title": "AmpSlice",
+                "blurb": "Relative value amplitude-based slicing",
+                "tags": [
+                    "slicing",
+                    "segmentation"
+                ],
+                "flair": "reference",
+                "category": "Slicing"
+            }
+        },
+        {
+            "url": "/reference/audiotransport",
+            "data": {
+                "title": "AudioTransport",
+                "blurb": "Morph between sounds using optimal transport",
+                "tags": [
+                    "decomposition",
+                    "morphing",
+                    "hybrids"
+                ],
+                "flair": "reference",
+                "category": "Transform"
+            }
+        },
+        {
+            "url": "/reference/bufcompose",
+            "data": {
+                "title": "BufCompose",
+                "blurb": "Buffer composing",
+                "tags": [
+                    "utility",
+                    "buffer"
+                ],
+                "flair": "reference",
+                "category": "Utility"
+            }
+        },
+        {
+            "url": "/reference/bufflatten",
+            "data": {
+                "title": "BufFlatten",
+                "blurb": "Flatten a buffer to one dimension",
+                "tags": [
+                    "utility",
+                    "buffer",
+                    "buf"
+                ],
+                "flair": "reference",
+                "category": "Utility"
+            }
+        },
+        {
+            "url": "/reference/bufnmf",
+            "data": {
+                "title": "BufNMF",
+                "blurb": "Non-negative matrix factorisation",
+                "tags": [
+                    "decomposition",
+                    "machine learning",
+                    "source separation",
+                    "nmf",
+                    "spectral",
+                    "buffer"
+                ],
+                "flair": "reference",
+                "category": "Decompose"
+            }
+        },
+        {
+            "url": "/reference/bufnmfcross",
+            "data": {
+                "title": "NMFCross",
+                "blurb": "Resynthesis of targets using a source's spectral bases",
+                "tags": [
+                    "decomposition",
+                    "machine learning",
+                    "source separation",
+                    "nmf",
+                    "spectral"
+                ],
+                "flair": "reference",
+                "category": "Transform"
+            }
+        },
+        {
+            "url": "/reference/bufnmfseed",
+            "data": {
+                "title": "BufNMFSeed",
+                "blurb": "Non-negative double singular value decomposition",
+                "tags": [
+                    "decomposition",
+                    "machine learning",
+                    "nmf"
+                ],
+                "flair": "reference",
+                "category": "Analyse Sound"
+            }
+        },
+        {
+            "url": "/reference/bufscale",
+            "data": {
+                "title": "BufScale",
+                "blurb": "Buffer scaling",
+                "tags": [
+                    "utility",
+                    "buffer"
+                ],
+                "flair": "reference",
+                "category": "Utility"
+            }
+        },
+        {
+            "url": "/reference/bufselect",
+            "data": {
+                "title": "BufSelect",
+                "blurb": "Cherry pick buffer values",
+                "tags": [
+                    "utility",
+                    "buffer"
+                ],
+                "related": [
+                    "bufcompose",
+                    "bufselectevery"
+                ],
+                "flair": "reference",
+                "category": "Utility"
+            }
+        },
+        {
+            "url": "/reference/bufselectevery",
+            "data": {
+                "title": "BufSelectEvery",
+                "blurb": "Extract values by frame/channel hop",
+                "tags": [
+                    "utility",
+                    "buffer"
+                ],
+                "flair": "reference",
+                "category": "Utility"
+            }
+        },
+        {
+            "url": "/reference/bufstats",
+            "data": {
+                "title": "BufStats",
+                "blurb": "Statistical analysis of buffer channels",
+                "tags": [
+                    "buffer",
+                    "statistics",
+                    "stats",
+                    "descriptor"
+                ],
+                "flair": "reference",
+                "category": "Analyse Data"
+            }
+        },
+        {
+            "url": "/reference/bufstft",
+            "data": {
+                "title": "BufSTFT",
+                "blurb": "Conversion from the time domain to the spectral domain",
+                "tags": [
+                    "descriptor",
+                    "analysis",
+                    "spectral"
+                ],
+                "flair": "reference",
+                "category": "Analyse Sound"
+            }
+        },
+        {
+            "url": "/reference/bufthresh",
+            "data": {
+                "title": "BufThresh",
+                "blurb": "Gate-like thresholding for buffers",
+                "tags": [
+                    "utility",
+                    "buffer"
+                ],
+                "flair": "reference",
+                "category": "Utility"
+            }
+        },
+        {
+            "url": "/reference/chroma",
+            "data": {
+                "title": "Chroma",
+                "blurb": "A histogram of pitch classes",
+                "tags": [
+                    "descriptor",
+                    "analysis"
+                ],
+                "flair": "reference",
+                "category": "Analyse Sound"
+            }
+        },
+        {
+            "url": "/reference/dataset",
+            "data": {
+                "title": "DataSet",
+                "blurb": "An associative data container",
+                "tags": [
+                    "utlity",
+                    "data"
+                ],
+                "related": [
+                    "labelset"
+                ],
+                "flair": "reference",
+                "category": "Analyse Data"
+            }
+        },
+        {
+            "url": "/reference/datasetquery",
+            "data": {
+                "title": "DataSetQuery",
+                "blurb": "Programatically query a DataSet",
+                "tags": [
+                    "utlity",
+                    "data",
+                    "querying"
+                ],
+                "flair": "reference",
+                "category": "Analyse Data"
+            }
+        },
+        {
+            "url": "/reference/grid",
+            "data": {
+                "title": "Grid",
+                "blurb": "Constraint a 2D Dataset to a grid using the hungarian algorithm",
+                "tags": [
+                    "utlity",
+                    "data",
+                    "querying",
+                    "dataset",
+                    "umap",
+                    "mds",
+                    "pca"
+                ],
+                "flair": "reference",
+                "category": "Analyse Data"
+            }
+        },
+        {
+            "url": "/reference/hpss",
+            "data": {
+                "title": "HPSS",
+                "blurb": "Harmonic-percussive source separation using median filtering",
+                "tags": [
+                    "decomposition",
+                    "source separation",
+                    "mask"
+                ],
+                "flair": "reference",
+                "category": "Decompose"
+            }
+        },
+        {
+            "url": "/reference/kdtree",
+            "data": {
+                "title": "KDTree",
+                "blurb": "K-Dimensional tree for searching data",
+                "tags": [
+                    "data",
+                    "querying"
+                ],
+                "flair": "reference",
+                "category": "Analyse Data"
+            }
+        },
+        {
+            "url": "/reference/kmeans",
+            "data": {
+                "title": "KMeans",
+                "blurb": "Learn clusters from data",
+                "tags": [
+                    "data",
+                    "querying",
+                    "clustering",
+                    "semi-supervised",
+                    "unsupervised"
+                ],
+                "flair": "reference",
+                "category": "Analyse Data"
+            }
+        },
+        {
+            "url": "/reference/knnclassifier",
+            "data": {
+                "title": "KNNClassifier",
+                "blurb": "Classification with K Nearest Neighbours",
+                "tags": [
+                    "data",
+                    "querying",
+                    "classification"
+                ],
+                "flair": "reference",
+                "category": "Analyse Data"
+            }
+        },
+        {
+            "url": "/reference/knnregressor",
+            "data": {
+                "title": "KNNRegressor",
+                "blurb": "Regression with K Nearest Neighbours",
+                "tags": [
+                    "data",
+                    "querying",
+                    "regression",
+                    "mapping"
+                ],
+                "flair": "reference",
+                "category": "Analyse Data"
+            }
+        },
+        {
+            "url": "/reference/labelset",
+            "data": {
+                "title": "LabelSet",
+                "blurb": "An associative container for identifiers and labels",
+                "tags": [
+                    "data",
+                    "querying",
+                    "labelling",
+                    "annotation",
+                    "tags"
+                ],
+                "flair": "reference",
+                "category": "Analyse Data"
+            }
+        },
+        {
+            "url": "/reference/loudness",
+            "data": {
+                "title": "Loudness",
+                "blurb": "EBUR128 loudness and true peak",
+                "tags": [
+                    "descriptor",
+                    "analysis"
+                ],
+                "flair": "reference",
+                "category": "Analyse Sound"
+            }
+        },
+        {
+            "url": "/reference/mds",
+            "data": {
+                "title": "MDS",
+                "blurb": "Multi-dimensional scaling of a FluidDataSet",
+                "tags": [
+                    "data",
+                    "dimension reduction",
+                    "dimensionality reduction",
+                    "statistics",
+                    "preprocessing"
+                ],
+                "flair": "reference",
+                "category": "Analyse Data"
+            }
+        },
+        {
+            "url": "/reference/melbands",
+            "data": {
+                "title": "MelBands",
+                "blurb": "Magnitudes for a number of perceptually-evenly spaced spectral bands",
+                "tags": [
+                    "descriptor",
+                    "mfcc",
+                    "mel",
+                    "perception",
+                    "spectra"
+                ],
+                "flair": "reference",
+                "category": "Analyse Sound"
+            }
+        },
+        {
+            "url": "/reference/mfcc",
+            "data": {
+                "title": "MFCC",
+                "blurb": "Mel-Frequency Cepstrum Coefficients",
+                "tags": [
+                    "descriptor",
+                    "analysis"
+                ],
+                "flair": "reference",
+                "category": "Analyse Sound"
+            }
+        },
+        {
+            "url": "/reference/mlpclassifier",
+            "data": {
+                "title": "MLPClassifier",
+                "blurb": "Classification with a multi-layer perceptron",
+                "tags": [
+                    "data",
+                    "classification",
+                    "neural network",
+                    "machine learning",
+                    "supervised learning",
+                    "multi-layer perceptron",
+                    "mlp"
+                ],
+                "flair": "reference",
+                "category": "Analyse Data"
+            }
+        },
+        {
+            "url": "/reference/mlpregressor",
+            "data": {
+                "title": "MLPRegressor",
+                "blurb": "Regression with a multi-layer perceptron",
+                "tags": [
+                    "data",
+                    "regression",
+                    "neural network",
+                    "machine learning",
+                    "supervised learning",
+                    "multi-layer perceptron",
+                    "mlp"
+                ],
+                "flair": "reference",
+                "category": "Analyse Data"
+            }
+        },
+        {
+            "url": "/reference/nmffilter",
+            "data": {
+                "title": "NMFFilter",
+                "blurb": "Decomposes and resynthesises a signal against a set of spectral templates",
+                "tags": [
+                    "data",
+                    "nmf",
+                    "machine learning",
+                    "spectral",
+                    "filter",
+                    "non-negative matrix factorization"
+                ],
+                "flair": "reference",
+                "category": "Transform"
+            }
+        },
+        {
+            "url": "/reference/nmfmatch",
+            "data": {
+                "title": "NMFMatch",
+                "blurb": "Sound matching using real-time non-negative matrix factorisation",
+                "tags": [
+                    "data",
+                    "nmf",
+                    "machine learning",
+                    "spectral"
+                ],
+                "flair": "reference",
+                "category": "Analyse Sound"
+            }
+        },
+        {
+            "url": "/reference/nmfmorph",
+            "data": {
+                "title": "NMFMorph",
+                "blurb": "Cross-synthesis using non-negative Matrix Factorisation (NMF)",
+                "tags": [
+                    "data",
+                    "nmf",
+                    "machine learning",
+                    "spectral"
+                ],
+                "flair": "reference",
+                "category": "Transform"
+            }
+        },
+        {
+            "url": "/reference/normalize",
+            "data": {
+                "title": "Normalize",
+                "blurb": "Normalize a FluidDataSet's contents",
+                "tags": [
+                    "data",
+                    "scaling",
+                    "preprocessing",
+                    "statistics"
+                ],
+                "flair": "reference",
+                "category": "Analyse Data"
+            }
+        },
+        {
+            "url": "/reference/noveltyfeature",
+            "data": {
+                "title": "NoveltyFeature",
+                "blurb": "Calculates the novelty feature of audio.",
+                "tags": [
+                    "segmentation",
+                    "slicing",
+                    "time series"
+                ],
+                "flair": "reference",
+                "category": "Analyse Sound"
+            }
+        },
+        {
+            "url": "/reference/noveltyslice",
+            "data": {
+                "title": "NoveltySlice",
+                "blurb": "Onset detection with novelty slicing",
+                "tags": [
+                    "segmentation",
+                    "slicing",
+                    "onset detection"
+                ],
+                "flair": "reference",
+                "category": "Slicing"
+            }
+        },
+        {
+            "url": "/reference/onsetfeature",
+            "data": {
+                "title": "OnsetFeature",
+                "blurb": "Calculates the spectral difference feature of audio.",
+                "tags": [
+                    "segmentation",
+                    "slicing",
+                    "time series"
+                ],
+                "flair": "reference",
+                "category": "Analyse Sound"
+            }
+        },
+        {
+            "url": "/reference/onsetslice",
+            "data": {
+                "title": "OnsetSlice",
+                "blurb": "Onset detection with various spectral slicers",
+                "tags": [
+                    "segmentation",
+                    "slicing",
+                    "onset detection"
+                ],
+                "flair": "reference",
+                "category": "Slicing"
+            }
+        },
+        {
+            "url": "/reference/pca",
+            "data": {
+                "title": "PCA",
+                "blurb": "Principal component analysis of a FluidDataSet",
+                "tags": [
+                    "data",
+                    "dimension reduction",
+                    "dimensionality reduction",
+                    "mapping",
+                    "statistics",
+                    "preprocessing"
+                ],
+                "flair": "reference",
+                "category": "Analyse Data"
+            }
+        },
+        {
+            "url": "/reference/pitch",
+            "data": {
+                "title": "Pitch",
+                "blurb": "Fundamental pitch analysis",
+                "tags": [
+                    "descriptor",
+                    "analysis"
+                ],
+                "flair": "reference",
+                "category": "Analyse Sound"
+            }
+        },
+        {
+            "url": "/reference/robustscale",
+            "data": {
+                "title": "RobustScale",
+                "blurb": "Robust scaling of a DataSet",
+                "tags": [
+                    "data",
+                    "scaling",
+                    "preprocessing",
+                    "statistics"
+                ],
+                "flair": "reference",
+                "category": "Analyse Data"
+            }
+        },
+        {
+            "url": "/reference/sines",
+            "data": {
+                "title": "Sines",
+                "blurb": "Decomposition using a sinusoidal reconstruction model",
+                "tags": [
+                    "decomposition"
+                ],
+                "flair": "reference",
+                "category": "Decompose"
+            }
+        },
+        {
+            "url": "/reference/skmeans",
+            "data": {
+                "title": "SKMeans",
+                "blurb": "Learn features from data",
+                "tags": [
+                    "data",
+                    "querying",
+                    "clustering",
+                    "semi-supervised",
+                    "unsupervised",
+                    "feature learning"
+                ],
+                "flair": "reference",
+                "category": "Analyse Data"
+            }
+        },
+        {
+            "url": "/reference/spectralshape",
+            "data": {
+                "title": "SpectralShape",
+                "blurb": "Seven spectral shape descriptors",
+                "tags": [
+                    "analysis",
+                    "descriptor",
+                    "statistics"
+                ],
+                "flair": "reference",
+                "category": "Analyse Sound"
+            }
+        },
+        {
+            "url": "/reference/standardize",
+            "data": {
+                "title": "Standardize",
+                "blurb": "Standard scaling of a FluidDataSet's contents",
+                "tags": [
+                    "data",
+                    "scaling",
+                    "preprocessing",
+                    "statistics"
+                ],
+                "flair": "reference",
+                "category": "Analyse Data"
+            }
+        },
+        {
+            "url": "/reference/stats",
+            "data": {
+                "title": "Stats",
+                "blurb": "Calculate real-time statistics",
+                "tags": [
+                    "analysis",
+                    "stats",
+                    "statistics"
+                ],
+                "flair": "reference",
+                "category": "Analyse Data"
+            }
+        },
+        {
+            "url": "/reference/transients",
+            "data": {
+                "title": "Transients",
+                "blurb": "Transient decomposition using a de-clicking algorithm",
+                "tags": [
+                    "decomposition",
+                    "repair",
+                    "declick"
+                ],
+                "flair": "reference",
+                "category": "Decompose"
+            }
+        },
+        {
+            "url": "/reference/transientslice",
+            "data": {
+                "title": "TransientSlice",
+                "blurb": "Onset detection with a transient detection algorithm",
+                "tags": [
+                    "segmentation",
+                    "slicing",
+                    "onset detection"
+                ],
+                "flair": "reference",
+                "category": "Slicing"
+            }
+        },
+        {
+            "url": "/reference/umap",
+            "data": {
+                "title": "UMAP",
+                "blurb": "Uniform Manifold Approximation and Projection (UMAP) on a FluidDataSet",
+                "tags": [
+                    "data",
+                    "dimension reduction",
+                    "dimensionality reduction",
+                    "mapping",
+                    "statistics"
+                ],
+                "flair": "reference",
+                "category": "Analyse Data"
+            }
+        }
+    ]
+}
