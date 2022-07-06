@@ -24,7 +24,7 @@ featuredimage: /explore/xambo/featured.jpg
 <ArtistCard
 src = "/explore/xambo/profile.jpeg"
 name = "Anna Xambó"
-website = " https://annaxambo.me/ "
+website = "https://annaxambo.me/"
 >
 <p slot="bio">
 Anna is currently a Senior Lecturer in Music and Audio Technology at the Leicester Media School (LMS), Faculty of Computing, Engineering and Media (CEM) at De Montfort University (DMU); member of the Music, Technology and Innovation – Institute of Sonic Creativity (MTI^2); and worked as the principal investigator (PI) for the EPSRC HDI Network Plus funded project “MIRLCAuto: A Virtual Agent for Music Information Retrieval in Live Coding”. She is also the programme leader of the BSc Digital Music Technology programme. Since 2019, she has been an Associate Fellow at the Higher Education Academy.
