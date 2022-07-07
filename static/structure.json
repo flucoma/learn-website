@@ -1,0 +1,927 @@
+{
+  "/explore/abtan": [
+    {
+      "url": "/explore/abtan#the-podcast",
+      "text": "The Podcast"
+    },
+    {
+      "url": "/explore/abtan#overview",
+      "text": "Overview"
+    },
+    {
+      "url": "/explore/abtan#links",
+      "text": "Links"
+    }
+  ],
+  "/explore/burton": [
+    {
+      "url": "/explore/burton#introduction",
+      "text": "Introduction"
+    },
+    {
+      "url": "/explore/burton#graphic-score",
+      "text": "Graphic score"
+    },
+    {
+      "url": "/explore/burton#audio-processing",
+      "text": "Audio Processing"
+    },
+    {
+      "url": "/explore/burton#performing",
+      "text": "Performing"
+    },
+    {
+      "url": "/explore/burton#conclusion",
+      "text": "Conclusion"
+    }
+  ],
+  "/explore/constanzo": [
+    {
+      "url": "/explore/constanzo#introduction",
+      "text": "Introduction"
+    },
+    {
+      "url": "/explore/constanzo#previous-projects",
+      "text": "Previous Projects"
+    },
+    {
+      "url": "/explore/constanzo#audio-matching-in-kaizo-snare",
+      "text": "Audio Matching in Kaizo Snare"
+    },
+    {
+      "url": "/explore/constanzo#audio-processing",
+      "text": "Audio Processing"
+    },
+    {
+      "url": "/explore/constanzo#sound-into-sound",
+      "text": "Sound into Sound"
+    },
+    {
+      "url": "/explore/constanzo#conclusion",
+      "text": "Conclusion"
+    }
+  ],
+  "/explore/dell": [
+    {
+      "url": "/explore/dell#the-podcast",
+      "text": "The Podcast"
+    },
+    {
+      "url": "/explore/dell#overview",
+      "text": "Overview"
+    },
+    {
+      "url": "/explore/dell#links",
+      "text": "Links"
+    }
+  ],
+  "/explore/devine": [
+    {
+      "url": "/explore/devine#introduction",
+      "text": "Introduction"
+    },
+    {
+      "url": "/explore/devine#the-patch",
+      "text": "The Patch"
+    },
+    {
+      "url": "/explore/devine#building-a-corpus",
+      "text": "Building a Corpus"
+    },
+    {
+      "url": "/explore/devine#slices-for-performance",
+      "text": "Slices for Performance"
+    },
+    {
+      "url": "/explore/devine#conclusion",
+      "text": "Conclusion"
+    }
+  ],
+  "/explore/eldridge-kiefer": [
+    {
+      "url": "/explore/eldridge-kiefer#introduction",
+      "text": "Introduction"
+    },
+    {
+      "url": "/explore/eldridge-kiefer#feedback-cell",
+      "text": "Feedback Cell"
+    },
+    {
+      "url": "/explore/eldridge-kiefer#shared-instrument",
+      "text": "Shared Instrument"
+    },
+    {
+      "url": "/explore/eldridge-kiefer#looking-to-mlp",
+      "text": "Looking to MLP"
+    },
+    {
+      "url": "/explore/eldridge-kiefer#training-a-neural-network",
+      "text": "Training a Neural Network"
+    },
+    {
+      "url": "/explore/eldridge-kiefer#shared-instrument-in-performance",
+      "text": "Shared Instrument in Performance"
+    },
+    {
+      "url": "/explore/eldridge-kiefer#conclusion",
+      "text": "Conclusion"
+    }
+  ],
+  "/explore/harker": [
+    {
+      "url": "/explore/harker#introduction",
+      "text": "Introduction"
+    },
+    {
+      "url": "/explore/harker#",
+      "text": "Premise of the Piece"
+    },
+    {
+      "url": "/explore/harker#how-it-works",
+      "text": "How it Works"
+    },
+    {
+      "url": "/explore/harker#sample-exploration-and-cac",
+      "text": "Sample Exploration and CAC"
+    },
+    {
+      "url": "/explore/harker#oboe-tracking",
+      "text": "Oboe Tracking"
+    },
+    {
+      "url": "/explore/harker#conclusion",
+      "text": "Conclusion"
+    }
+  ],
+  "/explore/hart": [
+    {
+      "url": "/explore/hart#introduction",
+      "text": "Introduction"
+    },
+    {
+      "url": "/explore/hart#cartography-and-cartology",
+      "text": "Cartography and Cartology"
+    },
+    {
+      "url": "/explore/hart#data-navigation",
+      "text": "Data Navigation"
+    },
+    {
+      "url": "/explore/hart#data-creation",
+      "text": "Data Creation"
+    },
+    {
+      "url": "/explore/hart#conclusion",
+      "text": "Conclusion"
+    }
+  ],
+  "/explore/hayes": [
+    {
+      "url": "/explore/hayes#introduction",
+      "text": "Introduction"
+    },
+    {
+      "url": "/explore/hayes#hayes-improvisational-practice",
+      "text": "Hayes’ Improvisational Practice"
+    },
+    {
+      "url": "/explore/hayes#flucoma-tools",
+      "text": "FluCoMa Tools"
+    },
+    {
+      "url": "/explore/hayes#conclusion",
+      "text": "Conclusion"
+    }
+  ],
+  "/explore/leeming-melen": [
+    {
+      "url": "/explore/leeming-melen#the-podcast",
+      "text": "The Podcast"
+    },
+    {
+      "url": "/explore/leeming-melen#overview",
+      "text": "Overview"
+    },
+    {
+      "url": "/explore/leeming-melen#links",
+      "text": "Links"
+    }
+  ],
+  "/explore/liminal-spaces": [
+    {
+      "url": "/explore/liminal-spaces#summary",
+      "text": "Summary"
+    },
+    {
+      "url": "/explore/liminal-spaces#alice-eldridge--chris-kiefer---feedback-cello",
+      "text": "Alice Eldridge & Chris Kiefer - Feedback Cello"
+    },
+    {
+      "url": "/explore/liminal-spaces#sam-pluta--peter-evans---neural-duo",
+      "text": "Sam Pluta & Peter Evans - Neural Duo"
+    },
+    {
+      "url": "/explore/liminal-spaces#alex-harker---drift-shadow-performed-by-niamh-dell",
+      "text": "Alex Harker - Drift Shadow (performed by Niamh Dell)"
+    },
+    {
+      "url": "/explore/liminal-spaces#hans-tutschku---sparks-performed-by-mark-knoop",
+      "text": "Hans Tutschku - Sparks (performed by Mark Knoop)"
+    },
+    {
+      "url": "/explore/liminal-spaces#richard-devine---constructors",
+      "text": "Richard Devine - Constructors"
+    }
+  ],
+  "/explore/pasquet": [
+    {
+      "url": "/explore/pasquet#introduction",
+      "text": "Introduction"
+    },
+    {
+      "url": "/explore/pasquet#",
+      "text": "The Premise"
+    },
+    {
+      "url": "/explore/pasquet#finding-sounds",
+      "text": "Finding Sounds"
+    },
+    {
+      "url": "/explore/pasquet#timing-sounds",
+      "text": "Timing Sounds"
+    },
+    {
+      "url": "/explore/pasquet#conclusion",
+      "text": "Conclusion"
+    }
+  ],
+  "/explore/pluta": [
+    {
+      "url": "/explore/pluta#introduction",
+      "text": "Introduction"
+    },
+    {
+      "url": "/explore/pluta#how-it-works",
+      "text": "How it Works"
+    },
+    {
+      "url": "/explore/pluta#mlp--training-process",
+      "text": "MLP & Training Process"
+    },
+    {
+      "url": "/explore/pluta#instrument-design",
+      "text": "Instrument Design"
+    },
+    {
+      "url": "/explore/pluta#conclusion",
+      "text": "Conclusion"
+    }
+  ],
+  "/explore/reactive-flows": [
+    {
+      "url": "/explore/reactive-flows#summary",
+      "text": "Summary"
+    },
+    {
+      "url": "/explore/reactive-flows#owen-green---race-to-the-bottom",
+      "text": "Owen Green - Race to the Bottom"
+    },
+    {
+      "url": "/explore/reactive-flows#olivier-pasquet---herbig-haro-hh",
+      "text": "Olivier Pasquet - Herbig Haro (HH)"
+    },
+    {
+      "url": "/explore/reactive-flows#lauren-sarah-hayes---moon-via-spirit",
+      "text": "Lauren Sarah Hayes - Moon via Spirit"
+    },
+    {
+      "url": "/explore/reactive-flows#rodrigo-constanzo---kaizo-snare",
+      "text": "Rodrigo Constanzo - Kaizo Snare"
+    },
+    {
+      "url": "/explore/reactive-flows#leafcutter-john---line-crossing",
+      "text": "Leafcutter John - Line Crossing"
+    }
+  ],
+  "/explore/smith": [
+    {
+      "url": "/explore/smith#the-podcast",
+      "text": "The Podcast"
+    },
+    {
+      "url": "/explore/smith#overview",
+      "text": "Overview"
+    },
+    {
+      "url": "/explore/smith#links",
+      "text": "Links"
+    }
+  ],
+  "/explore/tamminga": [
+    {
+      "url": "/explore/tamminga#the-podcast",
+      "text": "The Podcast"
+    },
+    {
+      "url": "/explore/tamminga#overview",
+      "text": "Overview"
+    },
+    {
+      "url": "/explore/tamminga#links",
+      "text": "Links"
+    }
+  ],
+  "/explore/tutschku": [
+    {
+      "url": "/explore/tutschku#introduction",
+      "text": "Introduction"
+    },
+    {
+      "url": "/explore/tutschku#interactivereactive",
+      "text": "Interactive/Reactive"
+    },
+    {
+      "url": "/explore/tutschku#how-the-piece-works",
+      "text": "How the Piece Works"
+    },
+    {
+      "url": "/explore/tutschku#nmf-piano-tracker",
+      "text": "NMF Piano Tracker"
+    },
+    {
+      "url": "/explore/tutschku#symbolic-audio-effects",
+      "text": "Symbolic Audio Effects"
+    },
+    {
+      "url": "/explore/tutschku#conclusion",
+      "text": "Conclusion"
+    }
+  ],
+  "/installation/max": [
+    {
+      "url": "/installation/max#step-1-download-the-max-package",
+      "text": "Step 1: Download the Max Package"
+    },
+    {
+      "url": "/installation/max#step-2-move-the-package-folder",
+      "text": "Step 2: Move the Package Folder"
+    },
+    {
+      "url": "/installation/max#step-3-run-max-and-test",
+      "text": "Step 3: Run Max and Test"
+    },
+    {
+      "url": "/installation/max#step-4-quarantine",
+      "text": "Step 4: Quarantine"
+    }
+  ],
+  "/installation/pd": [
+    {
+      "url": "/installation/pd#step-1-download-the-pure-data-package",
+      "text": "Step 1: Download the Pure Data Package"
+    },
+    {
+      "url": "/installation/pd#step-2-add-the-package-to-the-search-path",
+      "text": "Step 2: Add the Package to the Search Path"
+    },
+    {
+      "url": "/installation/pd#step-3-add-the-flucoma-library-to-the-startup-preferences",
+      "text": "Step 3: Add the FluCoMa library to the Startup Preferences"
+    },
+    {
+      "url": "/installation/pd#step-4-dequarantine-macos-only",
+      "text": "Step 4: Dequarantine (macOS only)"
+    },
+    {
+      "url": "/installation/pd#step-5-run-and-test",
+      "text": "Step 5: Run and Test"
+    }
+  ],
+  "/installation/sc": [
+    {
+      "url": "/installation/sc#step-1-download-the-flucoma-supercollider-extension-package",
+      "text": "Step 1: Download the FluCoMa SuperCollider Extension Package"
+    },
+    {
+      "url": "/installation/sc#step-2-move-the-downloaded-folder-to-the-extension-directory",
+      "text": "Step 2: Move the Downloaded Folder to the Extension Directory"
+    },
+    {
+      "url": "/installation/sc#step-3-dequarantine-scx-extensions",
+      "text": "Step 3: Dequarantine *.scx Extensions"
+    },
+    {
+      "url": "/installation/sc#step-4-run-supercollider-and-test",
+      "text": "Step 4: Run SuperCollider and Test"
+    }
+  ],
+  "/learn/2d-corpus-explorer": [
+    {
+      "url": "/learn/2d-corpus-explorer#a-brief-synopsis",
+      "text": "A Brief Synopsis"
+    }
+  ],
+  "/learn/batch-processing": [
+    {
+      "url": "/learn/batch-processing#introduction",
+      "text": "Introduction"
+    },
+    {
+      "url": "/learn/batch-processing#batch-processing-code-examples",
+      "text": "Batch Processing Code Examples"
+    },
+    {
+      "url": "/learn/batch-processing#discussion",
+      "text": "Discussion"
+    }
+  ],
+  "/learn/bufnmf": [
+    {
+      "url": "/learn/bufnmf#decomposition",
+      "text": "Decomposition"
+    },
+    {
+      "url": "/learn/bufnmf#bases-and-activations",
+      "text": "Bases and Activations"
+    }
+  ],
+  "/learn/classification-neural-network": [
+    {
+      "url": "/learn/classification-neural-network#a-brief-synopsis",
+      "text": "A Brief Synopsis"
+    }
+  ],
+  "/learn/comparing-scalers": [],
+  "/learn/distribution": [
+    {
+      "url": "/learn/distribution#histogram",
+      "text": "Histogram"
+    },
+    {
+      "url": "/learn/distribution#normal-distribution",
+      "text": "Normal Distribution"
+    },
+    {
+      "url": "/learn/distribution#uniform-distribution",
+      "text": "Uniform Distribution"
+    },
+    {
+      "url": "/learn/distribution#categorical-distribution",
+      "text": "Categorical Distribution"
+    },
+    {
+      "url": "/learn/distribution#example-code-to-check-distribution",
+      "text": "Example Code to Check Distribution"
+    }
+  ],
+  "/learn/median-filters": [],
+  "/learn/mlp-parameters": [
+    {
+      "url": "/learn/mlp-parameters#inlinecodehiddenlayers",
+      "text": [
+        "inlinecode",
+        "hiddenLayers"
+      ]
+    },
+    {
+      "url": "/learn/mlp-parameters#activation-functions",
+      "text": "Activation Functions"
+    },
+    {
+      "url": "/learn/mlp-parameters#inlinecodelearnrate",
+      "text": [
+        "inlinecode",
+        "learnRate"
+      ]
+    },
+    {
+      "url": "/learn/mlp-parameters#inlinecodemaxiter",
+      "text": [
+        "inlinecode",
+        "maxIter"
+      ]
+    },
+    {
+      "url": "/learn/mlp-parameters#inlinecodevalidation",
+      "text": [
+        "inlinecode",
+        "validation"
+      ]
+    },
+    {
+      "url": "/learn/mlp-parameters#inlinecodebatchsize",
+      "text": [
+        "inlinecode",
+        "batchSize"
+      ]
+    },
+    {
+      "url": "/learn/mlp-parameters#inlinecodemomentum",
+      "text": [
+        "inlinecode",
+        "Momentum"
+      ]
+    },
+    {
+      "url": "/learn/mlp-parameters#inlinecodetapin",
+      "text": [
+        "inlinecode",
+        "tapIn"
+      ]
+    },
+    {
+      "url": "/learn/mlp-parameters#inlinecodetapout",
+      "text": [
+        "inlinecode",
+        "tapOut"
+      ]
+    }
+  ],
+  "/learn/mlp-training": [
+    {
+      "url": "/learn/mlp-training#supervised-learning",
+      "text": "Supervised Learning"
+    },
+    {
+      "url": "/learn/mlp-training#the-training-process",
+      "text": "The Training Process"
+    },
+    {
+      "url": "/learn/mlp-training#comparing-mlp-and-knn",
+      "text": "Comparing MLP and KNN"
+    },
+    {
+      "url": "/learn/mlp-training#related-resources",
+      "text": "Related Resources"
+    }
+  ],
+  "/learn/outliers": [
+    {
+      "url": "/learn/outliers#what-is-an-outlier",
+      "text": "What is an outlier?"
+    },
+    {
+      "url": "/learn/outliers#working-with-outliers",
+      "text": "Working with Outliers"
+    }
+  ],
+  "/learn/regression-neural-network": [
+    {
+      "url": "/learn/regression-neural-network#a-brief-synopsis",
+      "text": "A Brief Synopsis"
+    }
+  ],
+  "/learn/removing-outliers": [],
+  "/learn/seeding-nmf": [
+    {
+      "url": "/learn/seeding-nmf#seeding-bufnmf-with-bases",
+      "text": "Seeding BufNMF with Bases"
+    },
+    {
+      "url": "/learn/seeding-nmf#seeding-with-bases-from-a-bufnmf-analysis",
+      "text": "Seeding with Bases from a BufNMF Analysis"
+    },
+    {
+      "url": "/learn/seeding-nmf#seeding-bufnmf-with-activations",
+      "text": "Seeding BufNMF with Activations"
+    }
+  ],
+  "/learn/training-testing-split": [],
+  "/learn/weighting-stats": [
+    {
+      "url": "/learn/weighting-stats#a-musical-example",
+      "text": "A musical example"
+    }
+  ],
+  "/learn/why-scale": [
+    {
+      "url": "/learn/why-scale#linear-vs-logarithmic-scales",
+      "text": "Linear vs Logarithmic Scales"
+    },
+    {
+      "url": "/learn/why-scale#related-resources",
+      "text": "Related Resources"
+    }
+  ],
+  "/reference/ampfeature": [],
+  "/reference/ampgate": [
+    {
+      "url": "/reference/ampgate#parameters",
+      "text": "Parameters"
+    },
+    {
+      "url": "/reference/ampgate#using-only-the-onsets",
+      "text": "Using Only the Onsets"
+    }
+  ],
+  "/reference/ampslice": [],
+  "/reference/audiotransport": [
+    {
+      "url": "/reference/audiotransport#interpolation",
+      "text": "Interpolation"
+    },
+    {
+      "url": "/reference/audiotransport#related-resources",
+      "text": "Related Resources"
+    }
+  ],
+  "/reference/bufcompose": [],
+  "/reference/bufflatten": [],
+  "/reference/bufnmf": [],
+  "/reference/bufnmfcross": [],
+  "/reference/bufnmfseed": [],
+  "/reference/bufscale": [],
+  "/reference/bufselect": [],
+  "/reference/bufselectevery": [],
+  "/reference/bufstats": [
+    {
+      "url": "/reference/bufstats#mean",
+      "text": "Mean"
+    },
+    {
+      "url": "/reference/bufstats#standard-deviation",
+      "text": "Standard Deviation"
+    },
+    {
+      "url": "/reference/bufstats#skewness",
+      "text": "Skewness"
+    },
+    {
+      "url": "/reference/bufstats#kurtosis",
+      "text": "Kurtosis"
+    },
+    {
+      "url": "/reference/bufstats#order-statistics",
+      "text": "Order Statistics"
+    },
+    {
+      "url": "/reference/bufstats#related-resources",
+      "text": "Related Resources"
+    }
+  ],
+  "/reference/bufstft": [],
+  "/reference/bufthresh": [],
+  "/reference/chroma": [
+    {
+      "url": "/reference/chroma#related-resources",
+      "text": "Related Resources"
+    }
+  ],
+  "/reference/dataset": [
+    {
+      "url": "/reference/dataset#",
+      "text": "Some Caveats to Remember"
+    },
+    {
+      "url": "/reference/dataset#usage",
+      "text": "Usage"
+    }
+  ],
+  "/reference/datasetquery": [],
+  "/reference/grid": [
+    {
+      "url": "/reference/grid#oversampling",
+      "text": "Oversampling"
+    },
+    {
+      "url": "/reference/grid#extent-and-axis",
+      "text": "Extent and Axis"
+    },
+    {
+      "url": "/reference/grid#related-resources",
+      "text": "Related Resources"
+    }
+  ],
+  "/reference/hpss": [
+    {
+      "url": "/reference/hpss#harmonic-enhanced-spectrogram",
+      "text": "Harmonic-Enhanced Spectrogram"
+    },
+    {
+      "url": "/reference/hpss#percussive-enhanced-spectrogram",
+      "text": "Percussive-Enhanced Spectrogram"
+    },
+    {
+      "url": "/reference/hpss#binary-mask",
+      "text": "Binary Mask"
+    },
+    {
+      "url": "/reference/hpss#soft-mask",
+      "text": "Soft Mask"
+    },
+    {
+      "url": "/reference/hpss#related-resources",
+      "text": "Related Resources"
+    }
+  ],
+  "/reference/kdtree": [
+    {
+      "url": "/reference/kdtree#why-is-a-k-d-tree-only-sometimes-faster-than-manual-lookup",
+      "text": "Why is a "
+    }
+  ],
+  "/reference/kmeans": [
+    {
+      "url": "/reference/kmeans#related-resources",
+      "text": "Related Resources"
+    }
+  ],
+  "/reference/knnclassifier": [
+    {
+      "url": "/reference/knnclassifier#knnclassifier-vs-mlpclassifier",
+      "text": "KNNClassifier vs. MLPClassifier"
+    }
+  ],
+  "/reference/knnregressor": [],
+  "/reference/labelset": [
+    {
+      "url": "/reference/labelset#",
+      "text": "Some Caveats to Remember"
+    }
+  ],
+  "/reference/loudness": [
+    {
+      "url": "/reference/loudness#what-is-true-peak",
+      "text": "What is True Peak?"
+    },
+    {
+      "url": "/reference/loudness#related-resources",
+      "text": "Related Resources"
+    }
+  ],
+  "/reference/mds": [
+    {
+      "url": "/reference/mds#comparing-measures-of-distance",
+      "text": "Comparing Measures of Distance"
+    },
+    {
+      "url": "/reference/mds#distance-measures",
+      "text": "Distance Measures"
+    },
+    {
+      "url": "/reference/mds#related-resources",
+      "text": "Related Resources"
+    }
+  ],
+  "/reference/melbands": [],
+  "/reference/mfcc": [
+    {
+      "url": "/reference/mfcc#mfccs-as-a-form-of-data-compression",
+      "text": "MFCCs as a form of data compression"
+    },
+    {
+      "url": "/reference/mfcc#mfcc-0",
+      "text": "MFCC 0"
+    }
+  ],
+  "/reference/mlpclassifier": [],
+  "/reference/mlpregressor": [],
+  "/reference/nmffilter": [
+    {
+      "url": "/reference/nmffilter#audio-input-from-a-different-source",
+      "text": "Audio Input From a Different Source"
+    },
+    {
+      "url": "/reference/nmffilter#filtering-noise",
+      "text": "Filtering Noise"
+    }
+  ],
+  "/reference/nmfmatch": [
+    {
+      "url": "/reference/nmfmatch#training-on-a-subset-of-audio",
+      "text": "Training on a Subset of Audio"
+    }
+  ],
+  "/reference/nmfmorph": [],
+  "/reference/normalize": [],
+  "/reference/noveltyfeature": [],
+  "/reference/noveltyslice": [
+    {
+      "url": "/reference/noveltyslice#related-resources",
+      "text": "Related Resources"
+    }
+  ],
+  "/reference/onsetfeature": [],
+  "/reference/onsetslice": [
+    {
+      "url": "/reference/onsetslice#introduction",
+      "text": "Introduction"
+    },
+    {
+      "url": "/reference/onsetslice#a-visual-example",
+      "text": "A Visual Example"
+    },
+    {
+      "url": "/reference/onsetslice#metrics",
+      "text": "Metrics"
+    },
+    {
+      "url": "/reference/onsetslice#related-resources",
+      "text": "Related Resources"
+    }
+  ],
+  "/reference/pca": [
+    {
+      "url": "/reference/pca#calculating-the-principal-components",
+      "text": "Calculating the Principal Components"
+    },
+    {
+      "url": "/reference/pca#pca-for-dimensionality-reduction",
+      "text": "PCA for Dimensionality Reduction"
+    },
+    {
+      "url": "/reference/pca#inlinecodewhiten",
+      "text": [
+        "inlinecode",
+        "whiten"
+      ]
+    },
+    {
+      "url": "/reference/pca#related-resources",
+      "text": "Related Resources"
+    }
+  ],
+  "/reference/pitch": [
+    {
+      "url": "/reference/pitch#related-resources",
+      "text": "Related Resources"
+    }
+  ],
+  "/reference/robustscale": [
+    {
+      "url": "/reference/robustscale#inlinecodehigh-and-inlinecodelow",
+      "text": [
+        "inlinecode",
+        "high"
+      ]
+    }
+  ],
+  "/reference/sines": [
+    {
+      "url": "/reference/sines#introduction",
+      "text": "Introduction"
+    },
+    {
+      "url": "/reference/sines#some-practical-examples",
+      "text": "Some Practical Examples"
+    },
+    {
+      "url": "/reference/sines#related-resources",
+      "text": "Related Resources"
+    }
+  ],
+  "/reference/skmeans": [
+    {
+      "url": "/reference/skmeans#related-resources",
+      "text": "Related Resources"
+    }
+  ],
+  "/reference/spectralshape": [
+    {
+      "url": "/reference/spectralshape#spectral-centroid",
+      "text": "Spectral Centroid"
+    },
+    {
+      "url": "/reference/spectralshape#spectral-spread",
+      "text": "Spectral Spread"
+    },
+    {
+      "url": "/reference/spectralshape#spectral-skewness",
+      "text": "Spectral Skewness"
+    },
+    {
+      "url": "/reference/spectralshape#spectral-kurtosis",
+      "text": "Spectral Kurtosis"
+    },
+    {
+      "url": "/reference/spectralshape#spectral-rolloff",
+      "text": "Spectral Rolloff"
+    },
+    {
+      "url": "/reference/spectralshape#spectral-flatness",
+      "text": "Spectral Flatness"
+    },
+    {
+      "url": "/reference/spectralshape#spectral-crest",
+      "text": "Spectral Crest"
+    },
+    {
+      "url": "/reference/spectralshape#related-resources",
+      "text": "Related Resources"
+    }
+  ],
+  "/reference/standardize": [],
+  "/reference/stats": [],
+  "/reference/transients": [],
+  "/reference/transientslice": [],
+  "/reference/umap": [
+    {
+      "url": "/reference/umap#parameters",
+      "text": "Parameters"
+    },
+    {
+      "url": "/reference/umap#related-resources",
+      "text": "Related Resources"
+    }
+  ]
+}

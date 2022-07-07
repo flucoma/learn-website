@@ -12,6 +12,7 @@ tags:
     - diffusion
 flair: podcast
 featuredimage: /explore/smith/featured.jpg
+author: Jacob
 ---
 
 <script>
