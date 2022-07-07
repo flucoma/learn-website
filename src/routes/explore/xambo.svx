@@ -9,7 +9,7 @@ tags:
     - online
     - mobile devices
     - data-driven musical interface
-featuredimage: /explore/xambo/featured.jpg
+featuredimage: /explore/xambo/featured.jpeg
 ---
 
 <script>
@@ -54,7 +54,7 @@ chapters={[
 
 ## Overview
 
-In this episode of the FluCoMa Podcast I talk with Dr. Anna Xambó who is currently a senior lecturer in Music and Audio Technology at the Leicester Media School at Demontfort University. We discuss a number of her research projects, and how they feed into her creative practice. We notably discuss her use of MIR techniques for live-coding, and dealing with large, online, crowd-sourced corpora on a platform such as Freesound.
+In this episode of the FluCoMa Podcast I talk with Dr. Anna Xambó who is currently a senior lecturer in Music and Audio Technology at the Leicester Media School at De Montfort University; and a member of the Music, Technology and Innovation - Institute of Sonic Creativity (MTI2). We discuss a number of her research projects, and how they feed into her creative practice. We notably discuss her use of MIR techniques for live-coding, and dealing with large, online, crowd-sourced corpora on a platform such as Freesound.
 
 ## Links
 
@@ -115,6 +115,8 @@ id='https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/
 - [MIRLC]( https://github.com/axambo/MIRLC).
 
 - [Freesound.sc]( https://github.com/g-roma/Freesound.sc).
+
+- Gerard Roma presenting his work around Freesound at the first FluCoMa plenary:
 
 <YouTube 
 url={'-52RdzniJjg '}
