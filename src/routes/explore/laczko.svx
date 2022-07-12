@@ -33,7 +33,7 @@ Bálint is a Music Composer and Sound Designer oriented towards experimental sou
 ## The Podcast
 
 <YouTubeChapters 
-url={'LzRlHHeob5Q'}
+url={'U93E2T2WrY4'}
 chapters={[
     {"label" : "Introduction", "start" : [0, 0]},
     {"label" : "Getting into music and music technology", "start" : [1, 28]},
