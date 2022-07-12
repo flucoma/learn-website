@@ -1,0 +1,93 @@
+---
+title: "FluCoMa Podcast #07: Bálint Laczkó"
+artist: Bálint Laczkó
+blurb: |
+    Episode 7 of the FluCoMa Podcast where Jacob Hart talks to creative coder and composer Bálint Laczkó about his latest piece The Hum.
+tags: 
+    - the Hum
+    - corpus explorer
+    - 3d
+    - jitter
+    - custom descriptors
+flair: podcast
+featuredimage: /explore/laczko/featured.jpeg
+author: Jacob
+---
+
+<script>
+    import YouTubeChapters from '$lib/components/YouTubeChapters.svelte';
+    import ArtistCard from '$lib/components/mwf/ArtistCard.svelte';
+</script>
+
+<ArtistCard
+src = "/explore/laczko/profile.jpeg"
+name = "Bálint Laczkó"
+website = "https://spatialsoundinstitute.com/Balint-Laczko"
+>
+<p slot="bio">
+Bálint is a Music Composer and Sound Designer oriented towards experimental sound and immersive multi-channel audio. He is also a Programmer/Developer with experience with Max/MSP, JavaScript and Python. He is an Audio Engineer with experience with both live sound reinforcement and studio recording, mixing, mastering, audio restoration. He has experience in teaching programming in Max/MSP and music theory.
+</p>
+</ArtistCard>
+
+## The Podcast
+
+<YouTubeChapters 
+url={'LzRlHHeob5Q'}
+chapters={[
+    {"label" : "Introduction", "start" : [0, 0]},
+    {"label" : "Getting into music and music technology", "start" : [1, 28]},
+    {"label" : "Working in different environments", "start" : [5, 30]},
+    {"label" : "Overview of Bálint’s creative work", "start" : [12, 19]},
+    {"label" : "What is the Hum?", "start" : [14, 12]},
+    {"label" : "Describing the piece", "start" : [20, 10]},
+    {"label" : "Constructing the web (dimensionality reduction, Bálint descriptors, iterative corpus recording)", "start" : [28, 27]},
+    {"label" : "Navigating the web", "start" : [42, 41]},
+    {"label" : "Performing The Hum and processing", "start" : [57, 33]},
+    {"label" : "Piece recontextualisation", "start" : [1, 5, 45]},
+    {"label" : "Perception of dimensions", "start" : [1, 13, 17]},
+    {"label" : "Dealing with technology", "start" : [1, 20, 56]},
+    {"label" : "Recording versus performance", "start" : [1, 27, 30]},
+    {"label" : "The FluCoMa ecosystem", "start" : [1, 36, 11]},
+    {"label" : "Approach to teaching and learning", "start" : [1, 45, 52]},
+]}
+/>
+
+## Overview
+
+In this episode of the FluCoMa Podcast I talk with Bálint Laczkó about his recent audiovisual perfomance piece _The Hum_. The piece makes use of many of the FluCoMa tools, and during our conversation, we learn about Bálint's approach to many of the FluCoMa workflows: automatic versus manual slicing; custom feature extraction and combinations of descriptor data; dimensionality reduction and visualisation in 2- and 3-dimensional spaces; data-driven musical interfaces and how to engage with them at performance and compositional levels; corpus curation and construction; and much more!
+
+## Links
+
+Here are the links to some of the things that were discussed during the podcast:
+
+- Teaser for Bálint's piece, The Hum:
+
+<YouTube 
+url={'8HMA0doQb6A'}
+/>
+
+- [FluCoMa workshop](https://notam.no/flucomaworkshop/) at [Notam](https://notam.no/).
+
+- FluCoMa [forum](https://discourse.flucoma.org/) on discourse.
+
+- The [Norwegian Academy of Music](https://nmh.no/en).
+
+- The [Liszt Ferenc Academy of Music](https://uni.lisztacademy.hu/) in Budapest.
+
+- [Spectrasonics'](https://www.spectrasonics.net/index.php) [Omnisphere 2](https://www.spectrasonics.net/products/omnisphere/) plugin.
+
+- [Native Instruments'](https://www.native-instruments.com/en/) [Kontakt](https://www.native-instruments.com/en/products/komplete/samplers/kontakt-6/) plugin.
+
+- [IRCAM](https://www.ircam.fr/)'s [AudioSculpt](http://anasynth.ircam.fr/home/english/software/audiosculpt), [Csound](https://csound.com/).
+
+- The Hum on [wikipedia](https://en.wikipedia.org/wiki/The_Hum): the [Windsor Hum](https://en.wikipedia.org/wiki/The_Hum#Windsor_Hum), the [Taos Hum](https://en.wikipedia.org/wiki/The_Hum#Taos_Hum) and the [Auckland Hum](https://en.wikipedia.org/wiki/The_Hum#Auckland_Hum).
+
+- [Remedy Games'](https://www.remedygames.com/) [Control](https://www.remedygames.com/games/control/) (2019):
+
+<YouTube 
+url={'PT5yMfC9LQM'}
+/>
+
+- The Hum is narrated by [Simon Dancaster](https://www.discogs.com/artist/1305355-Simon-Dancaster).
+
+- [Gerard Roma](https://g-roma.github.io/)'s [creative work](/explore/roma) on the project, and [Simon Smith](https://uk.linkedin.com/in/simon-barry-smith73)'s [creative work](/explore/smith) using the FluCoMa tools.
