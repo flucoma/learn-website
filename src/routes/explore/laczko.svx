@@ -48,7 +48,7 @@ chapters={[
     {"label" : "Dealing with technology", "start" : [1, 20, 56]},
     {"label" : "Recording versus performance", "start" : [1, 27, 30]},
     {"label" : "The FluCoMa ecosystem", "start" : [1, 36, 11]},
-    {"label" : "Approach to teaching and learning", "start" : [1, 45, 52]},
+    {"label" : "Approach to teaching and learning", "start" : [1, 45, 52]}
 ]}
 />
 
