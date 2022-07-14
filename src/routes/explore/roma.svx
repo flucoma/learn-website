@@ -98,63 +98,19 @@ url={'Cwm_njSp1IQ'}
 
 The idea of corpus curation and sound selection is a broad one; [Leafcutter John](http://leafcutterjohn.com/) [described](/explore/burton) the process as “*curating a sound world*”. Roma takes this process to heart by recording the entire corpus of sounds himself. The field recordings that served as the base material for this piece are cooking sounds. Over a period of a few months, he would keep his recorder ready in his kitchen, and “*when I heard something new, like, ‘ok, this potato is making a sound I don’t have!’ then I would grab the recorder and record*”. He ended up with about 200 recordings of frying, searing, and broiling. He performed an initial manual curation to “*get the interesting bits*”, then used the FluCoMa tools to further segment these into a collection of about 1000 small chunks.
 
-<CodeBlock>
-```js
-(
-var slicer = FCMSlicer.new;
-var files = PathName("path/to/source/*.wav").pathMatch;
-var dest = "path/to/dest/";
-var nameFunc = {|snd, i|
-	dest ++
-	PathName(snd.path).fileNameWithoutExtension ++
-	"-" ++ i++".wav";
-};
+<Image
+src="/explore/roma/example_patch_1.png"
+label="The 01 Audio Slicing example script."
+/>
 
-slicer.settings.algorithm = \novelty;
-slicer.settings.minSliceLength = 100;// min one second
-slicer.settings.threshold = 0.3;// adjust
-
-files.do{|f|
-	var snd = FCMSound.fromFile(f);
-	snd.slice(slicer, {|slices|
-		slices
-		  .select{|slice| slice.duration >= 1}// last slice may be shorter
-		  .do{|snd, i|
-			snd.buffer.write(nameFunc.value(snd,i), "wav", snd.numFrames, snd.start);
-	}});
-};
-)
-```
-</CodeBlock>
-
-In the example script *01 Audio slicing*, we see an example of how Roma achieved this. We see that thanks to Roma's FluidCorpusMap library, the syntax is very streamlined - he begins by setting a variable called `slicer` which contains an instance of `FCMSlicer`. As we see further below, the `algorithm` setting of this slicer is set to `\novelty`. Indeed, built ontop of the FluCoMa tools, Roma has built a general Slicer class rather than having a distinct class for each slicing algorithm. In the rest of the example we see how batch processing can be performed very quickly.
+In the example script *01 Audio slicing*, we see an example of how Roma achieved this. We see that thanks to Roma's FluidCorpusMap library, the syntax is very streamlined - he begins by setting a variable called `slicer` which contains an instance of `FCMSlicer`. As we see further below, the `algorithm` setting of this slicer is set to `\novelty`. Indeed, built on top of the FluCoMa tools, Roma has built a general Slicer class rather than having a distinct class for each slicing algorithm. In the rest of the example we see how batch processing can be performed very quickly.
 
 Once the corpus has been split into chunks, Roma performs description. He uses a host of different audio descriptors, however the most important in terms of constituting the space will be the [MFCCs](/reference/mfcc). He explained that “*I like things that are noisy, not pitched material*” which is why he used this audio descriptor for the distribution of the sounds in space. He then uses [UMAP](/reference/umap) to perform dimensionality reduction and create the mapping. He explains in his *Traces of Fluid Manipulations* video that high-dimension features like [MFCC](/reference/mfcc) or [chroma](/reference/chroma) are best for this kind of process, however he also uses one-dimensional features such as [pitch](/reference/pitch), [spectral centroid](/reference/spectralshape) and [loudness](/reference/loudness) for things like colour, and constituting the waveform we see as the icon.
 
-<CodeBlock>
-```js
-(
-var fcm = FCM.new(nBuffers:1000000);
-var win, plot;
-var lastSelected;
-var player;
-var playFunc = {};
-var track = {};
-
-fcm.addFolder("path/to/segments")
-	   .makeIndex().run{
-			win = Window.new("", Rect(0, 0, 1000, 1000))//adjust size
-		          .acceptsMouseOver_(true);
-		    plot = FCMPlotView.new(win, win.bounds, fcm)
-		          .acceptsMouseOver_(true)
-		          .mouseOverAction_(track);
-	        player = playFunc.play;
-		    win.front;
-};
-
-)
-```
-</CodeBlock>
+<Image
+src="/explore/roma/example_patch_2.png"
+label="The 02 Creating a Sound Map example script."
+/>
 
 In the example script *02 Creating a sound map*, we see how this process works. Note that Roma also fits the chunks to a [grid](/reference/grid) using the [Jonker-Volgenant](https://en.wikipedia.org/wiki/Hungarian_algorithm) algorithm, using oversampling so that the distribution retains some of its shape. In the example script, the player and track functions have been left to blank so that the user may add their own (we see an example of this also in the example script *05 Putting it all Together*) Now that we understand how the heart of this system is constructed, let’s now examine how he takes the object and approaches it for performance.
 
@@ -175,40 +131,17 @@ There are eight *agents*, which are represented as dots of different shades of g
 - Recording a trajectory through the space with the mouse.
 - Controlled programmatically with the left text editor, where the x and y variables correspond to its position.
 
-<CodeBlock>
-```js
-var track = {|v, x, y|
-	var pos = plot.unMap(x, y);
-	fcm.index.nearest(pos, {|nearest|
-		if(lastSelected.notNil && (lastSelected != nearest)){
-			plot.icons[lastSelected].color = plot.icons[lastSelected].originalColor;
-		};
-		plot.icons[nearest].color = Color.white;
-		lastSelected = nearest;
-		player.set(\bufnum, fcm.sounds[nearest].buffer.bufnum);
-	});
-};
-```
-</CodeBlock>
+<Image
+src="/explore/roma/example_patch_3.png"
+label="The 03 Navigating the Space example script."
+/>
 
 In the example script *03 Navigating the space*, we see how we can approach mapping a spot in the space, and how Roma used a [kdtree](/reference/kdtree) to find the nearest neighbour to the point. This is an example of a function that would be used as the `track` variable seen in example script *02 Creating a Sound Map*. 
 
-<CodeBlock>
-```js
-// basic player
-var playFunc = {|bufnum = 0|
-	PlayBuf.ar(1, bufnum, loop:1)
-};
-
-// Granular player
-var playFunc = {|bufnum = 0|
-	var imp = Impulse.kr(50);
-	var center = (0.5 * BufDur.kr(bufnum)  * 0.5) + TRand.kr(0, 0.1, imp);
-	var dur = TRand.kr(0.3, 0.5, imp);
-	TGrains.ar(1, imp, bufnum, 1, center, dur);
-};
-```
-</CodeBlock>
+<Image
+src="/explore/roma/example_patch_4.png"
+label="The 04 Playing Sound example script."
+/>
 
 Once we have the current nearest neighbour to the agent, there are of course a multitude of things we can do with this information. Essentially, we are pointing to a point in a sound file, and as we see in the example script *04 Playing sound*, we can do very basic things such as simply playing back the sound (`// basic player`), or more sophisticated things (`// Granular player`). Roma has 4 primary processing modules which he made for the piece that would take the sound and play it back in various ways:
 
