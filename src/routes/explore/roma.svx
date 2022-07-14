@@ -63,7 +63,7 @@ Roma has been live-coding – mainly with SuperCollider – for a long time. In 
 url={'-52RdzniJjg'}
 />
 
-Roma turned to music technology to augment his musical practice. As a software engineer, he has always ended to operate in the (audio and DSP world)[https://g-roma.github.io/code/]. As he explained in his initial artist presentation that can be viewed above at the first FluCoMa plenary, he has worked on projects like [Freesound](https://freesound.org/) as a software engineer and operated at a very high-level making tools in a variety of contexts. As an engineer, he explained that one needs to approach bugs and glitches as something to be (understandably) avoided. Indeed, his role on the FluCoMa project meant that he had to deliver a set of stable tools to a large group of users, and evidently there is no space for bugs in this context.
+Roma turned to music technology to augment his musical practice. As a software engineer, he has always ended to operate in the [audio and DSP world](https://g-roma.github.io/code/). As he explained in his initial artist presentation that can be viewed above at the first FluCoMa plenary, he has worked on projects like [Freesound](https://freesound.org/) as a software engineer and operated at a very high-level making tools in a variety of contexts. As an engineer, he explained that one needs to approach bugs and glitches as something to be (understandably) avoided. Indeed, his role on the FluCoMa project meant that he had to deliver a set of stable tools to a large group of users, and evidently there is no space for bugs in this context.
 
 He explained that this is a fundamental tension that underpins and drives his practice: in his creative work he strives to find glitches, to push technology to its limits and failure; in his work as an engineer, he must ensure that these things do not occur. He explained that it was very stimulating to explore this tension in FluCoMa, and that the influence of the electroacoustic world was great for his practice. In this world, he explained that “*this tension is lived much more naturally*”.
 
@@ -77,7 +77,7 @@ So how does the system that Roma created for his FluCoMa performance actually wo
 url={'PumyPua02dI'}
 />
 
-The project is a library for SuperCollider that uses many of the FluCoMa tools called [FluidCorpusMap](https://github.com/flucoma/FluidCorpusMap). This library was developed by Roma along with [Owen Green](http://owengreen.net/) and [Pierre Alexandre Tremblay](https://www.pierrealexandretremblay.com/) and was the subject of an article for [NIME 2019](https://www.nime.org/), *Adaptive Mapping of Sound Collections for Data-driven Musical Interfaces* which can be read [here](https://pure.hud.ac.uk/en/publications/adaptive-mapping-of-sound-collections-for-data-driven-musical-int). It is still being maintained by Roma, and some of the examples that accompany this text will give you an introduction into using it. It is similar to the artefact that can be produced by following the 2-D corpus explorer tutorial (see below), but offers many features for streamlining the process, and making interaction for preforming possible. 
+The project is a library for SuperCollider that uses many of the FluCoMa tools called [FluidCorpusMap](https://github.com/flucoma/FluidCorpusMap). This library was developed by Roma along with [Owen Green](http://owengreen.net/) and [Pierre Alexandre Tremblay](https://www.pierrealexandretremblay.com/) and was initially the subject of an article for [NIME 2019](https://www.nime.org/), *Adaptive Mapping of Sound Collections for Data-driven Musical Interfaces* which can be read [here](https://pure.hud.ac.uk/en/publications/adaptive-mapping-of-sound-collections-for-data-driven-musical-int). It has since been developed, as can be read in the [2021 article](https://www.mdpi.com/2076-3417/11/24/11926) for [MDPI](https://www.mdpi.com/): *A General Framework for Visaulization of Sound Collections in Musical Interfaces*, written with [Anna Xambó](https://annaxambo.me/), Green and Tremblay. This subsequent publication sees the library transform from a bespoke musical interface to a broader framework that can easily be incorporated into a workflow. It is still being maintained by Roma, and some of the examples that accompany this text will give you an introduction into using it. It is similar to the artefact that can be produced by following the 2-D corpus explorer tutorial (see below), but offers many features for streamlining the process, and making interaction for preforming possible.
 
 <YouTube 
 url={'4dsX5uRips8'}
@@ -136,19 +136,19 @@ src="/explore/roma/example_patch_3.png"
 label="The 03 Navigating the Space example script."
 />
 
-In the example script *03 Navigating the space*, we see how we can approach mapping a spot in the space, and how Roma used a [kdtree](/reference/kdtree) to find the nearest neighbour to the point. This is an example of a function that would be used as the `track` variable seen in example script *02 Creating a Sound Map*. 
+In the example script *03 Navigating the space*, we see how we can approach mapping a spot in the space, and how Roma used a [kdtree](/reference/kdtree) to find the nearest neighbour to the point. This is an example of a function that would be used as the `track` variable seen in example script *02 Creating a Sound Map*. Note that this is a basic interaction that can be performed, consult the [FluidCorpusMap repo](https://github.com/flucoma/FluidCorpusMap2) for more complicated interactions such as the [recording of a trajectory within the space](https://github.com/flucoma/FluidCorpusMap2/blob/main/examples/trajectories.scd).
 
 <Image
 src="/explore/roma/example_patch_4.png"
 label="The 04 Playing Sound example script."
 />
 
-Once we have the current nearest neighbour to the agent, there are of course a multitude of things we can do with this information. Essentially, we are pointing to a point in a sound file, and as we see in the example script *04 Playing sound*, we can do very basic things such as simply playing back the sound (`// basic player`), or more sophisticated things (`// Granular player`). Roma has 4 primary processing modules which he made for the piece that would take the sound and play it back in various ways:
+Once we have the current nearest neighbour to the agent, there are of course a multitude of things we can do with this information. Essentially, we are pointing to a point in a sound file, and as we see in the example script *04 Playing sound*, we can do very basic things such as simply playing back the sound (`// Basic Player`), or more sophisticated things (`// Granular Player`). Roma has 4 primary processing modules which he made for the piece that would take the sound and play it back in various ways:
 
 - *Chunky*: a granulator with characteristically large chunks.
-- *Bursts*: **INSERT BRIEF DESCRIPTION**
-- *Rumble*: **INSERT BRIEF DESCRIPTION**
-- *Stir*: **INSERT BRIEF DESCRIPTION**
+- *Bursts*: a randomized sample player which is heavily filtered and modulated by an envelope that triggers at random.
+- *Rumble*: a granulator with a delay / feedback effect and a low-pass filter that creates low-frequency ambiance.
+- *Stir*: a randomized sample player with a random on-off gate.
 
 These are being controlled in the right text editor, and we can see the various ways in which they are configured during the performance. The *\buf.kr* argument that can be seen is the currently selected sound, and the *\amp.kr* corresponds to the slider. The slider is seen digitally on the screen, but also corresponds to the physical slider on the Akai MIDImix, which means that even when the agent is not active on the screen, Roma can continue to control whatever parameter that slider is currently mapped to.
 
