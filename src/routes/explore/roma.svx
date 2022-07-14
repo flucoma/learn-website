@@ -35,11 +35,11 @@ Gerard Roma is currently a Research Fellow in Interactive Music Listening at the
 
 <IndentNote type='pointer'>
 
-Download the demonstration scripts for this article <a href='/explore/roma/Gerard Roma Examples.zip' download='Alice Eldridge and Chris Kiefer Examples.zip'>here</a>. Note that you will also need to download Roma's FluidCorpusMap library [here](https://github.com/flucoma/FluidCorpusMap2).
+Download the demonstration scripts for this article <a href='/explore/roma/Gerard Roma Examples.zip' download='Gerard Roma Examples.zip'>here</a>. Note that you will also need to download Roma's FluidCorpusMap library [here](https://github.com/flucoma/FluidCorpusMap2).
 
 </IndentNote>
 
-Today we shall be looking at the creative work of Gerard Roma. Roma was one of the core team members on the FluCoMa project, doing much of the core programming along with [Owen Green](http://owengreen.net/). In this article, we shall explore the position he occupied as developer but also as musician and creative coder, using the tools to create an interface for live-coding. We shall examine how he performed with this system at the second [FluCoMa concert](/explore/liminal-spaces) at [Dialogues Festival 2021](https://digital.eca.ed.ac.uk/dialogues/). As with all the “Explore” articles, there is a series of demonstration scripts that can be <a href='/explore/roma/Gerard Roma Examples.zip' download='Alice Eldridge and Chris Kiefer Examples.zip'>downloaded</a> and interacted with if you wish to explore the inner workings of the software, in this case written by Roma himself. You will also need [FluidCorpusMap](https://github.com/flucoma/FluidCorpusMap2) to get the examples to work.
+Today we shall be looking at the creative work of Gerard Roma. Roma was one of the core team members on the FluCoMa project, doing much of the core programming along with [Owen Green](http://owengreen.net/). In this article, we shall explore the position he occupied as developer but also as musician and creative coder, using the tools to create an interface for live-coding. We shall examine how he performed with this system at the second [FluCoMa concert](/explore/liminal-spaces) at [Dialogues Festival 2021](https://digital.eca.ed.ac.uk/dialogues/). As with all the “Explore” articles, there is a series of demonstration scripts that can be <a href='/explore/roma/Gerard Roma Examples.zip' download='Gerard Roma Examples.zip'>downloaded</a> and interacted with if you wish to explore the inner workings of the software, in this case written by Roma himself. You will also need [FluidCorpusMap](https://github.com/flucoma/FluidCorpusMap2) to get the examples to work.
 
 <YouTube 
 url={'MV4_S2fUyEY'}
