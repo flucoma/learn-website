@@ -91,4 +91,4 @@ url={'PT5yMfC9LQM'}
 
 - The Hum is narrated by [Simon Dancaster](https://www.discogs.com/artist/1305355-Simon-Dancaster).
 
-- [Gerard Roma](https://g-roma.github.io/)'s [creative work](/explore) on the project, and [Simon Smith](https://uk.linkedin.com/in/simon-barry-smith73)'s [creative work](/explore/smith) using the FluCoMa tools.
+- [Gerard Roma](https://g-roma.github.io/)'s [creative work](/explore/roma) on the project, and [Simon Smith](https://uk.linkedin.com/in/simon-barry-smith73)'s [creative work](/explore/smith) using the FluCoMa tools.
