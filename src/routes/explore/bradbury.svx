@@ -19,6 +19,7 @@ author: Jacob
     import ArtistCard from '$lib/components/mwf/ArtistCard.svelte';
     import IndentNote from '$lib/components/IndentNote.svelte';
     import BandCamp from '$lib/components/BandCamp.svelte';
+    import CodeBlock from '$lib/components/CodeBlock.svelte';
 </script>
 
 <ArtistCard
