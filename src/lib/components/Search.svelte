@@ -10,7 +10,7 @@
 	let focusedEntry = -1;
 	let entries = [];
 	$: placeholder = focused ? '' : 'Search';
-	$: results = fuse.search(query);
+	$: results = fuse.search(query).slice(0, 8);
 
 	function clickResult(link) {
 		query = '';
@@ -23,7 +23,7 @@
 		searchBar.blur();
 	}
 
-	function focusSearch() {
+	function focusSearch(e) {
 		searchBar.focus();
 		focused = true;
 		$blur = true;
@@ -62,7 +62,7 @@
 
 			if (e.key === 'Enter') {
 				if (focusedEntry !== -1) {
-					clickResult(filteredResults[focusedEntry].url);
+					clickResult(results[focusedEntry].item.url);
 					e.preventDefault();
 				}
 			}
@@ -87,7 +87,7 @@
 
 	{#if results.length >= 1 && focused}
 		<div class="results" tabindex="0">
-			{#each results.slice(0, 8) as r, i}
+			{#each results as r, i}
 				<div
 					class="result"
 					on:mousedown={() => clickResult(r.item.url)}
