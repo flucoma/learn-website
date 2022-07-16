@@ -178,5 +178,5 @@ glob('src/routes/*(reference|learn|explore|installation)/*.svx', (err, routes) =
 		related: related
 	};
 	// Write out results
-	fs.writeFile('static/meta/metadata.json', JSON.stringify(preprocData, null, 0), 'utf8', () => {});
+	fs.writeFile('src/lib/data/metadata.json', JSON.stringify(preprocData, null, 0), 'utf8', () => {});
 });
