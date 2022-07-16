@@ -2,7 +2,7 @@
 title: Controlling a Synth using a Neural Network
 author: Ted
 blurb: |
-    Video tutorial introduccing the FluidMLPRegressor neural network.
+    Video tutorial introducing the FluidMLPRegressor neural network.
 tags: 
     - supervised learning
     - video
@@ -18,7 +18,7 @@ featuredimage: /learn/for-featured-images/mlp-regressor.png
 
 ## A Brief Synopsis
 
-This tutorial guides you through building a bespoke synthesis controller. It leverages a type of Neural Network in the Fluid Corpus Manipulation toolkit, the [MLPRegressor](/reference/mlpregressor) to map a set of input data to a set of output data. This workflow allows you to _train_ the [MLPClassifier](/reference/mlpregressor) to create a mapping between any dimension of input and output data. This means you can have a single fader controlling 10 other faders, or joystick controlling a complex collection of parameters. Fundamentally, the Neural Network doesn't care what data you give to it, which means you get to decide and inform the relationship between the inputs and outputs. This can be applied musically in a number of contexts. For example you might:
+This tutorial guides you through building a bespoke synthesis controller. It leverages a type of Neural Network in the Fluid Corpus Manipulation toolkit, the [MLPRegressor](/reference/mlpregressor) to map a set of input data to a set of output data. This workflow allows you to _train_ the [MLPClassifier](/reference/mlpregressor) to create a mapping between any dimension of input and output data. This means you can have a single fader control 10 other faders, or joystick control a complex collection of parameters. Fundamentally, the Neural Network doesn't care what data you give to it, which means you get to decide and inform the relationship between the inputs and outputs. This can be applied musically in a number of contexts. For example you might:
 
 1. Map any dimensionality controller to something else such as a synth, VST effect, sequencer
 2. Associate gestures to each other using data from a [Leap Motion Controller](https://www.ultraleap.com/product/leap-motion-controller/) or phone.
