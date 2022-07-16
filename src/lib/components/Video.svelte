@@ -1,5 +1,5 @@
-<script type="ts">
-	export let url: string = '';
+<script>
+	export let url = '';
 	export let label = '';
 
 	url = url.replace(/\.[^/.]+$/, ''); // remove file extension

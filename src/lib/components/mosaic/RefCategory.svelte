@@ -1,5 +1,13 @@
 <script>
-	export let item = {};
+	export let item = {
+		category: 'Decomposition',
+		refs: [
+			{
+				url: '/',
+				title: 'hpss'
+			}
+		]
+	};
 </script>
 
 <section>

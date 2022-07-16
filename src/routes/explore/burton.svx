@@ -11,6 +11,7 @@ tags:
     - descriptors
 flair: article
 featuredimage: /explore/burton/final_score_cut.JPG
+author: Jacob
 ---
 
 <script>
