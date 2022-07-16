@@ -1,6 +1,6 @@
 import { readable, writable } from 'svelte/store';
-import metadata from '../../static/meta/metadata.json';
-import config from '../../static/meta/config.json';
+import metadata from '$lib/data/metadata.json'
+import config from '$lib/data/config.json'
 import Fuse from 'fuse.js';
 
 // interface state
