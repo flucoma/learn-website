@@ -21,7 +21,7 @@
 		hover = false;
 	}
 
-	function mouseenter(e, link) {
+	function mouseEnter(e, link) {
 		hoverInfo = link;
 		hover = true;
 		const rect = e.target.getBoundingClientRect();
@@ -50,8 +50,8 @@
 			<a
 				class={`link rel-${link.flair}`}
 				href={link.url}
-				on:mouseenter={e => mouseenter(e, link)}
-				on:mouseleave={stopHover}
+				on:mouseenter={ e => mouseEnter(e, link) }
+				on:mouseleave={ stopHover }
 				>{link.title}
 			</a>
 		{/each}
@@ -70,7 +70,7 @@
 		color: white;
 	}
 	.container {
-		font-size: 0.8rem;
+		font-size: 0.75rem;
 		display: flex;
 		flex-direction: row;
 		flex-wrap: wrap;

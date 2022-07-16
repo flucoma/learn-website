@@ -164,7 +164,6 @@ glob('src/routes/*(reference|learn|explore|installation)/*.svx', (err, routes) =
 		});
 	});
 
-
 	// De-duplicate Related Links
 	for (const key in related) {
 		related[key] = _.uniqWith(related[key], _.isEqual);
