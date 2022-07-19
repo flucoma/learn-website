@@ -56,14 +56,7 @@ const config = {
 		prerender: {
 			default: true
 		},
-		trailingSlash: 'always',
-		vite: {
-			server: {
-				fs: {
-					allow: ['../']
-				}
-			}
-		}
+		trailingSlash: 'always'
 	}
 };
 
