@@ -128,17 +128,19 @@ Again, being a library for Python, it is very easy to integrate this library wit
 
 As stated above, Bradbury gives a detailed account of much of his recent work in his [PhD](https://phd.jamesbradbury.net/), and there is a [full section](https://phd.jamesbradbury.net/projects/interferences) dedicated to his *Interferences* project. We highly recommend you go and visit this page. Here we shall be giving an overview of some of the processes from quite a broad stance and offer some critical reflections around some of the things that occurred.
 
-!!!
-INSERT COMPOSITIONAL WORKFLOW IMAGE 1
-!!!
+<Image
+src="/explore/bradbury/compositional_workflow1.jpg"
+label="Overview of Bradbury's compositional workflow (01)."
+/>
 
 Returning to some of the points discussed above, we can synthesize Bradbury’s compositional workflow in the image seen here. Each part of the process has its own associated tool: initial corpus manipulation and project creation are associated with FTIS; composition and arrangement are associated with Reaper; corpus modification is associated with ReaCoMa. Bradbury explained that Reaper “*enables me to discard coding thinking; or ignore it for a time. You get a timeline for free, playback for free, state management for free. All these things that allow you to forget about coding and think about sound and how it changes over time*”. We see that Bradbury strongly separates acts of corpus management (which coincides with the creation of an initial block for sculpting) and the act of composition, of arrangement and organisation (the subsequent sculpting of this block). These are both musical activities but are nonetheless different in nature.
 
 Bradbury describes [ReaCoMa](https://github.com/ReaCoMa/ReaCoMa-2.0), his implementation of some of the FluCoMa tools within Reaper, as “*sitting somewhere between the two* […] *it allows me to reapproach materials that have been organised* [with] *resegmentation and processing using decomposition*”. We can see this as having more fluidity in his sculpting of the initial block, having the freedom to append more material and not being bound to use just one chisel.
 
-!!!
-INSERT COMPOSITIONAL WORKFLOW IMAGE 2
-!!!
+<Image
+src="/explore/bradbury/compositional_workflow2.jpg"
+label="Overview of Bradbury's compositional workflow (02)."
+/>
 
 Above, we see a further decomposition of the process that falls under the activity around FTIS. Note that, these separations are merely conceptual, and in reality activity tended to shift between different aspects, but it is still important to note these conceptual separations. We see first an initial navigation through a corpus, which will correspond loosely to the [*grammatisation*](https://www.sciencedirect.com/science/article/abs/pii/S8755461515000560) of a somewhat amorphous blob of sound into something structured by a hybrid of machine and human listening, and something that is very personal and revealing of Bradbury’s musical thought; and finally the activities that led to the creation of the compositional grains in the form of Reaper projects.
 
