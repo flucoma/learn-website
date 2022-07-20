@@ -20,6 +20,7 @@ author: Jacob
     import IndentNote from '$lib/components/IndentNote.svelte';
     import BandCamp from '$lib/components/BandCamp.svelte';
     import CodeBlock from '$lib/components/CodeBlock.svelte';
+    import Audio from '$lib/components/Audio.svelte';
 </script>
 
 <ArtistCard
@@ -60,11 +61,12 @@ As you can hear in the two tracks on the album, Bradbury enjoys harsh, noisy ele
 INSERT PLAYER FOR RECONSTRUCTION ERROR
 !!!
 
-For example, in a previous EP *Reconstruction Error*, the sounds that are heard are fragments of raw data on his computer that have been converted into WAVE files. This was achieved with Bradbury’s tool [mosh](https://github.com/jamesb93/mosh), which is his implementation of audio [databending](https://en.wikipedia.org/wiki/Databending) – taking data that was not intended to be decoded as audio and transforming it into a format that can be read as such. This essentially works by taking raw data and appending at WAVE header to the beginning. Below we can hear an example of a ____ file that has been transformed into a WAVE file using mosh.
+For example, in a previous EP *Reconstruction Error*, the sounds that are heard are fragments of raw data on his computer that have been converted into WAVE files. This was achieved with Bradbury’s tool [mosh](https://github.com/jamesb93/mosh), which is his implementation of audio [databending](https://en.wikipedia.org/wiki/Databending) – taking data that was not intended to be decoded as audio and transforming it into a format that can be read as such. This essentially works by taking raw data and appending at WAVE header to the beginning. Below we can hear an example of a GPU Driver file that has been transformed into a WAVE file using mosh.
 
-!!!
-INSERT MOSH EXAMPLE AUDIOS (and modify text above ____)
-!!!
+<Audio 
+src="/explore/bradbury/libLLVMAMDGPUDesc.a.wav"
+label="Transformation of a GPU Driver file using Mosh."
+/>
 
 The source audio for *Interferences* was collected in a different way, but following a process which follows similar ideas of hacking, bending and hijacking electronics and drawing audio from them. He used “*an induction microphone to record devices throughout the home wherever I could find them.* [I then generated] *a corpus by manipulating those devices in real time while recording: for example* [on a phone] *turning the wifi on and off, putting it in airplane mode*”. In both *Reconstruction Error* and *Interferences*, the audio is some kind of biproduct of something else, it is an inspection of a sound world that was never meant to be heard, that exists on another plane of existence that we can tune in to through different technologies. These are sounds that emerge from invisible systems; systems that were forged from human hands, but are so far removed from the hands of their creators that they have no hope of understanding them.
 
