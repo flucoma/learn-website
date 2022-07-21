@@ -33,16 +33,18 @@ Darlene Castro Ortiz is a Mexican-American composer and classical guitarist base
 ## The Podcast
 
 <YouTubeChapters 
-url={'UYSa73RvJQE'}
+url={'4bSQTK3I3kM'}
 chapters={[
     {"label" : "Introduction", "start" : [0, 0]},
-    {"label" : "Getting into the world of audiovisual composition", "start" : [1, 40]},
-    {"label" : "Describing Freida's practice", "start" : [5, 20]},
-    {"label" : "Perspective on reactive audio design and gesture", "start" : [9, 3]},
-    {"label" : "Using FluCoMa-related technologies", "start" : [14, 3]},
-    {"label" : "Using systems at different scales", "start" : [25, 58]},
-    {"label" : "Learning and teaching technologies", "start" : [28, 22]},
-    {"label" : "What are computational ideas?", "start" : [44, 53]}
+    {"label" : "Getting Into Music", "start" : [1, 29]},
+    {"label" : "Sonification and Musical Translations", "start" : [8, 20]},
+    {"label" : "Working with Instrumentalists", "start" : [17, 40]},
+    {"label" : "Recent Work with MLP", "start" : [19, 50]},
+    {"label" : "Training the MLP", "start" : [23, 40]},
+    {"label" : "The Conceptual Role of the MLP", "start" : [29, 38]},
+    {"label" : "Performer Visibility and Constraint on Stage", "start" : [35, 54]},
+    {"label" : "Historical Music Notation Research", "start" : [40, 44]},
+    {"label" : "Future Work with Machine Learning", "start" : [45, 47]}
 ]}
 />
 
