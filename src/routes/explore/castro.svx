@@ -9,7 +9,7 @@ tags:
     - sonification
     - violin
 flair: podcast
-featuredimage: /explore/abtan/profile_pic.jpeg
+featuredimage: /explore/ortiz/featured.jpeg
 author: Jacob
 ---
 
@@ -21,12 +21,12 @@ author: Jacob
 </script>
 
 <ArtistCard
-src = "/explore/abtan/profile_pic.jpeg"
-name = "Freida Abtan"
-website = "https://www.cmu.edu/cfa/music/people/Bios/abtan_freida.html"
+src = "/explore/ortiz/profile.jpeg"
+name = "Darlene Castro Ortiz"
+website = "https://www.darlenecastro.com/"
 >
 <p slot="bio">
-Freida Abtan is a Canadian audiovisual composer and multi-disciplinary artist with a keen interest in immersive media. She works between fixed and real-time computational technologies in sound and video for concert diffusion, installation, and large-scale multimedia performance situations. Her music ranges from acousmatic composition to more industrial and pop-influenced experimental performance.
+Darlene Castro Ortiz is a Mexican-American composer and classical guitarist based in Chicago. Her interest in music began at a young age with the violin, first in a youth mariachi band, then in a classical orchestra setting. Inspired by her bilingual upbringing, her creative interest mostly lies in sonification and creating sonic representations of non-musical objects, often using electronics, noise, and extended techniques. Her music draws most of its inspiration from trying to auralize processes or extra-musical objects in order to arrive at vivid, self-contained musical translations. These musical translations can sometimes be literal, other times more veiled and often use visual art, poetry, scientific processes, and active words as starting points. Most recently, her creative research lies in sensors and gesture mapping. 
 </p>
 </ArtistCard>
 
