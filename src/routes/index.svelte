@@ -1,15 +1,16 @@
 <script>
-	import { docs } from '$lib/app.js';
-	import { manual_config } from '$lib/app.js';
+	import { db } from '$lib/app.js';
+	import { config } from '$lib/app.js';
+	import { goto } from '$app/navigation';
 	import _ from 'lodash';
 	import LearnMoreArrow from '$lib/components/LearnMoreArrow.svelte';
 
-	var learn = docs.filter(x => x.section === 'learn');
-	var explore = docs.filter(x => x.section === 'explore');
-	var reference = docs.filter(x => x.section === 'reference');
+	var learn = db.filter(x => x.section === 'learn');
+	var explore = db.filter(x => x.section === 'explore');
+	var reference = db.filter(x => x.section === 'reference');
 
-	const rng_learn = get_item_by_key(learn, 'url', manual_config.front_page.featured_learn.url);
-	const rng_explore = get_item_by_key(explore, 'url', manual_config.front_page.featured_explore.url);
+	const rng_learn = get_item_by_key(learn, 'url', config.front_page.featured_learn.url);
+	const rng_explore = get_item_by_key(explore, 'url', config.front_page.featured_explore.url);
 	learn = remove_element_from_array(learn, rng_learn);
 	explore = remove_element_from_array(explore, rng_explore);
 
@@ -77,6 +78,7 @@
 				style="background-image: url({rng_learn.feature.featuredimage ||
 					_.sample(rng_learn.feature.images) ||
 					'/general/learn_default.jpeg'});"
+				on:click={() => goto(rng_learn.url)}
 			/>
 
 			<div class="flaired-title-featured">
@@ -113,7 +115,7 @@
 					title=""
 					width="100%"
 					height="300px"
-					src={`https://www.youtube.com/embed/${manual_config.front_page.featured_video.url}`}
+					src={`https://www.youtube.com/embed/${config.front_page.featured_video.url}`}
 					frameborder="0"
 					allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
 					allowfullscreen
@@ -122,10 +124,10 @@
 
 			<div class="video_description">
 				<h3>
-					{manual_config.front_page.featured_video.title}
+					{config.front_page.featured_video.title}
 				</h3>
 				<p>
-					{manual_config.front_page.featured_video.blurb}
+					{config.front_page.featured_video.blurb}
 				</p>
 			</div>
 		</div>
@@ -200,12 +202,8 @@
 	</div>
 
 	<!--Reference Section-->
-	<div class="algos_row">
+	<!-- <div class="algos_row">
 		<h2 class="row_title_lower">Discover an Algorithm</h2>
-
-		<div class="learn_more_link-section" style="grid-area: sectionLearnMore;">
-			<LearnMoreArrow link="/reference" />
-		</div>
 
 		{#each reference_random_array as item, i}
 			<div class="flaired-title" style="grid-area: algoTitle{i + 1};">
@@ -223,15 +221,13 @@
 				<LearnMoreArrow link={item.url} />
 			</div>
 		{/each}
-	</div>
+	</div> -->
 </div>
 
 <style>
 	/*Main div*/
 	.main_wrapper {
-		margin-left: 1em;
-		margin-right: 1em;
-		margin-bottom: 1em;
+		gap: 1em;
 	}
 
 	/* Top featured div */
@@ -244,15 +240,12 @@
 			'featuredArticle2 featuredVideo';
 		max-width: 80%;
 		margin: 0 auto;
-		margin-bottom: 5em;
-		grid-gap: 1em;
+		gap: 1em;
 	}
 
 	.row_featured_article {
 		border-radius: 0.25rem;
 		padding: 0em 0.75em 0em 0.75em;
-		margin-top: 0em;
-		margin-bottom: 0.5em;
 	}
 
 	.row_featured_video {
@@ -289,14 +282,17 @@
 		margin: 0em 0em 0.5em 0em;
 	}
 
+	.row_parent, .row_featured {
+		padding-bottom: 1em;
+	}
+
 	/*Other sections*/
 	.row_parent {
 		display: grid;
 		grid-template-columns: repeat(3, 1fr);
-		max-width: 80%;
 		margin: 0 auto;
-		margin-bottom: 5em;
-		grid-gap: 1em;
+		max-width: 80%;
+		gap: 1em;
 		grid-template-areas:
 			'featuredTitle featuredTitle sectionLearnMore'
 			'contentImg1 contentImg2 contentImg3'
@@ -354,6 +350,7 @@
 	}
 
 	.feature_image {
+		box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 		position: relative;
 		max-width: 100%;
 		height: 10em;
@@ -362,6 +359,7 @@
 		background-position: center;
 		background-repeat: no-repeat;
 		background-size: cover;
+		cursor: pointer;
 	}
 
 	/*Algorithms row*/

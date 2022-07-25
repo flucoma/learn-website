@@ -36,7 +36,7 @@
 		flex-direction: column;
 		gap: 0.5em;
 		position: fixed;
-		top: 40px;
+		top: 55px;
 		left: 0;
 		background-color: white;
 		opacity: 1;

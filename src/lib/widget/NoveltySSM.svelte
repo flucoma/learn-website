@@ -4,7 +4,7 @@
 
 <div class="container">
 	<div class="title">Self-similarity matrix constructed from spectral analsis of Tremblay-AaS-VoiceQC-B2K-M</div>
-	<img src="/ref/noveltyslice/ssm.svg" alt="self similarity matrix" />
+	<img src="/reference/noveltyslice/ssm.svg" alt="self similarity matrix" />
 	<Audio src="/audio/Tremblay-AaS-VoiceQC-B2K-M.mp3" />
 </div>
 

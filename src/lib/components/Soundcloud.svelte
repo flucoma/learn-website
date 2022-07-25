@@ -1,6 +1,6 @@
-<script lang="ts">
-	export let id: string = '';
-	export let caption: string = '';
+<script>
+	export let id = '';
+	export let caption = '';
 </script>
 
 <div class="container">

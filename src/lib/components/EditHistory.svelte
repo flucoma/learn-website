@@ -1,11 +1,10 @@
-<script lang="ts">
+<script>
 	import { edits } from '$lib/app.js';
 	import { page } from '$app/stores';
 	let path = $page.url.pathname;
 	path = path.endsWith('/') ? path.slice(0, -1) : path;
-	const editHistory = $edits[path];
-	const source: string = `https://github.com/flucoma/learn-website/tree/main/${editHistory.url}`;
-	const commit: string = `https://github.com/flucoma/learn-website/commit/${editHistory.commit}`;
+	const editHistory = edits[path];
+	const source = `https://github.com/flucoma/learn-website/tree/main/${editHistory.url}`;
 </script>
 
 <div class="history">

@@ -13,6 +13,7 @@ category: Analyse Data
 
 <script>
     import KMeans from '$lib/widget/KMeans.svelte';
+    import ResourceLink from '$lib/components/ResourceLink.svelte';
 </script>
 
 [KMeans](/reference/kmeans) is an object that facilitates learning _clusters_ from data. Given a collection of points and a user-specified _number of clusters_, [KMeans](/reference/kmeans) partitions those points into clusters, assigning a discrete membership to each one. To do this, the algorithm iteratively calculates the positions of a set of _centroids_: 1 for each cluster. The centroid is an indication of where a mass of points exists, ideally positioning itself at the centre of this mass. Points are then spatially related to these centroids, and this defines which cluster they belong to.
@@ -27,3 +28,10 @@ In the widget below you can select from several different datasets. If you're on
 
 2. Inertia is not a normalised metric and exists on a scale of 0 to infinity. The only assumption we can make is that lower inertia values are better and 0 is ideal. In high-dimensional spaces, the [curse of dimensionality]() comes into play and the Euclidian distance values can become inflated, thus effecting the value of the inertia. If you are dealing with a high number of dimensions and [KMeans](/reference/kmeans) is not producing a useful clustering, then preprocessing the data with a dimension reduction algorithm such as [UMAP](/reference/umap), [MDS](/reference/mds) or [PCA](/reference/pca) can be valuable.
 
+## Related Resources
+
+<ResourceLink
+title='SciKit Learn Reference on KMeans'
+url='https://scikit-learn.org/stable/modules/clustering.html#k-means'
+blurb='A good explanation of the general algorithm.'
+/>

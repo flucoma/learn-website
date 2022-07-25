@@ -43,7 +43,7 @@
 	}
 
 	onMount(async () => {
-		const res = await fetch('/ref/onsetslice/delta-curve.npy');
+		const res = await fetch('/reference/onsetslice/delta-curve.npy');
 		const arr = await res.arrayBuffer();
 		const raw = await fromArrayBuffer(arr);
 		curve = raw.data;

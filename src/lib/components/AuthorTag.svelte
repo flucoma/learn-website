@@ -1,5 +1,10 @@
-<script lang="ts">
-	export let author: string = '';
+<script>
+	/**
+	 * A convenient way to render an author attribution.
+	 * @constructor
+	 * @param {string} author - The name of the author.
+	 */
+	export let author = '';
 
 	const authors = new Map(
 		Object.entries({
@@ -28,6 +33,15 @@
 	const author_name = authors.get(author)['name'];
 	const author_website = authors.get(author)['website'];
 </script>
+
+<!--
+@component
+Render authors names in articles.
+
+```svelte
+<AuthorTag {author} />
+```
+-->
 
 <p class="author_link">by <a href={author_website}>{author_name}</a></p>
 

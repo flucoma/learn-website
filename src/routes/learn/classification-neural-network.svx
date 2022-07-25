@@ -25,8 +25,6 @@ This tutorial guides you through building a sound classifier. It leverages a typ
 2. Create an internal logic for an improvisational machine based on a sort of musical decision making
 3. Speed up the process of classifying a large corpus of sound resources.
 
-<!-- Hunter + Ted's examples -->
-
 <Tabs>
     <TabList>
         <Tab>Max</Tab>
@@ -34,7 +32,7 @@ This tutorial guides you through building a sound classifier. It leverages a typ
     </TabList>
     <TabPanel>
     <YouTube 
-    url='_QGQE-1RX-o'
+    url='XfNZzQPdPG0'
     />
     </TabPanel>
     <TabPanel>

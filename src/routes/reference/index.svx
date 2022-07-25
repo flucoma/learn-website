@@ -4,12 +4,12 @@ layout: contentindex
 
 <script>
 	import { fade } from 'svelte/transition';
-	import { docs } from '$lib/app';
+	import { db } from '$lib/app';
 	import References from '$lib/components/mosaic/References.svelte';
 	import ArrowRight from '$lib/components/ArrowRight.svelte';
 	import FuzzySearch from 'fuzzy-search';	
 
-	let references = docs.filter(d => d.section === 'reference');
+	let references = db.filter(d => d.section === 'reference');
 
 	let categorised = {
 		'Analyse Data' : [],

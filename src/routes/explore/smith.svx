@@ -1,0 +1,222 @@
+---
+title: "FluCoMa Podcast #04: Simon Smith"
+artist: Simon Smith
+blurb: |
+    Episode 4 of the FluCoMa Podcast where Jacob Hart talks to creative coder and BEAST studio technician Simon Smith.
+tags: 
+    - kyma
+    - emg bracelets
+    - mapping
+    - corpus exploration
+    - community
+    - diffusion
+flair: podcast
+featuredimage: /explore/smith/featured.jpg
+author: Jacob
+---
+
+<script>
+    import YouTube from '$lib/components/YouTube.svelte';
+    import YouTubeChapters from '$lib/components/YouTubeChapters.svelte';
+    import ArtistCard from '$lib/components/mwf/ArtistCard.svelte';
+    import Vimeo from '$lib/components/Vimeo.svelte';
+    import Soundcloud from '$lib/components/Soundcloud.svelte';
+    import BandCamp from '$lib/components/BandCamp.svelte';
+</script>
+
+<ArtistCard
+src = "/explore/smith/profile.jpeg"
+name = "Simon Smith"
+website = "https://uk.linkedin.com/in/simon-barry-smith73"
+>
+<p slot="bio">
+Simon Smith is the studio technician at the Birmingham Electroacoustic Sound Theatre. He obtained an MA from De Montfort University for his research on the listening to acousmatic music in the concert hall. His creative practice takes many forms, from installations to solo performance.
+</p>
+</ArtistCard>
+
+## The Podcast
+
+<YouTubeChapters 
+url={'G2N-JWrTBe8'}
+chapters={[
+    {"label" : "Introduction", "start" : [0, 0]},
+    {"label" : "How Simon got into electronic music", "start" : [1, 41]},
+    {"label" : "Music as sound", "start" : [6, 35]},
+    {"label" : "Simon's research", "start" : [8, 40]},
+    {"label" : "Musicking with other people", "start" : [18, 44]},
+    {"label" : "Themes and approaches in Simon's work", "start" : [28, 10]},
+    {"label" : "What is Kyma?", "start" : [34, 20]},
+    {"label" : "The aura left by the CCE", "start" : [39, 23]},
+    {"label" : "Moving from Kyma to Max", "start" : [43, 4]},
+    {"label" : "EMG Bracelet project using FluCoMa", "start" : [46, 24]},
+    {"label" : "Approaching a corpus map", "start" : [55, 14]},
+    {"label" : "Approaches to mapping", "start" : [1, 2, 5]},
+    {"label" : "Electronic music communities", "start" : [1, 17, 27]},
+    {"label" : "Approaches to the diffusion of other people's music", "start" : [1, 25, 36]},
+    {"label" : "Aesthetic approach to diffusion", "start" : [1, 32, 32]}
+]}
+/>
+
+## Overview
+
+In this episode of the FluCoMa Podcast I talk to Simon Smith who is currently the studio technician at the Birmingham Electroacoustic Sound Theatre (BEAST). We talk about Simon’s approach to diffusion, an important part of electronic music. We also discuss Simon’s creative practice which spans from installations to solo performance; emerges from a host of different environments from Kyma to Max; and makes use of bespoke pieces of hardware such as EMG bracelets. Simon explains how he has recently incorporated some of the FluCoMa tools into his workflow, and the important role they have played in his recent work.
+
+## Links
+
+Here are the links to some of the things that were discussed during the podcast:
+
+- [Birmingham Electroacoustic Sound Theatre](http://www.beast.bham.ac.uk/) (BEAST).
+
+- [De Montfort University](https://www.dmu.ac.uk/research/research-faculties-and-institutes/technology/mtirc/mtirc.aspx).
+
+- Simon's MA research ["*An Exploration of Listening to Acousmatic Music in the Concert Hall*"](https://www.dropbox.com/s/o4v5euewndmtwpd/2016-%20MA%20Listening%20to%20Acousmatic%20Music%20in%20the%20Concert%20Hall.pdf?dl=0).
+
+- [BEAST FEaST](http://www.beast.bham.ac.uk/beast-feast-2021/).
+
+- John Richards' [Dirty Electronics](https://dirtyelectronics.org/).
+
+<YouTube 
+url={'2FVlizBzJDU'}
+/>
+
+- [Kyma](https://kyma.symbolicsound.com/) and the [Kyma Community](https://kyma.symbolicsound.com/community-2/).
+
+<YouTube 
+url={'0IPxIvbc_cs?t=921'}
+/>
+
+- [Carla Scaletti](https://carlascaletti.com/bio/).
+
+- [MYO EMG Bracelets](https://wearabletech.io/myo-bracelet/).
+
+<YouTube 
+url={'oqAZ5_hlwLg'}
+/>
+
+<YouTube 
+url={'sM4fs1eV7A0'}
+/>
+
+- [John Chowning](https://en.wikipedia.org/wiki/John_Chowning)'s [*FM Theory and Applications*](https://www.amazon.com/Fm-Theory-Applications-Musicians/dp/4636174828).
+
+- [Simon Emmerson](https://en.wikipedia.org/wiki/Simon_Emmerson_(composer))'s [*The Language of Electroacoustic Music*]( https://link.springer.com/book/10.1007/978-1-349-18492-7).
+
+- [Middlesex University](https://www.mdx.ac.uk/). [John Dack](http://adri.mdx.ac.uk/dack-dr-john), [Salome Voegelin](https://www.salomevoegelin.net/), [Martin Robinson](https://uk.linkedin.com/in/0x4d52?challengeId=AQETf6GyYoa09AAAAYB0gfNeFIgfOibs0iRk8AZQYMjsQ6zObHa7uFr7RO8WgKV4Wns7HS6gV1XTz9rfMAgwpx0WHURWXaoBMw&submissionId=5b0407d2-c351-ea16-3809-290ece9b2948), [Hugh Davies](https://eprints.mdx.ac.uk/17408/).
+
+- [University of Manchester](https://www.novars.manchester.ac.uk/connect/mantis-festival/).
+
+- [Pauline Oliveros](https://en.wikipedia.org/wiki/Pauline_Oliveros), [Merzbow](https://en.wikipedia.org/wiki/Merzbow), [Keith Rowe](https://en.wikipedia.org/wiki/Keith_Rowe), [Francis Dhomont](https://en.wikipedia.org/wiki/Francis_Dhomont).
+
+- [Pierre Schaeffer](https://en.wikipedia.org/wiki/Pierre_Schaeffer).
+
+- [Groupe des Recherches Musicales](https://inagrm.com/en) (GRM).
+
+- [Hear This Space](https://www.ahillav.co.uk/hear-this-space/) (with [Andrew Hill](https://www.ahillav.co.uk) and [Mike Gatt](https://www.kingston.ac.uk/staff/profile/dr-michael-gatt-113/)).
+
+<Vimeo 
+url={'https://player.vimeo.com/video/22597217?h=dbdf22de9d'}
+/>
+
+- [Huddersfield Immersive Sound System](https://www.thehiss.org/) (HISS).
+
+- [Electric Spring](https://electricspring.co.uk/).
+
+- [Jonty Harrison](https://en.wikipedia.org/wiki/Jonty_Harrison).
+
+- [Leicester Museum](https://www.leicestermuseums.org/leicester-museum-art-gallery/).
+
+- Two Left Ears project.
+
+<Soundcloud 
+id='https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/59981114&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true'
+/>
+
+<Soundcloud 
+id='https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/298399532&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true'
+/>
+
+- [Kyma International Sound Symposium 2017](https://kiss2017.symbolicsound.com/), Oslo.
+
+- [Elective Mute](https://electivemute.bandcamp.com).
+
+<BandCamp 
+id='473579093'
+/>
+
+- [Marcin Pietruszewski](https://www.marcinpietruszewski.com/).
+
+- [John Wall](https://johnwall.bandcamp.com).
+
+- [Brona Martin](https://www.bronamartin.org).
+
+- [Ben Burtt](https://en.wikipedia.org/wiki/Ben_Burtt).
+
+- [Rodrigo Constanzo](https://rodrigoconstanzo.com/), learn about his work for the project [here](/explore/constanzo), and *C-C-Combine* [here](https://rodrigoconstanzo.com/combine/).
+
+<YouTube 
+url={'TL-L9weQxeM'}
+/>
+
+- Concert at [Centrala](http://centrala-space.org.uk/event/centrala-and-beast-present-responses---an-experimental-music-night).
+
+<YouTube 
+url={'HPD3lZpG69c'}
+/>
+
+<YouTube 
+url={'HRFcspWA4K8'}
+/>
+
+- [Atau Tanaka](https://www.gold.ac.uk/computing/people/tanaka-atau/).
+
+<YouTube 
+url={'qKyLDEO77Y8'}
+/>
+
+- [RapidMix](https://www.doc.gold.ac.uk/eavi/rapidmixapi.com/) and [Wekinator](http://www.wekinator.org).
+
+- Michel Waisvsz.
+
+<YouTube 
+url={'pYfRORkuPX8'}
+/>
+
+<YouTube 
+url={'SIfumZa2TKY'}
+/>
+
+<YouTube 
+url={'U1L-mVGqug4'}
+/>
+
+- [Freida Abtan](https://www.cmu.edu/cfa/music/people/Bios/abtan_freida.html)'s episode on the [FluCoMa Podcast](/explore/abtan).
+
+- [3D Corpus Explorer](https://discourse.flucoma.org/t/fluid-datasetplot-abstraction-for-2d-3d-visualization/783/83) by [Balint Laczko](https://github.com/balintlaczko).
+
+- [Milad Mardakheh](https://mardakhehmusic.com) and [Scott Wilson](https://scottwilson.ca).
+
+- [Gerard Roma](https://g-roma.github.io/)'s 2D Corpus Explorer.
+
+<YouTube 
+url={'MV4_S2fUyEY'}
+/>
+
+- [IRCAM](https://www.ircam.fr/)'s [CataRT](https://ismm.ircam.fr/catart/#:~:text=The%20concatenative%20real%2Dtime%20sound,position%20in%20the%20descriptor%20space.).
+
+- [Leafcutter John](http://leafcutterjohn.com/), learn about his work for the project [here]().
+
+- [Rebecca Fiebrink](https://www.arts.ac.uk/research/ual-staff-researchers/rebecca-fiebrink).
+
+<YouTube 
+url={'Qo6n8MuEgdQ'}
+/>
+
+- [Article](/explore/pluta) about [Sam Pluta](http://www.sampluta.com/biographyText.html)'s approach to mapping with the [*fluid.mlpregressor~*](/reference/mlpregressor). 
+
+- [Georgina Born](https://www.isca.ox.ac.uk/people/professor-georgina-born): [Gender, Creativity and Education in Digital Musics and Sound Art](https://ora.ox.ac.uk/catalog/uuid:1b83f5fb-eb8c-4451-8aad-14380f4ac59b/download_file?file_format=application%2Fpdf&safe_filename=BornandDevine%2BIntroduction%2B-%2BGender%2BCreativity%2Band%2BEducation%2Bin%2BDigital%2BMusics%2Band%2BSound%2BArt%2BAS%2BACCEPTED%2BMay16.pdf), [MusDig](https://musdig.music.ox.ac.uk).
+
+- [Madison Heying](https://music.ucsc.edu/people/madison-heying): [A Complex and Interactive Network: Carla Scaletti, the Kyma System, and the Kyma User Community](https://escholarship.org/uc/item/31c988ds).
+
+- [Elizabeth Dobson](https://pure.hud.ac.uk/en/persons/elizabeth-dobson): [Yorkshire Sound Women Network](https://yorkshiresoundwomen.com).
+
+- [Annette Vande Gorne](https://en.wikipedia.org/wiki/Annette_Vande_Gorne): [l'espace du son](http://www.lespaceduson.be/annette-vande-gorne.html).

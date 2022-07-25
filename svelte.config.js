@@ -53,17 +53,10 @@ const config = {
 	],
 	kit: {
 		adapter: adapter(),
-		trailingSlash: 'always',
 		prerender: {
 			default: true
 		},
-		vite: {
-			server: {
-				fs: {
-					allow: ['../']
-				}
-			}
-		}
+		trailingSlash: 'always'
 	}
 };
 

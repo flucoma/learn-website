@@ -2,7 +2,7 @@
     Refer to:
     https://ptsjs.org/guide/op-0400
  -->
-<script lang="ts">
+<script>
 	import { onMount } from 'svelte';
 	import { CanvasSpace, Create, GroupLike, Circle } from 'pts';
 	import Slider from '$lib/components/Slider.svelte';
@@ -11,13 +11,13 @@
 	const NUM_POINTS = 120;
 
 	let canvas;
-	let pts: GroupLike = [];
-	let mouse: Array<number> = [];
-	let numNeighbours: number = 30;
-	$: calcNeighbours = numNeighbours === 0 ? NUM_POINTS : numNeighbours;
-	let fit: boolean = false;
+	let pts = [];
+	let mouse = [];
+	let numNeighbours = 30;
+	let fit = false;
 	let rect;
-	let radius: number = 0.0;
+	let radius = 0.0;
+	$: calcNeighbours = numNeighbours === 0 ? NUM_POINTS : numNeighbours;
 
 	function getMousePos(canvas, evt) {
 		// We need to do this manually otherwise when shifting the window the resize is not accounted for.
@@ -41,7 +41,7 @@
 				pts = Create.distributeRandom(space.innerBound, NUM_POINTS);
 			},
 			animate: (time, ftime, space) => {
-				let circle: GroupLike = Circle.fromCenter(mouse, radius * space.size.y);
+				let circle = Circle.fromCenter(mouse, radius * space.size.y);
 				form.fillOnly(darkBlue).circle(circle);
 				if (fit) {
 					pts.sort((a, b) => a.$subtract(mouse).magnitude() - b.$subtract(mouse).magnitude());

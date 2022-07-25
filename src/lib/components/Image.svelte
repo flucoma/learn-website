@@ -1,10 +1,10 @@
-<script lang="ts">
+<script>
 	import { markdown } from 'markdown';
 
-	export let src: string = '';
-	export let alt: string = '';
-	export let label: string = '';
-	export let id: string = '';
+	export let src = '';
+	export let alt = '';
+	export let label = '';
+	export let id = '';
 </script>
 
 <figure class="container" {id}>

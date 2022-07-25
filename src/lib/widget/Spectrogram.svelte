@@ -1,4 +1,4 @@
-<script lang="ts">
+<script>
 	import { onMount } from 'svelte';
 	import { Chart, registerables } from 'chart.js';
 	import annotationPlugin from 'chartjs-plugin-annotation';
@@ -9,9 +9,8 @@
 	const smoothing = 100;
 
 	// Canvas
-	let canvas: HTMLCanvasElement | null;
-	let ctx: RenderingContext;
-	export let chart: Chart;
+	export let chart;
+	let canvas, ctx;
 
 	onMount(async () => {
 		// Chart
