@@ -11,6 +11,7 @@ flair: article
 ---
 
 <script>
+    import IndentNote from '$lib/components/IndentNote.svelte';
     import Image from '$lib/components/Image.svelte';
     import ResourceLink from '$lib/components/ResourceLink.svelte';
     import { Tabs, TabList, TabPanel, Tab } from '$lib/components/tabs/tabs';
@@ -30,13 +31,13 @@ The Fourier Transform is, by far, the most commonly used spectral analysis metho
 Any FluCoMa object that uses an STFT has three parameters that affect how the STFT is computed: `windowSize`, `hopSize`, and `fftSize`. Each of these is explained more below. Sometimes, adjusting these parameters is necessary to properly analyse a signal (if you're interested in low frequencies for example), however, changing these can also create different sounding results for many of the algorithms. These three parameters don't need to be thought of as "set it and forget it", but instead can explored for the aesthetic differences they might create!
 
 * `windowSize`: The size in audio samples for each analysis window. The default is 1024 samples.
-* `hopSize`: The number of audio samples between the start of each analysis window. `hopSize` less than `windowSize` creates overlap. The default of -1 indicates that `hopSize` should equal **`windowSize` / 2**.
-* `fftSize`: The size of FFT to compute for each analysis window. The default of -1 indicates that `fftSize` should equal `windowSize`. `fftSize` must be >= `windowSize`. In order to fit the criterial of performing the FFT, if `fftSize` is not a power of two, the next largest power of two will be used. For an explanation of setting `fftSize` > `windowSize` see [oversampling](#zero-padding-and-oversampling).
+* `hopSize`: The number of audio samples between the start of each analysis window. `hopSize` less than `windowSize` creates overlap. The default of -1 indicates that `hopSize` should equal `windowSize` divided by 2.
+* `fftSize`: The size of FFT to compute for each analysis window. The default of -1 indicates that `fftSize` should equal `windowSize`. `fftSize` must be greater than or equal to `windowSize`. In order to fit the criterial of performing the FFT, if `fftSize` is not a power of two, the next largest power of two will be used. For an explanation of setting `fftSize` greater than `windowSize` see [oversampling](#zero-padding-and-oversampling).
 
 ## Time vs Frequency Resolution
-The larger the `windowSize`, the finer the frequency resolution the FFT provides, however, a larger `windowSize` also means there is less precision about _when_ the frequency information of the FFT has occurred (because a particular frequency component could be from anywhere within the window). This means that there is a trade-off between the time and frequency resolution of a FFT. A longer `windowSize` means we are (sort of) averaging information about the signal over a longer time, but getting more detailed information about the spectrum in return. Correspondingly, a shorter `windowSize` gives us a better understanding about when-in-time information is from, but a coarser idea about frequency.
+The larger the `windowSize`, the finer the frequency resolution the FFT provides, however, a larger `windowSize` also means there is less precision about _when_ the frequency information of the FFT has occurred (because a particular frequency component could be from anywhere within the window). This means that there is a trade-off between the time and frequency resolution of an FFT. A longer `windowSize` means we are (sort of) averaging information about the signal over a longer time period, but getting more detailed information about the spectrum in return. Correspondingly, a shorter `windowSize` gives us a better understanding about when-in-time information is from, but a coarser idea about frequency.
 
-### FFT Bin Frequency Resolution (just in the piano range) for Different `windowSize`s
+### FFT Bins per Octave (just in the piano range) for Different `windowSize`s
 <Tabs>
     <TabList>
         <Tab>128</Tab>
@@ -49,49 +50,102 @@ The larger the `windowSize`, the finer the frequency resolution the FFT provides
     <TabPanel>
       <Image
       src="/learn/fourier-transform/1_windowSize=128.png"
-      label="FFT Bin Frequency Resolution (just in the piano range) for a windowSize of 128 samples."
+      label="FFT Bins per Octave (just in the piano range) for a windowSize of 128 samples."
       />
     </TabPanel>
     <TabPanel>
       <Image
       src="/learn/fourier-transform/2_windowSize=256.png"
-      label="FFT Bin Frequency Resolution (just in the piano range) for a windowSize of 256 samples."
+      label="FFT Bins per Octave (just in the piano range) for a windowSize of 256 samples."
       />
     </TabPanel>
     <TabPanel>
       <Image
       src="/learn/fourier-transform/3_windowSize=512.png"
-      label="FFT Bin Frequency Resolution (just in the piano range) for a windowSize of 512 samples."
+      label="FFT Bins per Octave (just in the piano range) for a windowSize of 512 samples."
       />
     </TabPanel>
     <TabPanel>
       <Image
       src="/learn/fourier-transform/4_windowSize=1024.png"
-      label="FFT Bin Frequency Resolution (just in the piano range) for a windowSize of 1024 samples."
+      label="FFT Bins per Octave (just in the piano range) for a windowSize of 1024 samples."
       />
     </TabPanel>
     <TabPanel>
       <Image
       src="/learn/fourier-transform/5_windowSize=2048.png"
-      label="FFT Bin Frequency Resolution (just in the piano range) for a windowSize of 2048 samples."
+      label="FFT Bins per Octave (just in the piano range) for a windowSize of 2048 samples."
       />
     </TabPanel>
     <TabPanel>
       <Image
       src="/learn/fourier-transform/6_windowSize=4096.png"
-      label="FFT Bin Frequency Resolution (just in the piano range) for a windowSize of 4096 samples."
+      label="FFT Bins per Octave (just in the piano range) for a windowSize of 4096 samples."
       />
     </TabPanel>
 </Tabs>
 
 As a general principle, if you want to get reliable tracking of partials in a harmonic(ish) sound, you will want to have a conservative 4 frequency bins between partials (because in practice energy gets smooshed across bins). For instance, to reliably identify and track the partials of a sawtooth wave at 100 Hz, you would want a bin resolution of 25 Hz. At a sampling rate of 44100 Hz, this would require a `windowSize` of 2048 samples (**frequency resolution = sample rate / `fftSize`**, or **44100 / 2048 = 21.53 Hz**).
 
+<IndentNote type="pointer">
+
+For more information about artefacts that can occur because of the Fourier Transform (such as _smearing_), see the [BufSTFT](/reference/bufstft) reference.
+
+</IndentNote>
+
 [_See this great interactive explanations of time-frequency resolution._](https://jackschaedler.github.io/circles-sines-signals/dft_frequency.html)
 
 ## Linear Frequency Scale
 The frequencies of the FFT bins that we use are linearly spread from 0 Hz to the _Nyquist Frequency_ (which is often 22,050 Hz). This is strongly mismatched with how humans perceive frequency space: logarithmically. It is important to keep in mind that an octave of pitch space in the low register will have fewer FFT bins per octave than an octave in a higher register, meaning that higher registers are overly represented in FFT analyses.
 
-linear vs. piano
+### Bins Per Octave (for the range of the keyboard)
+<Tabs>
+    <TabList>
+        <Tab>128</Tab>
+        <Tab>256</Tab>
+        <Tab>512</Tab>
+        <Tab>1024</Tab>
+        <Tab>2048</Tab>
+        <Tab>4096</Tab>
+    </TabList>
+    <TabPanel>
+      <Image
+      src="/learn/fourier-transform/stretched_keyboard_1_windowSize=128.png"
+      label="FFT Bins per Octave (just in the piano range) for a windowSize of 128 samples."
+      />
+    </TabPanel>
+    <TabPanel>
+      <Image
+      src="/learn/fourier-transform/stretched_keyboard_2_windowSize=256.png"
+      label="FFT Bins per Octave (just in the piano range) for a windowSize of 256 samples."
+      />
+    </TabPanel>
+    <TabPanel>
+      <Image
+      src="/learn/fourier-transform/stretched_keyboard_3_windowSize=512.png"
+      label="FFT Bins per Octave (just in the piano range) for a windowSize of 512 samples."
+      />
+    </TabPanel>
+    <TabPanel>
+      <Image
+      src="/learn/fourier-transform/stretched_keyboard_4_windowSize=1024.png"
+      label="FFT Bins per Octave (just in the piano range) for a windowSize of 1024 samples."
+      />
+    </TabPanel>
+    <TabPanel>
+      <Image
+      src="/learn/fourier-transform/stretched_keyboard_5_windowSize=2048.png"
+      label="FFT Bins per Octave (just in the piano range) for a windowSize of 2048 samples."
+      />
+    </TabPanel>
+    <TabPanel>
+      <Image
+      src="/learn/fourier-transform/stretched_keyboard_6_windowSize=4096.png"
+      label="FFT Bins per Octave (just in the piano range) for a windowSize of 4096 samples."
+      />
+    </TabPanel>
+</Tabs>
+
 
 One outcome of this mismatch is that, while most of the information humans are perceptually attuned to is below 5,000 Hz, over half of the information provided by an FFT is above 10,000 Hz! (Furthermore, about of a quarter of the information provided by an FFT is in a range most humans can't even hear!) You might account for this by changing the range of frequencies you want the FFT to analyse. Some objects (such as [Pitch](/reference/pitch) and [MFCC](/reference/mfcc)) take `minFreq` and `maxFreq` arguments which allows you to focus the FFT analysis in a register that is meaningful to you. Another approach may be using [MelBands](/reference/melbands) which is a further transformation on the magnitudes of an FFT, grouping them into bands that are more perceptually relevant to humans.
 
