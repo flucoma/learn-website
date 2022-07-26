@@ -1,5 +1,5 @@
 ---
-title: Where to start?
+title: Where to Start?
 artist: James Bradbury
 blurb: |
     In this article we take a look at James Bradbury’s creative work and his bespoke way of using the FluCoMa command line tools within his own Python environment and Reaper.
@@ -87,6 +87,8 @@ This is exactly what Bradbury has done! The first iteration of this idea is foun
 ```python
 from flucoma import fluid
 
+source = 'path/to/my/source/audio.wav'
+
 ns = fluid.noveltyslice(source, threshold = 0.1)
 idx = get_buffer(ns)
 
@@ -100,6 +102,8 @@ Or obtain and process descriptor data like this:
 <CodeBlock>
 
 ```python
+source = 'path/to/my/source/audio.wav'
+
 mfcc = fluid.mfcc(source)
 stats = get_buffer(fluid.stats(mfcc), “numpy”)
 
@@ -110,7 +114,7 @@ print(stats)
 
 This library relies on the [subprocess](https://docs.python.org/3/library/subprocess.html) Python module which allows you to run the CLI tools from a Python script. This allows the FluCoMa tools to be used in a clean, easy way within Python, and opens to door to easy manipulation of the subsequent data by any of the numerous open-source libraries that are available in Python.
 
-Bradbury further developed this with a library called [Finding Things In Stuff](https://github.com/jamesb93/ftis) (FTIS). An important aspect of this library is the `World()` class (the choice of term here in regard to some of the ideas discussed above seems quite apt), which allows you to chain different processes together, and also answers a problem that you will have come up against if you have done much batch-processing of corpora in any way: doing the same processes more than once. Using *caching* techniques, and when operating within the confines of a `World()`, the library will know if a certain process has already been performed and take this into account. This is the kind of thing that can easily be lost track of when done manually and is all done programmatically with FTIS.
+Bradbury further developed this with a library called [Finding Things In Stuff](https://github.com/jamesb93/ftis) (FTIS). An important aspect of this library is the `World()` class (the choice of term here in regard to some of the ideas discussed above seems quite apt), which allows you to chain different processes together, and also answers a problem that you will have come up against if you have done much batch-processing of corpora in any way: doing the same processes more than once. Using *caching* techniques, and when operating within the confines of a `World()`, the library will know if a certain process has already been performed and take this into account. This is the kind of thing that can easily be lost track of when done manually and is all done programmatically with FTIS. Bradbury [discusses this](https://phd.jamesbradbury.net/tech/ftis/#world) in detail in his PhD.
 
 !!!
 INSERT TYPICAL FTIS EXAMPLE. (01 FTIS Example)
@@ -142,7 +146,7 @@ src="/explore/bradbury/compositional_workflow2.jpg"
 label="Overview of Bradbury's compositional workflow (02)."
 />
 
-Above, we see a further decomposition of the process that falls under the activity around FTIS. Note that, these separations are merely conceptual, and in reality activity tended to shift between different aspects, but it is still important to note these conceptual separations. We see first an initial navigation through a corpus, which will correspond loosely to the [*grammatisation*](https://www.sciencedirect.com/science/article/abs/pii/S8755461515000560) of a somewhat amorphous blob of sound into something structured by a hybrid of machine and human listening, and something that is very personal and revealing of Bradbury’s musical thought; and finally the activities that led to the creation of the compositional grains in the form of Reaper projects.
+Above, we see a further decomposition of the process that falls under the activity around FTIS. Note that, these separations are merely conceptual, and in reality activity tended to shift between different aspects, but it is still important to note these conceptual separations. We see first an initial navigation through a corpus, which will correspond loosely to the [*grammatisation*](https://www.sciencedirect.com/science/article/abs/pii/S8755461515000560) of a somewhat amorphous blob of sound into something structured by a hybrid of machine and human listening, and something that is very personal and revealing of Bradbury’s musical thought: in his PhD Bradbury uses the term _structured listening_; and finally the activities that led to the creation of the compositional grains in the form of Reaper projects.
 
 As Bradbury states repeatedly in his PhD, much of the subsequent compositional work (in a more traditional sense of the term) is carried out somewhat *intuitively*. However – one would be remiss to look at this process as simply generating sound and then intuitively playing with them. Through this process of computer-aided listening and grammatisation of a corpus, compositional principles and ideas emerged which were then explored and finalized intuitively. In regard to the question of the *blank slate*, we see here that this process not only creates of *block of sound* from which to work from, but also *compositional ideas* and the entrances to paths down which one may embark.
 
