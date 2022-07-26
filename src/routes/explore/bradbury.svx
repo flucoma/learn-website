@@ -57,9 +57,10 @@ Before looking at *Interferences*, let’s begin by taking a look at some of Bra
 
 As you can hear in the two tracks on the album, Bradbury enjoys harsh, noisy electronic sounds. However, there is a certain quality about them that sets his music apart from other electronic musics – there is a certain rawness about them, a wildness and mystical energy. The reason for this, in this author’s opinion, is because they are not human engineered. Bradbury explores ways of collecting large collections of sounds which are biproducts of other objects, they are the natural sonification of digital or mechanical devices which have been bent or ripped into sound. This gives the sounds in his music a really quite beautiful, but unnerving nature.
 
-!!!
-INSERT PLAYER FOR RECONSTRUCTION ERROR
-!!!
+<Audio 
+src="/explore/bradbury/_.dotmaxwave.mp3"
+label="Track 01 from Reconstruction Error."
+/>
 
 For example, in a previous EP *Reconstruction Error*, the sounds that are heard are fragments of raw data on his computer that have been converted into WAVE files. This was achieved with Bradbury’s tool [mosh](https://github.com/jamesb93/mosh), which is his implementation of audio [databending](https://en.wikipedia.org/wiki/Databending) – taking data that was not intended to be decoded as audio and transforming it into a format that can be read as such. This essentially works by taking raw data and appending at WAVE header to the beginning. Below we can hear an example of a GPU Driver file that has been transformed into a WAVE file using mosh.
 
