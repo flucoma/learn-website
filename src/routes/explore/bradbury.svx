@@ -116,15 +116,17 @@ This library relies on the [subprocess](https://docs.python.org/3/library/subpro
 
 Bradbury further developed this with a library called [Finding Things In Stuff](https://github.com/jamesb93/ftis) (FTIS). An important aspect of this library is the `World()` class (the choice of term here in regard to some of the ideas discussed above seems quite apt), which allows you to chain different processes together, and also answers a problem that you will have come up against if you have done much batch-processing of corpora in any way: doing the same processes more than once. Using *caching* techniques, and when operating within the confines of a `World()`, the library will know if a certain process has already been performed and take this into account. This is the kind of thing that can easily be lost track of when done manually and is all done programmatically with FTIS. Bradbury [discusses this](https://phd.jamesbradbury.net/tech/ftis/#world) in detail in his PhD.
 
-!!!
-INSERT TYPICAL FTIS EXAMPLE. (01 FTIS Example)
-!!!
+<Image
+src="/explore/bradbury/ftis_example.png"
+label="Overview of the FTIS example script."
+/>
 
 FTIS allows for many of the FluCoMa-derived workflows you will have come to expect when dealing with large corpora: slicing, descriptor analysis, statistics, dimensionality reduction, clustering (see example script *01 FTIS Example*). Bradbury explained that “[with the text-based interface] *you get a level of abstraction and composability that you don’t have in Max. It would be like trying to write a patch using* thispatcher *or something. You can just programmatically generate the things you need and have them know about each other in an automatic way*.” As we shall see in the next section, Bradbury manages to compartmentalise his time quite well between coding and composition work and having this stable corpus manipulation environment helps with that: “*once you design the system, you don’t have to think about it; you can think about how it works and what it’s doing*”.
 
-!!!
-INSERT TYPICAL REATHOIN EXAMPLE. (02 Reathon Example)
-!!!
+<Image
+src="/explore/bradbury/reathon_example.png"
+label="Overview of the Reathon example script."
+/>
 
 Again, being a library for Python, it is very easy to integrate this library with other tools. Notably, Bradbury integrates this with [Reathon](https://github.com/jamesb93/reathon), a library he wrote that allows for programmatic generation of Reaper project files. As we see above and in the *02 Reathon example* example script, we can very quickly generate complicated Reaper projects in any number of programmatic ways. As you can imagine, the combination of these two libraries creates an extremely powerful tool that will propose a serious base for answering the problem of the *blank slate*. Bradbury describes the workflow he will follow as “*analysing the corpus with audio descriptors, projecting those many dimensions for each sample into some kind of space, then finding different manoeuvres around that space to create different groups of samples that will inform composition*”. What is the nature of these spaces, and what is the nature of the kinds of manoeuvres that he will look to make through them?
 
@@ -162,9 +164,10 @@ Thus, he first asked the computer to perform a segmentation and classification i
 
 This algorithm was implemented as a slicer in FTIS, but you can see how it works in example script *03 Clustered Segmetation*.
 
-!!!
-INSERT CLUSTERED SEGEMENTATION EXAMPLE. (03 Clustered Segmetation)
-!!!
+<Image
+src="/explore/bradbury/clustered_segmentation_example.png"
+label="An overview of the Clustered Segmentation script and an implementation in Max."
+/>
 
 He then took these segmentations and classified them using a spectral flux descriptor analysis. He deemed the results “*acceptable*” and used them as a base for further experimentation. Especially at this early stage of the process, the goal does not seem to be to gain precise, exact results, but to begin to iteratively and broadly structure the corpus. Indeed, this looseness allows for happy accidents to occur which we shall observe presently.
 
@@ -178,9 +181,10 @@ One important experiment was to further deconstruct the *active* state samples �
 
 He termed this process “*micro-clustering*” (see example script *04 Micro-clustering*). When listening back to the results he discovered that some of the *static* content had seeped through the cracks and had been treated in this same way with active content. This was something he embraced and allowed to develop into the final piece.
 
-!!!
-INSERT MICRO-CLUSTERING EXAMPLE. (04 Micro-clustering)
-!!!
+<Image
+src="/explore/bradbury/micro_clustering_example.png"
+label="An overview of the Micro-Clustering script and it's Max explorer."
+/>
 
 Bradbury performed various other experiments that allowed him to “*develop a ‘knowing’ of the corpus* […] *the more you get into the guts of it, the more you start to see patterns*”. At one point in this process, he felt that he’d gained enough knowledge of the corpus to assess that there wasn’t going to be enough variation in the material to give him what he wanted for a whole piece, so he decided to bring in material from the corpus that was used for *Reconstruction Error*. As we shall see, part of this entailed finding points of interface between the two corpora. The further his experiments continued, the closer he got to the final pieces we hear on the album.
 
