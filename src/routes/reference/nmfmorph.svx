@@ -9,3 +9,35 @@ tags:
 flair: reference
 category: Transform
 ---
+
+<script>
+    import ResourceLink from '$lib/components/ResourceLink.svelte';
+</script>
+
+NMFMorph uses a technique called Optimal Transport to provide real time interpolation between the bases of a ``source`` and ``target`` [BufNMF](/reference/bufnmf) decomposition. Using Optimal Transport for the spectral interpolation provides richer results than a simple linear interpolation between spectral shapes. Activations from a BufNMF analysis are also provided to activate the interpolated spectral information through time. If ``autoassign`` is set to 1, NMFMorph will attempt to optimally match which bases from source and target best match each other, and will interpolate using the matched pairings. If ``autoassign`` is set to 0, NMFMorph will interpolate between bases in their provided order.
+
+## Related Resources
+
+<ResourceLink
+title='Audio Morphing using Matrix Decomposition and Optimal Transport'
+url='https://pure.hud.ac.uk/en/publications/audio-morphing-using-matrix-decomposition-and-optimal-transport'
+blurb='Paper by Roma, Green, & Tremblay describing the NMFMorph algorithm. (begins on PDF page 165 of the DAFx2020 Proceedings)'
+/>
+
+<ResourceLink 
+title='Audio Transport: A Generalized Portamento via Optimal Transport'
+url='https://arxiv.org/pdf/1906.06763.pdf'
+blurb='The paper which inspired this implementation'
+/>
+
+<ResourceLink 
+title='Computational Optimal Transport'
+url='https://arxiv.org/pdf/1803.00567.pdf'
+blurb='For those who really want to get down in the details'
+/>
+
+<ResourceLink 
+title='Optimal transport: a hidden gem that empowers today’s machine learning'
+url='https://towardsdatascience.com/optimal-transport-a-hidden-gem-that-empowers-todays-machine-learning-2609bbf67e59'
+blurb='A relatively easy to approach article on applications of optimal transport'
+/>
