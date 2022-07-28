@@ -14,7 +14,9 @@ category: Transform
     import ResourceLink from '$lib/components/ResourceLink.svelte';
 </script>
 
-NMFMorph uses a technique called Optimal Transport to provide real time interpolation between the bases of a ``source`` and ``target`` [BufNMF](/reference/bufnmf) decomposition. Using Optimal Transport for the spectral interpolation provides richer results than a simple linear interpolation between spectral shapes. Activations from a BufNMF analysis are also provided to activate the interpolated spectral information through time. If ``autoassign`` is set to 1, NMFMorph will attempt to optimally match which bases from source and target best match each other, and will interpolate using the matched pairings. If ``autoassign`` is set to 0, NMFMorph will interpolate between bases in their provided order.
+NMFMorph uses a technique called Optimal Transport to provide real time interpolation between ``source`` and ``target`` bases of a [BufNMF](/reference/bufnmf) decomposition. Using Optimal Transport for the spectral interpolation provides richer results than a simple linear interpolation between spectral shapes. Activations from a BufNMF analysis are also provided to activate the interpolated spectral information through time. 
+
+If ``autoassign`` is set to 1, NMFMorph will determine which bases from ``source`` and ``target`` best match each other, and will interpolate between the matched pairings. If ``autoassign`` is set to 0, NMFMorph will interpolate between bases in the order they have been provided.
 
 ## Related Resources
 
