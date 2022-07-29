@@ -10,3 +10,32 @@ tags:
 flair: reference
 category: Transform
 ---
+
+<script>
+    import IndentNote from '$lib/components/IndentNote.svelte';
+    import Image from '$lib/components/Image.svelte';
+    import Audio from '$lib/components/Audio.svelte';
+    import ResourceLink from '$lib/components/ResourceLink.svelte';
+</script>
+
+BufNMFCross uses non-negative matrix factorisation ("NMF", for more info, see [BufNMF](/reference/bufnmf)) to reconstruct the components of a ``target`` sound using spectral templates of a ``source`` sound. The result is a hybrid sound whose character depends on how well the target can be represented by the source's spectral templates. 
+
+<IndentNote>
+
+In contrast to most uses of [BufNMF](/reference/bufnmf), each spectral frame of ``source`` is a spectral template. NMF is ``O(N^2)`` where ``N`` is the number of spectral templates, so longer ``source`` buffers will take dramatically longer to process.
+
+
+
+Rather than replacing single spectral frames in the target with single spectral frames in the source, BufNMFCross looks for opportunities to use a sequence of spectral frames from the source buffer to enhance the perception of the timbral morphology of both the source and target. This functionality can be adjusted using the ``continuity`` argument.
+
+Additionally, BufNMFCross will avoid repeating a same spectral frame until a specified duration of time has passed (using the argument ``timeSparsity``).
+
+Finally, BufNMFCross allows for a spectral frame in the ``target`` to be approximated using more than one spectral frame in the ``source``. 
+
+## Related Resources
+
+<ResourceLink
+title='Let it Bee-Towards NMF-Inspired Audio Mosaicing'
+url='http://ismir2015.uma.es/articles/13_Paper.pdf'
+blurb='Paper by Driedger, J., Prätzlich, T., & Müller, M. that describes the BufNMFCross algorithm.'
+/>
