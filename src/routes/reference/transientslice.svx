@@ -8,3 +8,39 @@ tags:
 flair: reference
 category: Slicing
 ---
+
+<script>
+    import Image from '$lib/components/Image.svelte';
+    import Audio from '$lib/components/Audio.svelte';
+    import ResourceLink from '$lib/components/ResourceLink.svelte';
+</script>
+
+TransientSlice identifies slice points in a signal by implementing a "de-clicking" algorithm based on the assumption that a transient is a sample or series of samples that are anomalous when compared to surrounding samples. It creates a model of the time series of samples, so that when a given sample doesn't fit the model (its "error", or "anomalous-ness", goes above the threshold argument ``threshFwd``) it is determined to be a transient and a slice point is identified. 
+
+The series of samples determined to be a transient will continue until the error goes below ``threshBack``, indicating that the samples are again more in-line with the model, preparing TransientSlice to identify the next transient slice point.
+
+<Image
+src="/reference/transientslice/transients-sine.jpg"
+label="A basic sine tone with some transient clicks added. The transient slice points identified by TransientSlice are overlaid in red."
+/>
+
+### Audio Example
+
+<Audio
+src="/reference/transientslice/src.mp3"
+label="Audio excerpt in example below" 
+waveform={true}
+/>
+
+<Image
+src="/reference/transientslice/transients-audio.jpg"
+label="A signal containing many transient moments with the slice points (red) overlaid."
+/>
+
+## Related Resources
+
+<ResourceLink
+title='Digital Audio Restoration'
+url='https://link.springer.com/book/10.1007/978-1-4471-1561-8'
+blurb='The algorithm implemented is from chapter 5 of "Digital Audio Restoration" by Godsill, Simon J., Rayner, Peter J.W. with some bespoke improvements on the detection function tracking.'
+/>
