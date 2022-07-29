@@ -10,7 +10,6 @@ category: Decompose
 ---
 
 <script>
-    import IndentNote from '$lib/components/IndentNote.svelte';
     import Image from '$lib/components/Image.svelte';
     import Audio from '$lib/components/Audio.svelte';
     import ResourceLink from '$lib/components/ResourceLink.svelte';
