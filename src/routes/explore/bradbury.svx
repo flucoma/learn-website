@@ -21,12 +21,13 @@ author: Jacob
     import BandCamp from '$lib/components/BandCamp.svelte';
     import CodeBlock from '$lib/components/CodeBlock.svelte';
     import Audio from '$lib/components/Audio.svelte';
+    import Bricolage from '$lib/components/DThree/Bricolage.svelte';
 </script>
 
 <ArtistCard
 src = "/explore/bradbury/profile.jpeg"
 name = "James Bradbury"
-website = "https://jamesbradbury.net/ "
+website = "https://jamesbradbury.net/"
 >
 <p slot="bio">
 James is a creative-coder and artist from Perth, Western Australia currently living in Northern England. He enjoys programming in his practice often harnessing the computer to find and organise audio-samples through machine listening and learning. He currently works as a Research Fellow in Creative Coding on the Fluid Corpus Manipulation project.
@@ -200,6 +201,8 @@ This approach is now somewhat characteristic of a typical FluCoMa workflow – s
 The content generated from searches within the descriptor-space serve as the base for intuitive composition, creating superimpositions of two types of “*anchor groups*” he deems perceptibly similar and the other. This served as the very base of the composition, and “*longer-form developments were orchestrated as interactions with this layer, either emphasising and adding to it or assuming the role of sonic antagonist*”.
 
 The first piece of the album, *G09*, stemmed from a “*strong aesthetic response to a particular recording – the e-reader*”. Bradbury stated that there was a particularly strong clarity between *active* and *static* states in these recordings, and that they proposed two strong and distinctive musical behaviours: “*static content had strong pitched elements that were unwavering in dynamic* [and] *active content was more gestural and exhibited varied morphology*”. In this piece he wished to “*separate these two behaviours and deconstruct their relationship*”.
+
+<Bricolage />
 
 Again, the starting points of this project were articulated around the contrast between *active* and *static* states: the beginning of the piece seeing the static ‘base layer’ being “*ornamented with other samples, active states deconstructed to recycle that first material and proliferate over time*”. In this piece, Bradbury also made notable use of many of his [ReaCoMa](https://github.com/ReaCoMa/ReaCoMa-2.0) scripts, crossing that blurred line between programmatic coding and corpus navigation, and intuitive composition: he resegmented samples, created variation by repeating and duplicating them, and using ReaCoMa’s descriptor-based reordering. Towards the end of the piece the distinction between these two state-materials also blurs. In the final part of the piece, he uses results from the micro-clustering process which he specifically deemed to “*border between active and static states*”.
 
