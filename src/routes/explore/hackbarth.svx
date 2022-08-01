@@ -1,0 +1,64 @@
+---
+title: "FluCoMa Podcast #09: Ben Hackbarth"
+artist: Ben Hackbarth
+blurb: |
+    The ninth episode of the FluCoMa Podcast where Jacob Hart talks with creative coder, composer and creator of AudioGuide Ben Hackbarth.
+tags: 
+    - audioguide
+    - concatenative synthesis
+    - descriptors
+    - python
+    - bach
+flair: podcast
+featuredimage: /explore/hackbarth/profile_pic.jpeg
+author: Jacob
+---
+
+<script>
+    import YouTube from '$lib/components/YouTube.svelte';
+    import ArtistCard from '$lib/components/mwf/ArtistCard.svelte';
+    import BandCamp from '$lib/components/BandCamp.svelte';
+    import Vimeo from '$lib/components/Vimeo.svelte';
+    import YouTubeChapters from '$lib/components/YouTubeChapters.svelte';
+</script>
+
+<ArtistCard
+src = "/explore/hackbarth/profile_pic.jpeg"
+name = "Ben Hackbarth"
+website = "http://www.benhackbarth.com/"
+>
+<p slot="bio">
+Benjamin Hackbarth directs the Interdisciplinary Centre for Composition and Technology and the artistic director of the Open Circuit Festival. He is Head of Composition at the University of Liverpool where he lectures and writes music for instruments and electronic sound. He has a Ph.D. from the University of California, San Diego where he studied composition with Roger Reynolds and received a Master's degree while working with Chaya Czernowin. He has a bachelor's degree in composition from the Eastman School of Music.
+</p>
+</ArtistCard>
+
+## The Podcast
+
+<YouTubeChapters 
+url={'UYSa73RvJQE'}
+chapters={[
+    {"label" : "Introduction", "start" : [0, 0]},
+    {"label" : "Getting into the world of audiovisual composition", "start" : [1, 40]},
+    {"label" : "Describing Freida's practice", "start" : [5, 20]},
+    {"label" : "Perspective on reactive audio design and gesture", "start" : [9, 3]},
+    {"label" : "Using FluCoMa-related technologies", "start" : [14, 3]},
+    {"label" : "Using systems at different scales", "start" : [25, 58]},
+    {"label" : "Learning and teaching technologies", "start" : [28, 22]},
+    {"label" : "What are computational ideas?", "start" : [44, 53]}
+]}
+/>
+
+## Overview
+
+In this first episode of the FluCoMa podcast I talk to Dr. Freida Abtan. We talk about some of the projects she has worked on, and her approach to creative programming in general. She discusses how *computational* approaches can be found at the heart of her *artistic* practice, and what the concept of *reactive audio design* means for her. As well as being an artist, Freida is also an educator, and we discuss her ideas around the teaching, dissemination and learning of technologies such as those found in the FluCoMa tools.
+
+## Links
+
+Here are the links to some of the things that were discussed during the podcast:
+
+- [The University of Liverpool](https://www.liverpool.ac.uk/music/): [Interdisciplinary Centre for Composition and Technology (ICCaT)](http://www.iccat.uk/about-us.php). [Musical Features Festival](http://www.iccat.uk/open-circuit.php).
+
+- ["Compositeur en résidence"](https://medias.ircam.fr/x94f0e3_presentation-des-travaux-de-ben-hackbarth) at [IRCAM](https://www.ircam.fr/).
+
+- Residencies at the [Cité des Arts](https://www.citedesartsparis.net/), the [Akademie Schloss Solitude](https://www.akademie-solitude.de/en/), [Santa Fe Chamber Music Festival](https://www.santafechambermusic.com/) and more.
+
