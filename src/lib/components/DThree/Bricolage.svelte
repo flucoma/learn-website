@@ -7,6 +7,7 @@
     export let title = 'A network of actions and outputs. Observing different outputs can lead to more direct creative action or lead back to further computational exploration and new outputs to be made.'
     export let caption = 'DEMO 1'
     export let id='bricolage'
+    export let blurb=''
 
     let container;
     let simulation;
@@ -148,6 +149,11 @@
 <div class="box" id={id} bind:offsetHeight={height} bind:offsetWidth={width}>
 <svg bind:this={container} class="d3-container"></svg>
 </div>
+
+<p>
+    {blurb}
+</p>
+
 <p class="caption">{caption}: {title}</p>
 
 <style>
