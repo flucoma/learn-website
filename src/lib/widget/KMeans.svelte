@@ -6,7 +6,7 @@
 	import Button from '$lib/components/Button.svelte';
 	import KMeans from '@flucoma/tf-kmeans';
 	import Select from 'svelte-select';
-	import datasets from '$lib/data/datasets.json';
+	import datasets from '$lib/data/datasetssets.json';
 
 	// Configure some options for KMeans
 	let numClusters = 4;

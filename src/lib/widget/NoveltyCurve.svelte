@@ -2,7 +2,8 @@
 	import { onMount } from 'svelte';
 	import { Chart, registerables } from 'chart.js';
 	import annotationPlugin from 'chartjs-plugin-annotation';
-	import data from '../../../static/reference/noveltyslice/curve.json';
+	import data from '$lib/data/reference/noveltyslice/curve.json';
+	
 	const curve = data.curve;
 	const peaks = data.peaks;
 	let peaks_annotation = {};

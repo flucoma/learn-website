@@ -15,7 +15,7 @@ featuredimage: /learn/outliers/removing_outliers.jpg
 <script>
     import IndentNote from '$lib/components/IndentNote.svelte';
     
-    import tables from '../../../static/reference/bufstats/bufstats.json';
+    import tables from '$lib/data/reference/bufstats/bufstats.json';
     
     let spectral_shape = tables["FluidSpectralShape"];
     let spectral_shape_rows = ["Centroid","Spread","Skewness","Kurtosis","Rolloff","Flatness","Crest"];
