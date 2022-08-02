@@ -50,8 +50,8 @@
 			<a
 				class={`link rel-${link.flair}`}
 				href={link.url}
-				on:mouseenter={ e => mouseEnter(e, link) }
-				on:mouseleave={ stopHover }
+				on:mouseenter={e => mouseEnter(e, link)}
+				on:mouseleave={stopHover}
 				>{link.title}
 			</a>
 		{/each}
