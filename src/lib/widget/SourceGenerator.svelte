@@ -86,11 +86,7 @@
 		patchBay[node]();
 	}
 
-	onMount(async () => {
-		audioContext = new (AudioContext || webkitAudioContext)();
-		Tone.setContext(audioContext);
-		output = new Tone.Gain(-24, 'decibels').toDestination();
-
+	export function init() {
 		// Sources
 		osc = new Tone.Oscillator(oscFreq, 'sine').start();
 		noise = new Tone.Noise('pink').start();
@@ -108,6 +104,12 @@
 
 		// Some Init
 		activeNode = osc;
+	}
+
+	onMount(async () => {
+		audioContext = new (AudioContext || webkitAudioContext)();
+		Tone.setContext(audioContext);
+		output = new Tone.Gain(-24, 'decibels').toDestination();
 	});
 
 	onDestroy(async () => {
