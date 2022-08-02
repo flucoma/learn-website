@@ -150,11 +150,11 @@
 <svg bind:this={container} class="d3-container"></svg>
 </div>
 
-<p>
+<p class="d3_blurb">
     {blurb}
 </p>
 
-<p class="caption">{caption}: {title}</p>
+
 
 <style>
     .box {
@@ -172,5 +172,11 @@
         text-align: center;
         width: 80%;
         margin: 0 auto;
+    }
+
+    .d3_blurb{
+        font-style: italic;
+        text-align: center;
+        width: 80%;
     }
 </style>
