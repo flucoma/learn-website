@@ -19,7 +19,7 @@
 	// Chart.js
 	let ctx, canvas, chart;
 
-	let kmeans, 
+	let kmeans,
 		doMeans, // A function that the button gets bound to. We won't define it yet because of awaits
 		trainDisabled = false;
 
