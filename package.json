@@ -11,7 +11,7 @@
 	},
 	"devDependencies": {
 		"@sveltejs/adapter-static": "next",
-		"@sveltejs/kit": "1.0.0-next.401",
+		"@sveltejs/kit": "1.0.0-next.377",
 		"autoprefixer": "^10.4.8",
 		"eslint": "^8.21.0",
 		"eslint-config-prettier": "^8.5.0",
@@ -27,8 +27,8 @@
 		"prettier-plugin-svelte": "^2.7.0",
 		"rehype-autolink-headings": "^6.1.1",
 		"rehype-slug": "^5.0.1",
-		"remark": "14.0.2",
-		"remark-html": "15.0.1",
+		"remark": "^13.0.0",
+		"remark-html": "^13.0.1",
 		"remark-jargon": "^2.21.3",
 		"svelte": "^3.49.0",
 		"svelte-check": "^2.8.0",
@@ -40,7 +40,7 @@
 	"dependencies": {
 		"@flucoma/tf-kmeans": "^0.0.3",
 		"@juggle/resize-observer": "^3.3.1",
-		"@tensorflow/tfjs": "3.19.0",
+		"@tensorflow/tfjs": "^3.16.0",
 		"array-smooth": "^1.0.0",
 		"chart.js": "^3.8.2",
 		"chartjs-plugin-annotation": "^2.0.0",
