@@ -1,0 +1,57 @@
+---
+title: Dealing with Time
+author: James
+blurb: |
+    Strategies for encoding and explaining time to a computer.
+tags:
+    - time
+    - smoothing
+    - descriptors
+    - audio descriptors
+    - statistics
+flair: tutorial
+featuredimage: /learn/for-featured-images/2D-corpus-explorer.png
+---
+
+## Introduction
+
+When we analyse sound with computers, the notion of time is critical. For humans, listening is an incredibly complex process that bundles many physiological and psychological elements into a relatively passive and automatic process. We can identify different perceptual features of the sound simultaneously, understand intentions behind sound production, trace musical elements that evolve over time and come to interpretations that connect different listening experiences together over the course of life experience. Computer's have no such understanding of sound and by comparison are really quite stupid when you put them next to a human. What they are especially good at though is _quantitative_ listening, and generating numbers that may or may not faithfully express the nuances of sound evolving over time. You might be familiar with _audio descriptors_ which are one way that the computer can "listen" to a sound and generate some kind of interpretation of it, and there are many other methods such as spectral analysis and machine learning which are ways in which a computer can derivea reading of a sound through calculation and numerical representation.
+
+Between human and computer listening there is an obvious tension in the way that the listening of the two differ. In the middle there is a shared territory of thinking about _time_ and how the trajectory of sound on multiple scales and levels. 
+
+The notion of various aspects of sound changing over time is integral to our understanding and expressing of sound. We might explain a sound's evolution by thinking of different aspects modulating over time and even more complicated, different time scales simultaneously. 
+
+If we want to measure a sound quantitatively it is essential that we consider the type of data that we are using
+
+This way of thinking about sound and time is incredibly rich and entirely human-centric. In other words, it's extremely hard to get a computer to listen like we do!
+
+Data and the way that time is encoded is essential to its use and interpretation by the computer and at some point... *us*.
+
+To unpack this idea further I want to start with a common question that has arisen when various people have begun to learn the FluCoMa toolkit, especially using the [Classifying Sounds Using a Neural Network](/learn/classification-neural-network) tutorial as a starting point.
+
+If you haven't already I suggest you go and at least watch the video, but to quickly summarise the plot for your understanding, this is what the tutorial asks you to do:
+
+1. Play a sound
+2. Send that sound to an *audio descriptor*, to generate some numbers that change over time as the sound changes
+3. Press a button to "capture" the audio descriptor at a point in time and store it.
+
+The goal of this is to teach a neural network to identify the "class" of a sound by providing it with labelled examples of audio descriptor data that was generated at a specific point in time while it was playing back. We can see Ted doing this in the video here:
+
+https://youtu.be/cjk9oHw7PQg?t=888
+
+So, back to the "common question" I was talking about before. Lots of people have asked us: "how can I represent more than just a single frame of analysis". Indeed, this is one of the problematic aspects of the approach taught in this tutorial – everytime that button is pressed we are capturing an incredibly brief period of time (around 10 milliseconds) and telling the computer that this piece of data is very important in determining.
+
+This problem is not isolated though. In the [2D Corpus Exploring Video]() sounds are analysed using audio descriptors which are analysed further with statistics to summarise seconds or minutes of audio very crudely.
+
+This is really just the start of thinking about _time_ and the tutorial encapsulates a singular strategy for measuring the perceptual characteristics of a sound with audio descriptors and giving it to the computer to understand.
+
+In response to this, we've developed a series of [Learn Articles](/learn) that we think might provoke you to consider how you represent time through data, and how the evolution of sound can be captured and encoded into workflows with the FluCoMa toolkit.
+
+<!-- [Smoothing](/learn/smoothing-data) -->
+<!-- [Pitch Refinement](/learn/refining-pitch-analysis) -->
+<!-- [LPT](/learn/lpt) -->
+
+
+
+
+ 
