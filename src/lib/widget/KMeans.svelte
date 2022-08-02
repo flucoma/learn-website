@@ -19,11 +19,11 @@
 	// Chart.js
 	let ctx, canvas, chart;
 
-	let trainDisabled = false;
+	let kmeans, 
+		doMeans, // A function that the button gets bound to. We won't define it yet because of awaits
+		trainDisabled = false;
 
-	let kmeans;
 	// Declare some vars to use after mounting
-	let doMeans; // A function that the button gets bound to. We won't define it yet because of awaits
 
 	const items = [
 		{ value: 'gaussian', label: 'Four Gaussian Clusters (Large)' },
@@ -121,7 +121,7 @@
 
 			// Compute all the colours
 			let colours = predictions.map(p => interpolateSinebow(p / centroids.length));
-			let centroidColours = centroids.map((_, i) => genColour(i / centroids.length));
+			let centroidColours = centroids.map((_, i) => interpolateSinebow(i / centroids.length));
 			colours.push(...centroidColours);
 			coloursPath.push(colours);
 			// Now calculate all the point radii
