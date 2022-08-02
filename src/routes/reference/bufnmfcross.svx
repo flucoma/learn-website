@@ -64,7 +64,7 @@ Rather than replacing single spectral frames in the target with single spectral 
 
 Additionally, BufNMFCross will avoid repeating a spectral frame within a specified duration of time (using the argument ``timeSparsity``). This helps avoid a common problem with this type of audio mosaiking: the repetition or over use of a single sound element from the source.
 
-Finally, BufNMFCross allows for a spectral frame in the ``target`` to be approximated using more than one spectral frame from the ``source``. This can help more closely approximate the spectral frames in the target, however, too using too many ``source`` spectral frames at once can cause phase cancellation or other undesirable artefacts. This functionality can be adjusted using the ``polyphony`` argument (the units are spectral bins).
+Finally, BufNMFCross allows for a spectral frame in the ``target`` to be approximated using more than one spectral frame from the ``source``. This can help more closely approximate the spectral frames in the target, however, too using too many ``source`` spectral frames at once can cause phase cancellation or other undesirable artefacts. This functionality can be adjusted using the ``polyphony`` argument, which sets the maximum number of ``source`` spectral frames that can be used at one time.
 
 <IndentNote type="pointer">
 
