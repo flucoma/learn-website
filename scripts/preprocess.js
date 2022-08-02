@@ -136,7 +136,10 @@ glob('src/routes/*(reference|learn|explore|installation)/*.svx', (err, routes) =
 		db.push(fm);
 
 		// Related Links
-		let links = markdownLinkExtractor(data, false).filter(x => x.startsWith('/'));
+		let links = markdownLinkExtractor(data, false)
+			.filter(x => x.startsWith('/'))
+			.filter(x => path.extname(x) === '');
+			
 		links = [...new Set(links)];
 
 		let backreference = {
