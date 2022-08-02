@@ -11,7 +11,7 @@
 	},
 	"devDependencies": {
 		"@sveltejs/adapter-static": "next",
-		"@sveltejs/kit": "1.0.0-next.377",
+		"@sveltejs/kit": "1.0.0-next.394",
 		"autoprefixer": "^10.4.8",
 		"eslint": "^8.21.0",
 		"eslint-config-prettier": "^8.5.0",
@@ -40,7 +40,7 @@
 	"dependencies": {
 		"@flucoma/tf-kmeans": "^0.0.3",
 		"@juggle/resize-observer": "^3.3.1",
-		"@tensorflow/tfjs": "^3.16.0",
+		"@tensorflow/tfjs": "3.16.0",
 		"array-smooth": "^1.0.0",
 		"chart.js": "^3.8.2",
 		"chartjs-plugin-annotation": "^2.0.0",
@@ -54,7 +54,7 @@
 		"numpy-parser": "^1.2.3",
 		"peaks.js": "^2.0.3",
 		"pts": "^0.10.12",
-		"seedrandom": "~3.0.5",
+		"seedrandom": "~2.4.3",
 		"svelte-bricks": "^0.1.7",
 		"svelte-select": "^4.4.7",
 		"svelte-youtube": "^0.0.2",
