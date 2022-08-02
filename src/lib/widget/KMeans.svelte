@@ -1,12 +1,12 @@
 <script>
-	import * as d3 from 'd3';
+	import { interpolateSinebow } from 'd3';
 	import { tensor } from '@tensorflow/tfjs';
 	import { onMount } from 'svelte';
 	import { Chart, registerables } from 'chart.js';
 	import Button from '$lib/components/Button.svelte';
 	import KMeans from '@flucoma/tf-kmeans';
 	import Select from 'svelte-select';
-	import datasets from '$lib/data/datasetssets.json';
+	import datasets from '$lib/data/datasets/datasets.json';
 
 	// Configure some options for KMeans
 	let numClusters = 4;
@@ -21,8 +21,6 @@
 
 	let trainDisabled = false;
 
-	// Essentially rename the colour generation function
-	var genColour = d3.interpolateSinebow;
 	let kmeans;
 	// Declare some vars to use after mounting
 	let doMeans; // A function that the button gets bound to. We won't define it yet because of awaits
@@ -122,7 +120,7 @@
 			predictionsPath.push(d);
 
 			// Compute all the colours
-			let colours = predictions.map(p => genColour(p / centroids.length));
+			let colours = predictions.map(p => interpolateSinebow(p / centroids.length));
 			let centroidColours = centroids.map((_, i) => genColour(i / centroids.length));
 			colours.push(...centroidColours);
 			coloursPath.push(colours);
