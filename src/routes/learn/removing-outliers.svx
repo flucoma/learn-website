@@ -25,7 +25,6 @@ featuredimage: /learn/outliers/removing_outliers.jpg
     let cutoff_stats = tables["FluidBufStats_outliersCutoff!=-1"];
     let original_stats = tables["FluidBufStats_outliersCutoff=-1"];
     let stats_headers = ["Mean","Std Dev","Skewness","Kurtosis","Low","Middle","High"];
-    // console.log(bounds)
 </script>
 
 <IndentNote type='pointer'>
