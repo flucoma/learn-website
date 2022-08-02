@@ -10,7 +10,7 @@ tags:
     - python
     - bach
 flair: podcast
-featuredimage: /explore/hackbarth/profile_pic.jpeg
+featuredimage: /explore/hackbarth/featured.png
 author: Jacob
 ---
 
@@ -23,7 +23,7 @@ author: Jacob
 </script>
 
 <ArtistCard
-src = "/explore/hackbarth/profile_pic.jpeg"
+src = "/explore/hackbarth/profile.jpeg"
 name = "Ben Hackbarth"
 website = "http://www.benhackbarth.com/"
 >
