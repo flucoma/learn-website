@@ -1,22 +1,12 @@
 <script>
-	import KMeans from '@flucoma/tf-kmeans';
-	import * as tf from '@tensorflow/tfjs';
 	import * as d3 from 'd3';
+	import { tensor } from '@tensorflow/tfjs';
 	import { onMount } from 'svelte';
 	import { Chart, registerables } from 'chart.js';
 	import Button from '$lib/components/Button.svelte';
+	import KMeans from '@flucoma/tf-kmeans';
 	import Select from 'svelte-select';
-
-	// Data Imports TODO: fetch these on load to reduce component payload
-	import gaussianTiny from '../../../static/data/gaussian4-tiny.json';
-	import gaussianSmall from '../../../static/data/gaussian4-small.json';
-	import gaussianData from '../../../static/data/gaussian4.json';
-	import lineTiny from '../../../static/data/line-tiny.json';
-	import lineData from '../../../static/data/curvey-line.json';
-	import moonsData from '../../../static/data/moon.json';
-	import blobsData from '../../../static/data/blobs.json';
-	import circlesData from '../../../static/data/circles.json';
-	import random from '../../../static/data/random.json';
+	import datasets from '$lib/data/datasets.json';
 
 	// Configure some options for KMeans
 	let numClusters = 4;
@@ -50,18 +40,18 @@
 	];
 
 	let dataLookup = {
-		gaussian: gaussianData,
-		gaussianTiny: gaussianTiny,
-		gaussianSmall: gaussianSmall,
-		line: lineData,
-		lineTiny: lineTiny,
-		moon: moonsData,
-		blobs: blobsData,
-		circles: circlesData,
-		random: random
+		gaussian: datasets.gaussian4,
+		gaussianTiny: datasets.gaussian4tiny,
+		gaussianSmall: datasets.gaussian4small,
+		line: datasets.curvy,
+		lineTiny: datasets.lineTiny,
+		moon: datasets.moon,
+		blobs: datasets.blobs,
+		circles: datasets.circles,
+		random: datasets.random
 	};
 
-	let data = Object.values(gaussianSmall.data);
+	let data = Object.values(dataLookup.gaussian.data);
 
 	const formatForChart = d => {
 		// Marshalls data into a chart.js friendly format
@@ -113,7 +103,7 @@
 		let centroidsPath = [];
 		let coloursPath = [];
 		let radPath = [];
-		const tfData = tf.tensor(data);
+		const tfData = tensor(data);
 		// Create an instance of the kmeans model
 		kmeans = new KMeans({
 			k: numClusters,
