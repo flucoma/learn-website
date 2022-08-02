@@ -27,6 +27,7 @@
 	function startAudioDescriptor() {
 		if (!enabled) {
 			Tone.start();
+			generator.init();
 			generator.patch('osc'); // activate the sine tone generator
 			enabled = true;
 		}
