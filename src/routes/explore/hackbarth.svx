@@ -17,9 +17,9 @@ author: Jacob
 <script>
     import YouTube from '$lib/components/YouTube.svelte';
     import ArtistCard from '$lib/components/mwf/ArtistCard.svelte';
-    import BandCamp from '$lib/components/BandCamp.svelte';
-    import Vimeo from '$lib/components/Vimeo.svelte';
+    import Audio from '$lib/components/Audio.svelte';
     import YouTubeChapters from '$lib/components/YouTubeChapters.svelte';
+    import IndentNote from '$lib/components/IndentNote.svelte';
 </script>
 
 <ArtistCard
@@ -50,9 +50,15 @@ chapters={[
 
 ## Overview
 
-In this first episode of the FluCoMa podcast I talk to Dr. Freida Abtan. We talk about some of the projects she has worked on, and her approach to creative programming in general. She discusses how *computational* approaches can be found at the heart of her *artistic* practice, and what the concept of *reactive audio design* means for her. As well as being an artist, Freida is also an educator, and we discuss her ideas around the teaching, dissemination and learning of technologies such as those found in the FluCoMa tools.
+In this episode of the FluCoMa Podcast, I talk to Dr. Ben Hackbarth who is currently the Head of Composition at the University of Liverpool. We talk about his creative process, and the tool he has been developing for many years for enabling complex offline concatenative synthesis: AudioGuide. We discuss his approach to development, and also how concatenative synthesis enters into his creative practice as a composer. 
 
 ## Links
+
+<IndentNote type='pointer'>
+
+Download Ben's AudioGuide [here](http://www.benhackbarth.com/audioGuide/).
+
+</IndentNote>
 
 Here are the links to some of the things that were discussed during the podcast:
 
@@ -62,3 +68,101 @@ Here are the links to some of the things that were discussed during the podcast:
 
 - Residencies at the [Cité des Arts](https://www.citedesartsparis.net/), the [Akademie Schloss Solitude](https://www.akademie-solitude.de/en/), [Santa Fe Chamber Music Festival](https://www.santafechambermusic.com/) and more.
 
+- Presentation at Huddersfiled's [Creative Coding Lab](https://research.hud.ac.uk/institutes-centres/cerenem/projects/creativecodinglab/):
+
+<YouTube 
+url={'BEwTCZxx9r0'}
+/>
+
+- [Rebecca Fiebrink](https://www.arts.ac.uk/research/ual-staff-researchers/rebecca-fiebrink)'s presentation:
+
+<YouTube 
+url={'Qo6n8MuEgdQ'}
+/>
+
+- [Leafcutter John](http://leafcutterjohn.com/)'s Presentation:
+
+<YouTube 
+url={'5dJD1JUzbJs'}
+/>
+
+- Part 1/5 of the in-depth AudioGuide tutorial:
+
+<YouTube 
+url={'ZqjYjDLZRAw'}
+/>
+
+- AudioGuide was developed by Ben, [Norbert Schnell](https://ismm.ircam.fr/norbert-schnell/), [Philippe Esling](https://esling.github.io/), and [Diemo Schwarz](http://diemo.concatenative.net/). 
+
+- IRCAM's [Artistic research residency](https://www.culture.gouv.fr/en/Aides-demarches/Appels-a-projets/IRCAM-Appel-a-candidatures-Residence-en-recherche-artistique-2022) program.
+
+- Diemo Schwarz's [CataRT](https://ismm.ircam.fr/catart/#:~:text=The%20concatenative%20real%2Dtime%20sound,position%20in%20the%20descriptor%20space.).
+
+- Norbert Schnell's [work](https://hal.archives-ouvertes.fr/hal-01161265) with [Marco Antonio Suarez-Cifuentes](https://marcosuarezcifuentes.wordpress.com/) and [MuBu](https://forum.ircam.fr/projects/detail/mubu/).
+
+- Philippe Esling's [Orchidea](https://forum.ircam.fr/projects/detail/orchidea/).
+
+- Am I a Particle or a Wave? (2011):
+
+<YouTube 
+url={'CXOcCFfyoUA'}
+/>
+
+- [Steven Takasugi](http://www.steventakasugi.com/)'s Die Klavierübung (2007):
+
+<YouTube 
+url={'xDW69bhRJ_8'}
+/>
+
+- Ben's [Liquid Studies](http://www.benhackbarth.com/ls1/) (2017-2018).
+
+<YouTube 
+url={'C3lRxi6tjEM'}
+/>
+
+- Example 1:
+
+<Audio 
+src="/explore/hackbarth/phrase1_target.wav"
+label="Voice target."
+/>
+
+<Audio 
+src="/explore/hackbarth/phrase1_output.wav"
+label="Concatenative output."
+/>
+
+- Example 2:
+
+<Audio 
+src="/explore/hackbarth/phrase3_target.wav"
+label="Voice target."
+/>
+
+<Audio 
+src="/explore/hackbarth/phrase3_output.wav"
+label="Concatenative output."
+/>
+
+- [FluCoMa Podcast](/explore/leeming-melen) with [Zakiya Leeming](https://www.zakiyaleeming.com/) and [Chris Melen](https://www.rncm.ac.uk/people/christopher-melen/).
+
+- [Rodrigo Constanzo](https://rodrigoconstanzo.com/)'s [C-C-Combine](https://rodrigoconstanzo.com/combine/).
+
+- [Article](/explore/bradbury) about [James Bradbury](https://jamesbradbury.net/)'s creative work and [Finding Things In Stuff (FTIS)](https://github.com/jamesb93/ftis).
+
+- Example 3:
+
+<Audio 
+src="/explore/hackbarth/F6_excerpt.wav"
+label="Concatenative synthesis with the piano samples."
+/>
+
+- [Article](/explore/roma) about [Gerard Roma](https://g-roma.github.io/)'s piece for FluCoMa.
+
+- [Pierre Alexandre Tremblay](https://www.pierrealexandretremblay.com/)'s (un)weave (2019), made using AudioGuide:
+
+<YouTube 
+url={'1G_CLlUxEF8'}
+/>
+
+- [Olivier Pasquet](https://www.opasquet.fr/)'s [One thousand and one nights](https://www.opasquet.fr/thousand-nights/) made using AudioGuide.
