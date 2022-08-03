@@ -15,11 +15,19 @@ featuredimage: /learn/for-featured-images/2D-corpus-explorer.png
 
 ## Introduction
 
-When we analyse sound with computers, the notion of time is critical. For humans, listening is an incredibly complex process that bundles many physiological and psychological elements into a relatively passive and automatic process. We can identify different perceptual features of the sound simultaneously, understand intentions behind sound production, trace musical elements that evolve over time and come to interpretations that connect different listening experiences together over the course of life experience. Computer's have no such understanding of sound and by comparison are really quite stupid when you put them next to a human. What they are especially good at though is _quantitative_ listening, and generating numbers that may or may not faithfully express the nuances of sound evolving over time. You might be familiar with _audio descriptors_ which are one way that the computer can "listen" to a sound and generate some kind of interpretation of it, and there are many other methods such as spectral analysis and machine learning which are ways in which a computer can derivea reading of a sound through calculation and numerical representation.
+When we analyse sound with computers, the notion of time is critical. For humans, listening is an incredibly complex process that bundles many physiological and psychological elements into a relatively passive and automatic process. We can identify different perceptual features of the sound simultaneously, understand intentions behind sound production, trace musical elements that evolve over time and come to interpretations that connect different listening experiences together. Computer's have no such understanding of sound and by comparison are really quite stupid when you compare them to what a human can do. What they are especially good at though is _quantitative_ listening, and generating numbers that may or may not faithfully express the nuances of sound evolving over time. You might be thinking, "Hey! You just described an audio descriptor", and you would be right. This set of learn articles is going to reflect on the tension between human and machine listening and how that effects the way we encode musical representation, specifically _time_ in data.
 
-Between human and computer listening there is an obvious tension in the way that the listening of the two differ. In the middle there is a shared territory of thinking about _time_ and how the trajectory of sound on multiple scales and levels. 
+After reading the articles and resources, we hope that you feel empowered...
 
-The notion of various aspects of sound changing over time is integral to our understanding and expressing of sound. We might explain a sound's evolution by thinking of different aspects modulating over time and even more complicated, different time scales simultaneously. 
+## Time, Evolution and Data
+
+The fact that sound evolves over time is an inescapable facet of how we listen to and interpret it. Think about all the different ways that a sound may or may not vary and how this contributes so strongly to it's nature, ability to elicit different responses as a listener. One neat entry point is to start thinking of sound as shapes.
+
+<!-- Shape Stuff -->
+
+See, this is pretty easy! However
+
+ We might explain a sound's evolution by thinking of different aspects modulating over time and even more complicated, different time scales simultaneously. 
 
 If we want to measure a sound quantitatively it is essential that we consider the type of data that we are using
 
