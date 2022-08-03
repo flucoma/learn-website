@@ -27,6 +27,7 @@
 	function startAudioDescriptor() {
 		if (!enabled) {
 			Tone.start();
+			generator.init();
 			generator.patch('osc'); // activate the sine tone generator
 			enabled = true;
 		}
@@ -43,7 +44,8 @@
 				'spectralSkewness',
 				'spectralKurtosis',
 				'spectralRolloff',
-				'spectralFlatness'
+				'spectralFlatness',
+				'spectralCrest'
 			],
 			callback: (...features) => {
 				const desc = features[0];
@@ -55,6 +57,7 @@
 				shape.kurtosis = desc.spectralKurtosis;
 				shape.rolloff = desc.spectralRolloff;
 				shape.flatness = desc.spectralFlatness;
+				shape.crest = desc.spectralCrest;
 				chart.update();
 			}
 		});

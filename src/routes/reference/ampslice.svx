@@ -9,16 +9,9 @@ category: Slicing
 ---
 
 <script>
-    import AmpSlice from '$lib/widget/Ampslice.svelte';
     import Image from '$lib/components/Image.svelte';
     import IndentNote from '$lib/components/IndentNote.svelte';
 </script>
-
-<!-- You can see a visual depiction of these two envelope followers below. The slow envelope is red, while the fast envelope is blue. -->
-
-<!-- I think we should hold off on this until the slow envelope responds to the signal appropriately <AmpSlice /> -->
-
-<!--In the widget above, experiment by moving the slider to change how _smooth_ the slow envelope is. With lots of smoothing you'll visually be able to see how changes in the amplitude barely cause the envelope to fluctuate. On the flip side with no smoothing the slow envelope should look identical to the fast envelope. Remember, the algorithm is comparing the _relative difference_ between the slow and fast envelopes.-->  
 
 AmpSlice determines when an amplitude onset has occurred by comparing two amplitude envelope followers on the same audio signal. One envelope follower is “fast” meaning that it responds quickly to changes in amplitude. The other is “slow” meaning that it responds more slowly to changes. AmpSlice compares the difference between the slow and fast envelopes to determine if there has been a _relative_ spike in amplitude in the short term, when compared to the longer term trend. When the difference between the two envelopes goes above the `onThreshold`, it is identified as an onset.
 
