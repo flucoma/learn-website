@@ -56,6 +56,8 @@
 		"pts": "^0.10.12",
 		"seedrandom": "~2.4.3",
 		"svelte-bricks": "^0.1.7",
+		"svelte-pdf": "^1.0.11",
+		"svelte-pdf-viewer": "^1.0.0",
 		"svelte-select": "^4.4.7",
 		"svelte-youtube": "^0.0.2",
 		"tone": "^14.7.77",
