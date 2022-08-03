@@ -95,6 +95,12 @@ url={'5dJD1JUzbJs'}
 url={'ZqjYjDLZRAw'}
 />
 
+- Tutorial for algorithmic selection of simultaneous corpus samples:
+
+<YouTube 
+url={'V3MgfbaDi9I?t=1027'}
+/>
+
 - AudioGuide was developed by Ben, [Norbert Schnell](https://ismm.ircam.fr/norbert-schnell/), [Philippe Esling](https://esling.github.io/), and [Diemo Schwarz](http://diemo.concatenative.net/). 
 
 - IRCAM's [Artistic research residency](https://www.culture.gouv.fr/en/Aides-demarches/Appels-a-projets/IRCAM-Appel-a-candidatures-Residence-en-recherche-artistique-2022) program.
