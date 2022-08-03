@@ -151,7 +151,7 @@ label="Concatenative output."
 
 - [Rodrigo Constanzo](https://rodrigoconstanzo.com/)'s [C-C-Combine](https://rodrigoconstanzo.com/combine/).
 
-- [Article](/explore/bradbury) about [James Bradbury](https://jamesbradbury.net/)'s creative work and [Finding Things In Stuff (FTIS)](https://github.com/jamesb93/ftis).
+- [Article](/explore/) about [James Bradbury](https://jamesbradbury.net/)'s creative work and [Finding Things In Stuff (FTIS)](https://github.com/jamesb93/ftis).
 
 - Example 3:
 
