@@ -5,7 +5,8 @@ import headings from 'rehype-autolink-headings';
 import { s } from 'hastscript';
 import { mdsvex } from 'mdsvex';
 import jargon from 'remark-jargon';
-import definitions from './jargon.js';
+import { definitions }  from './jargon.js';
+
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
@@ -44,7 +45,7 @@ const config = {
 					}
 				]
 			],
-			remarkPlugins: [[jargon, { jargon: definitions.definitions }]],
+			remarkPlugins: [[ jargon, { jargon: definitions } ]],
 			layout: {
 				_: './src/lib/layouts/Content.svelte',
 				contentindex: './src/lib/layouts/ContentIndex.svelte'

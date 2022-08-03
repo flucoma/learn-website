@@ -1,0 +1,17 @@
+---
+title: Refining Pitch Analysis
+author: James
+blurb: |
+    Using statistics to refine the analysis of pitch content.
+tags:
+    - time
+    - smoothing
+    - descriptors
+    - audio descriptors
+    - statistics
+flair: tutorial
+featuredimage: /learn/for-featured-images/2D-corpus-explorer.png
+---
+
+
+

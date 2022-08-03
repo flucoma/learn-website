@@ -1,0 +1,17 @@
+---
+title: Smoothing Data
+author: James
+blurb: |
+    Bundling time by smoothing windows of data.
+tags:
+    - time
+    - smoothing
+    - descriptors
+    - audio descriptors
+    - statistics
+flair: tutorial
+featuredimage: /learn/for-featured-images/2D-corpus-explorer.png
+---
+
+
+
