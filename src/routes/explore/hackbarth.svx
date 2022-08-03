@@ -35,16 +35,19 @@ Benjamin Hackbarth directs the Interdisciplinary Centre for Composition and Tech
 ## The Podcast
 
 <YouTubeChapters 
-url={'UYSa73RvJQE'}
+url={'ldA5qQyfOco'}
 chapters={[
     {"label" : "Introduction", "start" : [0, 0]},
-    {"label" : "Getting into the world of audiovisual composition", "start" : [1, 40]},
-    {"label" : "Describing Freida's practice", "start" : [5, 20]},
-    {"label" : "Perspective on reactive audio design and gesture", "start" : [9, 3]},
-    {"label" : "Using FluCoMa-related technologies", "start" : [14, 3]},
-    {"label" : "Using systems at different scales", "start" : [25, 58]},
-    {"label" : "Learning and teaching technologies", "start" : [28, 22]},
-    {"label" : "What are computational ideas?", "start" : [44, 53]}
+    {"label" : "Getting into music and music technology", "start" : [1, 55]},
+    {"label" : "Introduction to AudioGuide", "start" : [3, 5]},
+    {"label" : "The story of AudioGuide’s development", "start" : [5, 38]},
+    {"label" : "Initial pieces made with AudioGuide", "start" : [9, 37]},
+    {"label" : "Concat synthesis in Ben’s practice", "start" : [14, 4]},
+    {"label" : "Working with instrumentalists", "start" : [16, 54]},
+    {"label" : "Time and perspectives on live concat synthesis", "start" : [22, 4]},
+    {"label" : "Questions of interface", "start" : [30, 18]},
+    {"label" : "Approach to corpus curation", "start" : [39, 28]},
+    {"label" : "Having your tool used by others", "start" : [46, 40]}
 ]}
 />
 
