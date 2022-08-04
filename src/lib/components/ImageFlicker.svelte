@@ -42,9 +42,11 @@
         var to_disable = document.getElementsByClassName(class_name);
         for(var i = 0; i < to_disable.length; i++){
             if (state == "disable"){
-                to_disable[i].style.color = "#d6d2d2";
+                //to_disable[i].style.color = "#d6d2d2";
+                to_disable[i].disabled = true;
             }else if(state == "enable"){
-                to_disable[i].style.color = "black";
+                //to_disable[i].style.color = "black";
+                to_disable[i].disabled = false;
             };
         };
     };
@@ -55,21 +57,40 @@
 </script>
 
 <div class="imageFlickerContainer">
+
     <div class="flickerImages">
+
+        <button on:click={() => handleClick("back")} class="button button1" disabled=true>
+            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000">
+                <path d="M0 0h24v24H0z" fill="none" />
+                <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z" />
+            </svg>
+        </button>
+
         <a target="_blank" href={src}>
             <img loading="lazy" {alt} {src} />
         </a>
-    </div>
-    <div class="flickerControl">
-        <button on:click={() => handleClick("back")} class="button button1">Back</button>
-        <button on:click={() => handleClick("forward")} class="button button2">Forward</button>
-    </div>
 
+        <button on:click={() => handleClick("forward")} class="button button2">
+            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000">
+                <path d="M0 0h24v24H0z" fill="none" />
+                <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z" />
+            </svg>
+        </button>
+
+    </div>
 </div>
 
 
 
 <style lang="postcss">
+
+    svg {
+		fill: var(--med-blue);
+		width: 16px;
+		height: 16px;
+	}
+
     .imageFlickerContainer{
         background-color: #f2f2f2;
         border: solid black 0.1rem;
@@ -83,6 +104,7 @@
     .button{
         padding: 1em;
         margin: 0.5em;
+        height: 50px;
     }
 
     .button2{
@@ -112,10 +134,7 @@
 
     .flickerImages{
         max-width: 100%;
-    }
-
-    .flickerControl{
-        background-color: #d6d2d2;
-        border-top: solid black 0.1rem;
+        display: flex;
+        align-items: center;
     }
 </style>
