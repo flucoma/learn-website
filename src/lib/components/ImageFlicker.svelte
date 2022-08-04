@@ -5,62 +5,53 @@
     var alt = ''
     var currentIdx = 0
 
-    function handleClickBack() {
-		currentIdx = currentIdx - 1
-        if (currentIdx < 0){
-            currentIdx = 0
+    function handleClick(direction) {
+        if (direction == 'back'){
+            currentIdx = currentIdx - 1
+            if (currentIdx < 0){
+                currentIdx = 0
+            };
+        } else if(direction == 'forward'){
+            currentIdx = currentIdx + 1
+            if (currentIdx > images.length - 1){
+                currentIdx = images.length - 1
+            };
         };
-
+		
         handle_button_style()
 
         src = images[currentIdx]
-	}
-    function handleClickForward() {
-		currentIdx = currentIdx + 1
-        if (currentIdx > images.length - 1){
-            currentIdx = images.length - 1
-        }
-
-        handle_button_style()
-
-        src = images[currentIdx]
-	}
+	};
 
     function handle_button_style(){
         if (currentIdx == 0){
-            disable_button('button1');
-            enable_button('button2');
+            set_button_state('button1', 'disable');
+            set_button_state('button2', 'enable');
         }
         else if (currentIdx == images.length -1){
-            disable_button('button2');
-            enable_button('button1');
+            set_button_state('button1', 'enable');
+            set_button_state('button2', 'disable');
         }
         else{
-            enable_button('button1');
-            enable_button('button2');
-        }
-    }
+            set_button_state('button1', 'enable');
+            set_button_state('button2', 'enable');
+        };
+    };
 
-    function disable_button(class_name){
+    function set_button_state(class_name, state){
         var to_disable = document.getElementsByClassName(class_name);
         for(var i = 0; i < to_disable.length; i++){
-            to_disable[i].style.color = "#d6d2d2";
+            if (state == "disable"){
+                to_disable[i].style.color = "#d6d2d2";
+            }else if(state == "enable"){
+                to_disable[i].style.color = "black";
+            };
         };
-    }
-
-    function enable_button(class_name){
-        var to_disable = document.getElementsByClassName(class_name);
-        for(var i = 0; i < to_disable.length; i++){
-            to_disable[i].style.color = "black";
-        };
-    }
+    };
 
     onMount(async () => {
-		disable_button('button1');
-        enable_button('button2');
+		handle_button_style();
 	});
-
-    
 </script>
 
 <div class="imageFlickerContainer">
@@ -70,8 +61,8 @@
         </a>
     </div>
     <div class="flickerControl">
-        <button on:click={handleClickBack} class="button button1">Back</button>
-        <button on:click={handleClickForward} class="button button2">Forward</button>
+        <button on:click={() => handleClick("back")} class="button button1">Back</button>
+        <button on:click={() => handleClick("forward")} class="button button2">Forward</button>
     </div>
 
 </div>
@@ -105,6 +96,7 @@
         display: block;
         margin-left: auto;
         margin-right: auto;
+        
     }
 
     .flickerImages > a{
