@@ -11,7 +11,7 @@ A component that plays back filtered noise, while showing how a curve can be dra
 
 	let canvas; // canvas for the chart
 	let probe; // a probe to extract LFO values
-	let probeReading = new Array(300).fill(0.5); // the value the probe reads
+	let probeReading = new Array(200).fill(0.5); // the value the probe reads
 	let path; // a line to draw
 
 	const pushPoints = (path) => {
@@ -34,14 +34,13 @@ A component that plays back filtered noise, while showing how a curve can be dra
 	const start = async() => {
 		// Tone nodes
 		probe = new Tone.DCMeter() // extract the value of the lfo
-		const mult = new Tone.Multiply().toDestination() // a gain node to modify the volume
-		const lfo = new Tone.LFO(0.4, 0, 1).fan(mult.factor, probe); // an LFO to modulate the sound source
-		const src = new Tone.Noise('pink').connect(mult); // a sound source
-		
+		const src = new Tone.Oscillator(440, 'sine').toDestination(); // a sound source
+		const lfo = new Tone.LFO(6, 200, 600).fan(src.frequency, probe); // an LFO to modulate the sound source
+
 		lfo.start(); src.start();
 		// Animate changes
 		Paper.view.onFrame = () => {
-			const val = probe.getValue()
+			const val = (probe.getValue() - 200) / 400
 			probeReading.push(val); probeReading.shift();
 			probeReading.forEach((x, i) => {
 				path.segments[i].point.y = (1-x) * (canvas.height * 0.5) + canvas.height* 0.25;
@@ -55,8 +54,6 @@ A component that plays back filtered noise, while showing how a curve can be dra
 
 <button on:click={start}>start</button>
 <canvas id='canvas' bind:this={canvas}></canvas>
-
-<PlayTog />
 
 <style>
 	#canvas {

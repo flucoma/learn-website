@@ -36,9 +36,10 @@ A component that plays back filtered noise, while showing how a curve can be dra
 		probe = new Tone.DCMeter() // extract the value of the lfo
 		const mult = new Tone.Multiply().toDestination() // a gain node to modify the volume
 		const lfo = new Tone.LFO(0.4, 0, 1).fan(mult.factor, probe); // an LFO to modulate the sound source
-		const src = new Tone.Noise('pink').connect(mult); // a sound source
+		const src = new Tone.Oscillator(220, 'sawtooth').connect(mult); // a sound source
+		const lfo1 = new Tone.LFO(10, 200, 600).connect(src.frequency);
 		
-		lfo.start(); src.start();
+		lfo.start(); src.start(); lfo1.start();
 		// Animate changes
 		Paper.view.onFrame = () => {
 			const val = probe.getValue()
