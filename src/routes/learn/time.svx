@@ -15,6 +15,8 @@ featuredimage: /learn/for-featured-images/2D-corpus-explorer.png
 
 <script>
     import NoiseShape from '$lib/widget/time/NoiseShape.svelte';
+    import PitchShape from '$lib/widget/time/PitchShape.svelte';
+    import NoisePitchShape from '$lib/widget/time/NoisePitchShape.svelte';
 </script>
 
 ## Introduction
@@ -27,10 +29,17 @@ After reading the articles and resources, we hope that you feel empowered...
 
 The fact that sound evolves over time is an inescapable facet of how we listen to and interpret it. Think about all the different ways that a sound may or may not vary and how this contributes so strongly to it's nature, ability to elicit different responses as a listener. One neat entry point is to start to describe sound with _curves_ and _shapes_.
 
+Click the play button and listen to the sound. The line moving up and down over time could describe the changes in amplitude or envelope.
+
 <NoiseShape />
 
-<!-- Shape Stuff -->
+We could also describe other aspects like the pitch.
 
+<PitchShape />
+
+<!-- Or some other shit -->
+
+<NoisePitchShape />
 See, this is pretty easy! However, it's far more simplistic than what we really do as humans when we analyse a sound through listening. As humans, we probably combine, layer and meld together multiple shapes simultaneously over different time scales. This is really the precipice of the issue of encoding the evolving nature of sound into data. How much is time is "enough" to be meaningful? Is all time equal? How do bits of time relate to other bits of time?
 
 We've seen this kind of thinking manifest in a somewhat straightforward way for people who have begun to learn the FluCoMa toolkit, especially using the [Classifying Sounds Using a Neural Network](/learn/classification-neural-network) tutorial as a starting point. If you haven't already I suggest you go and at least watch the video, but to quickly summarise the plot for your understanding, this is what the tutorial asks you to do:
