@@ -81,7 +81,12 @@
 <style lang="postcss">
     .imageFlickerContainer{
         background-color: #f2f2f2;
-        border: solid black 0.1rem;;
+        border: solid black 0.1rem;
+        width: 95%;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 1em;
     }
 
     .button{
