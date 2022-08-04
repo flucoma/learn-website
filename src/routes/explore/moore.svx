@@ -22,7 +22,7 @@ author: Jacob
     import YouTubeChapters from '$lib/components/YouTubeChapters.svelte';
     import BandCamp from '$lib/components/BandCamp.svelte';
     import Audio from '$lib/components/Audio.svelte';
-    import PDFView from '$lib/components/PDFView.svelte';
+    import ImageFlicker from '$lib/components/ImageFlicker.svelte';
     import Vimeo from '$lib/components/Vimeo.svelte';
 </script>
 
@@ -87,9 +87,21 @@ label="An excerpt of the tape part made for the piece."
 
 In this first step of simultaneous corpus curation and creation, he purposefully created different and varied material: “*one is a gestural fast section which opens the piece, and another is very static and sustained*”. He wanted to have diversity for the subsequent musical translations to come. This kind of approach to corpus collection and curation is also explored by [James Bradbury](https://jamesbradbury.net/) in his [work](/explore/), although to other ends. Once he has made the tape part, he transcribes it by ear into score form (see below). It is again interesting to note that this is not a process that he looks to automate (we could, for example, imagine using a process similar to [AudioGuide’s](http://www.benhackbarth.com/audioGuide/) [*bach.roll*](https://www.bachproject.net/) exportation to aid with this). He carefully edits the tape so that the rhythmic subdivisions may make sense to human musicians. Have a listen to the tape part above, and follow the instrumental score below at the same time.
 
-<PDFView 
-src="/explore/moore/score.pdf"
-label="The score written for the piece."
+<ImageFlicker 
+images={[
+    "/explore/moore/score/page1.png",
+    "/explore/moore/score/page2.png",
+    "/explore/moore/score/page3.png",
+    "/explore/moore/score/page4.png",
+    "/explore/moore/score/page5.png",
+    "/explore/moore/score/page6.png",
+    "/explore/moore/score/page7.png",
+    "/explore/moore/score/page8.png",
+    "/explore/moore/score/page9.png",
+    "/explore/moore/score/page10.png",
+    "/explore/moore/score/page11.png",
+    "/explore/moore/score/page12.png",
+    "/explore/moore/score/page13.png"]}
 />
 
 He additionally gave each of the musicians a set of instructions to record a number of ad hoc sounds with their instruments. These were used notably for some of the other sections of the piece. However, in the first section, we get a good look at this idea of literal translations from the electronic tape part to the acoustic instruments. The result is an intriguing passage where the origin of sounds becomes ambiguous. He explained that “*one of the really interesting things to me is that there are these moments* [where] *our brains associate the gesture with the timbre, and there’s a bit of confusion about the source that it’s actually coming from. Even as we’re listening, there’s a crossfade that happens, either literally or in our minds: we’re hearing violin sounds and then seconds later we’re hearing electronic sounds and somehow those are similar enough that the handoff gets confused and ambiguous*”.
