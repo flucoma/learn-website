@@ -4,6 +4,8 @@
     var src = images[0]
     var alt = ''
     var currentIdx = 0
+    var currentPage = String(currentIdx + 1);
+    var totalPages = String(images.length);
 
     function handleClick(direction) {
         if (direction == 'back'){
@@ -19,6 +21,7 @@
         };
 		
         handle_button_style()
+        currentPage = String(currentIdx + 1)
 
         src = images[currentIdx]
 	};
@@ -78,12 +81,27 @@
             </svg>
         </button>
 
+        
+
     </div>
+    
+    <p class="page_display">Page {currentPage}/{totalPages}</p>
+
 </div>
 
 
 
 <style lang="postcss">
+
+    .page_display{
+        float: left;
+        font-size: 0.7em;
+
+        position: absolute;
+        bottom:0;
+        right:0;
+        padding-right: 1em;
+    }
 
     svg {
 		fill: var(--med-blue);
@@ -99,6 +117,8 @@
         margin-left: auto;
         margin-right: auto;
         margin-bottom: 1em;
+
+        position: relative;
     }
 
     .button{
