@@ -116,9 +116,11 @@ In addition to these ideas of confusion and ambiguity, Moore explained that tran
 
 In Sections Two and Three, we see two more instances of ways of translating sounds, the first again in the direction of electronic to acoustic instruments, and in the second the opposite. In Section Two, Moore explains that he uses [K-nearest neighbour](/reference/kdtree) lookup to perform concatenative synthesis: “*eurorack synthesizer interjections are used as the target for concatenative synthesis (by means of K-nearest neighbour lookup), combining clips of acoustic instruments to try and recreate the synthesizer’s timbre and gesture*”. We see that this comes broadly in the form of two different types of material: quieter passages where different segments of the acoustic instruments are sometimes playing simultaneously, and loud interjections where the acoustic clips quickly succeed each other.
 
-!!!
-INSERT IMAGE OF 01 Concatenative Synthesis example
-!!!
+<Image
+src="/explore/moore/concat_synth_example.png"
+label="Excerpt of 01 Concatenative Synthesis example script."
+/>
+
 
 In the example script *01 Concatenative Synthesis*, we see an overview of how this approach works. There are three main parts:
 
@@ -174,9 +176,10 @@ The section comes from an interesting set of experiments that Moore performed wh
 
 This is, of course, too much data for a human being to do much with. Following what are now typical FluCoMa workflows, Moore looked to perform dimensionality reduction to gain a better grasp on the data. He crunched these 700 datapoints down to just 11 using [PCA](/reference/pca) – and was still able to retain 99% of the variance of the data. Moore admitted that this meant that “*there was probably a lot of noise in the dataset. This was one of my first real workflows with FluCoMa, so I just kind of threw all of the analyses at the wall, thinking I’ll use all of it and see what happens. The good thing about PCA is that it sort of fixes the mistake, or should I say, misguided naivety.*” 
 
-!!!
-INSERT IMAGE OF UMAP 1D Example script
-!!!
+<Image
+src="/explore/moore/umap_example.png"
+label="Excerpt of 03 UMAP 1D example script."
+/>
 
 Next, Moore wished to forge a path through this space. To do this, he tried two methods that yielded different results. First, he used the [FluidUMAP](/reference/umap) object which is typically used for dimensionality reduction down to 2 or 3 dimensions for visualisation – here however he crunched his dataset down to 1 dimension, essentially looking to place things that were similar to each other, next to each other: this can be experimented with in the example script *03 UMAP 1D* (see above). Below we see and hear the results of this experiment. On the left we see the video playback of the current slices being played, and on the right we can see a sound plot, similar to those created by [Alex Harker](https://www.alexanderjharker.co.uk/) for his [CAC](/explore/harker), [Gerard Roma](https://g-roma.github.io/) for his [live coding performance](/explore/roma) or [Jacob Hart](https://jacob-hart.com/) for his [musicological analysis](/explore/hart) which has been derived from dimensionality reduction.
 
