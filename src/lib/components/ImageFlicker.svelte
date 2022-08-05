@@ -105,6 +105,32 @@
         padding: 1em;
         margin: 0.5em;
         height: 50px;
+        background-color: transparent;
+        border: 0em;
+    }
+
+    .button:hover{
+        cursor: pointer;
+        background-color: #c0c2c0;
+    }
+
+    button:disabled,
+    button[disabled]{
+        background-color: transparent;
+        cursor: not-allowed;
+        color: #c0c2c0;
+    }
+
+    button:disabled,
+    button[disabled]:hover{
+        background-color: transparent;
+        cursor: not-allowed;
+        color: #c0c2c0;
+    }
+
+    button:disabled,
+    button[disabled] > svg{
+        fill: #c0c2c0;
     }
 
     .button2{
@@ -126,6 +152,7 @@
         display: block;
         margin-left: auto;
         margin-right: auto;
+        cursor: zoom-in;
     }
 
     .flickerImages > a:hover{
