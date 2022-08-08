@@ -13,5 +13,18 @@ flair: tutorial
 featuredimage: /learn/for-featured-images/2D-corpus-explorer.png
 ---
 
+<script>
+    import Smoothing from '$lib/widget/time/Smoothing.svelte';
+
+</script>
+
+Data that changes over time can be noisy (wiggles a lot) 
+
+_Smoothing_ data is one strategy we have at our disposal to deal with this. To do smoothing on our data, one of the most straightforward ways we can go about it is to group together a portion of contiguous data and then average that data.
+
+<Smoothing />
+
+
+
 
 

@@ -39,7 +39,7 @@ We could also describe other aspects like pitch.
 
 The combination of many different curves that trace perceptual elements of a sound over time might culminate in a more holistic understanding of a sound. This is still quite simple, but imagine the amplitude and pitch moving together as a kind of _multivariate_ audio descriptor.
 
-<NoisePitchShape />
+<!-- <NoisePitchShape /> -->
 
 Satisfying moving lines aside, this model of sound is still more simplistic than when we listen to a sound. As humans, we probably combine, layer and meld together multiple shapes simultaneously over different time scales, looking at small changes in the moment at the same time as considering the grander scheme of things. Considering this begins to unpick at the issue of encoding the evolving nature of sound into data. How much is time is "enough" to be meaningful? Is all time equal? How do bits of time relate to other bits of time?
 
