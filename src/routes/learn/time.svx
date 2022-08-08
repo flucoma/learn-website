@@ -27,32 +27,21 @@ After reading the articles and resources, we hope that you feel empowered...
 
 ## Time, Evolution and Data
 
-The fact that sound evolves over time is an inescapable facet of how we listen to and interpret it. Think about all the different ways that a sound may or may not vary and how this contributes so strongly to it's nature, ability to elicit different responses as a listener. One neat entry point is to start to describe sound with _curves_ and _shapes_.
+The fact that sound evolves over time is an inescapable facet of how we listen to and interpret it. Think about all the different ways that a sound may or may not vary and how this contributes so strongly to it's nature, ability to elicit different responses as a listener. One neat entry point is to start to describe sound with _curves_ and _shapes_. If you wanted to dive into a more theoretical approach to this way of thinking, then you might want to read about [Temporal Semiotic Units](https://www.labo-mim.org/site/index.php?2013/03/29/225-temporal-semiotic-units-tsus-a-very-short-introduction#:~:text=TSUs%20have%20been%20defined%20as,their%20dynamic%20pattern%20over%20time.).
 
-Click the play button and listen to the sound. The line moving up and down over time could describe the changes in amplitude or envelope.
+Click the play button and listen to the sound. The line moving up and down over time maps onto the changes in amplitude or envelope.
 
 <NoiseShape />
 
-We could also describe other aspects like the pitch.
+We could also describe other aspects like pitch.
 
 <PitchShape />
 
-<!-- Or some other shit -->
+The combination of many different curves that trace perceptual elements of a sound over time might culminate in a more holistic understanding of a sound. This is still quite simple, but imagine the amplitude and pitch moving together as a kind of _multivariate_ audio descriptor.
 
 <NoisePitchShape />
-See, this is pretty easy! However, it's far more simplistic than what we really do as humans when we analyse a sound through listening. As humans, we probably combine, layer and meld together multiple shapes simultaneously over different time scales. This is really the precipice of the issue of encoding the evolving nature of sound into data. How much is time is "enough" to be meaningful? Is all time equal? How do bits of time relate to other bits of time?
 
-We've seen this kind of thinking manifest in a somewhat straightforward way for people who have begun to learn the FluCoMa toolkit, especially using the [Classifying Sounds Using a Neural Network](/learn/classification-neural-network) tutorial as a starting point. If you haven't already I suggest you go and at least watch the video, but to quickly summarise the plot for your understanding, this is what the tutorial asks you to do:
-
-1. Play a sound.
-2. Send that sound to an *audio descriptor* which will generate some numbers that change over time as the sound changes.
-3. Press a button to "capture" the audio descriptor at a point in time and store it.
-
-The goal of this is to teach a neural network to identify the "class" of a sound by providing it with labelled examples of audio descriptor data that was generated at a specific point in time while it was playing back. We can see Ted doing this in the video here:
-
-https://youtu.be/cjk9oHw7PQg?t=888
-
-When people are doing this the results can be quite satisfying. However, lots of people have asked: "how can I represent more than just a single frame of analysis?". Indeed, this is one of the problematic aspects of the approach taught in this tutorial – everytime that button is pressed we are capturing an incredibly brief period of time (around 10 milliseconds) and telling the computer that this piece of data is very important in identifying that class of sound. Of course, it's entirely possible that two sounds which are perceived as dissimilar to us, have some very similar brief moments in time.
+Satisfying moving lines aside, this model of sound is still more simplistic than when we listen to a sound. As humans, we probably combine, layer and meld together multiple shapes simultaneously over different time scales, looking at small changes in the moment at the same time as considering the grander scheme of things. Considering this begins to unpick at the issue of encoding the evolving nature of sound into data. How much is time is "enough" to be meaningful? Is all time equal? How do bits of time relate to other bits of time?
 
 This is really just the start of thinking about _time_ and the tutorial encapsulates a singular strategy for measuring the perceptual characteristics of a sound with audio descriptors and giving it to the computer to understand. In response to this, we've developed a series of [Learn Articles](/learn) that we think might provoke you to consider how you represent time through data, and how the evolution of sound can be captured and encoded into workflows with the FluCoMa toolkit.
 
