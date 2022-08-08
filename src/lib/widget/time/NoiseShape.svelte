@@ -10,10 +10,9 @@ A component that plays back filtered noise, while showing how a curve can be dra
 
 	let container;
 	let probe; // a probe to extract LFO values
-	let probeReading = new Array(10).fill(0.5); // the value the probe reads
+	let probeReading = new Array(30).fill(0.5); // the value the probe reads
 	let two;
-	let svg;
-	let curve
+	let curve;
 
 	onMount(async() => {
 		two = new Two({
@@ -23,14 +22,11 @@ A component that plays back filtered noise, while showing how a curve can be dra
 		}).appendTo(container)
 		two.fit()
 		
-		let points = [];
-		probeReading.forEach((v, i) => {
+		let points = probeReading.map((v, i) => {
 			const x = (i / (probeReading.length-1)) * two.width; // add equidistant points
 			const y = two.height * v;
-			points.push(new Two.Anchor(x, y));
+			return new Two.Anchor(x, y)
 		})
-		console.log(two.width)
-		
 		curve = two.makePath(points, false, true);
 		curve.linewidth = 5;
 		curve.noFill();
@@ -53,12 +49,10 @@ A component that plays back filtered noise, while showing how a curve can be dra
 			const val = probe.getValue();
 			probeReading.push(val); probeReading.shift();
 			probeReading.forEach((x, i) => {
-				curve.vertices[i].y = 1-x * two.height + (two.height * 0.5);
+				curve.vertices[i].y = (1-x) * two.height - (two.height * 0.5);
 			})
 		})
-
 	}
-
 </script>
 
 <button on:click={start}>start</button>
