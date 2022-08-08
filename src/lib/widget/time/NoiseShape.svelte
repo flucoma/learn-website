@@ -21,13 +21,14 @@ A component that plays back filtered noise, while showing how a curve can be dra
 		path.strokeWidth = 5;
 		probeReading.forEach((v, i) => {
 			const x = (canvas.width / probeReading.length) * i; // add equidistant points
-			const y = canvas.height * v;
+			const y = Paper.view.bounds.height * v;
 			const pt = new Paper.Point(x, y);
 			path.add(pt)
 		});
 	})
 
 	const start = async() => {
+		await Tone.start();
 		// Tone nodes
 		probe = new Tone.DCMeter() // extract the value of the lfo
 		const mult = new Tone.Multiply().toDestination() // a gain node to modify the volume
@@ -37,28 +38,25 @@ A component that plays back filtered noise, while showing how a curve can be dra
 		lfo.start(); src.start();
 		// Animate changes
 		Paper.view.onFrame = () => {
-			const val = probe.getValue()
+			const val = probe.getValue();
 			probeReading.push(val); probeReading.shift();
 			probeReading.forEach((x, i) => {
-				path.segments[i].point.y = (1-x) * (canvas.height * 0.5) + canvas.height* 0.25;
+				path.segments[i].point.y = (1-x) * Paper.view.bounds.height;
 			})
-		path.smooth();
+			path.smooth();
 		}
- 		await Tone.start();
 	}
 
 </script>
 
 <button on:click={start}>start</button>
-<canvas id='canvas' bind:this={canvas}></canvas>
-
-<PlayTog />
+<canvas id='canvas' bind:this={canvas} resize />
 
 <style>
-	#canvas {
+	#canvas[resize] {
 		background-color: white;
 		border: 1px solid var(--med-blue);
 		width: 100%;
-		height: 200px;
+		height: 100px;
 	}
 </style>
