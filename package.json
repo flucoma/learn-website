@@ -52,6 +52,7 @@
 		"mdsvex": "^0.10.6",
 		"meyda": "^5.5.1",
 		"numpy-parser": "^1.2.3",
+		"paper": "^0.12.15",
 		"peaks.js": "^2.0.3",
 		"pts": "^0.10.12",
 		"seedrandom": "~2.4.3",
