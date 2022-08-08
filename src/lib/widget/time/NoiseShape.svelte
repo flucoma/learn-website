@@ -6,28 +6,40 @@ A component that plays back filtered noise, while showing how a curve can be dra
 <script>
 	import { onMount } from 'svelte';
 	import * as Tone from 'tone';
-	import * as Paper from 'paper'
-	import PlayTog from '$lib/widget/time/PlayTog.svelte';
+	import Two from 'two.js';
 
-	let canvas; // canvas for the chart
+	let container;
 	let probe; // a probe to extract LFO values
-	let probeReading = new Array(300).fill(0.5); // the value the probe reads
-	let path; // a line to draw
+	let probeReading = new Array(10).fill(0.5); // the value the probe reads
+	let two;
+	let svg;
+	let curve
 
 	onMount(async() => {
-		Paper.setup(canvas);
-		path = new Paper.Path();
-		path.strokeColor = 'rgb(3, 113, 181)';
-		path.strokeWidth = 5;
+		two = new Two({
+			type: Two.Types.svg,
+			autostart: true,
+			fitted: true
+		}).appendTo(container)
+		two.fit()
+		
+		let points = [];
 		probeReading.forEach((v, i) => {
-			const x = (canvas.width / probeReading.length) * i; // add equidistant points
-			const y = Paper.view.bounds.height * v;
-			const pt = new Paper.Point(x, y);
-			path.add(pt)
-		});
+			const x = (i / (probeReading.length-1)) * two.width; // add equidistant points
+			const y = two.height * v;
+			points.push(new Two.Anchor(x, y));
+		})
+		console.log(two.width)
+		
+		curve = two.makePath(points, false, true);
+		curve.linewidth = 5;
+		curve.noFill();
+		curve.stroke = 'rgb(3, 113, 181)';
+		two.add(curve);
 	})
 
 	const start = async() => {
+		console.log(two.height)
 		await Tone.start();
 		// Tone nodes
 		probe = new Tone.DCMeter() // extract the value of the lfo
@@ -36,27 +48,26 @@ A component that plays back filtered noise, while showing how a curve can be dra
 		const src = new Tone.Noise('pink').connect(mult); // a sound source
 		
 		lfo.start(); src.start();
-		// Animate changes
-		Paper.view.onFrame = () => {
+
+		two.bind('update', () => {
 			const val = probe.getValue();
 			probeReading.push(val); probeReading.shift();
 			probeReading.forEach((x, i) => {
-				path.segments[i].point.y = (1-x) * Paper.view.bounds.height;
+				curve.vertices[i].y = 1-x * two.height + (two.height * 0.5);
 			})
-			path.smooth();
-		}
+		})
+
 	}
 
 </script>
 
 <button on:click={start}>start</button>
-<canvas id='canvas' bind:this={canvas} resize />
+<div class="container" bind:this={container}>
+</div>
 
 <style>
-	#canvas[resize] {
-		background-color: white;
-		border: 1px solid var(--med-blue);
+	.container {
+		height: 200px;
 		width: 100%;
-		height: 100px;
 	}
 </style>
