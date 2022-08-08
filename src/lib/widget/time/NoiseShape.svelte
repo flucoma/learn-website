@@ -14,21 +14,17 @@ A component that plays back filtered noise, while showing how a curve can be dra
 	let probeReading = new Array(300).fill(0.5); // the value the probe reads
 	let path; // a line to draw
 
-	const pushPoints = (path) => {
+	onMount(async() => {
+		Paper.setup(canvas);
+		path = new Paper.Path();
+		path.strokeColor = 'rgb(3, 113, 181)';
+		path.strokeWidth = 5;
 		probeReading.forEach((v, i) => {
 			const x = (canvas.width / probeReading.length) * i; // add equidistant points
 			const y = canvas.height * v;
 			const pt = new Paper.Point(x, y);
 			path.add(pt)
 		});
-	}
-
-	onMount(async() => {
-		Paper.setup(canvas);
-		path = new Paper.Path();
-		path.strokeColor = 'rgb(3, 113, 181)';
-		path.strokeWidth = 5;
-		pushPoints(path);
 	})
 
 	const start = async() => {
