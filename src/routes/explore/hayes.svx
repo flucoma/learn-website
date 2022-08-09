@@ -20,7 +20,7 @@ author: Jacob
     import YouTube from '$lib/components/YouTube.svelte';
     import ArtistCard from '$lib/components/mwf/ArtistCard.svelte';
     import BandCamp from '$lib/components/BandCamp.svelte';
-    import IndentNote from '$lib/components/IndentNote.svelte';
+    import ExploreDownload from '$lib/components/ExploreDownload.svelte';
 </script>
 
 <ArtistCard
@@ -35,11 +35,9 @@ Lauren Sarah Hayes is a Scottish improviser and sound artist. Her music is a mix
 
 ## Introduction
 
-<IndentNote type='pointer'>
-
-Download the demonstration patches for this article <a href='/explore/hayes/Lauren Sarah Hayes Examples.zip' download='Lauren Sarah Hayes Examples.zip'>here</a>.
-
-</IndentNote>
+<ExploreDownload
+url={'/explore/hayes/Lauren Sarah Hayes Examples.zip'}
+/>
 
 Today we'll be looking at some of the work that Lauren Sarah Hayes did using the FluCoMa tools. 
 We’ll be taking a broad perspective on some of the working principles of the project and examine how some of its suggested workflows are incorporated into Hayes’ already well-developed improvisational practice. 

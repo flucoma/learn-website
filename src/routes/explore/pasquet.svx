@@ -22,7 +22,7 @@ author: Jacob
     import Audio from '$lib/components/Audio.svelte';
     import BigQuote from '$lib/components/BigQuote.svelte';
     import ArtistCard from '$lib/components/mwf/ArtistCard.svelte';
-    import IndentNote from '$lib/components/IndentNote.svelte';
+    import ExploreDownload from '$lib/components/ExploreDownload.svelte';
 </script>
 
 <ArtistCard
@@ -37,11 +37,9 @@ Olivier Pasquet is a sound, visual artist and music producer. His generative pie
 
 ## Introduction
 
-<IndentNote type='pointer'>
-
-Download the demonstration patches for this article <a href='/explore/pasquet/Olivier Pasquet Examples.zip' download='Olivier Pasquet Examples.zip'>here</a>.
-
-</IndentNote>
+<ExploreDownload
+url={'/explore/pasquet/Olivier Pasquet Examples.zip'}
+/>
 
 Today we’ll be looking at some of the work that Olivier Pasquet did using the FluCoMa tools.
 His piece, *Herbig-Haro*, was performed at the [first FluCoMa gig](/explore/reactive-flows) at [HCMF](https://hcmf.co.uk/) 2019.

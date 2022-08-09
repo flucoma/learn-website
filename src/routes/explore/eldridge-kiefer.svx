@@ -20,9 +20,9 @@ author: Jacob
     import Video from '$lib/components/Video.svelte';
     import YouTube from '$lib/components/YouTube.svelte';
     import ArtistCard from '$lib/components/mwf/ArtistCard.svelte';
-    import IndentNote from '$lib/components/IndentNote.svelte';
     import BigQuote from '$lib/components/BigQuote.svelte';
     import CodeBlock from '$lib/components/CodeBlock.svelte';
+    import ExploreDownload from '$lib/components/ExploreDownload.svelte';
 </script>
 
 <style>
@@ -56,11 +56,9 @@ author: Jacob
 
 ## Introduction
 
-<IndentNote type='pointer'>
-
-Download the demonstration patches for this article <a href='/explore/eldridge/Alice Eldridge and Chris Kiefer Examples.zip' download='Alice Eldridge and Chris Kiefer Examples.zip'>here</a>.
-
-</IndentNote>
+<ExploreDownload
+url={'/explore/eldridge/Alice Eldridge and Chris Kiefer Examples.zip'}
+/>
 
 Today we’ll be looking at some of the work that Alice Eldridge and Chris Kiefer did using the FluCoMa tools. These two collaborators came to the project seeking to augment their already well-established feedback instrument, the [Feedback Cello](https://www.feedbackcell.info/). We shall see how they used machine learning and descriptors to create a shared, adaptive instrument which takes improvisation to the next level , and how they approached this system in performance. As with all the "[Explore](/explore)" articles, there is a series of demonstration patches that can be <a href='/explore/eldridge/Alice Eldridge and Chris Kiefer Examples.zip' download='Alice Eldridge and Chris Kiefer Examples.zip'>downloaded</a> and interacted with if you wish to explore the inner workings of the software.
 

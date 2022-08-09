@@ -16,7 +16,7 @@ author: Jacob
     import Image from '$lib/components/Image.svelte';
     import YouTube from '$lib/components/YouTube.svelte';
     import ArtistCard from '$lib/components/mwf/ArtistCard.svelte';
-    import IndentNote from '$lib/components/IndentNote.svelte';
+    import ExploreDownload from '$lib/components/ExploreDownload.svelte';
     import Audio from '$lib/components/Audio.svelte';
     import CodeBlock from '$lib/components/CodeBlock.svelte';
 </script>
@@ -33,11 +33,9 @@ Jacob was the PhD researcher on the FluCoMa project. His mission was to track th
 
 ## Introduction
 
-<IndentNote type='pointer'>
-
-Download the demonstration patches for this article <a href='/explore/hart/Jacob Hart Examples.zip' download='Jacob Hart Examples.zip'>here</a>.
-
-</IndentNote>
+<ExploreDownload
+url={'/explore/hart/Jacob Hart Examples.zip'}
+/>
 
 This article will differ slightly from others in the "[Explore](/explore)" collection as it does not focus on the work of an artist that was made using the FluCoMa tools; instead, we shall be discussing some of the work by the author of these articles. I shall be presenting a short autoethnographic account of some of the musicological analysis I performed using the FluCoMa tools during my [PhD research](https://eprints.hud.ac.uk/id/eprint/35726/). I joined the FluCoMa project in 2018 as a PhD researcher (under the supervision of [Frédéric Dufeu](https://pure.hud.ac.uk/en/persons/fr%C3%A9d%C3%A9ric-dufeu) and [Owen Green](http://owengreen.net/)), and my task was to track the creative process of the techno-fluent composers who were each commissioned to make a piece using the tools. My approach led me to use computational techniques for my analysis, and to use some of the FluCoMa tools and related technologies extensively. As with all the "[Explore](/explore)" articles, there is a series of demonstration patches that can be <a href='/explore/hart/Jacob Hart Examples.zip' download='Jacob Hart Examples.zip'>downloaded</a> and interacted with if you wish to explore the inner workings of the software.
 

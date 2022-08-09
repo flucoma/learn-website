@@ -19,7 +19,7 @@ author: Jacob
     import Image from '$lib/components/Image.svelte';
     import YouTube from '$lib/components/YouTube.svelte';
     import ArtistCard from '$lib/components/mwf/ArtistCard.svelte';
-    import IndentNote from '$lib/components/IndentNote.svelte';
+	import ExploreDownload from '$lib/components/ExploreDownload.svelte';
     import Vimeo from '$lib/components/Vimeo.svelte';
     import CodeBlock from '$lib/components/CodeBlock.svelte';
 </script>
@@ -36,11 +36,9 @@ Sam Pluta is a Chicago-based composer, laptop improviser, electronics performer,
 
 ## Introduction
 
-<IndentNote type='pointer'>
-
-Download the demonstration patches for this article <a href='/explore/pluta/Sam Pluta Examples.zip' download='Sam Pluta Examples.zip'>here</a>.
-
-</IndentNote>
+<ExploreDownload
+url={'/explore/pluta/Sam Pluta Examples.zip'}
+/>
 
 In this article we will be looking at some of the work that Sam Pluta did for the project, and notably how he used MLP regression to augment his already well-developed SuperCollider modular system. We shall start by taking a look at his piece, a duo with trumpetist [Peter Evans](https://www.peterevanstrumpet.com/) (in two parts: _Neural Duo I_ and _II_) and an overview of Pluta’s instrument. Then we shall explore some of Pluta’s thoughts on MLP regression and his approach to training; before finally discussing some wider ideas around instrument design. As with all the "[Explore](/explore)" articles, there is a series of demonstration patches that can be <a href='/explore/pluta/Sam Pluta Examples.zip' download='Sam Pluta Examples.zip'>downloaded</a> and interacted with if you wish to explore the inner workings of the software.
 
