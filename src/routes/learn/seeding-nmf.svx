@@ -1,5 +1,5 @@
 ---
-title: Seeding Bases and Activations with BufNMF
+title: Seeding BufNMF with Bases and Activations
 author: Ted
 blurb: |
     Initialize non-negative matrix factorization with seeded elements.
