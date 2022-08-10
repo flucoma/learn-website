@@ -1,5 +1,5 @@
 ---
-title: Classifying sounds using a Neural Network
+title: Classifying Sounds Using a Neural Network
 author: Ted
 blurb: |
     This video tutorial guides you through building a flexible sound classifier.
@@ -13,8 +13,14 @@ featuredimage: /learn/for-featured-images/nn-classification.png
 ---
 
 <script>
-    import YouTube from '$lib/components/YouTube.svelte';
-    import { Tabs, TabList, TabPanel, Tab } from '$lib/components/tabs/tabs';
+    import Tabs from "$lib/components/Tabs.svelte";
+    import Max from "$lib/tabs/classification-nn/Max.svelte";
+    import SC from "$lib/tabs/classification-nn/SuperCollider.svelte";
+
+    const videos = [
+        { label: 'Max', component: Max},
+        { label: 'SuperCollider', component: SC}
+    ]
 </script>
 
 ## A Brief Synopsis
@@ -25,23 +31,7 @@ This tutorial guides you through building a sound classifier. It leverages a typ
 2. Create an internal logic for an improvisational machine based on a sort of musical decision making
 3. Speed up the process of classifying a large corpus of sound resources.
 
-<Tabs>
-    <TabList>
-        <Tab>Max</Tab>
-        <Tab>SuperCollider</Tab>
-    </TabList>
-    <TabPanel>
-    <YouTube 
-    url='XfNZzQPdPG0'
-    />
-    </TabPanel>
-    <TabPanel>
-    <YouTube 
-    url='Y1cHmtbQPSk'
-    />
-    </TabPanel>
-</Tabs>
-
+<Tabs items={videos} />
 
 
 
