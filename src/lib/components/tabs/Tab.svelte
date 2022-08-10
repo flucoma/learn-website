@@ -1,10 +1,10 @@
 <script>
 	import { getContext } from 'svelte';
 	import { TABS } from './Tabs.svelte';
-
+	
 	const tab = {};
 	const { registerTab, selectTab, selectedTab } = getContext(TABS);
-
+	
 	registerTab(tab);
 </script>
 
@@ -12,20 +12,25 @@
 	<slot />
 </button>
 
-<style lang="postcss">
+<style>
 	button {
 		background: none;
-		border: none;
-		border-bottom: 2px solid white;
-		border-radius: 0;
-		margin: 0;
-		color: #ccc;
-		font-family: var(--font);
-		font-size: 1em;
+		border: 1px solid transparent;
+		border-top-left-radius: 0.25rem;
+		border-top-right-radius: 0.25rem;
+		padding: 0.5rem 1rem;
+		cursor: pointer;
+		color: #495057;
 	}
-
+	
 	.selected {
-		border-bottom: 2px solid var(--dark-blue);
-		color: #333;
+		background-color: #fff;
+		border-color: #dee2e6 #dee2e6 #fff;
+		border-bottom: 1px solid var(--med-blue);
+		color: black;
+	}
+	
+	:not(.selected):hover {
+		border-color: #e9ecef #e9ecef #dee2e6;
 	}
 </style>

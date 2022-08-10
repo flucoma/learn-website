@@ -97,10 +97,9 @@ Example code to check the distribution of dimensions in a [DataSet](/reference/d
         <Tab>Max</Tab>
     </TabList>
     <TabPanel>
-    
 <CodeBlock>
 
-```
+```js
 ~distributions = {
 	arg dataset, numBins = 100;
 	dataset.dump({
