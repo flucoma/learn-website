@@ -1,7 +1,7 @@
 <script>
 	import * as Tone from 'tone';
 	import { onMount, onDestroy } from 'svelte';
-	import { logslider } from '$lib/utils';
+	import { logslider } from '$lib/util';
 
 	export let audioContext;
 	export let output;
