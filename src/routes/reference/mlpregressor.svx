@@ -21,7 +21,7 @@ The MLPRegressor is a neural network that can be used to perform regression. In 
 
 <IndentNote type="pointer">
 
-For more information on using this object, visit [MLP Training](/learn/mlp-training), [MLP Parameters](/learn/mlp-parameters), and [Training-Testing Split](/learn/training-testing-split)
+For more information on using this object, visit [MLP Training](/learn/mlp-training), [MLP Parameters](/learn/mlp-parameters), and [Training-Testing Split](/learn/training-testing-split).
 
 </IndentNote>
 

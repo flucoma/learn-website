@@ -14,6 +14,7 @@ featuredimage: /learn/for-featured-images/mlp-regressor.png
 
 <script>
     import YouTube from '$lib/components/YouTube.svelte';
+    import { Tabs, TabList, TabPanel, Tab } from '$lib/components/tabs/tabs';
 </script>
 
 ## A Brief Synopsis
@@ -25,6 +26,21 @@ This tutorial guides you through building a bespoke synthesis controller. It lev
 
 <!-- Hunter + Ted's examples -->
 
-<YouTube 
-url='cjk9oHw7PQg'
-/>
+### YouTube Tutorials
+
+<Tabs>
+    <TabList>
+        <Tab>SuperCollider</Tab>
+        <Tab>Max</Tab>
+    </TabList>
+    <TabPanel>
+        <YouTube 
+        url='mxmMBvi3Cb0'
+        />
+    </TabPanel>
+    <TabPanel>
+        <YouTube 
+        url='cjk9oHw7PQg'
+        />
+    </TabPanel>
+</Tabs>

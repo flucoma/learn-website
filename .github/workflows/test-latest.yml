@@ -1,0 +1,27 @@
+name: test-latest
+
+on:
+    push:
+        branches: [main]
+    workflow_dispatch:
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+
+        steps:
+            - uses: actions/checkout@v3
+
+            - name: pnpm
+              run: npm i -g pnpm
+
+            - name: install ncu
+              run : pnpm add -g npm-check-updates
+
+            - name: update dependencies to latest and greatest
+              run: ncu -u
+
+            - name: Build Site
+              run: |
+                  pnpm i
+                  pnpm run build

@@ -3,12 +3,12 @@
 	import { Chart, registerables } from 'chart.js';
 	import * as d3 from 'd3';
 	import Button from '$lib/components/Button.svelte';
-	import gaussian4 from '../../../static/data/gaussian4.json';
-	import oversample1 from '../../../static/reference/grid/help.grid.oversample.1.json';
-	import oversample2 from '../../../static/reference/grid/help.grid.oversample.2.json';
-	import oversample3 from '../../../static/reference/grid/help.grid.oversample.3.json';
-	import oversample4 from '../../../static/reference/grid/help.grid.oversample.4.json';
-	import oversample5 from '../../../static/reference/grid/help.grid.oversample.5.json';
+	import gaussian4 from '$lib/data/datasets/gaussian4.json';
+	import oversample1 from '$lib/data/reference/grid/help.grid.oversample.1.json';
+	import oversample2 from '$lib/data/reference/grid/help.grid.oversample.2.json';
+	import oversample3 from '$lib/data/reference/grid/help.grid.oversample.3.json';
+	import oversample4 from '$lib/data/reference/grid/help.grid.oversample.4.json';
+	import oversample5 from '$lib/data/reference/grid/help.grid.oversample.5.json';
 
 	let canvas, ctx, chart;
 
