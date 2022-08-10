@@ -17,11 +17,11 @@ author: Jacob
 <script>
     import Image from '$lib/components/Image.svelte';
     import ArtistCard from '$lib/components/mwf/ArtistCard.svelte';
-    import IndentNote from '$lib/components/IndentNote.svelte';
     import BandCamp from '$lib/components/BandCamp.svelte';
     import CodeBlock from '$lib/components/CodeBlock.svelte';
     import Audio from '$lib/components/Audio.svelte';
-    import Bricolage from '$lib/components/DThree/Bricolage.svelte';
+    import ForceDirected from '$lib/widget/bricolage/ForceDirected.svelte';
+    import ExploreDownload from '$lib/components/ExploreDownload.svelte';
 </script>
 
 <ArtistCard
@@ -36,11 +36,10 @@ James is a creative-coder and artist from Perth, Western Australia currently liv
 
 ## Introduction
 
-<IndentNote type='pointer'>
-
-Download the demonstration patches for this article <a href='/explore/bradbury/James Bradbury Examples.zip' download='James Bradbury Examples.zip'>here</a>. You will need to install Bradbury's FTIS library for these to work using `pip install ftis`, for more information on installation, visit the [repo](https://github.com/jamesb93/ftis).
-
-</IndentNote>
+<ExploreDownload 
+url={'/explore/bradbury/James Bradbury Examples/zip'}
+note="You will need to install Bradbury's FTIS library for these to work using <code>pip install ftis</code>, for more information on installation, visit the <a href='https://github.com/jamesb93/ftis'>repo</a>."
+/>
 
 In this article we’re going to taking a look at some of the creative work that James Bradbury has done using the FluCoMa tools. You may be familiar with Bradbury’s name, as he has been close to the project for a while: he has been an active participant on the [FluCoMa discourse](https://discourse.flucoma.org/) for a very long time and joined the project in 2021 as a research fellow. He has been behind many of the tutorials and project documentation, and naturally he knows the toolkit and its workflows like the back of his hand! You may also know him for some of the valuable contributions he has made for broadening the breadth of the tools by bringing them to the DAW [Reaper](https://www.reaper.fm/) and to Python (we’ll look at this in detail below). The piece we shall be examining today is an album he released in 2022 on [時の崖_tokinogake](https://tokinogake.bandcamp.com/): *Interferences*.
 
@@ -202,7 +201,7 @@ The content generated from searches within the descriptor-space serve as the bas
 
 The first piece of the album, *G09*, stemmed from a “*strong aesthetic response to a particular recording – the e-reader*”. Bradbury stated that there was a particularly strong clarity between *active* and *static* states in these recordings, and that they proposed two strong and distinctive musical behaviours: “*static content had strong pitched elements that were unwavering in dynamic* [and] *active content was more gestural and exhibited varied morphology*”. In this piece he wished to “*separate these two behaviours and deconstruct their relationship*”.
 
-<Bricolage 
+<ForceDirected 
 blurb="An interactive diagram that Bradbury used in his PhD to visualise his compositional workflow."
 />
 

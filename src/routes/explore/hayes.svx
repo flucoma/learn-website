@@ -20,7 +20,7 @@ author: Jacob
     import YouTube from '$lib/components/YouTube.svelte';
     import ArtistCard from '$lib/components/mwf/ArtistCard.svelte';
     import BandCamp from '$lib/components/BandCamp.svelte';
-    import IndentNote from '$lib/components/IndentNote.svelte';
+    import ExploreDownload from '$lib/components/ExploreDownload.svelte';
 </script>
 
 <ArtistCard
@@ -35,17 +35,15 @@ Lauren Sarah Hayes is a Scottish improviser and sound artist. Her music is a mix
 
 ## Introduction
 
-<IndentNote type='pointer'>
-
-Download the demonstration patches for this article <a href='/explore/hayes/Lauren Sarah Hayes Examples.zip' download='Lauren Sarah Hayes Examples.zip'>here</a>.
-
-</IndentNote>
+<ExploreDownload
+url={'/explore/hayes/Lauren Sarah Hayes Examples.zip'}
+/>
 
 Today we'll be looking at some of the work that Lauren Sarah Hayes did using the FluCoMa tools. 
 We’ll be taking a broad perspective on some of the working principles of the project and examine how some of its suggested workflows are incorporated into Hayes’ already well-developed improvisational practice. 
 We’ll start by considering her piece for the project and discussing some of her ideas about improvisation. 
 Then, we'll have a look at the way in which Hayes used the tools within this framework. 
-As with all the "[Explore](/explore)" articles, there is a series of demonstration patches that can be <a href='/explore/hayes/Lauren Sarah Hayes Examples.zip' download='Lauren Sarah Hayes Examples.zip'>downloaded</a> and interacted with if you wish to explore the inner workings of the software.
+As with all the "[Explore](/explore)" articles, there is a series of demonstration patches that can be <a href='https://f003.backblazeb2.com/file/learnassets/explore/hayes/Lauren+Sarah+Hayes+Examples.zip' download='Lauren Sarah Hayes Examples.zip'>downloaded</a> and interacted with if you wish to explore the inner workings of the software.
 
 Hayes’ piece, *Moon via Spirit*, was commissioned by the FluCoMa project and performed at the first [FluCoMa gig](/explore/reactive-flows) at [HCMF](https://hcmf.co.uk/) 2019. 
 Her piece was particularly performative in nature: Hayes stood center-stage under a direct spotlight, and her facial expressions and entranced gestures walk us through the music. 
