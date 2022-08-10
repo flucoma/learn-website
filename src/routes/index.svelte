@@ -282,7 +282,8 @@
 		margin: 0em 0em 0.5em 0em;
 	}
 
-	.row_parent, .row_featured {
+	.row_parent,
+	.row_featured {
 		padding-bottom: 1em;
 	}
 

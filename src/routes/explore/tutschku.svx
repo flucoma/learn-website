@@ -19,6 +19,7 @@ author: Jacob
     import YouTube from '$lib/components/YouTube.svelte';
     import ArtistCard from '$lib/components/mwf/ArtistCard.svelte';
     import IndentNote from '$lib/components/IndentNote.svelte';
+    import ExploreDownload from '$lib/components/ExploreDownload.svelte';
 </script>
 
 <ArtistCard
@@ -33,13 +34,11 @@ Hans Tutschku is a composer of instrumental and electroacoustic music. In 1982 h
 
 ## Introduction
 
-<IndentNote type='pointer'>
+<ExploreDownload
+url={'/explore/tutschku/Hans Tutschku Examples.zip'}
+/>
 
-Download the demonstration patches for this article <a href='/explore/tutschku/Hans Tutschku Examples.zip' download='Hans Tutschku Examples.zip'>here</a>.
-
-</IndentNote>
-
-Today we’ll be taking a look at the work that Hans Tutschku did for the project. His piece *Sparks* for piano and live electronics was performed by pianist [Mark Knoop](https://www.markknoop.com/) at the [second FluCoMa concert](/explore/liminal-spaces), at [Dialogues Festival 2021](https://digital.eca.ed.ac.uk/dialogues/). Tutschku notably made use of the [fluid.bufnmf~](/reference/bufnmf) and [fluid.nmfmatch~](/reference/nmfmatch) objects to build a piano-tracking patch. He then used this tracker to drive audio effect modules using symbolic notation. As with all the "[Explore](/explore)" articles, there is a series of demonstration patches that can be <a href='/explore/tutschku/Hans Tutschku Examples.zip' download='Hans Tutschku Examples.zip'>downloaded</a> and interacted with if you wish to explore the inner workings of the software.
+Today we’ll be taking a look at the work that Hans Tutschku did for the project. His piece *Sparks* for piano and live electronics was performed by pianist [Mark Knoop](https://www.markknoop.com/) at the [second FluCoMa concert](/explore/liminal-spaces), at [Dialogues Festival 2021](https://digital.eca.ed.ac.uk/dialogues/). Tutschku notably made use of the [fluid.bufnmf~](/reference/bufnmf) and [fluid.nmfmatch~](/reference/nmfmatch) objects to build a piano-tracking patch. He then used this tracker to drive audio effect modules using symbolic notation. As with all the "[Explore](/explore)" articles, there is a series of demonstration patches that can be <a href='https://f003.backblazeb2.com/file/learnassets/explore/tutschku/Hans+Tutschku+Examples.zip' download='Hans Tutschku Examples.zip'>downloaded</a> and interacted with if you wish to explore the inner workings of the software.
 
 Tutschku describes the piece as the “*next step in* [his] *30-year investigation of the relationship between piano and live electronics*”. He explains that in “*an elastic relationship, the pianist is invited to make decisions based on what the electronics are producing at that moment* [and that he is] *hoping for a two-way interaction between both*". Indeed, from the very beginning of the piece, Tutschku’s experience and mastery of this format is very clear: the balance between the acoustic instrument and the electronics seems perfect. The whole piece has a very smooth flow – we navigate through different moments of suspension, dense percussive explosions and rich harmonic fabrics in a way that seems wholly natural.
 

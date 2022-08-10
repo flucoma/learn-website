@@ -1,12 +1,12 @@
 <script>
+	import * as d3 from 'd3';
 	import { onMount } from 'svelte';
 	import { Chart, registerables } from 'chart.js';
-	import * as d3 from 'd3';
 	import Button from '$lib/components/Button.svelte';
-	import gaussian4 from '../../../static/data/gaussian4.json';
-	import extent1 from '../../../static/reference/grid/extent.2.v.json';
-	import extent2 from '../../../static/reference/grid/extent.5.h.json';
-	import extent3 from '../../../static/reference/grid/extent.10.h.json';
+	import gaussian4 from '$lib/data/datasets/gaussian4.json';
+	import extent1 from '$lib/data/reference/grid/extent.2.v.json';
+	import extent2 from '$lib/data/reference/grid/extent.5.h.json';
+	import extent3 from '$lib/data/reference/grid/extent.10.h.json';
 
 	let canvas, ctx, chart;
 

@@ -1,7 +1,7 @@
 <script>
 	import * as Meyda from 'meyda';
 	import * as Tone from 'tone';
-	import { binToHz } from '$lib/utils';
+	import { binToHz } from '$lib/util';
 
 	import Button from '$lib/components/Button.svelte';
 	import SourceGenerator from './SourceGenerator.svelte';
@@ -27,6 +27,7 @@
 	function startAudioDescriptor() {
 		if (!enabled) {
 			Tone.start();
+			generator.init();
 			generator.patch('osc'); // activate the sine tone generator
 			enabled = true;
 		}
@@ -43,7 +44,8 @@
 				'spectralSkewness',
 				'spectralKurtosis',
 				'spectralRolloff',
-				'spectralFlatness'
+				'spectralFlatness',
+				'spectralCrest'
 			],
 			callback: (...features) => {
 				const desc = features[0];
@@ -55,6 +57,7 @@
 				shape.kurtosis = desc.spectralKurtosis;
 				shape.rolloff = desc.spectralRolloff;
 				shape.flatness = desc.spectralFlatness;
+				shape.crest = desc.spectralCrest;
 				chart.update();
 			}
 		});
