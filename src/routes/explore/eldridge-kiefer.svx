@@ -60,7 +60,7 @@ author: Jacob
 url={'/explore/eldridge/Alice Eldridge and Chris Kiefer Examples.zip'}
 />
 
-Today we’ll be looking at some of the work that Alice Eldridge and Chris Kiefer did using the FluCoMa tools. These two collaborators came to the project seeking to augment their already well-established feedback instrument, the [Feedback Cello](https://www.feedbackcell.info/). We shall see how they used machine learning and descriptors to create a shared, adaptive instrument which takes improvisation to the next level , and how they approached this system in performance. As with all the "[Explore](/explore)" articles, there is a series of demonstration patches that can be <a href='/explore/eldridge/Alice Eldridge and Chris Kiefer Examples.zip' download='Alice Eldridge and Chris Kiefer Examples.zip'>downloaded</a> and interacted with if you wish to explore the inner workings of the software.
+Today we’ll be looking at some of the work that Alice Eldridge and Chris Kiefer did using the FluCoMa tools. These two collaborators came to the project seeking to augment their already well-established feedback instrument, the [Feedback Cello](https://www.feedbackcell.info/). We shall see how they used machine learning and descriptors to create a shared, adaptive instrument which takes improvisation to the next level , and how they approached this system in performance. As with all the "[Explore](/explore)" articles, there is a series of demonstration patches that can be <a href='https://f003.backblazeb2.com/file/learnassets/explore/eldridge/Alice+Eldridge+and+Chris Kiefer+Examples.zip' download='Alice Eldridge and Chris Kiefer Examples.zip'>downloaded</a> and interacted with if you wish to explore the inner workings of the software.
 
 <YouTube 
 url={'c03_84_P7PQ'}
@@ -126,7 +126,7 @@ url={'XfNZzQPdPG0'}
 Here we see the opposite happening: the neural network is taking a large set of input data points (20) and outputting a small number (3). There is also the notable fact that the input data is being derived from the description of an audio signal. The three outputs are controlling 3 MIDI modules which are controlling parameters in the modular synth setup. When explaining why they looked to implement this into their system, Eldridge explained that they saw this project as the “*next iteration*” of the Feedback Cell project. “*When we play two feedback cellos together, we sense a strong acoustic coupling. Any string instruments resonate with each other, but the feedback amplifies this effect. We had been thinking about ways to augment this process, to explore other instrumental couplings using feedback. At the same time I have been interested in keeping my signal pathway analogue, and Chris has just built a modular, so we had been thinking about the modular as a great addition to the feedback cello loop*”. This project gave a “*chance to explore a new way of doing this*”, a way of “*coupling the modular synth and the cello in a way that is more adaptive and responsive than just plugging the cello straight into the modular synth*”.
 
 <Video
-url="/explore/eldridge/mlp-explanation.mp4"
+url="https://f003.backblazeb2.com/file/learnassets/explore/eldridge/mlp-explanation.mp4"
 label="Kiefer in his own words explaining their use of MLP regression."
 />
 

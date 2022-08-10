@@ -20,7 +20,7 @@ author: Jacob
     import BandCamp from '$lib/components/BandCamp.svelte';
     import CodeBlock from '$lib/components/CodeBlock.svelte';
     import Audio from '$lib/components/Audio.svelte';
-    import Bricolage from '$lib/components/DThree/Bricolage.svelte';
+    import ForceDirected from '$lib/widget/bricolage/ForceDirected.svelte';
     import ExploreDownload from '$lib/components/ExploreDownload.svelte';
 </script>
 
@@ -201,7 +201,7 @@ The content generated from searches within the descriptor-space serve as the bas
 
 The first piece of the album, *G09*, stemmed from a “*strong aesthetic response to a particular recording – the e-reader*”. Bradbury stated that there was a particularly strong clarity between *active* and *static* states in these recordings, and that they proposed two strong and distinctive musical behaviours: “*static content had strong pitched elements that were unwavering in dynamic* [and] *active content was more gestural and exhibited varied morphology*”. In this piece he wished to “*separate these two behaviours and deconstruct their relationship*”.
 
-<Bricolage 
+<ForceDirected 
 blurb="An interactive diagram that Bradbury used in his PhD to visualise his compositional workflow."
 />
 

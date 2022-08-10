@@ -39,7 +39,9 @@ Rodrigo Constanzo makes art and thinks that it’s an important thing to do. The
 url={'/explore/constanzo/Rodrigo Constanzo Examples.zip'}
 />
 
-Today we’ll be looking at some of the work that Rodrigo Constanzo did for the FluCoMa project. We’ll notably be exploring the ways in which Constanzo performs real-time sound matching using audio descriptors. This is an element that he has explored before – we’ll examine how he approached this idea in the past, and how he used the FluCoMa tools to achieve this in his piece *Kaizo Snare*. As with all the "[Explore](/explore)" articles, there is a series of demonstration patches that can be <a href='/explore/constanzo/Rodrigo Constanzo Examples.zip' download='Rodrigo Constanzo Examples.zip'>downloaded</a> and interacted with if you wish to explore the inner workings of the software.
+https://f003.backblazeb2.com/file/learnassets/
+
+Today we’ll be looking at some of the work that Rodrigo Constanzo did for the FluCoMa project. We’ll notably be exploring the ways in which Constanzo performs real-time sound matching using audio descriptors. This is an element that he has explored before – we’ll examine how he approached this idea in the past, and how he used the FluCoMa tools to achieve this in his piece *Kaizo Snare*. As with all the "[Explore](/explore)" articles, there is a series of demonstration patches that can be <a href='https://f003.backblazeb2.com/file/learnassets/explore/constanzo/Rodrigo+Constanzo+Examples.zip' download='Rodrigo Constanzo Examples.zip'>downloaded</a> and interacted with if you wish to explore the inner workings of the software.
 
 Constanzo is a great self-documenter of his work. On his [website](https://rodrigoconstanzo.com/) he writes about his various projects, and the work around *Kaizo Snare* was recounted in an extensive post which can be read [here](https://rodrigoconstanzo.com/2020/08/kaizo-snare/). This post goes into much detail on many aspects: 
 - The importance of turntablism gestures and techniques in the piece.
