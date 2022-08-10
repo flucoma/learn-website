@@ -20,6 +20,7 @@ author: Jacob
     import YouTube from '$lib/components/YouTube.svelte';
     import ArtistCard from '$lib/components/mwf/ArtistCard.svelte';
     import IndentNote from '$lib/components/IndentNote.svelte';
+    import ExploreDownload from '$lib/components/ExploreDownload.svelte';
 </script>
 
 <ArtistCard
@@ -29,13 +30,12 @@ website="https://www.alexanderjharker.co.uk/"
 />
 
 ## Introduction
-<IndentNote type='pointer'>
 
-Download the demonstration patches for this article <a href='/explore/harker/Alex Harker Examples.zip' download='Alex Harker Examples.zip'>here</a>.
+<ExploreDownload
+url={'/explore/harker/Alex Harker Examples.zip'}
+/>
 
-</IndentNote>
-
-Today we’ll be looking at some of the work that Alex Harker did for the FluCoMa project. We’ll be looking at how he took some of the tools and, in conjunction with his own library of Max objects [*FrameLib*](https://github.com/AlexHarker/FrameLib), used them to explore the instrument that constituted the acoustic part of the setup for his piece *Drift Shadow*: the oboe. The piece was co-created with oboist [Niamh Dell](https://www.collectivelovemusic.com/niamh-dell) who also performed to oboe part during the premiere. We’ll examine how Harker built a tool for oboe-following using an MLP classifier, and how the tools allowed him to navigate a large corpus of multiphonic audio as an aid for composition. As with all the "[Explore](/explore)" articles, there is a series of demonstration patches that can be <a href='/explore/harker/Alex Harker Examples.zip' download='Alex Harker Examples.zip'>downloaded</a> and interacted with if you wish to explore the inner workings of the software.
+Today we’ll be looking at some of the work that Alex Harker did for the FluCoMa project. We’ll be looking at how he took some of the tools and, in conjunction with his own library of Max objects [*FrameLib*](https://github.com/AlexHarker/FrameLib), used them to explore the instrument that constituted the acoustic part of the setup for his piece *Drift Shadow*: the oboe. The piece was co-created with oboist [Niamh Dell](https://www.collectivelovemusic.com/niamh-dell) who also performed to oboe part during the premiere. We’ll examine how Harker built a tool for oboe-following using an MLP classifier, and how the tools allowed him to navigate a large corpus of multiphonic audio as an aid for composition.
 
 *Drift Shadow*, for oboe and live electronics, was premiered at the second [FluCoMa concert](/explore/liminal-spaces) as part of [Dialogues Festival 2021](https://digital.eca.ed.ac.uk/dialogues/liminal-spaces-flucomadialogues/) in Edinburgh. It was performed by Dell, and Harker was sat behind the desk, overseeing the electronics. The piece is characteristically emergent and flowing – gestures ease into each other. Time dilates and suspends itself as we are immersed within the ringing, delicate relationships of partials and complex microtones of the multiphonics. Things are simultaneously frozen and constantly shimmering; we are aware of a subtle interaction between the oboe and electronics which continually materialise from each other. With controlled fades and glissandi, the piece progresses through a series of intricate timbral textures that bring us into intimate proximity with the oboe.
 
@@ -96,7 +96,7 @@ Harker worked closely with Dell when developing the piece to explore the multiph
 
 <IndentNote type='pointer'>
 
-Download a small collection of oboe multiphonics recorded by Harker, performed by Dell <a href='https://f003.backblazeb2.com/file/flucoma-assets/oboe-multi-samples.zip' download='oboe-multi-samples.zip'>here</a>.
+Download a small collection of oboe multiphonics recorded by Harker, performed by Dell <a href='https://f003.backblazeb2.com/file/learnassets/explore/harker/oboe-multi-samples.zip' download='oboe-multi-samples.zip'>here</a>.
 
 </IndentNote>
 
@@ -153,7 +153,7 @@ src="/explore/harker/real_time_analysis_example.png"
 label="An overview of the example patch 04 Real-Time Analysis."
 />
 
-In example patch *04 Real-Time Analysis*, we see how this classifier is used in the actual piece. This patch pre-loads with the training data that Harker used for the piece, and you can use the <a href='https://f003.backblazeb2.com/file/flucoma-assets/niamh-dell-oboe-stem.wav' download='niamh-dell-oboe-stem.wav'>dry oboe recording</a> of Dell’s performance as the analysis source. We see that with another *FrameLib* network, Harker is again retrieving the spectral magnitude of the signal and performing the same kind of pre-processing before predicting the data every analysis frame (every 2048 samples). We see that Harker also retrieves a whole host of other descriptor data – not all of them are used in the actual piece.
+In example patch *04 Real-Time Analysis*, we see how this classifier is used in the actual piece. This patch pre-loads with the training data that Harker used for the piece, and you can use the <a href='https://f003.backblazeb2.com/file/learnassets/explore/harker/niamh-dell-oboe-stem.wav' download='niamh-dell-oboe-stem.wav'>dry oboe recording</a> of Dell’s performance as the analysis source. We see that with another *FrameLib* network, Harker is again retrieving the spectral magnitude of the signal and performing the same kind of pre-processing before predicting the data every analysis frame (every 2048 samples). We see that Harker also retrieves a whole host of other descriptor data – not all of them are used in the actual piece.
 
 Harker wanted his oboe tracker to be fast – hence the tracking triggering with every analysis frame (roughly every 40ms). This was actually something that began to cause Harker problems: indeed, the [*fluid.mlpclassifier~*](/reference/mlpclassifier) object is designed to always return an answer. However, Harker wished to find a way of only returning a classification if the neural network was sure about its prediction.
 

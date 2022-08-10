@@ -1,8 +1,13 @@
 <script>
 	let index = 127;
-	let spec, line;
-	$: lineSrc = '/img/mfccs/' + index + '-line.svg';
-	$: specSrc = '/img/mfccs/' + index + '-spec.png';
+
+	/** @type {HTMLImageElement} */
+	let spec;
+	/** @type {HTMLImageElement} */
+	let line;
+
+	$: lineSrc = `/reference/mfcc/${index}-line.svg`;
+	$: specSrc = `/reference/mfcc/${index}-spec.png`;
 
 	const updateView = () => {
 		spec.src = specSrc;
