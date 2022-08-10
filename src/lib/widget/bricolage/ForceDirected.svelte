@@ -1,7 +1,7 @@
 <script>
     import { onMount } from "svelte";
     import { dragNetwork } from "./dragNetwork.js"
-    import { clip } from "./clip.js"
+    import { clip } from '$lib/util';
     import * as d3 from 'd3';
 
     export let id='bricolage'
