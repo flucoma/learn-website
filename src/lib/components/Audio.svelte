@@ -5,13 +5,13 @@
 	 * @param {string} src - The path to the audio source.
 	 * @param {string} label - The caption to render underneath the element.
 	 * @param {boolean} waveform - Toggle for waveform display.
-	*/
+	 */
 	import { onMount } from 'svelte';
 	export let src = '';
 	export let label = '';
 	export let waveform = false;
 
-	let Peaks, instance, audio, ctx;	
+	let Peaks, instance, audio, ctx;
 	let overview;
 
 	onMount(async () => {

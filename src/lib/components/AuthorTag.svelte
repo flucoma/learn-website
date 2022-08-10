@@ -3,7 +3,7 @@
 	 * A convenient way to render an author attribution.
 	 * @constructor
 	 * @param {string} author - The name of the author.
-	*/
+	 */
 	export let author = '';
 
 	const authors = new Map(
