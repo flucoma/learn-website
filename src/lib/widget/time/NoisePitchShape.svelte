@@ -6,64 +6,60 @@ A component that plays back filtered noise, while showing how a curve can be dra
 <script>
 	import { onMount } from 'svelte';
 	import * as Tone from 'tone';
-	import * as Paper from 'paper'
-	import PlayTog from '$lib/widget/time/PlayTog.svelte';
+	import Two from 'two.js';
 
-	let canvas; // canvas for the chart
+	let container;
 	let probe; // a probe to extract LFO values
-	let probeReading = new Array(300).fill(0.5); // the value the probe reads
-	let path; // a line to draw
-
-	const pushPoints = (path) => {
-		probeReading.forEach((v, i) => {
-			const x = (canvas.width / probeReading.length) * i; // add equidistant points
-			const y = canvas.height * v;
-			const pt = new Paper.Point(x, y);
-			path.add(pt)
-		});
-	}
+	let probeReading = new Array(90).fill(0.5); // the value the probe reads
+	let two;
+	let curve;
 
 	onMount(async() => {
-		Paper.setup(canvas);
-		path = new Paper.Path();
-		path.strokeColor = 'rgb(3, 113, 181)';
-		path.strokeWidth = 5;
-		pushPoints(path);
+		two = new Two({
+			type: Two.Types.svg,
+			autostart: true,
+			fitted: true
+		}).appendTo(container)
+		two.fit()
+		
+		let points = probeReading.map((v, i) => {
+			const x = (i / (probeReading.length-1)) * two.width; // add equidistant points
+			const y = two.height * v;
+			return new Two.Anchor(x, y)
+		})
+		curve = two.makePath(points, false, true);
+		curve.linewidth = 5;
+		curve.noFill();
+		curve.stroke = 'rgb(3, 113, 181)';
+		two.add(curve);
 	})
 
 	const start = async() => {
+		await Tone.start();
 		// Tone nodes
 		probe = new Tone.DCMeter() // extract the value of the lfo
-		const mult = new Tone.Multiply().toDestination() // a gain node to modify the volume
-		const lfo = new Tone.LFO(0.4, 0, 1).fan(mult.factor, probe); // an LFO to modulate the sound source
-		const src = new Tone.Oscillator(220, 'sawtooth').connect(mult); // a sound source
-		const lfo1 = new Tone.LFO(10, 200, 600).connect(src.frequency);
-		
-		lfo.start(); src.start(); lfo1.start();
-		// Animate changes
-		Paper.view.onFrame = () => {
-			const val = probe.getValue()
+		const src = new Tone.Oscillator(440, 'sine').toDestination(); // a sound source
+		const lfo = new Tone.LFO(2, 200, 600).fan(src.frequency, probe); // an LFO to modulate the sound source
+
+		lfo.start(); src.start();
+
+		two.bind('update', () => {
+			const val = (probe.getValue() - 200) / 400;
 			probeReading.push(val); probeReading.shift();
 			probeReading.forEach((x, i) => {
-				path.segments[i].point.y = (1-x) * (canvas.height * 0.5) + canvas.height* 0.25;
+				curve.vertices[i].y = (1-x) * two.height - (two.height * 0.5);
 			})
-		path.smooth();
-		}
- 		await Tone.start();
+		})
 	}
-
 </script>
 
 <button on:click={start}>start</button>
-<canvas id='canvas' bind:this={canvas}></canvas>
-
-<PlayTog />
+<div class="container" bind:this={container}>
+</div>
 
 <style>
-	#canvas {
-		background-color: white;
-		border: 1px solid var(--med-blue);
-		width: 100%;
+	.container {
 		height: 200px;
+		width: 100%;
 	}
 </style>
