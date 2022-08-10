@@ -1,7 +1,7 @@
 <script>
 	import * as Meyda from 'meyda';
 	import * as Tone from 'tone';
-	import { binToHz } from '$lib/utils';
+	import { binToHz } from '$lib/util';
 
 	import Button from '$lib/components/Button.svelte';
 	import SourceGenerator from './SourceGenerator.svelte';
