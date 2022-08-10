@@ -34,8 +34,8 @@
 		class:expand={expand}
 		class:closed={!expand}
 	>On This Page</button>
-	<div class="line"></div>
 	{#if headings.length > 0 && expand}
+	<div class="line"></div>
 	<div class="onthispage" transition:slide={{duration:130}}>
 		{#each headings as h}
 			<a href={h.url}>{h.text}</a>
@@ -57,16 +57,16 @@
 
 	.mobile-toc > button {
 		font-family: var(--font);
-		width: 100%;
+		width: 30%;
 		border: 0;
 		background: none;
 		box-shadow: none;
 		border-radius: 0px;
 		color: var(--med-blue);
-		text-align: left;
 		display: flex;
 		flex-direction: row;
 		justify-content: space-between;
+		margin: 0 auto;
 	}
 
 	.expand::after {
@@ -92,7 +92,9 @@
 
 	.line {
 		height: 1px;
-		color: var(--med-blue);
+		background-color: var(--med-blue);
+		width: 90%;
+		margin: 0 auto;
 	}
 
 	.onthispage > a {
