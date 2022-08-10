@@ -4,8 +4,6 @@
     import { clip } from "./clip.js"
     import * as d3 from 'd3';
 
-    export let title = 'A network of actions and outputs. Observing different outputs can lead to more direct creative action or lead back to further computational exploration and new outputs to be made.'
-    export let caption = 'DEMO 1'
     export let id='bricolage'
     export let blurb=''
 
@@ -165,13 +163,6 @@
         margin: auto;
         width: 100%;
         height: 100%;
-    }
-
-    .caption {
-        font-style: italic;
-        text-align: center;
-        width: 80%;
-        margin: 0 auto;
     }
 
     .d3_blurb{
