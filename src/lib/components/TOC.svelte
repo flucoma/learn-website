@@ -2,7 +2,7 @@
 	import { page } from '$app/stores';
 	import { slide } from 'svelte/transition'
 	import { structure } from '$lib/app.js';
-	let w = 0; 	/** @type {string} */
+	let w;
 	let expand = false;
 	let headings = ['']; 	
 	const breakpoint = 600;
@@ -14,20 +14,7 @@
 	}
 </script>
 
-{#if w >= breakpoint}
-<div class="container">
-	<div>
-		{#if headings.length > 0}
-		<h3 class="toc">Table of Contents</h3>
-		<div class="headings">
-			{#each headings as h}
-				<a href={h.url}>{h.text}</a>
-			{/each}
-		</div>
-		{/if}
-	</div>
-</div>
-{:else}
+{#if w < breakpoint}
 <div class="mobile-toc">
 	<button 
 		on:click={()=>{expand=!expand}}
@@ -43,12 +30,28 @@
 	</div>
 	{/if}
 </div>
+{:else}
+<div class="container">
+	<div>
+		{#if headings.length > 0}
+		<h3 class="toc">Table of Contents</h3>
+		<div class="headings">
+			{#each headings as h}
+				<a href={h.url}>{h.text}</a>
+			{/each}
+		</div>
+		{/if}
+	</div>
+</div>
 {/if}
 
 <svelte:window bind:innerWidth={w}/>
 
 <style lang="postcss">
 	.mobile-toc {
+		display: flex;
+		flex-direction: column;
+		place-items: center;
 		margin-top: 1em;
 		border-radius: 10px;
 		border: 2px solid var(--med-blue);
@@ -56,29 +59,18 @@
 	}
 
 	.mobile-toc > button {
+		flex: auto;
 		font-family: var(--font);
-		width: 30%;
+		width: 100%;
 		border: 0;
 		background: none;
 		box-shadow: none;
 		border-radius: 0px;
 		color: var(--med-blue);
-		display: flex;
-		flex-direction: row;
-		justify-content: space-between;
-		margin: 0 auto;
 	}
 
-	.expand::after {
-		content: url('/img/arrow.svg');
-		width: 12px;
-		height: 12px;
-	}
-	
-	.closed::after {
-		content: url('/img/arrow.svg');
-		width: 12px;
-		height: 12px;
+	.mobile-toc > button:hover {
+		text-decoration: underline;
 	}
 
 	.onthispage {

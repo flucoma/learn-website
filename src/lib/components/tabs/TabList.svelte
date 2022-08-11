@@ -2,9 +2,8 @@
 	<slot />
 </div>
 
-<style lang="postcss">
+<style>
 	.tab-list {
-		border-bottom: 1px solid var(--dark-blue);
 		padding-top: 1em;
 	}
 </style>
