@@ -7,3 +7,13 @@ tags:
 flair: reference
 category: Utility
 ---
+
+<script>
+    import BufCompose from '$lib/widget/BufCompose.svelte';
+</script>
+
+BufCompose is a powerful utility for manipulating and copying targetted sections of buffers and arrays. It allows you to specify start frames and channels and a number of frames and channels to copy from a `source` location to a `destination`. In addition to these copying procedures
+
+When paired with objects such as [BufSelect](/reference/bufselect) and [BufSelectEvery](/reference/bufselectevery) the possibilities for buffer and array manipulation are vast.
+
+<BufCompose />
