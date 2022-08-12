@@ -60,7 +60,7 @@
 						enabled: false
 					}
 				},
-				animation: { duration: 0 },
+				animation: { duration: 200 },
 				datasets: {
 					line: {
 						pointRadius: 0
