@@ -32,5 +32,6 @@
 	.disabled:hover {
 		background-color: grey;
 		border: grey;
+		opacity: 0.5;
 	}
 </style>

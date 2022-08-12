@@ -5,8 +5,8 @@
 
 	export let windowSize = 512;
 	export let spectrum = new Array(windowSize).fill(0.0);
+	export let smoothing = 100;
 	const binLabels = new Array(windowSize / 2).fill(null).map((_, i) => i * (44100 / windowSize));
-	const smoothing = 100;
 
 	// Canvas
 	export let chart;
@@ -60,7 +60,7 @@
 						enabled: false
 					}
 				},
-				animation: { duration: 200 },
+				animation: { duration: smoothing },
 				datasets: {
 					line: {
 						pointRadius: 0

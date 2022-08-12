@@ -1,8 +1,7 @@
 <script>
 	import * as Meyda from 'meyda';
-	import { binToHz } from '$lib/util';
+	import { binToHz, clip } from '$lib/util';
 	import Audio from '$lib/components/Audio.svelte';
-
 	import Button from '$lib/components/Button.svelte';
 	import Spectrogram from './Spectrogram.svelte';
 
@@ -16,7 +15,7 @@
 	let enabled = false;
 
 	let shape = {
-		centroid: 0,
+		centroid: 10000,
 		spread: 0,
 		skewness: 0,
 		kurtosis: 0,
@@ -65,8 +64,10 @@
 		analyser.start();
 	}
 
-	$: if (chart) chart.options.plugins.annotation.annotations.centroid.xMin = shape.centroid;
-	$: if (chart) chart.options.plugins.annotation.annotations.centroid.xMax = shape.centroid;
+	$: console.log(shape.centroid)
+
+	$: if (chart) chart.options.plugins.annotation.annotations.centroid.xMin = clip(shape.centroid, 0, 20000);
+	$: if (chart) chart.options.plugins.annotation.annotations.centroid.xMax = clip(shape.centroid, 0, 20000);
 	$: if (chart) chart.options.plugins.annotation.annotations.rolloff.xMin = Math.min(shape.rolloff, 20000);
 	$: if (chart) chart.options.plugins.annotation.annotations.rolloff.xMax = Math.min(shape.rolloff, 20000);
 </script>
@@ -84,7 +85,7 @@
 	</div>
 	<div class="frame" class:disabled={!enabled}>
 		<div class="plot" >
-			<Spectrogram bind:chart />
+			<Spectrogram bind:chart smoothing=200 />
 
 			<div class="values">
 				{#each Object.entries(shape) as [k, v]}
