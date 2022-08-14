@@ -139,7 +139,7 @@ glob('src/routes/*(reference|learn|explore|installation)/*.svx', (err, routes) =
 		let links = markdownLinkExtractor(data, false)
 			.filter(x => x.startsWith('/'))
 			.filter(x => path.extname(x) === '');
-			
+
 		links = [...new Set(links)];
 
 		let backreference = {

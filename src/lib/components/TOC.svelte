@@ -1,12 +1,12 @@
 <script>
 	import { page } from '$app/stores';
-	import { slide } from 'svelte/transition'
+	import { slide } from 'svelte/transition';
 	import { structure } from '$lib/app.js';
 	let w;
 	let expand = false;
-	let headings = ['']; 	
+	let headings = [''];
 	const breakpoint = 600;
-	
+
 	$: {
 		let path = $page.url.pathname;
 		path = path.endsWith('/') ? path.slice(0, -1) : path;
@@ -15,37 +15,39 @@
 </script>
 
 {#if w < breakpoint}
-<div class="mobile-toc">
-	<button 
-		on:click={()=>{expand=!expand}}
-		class:expand={expand}
-		class:closed={!expand}
-	>On This Page</button>
-	{#if headings.length > 0 && expand}
-	<div class="line"></div>
-	<div class="onthispage" transition:slide={{duration:130}}>
-		{#each headings as h}
-			<a href={h.url}>{h.text}</a>
-		{/each}
-	</div>
-	{/if}
-</div>
-{:else}
-<div class="container">
-	<div>
-		{#if headings.length > 0}
-		<h3 class="toc">Table of Contents</h3>
-		<div class="headings">
-			{#each headings as h}
-				<a href={h.url}>{h.text}</a>
-			{/each}
-		</div>
+	<div class="mobile-toc">
+		<button
+			on:click={() => {
+				expand = !expand;
+			}}
+			class:expand
+			class:closed={!expand}>On This Page</button
+		>
+		{#if headings.length > 0 && expand}
+			<div class="line" />
+			<div class="onthispage" transition:slide={{ duration: 130 }}>
+				{#each headings as h}
+					<a href={h.url}>{h.text}</a>
+				{/each}
+			</div>
 		{/if}
 	</div>
-</div>
+{:else}
+	<div class="container">
+		<div>
+			{#if headings.length > 0}
+				<h3 class="toc">Table of Contents</h3>
+				<div class="headings">
+					{#each headings as h}
+						<a href={h.url}>{h.text}</a>
+					{/each}
+				</div>
+			{/if}
+		</div>
+	</div>
 {/if}
 
-<svelte:window bind:innerWidth={w}/>
+<svelte:window bind:innerWidth={w} />
 
 <style lang="postcss">
 	.mobile-toc {
@@ -97,7 +99,6 @@
 	.onthispage > a:hover {
 		text-decoration: underline;
 		background-color: white;
-		
 	}
 
 	.container {
@@ -109,7 +110,8 @@
 		max-width: 23ch;
 	}
 
-	.headings, .onthispage {
+	.headings,
+	.onthispage {
 		display: flex;
 		flex-direction: column;
 		gap: 0.5em;

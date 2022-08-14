@@ -9,8 +9,11 @@
 
 <Admonition type="pointer">
 	<p>
-		Download the demonstration patches for this article <a href={link} download='Alice Eldridge and Chris Kiefer Examples.zip'>here</a>.
+		Download the demonstration patches for this article <a
+			href={link}
+			download="Alice Eldridge and Chris Kiefer Examples.zip">here</a
+		>.
 	</p>
-	
-	{ @html note }
+
+	{@html note}
 </Admonition>
