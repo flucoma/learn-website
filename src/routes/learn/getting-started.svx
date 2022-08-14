@@ -7,22 +7,37 @@ tags:
     - nmf
     - analysis
     - machine learning
+    - start
+    - intro
 flair: article
 featuredimage: /learn/bufnmf/00_original_spectrogram_mel_color.png
-# layout: contentindex
 ---
 
-Interested in trying out FluCoMa, but not sure where to start? Here's a few potential entry points! Do you want to...
+<script>
+    import CodeBlock from '$lib/components/CodeBlock.svelte';
+    import { Tabs, TabList, TabPanel, Tab } from '$lib/components/tabs/tabs';
+</script>
 
-* [Install FluCoMa](/installation)
-* [Watch a YouTube tutorial](/learn/classification-neural-network)
-* Analyze real time audio for... [Pitch](/reference/pitch), [Loudness](/reference/loudness), [Timbre](/reference/mfcc), and more.
-* [Slice Audio](/reference/ampslice)
-* [Train a neural network](/learn/regression-neural-network)
-* [Read an in-depth article about a FluCoMa project ](/explore/hayes)
-* [Batch analyze sound files](/learn/batch-processing)
-* [Hear from an artist using machine listening and machine learning](/explore/abtan)
+## First Steps
 
-Let these serve as starting places and see where you end up. Follow the suggested links at the top of each page to continue exploring!
+A quick and recommended start is to follow these introductory YouTube tutorials (first [install](/installation)!):
 
-We understand that sometimes you want to dig in really deep and sometimes you want to 
+* **[Train a neural network to classify sound based on timbre](/learn/regression-neural-network)**
+* **[Train a neural network to control a synthesizer](/learn/classification-neural-network)**
+* **[Code a 2 dimensional sound sample explorer](/learn/2d-corpus-explorer)**
+
+## Have something more specific in mind? 
+
+* **[Hear music made using FluCoMa](https://www.youtube.com/watch?v=BzSRs_7S9cg)**
+* **[Slice Audio](/reference/ampslice)**
+* **Analyze real time audio for... [Pitch](/reference/pitch), [Loudness](/reference/loudness), [Timbre](/reference/mfcc), and more.**
+* **Download some example code to play with (for [Max](https://f003.backblazeb2.com/file/learnassets/examples/2d-plot/plotter-5.maxpat) or [SuperCollider](https://f003.backblazeb2.com/file/learnassets/examples/2d-plot/plotter-5-complete.scd))**
+* **[Train a neural network](/learn/regression-neural-network)**
+* **[Decompose audio based on spectral analysis](/reference/hpss)**
+* **[Read an in-depth article about a FluCoMa project ](/explore/constanzo)**
+* **[Batch analyze sound files](/learn/batch-processing)**
+* **[Learn about statistics](/reference/bufstats)**
+* **[Hear from an artist using machine listening and machine learning](/explore/abtan)**
+* **[Check out the source code](https://github.com/orgs/flucoma/repositories)**
+
+We understand that sometimes you want to dig in really deep and sometimes you want to find a quick answer or example and get back to creating. There's a lot of information on this site, so take just what you need or use the rectangle links near the top to keep exploring.
