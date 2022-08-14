@@ -1,0 +1,28 @@
+---
+title: Get Started
+blurb: |
+    Entry points for getting started with FluCoMa 
+tags:
+    - decomposition
+    - nmf
+    - analysis
+    - machine learning
+flair: article
+featuredimage: /learn/bufnmf/00_original_spectrogram_mel_color.png
+# layout: contentindex
+---
+
+Interested in trying out FluCoMa, but not sure where to start? Here's a few potential entry points! Do you want to...
+
+* [Install FluCoMa](/installation)
+* [Watch a YouTube tutorial](/learn/classification-neural-network)
+* Analyze real time audio for... [Pitch](/reference/pitch), [Loudness](/reference/loudness), [Timbre](/reference/mfcc), and more.
+* [Slice Audio](/reference/ampslice)
+* [Train a neural network](/learn/regression-neural-network)
+* [Read an in-depth article about a FluCoMa project ](/explore/hayes)
+* [Batch analyze sound files](/learn/batch-processing)
+* [Hear from an artist using machine listening and machine learning](/explore/abtan)
+
+Let these serve as starting places and see where you end up. Follow the suggested links at the top of each page to continue exploring!
+
+We understand that sometimes you want to dig in really deep and sometimes you want to 
