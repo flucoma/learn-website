@@ -12,7 +12,7 @@ flair: article
 <script>
     import Image from '$lib/components/Image.svelte';
     import CodeBlock from '$lib/components/CodeBlock.svelte';
-    import IndentNote from '$lib/components/IndentNote.svelte';
+    import Admonition from '$lib/components/Admonition.svelte';
 </script>
 
 ## Step 1: Download the FluCoMa SuperCollider Extension Package
@@ -59,7 +59,7 @@ s.waitForBoot({
 
 If this code block prints the version of the FluCoMa tools then it is installed correctly.
 
-<IndentNote type="danger">
+<Admonition type="danger">
 
 Binaries compiled by us for macOS are signed and notarised. However, you might need to "dequarantine" them. The command below will recursively do this for you if you provide it the valid path to the FluCoMa package, wherever that might be.
 
@@ -71,4 +71,4 @@ Binaries compiled by us for macOS are signed and notarised. However, you might n
 
 </CodeBlock>
 
-</IndentNote>
+</Admonition>

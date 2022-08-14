@@ -12,7 +12,7 @@ category: Analyse Sound
 <script>
     import STFTWindows from '$lib/widget/STFTWindows.svelte';
     import Image from '$lib/components/Image.svelte';
-    import IndentNote from '$lib/components/IndentNote.svelte';
+    import Admonition from '$lib/components/Admonition.svelte';
 </script>
 
 Because a wealth of [resources](/learn/fourier-transform) explaining the Fourier Transform in more general terms already exist, the focus of this reference is going to be on the practicalities of using it within FluCoMa. We recommend you visit the [Fourier Transform](/learn/fourier-transform) page first for more detailed information on BufSTFT's parameters `windowSize`, `hopSize`, and `fftSize`, as well as more general information on the Fourier Transform. If unfamiliar with the Fourier Transform or digital sampling, we highly recommend this [interactive explanation](https://jackschaedler.github.io/circles-sines-signals/part3.html).

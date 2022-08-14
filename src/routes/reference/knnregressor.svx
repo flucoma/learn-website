@@ -11,16 +11,16 @@ category: Analyse Data
 ---
 
 <script>
-    import IndentNote from '$lib/components/IndentNote.svelte';
+    import Admonition from '$lib/components/Admonition.svelte';
 </script>
 
 KNNRegressor is a supervised machine learning algorithm for regression. In machine learning, regression can be thought of as a mapping from one space to another where both can contain continuous values. In order to make predictions, the KNNRegressor must first be `fit` with an input [DataSet](/reference/dataset) of data points, each of which is paired (by means of a shared identifier) with another data point in an output DataSet.
 
-<IndentNote type="pointer">
+<Admonition type="pointer">
 
 The output DataSet used with a KNNRegressor must have only 1 dimension. For an object that can perform regression with multidimensional outputs, see the [MLPRegressor](/reference/mlpregressor).
 
-</IndentNote>
+</Admonition>
 
 The KNNRegressor uses an internal [KDTree](/reference/kdtree) to find an input point's `numNeighbours` nearest neighbours in an input dataset. When the ``weight`` parameter equals ``1``, the output returned is a weighted average of those neighbours' values from the output DataSet (this is the default). If the ``weight`` parameter is set to ``0``, the output returned is a simple average of the neighbours.
 

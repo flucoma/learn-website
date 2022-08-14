@@ -14,15 +14,15 @@ featuredimage: /examples/batch/add.png
 <script>
     import CodeBlock from '$lib/components/CodeBlock.svelte';
     import Image from '$lib/components/Image.svelte';
-    import IndentNote from '$lib/components/IndentNote.svelte';
+    import Admonition from '$lib/components/Admonition.svelte';
     import { Tabs, TabList, TabPanel, Tab } from '$lib/components/tabs/tabs';
 </script>
 
-<IndentNote type='warn'>
+<Admonition type='warn'>
 
 If you want to go straight to the code examples, they can be found under [Batch Processing Code Examples](#batch-processing-code-examples).
 
-</IndentNote>
+</Admonition>
 
 ## Introduction
 When working with machine learning and machine listening, we often need to process and work on collections of sounds, slices or analyses together or as _batches_. "Batch processing" is actually quite familiar to musicians although it is often not referred to by the same name. An example would be if you have ever normalised a bundle of audio files, or if you have ever rendered a multi-track session in the DAW. In any of these cases, the computer works on a collection of things together. When we learn how to manage and program batch processes, it can be a powerful tool for manipulating large corpora and for working with collections of musical resources.
@@ -79,9 +79,9 @@ The step-by-step workflow is as follows:
 
 <TabPanel> <!-- Pure Data -->
 <a href='/examples/batch/batch-decomposition.pd' download>Download PureData Patch</a>
-<IndentNote type='danger'>
+<Admonition type='danger'>
 <p>This requires PureData version 0.52-1 or greater because it uses the <code>file</code> object.</p>
-</IndentNote>
+</Admonition>
 </TabPanel> 
 
 <TabPanel> <!-- SC -->
@@ -139,9 +139,9 @@ The step-by-step workflow is as follows:
 <div class='links'>
     <a href='/examples/batch/batch-slicing-threads.pd' download>Download Non-blocking Segment Analysis PureData Patch </a>
     <a href='/examples/batch/batch-decomposition-threads.pd' download>Download Non-blocking Decomposition PureData Patch</a>
-    <IndentNote type='danger'>
+    <Admonition type='danger'>
     <p>The Non-blocking decomposition patch requires PureData version 0.52-1 or greater because it uses the <code>file</code> object.</p>
-    </IndentNote>
+    </Admonition>
 </div>
 </TabPanel> 
 

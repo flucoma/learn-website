@@ -20,14 +20,14 @@ featuredimage: /learn/distribution/stddev_diagram.png
     import CodeBlock from '$lib/components/CodeBlock.svelte';
     import { Tabs, TabList, TabPanel, Tab } from '$lib/components/tabs/tabs';
     import Image from '$lib/components/Image.svelte';
-    import IndentNote from '$lib/components/IndentNote.svelte';
+    import Admonition from '$lib/components/Admonition.svelte';
 </script>
 
-<!-- <IndentNote type='pointer'>
+<!-- <Admonition type='pointer'>
 
 For a more critical consideration of what these distributions can and cannot tell us, see the page on [Statistical Assumptions](/learn/statistical-assumptions).
 
-</IndentNote> -->
+</Admonition> -->
 
 ## Histogram
 
@@ -45,11 +45,11 @@ src="/learn/distribution/distribution_function.png"
 label="Distribution function based on the same data as the histogram above."
 />
 
-<IndentNote type='pointer'>
+<Admonition type='pointer'>
 
 Keep in mind that the distribution functions are not the functions being analysed by BufStats, but instead represent the distribution of the values in the buffer channel being analysed by BufStats.
 
-</IndentNote>
+</Admonition>
 
 ## Normal Distribution
 

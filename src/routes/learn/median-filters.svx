@@ -15,7 +15,7 @@ featuredimage: /learn/median-filters/median-filter.png
 <script>
     import Image from '$lib/components/Image.svelte';
     import Video from '$lib/components/Video.svelte';
-    import IndentNote from '$lib/components/IndentNote.svelte';
+    import Admonition from '$lib/components/Admonition.svelte';
 </script>
 
 Median filtering is a smoothing technique that can give better results than moving averages for some types of data. What is useful about median filters for our purposes here, is that they are good at removing short disruptions to a signal whilst doing a reasonable job of preserving the overall shape. 

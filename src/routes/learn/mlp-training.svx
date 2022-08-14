@@ -14,7 +14,7 @@ featuredimage: /learn/mlp/211220_01_synth_control_sc.txt.jpg
 ---
 
 <script>
-    import IndentNote from '$lib/components/IndentNote.svelte';
+    import Admonition from '$lib/components/Admonition.svelte';
     import CodeBlock from '$lib/components/CodeBlock.svelte';
     import Image from '$lib/components/Image.svelte';
     import { Tabs, TabList, TabPanel, Tab } from '$lib/components/tabs/tabs';
