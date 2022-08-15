@@ -10,7 +10,7 @@ A component that plays back filtered noise, while showing how a curve can be dra
 
 	let container;
 	let probe; // a probe to extract LFO values
-	let probeReading = new Array(30).fill(0.5); // the value the probe reads
+	let probeReading = new Array(90).fill(0.5); // the value the probe reads
 	let two;
 	let curve;
 
@@ -20,7 +20,6 @@ A component that plays back filtered noise, while showing how a curve can be dra
 			autostart: true,
 			fitted: true
 		}).appendTo(container)
-		two.fit()
 		
 		let points = probeReading.map((v, i) => {
 			const x = (i / (probeReading.length-1)) * two.width; // add equidistant points
@@ -30,8 +29,9 @@ A component that plays back filtered noise, while showing how a curve can be dra
 		curve = two.makePath(points, false, true);
 		curve.linewidth = 5;
 		curve.noFill();
-		curve.stroke = 'rgb(3, 113, 181)';
+		curve.stroke = 'rgb(34, 140, 34)';
 		two.add(curve);
+		two.fit()
 	})
 
 	const start = async() => {
@@ -40,7 +40,7 @@ A component that plays back filtered noise, while showing how a curve can be dra
 		// Tone nodes
 		probe = new Tone.DCMeter() // extract the value of the lfo
 		const mult = new Tone.Multiply().toDestination() // a gain node to modify the volume
-		const lfo = new Tone.LFO(0.4, 0, 1).fan(mult.factor, probe); // an LFO to modulate the sound source
+		const lfo = new Tone.LFO(0.30, 0, 1).fan(mult.factor, probe); // an LFO to modulate the sound source
 		const src = new Tone.Noise('pink').connect(mult); // a sound source
 		
 		lfo.start(); src.start();

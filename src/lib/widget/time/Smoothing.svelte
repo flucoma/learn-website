@@ -2,7 +2,6 @@
 	import { onMount } from 'svelte';
 	import smooth from 'array-smooth'
 	import Two from 'two.js';
-	import Range from '$lib/components/Range.svelte';
 
 	let container;
 	let raw = new Array(100).fill(0.5).map(() => (Math.random())); // the value the probe reads
@@ -69,6 +68,7 @@
 		display: flex;
 		flex-direction: column;
 		align-items: center;
+		margin-bottom: 1em;
 	}
 
 	input[type=range] {

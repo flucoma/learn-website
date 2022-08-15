@@ -20,7 +20,6 @@ A component that plays back filtered noise, while showing how a curve can be dra
 			autostart: true,
 			fitted: true
 		}).appendTo(container)
-		two.fit()
 		
 		let points = probeReading.map((v, i) => {
 			const x = (i / (probeReading.length-1)) * two.width; // add equidistant points
@@ -32,6 +31,7 @@ A component that plays back filtered noise, while showing how a curve can be dra
 		curve.noFill();
 		curve.stroke = 'rgb(3, 113, 181)';
 		two.add(curve);
+		two.fit()
 	})
 
 	const start = async() => {
@@ -40,12 +40,12 @@ A component that plays back filtered noise, while showing how a curve can be dra
 		// Tone nodes
 		probe = new Tone.DCMeter() // extract the value of the lfo
 		const src = new Tone.Oscillator(440, 'sine').toDestination(); // a sound source
-		const lfo = new Tone.LFO(2, 200, 600).fan(src.frequency, probe); // an LFO to modulate the sound source
+		const lfo = new Tone.LFO(2, 150, 300).fan(src.frequency, probe); // an LFO to modulate the sound source
 
 		lfo.start(); src.start();
 
 		two.bind('update', () => {
-			const val = (probe.getValue() - 200) / 400;
+			const val = (probe.getValue() - 150) / 150;
 			probeReading.push(val); probeReading.shift();
 			probeReading.forEach((x, i) => {
 				curve.vertices[i].y = (1-x) * two.height - (two.height * 0.5);

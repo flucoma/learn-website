@@ -9,45 +9,68 @@ A component that plays back filtered noise, while showing how a curve can be dra
 	import Two from 'two.js';
 
 	let container;
-	let probe; // a probe to extract LFO values
-	let probeReading = new Array(90).fill(0.5); // the value the probe reads
+	let ampProbe, pitchProbe; // a probe to extract LFO values
+	let pitchProbeReading = new Array(90).fill(0.5); // the value the probe reads
+	let ampProbeReading = new Array(90).fill(0.5); // the value the probe reads
+	let pitchCurve, ampCurve;
 	let two;
-	let curve;
 
-	onMount(async() => {
+	onMount(() => {
 		two = new Two({
 			type: Two.Types.svg,
 			autostart: true,
 			fitted: true
 		}).appendTo(container)
-		two.fit()
 		
-		let points = probeReading.map((v, i) => {
-			const x = (i / (probeReading.length-1)) * two.width; // add equidistant points
+		let pitchPoints = pitchProbeReading.map((v, i) => {
+			const x = (i / (pitchProbeReading.length)) * two.width; // add equidistant points
 			const y = two.height * v;
-			return new Two.Anchor(x, y)
+			return new Two.Anchor(x, y);
 		})
-		curve = two.makePath(points, false, true);
-		curve.linewidth = 5;
-		curve.noFill();
-		curve.stroke = 'rgb(3, 113, 181)';
-		two.add(curve);
+		let ampPoints = ampProbeReading.map((v, i) => {
+			const x = (i / (ampProbeReading.length)) * two.width; // add equidistant points
+			const y = two.height * v;
+			return new Two.Anchor(x, y);
+		})
+
+		
+		pitchCurve = two.makePath(pitchPoints, false, true);
+		pitchCurve.linewidth = 5;
+		pitchCurve.noFill();
+		pitchCurve.stroke = 'rgb(3, 113, 181)';
+
+		ampCurve = two.makePath(ampPoints, false, true);
+		ampCurve.linewidth = 5;
+		ampCurve.noFill();
+		ampCurve.stroke = 'rgb(34, 140, 34)';
+
+		two.add(pitchCurve);
+		two.add(ampCurve);
+		two.fit();
 	})
 
 	const start = async() => {
 		await Tone.start();
-		// Tone nodes
-		probe = new Tone.DCMeter() // extract the value of the lfo
-		const src = new Tone.Oscillator(440, 'sine').toDestination(); // a sound source
-		const lfo = new Tone.LFO(2, 200, 600).fan(src.frequency, probe); // an LFO to modulate the sound source
+		
+		ampProbe = new Tone.DCMeter()
+		pitchProbe = new Tone.DCMeter()
+		const mult = new Tone.Multiply().toDestination() // a gain node to modify the volume
+		const env = new Tone.LFO(0.3, 0, 1).fan(mult.factor, ampProbe); // an LFO to modulate the sound source
+		const src = new Tone.Oscillator(300, 'sine').connect(mult); // a sound source
+		const lfo = new Tone.LFO(2, 150, 300).fan(src.frequency, pitchProbe); // an LFO to modulate the sound source
 
-		lfo.start(); src.start();
+		lfo.start(); env.start(); src.start();
 
 		two.bind('update', () => {
-			const val = (probe.getValue() - 200) / 400;
-			probeReading.push(val); probeReading.shift();
-			probeReading.forEach((x, i) => {
-				curve.vertices[i].y = (1-x) * two.height - (two.height * 0.5);
+			const pitch = (pitchProbe.getValue() - 150) / 150;
+			const amp = ampProbe.getValue();
+			pitchProbeReading.push(pitch); pitchProbeReading.shift();
+			ampProbeReading.push(amp); ampProbeReading.shift();
+			pitchProbeReading.forEach((x, i) => {
+				pitchCurve.vertices[i].y = (1-x) * two.height - (two.height * 0.5);
+			})
+			ampProbeReading.forEach((x, i) => {
+				ampCurve.vertices[i].y = (1-x) * two.height - (two.height * 0.5);
 			})
 		})
 	}
