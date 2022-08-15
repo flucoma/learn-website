@@ -71,9 +71,9 @@ One strategy of training the neural network is to set [`maxIter`](/learn/mlp-par
     </TabList>
     <TabPanel>
 
-<CodeBlock>
+<CodeBlock title='Training an MLP in SuperCollider'>
 
-```
+```js
 s.boot;
 
 // some audio files to classify
@@ -159,7 +159,7 @@ FluidNormalize(s).fitTransform(~dataSet,~dataSet);
     </TabPanel>
     <TabPanel>
 
-<CodeBlock>
+<CodeBlock title='Training an MLP in Max'>
 
 <pre><code>
 ----------begin_max5_patcher----------

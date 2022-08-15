@@ -92,7 +92,7 @@ The step-by-step workflow is as follows:
 
 Using `find` and `xargs` limiting to one folder deep. Assumes you are `cd` in a directory of WAV audio files.
 
-<CodeBlock>
+<CodeBlock title='Batch processing with the command line'>
 
 ```
 find . -name "*.wav" -print0 -maxdepth 2 | xargs -0 -I src fluid-hpss -source src -harmonic src-h.wav -percussive src-p.wav
@@ -102,7 +102,7 @@ find . -name "*.wav" -print0 -maxdepth 2 | xargs -0 -I src fluid-hpss -source sr
 
 Using [`fd`](https://github.com/sharkdp/fd) limiting to one folder deep. Assumes you are `cd` in a directory of WAV audio files.
 
-<CodeBlock>
+<CodeBlock title='Batch processing with fd'>
 
 ```
 mkdir -p output && fd -e wav -d 1 -x fluid-hpss -source {} -harmonic output/{/.}-h.wav -percussive output/{/.}-p.wav
@@ -183,7 +183,7 @@ alt='Using vexpr to add two lists together'
 
 The complexity of the patching hasn't increased greatly, and by replacing `+` with `vexpr` (vector expression), we can process entire lists of values. The patch will also still work with single value inputs (scalars) making it much more flexible than what we had originally. While the patching itself is not too complicated, knowing about the existence of these objects and how they work is not greatly emphasised in the way visual programming is taught wich is often concerned entirely with _streams_ of scalar values. Furthermore, while this is just a toy example, it demonstrates that the notion of processing groups of things together is not the **first** and **most obvious** way to patch. Conversely, SuperCollider has the language (sclang) which offers built-in methods for dealing with arrays of data. Most operators are also _overloaded_, meaning the interface for adding two integers is roughly the same as adding two arrays of integers. For example:
 
-<CodeBlock>
+<CodeBlock title='Operator overloading'>
 
 ```js
 (

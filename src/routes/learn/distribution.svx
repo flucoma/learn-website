@@ -97,7 +97,7 @@ Example code to check the distribution of dimensions in a [DataSet](/reference/d
         <Tab>Max</Tab>
     </TabList>
     <TabPanel>
-<CodeBlock>
+<CodeBlock title='SuperCollider examples for checking distribution'>
 
 ```js
 ~distributions = {
@@ -122,55 +122,8 @@ Example code to check the distribution of dimensions in a [DataSet](/reference/d
 </CodeBlock>
 
     </TabPanel>
+
     <TabPanel>
-
-<CodeBlock>
-
-<pre><code>
-----------begin_max5_patcher----------
-1778.3oc6ZszaiaCD9ryuBBeo.ENFhjh5QOsW5s19GXQQfrLsi1ZIYHQmM6t
-n6u8NbFIakDKKwXsaxgZXqGTzblu4EmgTe6lYyWU9ntdN62XejMa12tY1LrI
-aCyZte177jGS2kTicadZYdttvLeA8Li9QC1tbIKcWV5+vL2WUdX68vYMac1l
-M5Jn6vUv+pNqrnlkUPOKwjvp0FloDNoY5jz6+kZ18Y0lxsUI4sTXWVgNs7PA
-RFYSi6qz0vvlXfQ7tmzCUaORLo2mUr8tJcpg.XjmZo2BVbzR0BFWEYuwOboG
-6ua9OEGxyJ1oMHR4MMlsFwW4pOcK2e9odVdvz1UOai+6M2XOr3JkihkL.b6S
-pzmjRaJqXIEI69RcVMbwZPdAGxPQGIlSMWVb8RgguH1hetBEFbg6BCwOdgAe
-IaS1tcrDTNXMV9bl4dVcYNIYl2O93D9DBBfgR7NOG.3DprKzeFFwW.Oqd6nh
-81A.jJxeIOnyGQLpwrnyiSXsOzIdI5jmGc9MsRMY9xdMQcjWAmsjpuLeAa9w
-eGoWcxC502AiLvv2kXLUYqNXnPKyNJUlMWmuRiLg2hlV.S8jbsQWcmtHY0Nc
-OOLOY+9iOFeJpCbUSjqqqS1pegpXKXa8ZT.7.qBPIbV9yiOuBf2mB.D0SHd2
-TUlu5fM5LKeSZ5kbj7w3DQBKPicGnJueJ.sGWLBieePPFGh.KvyhxP0kQ44B
-VDbdTJ5Cka1UlXrtPqRJ1NoPdytCYqWB.2h4uyB7Xent7PUplUWkx9.veok5
-MapomXRpL38LN6CazIlCvTqn3B6Jvcqqgfodmc9kfgLahjzzKX7onXGDnhdB
-+J6SfhxwEcDr+Prirhv+JKsb2s+QY49e+1+b4mSdXPumF6p1YgbwvRHe2XXY
-XqXYPVd5jpKf3fXz6gGPS75G3Lj47WopOq.ANwguNjCV75SnqaVlcPX.ERzl
-NoLtyGg0TGSqT0EuaJKL0YeE4VYzxP+n3HIORpBDd7nAkjT9pwubbAoXV9g7
-tRwgDsQW1X5ByEel3zmrwNi7pKC.h3VFMXBSe5q6VV.YCxujwnOEWGbCsFiR
-zMzsoubz860G4AxWx.xsAmIF8qDTbEeGbqhFHiCmT9+PBtLTnER.nvLQTbmi
-qDE5ntrMtx0DP47nEJQ1ngZaf7jSJpg56xu.rkAwmlKMN14Lvh94YC2qxMa.
-mT.YxHpXlXmUrRWyk1NQwDqNKVOBD1bxcUnL5sLI5eElqya4HvGTGJbx2yc7
-46H9nrblRPlYzUCCQQ.NShv8JDjxeJpvLCF69xYvvEzzg1iA9XlEBopCX5W.
-3GJ58eU.yefLw7wp1EOsrhckUMLncvAyHtJHJPD5q7hi77OaS7NLP11hRfis
-qC4yxJ5ZS1oI0xmluSaRcf2w.Y.AQ42R4+01STMcGtjCHEryruvdj9120G+J
-w1oiB7BA90COZUTPcrsMB8gKvlr+Au1Gpnl4dM+rRy.XJFaZr1R9wNg8H1Zr
-SMKjz0BKkrTHx5UPcWZGAnMIu441eX1JMm8nwhqn9g+O0ow1Rc7rGwbdD4s1
-av7eH2KwaUsWKwGwakSGE.zs7oL.AtxzCGgvWzDq28ffbGmmtwnbpmMCxqtF
-bgzWNyZNFquoLOkxYzJhdqyJwtjlKGJreCLEQTvO2qeO3sblaJOyAVXyFLRo
-eEHcWSJdOnIG8Bo6GPkNPEC9ZV6bd3+u34OQ7eHe+v0uvE7WY1u72C9PWFiM
-FU7XDiAuBLJeqchn0MtYi19NqXTEkxUpNqvqaKym2ayJ716VhzoZbZeWGPDH
-ZVoSRBHBbVmG+VZVSpaKDS1A4w98gAJkeSr6qgc36pkx+Y14CsOx9c2FYO2S
-.fOsfGoKVtzydsMPd219SkHzV+zL1sASYmX+05ZSVwwBV93IeSamNqTezTxN
-HhgnjbBnT7HfT3DPmnwPnnIgRgifR18H65ojZL1CASAkFCg3S.gBGgcWKruJ
-Bo7FCjlBBMB5HmBOI4Xrvk7mzo7r06KghPaBHEnvfj9TJAcu6Z4swX.0Bfqi
-R9igRQSAkjigRSge9yTZ8PIwXzrJutZVk2xIg23ig238xagzqvlpoVinfi2d
-sL2H3MgXBzP1UDYPJMEgsDiIE.wTXdKFiijZJR1PHFCllhow3iJD4TPnwDaf
-OEYav4izxiOEDRbUAghjzlLQN5GCB08cKprZstp+2UyokY4igYopHNNWn+4X
-V90yrCZrDeIlMzidKIZdUSZJv+o2gAYUPMfAu3MgT7rHsTkJI62+ftptgOP1
-GpR6SzF8fu7K12iE5VrD44U5Gxp6t+IySpfpxLPIYGpn8W5w.Z+BmmWBBuhC
-YMxOPvAjDq.ztWT06SHYDVn3M+6M+G.NfTmN
------------end_max5_patcher-----------
-</code></pre>
-
-</CodeBlock>
+        TODO
     </TabPanel>
 </Tabs>

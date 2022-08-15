@@ -57,13 +57,11 @@ These bases have been created manually by calculating each position in the basis
         <Tab>SuperCollider</Tab>
     </TabList>
     <TabPanel>
-
     <a href='/reference/nmffilter/nmffilter-example.maxpat' download='nmffilter-example.maxpat'>Max example code for the sounds heard below</a>
-
     </TabPanel>
     <TabPanel>
     
-<CodeBlock>
+<CodeBlock title='Manually calculated bases in SuperCollider'>
 
 ```
 ~bases = Buffer.loadCollection(s,513.collect{
