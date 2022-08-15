@@ -10,7 +10,7 @@ category: Analyse Sound
 ---
 
 <script>
-    import IndentNote from '$lib/components/IndentNote.svelte';
+    import Admonition from '$lib/components/Admonition.svelte';
     import OnsetFeature from '$lib/widget/OnsetFeature.svelte';
     import Audio from '$lib/components/Audio.svelte';
 
@@ -23,6 +23,12 @@ category: Analyse Sound
 
 OnsetFeature is closely linked with [OnsetSlice](/reference/onsetslice) and exposes the underlying measure of change between spectral frames as a standalone audio descriptor. As a result it can be useful in understanding how the slicing object works at a lower-level, or as a feature in and of itself. Below is a plot that depicts the measurement of change between spectral frames across a drum loop sample.
 
+<Admonition type='pointer'>
+
+The OnsetFeature object shares all the parameters that refer to the configuration of the algorithm as the OnsetSlice object. This does not include generic shared parameters such as `Source`, `Features`, `Indices`, etc.
+
+</Admonition>
+
 <Audio {...wf}/>
 
 <OnsetFeature />
@@ -31,6 +37,6 @@ The plot was calculated with the default parameters.
 
 <IndentNote type='pointer'>
 
-The feature object shares all the parameters that refer to the configuration of the algorithm as the companion slicing object. This does not include generic shared parameters such as `Source`, `Features`, `Indices`, etc.
+
 
 </IndentNote>
