@@ -10,17 +10,17 @@ category: Analyse Sound
 ---
 
 <script>
-    import IndentNote from '$lib/components/IndentNote.svelte';
+    import Admonition from '$lib/components/Admonition.svelte';
     import ResourceLink from '$lib/components/ResourceLink.svelte';
 </script>
 
 BufNMFSeed can help decide how to seed a BufNMF decomposition (see [Seeding NMF](/learn/seeding-nmf) for more information). BufNMFSeed suggests what bases and activations to seed (and therefore also how many components to request) in order to account for a certain percentage of the variance in a buffer (indicated by the parameter ``coverage``). In general, using this process to seed a BufNMF decomposition should substantially increase the speed with which BufNMF converges and avoid poor decomposition results. BufNMFSeed computes the suggested seeds using [Nonnegative Double Singular Value Decomposition](/#related-resources) ("NNDSVD").
 
-<IndentNote type="pointer">
+<Admonition type="pointer">
 
 For an example of what to do with the results of BufNMFSeed, see [Seeding NMF](/learn/seeding-nmf).
 
-</IndentNote>
+</Admonition>
 
 During the NNDSVD process, any zeros in the ``soruce`` buffer won't be able to be updated because the process multiplies these values by a scalar (and ``0 * anything = 0``). Therefore, it may be useful to change any zeros to something else before this process. BufNMFSeed has four options for managing values in the ``source`` buffer before processing:
    

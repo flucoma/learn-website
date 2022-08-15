@@ -1,10 +1,10 @@
 <script>
 	import { getContext } from 'svelte';
 	import { TABS } from './Tabs.svelte';
-	
+
 	const tab = {};
 	const { registerTab, selectTab, selectedTab } = getContext(TABS);
-	
+
 	registerTab(tab);
 </script>
 
@@ -22,14 +22,14 @@
 		cursor: pointer;
 		color: #495057;
 	}
-	
+
 	.selected {
 		background-color: #fff;
 		border-color: #dee2e6 #dee2e6 #fff;
 		border-bottom: 1px solid var(--med-blue);
 		color: black;
 	}
-	
+
 	:not(.selected):hover {
 		border-color: #e9ecef #e9ecef #dee2e6;
 	}

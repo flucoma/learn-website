@@ -16,7 +16,7 @@ flair: article
 ---
 
 <script>
-    import IndentNote from '$lib/components/IndentNote.svelte';
+    import Admonition from '$lib/components/Admonition.svelte';
     import Image from '$lib/components/Image.svelte';
 </script>
 

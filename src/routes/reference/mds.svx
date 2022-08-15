@@ -15,7 +15,7 @@ category: Analyse Data
     import Image from '$lib/components/Image.svelte';
     import { Tabs, TabList, TabPanel, Tab } from '$lib/components/tabs/tabs';
     import ResourceLink from '$lib/components/ResourceLink.svelte';
-    import IndentNote from '$lib/components/IndentNote.svelte';
+    import Admonition from '$lib/components/Admonition.svelte';
     import MDS from '$lib/widget/MDS.svelte';
 </script>
 

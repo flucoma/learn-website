@@ -11,7 +11,7 @@ category: Analyse Data
 ---
   
 <script>
-    import IndentNote from '$lib/components/IndentNote.svelte';
+    import Admonition from '$lib/components/Admonition.svelte';
 </script>
 
 RobustScale transforms a [DataSet](/reference/dataset) so each dimension in the data meets two criteria:
@@ -21,11 +21,11 @@ RobustScale transforms a [DataSet](/reference/dataset) so each dimension in the 
 
 Because RobustScale is based on percentiles, the scaling of the data is less affected by extreme [outliers](/learn/outliers) than other scalers (such as [Standardize](/reference/standardize) and [Normalize](/reference/normalize)). Being more robust to outliers can help RobustScale more accurately scale and represent the majority of the data.
 
-<IndentNote type='pointer'>
+<Admonition type='pointer'>
 
 To compare the three scalers found in FluCoMa, visit [Comparing Scalers](/learn/comparing-scalers).
 
-</IndentNote>
+</Admonition>
 
 ## `high` and `low`
 
