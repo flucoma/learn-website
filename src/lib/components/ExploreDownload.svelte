@@ -14,9 +14,11 @@
 			download="Alice Eldridge and Chris Kiefer Examples.zip">here</a
 		>.
 	</p>
+	{#if note !== ''}
 	<p>
 		{@html note}
 	</p>
+	{/if}
 </Admonition>
 
 <style>
