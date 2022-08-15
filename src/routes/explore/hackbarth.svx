@@ -132,24 +132,24 @@ url={'C3lRxi6tjEM'}
 - Example 1:
 
 <Audio 
-src="/explore/hackbarth/phrase1_target.wav"
+src="/explore/hackbarth/phrase1_target.mp3"
 label="Voice target."
 />
 
 <Audio 
-src="/explore/hackbarth/phrase1_output.wav"
+src="/explore/hackbarth/phrase1_output.mp3"
 label="Concatenative output."
 />
 
 - Example 2:
 
 <Audio 
-src="/explore/hackbarth/phrase3_target.wav"
+src="/explore/hackbarth/phrase3_target.mp3"
 label="Voice target."
 />
 
 <Audio 
-src="/explore/hackbarth/phrase3_output.wav"
+src="/explore/hackbarth/phrase3_output.mp3"
 label="Concatenative output."
 />
 
