@@ -1,7 +1,8 @@
 <script>
 	import { browser } from '$app/env';
-	import { slide } from 'svelte/transition';
-	
+	import Copy from '$lib/components/Copy.svelte';
+
+
 	export let title = ''
 	export let snippet = false;
 	let block;
@@ -20,8 +21,8 @@
 	{#if !snippet}
 	<div class="header">{title}</div>
 	{/if}
-	<div class="code" transition:slide>
-		<button aria-label="copy code" on:click={copyCode} class="btn">copy</button>
+	<div class="code">
+		<Copy on:click={copyCode}></Copy>
 		<slot />
 	</div>
 </div>
@@ -50,11 +51,5 @@
 
 	.code {
 		position: relative;
-	}
-
-	.btn {
-		font-family: var(--font);
-		position: absolute;
-		right: 0;
 	}
 </style>
