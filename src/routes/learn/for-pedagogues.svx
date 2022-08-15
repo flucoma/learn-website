@@ -1,0 +1,17 @@
+---
+title: For Pedagogues
+author: Ted
+blurb: A resource for pedagogues wanting to teach FluCoMa
+tags: 
+    - teach
+    - learn
+    - pedagogue
+flair: article
+featuredimage: /learn/mlp/211220_01_synth_control_sc.txt.jpg
+---
+
+We believe that "providing the tools" is not enough to achieve FluCoMa's mission: _enable techno-fluent musicians to use machine listening and machine learning in their creative practices_. To truly enable these artists we also must provide knowledge and inspiration, all in a way that is learnable for our main user base: computer musicians. Topics in machine listening, machine learning, computational thinking, and data science are often not included in the training of electronic musicians and therefore our task is to build bridges of understanding from the knowledge of computer music training to a degree of fluency with these topics that enables creative music making. 
+
+The materials included in the "FluCoMa for Pedagogues" resource below includes curriculum, lesson plans, slide presentations, and reflections for pedagogues that might be used to teach FluCoMa in various settings. While some of the ideas and resources presented below are FluCoMa-specific, many of them are toolkit-agnostic and we hope that they can be used by anyone looking to teach machine listening and machine learning for creative music making.
+
+[_FluCoMa for Pedagogues_ (PDF Document)](https://github.com/flucoma/flucoma-for-pedagogues/blob/main/flucoma-for-pedagogues.pdf)
