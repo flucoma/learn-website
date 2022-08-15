@@ -18,11 +18,21 @@ featuredimage: /learn/for-featured-images/2D-corpus-explorer.png
 
 </script>
 
-Data that changes over time can be noisy (wiggles a lot) 
+## The Shape of Data
+The shape of data as it changes over time is incredibly sensitive and important in how we and the computer interpret it. Often, problems such as noise (my data is very wiggly), statistical outliers (points of data that might seem outlandish) pollute our data and make it seem unwieldy to use. That said, these values which might look anomolous can also be _true_ representations of what was analysed, particularly in the quantitative manner that computer's perform their work. One reason for this is that audio analysis is incredibly granular and we, the human in the loop, don't necessarily grasp _why_ a particularly large, small or weird set of numbers might enter some of our analysis. A common theme that we've observed while workshopping with the tools is the expectation that analysis is somehow truthful to listening. This is not always true – signals are not sounds and analysis in the computer is more dissimilar to human perception than we would like to admit.
 
-_Smoothing_ data is one strategy we have at our disposal to deal with this. To do smoothing on our data, one of the most straightforward ways we can go about it is to group together a portion of contiguous data and then average that data.
+Now, this isn't intended to scare you away from the toolkit, or machine listening from the get go, rather, to be honest about the assumptions we make when we sit down and music our way through some data. There are many simple and complex techniques we can leverage to treat, filter and sanitise data so that _time_ becomes better represented in the analysis and perhaps, we hope, aligns better with how we interpret a sound.
+
+## Moving Average
+To start with an approachable and tractable technique I'll introduce the notion of _smoothing_. When someone says they've smoothed their data, they mean that they have found a way to remove irregularities or inconsistencies from it. There is no singular way to do this. One efficient, understandable and effective way that you can smooth a some data is to calculate a _moving average_. To do this, contiguous blocks or windows of data are grouped together and averaged. The average of each window replaces the values. The widget below shows how calculating the moving average effects the nature of the data. You'll notice as you increase or decrease the window size, the smoothness of tha data becomes more jagged or more smooth respectively. The grey plot represents the original data, so that you can compare it smoothed and raw.
 
 <Smoothing />
+
+You can perform a moving average using [Stats](/reference/stats) in your creative-coding environment of choice. Below is a set of example patches and scripts that demonstrate a fairly high-level but audible obvious example of how smoothing not only alters the _shape_ of the data, but effects something _musical_.
+
+## Multiple Smoothing Windows
+
+
 
 
 
