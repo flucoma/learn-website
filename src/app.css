@@ -21,7 +21,7 @@ g*/
 	--footer-height: 42px;
 	--event-flair: rgb(235, 161, 23);
 	--article-flair: var(--light-blue);
-	--reference-flair: forestgreen;
+	--reference-flair: rgb(34, 140, 34);
 	--podcast-flair: palevioletred;
 	--tutorial-flair: rgba(102, 103, 171, 255);
 	--grey: rgb(89, 89, 89);
