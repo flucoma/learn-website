@@ -34,9 +34,3 @@ The OnsetFeature object shares all the parameters that refer to the configuratio
 <OnsetFeature />
 
 The plot was calculated with the default parameters.
-
-<IndentNote type='pointer'>
-
-
-
-</IndentNote>
