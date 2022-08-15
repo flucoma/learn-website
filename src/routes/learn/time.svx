@@ -27,19 +27,19 @@ When we analyse sound with computers, the notion of time is critical. For humans
 
 Sound evolving and being experienced through time is an inescapable facet of how we listen to and interpret it. Think about all the different ways that a sound may or may not vary and how this contributes so strongly to it's nature, ability to elicit different responses as a listener. One neat entry point is to start to describe sound with _curves_ and _shapes_. If you wanted to dive into a more theoretical approach to this way of thinking, then you might want to read about [Temporal Semiotic Units](https://www.labo-mim.org/site/index.php?2013/03/29/225-temporal-semiotic-units-tsus-a-very-short-introduction#:~:text=TSUs%20have%20been%20defined%20as,their%20dynamic%20pattern%20over%20time.).
 
-Click the play button and listen to the sound. The line moving up and down over time maps onto the changes in amplitude or loudness.
+Click the play button and listen to the sound. The green line moving up and down over time maps onto the changes in amplitude or loudness.
 
 <NoiseShape />
 
-We could also describe other aspects like pitch.
+We could also describe other aspects like pitch, here described by the blue line.
 
 <PitchShape />
 
-The combination of many different curves that trace perceptual elements of a sound over time might culminate in a more holistic understanding of a sound. This is still quite simple, but imagine the amplitude and pitch moving together as a kind of _multivariate_ audio descriptor. Let's imagine amplitude and pitch moving together now. 
+The combination of many different curves that trace perceptual elements of a sound over time might culminate in a more holistic understanding of a sound. This is still quite simple, but imagine the amplitude and pitch moving together as a kind of _multivariate_ audio descriptor. Let's imagine amplitude and pitch moving together now with the green and blue lines depicting amplitude and pitch respectively. 
 
 <NoisePitchShape />
 
-Satisfying moving lines aside, this model of sound is far too simplistic to compare to that of a human. We combine, layer and meld together multiple shapes simultaneously over different time scales, looking at small changes in the moment at the same time as considering the grander scheme of things. Considering this begins to unpick at the issue of encoding the evolving nature of sound into data. How much is time is "enough" to be meaningful? Is all time equal? How do bits of time relate to other bits of time? 
+Satisfying moving lines aside, this model of sound is far too simplistic to compare to that of a human. We combine, layer and meld together multiple shapes simultaneously over different time scales, looking at small changes in the moment at the same time as considering the grander scheme of things. Considering this begins to unpick at the issue of encoding the evolving nature of sound into data. How much time is _enough_ to be meaningful? Is all time equal? How do bits of time relate to other bits of time? 
 
 This question emerges in several different places, especially in our own tutorials. For example, the [classification with a neural network](/learn/classification-neural-network) tutorial deals with time in a straightforward and effective way, by capturing several examples of very brief moments in time using the [MFCC descriptor](/reference/mfcc). This is designed with somewhat static sounds in mind, where the variation of those MFCC values won't change in drastic ways too fast or evolve in complex ways. The neural network is also quite clever, and with enough examples and sufficient training, it is good at differentiating with just this information provided to it. If you, for example though wanted to explicitly have the same neural network classify sounds based on their evolution you might not to find a different strategy for encoding that in data. Similarly, the [2D Corpus Explorer tutorial](/learn/2d-corpus-explorer) makes a crude assumption about how time operates. It uses [statistical derivatives](/reference/bufstats#derivatives) in an attempt to encode the evolving perceptual structures of short sound samples. This approach is actually quite prone to producing noisy and non-sensical data, and I often refer to this as the "sausage machine approach", in which you throw a bunch of somewhat connected information at a clever algorithm like [UMAP](/reference/umap) and hope that it can unfurl some structure from it. This of course is entirely validated by its success in musical practice. We are not looking for exact answers here, rather, things that work to _make sound_. The same goes for the classification tutorial.
 
