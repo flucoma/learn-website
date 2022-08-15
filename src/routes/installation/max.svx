@@ -62,7 +62,7 @@ Now check that the installation worked.
 
 Binaries compiled by us for macOS are signed and notarised. However, you might need to "dequarantine" them. The command below will recursively do this for you if you provide it the valid path to the FluCoMa package, which should be located in the Max packages folder.
 
-<CodeBlock title='Dequarantine Instructions'>
+<CodeBlock title='Dequarantine Instructions' snippet={true}>
 
 ```sh
 xattr -d -r com.apple.quarantine <path_to_package>
