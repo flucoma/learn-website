@@ -16,21 +16,25 @@
 	button {
 		background: none;
 		border: 1px solid transparent;
-		border-top-left-radius: 0.25rem;
-		border-top-right-radius: 0.25rem;
-		padding: 0.5rem 1rem;
+		padding: 1em;
 		cursor: pointer;
 		color: #495057;
+		font-size: 1rem;
+		font-family: var(--font);
+		margin: 0;
+		min-width: 13ch; /* Number of characters in the word SuperCollider */
+		transition: border-bottom 0.05s linear; 
+		transition: background-color 0.05s linear;
+	}
+
+	button:hover {
+		background-color: rgba(28, 164, 252, 0.05);
 	}
 
 	.selected {
 		background-color: #fff;
-		border-color: #dee2e6 #dee2e6 #fff;
-		border-bottom: 1px solid var(--med-blue);
+		border-bottom: 4px solid var(--light-blue);
 		color: black;
-	}
-
-	:not(.selected):hover {
-		border-color: #e9ecef #e9ecef #dee2e6;
+		background-color: rgba(28, 164, 252, 0.1);
 	}
 </style>
