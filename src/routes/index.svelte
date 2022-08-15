@@ -97,6 +97,7 @@
 				style="background-image: url({rng_explore.feature.featuredimage ||
 					_.sample(rng_explore.feature.images) ||
 					'/general/explore_default.jpeg'});"
+					on:click={() => goto(rng_learn.url)}
 			/>
 
 			<div class="flaired-title-featured">
