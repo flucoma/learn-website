@@ -35,35 +35,43 @@
 	let numChans = -1;
 
 	// Some private variables to react to the user facing input values
-	let _startFrame = 0
-	let _numFrames = 0
+	let _startFrame = 0;
+	let _numFrames = 0;
 	let _startChan = shapes.length;
 	let _numChans = shapes.length;
 
-	$: { if (startFrame !== null) _startFrame = startFrame === -1 ? 0 : startFrame };
-	$: { if (numFrames !== null) _numFrames   = numFrames  === -1 ? css_colors.length : numFrames };
-	$: { if (startChan !== null) _startChan   = startChan  === -1 ? 0 : startChan };
-	$: { if (numChans !== null) _numChans     = numChans   === -1 ? shapes.length : numChans };
+	$: {
+		if (startFrame !== null) _startFrame = startFrame === -1 ? 0 : startFrame;
+	}
+	$: {
+		if (numFrames !== null) _numFrames = numFrames === -1 ? css_colors.length : numFrames;
+	}
+	$: {
+		if (startChan !== null) _startChan = startChan === -1 ? 0 : startChan;
+	}
+	$: {
+		if (numChans !== null) _numChans = numChans === -1 ? shapes.length : numChans;
+	}
 </script>
 
 <form>
 	<label for="start-frame">startFrame</label>
-	<input id="start-frame" bind:value={startFrame} type='number' min={-1} max={css_colors.length} />
+	<input id="start-frame" bind:value={startFrame} type="number" min={-1} max={css_colors.length} />
 </form>
 
 <form>
 	<label for="num-frames">numFrames</label>
-	<input id="num-frames" bind:value={numFrames} type='number' min={-1} max={css_colors.length} />
+	<input id="num-frames" bind:value={numFrames} type="number" min={-1} max={css_colors.length} />
 </form>
 
 <form>
 	<label for="start-chan">startChan</label>
-	<input id="start-chan" bind:value={startChan} type='number' min={-1} max={shapes.length} />
+	<input id="start-chan" bind:value={startChan} type="number" min={-1} max={shapes.length} />
 </form>
 
 <form>
 	<label for="num-chans">NumChans</label>
-	<input id="num-chans" bind:value={numChans} type='number' min={-1} max={shapes.length} />
+	<input id="num-chans" bind:value={numChans} type="number" min={-1} max={shapes.length} />
 </form>
 
 <div class="container source">
@@ -81,10 +89,15 @@
 	<div class="label">Destination Buffer</div>
 	{#each shapes as shape, i}
 		<div class="row">
-			{#if i >= _startChan && i < (_startChan + _numChans) }
+			{#if i >= _startChan && i < _startChan + _numChans}
 				{#each css_colors as c, j}
-					{#if j >= _startFrame && j < (_startFrame + _numFrames) }
-						<div class="cube" style:background-color={c} style:clip-path={shape} transition:fly={{duration: 1000, x:-500}}/>
+					{#if j >= _startFrame && j < _startFrame + _numFrames}
+						<div
+							class="cube"
+							style:background-color={c}
+							style:clip-path={shape}
+							transition:fly={{ duration: 1000, x: -500 }}
+						/>
 					{/if}
 				{/each}
 			{/if}

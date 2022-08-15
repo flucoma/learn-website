@@ -24,9 +24,9 @@
 	.container:after {
 		color: #ccc;
 		content: close-quote;
-
 	}
-	.container:after, .container:before {
+	.container:after,
+	.container:before {
 		font-size: 2em;
 		line-height: 0.1em;
 		vertical-align: -0.4em;

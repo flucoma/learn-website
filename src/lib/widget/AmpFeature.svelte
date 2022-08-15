@@ -1,7 +1,7 @@
 <script>
 	import { onMount } from 'svelte';
 	import { Chart, registerables } from 'chart.js';
-	import feature from '$lib/data/reference/ampfeature/data.json'
+	import feature from '$lib/data/reference/ampfeature/data.json';
 
 	let chart, canvas;
 
@@ -27,7 +27,7 @@
 			options: {
 				events: [],
 				plugins: {
-					legend: { display: false },
+					legend: { display: false }
 				},
 				datasets: {
 					line: {
@@ -44,7 +44,7 @@
 				maintainAspectRatio: false,
 				scales: {
 					x: {
-						display: false,
+						display: false
 					},
 					y: {
 						display: true,

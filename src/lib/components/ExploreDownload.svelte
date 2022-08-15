@@ -15,9 +15,9 @@
 		>.
 	</p>
 	{#if note !== ''}
-	<p>
-		{@html note}
-	</p>
+		<p>
+			{@html note}
+		</p>
 	{/if}
 </Admonition>
 

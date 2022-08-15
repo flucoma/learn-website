@@ -32,30 +32,30 @@
 </script>
 
 {#if hover}
-<div
-	class={`hoverable rel-${hoverInfo.flair}`}
-	style:left={`${hoverPos.x}px`}
-	style:top={`${hoverPos.y + hoverPos.offset}px`}
-	bind:this={hoverable}
->
-	<div class="flair">{hoverInfo.flair}</div>
-	<hr class="hoverInfo.flair" />
-	<div class="blurb">{hoverInfo.blurb}</div>
-</div>
+	<div
+		class={`hoverable rel-${hoverInfo.flair}`}
+		style:left={`${hoverPos.x}px`}
+		style:top={`${hoverPos.y + hoverPos.offset}px`}
+		bind:this={hoverable}
+	>
+		<div class="flair">{hoverInfo.flair}</div>
+		<hr class="hoverInfo.flair" />
+		<div class="blurb">{hoverInfo.blurb}</div>
+	</div>
 {/if}
 
 <div class="container">
-{#each renderables as c}
-	{#each c as link}
-		<a
-			class={`link rel-${link.flair}`}
-			href={link.url}
-			on:mouseenter={e => mouseEnter(e, link)}
-			on:mouseleave={stopHover}
-			>{link.title}
-		</a>
+	{#each renderables as c}
+		{#each c as link}
+			<a
+				class={`link rel-${link.flair}`}
+				href={link.url}
+				on:mouseenter={e => mouseEnter(e, link)}
+				on:mouseleave={stopHover}
+				>{link.title}
+			</a>
+		{/each}
 	{/each}
-{/each}
 </div>
 
 <style>

@@ -1,7 +1,7 @@
 <script>
 	import { onMount } from 'svelte';
 	import { Chart, registerables } from 'chart.js';
-	import feature from '$lib/data/reference/noveltyfeature/data.json'
+	import feature from '$lib/data/reference/noveltyfeature/data.json';
 
 	let chart, canvas;
 
@@ -47,7 +47,7 @@
 				maintainAspectRatio: false,
 				scales: {
 					x: {
-						display: false,
+						display: false
 					},
 					y: {
 						display: true,

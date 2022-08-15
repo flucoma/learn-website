@@ -7,22 +7,22 @@
 	const dispatch = createEventDispatcher();
 
 	function forwardedEvent() {
-		dispatch('click')
+		dispatch('click');
 	}
 
 	const compositeEvent = () => {
 		forwardedEvent();
 		showToast = true;
-		setTimeout(() => showToast=false, 2000)
-	}
+		setTimeout(() => (showToast = false), 2000);
+	};
 </script>
 
 <button aria-label="copy code" on:click={compositeEvent} transition:fade>
-{#if showToast}
-copied!
-{:else}
-<img src='/img/copy.svg' alt='copy code'>
-{/if}
+	{#if showToast}
+		copied!
+	{:else}
+		<img src="/img/copy.svg" alt="copy code" />
+	{/if}
 </button>
 
 <style>
@@ -49,4 +49,4 @@ copied!
 		width: 20px;
 		height: 20px;
 	}
-</style>	
+</style>

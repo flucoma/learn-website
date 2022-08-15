@@ -23,7 +23,7 @@
 		font-family: var(--font);
 		margin: 0;
 		min-width: 13ch; /* Number of characters in the word SuperCollider */
-		transition: border-bottom 0.05s linear; 
+		transition: border-bottom 0.05s linear;
 		transition: background-color 0.05s linear;
 	}
 

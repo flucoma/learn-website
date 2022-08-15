@@ -2,8 +2,7 @@
 	import { browser } from '$app/env';
 	import Copy from '$lib/components/Copy.svelte';
 
-
-	export let title = ''
+	export let title = '';
 	export let snippet = false;
 	let block;
 
@@ -14,15 +13,15 @@
 				navigator.clipboard.writeText(c.innerText);
 			});
 		}
-	}
+	};
 </script>
 
 <div bind:this={block} class="container" class:not-snippet={!snippet}>
 	{#if !snippet}
-	<div class="header">{title}</div>
+		<div class="header">{title}</div>
 	{/if}
 	<div class="code">
-		<Copy on:click={copyCode}></Copy>
+		<Copy on:click={copyCode} />
 		<slot />
 	</div>
 </div>
