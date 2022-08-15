@@ -14,6 +14,13 @@
 			download="Alice Eldridge and Chris Kiefer Examples.zip">here</a
 		>.
 	</p>
-
-	{@html note}
+	<p>
+		{@html note}
+	</p>
 </Admonition>
+
+<style>
+	p {
+		margin: 0;
+	}
+</style>

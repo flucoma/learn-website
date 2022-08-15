@@ -8,7 +8,6 @@
 		['danger', 'Danger'],
 		['pointer', 'Pointer']
 	].map(x => lookup.set(x[0], x[1]));
-	console.log(lookup);
 </script>
 
 <div
@@ -37,13 +36,14 @@
 	}
 
 	.text > :global(p) {
-		padding: 0.5em;
+		padding: 1em;
 	}
 
 	.header {
 		background-color: var(--bg-color);
 		font-weight: 800;
 		padding: 0.5em;
+		padding-left: 1em;
 	}
 
 	.note {

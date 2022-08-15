@@ -83,7 +83,7 @@ To begin to answer this question, let’s first look at Bradbury’s primary too
 
 This is exactly what Bradbury has done! The first iteration of this idea is found with his [python-flucoma](https://github.com/jamesb93/python-flucoma) library. With this library, FluCoMa tasks can be performed in a few lines in python, for example, a typical slicing task:
 
-<CodeBlock>
+<CodeBlock title={'Typical slicing task with FTIS'}>
 
 ```python
 from flucoma import fluid
@@ -100,7 +100,7 @@ print(idx)
 
 Or obtain and process descriptor data like this:
 
-<CodeBlock>
+<CodeBlock title={'Process descriptor data with FTIS'}>
 
 ```python
 source = 'path/to/my/source/audio.wav'
