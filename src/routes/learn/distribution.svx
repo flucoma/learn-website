@@ -93,11 +93,11 @@ A categorical distribution describes the possible outcomes when a randomly selec
 Example code to check the distribution of dimensions in a [DataSet](/reference/dataset) using a histogram
 
 <Tabs>
-    <TabList>
-        <Tab>SuperCollider</Tab>
-        <Tab>Max</Tab>
-    </TabList>
-    <TabPanel>
+<TabList>
+<Tab>SuperCollider</Tab>
+<Tab>Max</Tab>
+</TabList>
+<TabPanel>
 <CodeBlock title='SuperCollider examples for checking distribution'>
 
 ```js
@@ -121,10 +121,11 @@ Example code to check the distribution of dimensions in a [DataSet](/reference/d
 ```
 
 </CodeBlock>
+</TabPanel>
 
-    </TabPanel>
-
-    <TabPanel>
-        TODO
-    </TabPanel>
+<TabPanel>
+<p>
+<a href='/learn/distribution/distribution-checking-max.maxpat' download='distribution-checking-max.maxpat'>Checking distribution in Max example</a>
+</p>
+</TabPanel>
 </Tabs>
