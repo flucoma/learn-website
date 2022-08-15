@@ -230,7 +230,7 @@ In the video above, he explains that the idea was more or less to create as many
 
 Pluta will iteratively build up a _corpus of mappings_, iteratively build up his instrument. We have built an example environment in SuperCollider using the cross feedback synth that should allow you to experiment with this same kind of process. This can be done with a digital control surface; however, we suggest finding a physical [HID](https://en.wikipedia.org/wiki/Human_interface_device) – even if it’s just a mouse! We shall discuss how Pluta approaches the selection of his HIDs in the next section.
 
-<CodeBlock title=''Corpus of Mappings'>
+<CodeBlock title='Corpus of Mappings'>
 
 ```js
 //-----------------------------------------------------------------------------
