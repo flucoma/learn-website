@@ -16,8 +16,7 @@
 
 <style>
 	.panel {
-		margin-bottom: 10px;
-		border: 1px solid #dee2e6;
-		border-radius: 0 0 0.5rem 0.5rem;
+		margin-bottom: 1em;
+		border-radius: 0.25rem;
 	}
 </style>
