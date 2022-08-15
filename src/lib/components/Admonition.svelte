@@ -36,13 +36,14 @@
 	}
 
 	.text > :global(p) {
-		padding: 0.5em;
+		padding: 1em;
 	}
 
 	.header {
 		background-color: var(--bg-color);
 		font-weight: 800;
 		padding: 0.5em;
+		padding-left: 1em;
 	}
 
 	.note {
