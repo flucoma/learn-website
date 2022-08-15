@@ -8,7 +8,6 @@
 		['danger', 'Danger'],
 		['pointer', 'Pointer']
 	].map(x => lookup.set(x[0], x[1]));
-	console.log(lookup);
 </script>
 
 <div
