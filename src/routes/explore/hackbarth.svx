@@ -162,7 +162,7 @@ label="Concatenative output."
 - Example 3:
 
 <Audio 
-src="/explore/hackbarth/F6_excerpt.wav"
+src="/explore/hackbarth/F6_excerpt.mp3"
 label="Concatenative synthesis with the piano samples."
 />
 
