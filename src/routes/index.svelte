@@ -151,6 +151,7 @@
 					style="background-image: url({item.feature.featuredimage ||
 						_.sample(learn_random_array[0].feature.images) ||
 						'/general/learn_default.jpeg'});"
+					on:click={() => goto(item.url)}
 				/>
 			</div>
 		{/each}
@@ -184,6 +185,7 @@
 					style="background-image: url({item.feature.featuredimage ||
 						_.sample(learn_random_array[0].feature.images) ||
 						'/general/explore_default.jpeg'});"
+					on:click={() => goto(item.url)}
 				/>
 			</div>
 		{/each}
