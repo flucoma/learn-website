@@ -11,17 +11,17 @@ category: Analyse Sound
 ---
 
 <script>
-    import IndentNote from '$lib/components/IndentNote.svelte';
+    import Admonition from '$lib/components/Admonition.svelte';
     import Image from '$lib/components/Image.svelte';
     import Audio from '$lib/components/Audio.svelte';
     import ResourceLink from '$lib/components/ResourceLink.svelte';
 </script>
 
-<IndentNote type='pointer'>
+<Admonition type='pointer'>
 
 NMFMatch is designed to work with bases taken from a BufNMF analysis. Please visit the [BufNMF Overview](/learn/bufnmf) to learn about bases before proceeding.
 
-</IndentNote>
+</Admonition>
 
 NMFMatch compares the spectrum of an incoming audio signal against a set of spectral templates provided by the user (such as bases from a BufNMF analysis). It continuously outputs values indicating how similar the spectrum of the incoming signal is to each of the provided bases (0 = more dissimilar; higher values = more similar). NMFMatch can be used as the foundation of a classifier to estimate when certain sounds are present.
 

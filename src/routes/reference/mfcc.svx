@@ -10,14 +10,14 @@ category: Analyse Sound
 
 <script>
     import MFCCScrub from '$lib/widget/MFCCScrub.svelte';
-    import IndentNote from '$lib/components/IndentNote.svelte';
+    import Admonition from '$lib/components/Admonition.svelte';
 </script>
 
 MFCC stands for Mel-Frequency Cepstral Coefficients ("cepstral" is pronounced like "kepstral"). This analysis is often used for timbral description and timbral comparison. It compresses the overall spectrum into a smaller number of coefficients that, when taken together, describe the general contour the the spectrum.
    
-The MFCC values are derived by first computing a mel-frequency spectrum, just as in [MelBands](/reference/melbands). ``numCoeffs`` coefficients are then calculated by using that mel-frequency spectrum as input to the discrete cosine transform. This means that the shape of the mel-frequency spectrum is compared to a number of cosine wave shapes (different cosines shapes created from different frequencies). Each MFCC value (i.e., "coefficient") represents how similar the mel-frequency spectrum is to one of these cosine shapes. 
+The MFCC values are derived by first computing a mel-frequency spectrum, just as in [MelBands](/reference/melbands). `numCoeffs` coefficients are then calculated by using that mel-frequency spectrum as input to the discrete cosine transform. This means that the shape of the mel-frequency spectrum is compared to a number of cosine wave shapes (different cosines shapes created from different frequencies). Each MFCC value (i.e., "coefficient") represents how similar the mel-frequency spectrum is to one of these cosine shapes. 
 
-## MFCCs as a form of data compression
+## MFCCs as a Form of Data Compression
 
 In the demo below, use the slider to adjust the number of coefficients (MFCCs) used to represent the spectrum. With more coefficients, the spectrum (orange line) is more accurately represented by the blue line. With fewer coefficients, the blue line looses precision in representing the spectrum, but still reflects the general spectral contour. This demonstrates why using a lower number of coefficients can still provide relevant information about the contour of the spectrum.
 
@@ -25,11 +25,11 @@ Note that the blue line seen on the right is not the actual coefficients of the 
 
 <MFCCScrub />
 
-<IndentNote type="pointer">
+<Admonition type="pointer">
 
-Learn more about how the MFCC values are calculated in an [interactive demonstration](https://learn.flucoma.org/reference/mfcc/explain/).
+Learn more about how the MFCC values are calculated in an <a sveltekit:reload href='https://learn.flucoma.org/reference/mfcc/explain'>interactive demonstration</a>.
 
-</IndentNote>
+</Admonition>
 
 ## MFCC 0
 

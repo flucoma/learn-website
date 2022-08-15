@@ -11,7 +11,7 @@ category: Slicing
 
 <script>
     import ResourceLink from '$lib/components/ResourceLink.svelte';
-    import IndentNote from '$lib/components/IndentNote.svelte';
+    import Admonition from '$lib/components/Admonition.svelte';
     import OnsetSlice from '$lib/widget/OnsetSlice.svelte';
     import Audio from '$lib/components/Audio.svelte';
     import Image from '$lib/components/Image.svelte';

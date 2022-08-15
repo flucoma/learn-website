@@ -1,5 +1,6 @@
 ---
 title: Training and Testing Data
+author: Ted
 blurb: Determine if a neural network is overfit by reserving some testing data
 tags: 
     - mlp

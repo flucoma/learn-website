@@ -17,18 +17,18 @@ featuredimage: /learn/for-featured-images/seeding-nmf.png
 ---
 
 <script>
-    import IndentNote from '$lib/components/IndentNote.svelte';
+    import Admonition from '$lib/components/Admonition.svelte';
     import Image from '$lib/components/Image.svelte';
     import CodeBlock from '$lib/components/CodeBlock.svelte';
     import { Tabs, TabList, TabPanel, Tab } from '$lib/components/tabs/tabs';
     import Audio from '$lib/components/Audio.svelte';
 </script>
 
-<IndentNote type="pointer">
+<Admonition type="pointer">
 
 This overview builds on information found in the [BufNMF Overview](/learn/bufnmf). Please visit that page first to learn more.
 
-</IndentNote>
+</Admonition>
 
 Non-negative matrix factorisation can be "seeded," meaning that it is given some information to begin the decomposition process from. You can provide bases and/or activations that you think will "point the algorithm" in the direction toward what you're hoping it will decompose. Without seeding, NMF activations and bases are both initialised with random values.
 
@@ -57,13 +57,11 @@ These bases have been created manually by calculating each position in the basis
         <Tab>SuperCollider</Tab>
     </TabList>
     <TabPanel>
-
     <a href='/reference/nmffilter/nmffilter-example.maxpat' download='nmffilter-example.maxpat'>Max example code for the sounds heard below</a>
-
     </TabPanel>
     <TabPanel>
     
-<CodeBlock>
+<CodeBlock title='Manually calculated bases in SuperCollider'>
 
 ```
 ~bases = Buffer.loadCollection(s,513.collect{

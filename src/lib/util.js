@@ -64,9 +64,9 @@ export const logslider = (position, imin, imax, omin, omax) => {
 	var scale = (maxv - minv) / (maxp - minp);
 
 	return Math.exp(minv + scale * (position - minp));
-}
+};
 
 export const binToHz = (bin, windowSize, sampleRate) => {
 	const binWidth = sampleRate / windowSize;
 	return bin * binWidth;
-}
+};

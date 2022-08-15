@@ -1,5 +1,5 @@
 ---
-title: NMFCross
+title: BufNMFCross
 blurb: Resynthesis of targets using a source's spectral bases
 tags:
     - decomposition
@@ -12,7 +12,7 @@ category: Transform
 ---
 
 <script>
-    import IndentNote from '$lib/components/IndentNote.svelte';
+    import Admonition from '$lib/components/Admonition.svelte';
     import Image from '$lib/components/Image.svelte';
     import Audio from '$lib/components/Audio.svelte';
     import ResourceLink from '$lib/components/ResourceLink.svelte';
@@ -66,11 +66,11 @@ Additionally, BufNMFCross will avoid repeating a spectral frame within a specifi
 
 Finally, BufNMFCross allows for a spectral frame in the ``target`` to be approximated using more than one spectral frame from the ``source``. This can help more closely approximate the spectral frames in the target, however, using too many ``source`` spectral frames at once can cause phase cancellation or other undesirable artefacts. This functionality can be adjusted using the ``polyphony`` argument, which sets the maximum number of ``source`` spectral frames that can be used at one time.
 
-<IndentNote type="pointer">
+<Admonition type="pointer">
 
 For each spectral frame in the ``target``, every spectral frame of ``source`` is considered as a spectral template to possibly replace it. Because of this thorough checking, longer ``source`` buffers will take dramatically longer to process. For example, doubling the size of the source will quadruple the processing time.
 
-</IndentNote>
+</Admonition>
 
 ## Related Resources
 

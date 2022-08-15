@@ -4,6 +4,9 @@
 
 <style>
 	.tab-list {
-		padding-top: 1em;
+		display: flex;
+		flex-direction: row;
+		gap: 0;
+		box-shadow: 0, 0, rgba(60, 64, 67, 1), 0;
 	}
 </style>
