@@ -1,5 +1,6 @@
 ---
 title: Why Scale? Distance as Similarity
+author: Ted
 blurb: |
     The affects of scaling on measures of similarity
 tags: 

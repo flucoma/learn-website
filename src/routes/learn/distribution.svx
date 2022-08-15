@@ -1,5 +1,6 @@
 ---
 title: Distribution and Histograms
+author: Ted
 blurb: |
     Histograms, distribution functions, and the normal distribution
 tags: 

@@ -1,5 +1,6 @@
 ---
 title: Comparing Scalers
+author: Ted
 blurb: |
     Normalize, Standardize, & RobustScale
 tags: 

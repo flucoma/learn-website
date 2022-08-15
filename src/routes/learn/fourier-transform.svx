@@ -1,5 +1,6 @@
 ---
 title: Fourier Transform
+author: Ted
 blurb: | 
     Commonly used spectral analysis method
 tags: 

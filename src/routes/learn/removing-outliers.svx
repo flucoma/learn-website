@@ -1,5 +1,6 @@
 ---
 title: Removing Outliers with BufStats
+author: Ted
 blurb: |
     Prevent outliers from negatively impacting BufStats' statistical summary.
 tags: 

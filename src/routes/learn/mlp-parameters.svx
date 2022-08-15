@@ -1,5 +1,6 @@
 ---
 title: Neural Network Parameters
+author: Ted
 blurb: A guide on using the parameters of and MLP.
 featuredimage: /learn/mlp/13-5-4-3.txt.png
 tags: 
