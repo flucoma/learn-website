@@ -15,8 +15,11 @@ featuredimage: /learn/comparing-scalers/08_norm_with_2_neighbors.png
 
 <script>
     import Image from '$lib/components/Image.svelte';
+    import Comparison from '$lib/widget/comparing-scalers/Comparison.svelte';
     import { Tabs, TabList, TabPanel, Tab } from '$lib/components/tabs/tabs';
 </script>
+
+<Comparison />
 
 FluCoMa has three scalers for scaling data (in a [DataSet](/reference/dataset) and/or a buffer): [Normalize](/reference/normalize), [Standardize](/reference/standardize), and [RobustScale](/reference/robustscale). Each transform data in different way, but all will position data into a space that could be considered "standard" (here used differently from the "Standardize" object), either ranging 0-1, or centred around 0 with the rest of the values in nearby positive and negative ranges.
 
