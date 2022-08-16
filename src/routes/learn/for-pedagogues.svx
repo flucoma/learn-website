@@ -6,7 +6,7 @@ tags:
     - learn
     - pedagogue
 flair: article
-featuredimage: /learn/mlp/211220_01_synth_control_sc.txt.jpg
+featuredimage: /learn/for-featured-images/berlinteaching.jpeg
 ---
 
 We believe that "providing the tools" is not enough to achieve FluCoMa's mission: _enable techno-fluent musicians to use machine listening and machine learning in their creative practices_. To truly enable these artists we also must provide knowledge and inspiration, all in a way that is learnable for our main user base: computer musicians. Topics in machine learning, computational thinking, and data science are often not included in the training of electronic musicians and therefore our task is to build bridges of understanding from the knowledge of computer music training to a degree of fluency with these topics that enables creative music making. 
