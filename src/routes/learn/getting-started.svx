@@ -1,7 +1,7 @@
 ---
 title: Get Started
 blurb: |
-    Entry points for getting started with FluCoMa 
+    Some suggestions for getting started exploring FluCoMa
 tags:
     - decomposition
     - nmf
