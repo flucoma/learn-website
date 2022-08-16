@@ -10,7 +10,7 @@ tags:
     - standard deviation
     - percentile
 flair: tutorial
-featuredimage: /learn/comparing-scalers/08_norm_with_2_neighbors.png
+featuredimage: /learn/comparing-scalers/08_norm-with-2-neighbors.png
 ---
 
 <script>
