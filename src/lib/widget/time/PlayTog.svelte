@@ -1,31 +1,54 @@
 <script>
-	import { onMount } from 'svelte';
-	import * as Paper from 'paper';
+	import { createEventDispatcher } from 'svelte';
 
-	let canvas; // canvas for paper
-	let mode = 0; // 0 for paused, 1 for playing
-	let triangle;
+	export let playing = false;
+	
+	const dispatch = createEventDispatcher();
 
-	onMount(async() => {
-		Paper.setup(canvas);
-		triangle = new Paper.Path.RegularPolygon(new Paper.Point(canvas.width*0.5, canvas.height*0.5), 3, 30);
-		triangle.rotate(-30)
-		triangle.fillColor = 'black';
-	})
+	function clickHandler() {
+		playing=!playing;
+		if (playing) {
+			fwdPlay()
+		} else {
+			fwdStop()
+		}
+	}
+
+	function fwdPlay() {
+		dispatch('play')
+	}
+	
+	function fwdStop() {
+		dispatch('stop')
+	}
+
+	$: points = playing ? '10 10, 10 40, 40 40, 40 10' : '10 10, 42.5 25, 10 40'
 </script>
 
-<canvas id='canvas' bind:this={canvas} on:click={
-	() => {
-		// swap mode
-		triangle = new Paper.Rectangle(new Paper.Point(canvas.width*0.5, canvas.width*0.5))
-		Paper.view.update();
-	}
-}></canvas>
+<svg width=50 height=50 on:click={ clickHandler }>
+	<circle cx=25 cy=25 r=25></circle>
+	<polygon points={points}></polygon>
+</svg>
 
 <style>
-	#canvas {
-		width: 100px;
-		height: 100px;
-		padding: 8px;
+	svg {
+		-webkit-user-select: none;
+		-moz-user-select: none;
+		-ms-user-select: none;
+		-o-user-select: none;
+		user-select: none;
+		background-color: white;
+	}
+
+	svg:active > polygon {
+		fill: white;
+	}
+
+	svg:active > circle {
+		fill: rgb(150, 150, 150);
+	}
+
+	circle {
+		fill: rgb(218, 218, 218);
 	}
 </style>
