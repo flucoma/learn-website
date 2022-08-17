@@ -23,8 +23,8 @@
 	}
 
 	$: points = playing ? 
-		'10 10, 10 40, 40 40, 40 10' : 
-		'10 10, 42.5 25, 10 40';
+		'15 15, 15 35, 35 35, 35 15' : 
+		'15 15, 35 25, 15 35';
 </script>
 
 <svg width=50 height=50 on:click={ clickHandler }>
