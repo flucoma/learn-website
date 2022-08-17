@@ -2,6 +2,7 @@
 	import * as Meyda from 'meyda';
 	import { Chart, registerables } from 'chart.js';
 	import { onMount } from 'svelte';
+	import { colors } from '$lib/colors';
 	import PlayTog from './PlayTog.svelte';
 	import Audio from '$lib/components/Audio.svelte';
 	
@@ -14,21 +15,6 @@
 	let chart;
 	let smoothing = 0;
 	let feature = new Array(13).fill(0).map(x => Math.random());
-	const colors = [
-		[230, 25, 75],
-		[60, 180, 75],
-		[255, 225, 25],
-		[0, 130, 200],
-		[245, 130, 48],
-		[70, 240, 240],
-		[240, 50, 230],
-		[250, 190, 212],
-		[0, 128, 128],
-		[220, 190, 255],
-		[170, 110, 40],
-		[255, 250, 200],
-		[128, 0, 0],
-	];
 
 	const audioSpec = {
 		src: '/audio/oboe-m.mp3',  
@@ -71,10 +57,6 @@
 						display: true,
 						min: -50,
 						max: 50,
-						title: {
-							display: true,
-							text: 'Amplitude (dB)'
-						}
 					}
 				}
 			}
