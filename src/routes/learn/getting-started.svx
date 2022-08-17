@@ -1,5 +1,6 @@
 ---
 title: Get Started
+layout: contentwide
 blurb: |
     Some suggestions for getting started exploring FluCoMa
 tags:
@@ -15,6 +16,7 @@ featuredimage: /learn/for-featured-images/getting-started-01.jpg
 
 <script>
     import CodeBlock from '$lib/components/CodeBlock.svelte';
+    import VideoGallery from '$lib/components/getting-started/VideoGallery.svelte';
     import { Tabs, TabList, TabPanel, Tab } from '$lib/components/tabs/tabs';
 </script>
 
@@ -22,9 +24,7 @@ featuredimage: /learn/for-featured-images/getting-started-01.jpg
 
 A quick and recommended start is to follow these introductory YouTube tutorials (first [install](/installation)!):
 
-* **[Train a neural network to classify sound based on timbre](/learn/regression-neural-network)**
-* **[Train a neural network to control a synthesizer](/learn/classification-neural-network)**
-* **[Code a 2 dimensional sound sample explorer](/learn/2d-corpus-explorer)**
+<VideoGallery />
 
 ## Have something more specific in mind? 
 
