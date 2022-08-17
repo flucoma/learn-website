@@ -7,6 +7,7 @@ A component that plays back filtered noise, while showing how a curve can be dra
 	import { onMount } from 'svelte';
 	import * as Tone from 'tone';
 	import Two from 'two.js';
+	import PlayTog from './PlayTog.svelte';
 
 	let container;
 	let ampProbe, pitchProbe; // a probe to extract LFO values
@@ -14,8 +15,12 @@ A component that plays back filtered noise, while showing how a curve can be dra
 	let ampProbeReading = new Array(90).fill(0.5); // the value the probe reads
 	let pitchCurve, ampCurve;
 	let two;
+	let lfo, src, env;
 
-	onMount(() => {
+	let playing = false;
+	let everPlayed = false;
+
+	onMount(async() => {
 		two = new Two({
 			type: Two.Types.svg,
 			autostart: true,
@@ -32,7 +37,6 @@ A component that plays back filtered noise, while showing how a curve can be dra
 			const y = two.height * v;
 			return new Two.Anchor(x, y);
 		})
-
 		
 		pitchCurve = two.makePath(pitchPoints, false, true);
 		pitchCurve.linewidth = 5;
@@ -47,36 +51,49 @@ A component that plays back filtered noise, while showing how a curve can be dra
 		two.add(pitchCurve);
 		two.add(ampCurve);
 		two.fit();
+		ampProbe = new Tone.DCMeter()
+		pitchProbe = new Tone.DCMeter()
+		const mult = new Tone.Multiply().toDestination() // a gain node to modify the volume
+		env = new Tone.LFO(0.3, 0, 1).fan(mult.factor, ampProbe); // an LFO to modulate the sound source
+		src = new Tone.Oscillator(300, 'sine').connect(mult); // a sound source
+		lfo = new Tone.LFO(2, 150, 300).fan(src.frequency, pitchProbe); // an LFO to modulate the sound source
 	})
 
 	const start = async() => {
 		await Tone.start();
 		
-		ampProbe = new Tone.DCMeter()
-		pitchProbe = new Tone.DCMeter()
-		const mult = new Tone.Multiply().toDestination() // a gain node to modify the volume
-		const env = new Tone.LFO(0.3, 0, 1).fan(mult.factor, ampProbe); // an LFO to modulate the sound source
-		const src = new Tone.Oscillator(300, 'sine').connect(mult); // a sound source
-		const lfo = new Tone.LFO(2, 150, 300).fan(src.frequency, pitchProbe); // an LFO to modulate the sound source
+	}
 
-		lfo.start(); env.start(); src.start();
+	const play = async() => {
+		if (!everPlayed) {
+			two.bind('update', () => {
+				const pitch = (pitchProbe.getValue() - 150) / 150;
+				const amp = ampProbe.getValue();
+				pitchProbeReading.push(pitch); pitchProbeReading.shift();
+				ampProbeReading.push(amp); ampProbeReading.shift();
+				pitchProbeReading.forEach((x, i) => {
+					pitchCurve.vertices[i].y = (1-x) * two.height - (two.height * 0.5);
+				})
+				ampProbeReading.forEach((x, i) => {
+					ampCurve.vertices[i].y = (1-x) * two.height - (two.height * 0.5);
+				})
+			})
+			await Tone.start();
+		}
+		await lfo.start(0.1); 
+		await env.start(0.1); 
+		await src.start(0.1);
+		everPlayed = false;
+	}
 
-		two.bind('update', () => {
-			const pitch = (pitchProbe.getValue() - 150) / 150;
-			const amp = ampProbe.getValue();
-			pitchProbeReading.push(pitch); pitchProbeReading.shift();
-			ampProbeReading.push(amp); ampProbeReading.shift();
-			pitchProbeReading.forEach((x, i) => {
-				pitchCurve.vertices[i].y = (1-x) * two.height - (two.height * 0.5);
-			})
-			ampProbeReading.forEach((x, i) => {
-				ampCurve.vertices[i].y = (1-x) * two.height - (two.height * 0.5);
-			})
-		})
+	const stop = async() => {
+		await lfo.stop(0.1); 
+		await env.stop(0.1); 
+		await src.stop(0.1);
 	}
 </script>
 
-<button on:click={start}>start</button>
+<PlayTog bind:playing={playing} on:play={play} on:stop={stop} />
 <div class="container" bind:this={container}>
 </div>
 

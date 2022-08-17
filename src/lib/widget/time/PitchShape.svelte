@@ -5,9 +5,9 @@
 
 <script>
 	import { onMount } from 'svelte';
-	import PlayTog from './PlayTog.svelte';
 	import * as Tone from 'tone';
 	import Two from 'two.js';
+	import PlayTog from './PlayTog.svelte';
 	
 	let container;
 	let probe; // a probe to extract LFO values
@@ -51,7 +51,6 @@
 				})
 			})
 			await Tone.start();
-			
 		}
 		
 		await lfo.start(0.1); 

@@ -22,7 +22,9 @@
 		dispatch('stop')
 	}
 
-	$: points = playing ? '10 10, 10 40, 40 40, 40 10' : '10 10, 42.5 25, 10 40'
+	$: points = playing ? 
+		'10 10, 10 40, 40 40, 40 10' : 
+		'10 10, 42.5 25, 10 40';
 </script>
 
 <svg width=50 height=50 on:click={ clickHandler }>

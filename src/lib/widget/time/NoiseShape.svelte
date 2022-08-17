@@ -7,12 +7,16 @@ A component that plays back filtered noise, while showing how a curve can be dra
 	import { onMount } from 'svelte';
 	import * as Tone from 'tone';
 	import Two from 'two.js';
+	import PlayTog from './PlayTog.svelte';
 
 	let container;
 	let probe; // a probe to extract LFO values
 	let probeReading = new Array(90).fill(0.5); // the value the probe reads
-	let two;
-	let curve;
+	let two, curve;
+	let src, lfo;
+
+	let playing = false;
+	let everPlayed = false;
 
 	onMount(async() => {
 		two = new Two({
@@ -31,31 +35,39 @@ A component that plays back filtered noise, while showing how a curve can be dra
 		curve.noFill();
 		curve.stroke = 'rgb(34, 140, 34)';
 		two.add(curve);
-		two.fit()
-	})
+		two.fit();
 
-	const start = async() => {
-		console.log(two.height)
-		await Tone.start();
-		// Tone nodes
 		probe = new Tone.DCMeter() // extract the value of the lfo
 		const mult = new Tone.Multiply().toDestination() // a gain node to modify the volume
-		const lfo = new Tone.LFO(0.30, 0, 1).fan(mult.factor, probe); // an LFO to modulate the sound source
-		const src = new Tone.Noise('pink').connect(mult); // a sound source
-		
-		lfo.start(); src.start();
+		lfo = new Tone.LFO(0.30, 0, 1).fan(mult.factor, probe); // an LFO to modulate the sound source
+		src = new Tone.Noise('pink').connect(mult); // a sound source
+	})
 
-		two.bind('update', () => {
-			const val = probe.getValue();
-			probeReading.push(val); probeReading.shift();
-			probeReading.forEach((x, i) => {
-				curve.vertices[i].y = (1-x) * two.height - (two.height * 0.5);
+	const play = async() => {
+		if (!everPlayed) {
+			two.bind('update', () => {
+				const val = probe.getValue();
+				probeReading.push(val); probeReading.shift();
+				probeReading.forEach((x, i) => {
+					curve.vertices[i].y = (1-x) * two.height - (two.height * 0.5);
+				})
 			})
-		})
+			await Tone.start();
+			
+		}
+		await lfo.start(0.1); 
+		await src.start(0.1);
+		everPlayed = true;
+	}
+
+	const stop = async() => {
+		await lfo.stop(0.1);
+		await src.stop(0.1);
+
 	}
 </script>
 
-<button on:click={start}>start</button>
+<PlayTog bind:playing={playing} on:play={play} on:stop={stop} />
 <div class="container" bind:this={container}>
 </div>
 
