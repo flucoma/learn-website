@@ -7,12 +7,12 @@
     <h2 style="text-align: center;">First Steps...</h2>
 
     <p style="text-align: center;">
-        A quick and recommended start is to follow these introductory YouTube tutorials (after having <a href="/installation">installed</a> the toolkit of course!).
+        A quick and recommended start is to follow these introductory YouTube tutorials <br>(after having <a href="/installation">installed</a> the toolkit of course!).
     </p>
 
     <div class="first_tutorial">
 
-        <h3 style="grid-area: ft_title;" class="ft_title">Train a neural network to classify sound based on timbre. <a href="/learn/classification-neural-network" class="ft_link">[article]</a></h3>
+        <h3 style="grid-area: ft_title;" class="ft_title">Train a neural network to classify sound based on timbre. <a href="/learn/classification-neural-network" class="ft_link">article</a></h3>
 
         <iframe
             title=""
@@ -45,7 +45,7 @@
 
     <div class="first_tutorial">
 
-        <h3 style="grid-area: ft_title;" class="ft_title">Train a neural network to control a synthesizer. <a href="/learn/regression-neural-network" class="ft_link">[article]</a></h3>
+        <h3 style="grid-area: ft_title;" class="ft_title">Train a neural network to control a synthesizer. <a href="/learn/regression-neural-network" class="ft_link">article</a></h3>
 
         <iframe
             title=""
@@ -78,7 +78,7 @@
 
     <div class="first_tutorial">
 
-        <h3 style="grid-area: ft_title;" class="ft_title">Code a 2 dimensional sound sample explorer. <a href="/learn/2d-corpus-explorer" class="ft_link">[article]</a></h3>
+        <h3 style="grid-area: ft_title;" class="ft_title">Code a 2 dimensional sound sample explorer. <a href="/learn/2d-corpus-explorer" class="ft_link">article</a></h3>
 
         <iframe
             title=""
@@ -120,6 +120,7 @@
 
     .ft_title{
         text-align: center;
+        padding: 0.2em;
     }
 
     .first_tutorial{
@@ -138,14 +139,17 @@
     }
 
     .ft_link{
-        background-color: blue;
+        padding-left: 0.5em;
+        padding-right: 0.5em;
+        border-radius: 5px;
+        background-color: var(--article-flair);
         color: white;
         text-decoration: none;
     }
 
     .ft_link:hover{
         background-color: grey;
-        color: blue;
+        color: var(--article-flair);
         text-decoration: none;
     }
 
