@@ -20,10 +20,6 @@ featuredimage: /learn/for-featured-images/getting-started-01.jpg
     import { Tabs, TabList, TabPanel, Tab } from '$lib/components/tabs/tabs';
 </script>
 
-## First Steps
-
-A quick and recommended start is to follow these introductory YouTube tutorials (first [install](/installation)!):
-
 <VideoGallery />
 
 ## Have something more specific in mind? 

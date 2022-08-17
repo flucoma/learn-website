@@ -4,9 +4,15 @@
 
 <div class="container">
 
+    <h2 style="text-align: center;">First Steps</h2>
+
+    <p style="text-align: center;">
+        A quick and recommended start is to follow these introductory YouTube tutorials (after having <a href="/installation">installed</a> the software of course!).
+    </p>
+
     <div class="first_tutorial">
 
-        <h3 style="grid-area: ft_title;">Train a neural network to classify sound based on timbre. <a href="/learn/classification-neural-network" class="ft_link">[article]</a></h3>
+        <h3 style="grid-area: ft_title;" class="ft_title">Train a neural network to classify sound based on timbre. <a href="/learn/classification-neural-network" class="ft_link">[article]</a></h3>
 
         <iframe
             title=""
@@ -38,7 +44,7 @@
 
     <div class="first_tutorial">
 
-        <h3 style="grid-area: ft_title;">Train a neural network to control a synthesizer. <a href="/learn/regression-neural-network" class="ft_link">[article]</a></h3>
+        <h3 style="grid-area: ft_title;" class="ft_title">Train a neural network to control a synthesizer. <a href="/learn/regression-neural-network" class="ft_link">[article]</a></h3>
 
         <iframe
             title=""
@@ -70,7 +76,7 @@
 
     <div class="first_tutorial">
 
-        <h3 style="grid-area: ft_title;">Code a 2 dimensional sound sample explorer. <a href="/learn/2d-corpus-explorer" class="ft_link">[article]</a></h3>
+        <h3 style="grid-area: ft_title;" class="ft_title">Code a 2 dimensional sound sample explorer. <a href="/learn/2d-corpus-explorer" class="ft_link">[article]</a></h3>
 
         <iframe
             title=""
@@ -105,8 +111,12 @@
 <style>
 
     .container{
-        width: 75%;
+        width: 90%;
         margin: auto;
+    }
+
+    .ft_title{
+        text-align: center;
     }
 
     .first_tutorial{
@@ -138,6 +148,34 @@
 
     .ft_desc{
         padding-top: 0.5em;
+        text-align: center;
     }
+
+    @media (min-width: 1200px) {
+        .first_tutorial{
+            grid-template-areas: 
+                'ft_title ft_title'
+                'ft_vid1 ft_vid2'
+                'ft_desc ft_desc';
+        }
+
+        .ft_vid{
+
+        }
+	}
+
+	@media (max-width: 1200px) {
+        .first_tutorial{
+            grid-template-areas: 
+                'ft_title'
+                'ft_vid1'
+                'ft_vid2'
+                'ft_desc';
+        }
+
+        .ft_vid{
+
+        }
+	}
 
 </style>
