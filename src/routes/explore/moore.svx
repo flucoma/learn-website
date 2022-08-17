@@ -18,7 +18,7 @@ author: Jacob
     import Image from '$lib/components/Image.svelte';
     import YouTube from '$lib/components/YouTube.svelte';
     import ArtistCard from '$lib/components/mwf/ArtistCard.svelte';
-    import IndentNote from '$lib/components/IndentNote.svelte';
+    import Admonition from '$lib/components/Admonition.svelte';
     import YouTubeChapters from '$lib/components/YouTubeChapters.svelte';
     import BandCamp from '$lib/components/BandCamp.svelte';
     import Audio from '$lib/components/Audio.svelte';
@@ -38,11 +38,11 @@ Ted Moore is a composer, improviser, intermedia artist, and educator. He holds a
 
 ## Introduction
 
-<IndentNote type='pointer'>
+<Admonition type='pointer'>
 
 Download the demonstration scripts for this article <a href='/explore/moore/Ted Moore Examples.zip' download='Ted Moore Examples.zip'>here</a>.
 
-</IndentNote>
+</Admonition>
 
 Today we’ll be taking a look at some of Ted Moore’s creative work, notably with an in-depth look at his piece *quartet*. Moore joined the FluCoMa project in 2021 as a Research Fellow, and has a long history of using technology and machine learning in his practice. The piece features performances from members of the [Switch~ Ensemble](https://www.switchensemble.com/): [Megan Arns](http://www.meganarns.com/) on Percussion, [T.J. Borden](https://tylerjborden.com/) on Cello, [Zach Sheets](https://www.zachsheetsmusic.com/) on Flute and [Wei-Han Wu](https://www.switchensemble.com/about/ensemble/wei-han-wu.html) on Piano. The piece makes use of a number of FluCoMa workflows that we shall explore below, and notably presents several approaches to the idea of *translation* in corpus manipulation. As with all the "[Explore](/explore)" articles, there is a series of demonstration scripts that can be <a href='/explore/moore/Ted Moore Examples.zip' download='Ted Moore Examples.zip'>downloaded</a> and interacted with if you wish to explore the inner workings of the software.
 
