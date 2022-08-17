@@ -13,17 +13,17 @@ category: Transform
 ---
 
 <script>
-    import IndentNote from '$lib/components/IndentNote.svelte';
+    import Admonition from '$lib/components/Admonition.svelte';
     import Image from '$lib/components/Image.svelte';
     import Audio from '$lib/components/Audio.svelte';
     import { Tabs, TabList, TabPanel, Tab } from '$lib/components/tabs/tabs';
 </script>
 
-<IndentNote type='pointer'>
+<Admonition type='pointer'>
 
 NMFFilter is designed to work with bases taken from a [BufNMF](/learn/bufnmf) analysis. Please visit the [BufNMF](/learn/bufnmf) page to learn about bases before proceeding.
 
-</IndentNote>
+</Admonition>
 
 NMFFilter splits an incoming audio signal into different audio streams based on a set of spectral templates provided by the user (such as bases from a [BufNMF](/learn/bufnmf) analysis). It does this by performing non-negative matrix factorisation on a single spectral frame using the provided bases as seeds. Learn more about the seeding process in the [Seeding NMF Overview](/learn/seeding-nmf).
 

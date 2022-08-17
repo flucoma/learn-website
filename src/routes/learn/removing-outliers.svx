@@ -1,5 +1,6 @@
 ---
 title: Removing Outliers with BufStats
+author: Ted
 blurb: |
     Prevent outliers from negatively impacting BufStats' statistical summary.
 tags: 
@@ -13,7 +14,7 @@ featuredimage: /learn/outliers/removing_outliers.jpg
 ---
 
 <script>
-    import IndentNote from '$lib/components/IndentNote.svelte';
+    import Admonition from '$lib/components/Admonition.svelte';
     
     import tables from '$lib/data/reference/bufstats/bufstats.json';
     
@@ -27,11 +28,11 @@ featuredimage: /learn/outliers/removing_outliers.jpg
     let stats_headers = ["Mean","Std Dev","Skewness","Kurtosis","Low","Middle","High"];
 </script>
 
-<IndentNote type='pointer'>
+<Admonition type='pointer'>
 
 For a consideration of what might constitute an outlier and more ideas about how to manage them, visit the page on [Outliers](/learn/outliers)
 
-</IndentNote>
+</Admonition>
 
 BufStats can find and remove outliers by using an analysis of the data to set boundaries for each channel in the buffer. Any frames that have a value outside the its channel's boundaries will not be used to compute the statistics. The strictness of these boundaries is determined by `outliersCutoff` (see below for how this parameter is used). Removing these outliers before computing the statistics will prevent them from affecting the statistical summary so the output of BufStats is a better representation of the majority of the data.
 

@@ -14,15 +14,15 @@ featuredimage: /examples/batch/add.png
 <script>
     import CodeBlock from '$lib/components/CodeBlock.svelte';
     import Image from '$lib/components/Image.svelte';
-    import IndentNote from '$lib/components/IndentNote.svelte';
+    import Admonition from '$lib/components/Admonition.svelte';
     import { Tabs, TabList, TabPanel, Tab } from '$lib/components/tabs/tabs';
 </script>
 
-<IndentNote type='warn'>
+<Admonition type='warn'>
 
 If you want to go straight to the code examples, they can be found under [Batch Processing Code Examples](#batch-processing-code-examples).
 
-</IndentNote>
+</Admonition>
 
 ## Introduction
 When working with machine learning and machine listening, we often need to process and work on collections of sounds, slices or analyses together or as _batches_. "Batch processing" is actually quite familiar to musicians although it is often not referred to by the same name. An example would be if you have ever normalised a bundle of audio files, or if you have ever rendered a multi-track session in the DAW. In any of these cases, the computer works on a collection of things together. When we learn how to manage and program batch processes, it can be a powerful tool for manipulating large corpora and for working with collections of musical resources.
@@ -79,9 +79,9 @@ The step-by-step workflow is as follows:
 
 <TabPanel> <!-- Pure Data -->
 <a href='/examples/batch/batch-decomposition.pd' download>Download PureData Patch</a>
-<IndentNote type='danger'>
+<Admonition type='danger'>
 <p>This requires PureData version 0.52-1 or greater because it uses the <code>file</code> object.</p>
-</IndentNote>
+</Admonition>
 </TabPanel> 
 
 <TabPanel> <!-- SC -->
@@ -92,7 +92,7 @@ The step-by-step workflow is as follows:
 
 Using `find` and `xargs` limiting to one folder deep. Assumes you are `cd` in a directory of WAV audio files.
 
-<CodeBlock>
+<CodeBlock title='Batch processing with the command line'>
 
 ```
 find . -name "*.wav" -print0 -maxdepth 2 | xargs -0 -I src fluid-hpss -source src -harmonic src-h.wav -percussive src-p.wav
@@ -102,7 +102,7 @@ find . -name "*.wav" -print0 -maxdepth 2 | xargs -0 -I src fluid-hpss -source sr
 
 Using [`fd`](https://github.com/sharkdp/fd) limiting to one folder deep. Assumes you are `cd` in a directory of WAV audio files.
 
-<CodeBlock>
+<CodeBlock title='Batch processing with fd'>
 
 ```
 mkdir -p output && fd -e wav -d 1 -x fluid-hpss -source {} -harmonic output/{/.}-h.wav -percussive output/{/.}-p.wav
@@ -139,9 +139,9 @@ The step-by-step workflow is as follows:
 <div class='links'>
     <a href='/examples/batch/batch-slicing-threads.pd' download>Download Non-blocking Segment Analysis PureData Patch </a>
     <a href='/examples/batch/batch-decomposition-threads.pd' download>Download Non-blocking Decomposition PureData Patch</a>
-    <IndentNote type='danger'>
+    <Admonition type='danger'>
     <p>The Non-blocking decomposition patch requires PureData version 0.52-1 or greater because it uses the <code>file</code> object.</p>
-    </IndentNote>
+    </Admonition>
 </div>
 </TabPanel> 
 
@@ -183,7 +183,7 @@ alt='Using vexpr to add two lists together'
 
 The complexity of the patching hasn't increased greatly, and by replacing `+` with `vexpr` (vector expression), we can process entire lists of values. The patch will also still work with single value inputs (scalars) making it much more flexible than what we had originally. While the patching itself is not too complicated, knowing about the existence of these objects and how they work is not greatly emphasised in the way visual programming is taught wich is often concerned entirely with _streams_ of scalar values. Furthermore, while this is just a toy example, it demonstrates that the notion of processing groups of things together is not the **first** and **most obvious** way to patch. Conversely, SuperCollider has the language (sclang) which offers built-in methods for dealing with arrays of data. Most operators are also _overloaded_, meaning the interface for adding two integers is roughly the same as adding two arrays of integers. For example:
 
-<CodeBlock>
+<CodeBlock title='Operator overloading'>
 
 ```js
 (

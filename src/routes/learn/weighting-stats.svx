@@ -1,5 +1,6 @@
 ---
 title: Weighting Stats
+author: Ted
 blurb: |
     Apply weights to BufStats
 tags: 

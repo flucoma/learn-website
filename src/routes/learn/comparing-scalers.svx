@@ -1,5 +1,6 @@
 ---
 title: Comparing Scalers
+author: Ted
 blurb: |
     Normalize, Standardize, & RobustScale
 tags: 
@@ -9,7 +10,7 @@ tags:
     - standard deviation
     - percentile
 flair: tutorial
-featuredimage: /learn/comparing-scalers/08_norm with 2 neighbors.png
+featuredimage: /learn/comparing-scalers/08_norm-with-2-neighbors.png
 ---
 
 <script>
@@ -75,7 +76,7 @@ Differences such as these can have meaningful impacts on the musical results. Ch
     </TabPanel>
     <TabPanel>
       <Image
-      src="/learn/comparing-scalers/08_norm with 2 neighbors.png"
+      src="/learn/comparing-scalers/08_norm_with_2_neighbors.png"
       label="In the normalized data set, the nearest neighbour to point-27 is not point-21, but instead is point-13."
       />
     </TabPanel>
