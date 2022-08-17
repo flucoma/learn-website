@@ -28,7 +28,7 @@ To start with an approachable and tractable technique I'll introduce the notion 
 
 <Smoothing />
 
-Why is this useful? Well, smoothing can often render a straightforward improvement when we encounter noisy data. For example, imagine a context where you want to analyse timbre of a sound, such as in the [classification tutorial](/learn/classification-neural-network).  
+Why is this useful? Well, smoothing can often render a straightforward improvement when we encounter data that is noisy or otherwise "erratic". For example, imagine a scenario where we want to analyse the timbre of a sound, a situation we can even see in the [classification tutorial](/learn/classification-neural-network). You would send some sound into the [MFCC](/reference/mfcc) object, and then snapshot the data at different moments, storing that snapshot in a [DataSet](/reference/dataset) to be used later perhaps for classification, distance-based querying or some other process that requires a collection of data. However, MFCC data is produced _every spectral frame_. With the default FFT setings in the toolkit and at 44100 Hz sample rate this is around every 11ms. We are probably more interested in making our snapshots based on a window of time that is larger than that in order to get a sense of the _general_ shape of the MFCC around a given window of time, rather than a relatively instantaneous moment.
 
 <MFCCSmooth />
 
