@@ -4,10 +4,10 @@
 
 <div class="container">
 
-    <h2 style="text-align: center;">First Steps</h2>
+    <h2 style="text-align: center;">First Steps...</h2>
 
     <p style="text-align: center;">
-        A quick and recommended start is to follow these introductory YouTube tutorials (after having <a href="/installation">installed</a> the software of course!).
+        A quick and recommended start is to follow these introductory YouTube tutorials (after having <a href="/installation">installed</a> the toolkit of course!).
     </p>
 
     <div class="first_tutorial">
@@ -16,24 +16,25 @@
 
         <iframe
             title=""
-            width="100%"
+            width="90%"
 			height="200px"
             src={`https://www.youtube.com/embed/cjk9oHw7PQg`}
             frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen
-            style="grid-area: ft_vid1;"
+            style="grid-area: ft_vid1; margin: auto;"
+            class="ft_vid"
         />
 
         <iframe
             title=""
-            width="100%"
+            width="90%"
 			height="200px"
             src={`https://www.youtube.com/embed/Y1cHmtbQPSk`}
             frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen
-            style="grid-area: ft_vid2;"
+            style="grid-area: ft_vid2; margin: auto;"
             class="ft_vid"
         />
 
@@ -48,24 +49,25 @@
 
         <iframe
             title=""
-            width="100%"
+            width="90%"
 			height="200px"
             src={`https://www.youtube.com/embed/XfNZzQPdPG0`}
             frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen
-            style="grid-area: ft_vid1;"
+            style="grid-area: ft_vid1; margin: auto;"
+            class="ft_vid"
         />
 
         <iframe
             title=""
-            width="100%"
+            width="90%"
 			height="200px"
             src={`https://www.youtube.com/embed/mxmMBvi3Cb0`}
             frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen
-            style="grid-area: ft_vid2;"
+            style="grid-area: ft_vid2; margin: auto;"
             class="ft_vid"
         />
 
@@ -80,24 +82,25 @@
 
         <iframe
             title=""
-            width="100%"
+            width="90%"
 			height="200px"
             src={`https://www.youtube.com/embed/9yoAGbs2eJ8`}
             frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen
-            style="grid-area: ft_vid1;"
+            style="grid-area: ft_vid1; margin: auto;"
+            class="ft_vid"
         />
 
         <iframe
             title=""
-            width="100%"
+            width="90%"
 			height="200px"
             src={`https://www.youtube.com/embed/4dsX5uRips8`}
             frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen
-            style="grid-area: ft_vid2;"
+            style="grid-area: ft_vid2; margin: auto;"
             class="ft_vid"
         />
 
@@ -160,7 +163,9 @@
         }
 
         .ft_vid{
-
+            padding-left: 1em;
+            padding-right: 1em;
+            padding-top: 0em;
         }
 	}
 
@@ -174,7 +179,9 @@
         }
 
         .ft_vid{
-
+            padding-left: 1em;
+            padding-right: 1em;
+            padding-top: 1em;
         }
 	}
 
