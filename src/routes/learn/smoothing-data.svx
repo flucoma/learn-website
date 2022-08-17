@@ -15,7 +15,7 @@ featuredimage: /learn/for-featured-images/2D-corpus-explorer.png
 
 <script>
     import Smoothing from '$lib/widget/time/Smoothing.svelte';
-
+    import MFCCSmooth from '$lib/widget/time/MFCCSmooth.svelte';
 </script>
 
 ## The Shape of Data
@@ -28,7 +28,11 @@ To start with an approachable and tractable technique I'll introduce the notion 
 
 <Smoothing />
 
+Why is this useful? Well, smoothing can often render a straightforward improvement when we encounter noisy data. For example, imagine a context where you want to analyse timbre of a sound, such as in the [classification tutorial](/learn/classification-neural-network).  
+
 You can perform a moving average using [Stats](/reference/stats) in your creative-coding environment of choice. Below is a set of example patches and scripts that demonstrate a fairly high-level but audible obvious example of how smoothing not only alters the _shape_ of the data, but effects something _musical_.
+
+## Resolution
 
 ## Multiple Smoothing Windows
 
