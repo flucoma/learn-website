@@ -10,8 +10,10 @@
 	export let src = '';
 	export let label = '';
 	export let waveform = false;
+	export let audio;
+	export let loop = false;
 
-	let Peaks, instance, audio, ctx;
+	let Peaks, instance, ctx;
 	let overview;
 
 	onMount(async () => {
@@ -52,7 +54,7 @@
 	{/if}
 
 	<div class="audio">
-		<audio controls bind:this={audio}>
+		<audio controls bind:this={audio} loop={loop} on:play on:pause>
 			<source {src} type="audio/mp3" />
 			Your browser does not support the audio tag.
 		</audio>
