@@ -54,11 +54,10 @@
 					"fontname" : "Lato",
 					"fontsize" : 18.0,
 					"id" : "obj-18",
-					"linecount" : 2,
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 705.0, 432.0, 131.0, 50.0 ],
+					"patching_rect" : [ 627.0, 432.0, 209.0, 28.0 ],
 					"presentation_linecount" : 2,
 					"text" : "Smoothed Data Snapshot",
 					"textcolor" : [ 0.898039215686275, 0.898039215686275, 0.898039215686275, 1.0 ],
@@ -71,11 +70,10 @@
 					"fontname" : "Lato",
 					"fontsize" : 18.0,
 					"id" : "obj-19",
-					"linecount" : 2,
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 307.0, 432.0, 85.0, 50.0 ],
+					"patching_rect" : [ 230.0, 432.0, 162.0, 28.0 ],
 					"presentation_linecount" : 2,
 					"text" : "Raw Data Snapshot",
 					"textcolor" : [ 0.898039215686275, 0.898039215686275, 0.898039215686275, 1.0 ]
@@ -283,8 +281,8 @@
 					"numinlets" : 2,
 					"numoutlets" : 2,
 					"outlettype" : [ "signal", "bang" ],
-					"patching_rect" : [ 19.0, 62.0, 373.0, 22.0 ],
-					"text" : "sfplay~ @audiofile Harker-DS-TenOboeMultiphonics-M.wav @loop 1"
+					"patching_rect" : [ 19.0, 62.0, 263.0, 22.0 ],
+					"text" : "sfplay~ @audiofile Nicol-LoopE-M.wav @loop 1"
 				}
 
 			}
