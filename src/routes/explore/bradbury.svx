@@ -1,5 +1,5 @@
 ---
-title: Where to Start?
+title: Blank Slate Confrontation
 artist: James Bradbury
 blurb: |
     In this article we take a look at James Bradbury’s creative work and his bespoke way of using the FluCoMa command line tools within his own Python environment and Reaper.
