@@ -21,14 +21,27 @@ featuredimage: /learn/for-featured-images/2D-corpus-explorer.png
         waveform: true,
         label: 'Scratchy Modular Synth Sound'
     }
+
+    const pitch1 = {
+        src: '/learn/refining-pitch-analysis/2797.mp3',
+        waveform: true,
+    }
 </script>
 
 ## Anomolous Data and Statistics
-This article is based on understanding and using statistical analysis in order to interpret descriptor data in a musical way. The problem starts off with analysing the pitch of a particular sound , a bipolar modular synth sound that oscillates between scratchy transients and incredibly pure pitch tones.
+This article is based on understanding and using statistical analysis in order to interpret descriptor data in a musical way. The problem starts off with the following premise: **analyse the dominant pitch of the pitched component of a modular synth sound**. Listen to the sound below.
 
 <Audio 
 {...scratch}
 />
+
+Now, sitting at your desk try and hum what you think is the main pitch. You probably find this very easy. You probably sung something like this:
+
+<Audio
+{...pitch1}
+/>
+
+
 
 
 
