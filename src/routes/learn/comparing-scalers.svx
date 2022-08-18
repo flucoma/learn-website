@@ -16,6 +16,7 @@ featuredimage: /learn/comparing-scalers/08_norm_with_2_neighbors.png
 <script>
     import Image from '$lib/components/Image.svelte';
     import Comparison from '$lib/widget/comparing-scalers/Comparison.svelte';
+    import Slices from '$lib/widget/comparing-scalers/Slices.svelte';
     import { Tabs, TabList, TabPanel, Tab } from '$lib/components/tabs/tabs';
 </script>
 
@@ -32,6 +33,8 @@ While each scaler transforms the data into a relatively similar range, they all 
 Differences such as these can have meaningful impacts on the musical results. Choosing which scaler to use can be an important musical decision in the creative process, which may be based on some specific context (such as if you know there are extreme [outliers](/learn/outliers)), or decided by testing them and choosing which one produces the results you like the best.
 
 ### Nearest Neighbour of "slice-27"
+
+<Slices />
 
 <Tabs>
     <TabList>
