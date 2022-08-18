@@ -15,7 +15,9 @@ featuredimage: /learn/for-featured-images/2D-corpus-explorer.png
 
 <script>
     import Audio from '$lib/components/Audio.svelte';
+    import RawPitchGraph from '$lib/widget/time/RawPitchGraph.svelte';
     import PitchGraph from '$lib/widget/time/PitchGraph.svelte';
+    import Admonition from '$lib/components/Admonition.svelte';
 
     const scratch = {
         src: '/audio/Tremblay-ASWINE-ScratchySynth-M.mp3',
@@ -26,6 +28,13 @@ featuredimage: /learn/for-featured-images/2D-corpus-explorer.png
     const pitch1 = {
         src: '/learn/refining-pitch-analysis/2797.mp3',
         waveform: true,
+        label: '2797 Hz'
+    }
+
+    const pitch2 = {
+        src: '/learn/refining-pitch-analysis/mean.mp3',
+        waveform: true,
+        label: 'Mean pitch value of the first 4 seconds'
     }
 </script>
 
@@ -42,16 +51,26 @@ Now, sitting at your desk try and hum what you think is the main pitch. You prob
 {...pitch1}
 />
 
-What you just did was an incredibly sophisticated and complex listening and analysis process that did several key things:
+What you just did was an incredibly sophisticated and complex listening and analysis process that did several key things to arrive at a value of approximately 2797 Hz:
 
 1. Ignore the scratch sound
 2. Ignore silence
 3. Only listen to moments of pitched content
 4. "Summarise" the pitch value at points where you are confident its a pitched sound.
 
-Considering these complex criteria let's compare it to a brute force analysis of the computer.
+Considering these complex criteria let's compare it to a brute force analysis of the computer using [FluidPitch](/reference/pitch) to analyse the fundamental frequency and the pitch confidence of the first 4 seconds of this sound.
 
-<PitchGraph />
+<Admonition type=note>
+
+Pitch confidence is a value between 0.0 and 1.0 for each analysis frame. It is incredibly useful at evaluating whether or not a particular frame of analysis is meaningful or not.
+
+</Admonition>
+
+<RawPitchGraph />
+
+What is relatively obvious from this graph is there are points in time where the confidence values are extremely low (close to 0.0), and in these moments the pitch value spikes up into the high 10 KHz range. This makes sense if we think about the timbral content of the scratch moments, which are mostly high-frequency noise content. Now, let's simply take the mean pitch value across this analysis ignoring the confidence entirely.
+
+
 
 
 
