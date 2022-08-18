@@ -1,5 +1,5 @@
 <script>
-	
+    import Flair from '$lib/components/Flair.svelte';
 </script>
 
 <div class="container">
@@ -10,9 +10,12 @@
         A quick and recommended start is to follow these introductory YouTube tutorials <br>(after having <a href="/installation">installed</a> the toolkit of course!).
     </p>
 
-    <div class="first_tutorial">
+    <a class="first_tutorial raisedbox" href="/learn/classification-neural-network">
 
-        <h3 style="grid-area: ft_title;" class="ft_title">Train a neural network to classify sound based on timbre. <a href="/learn/classification-neural-network" class="ft_link">article</a></h3>
+        <div style="grid-area: ft_title;" class="title_container">
+            <h3 class="ft_title">Train a neural network to classify sound based on timbre.</h3>
+            <Flair flair={'article'} />
+        </div>
 
         <iframe
             title=""
@@ -41,11 +44,14 @@
         <p style="grid-area: ft_desc;" class="ft_desc">
             This video tutorial guides you through building a flexible sound classifier.
         </p>
-    </div>
+    </a>
 
-    <div class="first_tutorial">
+    <a class="first_tutorial raisedbox" href="/learn/regression-neural-network">
 
-        <h3 style="grid-area: ft_title;" class="ft_title">Train a neural network to control a synthesizer. <a href="/learn/regression-neural-network" class="ft_link">article</a></h3>
+        <div style="grid-area: ft_title;" class="title_container">
+            <h3 class="ft_title">Train a neural network to control a synthesizer.</h3>
+            <Flair flair={'article'} />
+        </div>
 
         <iframe
             title=""
@@ -74,11 +80,14 @@
         <p style="grid-area: ft_desc;" class="ft_desc">
             Video tutorial introducing the FluidMLPRegressor neural network.
         </p>
-    </div>
+    </a>
 
-    <div class="first_tutorial">
+    <a class="first_tutorial raisedbox" href="/learn/2d-corpus-explorer">
 
-        <h3 style="grid-area: ft_title;" class="ft_title">Code a 2 dimensional sound sample explorer. <a href="/learn/2d-corpus-explorer" class="ft_link">article</a></h3>
+        <div style="grid-area: ft_title;" class="title_container">
+            <h3 class="ft_title">Code a 2 dimensional sound sample explorer.</h3>
+            <Flair flair={'article'} />
+        </div>
 
         <iframe
             title=""
@@ -107,7 +116,7 @@
         <p style="grid-area: ft_desc;" class="ft_desc">
             A video tutorial guiding that teaches you how to build a two-dimensional corpus exploration patch in Max.
         </p>
-    </div>
+    </a>
 
 </div>
 
@@ -118,9 +127,18 @@
         margin: auto;
     }
 
+    
+
     .ft_title{
         text-align: center;
         padding: 0.2em;
+    }
+
+    .title_container{
+        display: flex;
+        margin: auto;
+        justify-content: center;
+        align-items: center;
     }
 
     .first_tutorial{
@@ -131,7 +149,31 @@
             'ft_desc ft_desc';
         padding-bottom: 1em;
         padding-top: 1em;
+        border-radius: 0.25rem;
+		border: 0.063rem solid #dcdee0;
+        margin-bottom: 1em;
+        max-width: 100%;
+        width: 100%;
     }
+
+    .first_tutorial > p {
+		color: var(--grey);
+		text-align: center;
+		text-justify: inter-word;
+        text-decoration: none;
+	}
+
+	/* Overwrite hover behaviour */
+	.first_tutorial,
+	.first_tutorial:hover {
+		color: black;
+		background-color: white;
+		text-decoration: none;
+	}
+
+	.first_tutorial:hover {
+		cursor: pointer;
+	}
 
     .ft_vid{
         padding-left: 1em;
@@ -171,6 +213,13 @@
             padding-right: 1em;
             padding-top: 0em;
         }
+
+        .title_container{
+            display: flex;
+            margin: auto;
+            justify-content: center;
+            align-items: center;
+        }
 	}
 
 	@media (max-width: 1200px) {
@@ -186,6 +235,13 @@
             padding-left: 1em;
             padding-right: 1em;
             padding-top: 1em;
+        }
+
+        .title_container{
+            display: inline;
+            margin: auto;
+            justify-content: center;
+            align-items: center;
         }
 	}
 
