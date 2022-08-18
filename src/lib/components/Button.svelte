@@ -17,6 +17,7 @@
 		border-radius: 0.25em;
 		background-color: var(--light-blue);
 		transition: box-shadow 0.1s;
+		font-size: 1rem;
 	}
 
 	.btn:active {
