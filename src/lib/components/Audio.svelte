@@ -30,11 +30,12 @@
 					scale: 128,
 					multiChannel: false
 				},
+				zoomLevels: [32],
 				mediaElement: audio,
 				waveformColor: 'rgb(28, 164, 252)',
 				playheadColor: 'rgba(0, 0, 0, 1)',
 				playheadTextColor: '#aaa',
-				showPlayheadTime: false
+				showPlayheadTime: false,
 			};
 			instance = Peaks.init(options, (err, p) => {
 				if (err) {
@@ -71,7 +72,7 @@
 		width: 100%;
 		margin-top: 1em;
 		margin-bottom: 1em;
-		gap: 2em;
+		gap: 1em;
 	}
 
 	.audio {
