@@ -2,7 +2,7 @@
 	import * as Meyda from 'meyda';
 	import { Chart, registerables } from 'chart.js';
 	import { onMount } from 'svelte';
-	import { colors } from '$lib/colors';
+	import { colors } from '$lib/color.js';
 	import PlayTog from './PlayTog.svelte';
 	import Audio from '$lib/components/Audio.svelte';
 	
@@ -17,7 +17,7 @@
 	let feature = new Array(13).fill(0).map(x => Math.random());
 
 	const audioSpec = {
-		src: '/audio/oboe-m.mp3',  
+		src: '/audio/drum-m.mp3',  
 		loop: true,
 		waveform: false
 	}
@@ -48,7 +48,7 @@
 					legend: { display: false }
 				},
 				responsive: true,
-				maintainAspectRatio: false,
+				maintainAspectRatio: true,
 				scales: {
 					x: {
 						display: true
@@ -109,13 +109,10 @@
 </div>
 </div>
 
-
-
 <style>
 	#filter {
 		width: 100%;
 		max-height: 300px;
-		margin: 0 auto;
 	}
 
 	.controls {
