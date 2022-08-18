@@ -15,6 +15,7 @@ featuredimage: /learn/for-featured-images/2D-corpus-explorer.png
 
 <script>
     import Audio from '$lib/components/Audio.svelte';
+    import PitchGraph from '$lib/widget/time/PitchGraph.svelte';
 
     const scratch = {
         src: '/audio/Tremblay-ASWINE-ScratchySynth-M.mp3',
@@ -46,8 +47,11 @@ What you just did was an incredibly sophisticated and complex listening and anal
 1. Ignore the scratch sound
 2. Ignore silence
 3. Only listen to moments of pitched content
-4. "Summarise" the pitch value within
+4. "Summarise" the pitch value at points where you are confident its a pitched sound.
 
+Considering these complex criteria let's compare it to a brute force analysis of the computer.
+
+<PitchGraph />
 
 
 
