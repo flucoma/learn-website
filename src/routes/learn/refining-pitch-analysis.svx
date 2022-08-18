@@ -13,5 +13,24 @@ flair: tutorial
 featuredimage: /learn/for-featured-images/2D-corpus-explorer.png
 ---
 
+<script>
+    import Audio from '$lib/components/Audio.svelte';
+
+    const scratch = {
+        src: '/audio/Tremblay-ASWINE-ScratchySynth-M.mp3',
+        waveform: true,
+        label: 'Scratchy Modular Synth Sound'
+    }
+</script>
+
+## Anomolous Data and Statistics
+This article is based on understanding and using statistical analysis in order to interpret descriptor data in a musical way. The problem starts off with analysing the pitch of a particular sound , a bipolar modular synth sound that oscillates between scratchy transients and incredibly pure pitch tones.
+
+<Audio 
+{...scratch}
+/>
+
+
+
 
 
