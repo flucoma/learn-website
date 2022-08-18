@@ -1,8 +1,10 @@
 <script>
 	import { onMount } from 'svelte';
+	import * as d3 from 'd3';
 	import { Chart, registerables } from 'chart.js';
 	import annotationPlugin from 'chartjs-plugin-annotation';
 	import scalingData from '$lib/data/learn/comparing-scalers/analysis.json';
+	import Button from '$lib/components/Button.svelte';
 
 	let chart, canvas;
 
@@ -11,6 +13,9 @@
 		return entries.map((pt, i) => ({ x: pt[1][0], y: pt[1][1], id: pt[0] }))
 	}
 
+	const entries = Object.entries(scalingData.norm)
+	const colours = entries.map((_,i) => d3.interpolateSinebow(i/entries.length));
+
 	onMount(async () => {
 		Chart.register(...registerables, annotationPlugin);
 		const ctx = canvas.getContext('2d');
@@ -18,7 +23,8 @@
 			datasets: [
 				{
 					data: transformer(scalingData.raw),
-					borderColor: 'black',
+					borderColor: colours,
+					backgroundColor: colours,
 					borderWidth: 0.8,
 					tension: 1,
 					pointRadius: 5,
@@ -69,6 +75,7 @@
 		chart.options.scales.y.max = 5000;
 		chart.options.plugins.annotation.annotations = {};
 		chart.update();
+		activeScale = 'Raw'
 	}
 
 	const norm = () => {
@@ -105,6 +112,7 @@
 			},
 		}
 		chart.update();
+		activeScale = 'Normalised'
 	}
 
 	const std = () => {
@@ -140,6 +148,7 @@
 			},
 		}
 		chart.update();
+		activeScale = 'Standardised'
 	}
 
 	const robust = () => {
@@ -175,13 +184,42 @@
 			},
 		}
 		chart.update();
+		activeScale = 'Robust Scaling'
 	}
+
+	const buttonSpec = [
+		{
+			label: 'Raw',
+			func: raw
+		},
+		{
+			label: 'Normalised',
+			func: norm
+		},
+		{
+			label: 'Standardised',
+			func: std
+		},
+		{
+			label: 'Robust Scaling',
+			func: robust
+		}
+	]
+	let activeScale = 'Raw'
 </script>
 
-<button on:click={raw}>raw</button>
-<button on:click={norm}>norm</button>
-<button on:click={std}>std</button>
-<button on:click={robust}>robust</button>
+<div class="swapper">
+	{#each buttonSpec as spec}
+
+	<Button 
+	width={'150px'}
+	on:click={spec.func}
+	label={spec.label}
+	disabled={activeScale === spec.label}
+	/>
+
+	{/each}
+</div>
 
 <canvas id="filter" bind:this={canvas} />
 
@@ -190,5 +228,11 @@
 		width: 100%;
 		max-height: 600px;
 		margin: 0 auto;
+	}
+
+	.swapper {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-around;
 	}
 </style>
