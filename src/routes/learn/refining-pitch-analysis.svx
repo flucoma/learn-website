@@ -41,6 +41,13 @@ Now, sitting at your desk try and hum what you think is the main pitch. You prob
 {...pitch1}
 />
 
+What you just did was an incredibly sophisticated and complex listening and analysis process that did several key things:
+
+1. Ignore the scratch sound
+2. Ignore silence
+3. Only listen to moments of pitched content
+4. "Summarise" the pitch value within
+
 
 
 
