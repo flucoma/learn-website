@@ -1,38 +1,36 @@
-<script lang="ts">
+<script>
 	import { UMAP } from 'umap-js';
 	import { onMount } from 'svelte';
 	import { Chart, registerables } from 'chart.js';
-	import type { Vectors } from 'umap-js/dist/umap';
 	import Slider from '$lib/components/Slider.svelte';
 	import Button from '$lib/components/Button.svelte';
 	import * as d3 from 'd3';
 
-	// Chart.js
-	let canvas, chart: Chart, ctx;
+	let canvas, chart, ctx;
 
 	// A timer to simulate the animation
-	let timeout: number; // setInterval() returns an ID which is a number
+	let timeout; // setInterval() returns an ID which is a number
 
-	let stepInterval: number = 5;
-	let smoothing: number = 230;
+	let stepInterval = 5;
+	let smoothing = 230;
 
 	// UMAP params
-	let neighbors: number = 10;
-	let minDist: number = 0.3;
-	let epochs: number = 500;
-	let transform: Vectors;
+	let neighbors = 10;
+	let minDist = 0.3;
+	let epochs = 500;
 
 	// UMAP Data
-	let epoch: number = 0;
-	let numEpochs: number = 0;
-	let originalData: Array<Array<number>> = [];
-	let umap: UMAP;
+	let epoch = 0;
+	let numEpochs = 0;
+	let originalData = [];
+	let transform;
+	let umap;
 
 	const newData = () => {
 		epoch = 0;
 		clearTimeout(timeout);
 		originalData = new Array(150).fill(new Array(3).fill(0));
-		originalData = originalData.map((x) => x.map(() => Math.random()));
+		originalData = originalData.map(x => x.map(() => Math.random()));
 		umap = new UMAP({
 			nComponents: 2,
 			nEpochs: epochs,
@@ -44,10 +42,10 @@
 		numEpochs = umap.initializeFit(originalData);
 	};
 
-	const getMinMax = (arr) => {
+	const getMinMax = arr => {
 		let min = Infinity;
 		let max = -Infinity;
-		arr.forEach((x) => {
+		arr.forEach(x => {
 			let vecMin = d3.min(x);
 			let vecMax = d3.max(x);
 			min = vecMin < min ? vecMin : min;
@@ -62,7 +60,7 @@
 		let embedding = umap.getEmbedding();
 		let bounds = getMinMax(embedding);
 		let norm = d3.scaleLinear().domain([bounds.min, bounds.max]).range([0, 1]);
-		transform = embedding.map((row) => row.map((col) => norm(col)));
+		transform = embedding.map(row => row.map(col => norm(col)));
 		// Stopping condition
 		if (epoch > numEpochs) {
 			stopInterval();
@@ -96,16 +94,16 @@
 		clearInterval(timeout);
 	};
 
-	const getPositions = (d) => {
-		return d.map((pt) => {
+	const getPositions = d => {
+		return d.map(pt => {
 			return { x: pt[0], y: pt[1] };
 		});
 	};
 
-	const getColours = (d) => {
+	const getColours = d => {
 		let colours = [];
-		d.forEach((pt) => {
-			let rgb = pt.map((x) => x * 255); // Scale all points from 0..1 to 0..255;
+		d.forEach(pt => {
+			let rgb = pt.map(x => x * 255); // Scale all points from 0..1 to 0..255;
 			let r = rgb[0];
 			let g = rgb[1];
 			let b = rgb[2];
@@ -131,7 +129,8 @@
 			datasets: [
 				{
 					data: getPositions(transform),
-					backgroundColor: getColours(originalData)
+					backgroundColor: getColours(originalData),
+					pointRadius: 5
 				}
 			]
 		};
@@ -159,22 +158,8 @@
 	<div class="controls">
 		<div class="parameters">
 			<Slider bind:value={epochs} title="Iterations" min="50" max="2000" step="1" chFunc={doStep} />
-			<Slider
-				bind:value={minDist}
-				title="Minimum Distance"
-				min="0.0"
-				max="1"
-				step="0.001"
-				chFunc={doStep}
-			/>
-			<Slider
-				bind:value={neighbors}
-				title="Number of Neighbours"
-				min="3"
-				max="99"
-				step="1"
-				chFunc={doStep}
-			/>
+			<Slider bind:value={minDist} title="Minimum Distance" min="0.0" max="1" step="0.001" chFunc={doStep} />
+			<Slider bind:value={neighbors} title="Number of Neighbours" min="3" max="99" step="1" chFunc={doStep} />
 		</div>
 		<div class="btns">
 			<Button on:click={doStep} label="Go" />
@@ -201,7 +186,6 @@
 	.plot {
 		max-height: 400px;
 		max-width: 100%;
-		border: 1px solid rgb(232, 232, 232);
 	}
 
 	.controls {

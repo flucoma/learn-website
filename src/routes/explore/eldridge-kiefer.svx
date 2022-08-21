@@ -11,6 +11,8 @@ tags:
     - mlpregressor
     - modular synthesis
 flair: article
+featuredimage: /explore/eldridge/modular-patch.jpg
+author: Jacob
 ---
 
 <script>
@@ -18,9 +20,9 @@ flair: article
     import Video from '$lib/components/Video.svelte';
     import YouTube from '$lib/components/YouTube.svelte';
     import ArtistCard from '$lib/components/mwf/ArtistCard.svelte';
-    import IndentNote from '$lib/components/IndentNote.svelte';
     import BigQuote from '$lib/components/BigQuote.svelte';
     import CodeBlock from '$lib/components/CodeBlock.svelte';
+    import ExploreDownload from '$lib/components/ExploreDownload.svelte';
 </script>
 
 <style>
@@ -54,13 +56,11 @@ flair: article
 
 ## Introduction
 
-<IndentNote type='pointer'>
+<ExploreDownload
+url={'/explore/eldridge/Alice Eldridge and Chris Kiefer Examples.zip'}
+/>
 
-Download the demonstration patches for this article <a href='/explore/eldridge/Alice Eldridge and Chris Kiefer Examples.zip' download='Alice Eldridge and Chris Kiefer Examples.zip'>here</a>.
-
-</IndentNote>
-
-Today we’ll be looking at some of the work that Alice Eldridge and Chris Kiefer did using the FluCoMa tools. These two collaborators came to the project seeking to augment their already well-established feedback instrument, the [Feedback Cello](https://www.feedbackcell.info/). We shall see how they used machine learning and descriptors to create a shared, adaptive instrument which takes improvisation to the next level , and how they approached this system in performance. As with all the "[Made with FluCoMa](/explore)" articles, there is a series of demonstration patches that can be <a href='/explore/eldridge/Alice Eldridge and Chris Kiefer Examples.zip' download='Alice Eldridge and Chris Kiefer Examples.zip'>downloaded</a> and interacted with if you wish to explore the inner workings of the software.
+Today we’ll be looking at some of the work that Alice Eldridge and Chris Kiefer did using the FluCoMa tools. These two collaborators came to the project seeking to augment their already well-established feedback instrument, the [Feedback Cello](https://www.feedbackcell.info/). We shall see how they used machine learning and descriptors to create a shared, adaptive instrument which takes improvisation to the next level , and how they approached this system in performance. As with all the "[Explore](/explore)" articles, there is a series of demonstration patches that can be <a href='https://f003.backblazeb2.com/file/learnassets/explore/eldridge/Alice+Eldridge+and+Chris Kiefer+Examples.zip' download='Alice Eldridge and Chris Kiefer Examples.zip'>downloaded</a> and interacted with if you wish to explore the inner workings of the software.
 
 <YouTube 
 url={'c03_84_P7PQ'}
@@ -101,7 +101,7 @@ src="/explore/eldridge/schematik.jpg"
 label="An overview of the what is happening on stage."
 />
 
-As you can see in this diagram, there are indeed two main sides to this feedback loop associated with each musician. Eldridge is controlling the output of the cello with a gain foot pedal, and the sound is being sent to Kiefer’s modular system. There are more modules in the system which act on the cello’s signal – you can see an image of the patch below. The sound is then sent back towards the Feedback Cello. In this diagram we also see the modifications that were made to this system using the FluCoMa tools. The output of the cello is also sent to a laptop that is running a Supercollider patch. We shall discuss this further below, but essentially, the cello is running through a 20 band MFCC analysis, which is in turn being fed into an MLP regressor, which is outputting three values to a MIDI control module. This is being used principally to control the levels of a spring reverb, ring modulation and phase shifter modules.
+As you can see in this diagram, there are indeed two main sides to this feedback loop associated with each musician. Eldridge is controlling the output of the cello with a gain foot pedal, and the sound is being sent to Kiefer’s modular system. There are more modules in the system which act on the cello’s signal – you can see an image of the patch below. The sound is then sent back towards the Feedback Cello. In this diagram we also see the modifications that were made to this system using the FluCoMa tools. The output of the cello is also sent to a laptop that is running a Supercollider patch. We shall discuss this further below, but essentially, the cello is running through a 20 band MFCC analysis, which is in turn being fed into an [MLP regressor](/reference/mlpregressor), which is outputting three values to a MIDI control module. This is being used principally to control the levels of a spring reverb, ring modulation and phase shifter modules.
 
 <Image
 src="/explore/eldridge/modular-patch.jpg"
@@ -120,13 +120,13 @@ Again, due to the shared nature of this feedback setup, it is difficult to disen
 Using a neural network such as MLP and regression as a means for controlling things like modules, audio effects, synthesizers is a somewhat common use of this technology in a creative setting. There are different ways of approaching this. One very well-known implementation is [Rebecca Fiebrink’s](https://www.doc.gold.ac.uk/~mas01rf/homepage/) [Wekinator](http://www.wekinator.org/) software. In the context of the project, [Sam Pluta](), another SuperCollider user, also used a neural network to control effects modules, going from a small amount of input data (2 axes of a joystick) to many control parameters. You can take a look at this FluCoMa tutorial that demonstrates how a neural network can be used to control a synthesizer in order to understand the general workflow.
 
 <YouTube 
-url={'3XSy297v9vk'}
+url={'XfNZzQPdPG0'}
 />
 
 Here we see the opposite happening: the neural network is taking a large set of input data points (20) and outputting a small number (3). There is also the notable fact that the input data is being derived from the description of an audio signal. The three outputs are controlling 3 MIDI modules which are controlling parameters in the modular synth setup. When explaining why they looked to implement this into their system, Eldridge explained that they saw this project as the “*next iteration*” of the Feedback Cell project. “*When we play two feedback cellos together, we sense a strong acoustic coupling. Any string instruments resonate with each other, but the feedback amplifies this effect. We had been thinking about ways to augment this process, to explore other instrumental couplings using feedback. At the same time I have been interested in keeping my signal pathway analogue, and Chris has just built a modular, so we had been thinking about the modular as a great addition to the feedback cello loop*”. This project gave a “*chance to explore a new way of doing this*”, a way of “*coupling the modular synth and the cello in a way that is more adaptive and responsive than just plugging the cello straight into the modular synth*”.
 
 <Video
-url="/explore/eldridge/mlp-explanation.mp4"
+url="https://f003.backblazeb2.com/file/learnassets/explore/eldridge/mlp-explanation.mp4"
 label="Kiefer in his own words explaining their use of MLP regression."
 />
 

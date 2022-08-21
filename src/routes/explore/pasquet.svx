@@ -12,6 +12,8 @@ tags:
     - cage
     - markov chains
 flair: article
+featuredimage: /explore/pasquet/nmf_piano_roll.png
+author: Jacob
 ---
 
 <script>
@@ -20,7 +22,7 @@ flair: article
     import Audio from '$lib/components/Audio.svelte';
     import BigQuote from '$lib/components/BigQuote.svelte';
     import ArtistCard from '$lib/components/mwf/ArtistCard.svelte';
-    import IndentNote from '$lib/components/IndentNote.svelte';
+    import ExploreDownload from '$lib/components/ExploreDownload.svelte';
 </script>
 
 <ArtistCard
@@ -35,11 +37,9 @@ Olivier Pasquet is a sound, visual artist and music producer. His generative pie
 
 ## Introduction
 
-<IndentNote type='pointer'>
-
-Download the demonstration patches for this article <a href='/explore/pasquet/Olivier Pasquet Examples.zip' download='Olivier Pasquet Examples.zip'>here</a>.
-
-</IndentNote>
+<ExploreDownload
+url={'/explore/pasquet/Olivier Pasquet Examples.zip'}
+/>
 
 Today we’ll be looking at some of the work that Olivier Pasquet did using the FluCoMa tools.
 His piece, *Herbig-Haro*, was performed at the [first FluCoMa gig](/explore/reactive-flows) at [HCMF](https://hcmf.co.uk/) 2019.
@@ -70,7 +70,7 @@ label="This is an extract of the performance where we can hear the results."
 Pasquet focused a lot of effort into developing a system to create these sounds. 
 He notably took some of the FluCoMa tools and worked them into some of his pre-existing workflows: he makes extensive use of the [bach](https://www.bachproject.net/) and [cage](https://www.bachproject.net/cage/) libraries in Max which rely on the lisp-like linked list (llll) data structure; he has also built a library of his own, [jtol](https://www.opasquet.fr/jtol/), which is built around many of the bach objects and deals with real-time pattern generation. 
 In this text we shall explore what Pasquet wanted to achieve with his system and examine how the FluCoMa tools can yield artefacts that can be used by other tools such as bach and jtol. 
-As with all the "[Made with FluCoMa](/explore)" articles, there is a series of demonstration patches that can be <a href='/explore/pasquet/Olivier Pasquet Examples.zip' download='Olivier Pasquet Examples.zip'>downloaded</a> and interacted with if you wish to explore the inner workings of the software.
+As with all the "[Explore](/explore)" articles, there is a series of demonstration patches that can be <a href='https://f003.backblazeb2.com/file/learnassets/explore/pasquet/Olivier+Pasquet+Examples.zip' download='Olivier Pasquet Examples.zip'>downloaded</a> and interacted with if you wish to explore the inner workings of the software.
 
 ## The Premise
 

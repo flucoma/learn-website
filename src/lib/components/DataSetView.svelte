@@ -1,10 +1,10 @@
-<script lang="ts">
+<script>
 	export let data = [];
 	function sanitiseData(x) {
-		return x.map((d) => d.toFixed(2));
+		return x.map(d => d.toFixed(2));
 	}
 	let num = 0;
-	$: if (data.length) num = Object.values(data[0])[0].length
+	$: if (data.length) num = Object.values(data[0])[0].length;
 </script>
 
 <div class="container raisedbox">
@@ -13,17 +13,17 @@
 		<div class="heading">Identifier</div>
 		<div class="heading">Data</div>
 		{#each data as point}
-		{#each Object.entries(point) as [id, data]}
-		<div class="entry">{id}</div>
-		<div class="entry" style:grid-template-columns={'repeat(' + `${num}` +','+ '7ch)'}>
-			{#each data as datum}
-			<div>
-				{ datum.toFixed(2) }
-			</div>
+			{#each Object.entries(point) as [id, data]}
+				<div class="entry">{id}</div>
+				<div class="entry" style:grid-template-columns={'repeat(' + `${num}` + ',' + '7ch)'}>
+					{#each data as datum}
+						<div>
+							{datum.toFixed(2)}
+						</div>
+					{/each}
+					<!-- {sanitiseData(data)} -->
+				</div>
 			{/each}
-			<!-- {sanitiseData(data)} -->
-		</div>
-		{/each}
 		{/each}
 	</div>
 </div>
@@ -45,15 +45,14 @@
 		gap: 1em;
 	}
 
-	
 	.heading {
 		font-weight: bold;
 	}
-	
+
 	.entry {
 		display: grid;
 		gap: 1em;
-		color: grey;
+		color: var(--grey);
 		text-align: left;
 	}
 </style>

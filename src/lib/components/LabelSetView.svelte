@@ -1,4 +1,4 @@
-<script lang="ts">
+<script>
 	export let data = [];
 </script>
 
@@ -14,7 +14,6 @@
 			{/each}
 		{/each}
 	</div>
-
 </div>
 
 <style lang="postcss">
@@ -41,7 +40,7 @@
 	}
 
 	.entry {
-		color: grey;
+		color: var(--grey);
 		text-align: left;
 	}
 </style>

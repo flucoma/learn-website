@@ -12,33 +12,29 @@
 	const selectedPanel = writable(null);
 
 	setContext(TABS, {
-		registerTab: (tab) => {
+		registerTab: tab => {
 			tabs.push(tab);
-			selectedTab.update((current) => current || tab);
+			selectedTab.update(current => current || tab);
 
 			onDestroy(() => {
 				const i = tabs.indexOf(tab);
 				tabs.splice(i, 1);
-				selectedTab.update((current) =>
-					current === tab ? tabs[i] || tabs[tabs.length - 1] : current
-				);
+				selectedTab.update(current => (current === tab ? tabs[i] || tabs[tabs.length - 1] : current));
 			});
 		},
 
-		registerPanel: (panel) => {
+		registerPanel: panel => {
 			panels.push(panel);
-			selectedPanel.update((current) => current || panel);
+			selectedPanel.update(current => current || panel);
 
 			onDestroy(() => {
 				const i = panels.indexOf(panel);
 				panels.splice(i, 1);
-				selectedPanel.update((current) =>
-					current === panel ? panels[i] || panels[panels.length - 1] : current
-				);
+				selectedPanel.update(current => (current === panel ? panels[i] || panels[panels.length - 1] : current));
 			});
 		},
 
-		selectTab: (tab) => {
+		selectTab: tab => {
 			const i = tabs.indexOf(tab);
 			selectedTab.set(tab);
 			selectedPanel.set(panels[i]);
@@ -52,3 +48,12 @@
 <div class="tabs">
 	<slot />
 </div>
+
+<style>
+	.tabs {
+		margin-bottom: 10px;
+		/* border: 1px solid #dee2e6; */
+    	/* border-radius: 0 0 .5rem .5rem; */
+    	border-top: 0;
+	}
+</style>

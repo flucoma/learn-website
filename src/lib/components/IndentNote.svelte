@@ -3,18 +3,18 @@
 </script>
 
 <div
-class="container"
-class:note={type === 'note'}
-class:warn={type === 'warn'}
-class:danger={type === 'danger'}
-class:pointer={type === 'pointer'}
+	class="container"
+	class:note={type === 'note'}
+	class:warn={type === 'warn'}
+	class:danger={type === 'danger'}
+	class:pointer={type === 'pointer'}
 >
-<slot />
+	<slot />
 </div>
 
 <style>
 	.container {
-		--bg-color: rgba(224,244,252, 1.0);
+		--bg-color: rgba(224, 244, 252, 1);
 		--border-color: rgba(52, 52, 171, 0.63);
 		margin-top: 0.5em;
 		margin-bottom: 0.5em;
@@ -30,24 +30,24 @@ class:pointer={type === 'pointer'}
 	.container > :global(p) {
 		margin: 0;
 	}
-	
+
 	.note {
 		--bg-color: rgba(52, 52, 171, 0.2);
 		--border-color: rgba(31, 31, 136, 0.63);
 	}
-	
+
 	.warn {
 		--bg-color: rgba(255, 204, 0, 0.2);
 		--border-color: rgba(255, 204, 0, 0.63);
 	}
-	
+
 	.danger {
 		--bg-color: rgba(204, 51, 0, 0.2);
 		--border-color: rgba(204, 51, 0, 0.63);
 	}
 
 	.pointer {
-		--bg-color: rgba(230, 252, 224, 1.0);
+		--bg-color: rgba(230, 252, 224, 1);
 		--border-color: rgb(133, 229, 106);
 	}
 </style>

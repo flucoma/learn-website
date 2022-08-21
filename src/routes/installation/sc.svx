@@ -12,9 +12,8 @@ flair: article
 <script>
     import Image from '$lib/components/Image.svelte';
     import CodeBlock from '$lib/components/CodeBlock.svelte';
+    import IndentNote from '$lib/components/IndentNote.svelte';
 </script>
-
-# SuperCollider Installation Instructions
 
 ## Step 1: Download the FluCoMa SuperCollider Extension Package
 
@@ -38,23 +37,9 @@ Platform.userExtensionDir.openOS;
 
 </CodeBlock>
 
-Copy the downloaded folder to this location.
+Copy the downloaded folder to that location.
 
-## Step 3: Dequarantine *.scx Extensions
-
-We don't sign the builds of the FluCoMa toolkit and so macOS will quarantine the binary files causing an error when the class library (re)compiles.
-
-We can dequarantine the `*.scx` files directly from inside SuperCollider with this script.
-
-<CodeBlock>
-
-```js
-("xattr -d -r com.apple.quarantine"+Platform.userExtensionDir.quote++"/FluidCorpusManipulation/plugins").runInTerminal
-```
-
-</CodeBlock>
-
-## Step 4: Run SuperCollider and Test
+## Step 3: Run SuperCollider and Test
 
 Be sure to recompile the class library first by restarting SCIDE or Cmd/Ctrl + Shift + L
 
@@ -72,5 +57,18 @@ s.waitForBoot({
 
 </CodeBlock>
 
-
 If this code block prints the version of the FluCoMa tools then it is installed correctly.
+
+<IndentNote type="danger">
+
+Binaries compiled by us for macOS are signed and notarised. However, you might need to "dequarantine" them. The command below will recursively do this for you if you provide it the valid path to the FluCoMa package, wherever that might be.
+
+<CodeBlock>
+
+```js
+("xattr -d -r com.apple.quarantine"+Platform.userExtensionDir.quote++"/FluidCorpusManipulation/plugins").runInTerminal
+```
+
+</CodeBlock>
+
+</IndentNote>

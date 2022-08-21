@@ -1,24 +1,11 @@
-<script lang="ts">
-	import { createEventDispatcher } from 'svelte';
-	export let label: string = 'button';
-	export let width: string = '100px';
-	export let height:string = '38px';
-	export let disabled: boolean = false;
-	const dispatch = createEventDispatcher();
-
-	function clickHandler() {
-		dispatch('click');
-	}
+<script>
+	export let label = 'button';
+	export let width = '100px';
+	export let height = '38px';
+	export let disabled = false;
 </script>
 
-<button
-class="btn" 
-style:width={width} 
-style:height={height} 
-class:disabled 
-on:click={clickHandler} 
-{disabled}
->
+<button class="btn" style:width style:height class:disabled on:click {disabled}>
 	{label}
 </button>
 

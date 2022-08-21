@@ -1,13 +1,13 @@
 ---
-layout: none
+layout: contentindex
 ---
 
 <script>
-    import CardList from '$lib/components/cards/List.svelte';
+    import List from '$lib/components/mosaic/List.svelte';
 </script>
 
 # Learn
 
 This section hosts a variety of articles, tutorials and explanations of concepts and workflows that integrate with the FluCoMa tools and the wider gamut of machine learning and machine listening technologies.
 
-<CardList section='learn' />
+<List section='learn' />

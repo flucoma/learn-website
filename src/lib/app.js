@@ -1,23 +1,49 @@
-import { readable } from 'svelte/store';
-import FuzzySearch from 'fuzzy-search';
+import { readable, writable } from 'svelte/store';
+import metadata from '$lib/data/metadata.json';
+import config from '$lib/data/config.json';
+import Fuse from 'fuse.js';
 
-import t from '../../static/tag.json';
-import c from '../../static/crumbs.json';
-import e from '../../static/edits.json';
-import s from '../../static/structure.json';
-import database from '../../static/db.json';
+// interface state
+const nav_expanded = writable(false);
+const blur = writable(false);
 
-export const tags = readable(t);
-export const breadcrumbs = readable(c);
-export const edits = readable(e);
-export const structure = readable(s);
+const installs = [
+	{
+		title: 'Max Installation',
+		tags: ['install', 'max'],
+		blurb: 'Instructions to install the Max FluCoMa Package',
+		url: '/installation/max'
+	},
+	{
+		title: 'SuperCollider Installation',
+		tags: ['install', 'supercollider'],
+		blurb: 'Instructions to install the SuperCollider FluCoMa Package',
+		url: '/installation/sc'
+	},
+	{
+		title: 'PureData Installation',
+		tags: ['install', 'pd', 'puredata'],
+		blurb: 'Instructions to install the PureData FluCoMa Package',
+		url: '/installation/pd'
+	}
+];
 
-const docs = database.docs;
+installs.forEach(i => metadata.db.push(i)); // add installation steps
 
-const search = new FuzzySearch(docs, ['title', 'tags', 'flair', 'artist', 'blurb'], {
-	caseSensitive: false,
-	sort: true
+const edits = metadata.edits;
+const structure = metadata.structure;
+const db = metadata.db;
+const crumbs = metadata.crumbs;
+const related = metadata.related;
+
+const fuse = new Fuse(db, {
+	keys: [
+		{ name: 'title', weight: 1.0 },
+		{ name: 'artist', weight: 0.8 },
+		{ name: 'blurb', weight: 0.4 },
+		{ name: 'tags', weight: 0.4 },
+		{ name: 'author', weight: 0.2 }
+	]
 });
 
-const db = search;
-export { db, docs };
+export { crumbs, structure, db, related, edits, fuse, config, nav_expanded, blur };

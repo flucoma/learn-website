@@ -20,6 +20,6 @@ One use of the KDTree is for doing _nearest neighbour lookups_. The interactive 
 
 You can change the number of neighbours and the radius constraint with the sliders at the bottom. When the radius or the number of neighbours are set to 0 the behaviour changes. For number of neighbours it will highlight _every_ point. When the radius is 0 it is no longer a constraint and the distance of a nearest neighbour is not taken into account. Points that are highlighted with a red square are those that are deemed to be the nearest neighbours, given both the number of neighbours and radius constraint. Even if points fall outside the radius, a line will be drawn to them. Notice how working with both constraints allows you to home on different neighbourhoods of points. For example, by using a large number of neighbours (50) and a small radius (0.1) you can ensure that if there are actually 50 nearby points, only the ones within a tight proximity radius to the mouse will be highlighted.
 
-## Why is a *k*-d tree only *sometimes* faster than manual lookup?
+## Why a Kdtree Is Not Always Faster Than a Brute Force Search
 
 Whilst k-d trees can offer very good performance relative to naïve search algorithms, they suffer from something called ["the curse of dimensionality"](https://en.wikipedia.org/wiki/Curse_of_dimensionality) (like many algorithms for multi-dimensional data). In practice, this means that as the number of dimensions of your data goes up, the relative performance gains of a k-d tree go down.

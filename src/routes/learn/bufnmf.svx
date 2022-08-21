@@ -1,5 +1,6 @@
 ---
 title: Audio Decomposition using BufNMF
+author: Ted
 blurb: |
     Decompose an audio buffer into component parts using non-negative matrix factorisation.
 tags:
@@ -8,6 +9,7 @@ tags:
     - analysis
     - machine learning
 flair: article
+featuredimage: /learn/bufnmf/00_original_spectrogram_mel_color.png
 ---
 
 <script>
@@ -132,6 +134,6 @@ src="/learn/bufnmf/04_activation_2_enveloping.mp3"
 label="Activation of Component #3 enveloping pink noise."
 />
 
-When BufNMF decomposes the mono drum buffer into the three component buffers (as seen and heard above) it does this by combining each component’s basis with just that component’s activation to resynthesize the component’s resulting audio buffer. For example BufNMF combines just the “hi-hat basis” (i.e., spectral template) with just the “hi-hat activation” (loudness envelope through time) to resynthesize the resulting “hi-hat component” audio buffer.
+When BufNMF decomposes the mono drum buffer into the three component buffers (as seen and heard above) it does this by combining each component’s basis with just that component’s activation to resynthesize the component’s resulting audio buffer. For example BufNMF combines just the “hi-hat basis” (i.e., spectral template) with just the “hi-hat activation” (loudness envelope through time) to resynthesize the resulting “hi-hat component” audio buffer. This usage is not dissimilar to a [vocoder](https://en.wikipedia.org/wiki/Vocoder#Artistic_effects), where, instead of bandpass filters, finely-tuned spectral contours are optimised through machine learning.
 
 There are a suite of objects in the FluCoMa toolkit that can be used along with BufNMF’s bases and activations. Check out [NMFFilter](/reference/nmffilter), [NMFMatch](/reference/nmfmatch), [NMFMorph](/reference/nmfmorph), and [BufNMFCross](/reference/bufnmfcross).

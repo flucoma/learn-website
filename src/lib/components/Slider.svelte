@@ -1,21 +1,30 @@
-<script lang="ts">
+<script>
 	import { createEventDispatcher } from 'svelte';
 
-	export let value: string | number;
-	export let min: string | number = '0';
-	export let max: string | number = '100';
-	export let title: string = '';
-	export let step: string | number = 'any';
+	/**
+	 * A horizontal slider
+	 * @constructor
+	 * @param {number | string} value - The value of the slider. Should be used with bind:.
+	 * @param {number | string} min - The minimum value.
+	 * @param {number | string} max - The maximum value.
+	 * @param {number | string} title - The title of the slider.
+	 * @param {number | string} max - The step value between min/max.
+	 */
+	export let value = '';
+	export let min = '0';
+	export let max = '100';
+	export let title = '';
+	export let step = 'any';
 
 	const dispatch = createEventDispatcher();
 
 	const changeHandler = () => {
-		dispatch('change')
-	}
+		dispatch('change');
+	};
 
 	const inputHandler = () => {
-		dispatch('input')
-	}
+		dispatch('input');
+	};
 </script>
 
 <div class="container">
@@ -62,7 +71,7 @@
 
 	.text {
 		font-size: 10px;
-		color: grey;
+		color: var(--grey);
 	}
 	.min {
 		text-align: right;

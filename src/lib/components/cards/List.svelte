@@ -3,16 +3,16 @@ This component abstracts the rendering process for each "card" in madewith and o
 References are slightly different and use the ReferenceEntry component.
 -->
 <script>
-	import { docs } from '$lib/app.js';
+	import { db } from '$lib/app.js';
 	import Article from '$lib/components/cards/Article.svelte';
 	export let section = 'learn';
 
-	const items = docs.filter((x) => x.section === section);
+	const items = docs.filter(x => x.section === section);
 </script>
 
 <div class="overview-list">
 	{#each items as item}
-		<Article data={item}/>
+		<Article data={item} />
 	{/each}
 </div>
 

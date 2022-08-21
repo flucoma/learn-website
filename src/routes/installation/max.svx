@@ -11,9 +11,9 @@ flair: article
 <script>
     import Image from '$lib/components/Image.svelte';
     import { Tabs, TabList, TabPanel, Tab } from '$lib/components/tabs/tabs';
+    import CodeBlock from '$lib/components/CodeBlock.svelte';
+    import IndentNote from '$lib/components/IndentNote.svelte';
 </script>
-
-# Max Installation Instructions
 
 ## Step 1: Download the Max Package
 
@@ -27,27 +27,27 @@ src="/installation/max-step-1.png"
 
 ## Step 2: Move the Package Folder
 
-To install a Max package you need to place it into the `Packages` folder. Select your operating system on the tabs below.
+To install a Max package you need to place it into the "Packages" folder. Select your operating system on the tabs below.
 
 <Tabs>
-    <TabList>
-        <Tab>MacOS</Tab>
-        <Tab>Windows</Tab>
-    </TabList>
-    <TabPanel>
+<TabList>
+    <Tab>MacOS</Tab>
+    <Tab>Windows</Tab>
+</TabList>
+<TabPanel>
 
-    On macOS `Packages` is located at `/Users/username/Documents/Max 8/Packages`. Where `username` is the username of your account.
+On macOS Packages is located at `/Users/username/Documents/Max 8/Packages`. Where `username` is the username of your account.
 
-    <Image
-    src="/installation/max-step-2-mac.png"
-    />
+<Image
+src="/installation/max-step-2-mac.png"
+/>
 
-    </TabPanel>
-    <TabPanel>
+</TabPanel>
+<TabPanel>
 
-    On Windows, `Packages` is located at `C:\Users\username\Documents\Max 8\Packages`. Where `username` is the username of your account.
+On Windows, Packages is located at `C:\Users\username\Documents\Max 8\Packages`. Where `username` is the username of your account.
 
-    </TabPanel>
+</TabPanel>
 </Tabs>
 
 ## Step 3: Run Max and Test
@@ -58,13 +58,19 @@ Now check that the installation worked.
 
 2. Open <a href='/installation/max-install-test.maxpat' download='max-install-test.maxpat'>this patch</a>.
 
-## Step 4: Quarantine
+<IndentNote type="danger">
 
-Because we don't sign the `.mxo` externals with developer credentials, macOS will quarantine them and stop them from running. It is trivial to de-quarantine and Max will even do it for you with your permission. If you see the following popup, click OK.
+Binaries compiled by us for macOS are signed and notarised. However, you might need to "dequarantine" them. The command below will recursively do this for you if you provide it the valid path to the FluCoMa package, which should be located in the Max packages folder.
 
-<Image
-src='/installation/max-quarantine.png'
-/>
+<CodeBlock>
+
+```sh
+xattr -d -r com.apple.quarantine <path_to_package>
+```
+
+</CodeBlock>
+
+</IndentNote>
 
 
 

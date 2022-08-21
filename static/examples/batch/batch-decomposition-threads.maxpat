@@ -3,14 +3,14 @@
 		"fileversion" : 1,
 		"appversion" : 		{
 			"major" : 8,
-			"minor" : 2,
+			"minor" : 3,
 			"revision" : 0,
 			"architecture" : "x64",
 			"modernui" : 1
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 595.0, 358.0, 1221.0, 739.0 ],
+		"rect" : [ 35.0, 88.0, 838.0, 777.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 12.0,
@@ -68,7 +68,6 @@
 					"numinlets" : 1,
 					"numoutlets" : 0,
 					"patching_rect" : [ 123.5, 531.0, 273.0, 51.0 ],
-					"presentation_linecount" : 3,
 					"text" : "Look in here to see how the analysis works.\n\nAlso check the Max console!"
 				}
 
@@ -81,7 +80,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 37.0, 490.0, 454.5, 22.0 ],
-					"text" : "audiofiles.24 Tremblay-UW-ComplexDescent-M.wav 20663.22 1 44100."
+					"text" : "audiofiles.21 Tremblay-UW-ComplexDescent-M.wav 20663.22 1 44100."
 				}
 
 			}
@@ -91,12 +90,12 @@
 					"maxclass" : "newobj",
 					"numinlets" : 1,
 					"numoutlets" : 1,
-					"outlettype" : [ "bang" ],
+					"outlettype" : [ "" ],
 					"patcher" : 					{
 						"fileversion" : 1,
 						"appversion" : 						{
 							"major" : 8,
-							"minor" : 2,
+							"minor" : 3,
 							"revision" : 0,
 							"architecture" : "x64",
 							"modernui" : 1
@@ -133,13 +132,24 @@
 						"assistshowspatchername" : 0,
 						"boxes" : [ 							{
 								"box" : 								{
+									"id" : "obj-2",
+									"maxclass" : "newobj",
+									"numinlets" : 2,
+									"numoutlets" : 2,
+									"outlettype" : [ "", "" ],
+									"patching_rect" : [ 395.5, 144.0, 86.0, 22.0 ],
+									"text" : "route progress"
+								}
+
+							}
+, 							{
+								"box" : 								{
 									"id" : "obj-1",
 									"linecount" : 2,
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
 									"patching_rect" : [ 57.5, 15.0, 373.0, 33.0 ],
-									"presentation_linecount" : 2,
 									"text" : "This receives the buffer information for each buffer stored in the polybuffer~ as the iterator iterates through them."
 								}
 
@@ -150,7 +160,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 266.0, 143.5, 262.0, 20.0 ],
+									"patching_rect" : [ 452.0, 181.0, 262.0, 20.0 ],
 									"text" : "Progress of this analysis between 0.0 and 1.0"
 								}
 
@@ -164,7 +174,7 @@
 									"numoutlets" : 2,
 									"outlettype" : [ "", "bang" ],
 									"parameter_enable" : 0,
-									"patching_rect" : [ 209.5, 142.5, 50.0, 22.0 ]
+									"patching_rect" : [ 395.5, 180.0, 50.0, 22.0 ]
 								}
 
 							}
@@ -174,7 +184,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 474.5, 364.0, 350.0, 20.0 ],
+									"patching_rect" : [ 474.5, 386.0, 350.0, 20.0 ],
 									"text" : "Bufcompose the percussive (p) into channel 1 of the destination."
 								}
 
@@ -185,7 +195,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 474.5, 327.0, 342.0, 20.0 ],
+									"patching_rect" : [ 474.5, 349.0, 342.0, 20.0 ],
 									"text" : "Bufcompose the harmonic (h) into channel 0 of the destination."
 								}
 
@@ -197,7 +207,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 298.0, 190.0, 230.0, 114.0 ],
+									"patching_rect" : [ 298.0, 212.0, 230.0, 114.0 ],
 									"text" : "Everytime we finish hpss-ing, append (create) a new empty buffer in the \"results\" polybuffer~. We then dump to get the name of the last \"appendempty\" buffer that was appended.\n\nUse this to set the destination for the following fluid.bufcompose~"
 								}
 
@@ -220,7 +230,7 @@
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 144.5, 277.0, 83.0, 22.0 ],
+									"patching_rect" : [ 144.5, 299.0, 83.0, 22.0 ],
 									"text" : "destination $2"
 								}
 
@@ -231,9 +241,9 @@
 									"id" : "obj-52",
 									"maxclass" : "newobj",
 									"numinlets" : 1,
-									"numoutlets" : 3,
-									"outlettype" : [ "bang", "float", "" ],
-									"patching_rect" : [ 23.5, 364.0, 441.0, 22.0 ],
+									"numoutlets" : 2,
+									"outlettype" : [ "", "" ],
+									"patching_rect" : [ 23.5, 386.0, 441.0, 22.0 ],
 									"text" : "fluid.bufcompose~ @source p @destination result @deststartchan 1 @blocking 0"
 								}
 
@@ -244,9 +254,9 @@
 									"id" : "obj-53",
 									"maxclass" : "newobj",
 									"numinlets" : 1,
-									"numoutlets" : 3,
-									"outlettype" : [ "bang", "float", "" ],
-									"patching_rect" : [ 23.5, 327.0, 441.0, 22.0 ],
+									"numoutlets" : 2,
+									"outlettype" : [ "", "" ],
+									"patching_rect" : [ 23.5, 349.0, 441.0, 22.0 ],
 									"text" : "fluid.bufcompose~ @source h @destination result @deststartchan 0 @blocking 0"
 								}
 
@@ -258,7 +268,7 @@
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 144.5, 197.0, 138.0, 22.0 ],
+									"patching_rect" : [ 144.5, 219.0, 138.0, 22.0 ],
 									"text" : "appendempty 1 2, dump"
 								}
 
@@ -270,7 +280,7 @@
 									"numinlets" : 1,
 									"numoutlets" : 2,
 									"outlettype" : [ "", "bang" ],
-									"patching_rect" : [ 144.5, 237.0, 107.0, 22.0 ],
+									"patching_rect" : [ 144.5, 259.0, 107.0, 22.0 ],
 									"saved_object_attributes" : 									{
 										"embed" : 0
 									}
@@ -323,8 +333,8 @@
 									"id" : "obj-23",
 									"maxclass" : "newobj",
 									"numinlets" : 1,
-									"numoutlets" : 3,
-									"outlettype" : [ "bang", "float", "" ],
+									"numoutlets" : 4,
+									"outlettype" : [ "", "", "", "" ],
 									"patching_rect" : [ 23.5, 107.0, 391.0, 22.0 ],
 									"text" : "fluid.bufhpss~ @harmonic h @percussive p @numchans 1 @blocking 0"
 								}
@@ -342,7 +352,7 @@
 									"mode" : 0,
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 136.0, 187.0, 160.0, 120.0 ],
+									"patching_rect" : [ 136.0, 209.0, 160.0, 120.0 ],
 									"proportion" : 0.5
 								}
 
@@ -368,7 +378,7 @@
 									"maxclass" : "outlet",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 23.5, 398.0, 30.0, 30.0 ]
+									"patching_rect" : [ 23.5, 420.0, 30.0, 30.0 ]
 								}
 
 							}
@@ -383,7 +393,14 @@
 , 							{
 								"patchline" : 								{
 									"destination" : [ "obj-109", 0 ],
-									"source" : [ "obj-23", 1 ]
+									"source" : [ "obj-2", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-2", 0 ],
+									"source" : [ "obj-23", 3 ]
 								}
 
 							}
@@ -443,7 +460,7 @@
 , 							{
 								"patchline" : 								{
 									"destination" : [ "obj-52", 0 ],
-									"midpoints" : [ 154.0, 312.0, 9.0, 312.0, 9.0, 360.0, 33.0, 360.0 ],
+									"midpoints" : [ 154.0, 334.0, 9.0, 334.0, 9.0, 382.0, 33.0, 382.0 ],
 									"order" : 0,
 									"source" : [ "obj-58", 0 ]
 								}
@@ -452,7 +469,7 @@
 , 							{
 								"patchline" : 								{
 									"destination" : [ "obj-53", 0 ],
-									"midpoints" : [ 154.0, 312.0, 33.0, 312.0 ],
+									"midpoints" : [ 154.0, 334.0, 33.0, 334.0 ],
 									"order" : 1,
 									"source" : [ "obj-58", 0 ]
 								}
@@ -516,7 +533,7 @@
 						"fileversion" : 1,
 						"appversion" : 						{
 							"major" : 8,
-							"minor" : 2,
+							"minor" : 3,
 							"revision" : 0,
 							"architecture" : "x64",
 							"modernui" : 1
@@ -559,7 +576,6 @@
 									"numinlets" : 1,
 									"numoutlets" : 0,
 									"patching_rect" : [ 133.0, 15.0, 273.0, 60.0 ],
-									"presentation_linecount" : 4,
 									"text" : "This inlet receives a bang when the current job has completed. The counter is incremented which grabs a new buffer name from the polybuffer~ causing analysis to start."
 								}
 
@@ -989,12 +1005,11 @@
 , 			{
 				"box" : 				{
 					"id" : "obj-116",
-					"linecount" : 8,
+					"linecount" : 6,
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 101.5, 610.0, 330.0, 114.0 ],
-					"presentation_linecount" : 15,
+					"patching_rect" : [ 101.5, 610.0, 336.0, 87.0 ],
 					"text" : "Everytime this chain of analysis completes, a bang is output. We send this back up to the counter to analyse the next item.\n\nDeferlow here ensures that we don't produce a stackoverflow and that the scheduling of the next job happens after everything in the main thread queue is complete."
 				}
 
@@ -1063,7 +1078,6 @@
 					"numinlets" : 1,
 					"numoutlets" : 0,
 					"patching_rect" : [ 173.5, 339.0, 254.5, 33.0 ],
-					"presentation_linecount" : 2,
 					"text" : "The output of dump from the polybuffer~ can be passed directly into a coll."
 				}
 
@@ -1201,7 +1215,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 520.0, 214.0, 219.5, 355.0 ],
+					"patching_rect" : [ 520.0, 214.0, 225.0, 355.0 ],
 					"text" : "What you will have noticed is that the other patch completely blocks the main thread of Max when processing begins. This is not ideal if you need to see GUI updates in a performance, or you don't want a lengthy process to interfere with something else on the main thread. \n\nSo, let's take the original \"batch processing decomposition\" patch and make it asynchronous. We can do this by applying the \"blocking 0\" flag to all the fluid~ objects. However, we can no longer rely on the scheduler to order our operations when we do this and we have to iterate ourselves over the batch of items.\n\nA solid way to approach this is to create a temporary store of all the items we need to iterate that is good for iteration. To achieve this, I'll use the coll to store all the buffers we want to process and iterate over.\n\n"
 				}
 
@@ -1281,7 +1295,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 950.25, 321.5, 250.0, 35.0 ],
-					"text" : "audiofiles.1 Green-Box639.wav 9066.25 1 48000."
+					"text" : "audiofiles.3 Green-Box641.wav 13332.729167 1 48000."
 				}
 
 			}
@@ -1364,7 +1378,7 @@
 						"fileversion" : 1,
 						"appversion" : 						{
 							"major" : 8,
-							"minor" : 2,
+							"minor" : 3,
 							"revision" : 0,
 							"architecture" : "x64",
 							"modernui" : 1
@@ -1515,7 +1529,7 @@
 									"maxclass" : "newobj",
 									"numinlets" : 2,
 									"numoutlets" : 2,
-									"outlettype" : [ "signal", "list" ],
+									"outlettype" : [ "signal", "" ],
 									"patching_rect" : [ 28.0, 191.0, 128.0, 22.0 ],
 									"text" : "matrix~ 2 1 @ramp 10"
 								}
@@ -1769,13 +1783,13 @@
 								"name" : "max6message",
 								"default" : 								{
 									"bgfillcolor" : 									{
-										"type" : "gradient",
+										"angle" : 270.0,
+										"autogradient" : 0,
+										"color" : [ 0.290196, 0.309804, 0.301961, 1.0 ],
 										"color1" : [ 0.866667, 0.866667, 0.866667, 1.0 ],
 										"color2" : [ 0.788235, 0.788235, 0.788235, 1.0 ],
-										"color" : [ 0.290196, 0.309804, 0.301961, 1.0 ],
-										"angle" : 270.0,
 										"proportion" : 0.39,
-										"autogradient" : 0
+										"type" : "gradient"
 									}
 ,
 									"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ]
@@ -1911,8 +1925,8 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 16.0, 78.0, 359.0, 22.0 ],
-					"text" : "\"~/Documents/Max 8/Packages/Fluid Corpus Manipulation/media\""
+					"patching_rect" : [ 16.0, 78.0, 352.0, 22.0 ],
+					"text" : "\"~/Documents/Max 8/Packages/FluidCorpusManipulation/media\""
 				}
 
 			}
@@ -2205,15 +2219,6 @@
 			"inherited_shortname" : 1
 		}
 ,
-		"dependency_cache" : [ 			{
-				"name" : "fluid.bufhpss~.mxo",
-				"type" : "iLaX"
-			}
-, 			{
-				"name" : "fluid.bufcompose~.mxo",
-				"type" : "iLaX"
-			}
- ],
 		"autosave" : 0,
 		"styles" : [ 			{
 				"name" : "max6box",
@@ -2239,13 +2244,13 @@
 				"name" : "max6message",
 				"default" : 				{
 					"bgfillcolor" : 					{
-						"type" : "gradient",
+						"angle" : 270.0,
+						"autogradient" : 0,
+						"color" : [ 0.290196, 0.309804, 0.301961, 1.0 ],
 						"color1" : [ 0.866667, 0.866667, 0.866667, 1.0 ],
 						"color2" : [ 0.788235, 0.788235, 0.788235, 1.0 ],
-						"color" : [ 0.290196, 0.309804, 0.301961, 1.0 ],
-						"angle" : 270.0,
 						"proportion" : 0.39,
-						"autogradient" : 0
+						"type" : "gradient"
 					}
 ,
 					"textcolor_inverse" : [ 0.0, 0.0, 0.0, 1.0 ]

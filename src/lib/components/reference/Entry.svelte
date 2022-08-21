@@ -1,10 +1,10 @@
-<script lang="ts">
-	export let title: string = '';
-	export let blurb: string = '';
-	export let url: string = '';
+<script>
+	export let title = '';
+	export let blurb = '';
+	export let url = '';
 </script>
 
-<a  href={url} class="container neutral-link raisedbox">
+<a href={url} class="container neutral-link raisedbox">
 	<h4 class="title">
 		{title}
 	</h4>
@@ -32,6 +32,6 @@
 		font-weight: bold;
 	}
 	.blurb {
-		color: grey;
+		color: var(--grey);
 	}
 </style>

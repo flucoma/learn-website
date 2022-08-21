@@ -1,8 +1,10 @@
-<script lang="ts">
-	export let src: string = '';
-	export let alt: string = '';
-	export let label: string = '';
-	export let id: string = '';
+<script>
+	import { markdown } from 'markdown';
+
+	export let src = '';
+	export let alt = '';
+	export let label = '';
+	export let id = '';
 </script>
 
 <figure class="container" {id}>
@@ -10,9 +12,9 @@
 		<img loading="lazy" {alt} {src} />
 	</a>
 	<figcaption class="label">
-		{label}
+		{@html markdown.toHTML(label)}
 	</figcaption>
-</figure >
+</figure>
 
 <style lang="postcss">
 	.container {
@@ -32,10 +34,12 @@
 
 	.container > a {
 		max-width: 100%;
+		transition: opacity linear 100ms;
 	}
 
 	.container > a:hover {
 		background: transparent;
+		opacity: 0.95;
 	}
 
 	.label {

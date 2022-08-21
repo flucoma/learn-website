@@ -2,7 +2,7 @@
     Refer to:
     https://ptsjs.org/guide/op-0400
  -->
-<script lang="ts">
+<script>
 	import { onMount } from 'svelte';
 	import { CanvasSpace, Create, GroupLike, Circle } from 'pts';
 	import Slider from '$lib/components/Slider.svelte';
@@ -11,14 +11,13 @@
 	const NUM_POINTS = 120;
 
 	let canvas;
-	let pts: GroupLike = [];
-	let mouse: Array<number> = [];
-	let numNeighbours: number = 30;
-	$: calcNeighbours = numNeighbours===0 ? NUM_POINTS : numNeighbours;
-	let fit: boolean = false;
+	let pts = [];
+	let mouse = [];
+	let numNeighbours = 30;
+	let fit = false;
 	let rect;
-	let radius: number = 0.0;
-
+	let radius = 0.0;
+	$: calcNeighbours = numNeighbours === 0 ? NUM_POINTS : numNeighbours;
 
 	function getMousePos(canvas, evt) {
 		// We need to do this manually otherwise when shifting the window the resize is not accounted for.
@@ -42,13 +41,13 @@
 				pts = Create.distributeRandom(space.innerBound, NUM_POINTS);
 			},
 			animate: (time, ftime, space) => {
-				let circle: GroupLike = Circle.fromCenter(mouse, radius * space.size.y);
+				let circle = Circle.fromCenter(mouse, radius * space.size.y);
 				form.fillOnly(darkBlue).circle(circle);
 				if (fit) {
 					pts.sort((a, b) => a.$subtract(mouse).magnitude() - b.$subtract(mouse).magnitude());
 					form.fillOnly('#123').points(pts, 3, 'circle');
 					// Draw bigger on top of points
-					for (let i = 0; i<calcNeighbours; i++) {
+					for (let i = 0; i < calcNeighbours; i++) {
 						form.strokeOnly('rgba(8,60,100,0.8)', 2).line([pts[i], mouse]);
 
 						if (radius > 0.0) {
@@ -84,8 +83,8 @@
 </div>
 
 <div class="controls">
-	<Slider bind:value={numNeighbours} min=0 max=50 step=1 title="Number of Neighbours" />
-	<Slider bind:value={radius} min=0.0 max=1.0 step=0.01 title="Radius" />
+	<Slider bind:value={numNeighbours} min="0" max="50" step="1" title="Number of Neighbours" />
+	<Slider bind:value={radius} min="0.0" max="1.0" step="0.01" title="Radius" />
 </div>
 
 <style>

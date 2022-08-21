@@ -1,16 +1,37 @@
-<figure class="figure"> 
-    <!--?xml version="1.0" encoding="utf-8"?-->
-    <!-- Generator: Adobe Illustrator 21.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-    <svg version="1.1" id="specpeak" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 331.2 223.7" style="enable-background:new 0 0 331.2 223.7;" xml:space="preserve">
-        <style type="text/css">
-            .st0{fill:none;stroke:#1F77B4;stroke-width:0.5;}
-            .st1{fill:#FF7F0E;stroke:#D62728;stroke-linejoin:round;}
-        </style>
-        <g id="peaks">
-            <g id="axes_1">
-                <g id="line2d_12">
-                    <g>
-                        <path id="spectrace" class="st0" d="M13.8,101.4l0.6-64.1l0.6-2.6l0.6-21.3l0.6,5.6l0.6,23.4l0.6,6.2L18,17.4l0.6-2.5l0.6,26.6
+<figure class="figure">
+	<!--?xml version="1.0" encoding="utf-8"?-->
+	<!-- Generator: Adobe Illustrator 21.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+	<svg
+		version="1.1"
+		id="specpeak"
+		xmlns="http://www.w3.org/2000/svg"
+		xmlns:xlink="http://www.w3.org/1999/xlink"
+		x="0px"
+		y="0px"
+		viewBox="0 0 331.2 223.7"
+		style="enable-background:new 0 0 331.2 223.7;"
+		xml:space="preserve"
+	>
+		<style type="text/css">
+			.st0 {
+				fill: none;
+				stroke: #1f77b4;
+				stroke-width: 0.5;
+			}
+			.st1 {
+				fill: #ff7f0e;
+				stroke: #d62728;
+				stroke-linejoin: round;
+			}
+		</style>
+		<g id="peaks">
+			<g id="axes_1">
+				<g id="line2d_12">
+					<g>
+						<path
+							id="spectrace"
+							class="st0"
+							d="M13.8,101.4l0.6-64.1l0.6-2.6l0.6-21.3l0.6,5.6l0.6,23.4l0.6,6.2L18,17.4l0.6-2.5l0.6,26.6
                         l0.6,6.9l0.6-5.9l0.6,0.3l0.6,32l0.6-27.2l0.6-13.3l0.6,4.8l0.6,11.3l0.6,5l0.6,19.5l0.6,5.8l0.6-2.7l0.6,2l0.6-16.2l0.6,9.1
                         l0.6,25.6l0.6,4.9l0.6-8.9l0.6-5.9l0.6,3.4l0.6-8.6l0.6-5.9l0.6,20.4l0.6,8.3l0.6-24.5l0.6,1.3l0.6,24.8l0.6,13.6l0.6-12.1
                         l0.6-20l0.6-13.2l0.6,6.4l0.6,41l0.6,0.4l0.6,4l0.6-1.8l0.6-13.8l0.6,11.2l0.6,37.5l0.6-21.5l0.6-8.2l0.6-16.2l0.6-5.6l1.2,12.3
@@ -44,88 +65,88 @@
                         l0.6,9.2l0.6,25.3l0.6-35.6l0.6-0.6l0.6,8.1l0.6,18.9l0.6-14.6l0.6-10.8l0.6,23.4l0.6-22.8l0.6,0.5l0.6-1.3l0.6,3.7l0.6,13.8
                         l0.6-4.8l0.6-14l0.6,7.4l0.6,14.3l0.6,9.6l1.2-22l0.6,11.2l0.6-5.7l0.6-8.7l0.6,0.1l0.6-0.4l0.6,20.4l0.6-8.1l0.6,8.8l0.6-21.2
                         l0.6,14.7l0.6-20.7l0.6,11.9l0.6,4l0.6-10.5l0.6,21.1l0.6-9.8l0.6,23.9l0.6-25.5l0.6-3.5l0.6-6.3l0.6,6.9l0.6,0.9l0.6-0.1
-                        l0.6,6.5l0,0"></path>
-                    </g>
-                </g>
-                <g id="line2d_13">
-                    <g>
-                        <g id="peakcrosses">
-                            <g>
-                                <path id="m7a2c15cf88" class="st1" d="M12.6,16.4l6-6 M12.6,10.4l6,6"></path>
-                            </g>
-                            <g>
-                                <path id="m7a2c15cf88_1_" class="st1" d="M19.8,37.2l6-6 M19.8,31.2l6,6"></path>
-                            </g>
-                            <g>
-                                <path id="m7a2c15cf88_2_" class="st1" d="M27.5,91.6l6-6 M27.5,85.6l6,6"></path>
-                            </g>
-                            <g>
-                                <path id="m7a2c15cf88_3_" class="st1" d="M34.6,79.2l6-6 M34.6,73.2l6,6"></path>
-                            </g>
-                            <g>
-                                <path id="m7a2c15cf88_4_" class="st1" d="M41.8,112.6l6-6 M41.8,106.6l6,6"></path>
-                            </g>
-                            <g>
-                                <path id="m7a2c15cf88_5_" class="st1" d="M51.9,148.6l6-6 M51.9,142.6l6,6"></path>
-                            </g>
-                            <g>
-                                <path id="m7a2c15cf88_6_" class="st1" d="M60.8,143.6l6-6 M60.8,137.6l6,6"></path>
-                            </g>
-                            <g>
-                                <path id="m7a2c15cf88_7_" class="st1" d="M69.7,154.9l6-6 M69.7,148.9l6,6"></path>
-                            </g>
-                            <g>
-                                <path id="m7a2c15cf88_8_" class="st1" d="M79.2,158.1l6-6 M79.2,152.1l6,6"></path>
-                            </g>
-                            <g>
-                                <path id="m7a2c15cf88_9_" class="st1" d="M90.5,150.1l6-6 M90.5,144.1l6,6"></path>
-                            </g>
-                            <g>
-                                <path id="m7a2c15cf88_10_" class="st1" d="M104.2,161.3l6-6 M104.2,155.3l6,6"></path>
-                            </g>
-                            <g>
-                                <path id="m7a2c15cf88_11_" class="st1" d="M115.5,155.3l6-6 M115.5,149.3l6,6"></path>
-                            </g>
-                            <g>
-                                <path id="m7a2c15cf88_12_" class="st1" d="M162.4,158.6l6-6 M162.4,152.6l6,6"></path>
-                            </g>
-                            <g>
-                                <path id="m7a2c15cf88_13_" class="st1" d="M171.3,160.9l6-6 M171.3,154.9l6,6"></path>
-                            </g>
-                            <g>
-                                <path id="m7a2c15cf88_14_" class="st1" d="M189.2,159l6-6 M189.2,153l6,6"></path>
-                            </g>
-                            <g>
-                                <path id="m7a2c15cf88_15_" class="st1" d="M207.6,161.6l6-6 M207.6,155.6l6,6"></path>
-                            </g>
-                            <g>
-                                <path id="m7a2c15cf88_16_" class="st1" d="M217.7,157.3l6-6 M217.7,151.3l6,6"></path>
-                            </g>
-                            <g>
-                                <path id="m7a2c15cf88_17_" class="st1" d="M224.8,161.1l6-6 M224.8,155.1l6,6"></path>
-                            </g>
-                            <g>
-                                <path id="m7a2c15cf88_18_" class="st1" d="M252.2,156.2l6-6 M252.2,150.2l6,6"></path>
-                            </g>
-                            <g>
-                                <path id="m7a2c15cf88_19_" class="st1" d="M258.1,160.7l6-6 M258.1,154.7l6,6"></path>
-                            </g>
-                            <g>
-                                <path id="m7a2c15cf88_20_" class="st1" d="M271.8,154.1l6-6 M271.8,148.1l6,6"></path>
-                            </g>
-                            <g>
-                                <path id="m7a2c15cf88_21_" class="st1" d="M287.3,157.6l6-6 M287.3,151.6l6,6"></path>
-                            </g>
-                        </g>
-                    </g>
-                </g>
-            </g>
-        </g>
-    </svg>
+                        l0.6,6.5l0,0"
+						/>
+					</g>
+				</g>
+				<g id="line2d_13">
+					<g>
+						<g id="peakcrosses">
+							<g>
+								<path id="m7a2c15cf88" class="st1" d="M12.6,16.4l6-6 M12.6,10.4l6,6" />
+							</g>
+							<g>
+								<path id="m7a2c15cf88_1_" class="st1" d="M19.8,37.2l6-6 M19.8,31.2l6,6" />
+							</g>
+							<g>
+								<path id="m7a2c15cf88_2_" class="st1" d="M27.5,91.6l6-6 M27.5,85.6l6,6" />
+							</g>
+							<g>
+								<path id="m7a2c15cf88_3_" class="st1" d="M34.6,79.2l6-6 M34.6,73.2l6,6" />
+							</g>
+							<g>
+								<path id="m7a2c15cf88_4_" class="st1" d="M41.8,112.6l6-6 M41.8,106.6l6,6" />
+							</g>
+							<g>
+								<path id="m7a2c15cf88_5_" class="st1" d="M51.9,148.6l6-6 M51.9,142.6l6,6" />
+							</g>
+							<g>
+								<path id="m7a2c15cf88_6_" class="st1" d="M60.8,143.6l6-6 M60.8,137.6l6,6" />
+							</g>
+							<g>
+								<path id="m7a2c15cf88_7_" class="st1" d="M69.7,154.9l6-6 M69.7,148.9l6,6" />
+							</g>
+							<g>
+								<path id="m7a2c15cf88_8_" class="st1" d="M79.2,158.1l6-6 M79.2,152.1l6,6" />
+							</g>
+							<g>
+								<path id="m7a2c15cf88_9_" class="st1" d="M90.5,150.1l6-6 M90.5,144.1l6,6" />
+							</g>
+							<g>
+								<path id="m7a2c15cf88_10_" class="st1" d="M104.2,161.3l6-6 M104.2,155.3l6,6" />
+							</g>
+							<g>
+								<path id="m7a2c15cf88_11_" class="st1" d="M115.5,155.3l6-6 M115.5,149.3l6,6" />
+							</g>
+							<g>
+								<path id="m7a2c15cf88_12_" class="st1" d="M162.4,158.6l6-6 M162.4,152.6l6,6" />
+							</g>
+							<g>
+								<path id="m7a2c15cf88_13_" class="st1" d="M171.3,160.9l6-6 M171.3,154.9l6,6" />
+							</g>
+							<g>
+								<path id="m7a2c15cf88_14_" class="st1" d="M189.2,159l6-6 M189.2,153l6,6" />
+							</g>
+							<g>
+								<path id="m7a2c15cf88_15_" class="st1" d="M207.6,161.6l6-6 M207.6,155.6l6,6" />
+							</g>
+							<g>
+								<path id="m7a2c15cf88_16_" class="st1" d="M217.7,157.3l6-6 M217.7,151.3l6,6" />
+							</g>
+							<g>
+								<path id="m7a2c15cf88_17_" class="st1" d="M224.8,161.1l6-6 M224.8,155.1l6,6" />
+							</g>
+							<g>
+								<path id="m7a2c15cf88_18_" class="st1" d="M252.2,156.2l6-6 M252.2,150.2l6,6" />
+							</g>
+							<g>
+								<path id="m7a2c15cf88_19_" class="st1" d="M258.1,160.7l6-6 M258.1,154.7l6,6" />
+							</g>
+							<g>
+								<path id="m7a2c15cf88_20_" class="st1" d="M271.8,154.1l6-6 M271.8,148.1l6,6" />
+							</g>
+							<g>
+								<path id="m7a2c15cf88_21_" class="st1" d="M287.3,157.6l6-6 M287.3,151.6l6,6" />
+							</g>
+						</g>
+					</g>
+				</g>
+			</g>
+		</g>
+	</svg>
 </figure>
 
 <style>
-    .figure {
-        
-    }
+	.figure {
+	}
 </style>
