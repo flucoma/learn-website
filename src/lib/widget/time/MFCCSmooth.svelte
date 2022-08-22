@@ -104,7 +104,7 @@
 	/>
 	<div class="smoothing">
 		<label for='smoothing'>Smoothing Amount: { smoothing }</label>
-		<input id='smoothing' type='range' bind:value={smoothing} min=0 max=400 step=1 on:input={() => chart.options.animation.duration = smoothing} />
+		<input id='smoothing' type='range' bind:value={smoothing} min=0 max=1000 step=1 on:input={() => chart.options.animation.duration = smoothing} />
 	</div>
 </div>
 </div>
