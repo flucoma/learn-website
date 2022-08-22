@@ -37,8 +37,8 @@ Why is this useful? Well, smoothing can often provide a straightforward improvem
 <p> You can download patches and scripts which perform moving average smoothing on descriptor data using <a href='/reference/stats'>Stats</a> in Max, SuperCollider and PureData. </p>
 <p class='downloads'>
     <a href='/learn/smoothing-data/mfcc-smoothing.maxpat' download='smoothing.maxpat'>Max</a>
-    <a href='/learn/smoothing-data/mfcc-smoothing.maxpat' download='smoothing.pd'>PureData</a>
-    <a href='/learn/smoothing-data/mfcc-smoothing.maxpat' download='smoothing.scd'>SuperCollider</a>
+    <a href='/learn/smoothing-data/mfcc-smoothing.pd' download='smoothing.pd'>PureData</a>
+    <a href='/learn/smoothing-data/mfcc-smoothing.scd' download='smoothing.scd'>SuperCollider</a>
 </p>
 </Admonition>
 
