@@ -125,7 +125,7 @@ You can download a patch or script that shows how to realise this entire process
 </p>
 <p class='downloads'>
     <a href='/learn/refining-pitch-analysis/patch.maxpat' download='refining pitch analysis.maxpat'>Max</a>
-    <a href='/learn/refining-pitch-analysis/patch.pd' download='refining pitch analysis.pd'>PureData</a>
+    <!-- <a href='/learn/refining-pitch-analysis/patch.pd' download='refining pitch analysis.pd'>PureData</a> -->
     <a href='/learn/refining-pitch-analysis/script.scd' download='refining pitch analysis.scd'>SuperCollider</a>
 </p>
 </Admonition>
