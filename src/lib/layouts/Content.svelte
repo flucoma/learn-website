@@ -15,7 +15,7 @@
 
 <div class="wrapper">
 	<div class="navigation">
-		<TOC/>
+		<TOC />
 	</div>
 
 	<div class="main">

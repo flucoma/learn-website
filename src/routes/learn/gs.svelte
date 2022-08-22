@@ -1,9 +1,11 @@
 <script>
-	import Map from '$$lib/components/getting-started/Test.sveltestarted/Map.svelte';
+	import Map from '$lib/components/getting-started/Map.svelte';
+	import Classifier from '$lib/components/getting-started/Classifier.svelte';
 </script>
 
 <div class="grid">
 	<Map />
+	<Classifier />
 </div>
 
 <style>
@@ -15,6 +17,4 @@
 		align-content: center;
 		justify-content: space-around;
 	}
-
-
 </style>

@@ -156,7 +156,7 @@ This type of source collection and *creation* can continue as long as we wish de
 
 I experimented with many different kinds of combinations of descriptors, dimensionality reduction algorithms and settings. As the corpora are generally large, a good initial description is using [MFCC](/reference/mfcc) (especially if the slicing was performed automatically with [*fluid.noveltyslice~*](/reference/noveltyslice) using the [MFCC](/reference/mfcc) feature). As analysis continues, and one gains a better sense of the corpus, it is possible to make subcollections and to use other audio descriptors. Dimensionality reduction was also a very important aspect: at the time I was carrying out this research, only the [*fluid.pca~*](/reference/pca) and [*fluid.mds~*](/reference/mds) objects were implemented in the toolkit, and I found them to yield unsatisfactory results. Therefore I exported my analyses from Max and used a Python patch (see below) built around [scikit-learn](https://scikit-learn.org/stable/) to build distributions which could then be opened again in Max.
 
-<CodeBlock>
+<CodeBlock title='Various dimension reduction techniques in Python'>
 
 ```python
 '''

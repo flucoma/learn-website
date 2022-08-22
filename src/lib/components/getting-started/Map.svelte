@@ -78,7 +78,7 @@
 </script>
 
 
-<a class="container img_container" href='/learn/2d-corpus-explorer'>
+<a class="container" href='/learn/2d-corpus-explorer'>
 	<h1>2D Corpus Exploration</h1>
 	<p>Explore a sound bank using machine listening and machine learning</p>
 	<canvas bind:this={canvas} id="scatter-plot" on:mouseenter={change} on:mouseleave={change}/>

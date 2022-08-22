@@ -1,5 +1,6 @@
 ---
 title: Neural Network Parameters
+author: Ted
 blurb: A guide on using the parameters of and MLP.
 featuredimage: /learn/mlp/13-5-4-3.txt.png
 tags: 
@@ -16,7 +17,7 @@ flair: article
 ---
 
 <script>
-    import IndentNote from '$lib/components/IndentNote.svelte';
+    import Admonition from '$lib/components/Admonition.svelte';
     import Image from '$lib/components/Image.svelte';
 </script>
 

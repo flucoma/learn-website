@@ -1,87 +1,136 @@
 <script>
 	import { onMount } from 'svelte';
-	import { Chart, registerables } from 'chart.js';
+	import { clip } from '$lib/util';
 	import * as d3 from 'd3';
-	import * as _ from 'lodash';
-	import metric0 from '$lib/data/reference/mds/metric_0.json';
-	import metric1 from '$lib/data/reference/mds/metric_1.json';
-	import metric2 from '$lib/data/reference/mds/metric_2.json';
-	import metric3 from '$lib/data/reference/mds/metric_3.json';
-	import metric4 from '$lib/data/reference/mds/metric_4.json';
-	import metric5 from '$lib/data/reference/mds/metric_5.json';
 
-	let canvas, ctx, chart, timer;
-
-	const metric = [
-		Object.values(metric0.data).map(x => [...x, Math.random() * 4]),
-		Object.values(metric1.data).map(x => [...x, Math.random() * 3]),
-		Object.values(metric2.data).map(x => [...x, Math.random() * 2]),
-		Object.values(metric3.data).map(x => [...x, Math.random() * 6]),
-		Object.values(metric4.data).map(x => [...x, Math.random() * 3.5]),
-		Object.values(metric5.data).map(x => [...x, Math.random() * 3])
+	let container;
+	let simulation;
+	let height;
+	let width;
+	let connections = [
+		{
+			'Content-Aware Program Output': ['JSON Data', 'Audio Outputs', 'Data Visualisation']
+		},
+		{
+			'JSON Data': [
+				'Max Facilitated Exploration',
+				'Return to Generating Outputs',
+				'REAPER Scripting',
+				'Manual and Intuitive Composing'
+			]
+		},
+		{
+			'Max Facilitated Exploration': [
+				'Return to Generating Outputs',
+				'REAPER Scripting',
+				'Manual and Intuitive Composing'
+			]
+		},
+		{
+			'Return to Generating Outputs': ['Content-Aware Program Output']
+		},
+		{
+			'REAPER Scripting': ['Manual and Intuitive Composing', 'Return to Generating Outputs', 'Audio Outputs']
+		},
+		{
+			'Audio Outputs': ['Manual and Intuitive Composing', 'Return to Generating Outputs']
+		},
+		{
+			'Manual and Intuitive Composing': ['Return to Generating Outputs']
+		},
+		{
+			'Data Visualisation': ['Return to Generating Outputs', 'Manual and Intuitive Composing', 'REAPER Scripting']
+		}
 	];
 
-	const colours = metric[0].map(v => d3.interpolateBlues(v[0] * 4 * v[1] + 0.4));
+	let nodes = [];
+	let links = [];
+	let counter = 4;
+	connections.forEach(d => {
+		for (var k in d) {
+			nodes.push({ id: k, group: counter });
 
-	const change = () => {
-		clearInterval(timer);
-		const time = Math.random() * 3000 + 500
-		timer = setInterval(change, time);
-		chart.data.datasets[0].data = _.sample(metric);
-		let colour;
-		const choice = Math.random();
-		if (choice > 0.66) {
-			colour = metric[0].map(v => d3.interpolateSinebow(v[0] * 4 * v[1] + 0.4));
-		} else if (choice > 0.33 && choice <= 0.66) {
-			colour = metric[0].map(v => d3.interpolateBlues(v[0] * 4 * v[1] + 0.4));
-		} else {
-			colour = metric[0].map(v => d3.interpolateWarm(v[0] * 4 * v[1] + 0.4));
+			d[k].forEach(l => {
+				links.push({ source: k, target: l, group: counter });
+			});
+			counter += 1;
 		}
+	});
+	onMount(() => {
+		let svg = d3.select(container);
+		simulation = d3
+			.forceSimulation(nodes)
+			.force(
+				'link',
+				d3.forceLink(links).id(d => {
+					return d.id;
+				})
+			)
+			.force('charge', d3.forceManyBody().strength(-2000).distanceMin(-24))
+			.force('center', d3.forceCenter(width / 2.74, height / 2));
 
-		chart.data.datasets[0].backgroundColor = colour
-		chart.data.datasets[0].borderColor = colour;
-		chart.update();
-	}
+		const colourScale = d3.scaleOrdinal(d3.schemeCategory10);
+		svg.append('svg:defs')
+			.append('svg:marker')
+			.attr('id', 'arrow')
+			.attr('viewBox', '0 -2 7 7')
+			.attr('refX', 4.7) //so that it comes towards the center.
+			.attr('markerWidth', 20)
+			.attr('markerHeight', 20)
+			.attr('orient', 'auto')
+			.append('svg:path')
+			.attr('d', 'M0,-1L3,0L0,1');
 
-	onMount(async () => {
-		Chart.register(...registerables);
-		ctx = canvas.getContext('2d');
+		let link = svg
+			.append('g')
+			.style('stroke', 4)
+			.selectAll('line')
+			.data(links)
+			.attr('stroke-opacity', 1.0)
+			.join('line')
+			.style('stroke', d => colourScale(d.group))
+			.attr('marker-end', 'url(#arrow)');
 
-		const data = {
-			datasets: [
-				{
-					data: metric[0],
-					backgroundColor: colours,
-					borderColor: colours,
-					pointRadius: 4
-				}
-			]
-		};
+		let node = svg
+			.append('g')
+			.attr('stroke', '#fff')
+			.attr('stroke-width', 1.5)
+			.selectAll('circle')
+			.data(nodes)
+			.join('circle')
+			.attr('fill', d => colourScale(d.group))
+			.attr('r', d => (d.id === 'Return to Generating Outputs' ? 6 : 4));
 
-		chart = new Chart(ctx, {
-			type: 'bubble',
-			data: data,
-			options: {
-				responsive: true,
-				maintainAspectRatio: false,
-				plugins: { legend: { display: false } },
-				scales: {
-					x: { display: false },
-					y: { display: false }
-				}
-			}
+		let text = svg
+			.append('g')
+			.attr('class', 'labels')
+			.selectAll('text')
+			.data(nodes)
+			.enter()
+			.append('text')
+			.attr('text-align', 'left')
+			.attr('transform', 'translate(15, 0)')
+			.text(d => {
+				return d.id;
+			});
+
+		simulation.on('tick', () => {
+			link.attr('x1', d => clip(d.source.x, 0, width))
+				.attr('y1', d => clip(d.source.y, 0, height))
+				.attr('x2', d => clip(d.target.x, 0, width))
+				.attr('y2', d => clip(d.target.y, 0, height));
+
+			node.attr('cx', d => clip(d.x, 0, width)).attr('cy', d => clip(d.y, 0, height));
+
+			text.attr('dx', d => clip(d.x, 0, width)).attr('dy', d => clip(d.y, 0, height));
 		});
-		chart.options.animation = { duration: 3000 };
-
-		timer = setInterval(change, 2000)
 	});
 </script>
 
-
-<a class="container img_container" href='/learn/2d-corpus-explorer'>
-	<h1>2D Corpus Exploration</h1>
-	<p>Explore a sound bank using machine listening and machine learning</p>
-	<canvas bind:this={canvas} id="scatter-plot" on:mouseenter={change} on:mouseleave={change}/>
+<a class="container" href='/learn/classification-neural-network'>
+	<h1>Neural Network Classifier</h1>
+	<p>Classify sounds using a neural network</p>
+	<svg bind:this={container} class="d3-container" width=250 height=300 />
 </a>
 
 <style>
@@ -107,11 +156,11 @@
 		max-width: 100%;
 	}
 
-	#scatter-plot {
+	.box {
 		position: absolute;
 		bottom: 0;
-		max-width: 100%;
-		max-height: 200px;
+		width: 100%;
+		height: 100%;
 		z-index: -100;
 	}
 </style>

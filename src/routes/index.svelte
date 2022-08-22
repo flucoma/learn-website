@@ -97,6 +97,7 @@
 				style="background-image: url({rng_explore.feature.featuredimage ||
 					_.sample(rng_explore.feature.images) ||
 					'/general/explore_default.jpeg'});"
+				on:click={() => goto(rng_learn.url)}
 			/>
 
 			<div class="flaired-title-featured">
@@ -150,6 +151,7 @@
 					style="background-image: url({item.feature.featuredimage ||
 						_.sample(learn_random_array[0].feature.images) ||
 						'/general/learn_default.jpeg'});"
+					on:click={() => goto(item.url)}
 				/>
 			</div>
 		{/each}
@@ -183,6 +185,7 @@
 					style="background-image: url({item.feature.featuredimage ||
 						_.sample(learn_random_array[0].feature.images) ||
 						'/general/explore_default.jpeg'});"
+					on:click={() => goto(item.url)}
 				/>
 			</div>
 		{/each}
