@@ -54,7 +54,7 @@ featuredimage: /learn/for-featured-images/2D-corpus-explorer.png
     let banditGraph;
 </script>
 
-## Anomolous Data and Statistics
+## Anomalous Data and Statistics
 This article is based on understanding and using statistical analysis in order to interpret descriptor data in a musical way. The problem starts off with the following premise: **analyse the dominant pitch of the pitched component of a modular synth sound**. Listen to the sound below.
 
 <Audio {...scratch} />
@@ -70,7 +70,7 @@ What you just did was an incredibly sophisticated and complex listening and anal
 3. Only listen to moments of pitched content
 4. "Summarise" the predominant pitch from all that information
 
-Considering these complex criteria let's compare it to a brute force analysis of the computer using [Pitch](/reference/pitch) to analyse the fundamental frequency and the pitch confidence of the first 4 seconds of this sound.
+Considering these complex criteria, let's compare it to a brute force analysis of the computer using [Pitch](/reference/pitch) to analyse the fundamental frequency and the pitch confidence of the first 4 seconds of this sound.
 
 <Admonition type=note>
 
@@ -92,7 +92,7 @@ Instead of performing an equally weighted average of the pitch values we can wei
 
 <Audio {...pitch3} />
 
-This is far better than the unweighted average that was calculated before, though its still not exactly the right pitch and a little bit flat. There is one more stage of refinement that we can go through which is to totally ignore any remaining statistical outliers in the analysis even if they have high confidence. Essentially if we imagine that our frames of analysis are spread out as a distribution, we only want to analyse those with high pitch confidence and that are packed together within the [interquartile range](https://en.wikipedia.org/wiki/Interquartile_range). This mitigates the prevalence any _bandit_ bits of information influencing our analysis. Ted discusses how you can do this using [BufStats](/reference/bufstats) in the [Removing Outliers](/learn/removing-outliers) article. For more general information, check out [Outliers](/learn/outliers).
+This is far better than the unweighted average that was calculated before, though it's still not exactly the right pitch and a little bit flat. There is one more stage of refinement that we can go through which is to totally ignore any remaining statistical outliers in the analysis even if they have high confidence. Essentially if we imagine that our frames of analysis are spread out as a distribution, we only want to analyse those with high pitch confidence and that are packed together within the [interquartile range](https://en.wikipedia.org/wiki/Interquartile_range). This mitigates the prevalence of any _bandit_ bits of information influencing our analysis. Ted discusses how you can do this using [BufStats](/reference/bufstats) in the [Removing Outliers](/learn/removing-outliers) article. For more general information, check out [Outliers](/learn/outliers).
 
 If we [Normalize](/reference/normalize) the pitch and confidence and plot the values this gives us a new view into the data that we are analysing to derive the predominant pitch.
 
@@ -103,9 +103,9 @@ Taking a look at this graph, we'd ideally like to focus on values whose confiden
 <!-- <Button on:click={()=>banditGraph.setymin(0.0)} label='All Data' /> -->
 <Button on:click={()=>banditGraph.setymin(0.80)} label='High Confidence' width={'200px'} />
 
-Now though, we can see that there is a clear outlier here in the bottom left around 350Hz! There is only one, but the total dataset is only a small sample of the original data and so this individual data point might have drastic effect on the weighting as a result. If we remove this singular value it may improve our reading a lot. This process is straightforward to achieve with [BufStats](/reference/bufstats) using the `outlierscutoff` parameter. It is described as...
+Now though, we can see that there is a clear outlier here in the bottom left around 350Hz! There is only one, but the total dataset is only a small sample of the original data and so this individual data point might have a drastic effect on the weighting as a result. If we remove this singular value it may improve our reading a lot. This process is straightforward to achieve with [BufStats](/reference/bufstats) using the `outlierscutoff` parameter. It is described as...
 
-*A ratio of the inter quantile range (IQR) that defines a range from the median, outside of which data will be considered an outlier and not used to compute the statistical summary. For each frame, if a single value in any channel of that frame is considered an outlier (when compared to the rest of the values in it's channel), the whole frame (on all channels) will not be used for statistical calculations. The default of -1 bypasses this function, keeping all frames in the statistical measurements.*
+*A ratio of the inter quantile range (IQR) that defines a range from the median, outside of which data will be considered an outlier and not used to compute the statistical summary. For each frame, if a single value in any channel of that frame is considered an outlier (when compared to the rest of the values in its channel), the whole frame (on all channels) will not be used for statistical calculations. The default of -1 bypasses this function, keeping all frames in the statistical measurements.*
 
 If we apply this procedure to the data above and calculate the weighted mean, this is the pitch value that is derived.
 
