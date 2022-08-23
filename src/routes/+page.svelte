@@ -7,51 +7,16 @@
 	var learn = db.filter(x => x.section === 'learn');
 	var explore = db.filter(x => x.section === 'explore');
 
-	const rng_learn = get_item_by_key(learn, 'url', config.front_page.featured_learn.url);
-	const rng_explore = get_item_by_key(explore, 'url', config.front_page.featured_explore.url);
-
 	// Retrieve the article details from the database
-	console.log(learn)
-	// const rng_learn = learn.filter(x => )
+	const rng_learn = learn.filter(x => x.url === config.front_page.featured_learn.url)[0]
+	const rng_explore = explore.filter(x => x.url === config.front_page.featured_explore.url)[0];
 
-	learn = remove_element_from_array(learn, rng_learn);
-	explore = remove_element_from_array(explore, rng_explore);
 
-	const learn_random_array = get_random_elements(learn, 3);
-	const explore_random_array = get_random_elements(explore, 3);
+	learn = learn.filter(x => x.url !== config.front_page.featured_learn.url)
+	explore = explore.filter(x => x !== config.front_page.featured_explore.url)
 
-	function get_random_elements(search_array, num_entries) {
-		// Build an array of three random entries.
-		var to_return = [];
-		for (var i = 0; i < num_entries; i++) {
-			var entry_to_add = _.sample(search_array);
-			to_return.push(entry_to_add);
-			_.remove(search_array, entry_to_add);
-		}
-		return to_return;
-	}
-
-	function remove_element_from_array(the_array, element) {
-		// Retruns a new array with the element removed.
-		var to_return = [];
-		for (var i = 0; i < the_array.length; i++) {
-			if (the_array[i] != element) {
-				to_return.push(the_array[i]);
-			}
-		}
-		return to_return;
-	}
-
-	function get_item_by_key(search_array, key_name, val) {
-		// For retrieving the manually set content.
-		var to_return = {};
-		for (var i = 0; i < search_array.length; i++) {
-			if (search_array[i][key_name] == val) {
-				to_return = search_array[i];
-			}
-		}
-		return to_return;
-	}
+	const learn_random_array = _.shuffle(learn).slice(0, 3);
+	const explore_random_array = _.shuffle(explore).slice(0, 3);
 </script>
 
 <div class="main_wrapper">
@@ -71,15 +36,13 @@
 	</div>
 
 	<!--Top featured section-->
-	<!-- <div class="row_featured">
+	<div class="row_featured">
 		<h2 class="row_title">Featured</h2>
 
 		<div class="row_featured_article" style="grid-area: featuredArticle1;">
 			<div
 				class="feature_image"
-				style="background-image: url({rng_learn.feature.featuredimage ||
-					_.sample(rng_learn.feature.images) ||
-					'/general/learn_default.jpeg'});"
+				style="background-image: url({rng_learn.featuredimage})"
 				on:click={() => goto(rng_learn.url)}
 			/>
 
@@ -91,7 +54,6 @@
 			<div class="learn_more_link-featured">
 				<LearnMoreArrow link={rng_learn.url} />
 			</div>
-
 		</div>
 
 		<div class="row_featured_article" style="grid-area: featuredArticle2;">
@@ -135,11 +97,10 @@
 				</p>
 			</div>
 		</div>
-	</div> -->
+	</div>
 
-	<!-- <div class="row_parent">
+	<div class="row_parent">
 		<h2 class="row_title_lower">Previously Featured: Learn</h2>
-
 		<div class="learn_more_link-section" style="grid-area: sectionLearnMore;">
 			<div>
 				<LearnMoreArrow link="/learn" />
@@ -147,28 +108,28 @@
 		</div>
 
 		{#each learn_random_array as item, i}
-			<div class="img_container" style="grid-area: contentImg{i + 1};">
-				<div
-					class="feature_image"
-					style="background-image: url({item.feature.featuredimage ||
-						_.sample(learn_random_array[0].feature.images) ||
-						'/general/learn_default.jpeg'});"
-					on:click={() => goto(item.url)}
-				/>
-			</div>
+		<div class="img_container" style="grid-area: contentImg{i + 1};">
+			<div
+				class="feature_image"
+				style="background-image: url({item.feature.featuredimage ||
+					_.sample(learn_random_array[0].feature.images) ||
+					'/general/learn_default.jpeg'});"
+				on:click={() => goto(item.url)}
+			/>
+		</div>
 		{/each}
 
 		{#each learn_random_array as item, i}
-			<div class="flaired-title" style="grid-area: contentTitle{i + 1};">
-				<div class="flair {item.flair}" />
-				<div>{item.title}</div>
-			</div>
+		<div class="flaired-title" style="grid-area: contentTitle{i + 1};">
+			<div class="flair {item.flair}" />
+			<div>{item.title}</div>
+		</div>
 		{/each}
 
 		{#each learn_random_array as item, i}
-			<div class="learn_more_link" style="grid-area: contentLink{i + 1};">
-				<LearnMoreArrow link={item.url} />
-			</div>
+		<div class="learn_more_link" style="grid-area: contentLink{i + 1};">
+			<LearnMoreArrow link={item.url} />
+		</div>
 		{/each}
 	</div>
 
@@ -203,29 +164,7 @@
 				<LearnMoreArrow link={item.url} />
 			</div>
 		{/each}
-	</div> -->
-
-	<!--Reference Section-->
-	<!-- <div class="algos_row">
-		<h2 class="row_title_lower">Discover an Algorithm</h2>
-
-		{#each reference_random_array as item, i}
-			<div class="flaired-title" style="grid-area: algoTitle{i + 1};">
-				<div class="flair {item.flair}" />
-				<div>{item.title}</div>
-			</div>
-
-			<div class="algo_blurb" style="grid-area: algoBlurb{i + 1};">
-				<p>
-					{item.blurb}
-				</p>
-			</div>
-
-			<div class="learn_more_link-algo" style="grid-area: contentLink{i + 1};">
-				<LearnMoreArrow link={item.url} />
-			</div>
-		{/each}
-	</div> -->
+	</div>
 </div>
 
 <style>
