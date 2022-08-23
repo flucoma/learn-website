@@ -14,10 +14,10 @@ featuredimage: /learn/time/feature1.jpg
 ---
 
 <script>
-    import NoiseShape from '$lib/widget/time/NoiseShape.svelte';
-    import PitchShape from '$lib/widget/time/PitchShape.svelte';
-    import NoisePitchShape from '$lib/widget/time/NoisePitchShape.svelte';
-    import ArticleCard from '$lib/widget/time/ArticleCard.svelte';
+    import NoiseShape from './NoiseShape.svelte';
+    import PitchShape from './PitchShape.svelte';
+    import NoisePitchShape from './NoisePitchShape.svelte';
+    import ArticleCard from './ArticleCard.svelte';
 </script>
 
 ## Introduction
