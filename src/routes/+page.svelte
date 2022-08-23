@@ -8,14 +8,14 @@
 	var explore = db.filter(x => x.section === 'explore');
 
 	// Retrieve the article details from the database
-	const rng_learn = learn.filter(x => x.url === config.front_page.featured_learn.url)[0];
-	const rng_explore = explore.filter(x => x.url === config.front_page.featured_explore.url)[0];
+	const featuredLearn = learn.filter(x => x.url === config.frontPage.featuredLearn.url)[0];
+	const featuredExplore = explore.filter(x => x.url === config.frontPage.featuredExplore.url)[0];
 
-	learn = learn.filter(x => x.url !== config.front_page.featured_learn.url);
-	explore = explore.filter(x => x !== config.front_page.featured_explore.url);
+	learn = learn.filter(x => x.url !== config.frontPage.featuredLearn.url);
+	explore = explore.filter(x => x !== config.frontPage.featuredExplore.url);
 
-	const learn_random_array = _.shuffle(learn).slice(0, 3);
-	const explore_random_array = _.shuffle(explore).slice(0, 3);
+	const randomLearn = _.shuffle(learn).slice(0, 3);
+	const randomExplore = _.shuffle(explore).slice(0, 3);
 </script>
 
 <div class="main_wrapper">
@@ -41,36 +41,36 @@
 		<div class="row_featured_article" style="grid-area: featuredArticle1;">
 			<div
 				class="feature_image"
-				style="background-image: url({rng_learn.featuredimage})"
-				on:click={() => goto(rng_learn.url)}
+				style="background-image: url({featuredLearn.featuredimage})"
+				on:click={() => goto(featuredLearn.url)}
 			/>
 
 			<div class="flaired-title-featured">
-				<div class="flair {rng_learn.flair}" />
-				<div>Learn: {rng_learn.title}</div>
+				<div class="flair {featuredLearn.flair}" />
+				<div>Learn: {featuredLearn.title}</div>
 			</div>
 
 			<div class="learn_more_link-featured">
-				<LearnMoreArrow link={rng_learn.url} />
+				<LearnMoreArrow link={featuredLearn.url} />
 			</div>
 		</div>
 
 		<div class="row_featured_article" style="grid-area: featuredArticle2;">
 			<div
 				class="feature_image"
-				style="background-image: url({rng_explore.feature.featuredimage ||
-					_.sample(rng_explore.feature.images) ||
+				style="background-image: url({featuredExplore.feature.featuredimage ||
+					_.sample(featuredExplore.feature.images) ||
 					'/general/explore_default.jpeg'});"
-				on:click={() => goto(rng_learn.url)}
+				on:click={() => goto(featuredLearn.url)}
 			/>
 
 			<div class="flaired-title-featured">
-				<div class="flair {rng_explore.flair}" />
-				<div>Explore: {rng_explore.title}</div>
+				<div class="flair {featuredExplore.flair}" />
+				<div>Explore: {featuredExplore.title}</div>
 			</div>
 
 			<div class="learn_more_link-featured">
-				<LearnMoreArrow link={rng_explore.url} />
+				<LearnMoreArrow link={featuredExplore.url} />
 			</div>
 		</div>
 
@@ -80,7 +80,7 @@
 					title=""
 					width="100%"
 					height="300px"
-					src={`https://www.youtube.com/embed/${config.front_page.featured_video.url}`}
+					src={`https://www.youtube.com/embed/${config.frontPage.featuredVideo.url}`}
 					frameborder="0"
 					allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
 					allowfullscreen
@@ -89,10 +89,10 @@
 
 			<div class="video_description">
 				<h3>
-					{config.front_page.featured_video.title}
+					{config.frontPage.featuredVideo.title}
 				</h3>
 				<p>
-					{config.front_page.featured_video.blurb}
+					{config.frontPage.featuredVideo.blurb}
 				</p>
 			</div>
 		</div>
@@ -106,26 +106,26 @@
 			</div>
 		</div>
 
-		{#each learn_random_array as item, i}
+		{#each randomLearn as item, i}
 			<div class="img_container" style="grid-area: contentImg{i + 1};">
 				<div
 					class="feature_image"
 					style="background-image: url({item.feature.featuredimage ||
-						_.sample(learn_random_array[0].feature.images) ||
+						_.sample(randomLearn[0].feature.images) ||
 						'/general/learn_default.jpeg'});"
 					on:click={() => goto(item.url)}
 				/>
 			</div>
 		{/each}
 
-		{#each learn_random_array as item, i}
+		{#each randomLearn as item, i}
 			<div class="flaired-title" style="grid-area: contentTitle{i + 1};">
 				<div class="flair {item.flair}" />
 				<div>{item.title}</div>
 			</div>
 		{/each}
 
-		{#each learn_random_array as item, i}
+		{#each randomLearn as item, i}
 			<div class="learn_more_link" style="grid-area: contentLink{i + 1};">
 				<LearnMoreArrow link={item.url} />
 			</div>
@@ -139,26 +139,26 @@
 			<LearnMoreArrow link="/explore" />
 		</div>
 
-		{#each explore_random_array as item, i}
+		{#each randomExplore as item, i}
 			<div class="img_container" style="grid-area: contentImg{i + 1};">
 				<div
 					class="feature_image"
 					style="background-image: url({item.feature.featuredimage ||
-						_.sample(learn_random_array[0].feature.images) ||
+						_.sample(randomLearn[0].feature.images) ||
 						'/general/explore_default.jpeg'});"
 					on:click={() => goto(item.url)}
 				/>
 			</div>
 		{/each}
 
-		{#each explore_random_array as item, i}
+		{#each randomExplore as item, i}
 			<div class="flaired-title" style="grid-area: contentTitle{i + 1};">
 				<div class="flair {item.flair}" />
 				<div>{item.title}</div>
 			</div>
 		{/each}
 
-		{#each explore_random_array as item, i}
+		{#each randomExplore as item, i}
 			<div class="learn_more_link" style="grid-area: contentLink{i + 1};">
 				<LearnMoreArrow link={item.url} />
 			</div>
