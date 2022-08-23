@@ -1,22 +1,24 @@
 <script>
-	import { db } from '$lib/app.js';
-	import { config } from '$lib/app.js';
-	import { goto } from '$app/navigation';
 	import _ from 'lodash';
+	import { config, db } from '$lib/app';
+	import { goto } from '$app/navigation';
 	import LearnMoreArrow from '$lib/components/LearnMoreArrow.svelte';
 
 	var learn = db.filter(x => x.section === 'learn');
 	var explore = db.filter(x => x.section === 'explore');
-	var reference = db.filter(x => x.section === 'reference');
 
 	const rng_learn = get_item_by_key(learn, 'url', config.front_page.featured_learn.url);
 	const rng_explore = get_item_by_key(explore, 'url', config.front_page.featured_explore.url);
+
+	// Retrieve the article details from the database
+	console.log(learn)
+	// const rng_learn = learn.filter(x => )
+
 	learn = remove_element_from_array(learn, rng_learn);
 	explore = remove_element_from_array(explore, rng_explore);
 
 	const learn_random_array = get_random_elements(learn, 3);
 	const explore_random_array = get_random_elements(explore, 3);
-	const reference_random_array = get_random_elements(reference, 3);
 
 	function get_random_elements(search_array, num_entries) {
 		// Build an array of three random entries.
@@ -69,7 +71,7 @@
 	</div>
 
 	<!--Top featured section-->
-	<div class="row_featured">
+	<!-- <div class="row_featured">
 		<h2 class="row_title">Featured</h2>
 
 		<div class="row_featured_article" style="grid-area: featuredArticle1;">
@@ -89,6 +91,7 @@
 			<div class="learn_more_link-featured">
 				<LearnMoreArrow link={rng_learn.url} />
 			</div>
+
 		</div>
 
 		<div class="row_featured_article" style="grid-area: featuredArticle2;">
@@ -132,10 +135,9 @@
 				</p>
 			</div>
 		</div>
-	</div>
+	</div> -->
 
-	<!--Learn Section-->
-	<div class="row_parent">
+	<!-- <div class="row_parent">
 		<h2 class="row_title_lower">Previously Featured: Learn</h2>
 
 		<div class="learn_more_link-section" style="grid-area: sectionLearnMore;">
@@ -170,7 +172,6 @@
 		{/each}
 	</div>
 
-	<!--Explore Section-->
 	<div class="row_parent">
 		<h2 class="row_title_lower">Previously Featured: Explore</h2>
 
@@ -202,7 +203,7 @@
 				<LearnMoreArrow link={item.url} />
 			</div>
 		{/each}
-	</div>
+	</div> -->
 
 	<!--Reference Section-->
 	<!-- <div class="algos_row">
