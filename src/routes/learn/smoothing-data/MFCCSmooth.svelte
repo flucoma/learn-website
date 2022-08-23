@@ -3,7 +3,7 @@
 	import { Chart, registerables } from 'chart.js';
 	import { onMount } from 'svelte';
 	import { colors } from '$lib/color.js';
-	import PlayTog from './PlayTog.svelte';
+	import PlayTog from '../time/PlayTog.svelte';
 	import Audio from '$lib/components/Audio.svelte';
 
 	let playing = false;

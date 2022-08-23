@@ -14,8 +14,8 @@ featuredimage: /learn/for-featured-images/2D-corpus-explorer.png
 ---
 
 <script>
-    import Smoothing from '$lib/widget/time/Smoothing.svelte';
-    import MFCCSmooth from '$lib/widget/time/MFCCSmooth.svelte';
+    import Smoothing from './Smoothing.svelte';
+    import MFCCSmooth from './MFCCSmooth.svelte';
     import Admonition from '$lib/components/Admonition.svelte';
 </script>
 

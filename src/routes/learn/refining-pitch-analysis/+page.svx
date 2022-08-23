@@ -15,11 +15,10 @@ featuredimage: /learn/for-featured-images/2D-corpus-explorer.png
 
 <script>
     import Audio from '$lib/components/Audio.svelte';
-    import RawPitchGraph from '$lib/widget/time/RawPitchGraph.svelte';
     import Button from '$lib/components/Button.svelte';
-    import PitchGraph from '$lib/widget/time/PitchGraph.svelte';
-    import BanditGraph from '$lib/widget/time/BanditGraph.svelte';
     import Admonition from '$lib/components/Admonition.svelte';
+    import RawPitchGraph from './RawPitchGraph.svelte';
+    import BanditGraph from './BanditGraph.svelte';
 
     const scratch = {
         src: '/audio/Tremblay-ASWINE-ScratchySynth-M.mp3',
