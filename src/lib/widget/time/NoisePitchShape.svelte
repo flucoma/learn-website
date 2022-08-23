@@ -53,16 +53,12 @@ A component that plays back filtered noise, while showing how a curve can be dra
 		two.fit();
 		ampProbe = new Tone.DCMeter()
 		pitchProbe = new Tone.DCMeter()
-		const mult = new Tone.Multiply().toDestination() // a gain node to modify the volume
+		const gain = new Tone.Multiply(0.25).toDestination();
+		const mult = new Tone.Multiply().connect(gain); // a gain node to modify the volume
 		env = new Tone.LFO(0.3, 0, 1).fan(mult.factor, ampProbe); // an LFO to modulate the sound source
 		src = new Tone.Oscillator(300, 'sine').connect(mult); // a sound source
 		lfo = new Tone.LFO(2, 150, 300).fan(src.frequency, pitchProbe); // an LFO to modulate the sound source
 	})
-
-	const start = async() => {
-		await Tone.start();
-		
-	}
 
 	const play = async() => {
 		if (!everPlayed) {

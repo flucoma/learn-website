@@ -37,7 +37,8 @@
 		two.add(curve);
 		two.fit();
 		probe = new Tone.DCMeter() // extract the value of the lfo
-		src = new Tone.Oscillator(440, 'sine').toDestination(); // a sound source
+		const gain = new Tone.Multiply(0.25).toDestination();
+		src = new Tone.Oscillator(440, 'sine').connect(gain); // a sound source
 		lfo = new Tone.LFO(2, 150, 300).fan(src.frequency, probe); // an LFO to modulate the sound source
 	})
 	
