@@ -19,7 +19,7 @@ author: Jacob
     import ArtistCard from '$lib/components/mwf/ArtistCard.svelte';
     import Audio from '$lib/components/Audio.svelte';
     import YouTubeChapters from '$lib/components/YouTubeChapters.svelte';
-    import IndentNote from '$lib/components/IndentNote.svelte';
+    import Admonition from '$lib/components/Admonition.svelte';
 </script>
 
 <ArtistCard
@@ -57,11 +57,11 @@ In this episode of the FluCoMa Podcast, I talk to Dr. Ben Hackbarth who is curre
 
 ## Links
 
-<IndentNote type='pointer'>
+<Admonition type='pointer'>
 
 Download Ben's AudioGuide [here](http://www.benhackbarth.com/audioGuide/).
 
-</IndentNote>
+</Admonition>
 
 Here are the links to some of the things that were discussed during the podcast:
 
@@ -132,24 +132,24 @@ url={'C3lRxi6tjEM'}
 - Example 1:
 
 <Audio 
-src="/explore/hackbarth/phrase1_target.wav"
+src="/explore/hackbarth/phrase1_target.mp3"
 label="Voice target."
 />
 
 <Audio 
-src="/explore/hackbarth/phrase1_output.wav"
+src="/explore/hackbarth/phrase1_output.mp3"
 label="Concatenative output."
 />
 
 - Example 2:
 
 <Audio 
-src="/explore/hackbarth/phrase3_target.wav"
+src="/explore/hackbarth/phrase3_target.mp3"
 label="Voice target."
 />
 
 <Audio 
-src="/explore/hackbarth/phrase3_output.wav"
+src="/explore/hackbarth/phrase3_output.mp3"
 label="Concatenative output."
 />
 
@@ -162,7 +162,7 @@ label="Concatenative output."
 - Example 3:
 
 <Audio 
-src="/explore/hackbarth/F6_excerpt.wav"
+src="/explore/hackbarth/F6_excerpt.mp3"
 label="Concatenative synthesis with the piano samples."
 />
 

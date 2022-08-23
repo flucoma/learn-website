@@ -1,5 +1,6 @@
 ---
 title: Outliers
+author: Ted
 blurb: |
     Some thinking about outliers and how to manage them.
 tags: 

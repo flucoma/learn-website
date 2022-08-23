@@ -1,5 +1,6 @@
 ---
 title: Fourier Transform
+author: Ted
 blurb: | 
     Commonly used spectral analysis method
 tags: 
@@ -11,7 +12,7 @@ flair: article
 ---
 
 <script>
-    import IndentNote from '$lib/components/IndentNote.svelte';
+    import Admonition from '$lib/components/Admonition.svelte';
     import Image from '$lib/components/Image.svelte';
     import ResourceLink from '$lib/components/ResourceLink.svelte';
     import { Tabs, TabList, TabPanel, Tab } from '$lib/components/tabs/tabs';
@@ -87,11 +88,11 @@ The larger the `windowSize`, the finer the frequency resolution the FFT provides
 
 As a general principle, if you want to get reliable tracking of partials in a harmonic(ish) sound, you will want to have a conservative 4 frequency bins between partials (because in practice energy gets smooshed across bins). For instance, to reliably identify and track the partials of a sawtooth wave at 100 Hz, you would want a bin resolution of 25 Hz. At a sampling rate of 44100 Hz, this would require a `windowSize` of 2048 samples (**frequency resolution = sample rate / `fftSize`**, or **44100 / 2048 = 21.53 Hz**).
 
-<IndentNote type="pointer">
+<Admonition type="pointer">
 
 For more information about artefacts that can occur because of the Fourier Transform (such as _smearing_), see the [BufSTFT](/reference/bufstft) reference.
 
-</IndentNote>
+</Admonition>
 
 [_See this great interactive explanations of time-frequency resolution._](https://jackschaedler.github.io/circles-sines-signals/dft_frequency.html)
 

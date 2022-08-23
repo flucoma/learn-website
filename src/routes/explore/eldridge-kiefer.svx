@@ -145,7 +145,7 @@ label="Eldridge uses a mixer and pedals to control the gain structure."
 
 Once this analogue setup was stable, they could begin introducing the digital, MLP-driven part of the system to wreak havoc on it! The question of training the neural network was something that Kiefer and Eldridge stated as being a crucial part of the development process, and one that has no easy answer. Kiefer explained that they explored different methods systematically. One important question to answer was size and variation in training data. They experimented with “*lots of little ten second bursts of sounds that were averaged out and connected with different spaces, to just two different pools of long sounds from the cello*”. At first, they would try to “*peg out the space*”, for example “*quiet bridge sounds coupled with 2 parameters high and one low, then really loud, harmonically rich sounds, then pizz sounds with sharp onsets etc. with one parameter max and the other min, or all at max, all at min.*”
 
-<CodeBlock>
+<CodeBlock title={'MLPRegressor setup in SuperCollider'}>
 
 ```js
 // Extracts from Kiefer's SuperCollider patch.

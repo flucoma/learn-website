@@ -1,5 +1,6 @@
 ---
 title: Why Scale? Distance as Similarity
+author: Ted
 blurb: |
     The affects of scaling on measures of similarity
 tags: 
@@ -12,18 +13,18 @@ featuredimage: /learn/comparing-scalers/city_distance.png
 
 <script>
     import Image from '$lib/components/Image.svelte';
-    import IndentNote from '$lib/components/IndentNote.svelte';
+    import Admonition from '$lib/components/Admonition.svelte';
     import { Tabs, TabList, TabPanel, Tab } from '$lib/components/tabs/tabs';
     import ResourceLink from '$lib/components/ResourceLink.svelte';
 </script>
 
 When trying to determine how similar or different data points are (for example, two [MFCC](/reference/mfcc) analyses with 13 values each) we often measure the "distance" between the points in their multidimensional space as a consideration of their "similarity" (in this case, "multidimensional" means the 13 MFCC dimensions). Points that are closer in multidimensional space are regarded as being more similar while points farther away are assumed to be more different. These distances are often computed as the _euclidean distance_ between two points, however other [measures of distance](https://www.analyticsvidhya.com/blog/2020/02/4-types-of-distance-metrics-in-machine-learning/) also exist.
 
-<IndentNote type='pointer'>
+<Admonition type='pointer'>
 
 For more information about scaling, see the reference of the respective scalers ([Normalize](/reference/normalize), [Standardize](/reference/standardize), and [RobustScale](/reference/robustscale)) as well as the page [Comparing Scalers](/learn/comparing-scalers).
 
-</IndentNote>
+</Admonition>
 
 The most common reason for scaling (probably using [Normalize](/reference/normalize), [Standardize](/reference/standardize), or [RobustScale](/reference/robustscale)) is to transform a DataSet that has dimensions with very different ranges so all the of the dimensions are in a similar range. If dimensions with very different ranges are used to compute the distance between points, the distances computed would be more greatly influenced by the dimensions with greater ranges. If all dimensions should be considered equally when computing distance, it is important all the dimensions have similar ranges.
 
