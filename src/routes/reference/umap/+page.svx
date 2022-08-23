@@ -12,7 +12,7 @@ category: Analyse Data
 ---
 
 <script>
-    import UMAP from '$lib/widget/UMAP.svelte';
+    import UMAP from './UMAP.svelte';
     import YouTube from '$lib/components/YouTube.svelte';
     import ResourceLink from '$lib/components/ResourceLink.svelte';
 </script>
