@@ -8,12 +8,11 @@
 	var explore = db.filter(x => x.section === 'explore');
 
 	// Retrieve the article details from the database
-	const rng_learn = learn.filter(x => x.url === config.front_page.featured_learn.url)[0]
+	const rng_learn = learn.filter(x => x.url === config.front_page.featured_learn.url)[0];
 	const rng_explore = explore.filter(x => x.url === config.front_page.featured_explore.url)[0];
 
-
-	learn = learn.filter(x => x.url !== config.front_page.featured_learn.url)
-	explore = explore.filter(x => x !== config.front_page.featured_explore.url)
+	learn = learn.filter(x => x.url !== config.front_page.featured_learn.url);
+	explore = explore.filter(x => x !== config.front_page.featured_explore.url);
 
 	const learn_random_array = _.shuffle(learn).slice(0, 3);
 	const explore_random_array = _.shuffle(explore).slice(0, 3);
@@ -108,28 +107,28 @@
 		</div>
 
 		{#each learn_random_array as item, i}
-		<div class="img_container" style="grid-area: contentImg{i + 1};">
-			<div
-				class="feature_image"
-				style="background-image: url({item.feature.featuredimage ||
-					_.sample(learn_random_array[0].feature.images) ||
-					'/general/learn_default.jpeg'});"
-				on:click={() => goto(item.url)}
-			/>
-		</div>
+			<div class="img_container" style="grid-area: contentImg{i + 1};">
+				<div
+					class="feature_image"
+					style="background-image: url({item.feature.featuredimage ||
+						_.sample(learn_random_array[0].feature.images) ||
+						'/general/learn_default.jpeg'});"
+					on:click={() => goto(item.url)}
+				/>
+			</div>
 		{/each}
 
 		{#each learn_random_array as item, i}
-		<div class="flaired-title" style="grid-area: contentTitle{i + 1};">
-			<div class="flair {item.flair}" />
-			<div>{item.title}</div>
-		</div>
+			<div class="flaired-title" style="grid-area: contentTitle{i + 1};">
+				<div class="flair {item.flair}" />
+				<div>{item.title}</div>
+			</div>
 		{/each}
 
 		{#each learn_random_array as item, i}
-		<div class="learn_more_link" style="grid-area: contentLink{i + 1};">
-			<LearnMoreArrow link={item.url} />
-		</div>
+			<div class="learn_more_link" style="grid-area: contentLink{i + 1};">
+				<LearnMoreArrow link={item.url} />
+			</div>
 		{/each}
 	</div>
 

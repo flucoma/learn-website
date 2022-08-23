@@ -1,7 +1,7 @@
 name: deploy
 concurrency:
-  group: environment-${{ github.ref }}
-  cancel-in-progress: true
+    group: environment-${{ github.ref }}
+    cancel-in-progress: true
 
 on:
     push:
