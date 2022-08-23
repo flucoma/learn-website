@@ -19,7 +19,7 @@ author: Jacob
     import Image from '$lib/components/Image.svelte';
     import Video from '$lib/components/Video.svelte';
     import YouTube from '$lib/components/YouTube.svelte';
-    import ArtistCard from '$lib/components/mwf/ArtistCard.svelte';
+    import ArtistCard from '$lib/components/explore/ArtistCard.svelte';
     import BigQuote from '$lib/components/BigQuote.svelte';
     import CodeBlock from '$lib/components/CodeBlock.svelte';
     import ExploreDownload from '$lib/components/ExploreDownload.svelte';

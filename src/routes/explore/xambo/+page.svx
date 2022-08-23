@@ -17,7 +17,7 @@ author: Jacob
 <script>
     import YouTube from '$lib/components/YouTube.svelte';
     import YouTubeChapters from '$lib/components/YouTubeChapters.svelte';
-    import ArtistCard from '$lib/components/mwf/ArtistCard.svelte';
+    import ArtistCard from '$lib/components/explore/ArtistCard.svelte';
     import Vimeo from '$lib/components/Vimeo.svelte';
     import Soundcloud from '$lib/components/Soundcloud.svelte';
     import BandCamp from '$lib/components/BandCamp.svelte';

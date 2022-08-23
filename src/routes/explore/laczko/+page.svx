@@ -16,7 +16,7 @@ author: Jacob
 
 <script>
     import YouTubeChapters from '$lib/components/YouTubeChapters.svelte';
-    import ArtistCard from '$lib/components/mwf/ArtistCard.svelte';
+    import ArtistCard from '$lib/components/explore/ArtistCard.svelte';
     import YouTube from '$lib/components/YouTube.svelte';
 </script>
 

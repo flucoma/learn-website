@@ -17,7 +17,7 @@ author: Jacob
 <script>
     import Image from '$lib/components/Image.svelte';
     import YouTube from '$lib/components/YouTube.svelte';
-    import ArtistCard from '$lib/components/mwf/ArtistCard.svelte';
+    import ArtistCard from '$lib/components/explore/ArtistCard.svelte';
     import Vimeo from '$lib/components/Vimeo.svelte';
     import ExploreDownload from '$lib/components/ExploreDownload.svelte';
 </script>
