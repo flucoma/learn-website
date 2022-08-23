@@ -24,8 +24,6 @@
 		crest: 0
 	};
 
-	$: console.log(audio)
-
 	function startAudioDescriptor() {
 		enabled = true;
 		const AudioContext = window.AudioContext || window.webkitAudioContext;
@@ -63,8 +61,6 @@
 		});
 		analyser.start();
 	}
-
-	$: console.log(shape.centroid)
 
 	$: if (chart) chart.options.plugins.annotation.annotations.centroid.xMin = clip(shape.centroid, 0, 20000);
 	$: if (chart) chart.options.plugins.annotation.annotations.centroid.xMax = clip(shape.centroid, 0, 20000);
