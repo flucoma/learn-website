@@ -35,8 +35,7 @@
 					tension: 0,
 					animation: { duration: 250 },
 					yAxisID: 'confidencey'
-				},
-
+				}
 			]
 		};
 		chart = new Chart(ctx, {
@@ -75,7 +74,7 @@
 							text: 'Pitch (Hz)'
 						},
 						ticks: {
-							callback: (x) => `${x / 1000.0} KHz`
+							callback: x => `${x / 1000.0} KHz`
 						}
 					},
 					confidencey: {
@@ -84,10 +83,10 @@
 						position: 'right',
 						title: {
 							display: true,
-							text: 'Confidence',
+							text: 'Confidence'
 						},
 						grid: {
-							drawOnChartArea: false	
+							drawOnChartArea: false
 						}
 					}
 				}
@@ -97,10 +96,11 @@
 </script>
 
 <canvas id="filter" bind:this={canvas} />
+
 <style>
-#filter {
-	width: 200%;
-	max-height: 400px;
-	margin: 0 auto;
-}
+	#filter {
+		width: 200%;
+		max-height: 400px;
+		margin: 0 auto;
+	}
 </style>

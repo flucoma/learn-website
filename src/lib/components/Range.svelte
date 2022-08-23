@@ -5,36 +5,33 @@
 	let container, handle; // dom
 	let offset = '0px';
 
-	const down = (e) => {
+	const down = e => {
 		focused = true;
 		const leftEdge = container.getBoundingClientRect().x;
 		handle.style.left = `${e.clientX - leftEdge}px`;
-	}
+	};
 
 	const up = () => {
-		focused = false
-	}
+		focused = false;
+	};
 
-	const move = (e) => {
+	const move = e => {
 		if (focused) {
 			const leftEdge = container.getBoundingClientRect().x;
-			const pos = clip(e.clientX-leftEdge, 0, container.getBoundingClientRect().width - 20);
+			const pos = clip(e.clientX - leftEdge, 0, container.getBoundingClientRect().width - 20);
 			handle.style.left = `${pos}px`;
 		}
-	}
+	};
 </script>
 
-<svelte:window on:mouseup={up} on:mousemove={move}/>
+<svelte:window on:mouseup={up} on:mousemove={move} />
 
 <div class="container" on:mousedown={down} bind:this={container}>
-	<div class='track' ></div>
-	<div class='handle'
-	bind:this={handle}
-	style:background-color={focused ? 'var(--med-blue)' : 'white'}
-	/>
+	<div class="track" />
+	<div class="handle" bind:this={handle} style:background-color={focused ? 'var(--med-blue)' : 'white'} />
 </div>
 
-{ tween }
+{tween}
 {offset}
 
 <style>

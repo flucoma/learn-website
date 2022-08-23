@@ -35,7 +35,7 @@
 				waveformColor: 'rgb(28, 164, 252)',
 				playheadColor: 'rgba(0, 0, 0, 1)',
 				playheadTextColor: '#aaa',
-				showPlayheadTime: false,
+				showPlayheadTime: false
 			};
 			instance = Peaks.init(options, (err, p) => {
 				if (err) {
@@ -55,7 +55,7 @@
 	{/if}
 
 	<div class="audio">
-		<audio controls bind:this={audio} loop={loop} on:play on:pause>
+		<audio controls bind:this={audio} {loop} on:play on:pause>
 			<source {src} type="audio/mp3" />
 			Your browser does not support the audio tag.
 		</audio>

@@ -2,34 +2,32 @@
 	import { createEventDispatcher } from 'svelte';
 
 	export let playing = false;
-	
+
 	const dispatch = createEventDispatcher();
 
 	function clickHandler() {
-		playing=!playing;
+		playing = !playing;
 		if (playing) {
-			fwdPlay()
+			fwdPlay();
 		} else {
-			fwdStop()
+			fwdStop();
 		}
 	}
 
 	function fwdPlay() {
-		dispatch('play')
-	}
-	
-	function fwdStop() {
-		dispatch('stop')
+		dispatch('play');
 	}
 
-	$: points = playing ? 
-		'15 15, 15 35, 35 35, 35 15' : 
-		'15 15, 35 25, 15 35';
+	function fwdStop() {
+		dispatch('stop');
+	}
+
+	$: points = playing ? '15 15, 15 35, 35 35, 35 15' : '15 15, 35 25, 15 35';
 </script>
 
-<svg width=50 height=50 on:click={ clickHandler }>
-	<circle cx=25 cy=25 r=25></circle>
-	<polygon points={points}></polygon>
+<svg width="50" height="50" on:click={clickHandler}>
+	<circle cx="25" cy="25" r="25" />
+	<polygon {points} />
 </svg>
 
 <style>

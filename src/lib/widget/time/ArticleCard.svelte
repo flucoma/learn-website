@@ -8,7 +8,7 @@
 <a class="container" href={url}>
 	<h2>{title}</h2>
 	<div>{blurb}</div>
-	<img src={img} alt='article cover'>
+	<img src={img} alt="article cover" />
 </a>
 
 <style>
@@ -23,7 +23,8 @@
 		max-height: 600px;
 		text-align: left;
 	}
-	h2, div {
+	h2,
+	div {
 		margin: 0;
 		padding: 0.5em;
 	}
