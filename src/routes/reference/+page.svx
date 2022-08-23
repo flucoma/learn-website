@@ -1,0 +1,67 @@
+---
+layout: contentindex
+---
+
+<script>
+	import { fade } from 'svelte/transition';
+	import { db } from '$lib/app';
+	import References from '$lib/components/mosaic/References.svelte';
+	import ArrowRight from '$lib/components/ArrowRight.svelte';
+	import FuzzySearch from 'fuzzy-search';	
+
+	let references = db.filter(x => x.section === 'reference');
+
+	let categorised = {
+		'Analyse Data' : [],
+		'Analyse Sound' : [],
+		'Utility' : [],
+		'Decompose' : [],
+		'Slicing' : [],
+		'Transform' : []
+	};
+	let query = '';
+
+
+	references.forEach(r => { categorised[r.category].push(r) });
+
+	const search = new FuzzySearch(references, ['title', 'tags', 'blurb', 'category'], {
+		caseSensitive: false,
+		sort: true
+	})
+
+	function doSearch() { 	
+		Object.keys(categorised).forEach(c => {
+			categorised[c] = [];
+		});
+
+		const searchResult = search.search(query);
+		searchResult.forEach(r => { 
+			categorised[r.category].push(r);
+		});
+	}
+
+	$: items = Object.entries(categorised).map(k => ({ "category" : k[0], "refs" : k[1] }));
+</script>
+
+<h1 class='title'>Reference</h1>
+
+<form>
+	<label class="visually-hidden" for="query"></label>
+	<input 
+	on:input={doSearch}
+	bind:value={query} 
+	placeholder='Enter a search term'
+	>
+</form>
+
+<References bind:items={items} />
+
+<style>
+	form > input {
+		margin-bottom: 0.5em;
+		font-size: 1.5rem;
+		border: none;
+		outline: none;
+		border-bottom: 1px solid grey;
+	}
+</style>

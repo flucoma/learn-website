@@ -10,8 +10,10 @@
 	export let src = '';
 	export let label = '';
 	export let waveform = false;
+	export let audio;
+	export let loop = false;
 
-	let Peaks, instance, audio, ctx;
+	let Peaks, instance, ctx;
 	let overview;
 
 	onMount(async () => {
@@ -28,6 +30,7 @@
 					scale: 128,
 					multiChannel: false
 				},
+				zoomLevels: [32],
 				mediaElement: audio,
 				waveformColor: 'rgb(28, 164, 252)',
 				playheadColor: 'rgba(0, 0, 0, 1)',
@@ -52,7 +55,7 @@
 	{/if}
 
 	<div class="audio">
-		<audio controls bind:this={audio}>
+		<audio controls bind:this={audio} {loop} on:play on:pause>
 			<source {src} type="audio/mp3" />
 			Your browser does not support the audio tag.
 		</audio>
@@ -69,7 +72,7 @@
 		width: 100%;
 		margin-top: 1em;
 		margin-bottom: 1em;
-		gap: 2em;
+		gap: 1em;
 	}
 
 	.audio {

@@ -1,0 +1,116 @@
+---
+title: "FluCoMa Podcast #02: Jorrit Tamminga"
+artist: Jorrit Tamminga
+blurb: |
+    The second episode of the FluCoMa podcast. Jacob Hart talks with creative coder and educator Jorrit Tamminga.
+tags: 
+    - learning
+    - teaching
+    - pitch
+    - neural networks
+    - mapping
+    - buffers
+flair: podcast
+featuredimage: /explore/tamminga/featured_img.jpeg
+author: Jacob
+---
+
+<script>
+    import YouTube from '$lib/components/YouTube.svelte';
+    import ArtistCard from '$lib/components/explore/ArtistCard.svelte';
+    import YouTubeChapters from '$lib/components/YouTubeChapters.svelte';
+</script>
+
+<ArtistCard
+src = "/explore/tamminga/profile_pic.jpeg"
+name = "Jorrit Tamminga"
+website = "http://www.jorrittamminga.nl/?page_id=2"
+>
+<p slot="bio">
+Jorrit Tamminga studied Music & Technology at the Utrecht School of the Arts and at the Institute of Sonology at the Royal Conservatoire in The Hague. During both studies he focused on electronic composition, live electronics, spatialization and sound synthesis. His work sounds regularly in different settings all over the globe: in concert halls and venues (Madrid, Amsterdam, Berlin, Istanbul, Venice), festivals (Huddersfield, Murcia, Zürich, Stavanger), churches (Mechelen, Utrecht, Antwerp), on the streets, in factories (Goes, Twente) and from towers (New York, Kaunas, Almere).
+</p>
+</ArtistCard>
+
+## The Podcast
+
+<YouTubeChapters 
+url={'lV0NwPZQT5w'}
+chapters={[
+    {"label" : "Introduction", "start" : [0, 0]},
+    {"label" : "Getting into the world of electronic music", "start" : [1, 22]},
+    {"label" : "Discussing Empty Mind by Wim Henderickx", "start" : [3, 43]},
+    {"label" : "Electronics and orchestration", "start" : [8, 38]},
+    {"label" : "SuperCollider, live-coding and experimentation", "start" : [9, 35]},
+    {"label" : "Discussing Dialogues by Jorrit and Erik Bosgraaf", "start" : [11, 43]},
+    {"label" : "Experience with fluid.pitch~", "start" : [16, 40]},
+    {"label" : "Neural network parameter mapping", "start" : [19, 45]},
+    {"label" : "Preset and sound morphing", "start" : [20, 0]},
+    {"label" : "Perspectives on technologies", "start" : [24, 42]},
+    {"label" : "Different roles in the development process", "start" : [27, 13]},
+    {"label" : "Learning new technologies", "start" : [30, 10]},
+    {"label" : "FluCoMa buffer paradigm", "start" : [33, 33]},
+    {"label" : "Teaching technologies", "start" : [36, 53]}
+]}
+/>
+
+## Overview
+
+In this second episode of the FluCoMa podcast I talk with Jorrit Tamminga. We discuss his creative process and approach to musicking through some of his collaborations with people like Wim Henderickx and Erik Bosgraaf. We also discuss how he is beginning to incorporate some of the FluCoMa tools into his practice, and how he approaches the learning and teaching of computational techniques.
+
+## Links
+
+Here are the links to some of the things that were discussed during the podcast:
+
+- [Conservatorium van Amsterdam](https://www.conservatoriumvanamsterdam.nl/).
+
+- [HK Utrecht](https://www.hku.nl/).
+
+- 2007 [Festival Oude Muziek](http://www.oudemuziek.nl/).
+
+- [ZX Spectrum](https://en.wikipedia.org/wiki/ZX_Spectrum).
+
+- *Empty Mind*, [Wim Henderickx](https://www.wimhenderickx.com/), Oboe and electronics. 
+
+<YouTube 
+url={'0MseJsOYy_E'}
+/>
+
+- [Antwerp symphony orchestra](https://www.antwerpsymphonyorchestra.be/).
+
+<YouTube 
+url={'nkkfvqESYIQ'}
+/>
+
+- [Champ d'Action ensemble](https://newaud.org/ensembles/champ-d%E2%80%99action).
+
+- [Chris Kiefer](https://profiles.sussex.ac.uk/p208667-chris-kiefer): [work for FluCoMa](/explore/eldridge-kiefer).
+
+- [Erik Bosgraaf](https://www.erikbosgraaf.com/).
+
+- *Dialogues*, Tamminga and Bosgraaf.
+
+<YouTube 
+url={'ZD5sRoTlCnE'}
+/>
+
+-  *Dialogue de l'ombre double*, Pierre Boulez.
+
+<YouTube 
+url={'xmGoBkSOl40'}
+/>
+
+- [Jacob van Eyck](https://en.wikipedia.org/wiki/Jacob_van_Eyck).
+
+<YouTube 
+url={'XWzZQUBut6g'}
+/>
+
+- Nick Collins' [SCMIR](https://composerprogrammer.com/research/scmir.pdf) (download [here](https://composerprogrammer.com/code.html)).
+
+- *Vox 5*, Trevor Wishart.
+
+<YouTube 
+url={'y23kobWHs8M'}
+/>
+
+- [Rodrigo Constanzo](https://rodrigoconstanzo.com/): [Confetti](https://rodrigoconstanzo.com/confetti/).
