@@ -91,7 +91,7 @@ The value returned will be the data point at the [percentile](#percentiles) indi
 
 The value returned will be the data point at the [percentile](#percentiles) indicated by the `high` parameter (between 0 and 100). The default value of 100 will return the largest value in the data. It may be useful to use this statistical description for analyses in which the largest value has the most impact on a listener's perception. For example, how [loud](/reference/loudness) one perceives a drum hit to be may be better correlated with the maximum loudness instead of the mean loudness, which will be brought down by the quieter parts of the decay tail and any silence that exists in the sound slice.
 
-# Derivatives
+## Derivatives
 
 Setting the parameter `numDerivs` > 0 (the maximum is 2) will return BufStats' seven statistics computed on consecutive derivatives of the channel's time-series. The derivative of a time-series is approximated by finding the _difference_ between each consecutive value in a series, which helps in understanding how a time series _changes_ throughout time. 
 
