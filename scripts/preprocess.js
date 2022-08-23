@@ -31,9 +31,16 @@ const add = (key, reference) => {
 	}
 };
 
-const routes = fg.sync(['**/*+page.svx']);
-// routes = routes.filter(p => path.basename(p) !== 'index.svx');
+const ignores = [
+	'src/routes/reference/+page.svx',
+	'src/routes/explore/+page.svx',
+	'src/routes/learn/+page.svx',
+	'src/routes/+page.svx'
+]
+let routes = fg.sync(['**/*+page.svx']);
+routes = routes.filter(route => !ignores.includes(route));
 edits = extractGit(routes);
+
 routes.forEach(route => {
 	const section = route.split('/')[2];
 	let url = urlFromRoute(route);
