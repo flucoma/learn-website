@@ -12,8 +12,8 @@ category: Slicing
 <script>
     import Admonition from '$lib/components/Admonition.svelte';
     import ResourceLink from '$lib/components/ResourceLink.svelte';
-    import NoveltySSM from '$lib/widget/NoveltySSM.svelte';
-    import NoveltyCurve from '$lib/widget/NoveltyCurve.svelte';
+    import NoveltySSM from './NoveltySSM.svelte';
+    import NoveltyCurve from './NoveltyCurve.svelte';
 </script>
 
 NoveltySlice provides a broad concept for thinking about how we might be able say _this_ bit of a sound is different from _that_ bit. It's useful for slicing when we want a more general basis for distinguishing between segments than looking for the start of well defined events with [onsets](/reference/onsetslice), [transients](/reference/transientslice) or changes in the envelope. It can be especially useful when we're interested in making longer slices than you might get with these typically more finely-grained methods.

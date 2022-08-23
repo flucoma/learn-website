@@ -9,7 +9,7 @@ category: Analyse Data
 ---
 
 <script>
-    import KDTree from '$lib/widget/KDTree.svelte';
+    import KDTree from './KDTree.svelte';
 </script>
 
 The KDTree facilitates the rapid querying of data stored in a [DataSet](/reference/dataset). It _can_ make querying by distance more efficient and faster than if you did it by manual lookup. Before a KDTree can be queried it has to be fitted to a [DataSet](/reference/dataset) containing the points that it will look up.

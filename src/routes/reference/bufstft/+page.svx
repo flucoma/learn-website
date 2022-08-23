@@ -10,7 +10,7 @@ category: Analyse Sound
 ---
 
 <script>
-    import STFTWindows from '$lib/widget/STFTWindows.svelte';
+    import STFTWindows from './STFTWindows.svelte';
     import Image from '$lib/components/Image.svelte';
     import Admonition from '$lib/components/Admonition.svelte';
 </script>

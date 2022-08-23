@@ -12,7 +12,7 @@ category: Utility
 ---
 
 <script>
-    import BufSelect from '$lib/widget/BufSelect.svelte';
+    import BufSelect from './BufSelect.svelte';
 </script>
 
 [BufSelect]() is an object for copying values from a source buffer to a destination buffer by specifying a combination of indices and channels. For example, you could select the first index from every channel of a buffer, or every index of only channels 1, 2, and 3.

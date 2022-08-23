@@ -9,7 +9,7 @@ category: Analyse Sound
 ---
 
 <script>
-    import MFCCScrub from '$lib/widget/MFCCScrub.svelte';
+    import MFCCScrub from './MFCCScrub.svelte';
     import Admonition from '$lib/components/Admonition.svelte';
 </script>
 

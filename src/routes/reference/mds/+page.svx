@@ -16,7 +16,7 @@ category: Analyse Data
     import { Tabs, TabList, TabPanel, Tab } from '$lib/components/tabs/tabs';
     import ResourceLink from '$lib/components/ResourceLink.svelte';
     import Admonition from '$lib/components/Admonition.svelte';
-    import MDS from '$lib/widget/MDS.svelte';
+    import MDS from './MDS.svelte';
 </script>
 
 

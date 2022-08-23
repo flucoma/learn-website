@@ -11,8 +11,8 @@ category: Analyse Sound
 
 <script>
     import Admonition from '$lib/components/Admonition.svelte';
-    import NoveltyFeature from '$lib/widget/NoveltyFeature.svelte';
     import Audio from '$lib/components/Audio.svelte';
+    import NoveltyFeature from './NoveltyFeature.svelte';
 
     const wf = {
         waveform: true,
