@@ -28,7 +28,6 @@
 		"rehype-slug": "^5.0.1",
 		"remark": "^13.0.0",
 		"remark-html": "^13.0.2",
-		"remark-jargon": "^2.21.3",
 		"svelte": "^3.49.0",
 		"svelte-check": "^2.8.1",
 		"svelte-preprocess": "^4.10.7",
