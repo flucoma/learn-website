@@ -48,7 +48,7 @@ As another example, the [2D Corpus Explorer tutorial](/learn/2d-corpus-explorer)
 This is really just the start of thinking about _time_ and we hope that you delve into it more through a series of [Learn Articles](/learn) that we think might provoke you to consider how you represent time through data, and how the evolution of sound can be captured and encoded into workflows with the FluCoMa toolkit.
 
 [Smoothing](/learn/smoothing-data)
-<!-- [Pitch Refinement](/learn/refining-pitch-analysis) -->
+[Pitch Refinement](/learn/refining-pitch-analysis)
 <!-- [LPT](/learn/lpt) -->
 
 
