@@ -20,7 +20,7 @@ author: Jacob
     import BandCamp from '$lib/components/BandCamp.svelte';
     import CodeBlock from '$lib/components/CodeBlock.svelte';
     import Audio from '$lib/components/Audio.svelte';
-    import ForceDirected from '$lib/widget/bricolage/ForceDirected.svelte';
+    import ForceDirected from '$./bricolage/ForceDirected.svelte';
     import ExploreDownload from '$lib/components/ExploreDownload.svelte';
 </script>
 
