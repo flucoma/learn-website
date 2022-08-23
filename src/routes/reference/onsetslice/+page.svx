@@ -1,0 +1,93 @@
+---
+title: OnsetSlice
+blurb: Onset detection with various spectral slicers
+tags:
+    - segmentation
+    - slicing
+    - onset detection
+flair: reference
+category: Slicing
+---
+
+<script>
+    import ResourceLink from '$lib/components/ResourceLink.svelte';
+    import Admonition from '$lib/components/Admonition.svelte';
+    import OnsetSlice from './OnsetSlice.svelte';
+    import Audio from '$lib/components/Audio.svelte';
+    import Image from '$lib/components/Image.svelte';
+</script>
+
+## Introduction
+
+OnsetSlice calculates slice points in a sound based on changes in its _spectrum_. It makes these judgements based on one of several available metrics, which each have their own characteristics. From this, it derives a time-series that describes change from one moment to the next. If that change exceeds the given _threshold_ parameter, a slice point for that event is produced. Let's break this process down step-by-step visually.
+
+## A Visual Example
+
+Let's first start with this vocal recording:
+
+<Audio 
+src='/audio/Tremblay-AaS-VoiceQC-B2K.mp3'
+label='Tremblay-AaS-VoiceQC-B2K vocal recording'
+waveform={true}
+/>
+
+If we create a spectrogram from this sound, it is visually explicit where significant changes in the spectrum occur. Aligning these visual differences, they seem to coincide with the utterances of each letter from the alphabet.
+
+<Image 
+src='/reference/onsetslice/voice-spec.jpg'
+alt='spectrogram of a voice recording'
+label='Spectrogram of Tremblay-AaS-VoiceQC-B2K'
+/>
+
+OnsetSlice measures change in this spectrum (according to its [metric](#metrics)) and constructs a feature curve of its own. Points in time when the value of this curve exceeds the threshold are considered as onsets. Furthermore, another condition has to be met: the previous value must be _less than the threshold_. Below is an interactive widget that lets you visualise adjusting the _threshold_ (the horizontal red line) and how this results in the detection of time slices (the vertical red lines). We used [metric 2](#metric-2-spectral-flux) to create the feature curve.
+
+<OnsetSlice />
+
+## Metrics
+
+There are 10 different metrics that OnsetSlice can use for calculating the changes in the spectrum. It can be overwhelming to know which one might be best for each scenario, and in many cases it might be a red herring to experiment with the metrics blindly. In all cases, we highly recommend starting your experimentation with [metric 9](#metric-9-rectified-complex-phase-deviation). It works well with a wide range of sounds and has a normalised threshold range, meaning you only need to experiment with values between 0.0 and 1.0. Another good choice is [metric 2](#metric-2-spectral-flux). For more details read below, and most importantly, experiment using your ears in your creative coding environment of choice.
+
+### Metric 0 (Energy)
+Difference between sum of squares of the magnitude of frames. Good for material that has large differences in amplitude.
+
+### Metric 1 (High Frequency Content)
+Similar to metric 0 except that each frequency bin is weighted by the bin number. This means that the high frequency content is weighted more strongly in the calculation of difference. 
+
+### Metric 2 (Spectral Flux)
+Measures difference between the magnitudes of spectral frames. A popular algorithm and a suitable choice for a variety of sound types.
+
+### Metric 3 (Modified Kullback-Leibler)
+Similarly to metrics 6, 7, 8, 9, metric 3 compares a projection of the spectrum based on frames in the past and compares the reality to this projection. Importantly, this uses log magnitudes per bin, whereas most other metrics don't.
+
+### Metric 4 (Itakura-Saito)
+Uses the Itakura-Saito divergence to measure the difference between the past spectrum and an approximate projection from thatinto the future. For more information, see [the wiki article](https://en.wikipedia.org/wiki/Itakura%E2%80%93Saito_distance). 
+
+### Metric 5 (Cosine)
+Calculates the difference between spectral frames using [cosine distance](https://en.wikipedia.org/wiki/Cosine_similarity). 
+
+### Metric 6 (Phase Deviation)
+Phase deviation uses past spectral frames to projects what the next frame from those will be. It then compares the projection to the reality. If the difference between projection and reality exceeds the threshold, a slice is output. This is especially useful for sounds which alternate or change between stable and unstable sonic states. An example of this might be sinusoidal or tonal material that rapidly becomes noisy.
+
+### Metric 7 (Weighted Phase Deviation)
+Very similar to metric 6, except the phase is weighted by the magnitude.
+
+### Metric 8 (Complex Phase Deviation)
+The same as metric 6 but calculated in the complex domain.
+
+### Metric 9 (Rectified Complex Phase Deviation)
+The same as metric 8 but rectified.
+
+## Related Resources
+
+<ResourceLink 
+title='Onset Detection Revisited'
+url='https://www.eecs.qmul.ac.uk/~simond/pub/2006/dafx.pdf'
+blurb='A paper by Simon Dixon describing some metrics used in OnsetSlice'
+/>
+
+<ResourceLink
+title='Onset Detection in Musical Audio Signals'
+url='https://quod.lib.umich.edu/cgi/p/pod/dod-idx/onset-detection-in-musical-audio-signals.pdf?c=icmc;idno=bbp2372.2003.047;format=pdf'
+blurb='This paper presents work on changepoint detection in musical audio signals, focusing on the case where there are note
+changes with low associated energy variation.'
+/>
