@@ -1,4 +1,5 @@
 <script>
+	import './top.css';
 	import { onMount } from 'svelte';
 	import { Chart, registerables } from 'chart.js';
 	import * as d3 from 'd3';
@@ -62,6 +63,7 @@
 			type: 'bubble',
 			data: data,
 			options: {
+				events: [],
 				responsive: true,
 				maintainAspectRatio: false,
 				plugins: { legend: { display: false } },
@@ -78,40 +80,18 @@
 </script>
 
 
-<a class="container" href='/learn/2d-corpus-explorer'>
-	<h1>2D Corpus Exploration</h1>
+<a class="interactive tile" href='/learn/2d-corpus-explorer'>
+	<h2>2D Corpus Exploration</h2>
 	<p>Explore a sound bank using machine listening and machine learning</p>
 	<canvas bind:this={canvas} id="scatter-plot" on:mouseenter={change} on:mouseleave={change}/>
 </a>
 
 <style>
 	a {
-		text-decoration: none;
-		color: black;
-	}
-
-	a:hover {
-		background: transparent;
-	}
-
-	a > h1 {
-		margin: 0;
-	}
-	.container {
-		width: 500px;
-		height: 300px;
-		position: relative;
-		border-radius: 0.25rem;
-		border: 0.063rem solid #dcdee0;
-		padding: 0.75em;
 		max-width: 100%;
 	}
-
 	#scatter-plot {
-		position: absolute;
-		bottom: 0;
 		max-width: 100%;
 		max-height: 200px;
-		z-index: -100;
 	}
 </style>
