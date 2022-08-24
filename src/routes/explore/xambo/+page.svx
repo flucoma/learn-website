@@ -1,0 +1,153 @@
+---
+title: "FluCoMa Podcast #06: Anna Xambó"
+artist: Anna Xambó
+blurb: |
+    Episode 6 of the FluCoMa Podcast where Jacob Hart talks to musician, developer, researcher and teacher Anna Xambó.
+tags: 
+    - live coding
+    - networks
+    - online
+    - mobile devices
+    - data-driven musical interface
+flair: podcast
+featuredimage: /explore/xambo/featured.jpeg
+author: Jacob
+---
+
+<script>
+    import YouTube from '$lib/components/YouTube.svelte';
+    import YouTubeChapters from '$lib/components/YouTubeChapters.svelte';
+    import ArtistCard from '$lib/components/explore/ArtistCard.svelte';
+    import Vimeo from '$lib/components/Vimeo.svelte';
+    import Soundcloud from '$lib/components/Soundcloud.svelte';
+    import BandCamp from '$lib/components/BandCamp.svelte';
+</script>
+
+<ArtistCard
+src = "/explore/xambo/profile.jpeg"
+name = "Anna Xambó"
+website = "https://annaxambo.me/"
+>
+<p slot="bio">
+Anna is currently a Senior Lecturer in Music and Audio Technology at the Leicester Media School (LMS), Faculty of Computing, Engineering and Media (CEM) at De Montfort University (DMU); member of the Music, Technology and Innovation – Institute of Sonic Creativity (MTI^2); and worked as the principal investigator (PI) for the EPSRC HDI Network Plus funded project “MIRLCAuto: A Virtual Agent for Music Information Retrieval in Live Coding”. She is also the programme leader of the BSc Digital Music Technology programme. Since 2019, she has been an Associate Fellow at the Higher Education Academy.
+</p>
+</ArtistCard>
+
+## The Podcast
+
+<YouTubeChapters 
+url={'LzRlHHeob5Q'}
+chapters={[
+    {"label" : "Introduction", "start" : [0, 0]},
+    {"label" : "Anna introduces herself and her work", "start" : [2, 40]},
+    {"label" : "MIRLCAuto project presentation", "start" : [6, 27]},
+    {"label" : "Approach to live-coding", "start" : [12, 12]},
+    {"label" : "Legibility, agency and negotiability in performance", "start" : [15, 15]},
+    {"label" : "Show us your screens!", "start" : [20, 43]},
+    {"label" : "General framework for visualisation of sound collections in musical interfaces", "start" : [25, 13]},
+    {"label" : "Collections of sounds as an aesthetic object", "start" : [29, 18]},
+    {"label" : "Spectral modeling synthesis", "start" : [32, 18]},
+    {"label" : "Approach to diffusion", "start" : [36, 29]},
+    {"label" : "Online interfaces", "start" : [39, 23]},
+    {"label" : "Audience-centric approach", "start" : [42, 40]},
+    {"label" : "Music technology post-pandemic", "start" : [48, 44]}
+]}
+/>
+
+## Overview
+
+In this episode of the FluCoMa Podcast I talk with Dr. Anna Xambó who is currently a senior lecturer in Music and Audio Technology at the Leicester Media School at De Montfort University; and a member of the Music, Technology and Innovation - Institute of Sonic Creativity (MTI2). We discuss a number of her research projects, and how they feed into her creative practice. We notably discuss her use of MIR techniques for live-coding, and dealing with large, online, crowd-sourced corpora on a platform such as Freesound.
+
+## Links
+
+Here are the links to some of the things that were discussed during the podcast:
+
+- [Leicester Media School]( https://www.dmu.ac.uk/schools-departments/leicester-media-school/index.aspx) at [De Montfort University]( https://www.dmu.ac.uk/home.aspx).
+
+- [Music, Technology and Innovation – Institute of Sonic Creativity]( https://www.dmu.ac.uk/research/research-faculties-and-institutes/technology/mtirc/staff.aspx).
+
+- [MIRLCAuto: a Virtual Agent for Music Information Retrieval in Live Coding]( https://mirlca.dmu.ac.uk/) project.
+
+- PhD thesis: “[Tabletop Tangible Interfaces for Music Performance: Design and Evaluation]( https://annaxambo.me/pub/Xambo_2015_thesis.screen.pdf)” (2015).
+
+- [Centre for Digital Music](https://c4dm.eecs.qmul.ac.uk/) at [Queen Mary University of London]( https://www.qmul.ac.uk/), [AudioCommons.org]( https://www.audiocommons.org/) project, [Norwegian Univserity of Science and Technology]( https://www.ntnu.edu/).
+
+- [Women Nordic Music Technology (WoNoMute)]( https://wonomute.no/).
+
+- [peterMann]( https://www.discogs.com/artist/1740879-peterMann): 
+
+<Soundcloud 
+id='https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/301781469&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true'
+/>
+
+- [Dirty Electronics Ensemble](https://dirtyelectronics.org/), [Dirty Dialogues]( https://www.panyrosasdiscos.org/pyr313-dirty-electronics-ensemble-jon-ogara-and-anna-xambo-dirty-dialogues/) album.
+
+<Vimeo 
+url={'https://player.vimeo.com/video/626477944?h=33b1a83cbc'}
+/>
+
+- [Anna Weisling]( http://aweisling.com/):
+
+<BandCamp 
+id='3310285476'
+/>
+
+- [Music]( https://soundcloud.com/pulso-2-n ) with [Gerard Roma]( https://g-roma.github.io/):
+
+<Soundcloud 
+id='https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/269875895&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true'
+/>
+
+- [Carpal Tunnel]( https://carpal-tunnel.bandcamp.com/) music label.
+
+- [A General Framework for Visualisation of Sound Collections in Musical Interfaces]( https://www.mdpi.com/2076-3417/11/24/11926) (2021), Roma, Xambó, Green, Tremblay.
+
+- [SuperColliderAU]( https://github.com/supercollider/SuperColliderAU).
+
+- [SuperCollider Symposium]( http://supercollider.sourceforge.net/symposium/) at the [University of Birmingham]( https://www.birmingham.ac.uk/index.aspx).
+
+- [Pompeu Fabra University]( https://www.upf.edu/en/).
+
+- [The Open University]( https://www.open.ac.uk/). PhD supervisors: [Robin Laney]( https://www.open.ac.uk/people/rcl46), [Chris Dobbyn]( https://www.researchgate.net/profile/Chris-Dobbyn), [Sergi Jordà Puig]( https://scholar.google.com/citations?user=jKDwPyUAAAAJ&hl=en).
+
+- [Human Data Interaction – EPSRC Network Plus]( https://hdi-network.org/).
+
+- [FreeSound]( https://freesound.org/).
+
+- [MIRLC]( https://github.com/axambo/MIRLC).
+
+- [Freesound.sc]( https://github.com/g-roma/Freesound.sc).
+
+- Gerard Roma presenting his work around Freesound at the first FluCoMa plenary:
+
+<YouTube 
+url={'-52RdzniJjg '}
+/>
+
+- Call for special issue of Organised Sound [here]( https://www.cambridge.org/core/journals/organised-sound/call-live-coding): issue coordinated by Xambó, Roma and Thor Magnusson. 
+
+- [Atau Tanaka]( https://www.gold.ac.uk/computing/people/tanaka-atau/).
+
+- [Shelly Knotts]( https://shellyknotts.wordpress.com/about/).
+
+- [Ixi lang]( https://github.com/thormagnusson/ixilang).
+
+- [FluidCorpusMap Library](https://github.com/flucoma/FluidCorpusMap).
+
+- [Live repurposing of sounds: MIR explorations with personal and crowsourced databases](https://annaxambo.me/pub/Xambo_et_al_2018_Live_repurposing_of_sounds.pdf) (2018), Xambo, Roma, Lerch, Barthet, Fakekas.
+
+- [The Music Technology Group](https://www.upf.edu/web/mtg): [Spectral Modeling Synthesis Tools](https://www.upf.edu/web/mtg/sms-tools).
+
+- [Birmingham Electroacoustic Sound Theatre (BEAST)](https://beast.cal.bham.ac.uk/): [link](https://annaxambo.me/music/solo-performances/detuning-a-tuning-beast-centrala-2022/) to Anna's performance.
+
+- [Podcast](/explore/smith) with [Simon Smith](https://uk.linkedin.com/in/simon-barry-smith73).
+
+- [HISS: Huddersfield Immersive Sounds System](https://www.thehiss.org/).
+
+- [Jason Freeman](https://music.columbia.edu/bios/jason-freeman).
+
+- [Ear to Waipapa Taumata Rau](https://nime.pubpub.org/pub/h3znmkok/release/1) with [Visda Goudarzi](https://nime.pubpub.org/user/visda-goudarzi).
+
+<YouTube 
+url={'uJ3sK2rMcfo'}
+/>
