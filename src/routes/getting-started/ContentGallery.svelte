@@ -20,7 +20,7 @@
         },
         {
             "title" : "Read an in-depth article about a FluCoMa project",
-            "desc" : "Read an article for the FluCoMa Explore series, in-depth musicological analysis of performances and code.",
+            "desc" : "Read an article in the FluCoMa Explore series: in-depth musicological analysis of performances and code.",
             "link" : "/explore",
             "content" : {
                 "type" : "img",
