@@ -1,0 +1,233 @@
+---
+title: Neural Network Training
+author: Ted
+blurb: An overview of how neural networks learn.
+tags: 
+    - mlp
+    - multi-layer perceptron
+    - supervised learning
+    - neural network
+    - machine learning
+    - regression
+    - classification
+flair: article
+featuredimage: /learn/mlp/211220_01_synth_control_sc.txt.jpg
+---
+
+<script>
+    import Admonition from '$lib/components/Admonition.svelte';
+    import CodeBlock from '$lib/components/CodeBlock.svelte';
+    import Image from '$lib/components/Image.svelte';
+    import { Tabs, TabList, TabPanel, Tab } from '$lib/components/tabs/tabs';
+    import ResourceLink from '$lib/components/ResourceLink.svelte';
+</script>
+
+This article provides guidance on using the neural networks found in the FluCoMa toolkit including some intuition about how neural networks learn and some recommendations for training. For more detailed information on the MLP parameters visit [MLP Parameters](/learn/mlp-parameters). FluCoMa contains two neural network objects, the [MLPClassifier](/reference/mlpclassifier) and [MLPRegressor](/reference/mlpregressor). "MLP" stand for multi-layer perceptron, which is a type of neural network. "Classifier" and "Regressor" refer to the task that each MLP can be trained to do. 
+
+## Supervised Learning
+
+Both the MLPClassifier and MLPRegressor are supervised learning algorithms meaning that they learn from input-output example pairs. The MLPClassifier can learn to predict output labels (in a [LabelSet](/reference/labelset)) from the labels' paired input data points (in a [DataSet](/reference/dataset)). The MLPRegressor can learn to predict output data points from their paired input data points.
+
+Supervised learning is contrasted with unsupervised learning which tries to find patterns in data that is not labeled or paired with other data. FluCoMa also has unsupervised learning algorithms such as [PCA](/reference/pca), [KMeans](/reference/kmeans), [MDS](/reference/mds), [UMAP](/reference/umap), and [Grid](/reference/grid).
+
+## The Training Process
+
+### Feed-forward
+
+The internal structure of a multi-layer perceptron (MLP) creates a "feedforward" network in which input values are received at input neurons, passed through sequential hidden layers of neurons which compute values that are passed on to the following layer, eventually arriving at output neurons which provide their values as the output of the neural network. These sequential layers are "fully connected", meaning that each neuron in one layer connects to every neuron in the following layer. These connections are _weights_ that are multiplied by the values to control how much each neuron's output influences the neurons it is connected to. The neurons (except in the input layer) also use a bias (an added offset) and an [activation function](/#activation-functions) to compute its output. The weights and biases are internal parameters that are not controlled at all by the user. 
+
+<Image
+src="/learn/mlp/211220_01_synth_control_sc.txt.jpg"
+label="A multi-layer perceptron neural network that takes two inputs, has one hidden layer of seven neurons, and predicts ten outputs. Each black arrow is a weight. Each of the neurons in the hidden layer and output layer also have a bias."
+/>
+
+### Audio Mixer Metaphor
+
+A useful metaphor for understanding how the feedforward algorithm works is to think of a neural network like an audio mixer. The inputs to the neural network are like the audio inputs to the mixer. The weights are like volume adjustments that control how much of an input signal gets passed on (in the case of a neural network, passed on to the next layer). The biases are like [DC offsets](https://manual.audacityteam.org/man/dc_offset.html#:~:text=DC%20offset%20is%20a%20mean,and%20how%20to%20remove%20it.) that just shift the signal up or down. [Activation functions](/#activation) are like distortion--they introduce some non-linearities into the signal (which for neural networks help them learn non-linear relationships between the inputs and outputs). Lastly, the outputs of the neural network are like the outputs of the audio mixer--a volume adjusted, DC offset, and distorted combination of all the inputs.
+
+### Training
+
+The message that tells an MLP to train is `fit`. `fit` is synonymous with "train". Its terminology is similar to "finding a line of best fit" or "fitting a curve to data". `fit` takes two arguments: 1. the inputs the neural network (a [DataSet](/reference/dataset)) and 2. the outputs we want the neural network to learn to predict (a [LabelSet](/reference/labelset) for the MLPClassifer, a [DataSet](/reference/dataset) for the MLPRegressor). In order for the the neural network will know which inputs to associate with which outputs, the input-output example pairs must have the same identifier in their respective (Label- or Data-) Set.
+
+During the training process, an MLP neural network uses all the data points from the input [DataSet](/reference/dataset) and predicts output guesses (either a label for MLPClassifier or a data point for MLPRegressor). At first these guesses will be quite wrong because the MLP begins in a randomised state. After each of these output guesses it checks what the _desired_ output is for the given input and measures how wrong the guess was. Based on how wrong it was, the neural network will then slightly adjust its internal weights and biases (using a process called [backpropagation](https://en.wikipedia.org/wiki/Backpropagation)) so that it can be more accurate the next time it makes a prediction on this input. After training on each data point thousands of times, these small adjustments enable the neural network to (hopefully!) make accurate predictions on the data points in the DataSet, as well as on data points it has never seen before.
+
+### The Error
+
+Because training the neural network is an iterative process, it is likely that you'll send the `fit` message to the neural network many times. Each additional time it receives `fit`, it continues training, picking up from wherever it left off (the internal state of the neural network is not reset). Each time it concludes a fitting it will return a number called the error (also known as the loss). The error is a measure of how inaccurate the neural network still is at performing the task you've asked it to learn (so it may need more training!). Generally speaking, lower is better because it means there is _less_ error, therefore the neural network is more accurately performing the task it is learning.
+
+There isn't any way to objectively reason about how low of an error is "low enough" (and "too low" might mean the neural network is [overfitting](/learn/training-testing-split#overfitting)). Instead, we can tell if the neural network is learning by watching how the error changes over multiple fittings. If the error is going down then we can tell that the neural network is learning from the data it is training on (which is good). At some point the error will start to level out or "plateau", meaning that it is no longer decreasing. This is also called "_convergence_". At this point the neural network isn't improving any more. It seems to have learned all it can from the data provided. It has "converged". At this point it would be good to start using the neural network _model_ to make predictions, or perhaps test it's performance on some [testing data](/learn/training-testing-split).
+
+### Tweaking the MLP Parameters
+
+As you are observing how the error changes over multiple fittings, it may be useful to change some of the neural network's parameters between fittings to see if it can achieve a lower error, or change how the error is decreasing. See the [parameter descriptions](/learn/mlp-parameters) below for more information about why and how you might tweak each of them specifically.
+
+Because the parameters [`hiddenLayers`](/learn/mlp-parameters#hiddenlayers), [`activation`](/learn/mlp-parameters#activation-functions), and [`outputActivation`](/learn/mlp-parameters#activation-functions) change the internal structure of the neural network, the internal state of the neural network is necessarily reset and any training that has been done will be lost. Even so, it is a good idea to play with these parameters because they can have a significant impact on how well and how quickly the neural network is able to learn from your data. All the other parameters can be changed without losing the internal state. 
+
+One strategy of training the neural network is to set [`maxIter`](/learn/mlp-parameters#maxiter) rather low (between 10 and 50 maybe) and repeatedly call `fit` on the neural network. In Max or Pure Data, this might be using a [metro] (or [qmetro]). In SuperCollider this could be done by creating a function that recursively calls `fit` unless a flag is set to `false` (see the example code below). While these sequential `fit`s are happening, watch how the error changes over time and adjust some of the MLP parameters _as it is training_ to see how they affect the change and rate of change of the error value. Finding which parameters create a good training (_convergence_ at a low error) is often a process of testing various combinations of parameters to see what works best. All of the parameters are worth experimenting with! And as always, make sure to [test the performance](/learn/training-testing-split) of the neural network _model_ to see if it really does what you hope!
+
+<Tabs>
+    <TabList>
+        <Tab>SuperCollider</Tab>
+        <Tab>Max</Tab>
+    </TabList>
+    <TabPanel>
+
+<CodeBlock title='Training an MLP in SuperCollider'>
+
+```js
+s.boot;
+
+// some audio files to classify
+(
+~tbone = Buffer.read(s,FluidFilesPath("Olencki-TenTromboneLongTones-M.wav"),27402,257199);
+~oboe = Buffer.read(s,FluidFilesPath("Harker-DS-TenOboeMultiphonics-M.wav"),27402,257199);
+)
+
+// create a dataSet of pitch and pitch confidence analyses (and normalize them)
+(
+~dataSet = FluidDataSet(s);
+~labelSet = FluidLabelSet(s);
+~pitch_features = Buffer(s);
+~point = Buffer(s);
+[~tbone,~oboe].do{
+	arg src, instr_id;
+	FluidBufPitch.processBlocking(s,src,features:~pitch_features,windowSize:2048);
+	252.do{ // I happen to know there are 252 frames in this buffer
+		arg idx;
+		var id = "slice-%".format((instr_id*252)+idx);
+		var label = ["trombone","oboe"][instr_id];
+		FluidBufFlatten.processBlocking(s,~pitch_features,idx,1,destination:~point);
+		~dataSet.addPoint(id,~point);
+		~labelSet.addLabel(id,label);
+	};
+};
+FluidNormalize(s).fitTransform(~dataSet,~dataSet);
+~dataSet.print;
+~labelSet.print;
+)
+
+(
+// take a look if you want: quite clear separation for the neural network to learn (blue will be trombone and orange will be oboe)
+~dataSet.dump({
+	arg datadict;
+	~labelSet.dump({
+		arg labeldict;
+		defer{
+			FluidPlotter(dict:datadict)
+			.categories_(labeldict);
+			
+		};
+	});
+});
+)
+
+(
+// make a neural network
+~mlp = FluidMLPClassifier(s,[3],activation:FluidMLPClassifier.sigmoid,maxIter:20,learnRate:0.01,batchSize:1,validation:0.1);
+
+// make a flag that can later be set to false
+~continuous_training = true;
+
+// a recursive function for training
+~train = {
+	~mlp.fit(~dataSet,~labelSet,{
+		arg error;
+		"the current error (aka. loss) is: %".format(error).postln;
+		if(~continuous_training){~train.()}
+	});
+};
+
+// start training
+~train.();
+)
+
+// you can make adjustments while it's recursive calling itself:
+~mlp.learnRate_(0.02);  // won't reset the neural network
+~mlp.batchSize_(2);     // won't reset the neural network
+~mlp.maxIter_(50);      // won't reset the neural network
+~mlp.validation_(0.05); // won't reset the neural network
+~mlp.momentum_(0.95);   // won't reset the neural network
+
+~mlp.hiddenLayers_([2]);      // *will* reset the neural network
+~mlp.activation_(FluidMLPClassifier.tanh); // *will* reset the neural network
+
+// when the loss has decreased and then leveled out, stop the recursive training:
+~continuous_training = false;
+```
+
+</CodeBlock>
+
+    </TabPanel>
+    <TabPanel>
+
+<CodeBlock title='Training an MLP in Max'>
+
+<pre><code>
+----------begin_max5_patcher----------
+1758.3ocuYszjiZCD9rmeETTUt4LEuAmS6dOGyss1xkLH6Q6hkHfXdjs17aO
+sd.HwCOXudxb.ynmc+0ecqtE+3gMtGXuhabc9Cmu3rYyOdXyFYShF1n++Mtm
+QulWhZjCyMmc9Llxc2p5iiekKa+uXmNUhc3OgcNi40LGNyA0xYmQbRNpr7Mm
+CH5IY+GIbXLMMnSXmC3R1KO574RNtlBC8YLLx2XsN4HpSUMLJGwnQzVwZ7X2
+1VRn3bVKUt2g5FosmIzRLWJn95FIERwic3a+dlm6vHYs7tg5oasBwyehPOsu
+FmyUXRRzidac72EK9IHbm3mnzG8b9pXJ+7gGDO1tRn6fbCv0cRwyD7KOSZHG
+HkD9alBM63wFrVD7D6omXK6zcV92wEE0nSM40rxRSUHujj+c9S0r1SOY1Nlh
+NTheZ5DTc77zNT6RC4evlsd3zYVgcKr5BPkLD9YMC3yGvEKXWRCuZ6heTh.V
+hCTFlX4O99wFvTGXqrGZCxF2iDPcw0MDF0Pb13hppLZdiwTDVwuwjKT119lH
+TUSA8MUiEFS6kEV2ZP14ff2VKwM2WShbGVF.MqosD4bTMB7IsHIYNTD3pTgx
+USVPv55d.Mhk7ReOIljDIYLQYFbFggSYPMvUflUgoDpvKC7nAmuQPRA9Hpsj
+u+Hix6HB9AO5MW+G0R3rcJzAo3+4ZBprWANUSJXTgPXBjxl61NP2j1YSUQ1O
+EUMyTA1D.J1c1qNMfJ11b.UK84JwVyjyXk1c0OuR7Qtt6JBkNBC4rpk6rlb5
+oKL2CLnyyWZsk8zrukp5cOvH36aPOai0bH1HE+Bn8iV9WQTBD.FyIJCPfWem
+ShH3a2yyyzSAvvywuPJ3pfKlTAX3jpNJjauMtfbB2vsaiCQtraog+lBzMZps
+Kb4dN9bUInE1C.7MHM7lmXuznGXGMyD.FNbyzi1LRsU6W7vN6C79SVSi.C7C
+L61zYxHdUr9fiXvMMV5eFX5dtTXy9cLmUpB2.g9j95lOrVFy3pt1K+zPqSD4
+w68LgdCRkxel7okxzMM4wh5PY2HvqYyyg6MU0DHdiCb.oixF7aGcWCNZfLwK
+iLlyP0L+sJcrHWWKndYvQjhf37HE3DbmAGo5snJ6MuJG7QoxcAn25D508zZN
+cNQlduRgiVfe03fu6B1bFNygzTRJ5Sy5ccKUoPDoRgvKdjzCzr9nSQWIMKwh
+mUgpg.TPdt6UQXGarrMJAqzCcpAa6ZMZJV5kzbPEAz0JOz3YoxCmNKxLegXt
+R4Pz+71wFVacdmVnorN1hDbLCmP6wguz6MOZb84j5sJp0GkfkbAIy+CQxhWo
+jkpF2EsjRZ+Blx9L5.5QhQRoCI9Mu.2eV1dBUjtM1tFG8iwmoc3zxm+IYjFi
+EkmCtJFi26wLwnxB2E3mHdK0aWlWjdWFPfsFfdMrDSyIQDqQDdwjXMmQyBbF
+Er9xvikXGEDFGrSHwgoAwQx2BRih8++Rz00n+QaagJxJ6U7MSVWXg0A2fL+Q
+ED67wzXleusNA9Kc6ruMZq0SMnapoYY.huc12lepcyLXmm+NI2JTysDuAM4O
+yLQzS5ZORGRfVGlmUwp67TgkXm07Z4rd.vLz1f26EoBS8TudFg5vlahMKs+Q
+.M1KP9FfSf9cuXx50PgDW40xvk2bk6JuDojL29KXXwyymOAqomUSDlxudgq4
+Pmccl5f5tm2zsOYkR8P5z+s515787lEABlAARbuNsTbweqQMU4NmFYmz78QM
+kEM37oJVUaki+ZM1AoW+MSsKq+5W15n9m6sxTChh5ZTgLCKH47JFY3JYsTpv
+oJUz75T3RlOYBklIUdgKjKRmLYP3ujdaexyfhKu43i44+dAhibJQGvkMqk1F
+dkr1UvXCCTGo4m9QXkOV1RJd7bYkbjjiDb8+57ITNm7rLcNGemOUhQ0zZDvF
+.II14Sv5RfHRf7M6MkGsRduu+7fUvE4Hq.vRTziHI8HIv35ZGmgmNOMQVawI
+YIAxSxgiT8RyhB86xHx+Fg7JDEWdwn.GP4e+D3nQst05ga6dFFVj+UGsPAG6
+TWZfBihstEa0F9K.N50Y701OWVH14YCo0r05gwUqOJQkXCKfbP1UApLHiKkQ
+aVlTBif6MTCyB0uDMT+xDK+Z2nvUrOcByuzFIDV+2YiBRuSaz6oQog2gMRjB
+v6tS2kMJaEaTmzLgEN5a5H1jQeKmQeGmoeCmk+9Mi+1MxjWGUzrRYmuX4Q4N
++iGtshnVaww2Rgw57wWHWb67vMstKU.77p7UWz6cQrrRw39YKlTLa22cbwhX
+uwBXuwhWusBWmun0kKXcghU6JOadyms2w5rhlEjtB106UD50wrTAYV3qz9vO
+e3+fAsvEr
+-----------end_max5_patcher-----------
+</code></pre>
+
+</CodeBlock>
+    </TabPanel>
+</Tabs>
+
+## Comparing MLP and KNN
+
+FluCoMa has another pair of objects that do classification and regression with supervised learning: the [KNNClassifier](/reference/knnclassifier) and [KNNRegressor](/reference/knnregressor). The KNN objects work quite differently from the MLP objects, each having their strengths and weaknesses. You can learn more about how KNNs work at their respective reference pages. The main differences to know are that: 
+1. the flexibility of the MLP objects make them generally more capable of learning complex relationships between inputs and outputs, 
+2. the MLP objects involve more parameters and will take much longer to `fit` (aka. train) than the KNN objects, and 
+3. the KNN objects will likely take longer to make predictions than the MLP objects, depending on the size of the dataset (although they're still quite quick!).
+
+## Related Resources
+
+<ResourceLink
+title='3Blue1Brown YouTube playlist all about Neural Networks'
+url='https://www.youtube.com/playlist?list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi'
+blurb='Four videos including general information on neural networks and the math of gradient descent and backpropogation'
+/>
+
+<ResourceLink
+title='CodingTrain YouTube playlist that codes a neural network from scratch.'
+url='https://www.youtube.com/playlist?list=PLRqwX-V7Uu6Y7MdSCaIfsxc561QI0U0Tb'
+blurb='Coding a neural network from scratch in Processing and p5 including matrix math, feedforward, and backpropogation.'
+/>

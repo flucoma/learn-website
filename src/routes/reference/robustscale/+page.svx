@@ -1,0 +1,32 @@
+---
+title: RobustScale
+blurb: Robust scaling of a DataSet
+tags:
+    - data
+    - scaling
+    - preprocessing
+    - statistics
+flair: reference
+category: Analyse Data
+---
+  
+<script>
+    import Admonition from '$lib/components/Admonition.svelte';
+</script>
+
+RobustScale transforms a [DataSet](/reference/dataset) so each dimension in the data meets two criteria:
+
+1. it has a _median_ of 0 and 
+2. the range between two specified [percentiles](/reference/bufstats#order-statistics) is 1 (these are often the 25th and 75th percentiles). 
+
+Because RobustScale is based on percentiles, the scaling of the data is less affected by extreme [outliers](/learn/outliers) than other scalers (such as [Standardize](/reference/standardize) and [Normalize](/reference/normalize)). Being more robust to outliers can help RobustScale more accurately scale and represent the majority of the data.
+
+<Admonition type='pointer'>
+
+To compare the three scalers found in FluCoMa, visit [Comparing Scalers](/learn/comparing-scalers).
+
+</Admonition>
+
+## `high` and `low`
+
+These parameters (indicated as [percentiles](/reference/bufstats#order-statistics) between 0 and 100) specify what percentage of the data on each extrema is not considered when determining how to scale the data. When set to the defaults of 25 and 75 (also known as the _interquartile range_), the values in the top and bottom _quartile_ will have no affect on how the data gets scaled, so even if there are some extreme [outliers](/learn/outliers) in this dimension, the scaling that occurs will only reflect how the data in the two inner _quartiles_ are positioned. Because this is strategic for preventing outliers from affecting the scaling of data, if you know what percentiles outliers occur at, you might adjust the `high` and `low` parameters accordingly.

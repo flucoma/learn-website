@@ -1,0 +1,26 @@
+name: deploy
+
+on:
+    pull_request:
+        branches: ['*']
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+
+        steps:
+            - uses: actions/checkout@v3
+
+            - name: pnpm
+              run: npm i -g pnpm
+
+            - name: Build Site
+              run: |
+                  pnpm i
+                  pnpm run build
+
+            - name: Merge MFCC Widget
+              run: |
+                  git clone https://github.com/flucoma/MFCC-interactive-widget.git mfccwidget
+                  mkdir -p ./build/reference/mfcc/explain
+                  cp -r mfccwidget/p5/* build/reference/mfcc/explain/

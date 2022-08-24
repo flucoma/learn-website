@@ -1,0 +1,38 @@
+---
+title: KNNClassifier
+blurb: Classification with K Nearest Neighbours
+tags: 
+    - data
+    - querying
+    - classification
+flair: reference
+category: Analyse Data
+---
+
+<script>
+    import Admonition from '$lib/components/Admonition.svelte';
+</script>
+
+KNNClassifier is a supervised machine learning algorithm for classifying data points to learned categories. It uses an internal [KDTree](/reference/kdtree) to find the _k_ nearest neighbours of a point that needs classification (where _k_ is an integer >= 1). Whichever category, or "class", is most common among the neighbours is predicted as the category for that point. If an even number of `numNeighbours` is requested and there is a tie, the label with the closer point will be predicted. The parameter `weight` indicates whether or not the prediction should be weighted by the neighbours' distances.
+
+<Admonition type='pointer'>
+
+See the page on [KDTree](/reference/kdtree) for more on how the nearest neighbour lookup is done.
+
+</Admonition>
+
+In order to make predictions, the KNNClassifier must first be `fit` with a [DataSet](/reference/dataset) of input data points paired with a [LabelSet](/reference/labelset) of labels for each point in the DataSet (by means of a shared identifier).
+
+<Admonition type='pointer'>
+
+Whenever training a machine learning model using supervised learning, it may be a good idea to create a [Training-Testing Split](/learn/training-testing-split) of the data.
+
+</Admonition>
+
+## KNNClassifier vs. MLPClassifier
+
+FluCoMa includes another object for classification, the [MLPClassifier](/reference/mlpclassifier), which also uses supervised learning for classification. The KNN object works quite differently from the MLP object, each having their strengths and weaknesses. The main differences to know are that:
+
+1. the flexibility of the MLP objects make them generally more capable of learning complex relationships between inputs and outputs,
+2. the MLP objects involve more parameters and will take much longer to `fit` (aka. train) than the KNN objects, and
+3. the KNN objects will likely take longer to make predictions than the MLP objects, depending on the size of the dataset (although they’re still quite quick!).

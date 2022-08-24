@@ -1,0 +1,81 @@
+---
+title: BufNMFCross
+blurb: Resynthesis of targets using a source's spectral bases
+tags:
+    - decomposition
+    - machine learning
+    - source separation
+    - nmf
+    - spectral
+flair: reference
+category: Transform
+---
+
+<script>
+    import Admonition from '$lib/components/Admonition.svelte';
+    import Image from '$lib/components/Image.svelte';
+    import Audio from '$lib/components/Audio.svelte';
+    import ResourceLink from '$lib/components/ResourceLink.svelte';
+</script>
+
+BufNMFCross uses non-negative matrix factorisation ("NMF", for more info, see [BufNMF](/reference/bufnmf)) to reconstruct the components of a ``target`` sound using spectral templates of a ``source`` sound. This process is a type of audio mosaiking (or "musaiking") that is intended to convey certain aspects of a target recording (such as melody and rhythm) using sound components (such as timbre) from a source recording. The result is a hybrid sound whose character depends on how well the target can be represented by the source's spectral templates. 
+
+### Target: Drum Loop
+
+<Image
+src="/reference/bufnmfcross/target.jpg"
+label=""
+/>
+
+<Audio
+src="/reference/bufnmfcross/target.mp3"
+label="Drum loop used as a target."
+waveform={true}
+/>
+
+### Source: Synthesizer sounds 
+
+<Image
+src="/reference/bufnmfcross/source.jpg"
+label=""
+/>
+
+
+<Audio
+src="/reference/bufnmfcross/source.mp3"
+label="Synth sounds used as the source."
+waveform={true}
+/>
+
+### Output:
+
+<Image
+src="/reference/bufnmfcross/output.jpg"
+label=""
+/>
+
+<Audio
+src="/reference/bufnmfcross/output.mp3"
+label="Output of BufNMFCross using the drums as the target and the synth sounds as the source."
+waveform={true}
+/>
+
+Rather than replacing single spectral frames in the target with single spectral frames in the source, BufNMFCross looks for opportunities to use a sequence of spectral frames from the source buffer to enhance the perception of the timbral morphology of both the source and target. This functionality can be adjusted using the ``continuity`` argument.
+
+Additionally, BufNMFCross will avoid repeating a spectral frame within a specified duration of time (using the argument ``timeSparsity``). This helps avoid a common problem with this type of audio mosaiking: the repetition or overuse of a single sound element from the source. Avoiding recently used sounds is similar to a [round-robin](https://help.ableton.com/hc/en-us/articles/115000267664-How-to-create-Round-Robin-sample-playback) functionality in many modern samplers.
+
+Finally, BufNMFCross allows for a spectral frame in the ``target`` to be approximated using more than one spectral frame from the ``source``. This can help more closely approximate the spectral frames in the target, however, using too many ``source`` spectral frames at once can cause phase cancellation or other undesirable artefacts. This functionality can be adjusted using the ``polyphony`` argument, which sets the maximum number of ``source`` spectral frames that can be used at one time.
+
+<Admonition type="pointer">
+
+For each spectral frame in the ``target``, every spectral frame of ``source`` is considered as a spectral template to possibly replace it. Because of this thorough checking, longer ``source`` buffers will take dramatically longer to process. For example, doubling the size of the source will quadruple the processing time.
+
+</Admonition>
+
+## Related Resources
+
+<ResourceLink
+title='Let it Bee-Towards NMF-Inspired Audio Mosaicing'
+url='http://ismir2015.uma.es/articles/13_Paper.pdf'
+blurb='Paper by Driedger, J., Prätzlich, T., & Müller, M. that describes the BufNMFCross algorithm.'
+/>

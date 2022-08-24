@@ -1,0 +1,28 @@
+---
+title: MLPClassifier
+blurb: Classification with a multi-layer perceptron
+tags:
+    - data
+    - classification
+    - neural network
+    - machine learning
+    - supervised learning
+    - multi-layer perceptron
+    - mlp
+flair: reference
+category: Analyse Data
+---
+
+<script>
+    import Admonition from '$lib/components/Admonition.svelte';
+</script>
+
+The MLPClassifier is a neural network that can be used to perform classification. In machine learning, classification refers to an algorithm that is trained to predict what category, or class, an input belongs to. "MLP" stands for multi-layer perceptron which is a type of neural network.
+
+<Admonition type="pointer">
+
+For more information on using this object, visit [MLP Training](/learn/mlp-training), [MLP Parameters](/learn/mlp-parameters), and [Training-Testing Split](/learn/training-testing-split)
+
+</Admonition>
+
+By providing input data as a [DataSet](/reference/dataset) and output labels as a [LabelSet](/reference/labelset), the neural network is trained using _supervised learning_ so that it can predict the most probable label for a given data point input. See this [YouTube tutorial](/learn/classification-neural-network) where we train the MLPClassifier to classify oboe and trombone sounds in real-time.

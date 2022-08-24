@@ -1,9 +1,0 @@
----
-title: BufCompose
-blurb: Buffer composing
-tags: 
-    - utility
-    - buffer
-flair: reference
-category: Utility
----

@@ -1,8 +1,11 @@
 name: deploy
+concurrency:
+    group: environment-${{ github.ref }}
+    cancel-in-progress: true
 
 on:
     push:
-        branches: [main]
+        branches: ['main']
 
     workflow_dispatch:
 

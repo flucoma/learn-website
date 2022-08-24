@@ -1,0 +1,94 @@
+---
+title: "FluCoMa Podcast #01: Freida Abtan"
+artist: Freida Abtan
+blurb: |
+    The first episode of the FluCoMa Podcast where Jacob Hart talks with creative coder and educator Freida Abtan.
+tags: 
+    - learning
+    - teaching
+    - documentation
+    - mapping
+    - neural networks
+flair: podcast
+featuredimage: /explore/abtan/profile_pic.jpeg
+author: Jacob
+---
+
+<script>
+    import YouTube from '$lib/components/YouTube.svelte';
+    import ArtistCard from '$lib/components/explore/ArtistCard.svelte';
+    import BandCamp from '$lib/components/BandCamp.svelte';
+    import Vimeo from '$lib/components/Vimeo.svelte';
+    import YouTubeChapters from '$lib/components/YouTubeChapters.svelte';
+</script>
+
+<ArtistCard
+src = "/explore/abtan/profile_pic.jpeg"
+name = "Freida Abtan"
+website = "https://www.cmu.edu/cfa/music/people/Bios/abtan_freida.html"
+>
+<p slot="bio">
+Freida Abtan is a Canadian audiovisual composer and multi-disciplinary artist with a keen interest in immersive media. She works between fixed and real-time computational technologies in sound and video for concert diffusion, installation, and large-scale multimedia performance situations. Her music ranges from acousmatic composition to more industrial and pop-influenced experimental performance.
+</p>
+</ArtistCard>
+
+## The Podcast
+
+<YouTubeChapters 
+url={'UYSa73RvJQE'}
+chapters={[
+    {"label" : "Introduction", "start" : [0, 0]},
+    {"label" : "Getting into the world of audiovisual composition", "start" : [1, 40]},
+    {"label" : "Describing Freida's practice", "start" : [5, 20]},
+    {"label" : "Perspective on reactive audio design and gesture", "start" : [9, 3]},
+    {"label" : "Using FluCoMa-related technologies", "start" : [14, 3]},
+    {"label" : "Using systems at different scales", "start" : [25, 58]},
+    {"label" : "Learning and teaching technologies", "start" : [28, 22]},
+    {"label" : "What are computational ideas?", "start" : [44, 53]}
+]}
+/>
+
+## Overview
+
+In this first episode of the FluCoMa podcast I talk to Dr. Freida Abtan. We talk about some of the projects she has worked on, and her approach to creative programming in general. She discusses how *computational* approaches can be found at the heart of her *artistic* practice, and what the concept of *reactive audio design* means for her. As well as being an artist, Freida is also an educator, and we discuss her ideas around the teaching, dissemination and learning of technologies such as those found in the FluCoMa tools.
+
+## Links
+
+Here are the links to some of the things that were discussed during the podcast:
+
+- [Carnegie Mellon Univserity](https://www.cmu.edu/cfa/music/people/Bios/abtan_freida.html).
+- [Goldsmiths](https://www.gold.ac.uk/) Univserity of London: [Music, Computing and Technology](https://www.gold.ac.uk/ug/bmus-bsc-electronic-music-computing/) program.
+
+- Subtle Movements (2007)
+
+<BandCamp 
+id={'885585179'}
+/>
+
+- [Topological Media Lab](http://topologicalmedialab.net/): [Concordia University](https://www.concordia.ca/). Founded by [Sha Xin Wei](http://topologicalmedialab.net/xinwei/). 
+- The [WYSIWYG](http://topologicalmedialab.net/research/architecture/wysiwyg/) Project.
+- [Marcelo Wanderley](https://www.mcgill.ca/music/marcelo-m-wanderley), [McGill University](https://www.mcgill.ca/).
+
+- [Kevin Austin](https://www.concordia.ca/faculty/kevin-austin.html), Concordia University.
+
+- [Jean Piché](https://musique.umontreal.ca/communaute/corps-enseignant/fiche/in/in14458/sg/Jean%20Pich%C3%A9/), [Université de Montreal](https://www.umontreal.ca/).
+
+- Fear of Flight (2012)
+
+<Vimeo 
+url={'https://player.vimeo.com/video/68447751?h=c886a78165'}
+/>
+
+- [Rebecca Fiebrink](https://www.doc.gold.ac.uk/~mas01rf/homepage/), Goldsmiths Univserity of London.
+
+- [Wekinator](http://www.wekinator.org/).
+
+- [IRCAM](https://www.ircam.fr/)'s [Gesture Follower](http://ismm.ircam.fr/gesture-follower/).
+
+- [Baptiste Caramiaux](https://baptistecaramiaux.com/), [GVF](https://github.com/bcaramiaux/ofxGVF): Gesture Variation Follower.
+
+- [Nurse With Wound](https://www.nursewithwound.co.uk/news2).
+
+<YouTube 
+url={'SYMSzF6R08g'}
+/>

@@ -1,0 +1,45 @@
+---
+title: BufNMFSeed
+blurb: Non-negative double singular value decomposition
+tags:
+    - decomposition
+    - machine learning
+    - nmf
+flair: reference
+category: Analyse Sound
+---
+
+<script>
+    import Admonition from '$lib/components/Admonition.svelte';
+    import ResourceLink from '$lib/components/ResourceLink.svelte';
+</script>
+
+BufNMFSeed can help decide how to seed a BufNMF decomposition (see [Seeding NMF](/learn/seeding-nmf) for more information). BufNMFSeed suggests what bases and activations to seed (and therefore also how many components to request) in order to account for a certain percentage of the variance in a buffer (indicated by the parameter ``coverage``). In general, using this process to seed a BufNMF decomposition should substantially increase the speed with which BufNMF converges and avoid poor decomposition results. BufNMFSeed computes the suggested seeds using [Nonnegative Double Singular Value Decomposition](/#related-resources) ("NNDSVD").
+
+<Admonition type="pointer">
+
+For an example of what to do with the results of BufNMFSeed, see [Seeding NMF](/learn/seeding-nmf).
+
+</Admonition>
+
+During the NNDSVD process, any zeros in the ``soruce`` buffer won't be able to be updated because the process multiplies these values by a scalar (and ``0 * anything = 0``). Therefore, it may be useful to change any zeros to something else before this process. BufNMFSeed has four options for managing values in the ``source`` buffer before processing:
+   
+* **NMF-SVD** Nonnegative Double Singular Value Decomposition where any negative values are first converted to their absolute value. This is likely to be quicker than the other options, but less rigorous. (This is the default.)
+* **NNDSVDar** Nonnegative Double Singular Value Decomposition where any elements that are zero are first filled with a random value between 0 and the ``average * 0.01`` (essentially small random values). This may be slightly faster but slightly less accurate than other options.  
+* **NNDSVDa** Nonnegative Double Singular Value Decomposition where any elements that are zero are first filled with the average value.
+* **NNDSVD** Nonnegative Double Singular Value Decomposition where values are not changed according to any criteria. This promotes sparse results from the subsequent NMF (because, with multiplicative updates, zeros remain zeros). This may or may not be desirable (not least because sparsity implies the need for more components, but also the specific domain might imply that reasonable decomposition just isn't going to be sparse).
+
+## Related Resources
+
+<ResourceLink
+title='SVD based initialization: A head start for nonnegative matrix factorization'
+url='https://www.sciencedirect.com/science/article/abs/pii/S0031320307004359'
+blurb='Information on using Nonnegative Double Singular Value Decomposition for seeing Non-Negative Matrix Factorization'
+/>
+
+<ResourceLink
+title='Nndsvd (methods.seeding.nndsvd)'
+url='http://nimfa.biolab.si/nimfa.methods.seeding.nndsvd.html'
+blurb='A Python implementation using Nonnegative Double Singular Value Decomposition for seeing Non-Negative Matrix Factorization'
+/>
+

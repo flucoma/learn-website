@@ -1,0 +1,62 @@
+---
+title: AudioTransport
+blurb: Morph between sounds using optimal transport
+tags:
+    - decomposition
+    - morphing
+    - hybrids
+flair: reference
+category: Transform
+---
+
+<script>
+    import ResourceLink from '$lib/components/ResourceLink.svelte';
+    import Video from '$lib/components/Video.svelte';
+    import YouTube from '$lib/components/YouTube.svelte';
+    import Admonition from '$lib/components/Admonition.svelte';
+</script>
+
+AudioTransport is an algorithm that enables morphing and hybridisation of sounds. It does this using [optimal transport](https://towardsdatascience.com/optimal-transport-a-hidden-gem-that-empowers-todays-machine-learning-2609bbf67e59) on the spectrum of two sources. Below you will see a short video demonstrating how this works when applied to two sine tones at 220Hz (green) and 880Hz (blue). The spectrum of the result of these is the maroon coloured spectrum.
+
+<Video 
+url={'/reference/audiotransport/interpolation.mp4'}
+/>
+
+Notice how this doesn't appear to be a crossfade of the two sounds? Instead, we might think of this process as a kind of "peak-to-peak" interpolation of the spectrum. We could also think of the algorithm as a clever dirt mover. Imagine the green and blue spectra are two piles of dirt, and the algorithm is trying to move the "mass" from one side to the other. The interpolated result that we see in maroon is the most cost efficient way of moving dirt from left to right. 
+
+<Admonition type="pointer">
+
+You'll also notice that the interpolation isn't _completely_ smooth. It is actually quantised to the resolution of the spectral bins, so increasing or decreasing the the size of the FFT windows will render different levels of smoothness.
+
+</Admonition>
+
+For context, the origin for the FluCoMa implementation comes from a paper that describes using optimal transport to synthesise _glissandi_ from two sources. With this in mind, it might help us make sense of the behaviours that it exhibits – it doesn't just crossfade sounds as this would make a chord! Instead, it finds a middleground between the two inputs so that it can discover a spectrum that is between the two bits of information it has.
+
+<YouTube 
+url={'LXqZMKXSPJo'}
+title={'Audio Transport: A Generalized Portamento via Optimal Transport'}
+/>
+
+## Interpolation
+
+What is handy about this approach is that you are able to skew the morphing process to favour one of the sources more than the other by changing the `interpolation` parameter. Try it out with some sounds in your creative coding environment of choice and see what characteristics of each source emerge when you change this parameter. A good starting point is to try and morph something percussive with something melodic.
+
+## Related Resources
+
+<ResourceLink 
+title='Audio Transport: A Generalized Portamento via Optimal Transport'
+url='https://arxiv.org/pdf/1906.06763.pdf'
+blurb='The paper which inspired this implementation'
+/>
+
+<ResourceLink 
+title='Computational Optimal Transport'
+url='https://arxiv.org/pdf/1803.00567.pdf'
+blurb='For those who really want to get down in the details'
+/>
+
+<ResourceLink 
+title='Optimal transport: a hidden gem that empowers today’s machine learning'
+url='https://towardsdatascience.com/optimal-transport-a-hidden-gem-that-empowers-todays-machine-learning-2609bbf67e59'
+blurb='A relatively easy to approach article on applications of optimal transport'
+/>
