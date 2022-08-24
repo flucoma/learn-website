@@ -1,12 +1,12 @@
 {
-    "front_page" : {
-        "featured_learn" : {
+    "frontPage" : {
+        "featuredLearn" : {
             "url" : "/learn/2d-corpus-explorer"
         },
-        "featured_explore" : {
+        "featuredExplore" : {
             "url" : "/explore/moore"
         },
-        "featured_video" : {
+        "featuredVideo" : {
             "url" : "6p_R2pVSMVg",
             "title" : "Liminal Spaces Concert",
             "blurb" : "The second FluCoMa gig happened at Dialogues Festival 2021 in Edinburgh. In this video, we see some of the artists talk about their work and experiences on FluCoMa."

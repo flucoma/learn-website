@@ -2,8 +2,7 @@ name: deploy
 
 on:
     pull_request:
-        branches: ["*"]
-
+        branches: ['*']
 
 jobs:
     build:
