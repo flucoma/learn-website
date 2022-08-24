@@ -16,11 +16,11 @@ featuredimage: /learn/for-featured-images/getting-started-01.jpg
 
 <script>
     import CodeBlock from '$lib/components/CodeBlock.svelte';
-    import VideoGallery from '$lib/components/getting-started/VideoGallery.svelte';
-    import ContentGallery from '$lib/components/getting-started/ContentGallery.svelte';
     import { Tabs, TabList, TabPanel, Tab } from '$lib/components/tabs/tabs';
+    import VideoGallery from './VideoGallery.svelte';
+    import ContentGallery from './ContentGallery.svelte';
 </script>
 
-<VideoGallery />
+<!-- <VideoGallery /> -->
 
 <ContentGallery />
