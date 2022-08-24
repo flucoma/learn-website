@@ -1,248 +1,147 @@
 <script>
-	
+	let data = [
+        {
+            "title" : "Hear music made using FluCoMa",
+            "desc" : "Watch this short video from Dialogues Festival 2021 in Edinbourgh which featured a showcase of FluCoMa projects.",
+            "link" : "https://youtu.be/3GqYFDB425k",
+            "content" : {
+                "type" : "yt",
+                "url" : "https://www.youtube.com/embed/3GqYFDB425k"
+            }
+        },
+        {
+            "title" : "Discuss FluCoMa on Discourse",
+            "desc" : "Join the community of users who have been sharing code and ideas for the past five years.",
+            "link" : "https://discourse.flucoma.org/",
+            "content" : {
+                "type" : "img",
+                "url" : "/getting-started/discourse-screenshot.png"
+            }
+        },
+        {
+            "title" : "Read an in-depth article about a FluCoMa project",
+            "desc" : "Read an article for the FluCoMa Explore series, in-depth musicological analysis of performances and code.",
+            "link" : "/explore",
+            "content" : {
+                "type" : "img",
+                "url" : "/explore/harker/umap_explorer_example.png"
+            }
+        },
+        {
+            "title" : "Listen to the FluCoMa Podcast",
+            "desc" : "Each episode features an interview with a creative coder at the top of their field talking about their creative practice.",
+            "link" : "/explore/abtan",
+            "content" : {
+                "type" : "yt",
+                "url" : "https://www.youtube.com/embed/UYSa73RvJQE"
+            }
+        },
+        {
+            "title" : "Check out the Source Code",
+            "desc" : "If you're just curious or feel like contributing, check out the source code on GitHub.",
+            "link" : "https://github.com/flucoma",
+            "content" : {
+                "type" : "img",
+                "url" : "/getting-started/github-screenshot.png"
+            }
+        }
+    ];
 </script>
 
 <div class="container">
 
-    <h2 style="text-align: center;">Or maybe you have something more specific in mind?</h2>
+    <h2 style="text-align: center; margin-bottom: 2em; margin-top: 2em;">Or maybe you have something more specific in mind?</h2>
 
     <div class="gallery">
-
-        <a class="gallery_element_odd gallery_element raisedbox" href="https://youtu.be/3GqYFDB425k">
-            <div class="gallery_text_content">
-                <h3>Hear music made using FluCoMa</h3>
-                <p>A short description.</p>
-            </div>
-            <div class="gallery_pretty_content">
-                <div class="video_container">
-                    <iframe
-                        title=""
-                        width="100%"
-                        height="200px"
-                        src={`https://www.youtube.com/embed/3GqYFDB425k`}
-                        frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen
-                        style="margin: auto;"
-                        class="pretty_vid"
-                    />
+        {#each data as item, i}
+        <a class="gallery_element_odd gallery_element raisedbox" href={item.link}>
+            
+            <!--Text content alternates odd and even (see below)-->
+            {#if i % 2 == 0}
+                <div class="gallery_text_content">
+                    <h3 style="text-align: right;">{item.title}</h3>
+                    <p style="text-align: right;">{item.desc}</p>
                 </div>
-            </div>
-        </a>
+            {/if}
 
-        <a class="gallery_element_even gallery_element raisedbox" href="https://discourse.flucoma.org/">
+            <!--Pretty content goes here-->
             <div class="gallery_pretty_content">
-                <div class="img_container">
-                    <div
-                        class="feature_image"
-                        style="background-image: url('/general/learn_default.jpeg');"
-                    />
-                </div>
+                {#if item.content.type == 'yt'}
+                    <div class="video_container">
+                        <iframe
+                            title=""
+                            width="100%"
+                            height="200px"
+                            src={item.content.url}
+                            frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen
+                            style="margin: auto;"
+                            class="pretty_vid"
+                        />
+                    </div>
+                {:else if item.content.type == 'img'}
+                    <div class="img_container">
+                        <div
+                            class="feature_image"
+                            style="background-image: url({item.content.url});"
+                        />
+                    </div>
+                {/if}
             </div>
-            <div class="gallery_text_content">
-                <h3>Discuss musical uses of FluCoMa</h3>
-                <p>A short description.</p>
-            </div>
-        </a>
 
-        <a class="gallery_element_odd gallery_element raisedbox" href="/reference/ampslice">
-            <div class="gallery_text_content">
-                <h3>Slice Audio</h3>
-                <p>A short description.</p>
-            </div>
-            <div class="gallery_pretty_content">
-                <div class="img_container">
-                    <div
-                        class="feature_image"
-                        style="background-image: url('/general/learn_default.jpeg');"
-                    />
+            {#if i % 2 != 0}
+                <div class="gallery_text_content">
+                    <h3>{item.title}</h3>
+                    <p>{item.desc}</p>
                 </div>
-            </div>
+            {/if}
         </a>
+        {/each}
 
-        <a class="gallery_element_even gallery_element raisedbox" href="">
-            <div class="gallery_pretty_content">
-                <div class="img_container">
-                    <div
-                        class="feature_image"
-                        style="background-image: url('/general/learn_default.jpeg');"
-                    />
-                </div>
-            </div>
-            <div class="gallery_text_content">
-                <h3>Analyze real time audio for... [Pitch](/reference/pitch), [Loudness](/reference/loudness), [Timbre](/reference/mfcc), and more.</h3>
-                <p>A short description.</p>
-            </div>
-        </a>
-
-        <a class="gallery_element_odd gallery_element raisedbox" href="">
-            <div class="gallery_text_content">
-                <h3>Download some example code to play with (for [Max](https://f003.backblazeb2.com/file/learnassets/examples/2d-plot/plotter-5.maxpat) or [SuperCollider](https://f003.backblazeb2.com/file/learnassets/examples/2d-plot/plotter-5-complete.scd))</h3>
-                <p>A short description.</p>
-            </div>
-            <div class="gallery_pretty_content">
-                <div class="img_container">
-                    <div
-                        class="feature_image"
-                        style="background-image: url('/general/learn_default.jpeg');"
-                    />
-                </div>
-            </div>
-        </a>
-
-        <a class="gallery_element_even gallery_element raisedbox" href="/learn/regression-neural-network">
-            <div class="gallery_pretty_content">
-                <div class="img_container">
-                    <div
-                        class="feature_image"
-                        style="background-image: url('/general/learn_default.jpeg');"
-                    />
-                </div>
-            </div>
-            <div class="gallery_text_content">
-                <h3>Train a neural network</h3>
-                <p>A short description.</p>
-            </div>
-        </a>
-
-        <a class="gallery_element_odd gallery_element raisedbox" href="/reference/hpss">
-            <div class="gallery_text_content">
-                <h3>Decompose audio based on spectral analysis</h3>
-                <p>A short description.</p>
-            </div>
-            <div class="gallery_pretty_content">
-                <div class="img_container">
-                    <div
-                        class="feature_image"
-                        style="background-image: url('/general/learn_default.jpeg');"
-                    />
-                </div>
-            </div>
-        </a>
-
-        <a class="gallery_element_even gallery_element raisedbox" href="/explore/constanzo">
-            <div class="gallery_pretty_content">
-                <div class="img_container">
-                    <div
-                        class="feature_image"
-                        style="background-image: url('/general/learn_default.jpeg');"
-                    />
-                </div>
-            </div>
-            <div class="gallery_text_content">
-                <h3>Read an in-depth article about a FluCoMa project</h3>
-                <p>A short description.</p>
-            </div>
-        </a>
-
-        <a class="gallery_element_odd gallery_element raisedbox" href="/learn/batch-processing">
-            <div class="gallery_text_content">
-                <h3>Batch analyze sound files</h3>
-                <p>A short description.</p>
-            </div>
-            <div class="gallery_pretty_content">
-                <div class="img_container">
-                    <div
-                        class="feature_image"
-                        style="background-image: url('/general/learn_default.jpeg');"
-                    />
-                </div>
-            </div>
-        </a>
-
-        <a class="gallery_element_even gallery_element raisedbox" href="/reference/bufstats">
-            <div class="gallery_pretty_content">
-                <div class="img_container">
-                    <div
-                        class="feature_image"
-                        style="background-image: url('/general/learn_default.jpeg');"
-                    />
-                </div>
-            </div>
-            <div class="gallery_text_content">
-                <h3>Learn about statistics.</h3>
-                <p>A short description.</p>
-            </div>
-        </a>
-
-        <a class="gallery_element_odd gallery_element raisedbox" href="/explore/abtan">
-            <div class="gallery_text_content">
-                <h3>Hear from an artist using machine listening and machine learning</h3>
-                <p>A short description.</p>
-            </div>
-            <div class="gallery_pretty_content">
-                <div class="img_container">
-                    <div
-                        class="feature_image"
-                        style="background-image: url('/general/learn_default.jpeg');"
-                    />
-                </div>
-            </div>
-        </a>
-
-        <a class="gallery_element_even gallery_element raisedbox" href="https://github.com/orgs/flucoma/repositories">
-            <div class="gallery_pretty_content">
-                <div class="img_container">
-                    <div
-                        class="feature_image"
-                        style="background-image: url('/general/learn_default.jpeg');"
-                    />
-                </div>
-            </div>
-            <div class="gallery_text_content">
-                <h3>Check out the source code.</h3>
-                <p>A short description.</p>
-            </div>
-        </a>
-
-        <p>
+        <p style="text-align: centre; width: 80%; margin: auto; padding-top: 1em; padding-bottom: 2em;">
             We understand that sometimes you want to dig in really deep and sometimes you want to find a quick answer or example and get back to creating. There's a lot of information on this site, so take just what you need or use the rectangle links near the top to keep exploring.
         </p>
-
     </div>
 
 </div>
 
 <style>
-
     .container{
         width: 90%;
         margin: auto;
     }
 
-    .gallery{
-
-    }
-
     .gallery_element{
         margin: auto;
-
         border-radius: 0.25rem;
 		border: 0.063rem solid #dcdee0;
         margin-bottom: 1em;
         max-width: 100%;
         width: 100%;
-
         justify-content: center;
         align-items: center;
-
         display: flex;
-    }
-
-    .gallery_element_odd{
-    }
-
-    .gallery_element_even{
+        height: 200px;
+        overflow: hidden;
     }
 
     .gallery_text_content{
         padding: 0.3em;
+        padding-left: 1em;
+        padding-right: 1em;
         width: 50%;
+        color: var(--grey);
+    }
+
+    .gallery_text_content > h3{
+        color: black;
     }
 
     .gallery_pretty_content{
         width: 50%;
         max-width: 50%;
+        height: 200px;
         justify-content: center;
         align-items: center;
     }
@@ -267,10 +166,8 @@
 	}
 
     .video_container{
-        /*border-radius: 0.25rem;
-		margin: auto;*/
-        max-width: 90%;
-        width: 90%;
+        max-width: 100%;
+		height: 200px;
         margin: auto;
         max-height: 90%;
         height: 90%;
@@ -278,31 +175,57 @@
         align-items: center;
     }
 
-    .pretty_vid{
-        /*padding-left: 1em;
-        padding-right: 1em;
-        padding-top: 0em;*/
-        /*margin: auto;*/
-    }
-
     .img_container {
 		background-repeat: no-repeat;
 		background-size: cover;
 		background-position: 50% 50%;
-		border-radius: 0.25rem;
 		padding: 0em 0em 0em 0em;
-		margin-top: 0em;
-		margin-bottom: 0.25em;
 	}
 
 	.feature_image {
 		position: relative;
-		max-width: 100%;
-		height: 10em;
-		margin: 0.5em 0em 0.5em 0em;
-		border: 0.063rem solid #dcdee0;
 		background-position: center;
 		background-repeat: no-repeat;
 		background-size: cover;
+        height: 200px;
+	}
+
+    /*=================================================
+    WIDE*/
+    @media (min-width: 1200px) {
+        .gallery_element{
+            height: 200px;
+        }
+        .gallery_pretty_content{
+            height: 200px;
+        }
+        .video_container{
+            height: 200px;
+        }
+        .feature_image{
+            height: 200px;
+        }
+        .pretty_vid{
+            height: 200px;
+        }
+	}
+    /*=================================================
+    NARROW*/
+	@media (max-width: 1200px) {
+        .gallery_element{
+            height: 250px;
+        }
+        .gallery_pretty_content{
+            height: 250px;
+        }
+        .video_container{
+            height: 250px;
+        }
+        .feature_image{
+            height: 250px;
+        }
+        .pretty_vid{
+            height: 250px;
+        }
 	}
 </style>
