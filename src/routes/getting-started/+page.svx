@@ -15,12 +15,15 @@ featuredimage: /learn/for-featured-images/getting-started-01.jpg
 ---
 
 <script>
+    import Regressor from './Regressor.svelte';
     import CodeBlock from '$lib/components/CodeBlock.svelte';
     import { Tabs, TabList, TabPanel, Tab } from '$lib/components/tabs/tabs';
     import VideoGallery from './VideoGallery.svelte';
     import ContentGallery from './ContentGallery.svelte';
 </script>
 
+<Regressor />
+
 <!-- <VideoGallery /> -->
 
-<ContentGallery />
+<!-- <ContentGallery /> -->
