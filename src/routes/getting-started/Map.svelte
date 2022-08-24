@@ -26,7 +26,7 @@
 
 	const change = () => {
 		clearInterval(timer);
-		const time = Math.random() * 3000 + 500
+		const time = Math.random() * 3000 + 2000
 		timer = setInterval(change, time);
 		chart.data.datasets[0].data = _.sample(metric);
 		let colour;
