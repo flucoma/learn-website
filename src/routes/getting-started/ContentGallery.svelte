@@ -26,7 +26,7 @@
             "link" : "/reference/noveltyslice",
             "content" : {
                 "type" : "code",
-                "url" : "/getting-started/code/slice_example"
+                "url" : "novelty_slice"
             }
         },
         {
@@ -100,7 +100,7 @@
                     </div>
                 {:else if item.content.type == 'code'}
                 <div>
-                    <CodeSnippet path={item.content.url} />
+                    <CodeSnippet code_key={item.content.url} />
                 </div>
 
                 {/if}

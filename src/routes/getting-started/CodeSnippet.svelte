@@ -1,13 +1,26 @@
 <script>
     // For code block:
     import { browser } from '$app/env';
-    let path = '';
+    let code_key = 'novelty_slice';
     let block;
-    let code_string = "";
+    let code_string = '';
 
-    function getStrings(){
-        
+    let code_examples = {
+        "novelty_slice" : {
+            "max" : "this is max code",
+            "sc" : "this is sc code"
+        }
     }
+
+    function get_string(type){
+        return code_examples[code_key][type];
+    }
+
+    function setType(type){
+        code_string = get_string(type);
+    };
+
+    code_string = get_string('max');
 
     function copyCode(element_id) {
         if (browser) {
@@ -53,41 +66,34 @@
     }
 </script>
 
-<div bind:this={block} class="code_block" style="grid-area: codeBlock1;">
-    <h3>Max</h3>
-    <button on:click={() => copyCode("max_code")} class="codebtn">📋</button>
-    <div class="copied_tick" id="max_tick">✓</div>
-    <div >
+<div class="codesnipper_container">
+    <div bind:this={block} class="code_block">
+        <button on:click={() => copyCode("max_code")} class="codebtn">Copy</button>
+        <div class="copied_tick" id="max_tick">✓</div>
+        <div>
 <pre class="code_container"><code id="max_code">{code_string}</code></pre>
+        </div>
+    </div>
+    <div class="ctrl"> 
+        <button on:click={() => setType("max")}>Max</button>
+        <button on:click={() => setType("sc")}>SuperCollider</button>
     </div>
 </div>
 
 <style>
-
-.snippet_section{
-        max-width: 80%;
-        margin: 0 auto;
-        /*margin-top: 1em;*/
-        margin-bottom: 5em;
-        grid-gap : 1em;
-
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        grid-template-areas: 
-        "snippetTitle snippetTitle snippetVid"
-        "snippetDesc snippetDesc snippetVid"
-        "codeBlock1 codeBlock2 codeBlock3";
+    .codesnipper_container{
+        display: inline;
     }
 
-    .front_page_video_container_snippet{
-        padding: 0.5em;
+    .ctrl{
+        display: flex;
+        position: relative;
     }
 
-.code_container{
+    .code_container{
         border: 0.063rem solid #dcdee0;
-        height: 10em;
+        height: 150px;
         
-
         white-space: pre-wrap;
         word-wrap: break-word; 
         overflow-y: scroll;
@@ -102,7 +108,6 @@
 		font-family: var(--font);
 		position: absolute;
 		right: 0;
-        margin: 0.5em;
 	}
 
     .copied_tick{
@@ -111,7 +116,6 @@
         bottom: 0;
         color: green;
         font-size: 2em;
-        padding: 0.5em;
         opacity: 0;
     }
 
