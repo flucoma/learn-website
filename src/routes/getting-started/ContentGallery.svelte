@@ -25,7 +25,7 @@
             "link" : "/explore",
             "content" : {
                 "type" : "img",
-                "url" : "/explore/burton/multiple_scores.png"
+                "url" : "/explore/rgr/rgr_profile.jpeg"
             }
         },
         {
