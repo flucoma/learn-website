@@ -1,4 +1,6 @@
 <script>
+    import CodeSnippet from './CodeSnippet.svelte';
+
 	let data = [
         {
             "title" : "Hear music made using FluCoMa",
@@ -16,6 +18,15 @@
             "content" : {
                 "type" : "img",
                 "url" : "/getting-started/discourse-screenshot.png"
+            }
+        },
+        {
+            "title" : "Slice by Novelty",
+            "desc" : "Use the FluCoMa novelty slicer to slice by novelty.",
+            "link" : "/reference/noveltyslice",
+            "content" : {
+                "type" : "code",
+                "url" : "/getting-started/code/slice_example"
             }
         },
         {
@@ -87,6 +98,11 @@
                             style="background-image: url({item.content.url});"
                         />
                     </div>
+                {:else if item.content.type == 'code'}
+                <div>
+                    <CodeSnippet path={item.content.url} />
+                </div>
+
                 {/if}
             </div>
 
