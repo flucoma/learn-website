@@ -46,7 +46,8 @@ const config = {
 			// remarkPlugins: [[jargon, { jargon: definitions }]],
 			layout: {
 				_: './src/lib/layouts/Content.svelte',
-				contentindex: './src/lib/layouts/ContentIndex.svelte'
+				contentindex: './src/lib/layouts/ContentIndex.svelte',
+				contentwide: './src/lib/layouts/ContentWide.svelte'
 			}
 		})
 	],

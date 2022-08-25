@@ -1,0 +1,37 @@
+
+.interactive {
+	max-width: 300px;
+	border-radius: 0.25rem;
+	border: 0.063rem solid #dcdee0;
+	padding: 0.75em;
+	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.interactive:hover {
+	box-shadow: rgba(0, 0, 0, 0.6) 0px 5px 15px;
+}
+
+.description {
+	color: rgb(104, 104, 104);
+	text-align: left;
+	font-size: 0.8rem;
+}
+
+h1, h2, h3, p {
+	margin: 0;
+}
+
+h3 {
+	margin-bottom: 0.5em;
+}
+
+.tile {
+	text-decoration: none;
+	color: black;
+}
+
+.tile:hover {
+	background: transparent;
+	color: black;
+}
+
