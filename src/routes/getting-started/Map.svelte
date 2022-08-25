@@ -21,13 +21,15 @@
 		Object.values(metric5.data).map(x => [...x, Math.random() * 3])
 	];
 
+	const numpoints = 400;
+
 	const colours = metric[0].map(v => d3.interpolateBlues(v[0] * 4 * v[1] + 0.4));
 
 	const change = () => {
 		clearInterval(timer);
 		const time = Math.random() * 3000 + 2000
 		timer = setInterval(change, time);
-		chart.data.datasets[0].data = _.sample(metric);
+		chart.data.datasets[0].data = _.sample(metric).slice(0, numpoints);
 		let colour;
 		const choice = Math.random();
 		if (choice > 0.66) {
@@ -50,7 +52,7 @@
 		const data = {
 			datasets: [
 				{
-					data: metric[0],
+					data: metric[0].slice(0, numpoints),
 					backgroundColor: colours,
 					borderColor: colours,
 					pointRadius: 4
