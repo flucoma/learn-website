@@ -5,14 +5,16 @@
     import ContentGallery from './ContentGallery.svelte';
 </script>
 
-<h1>Getting Started</h1>
 
 <div class="container">
+    <h1>Getting Started</h1>
+    <h2>Tutorials</h2>
     <Map />
     <div class="pair">
         <Regressor width=150 height=150 />
         <Classifier width=300 height=150 />
     </div>
+    <ContentGallery />
 </div>
 
 <style>
@@ -28,5 +30,3 @@
         gap: 1em;
     }
 </style>
-
-<ContentGallery />
