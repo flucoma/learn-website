@@ -50,3 +50,5 @@ Speaker move air wiggle. Simples. Look at the picture below
 ```
 
 In the `scripts` folder you will find a file called `preprocess.js`. This will parse the `.svx` pages and return some JSON data that is then stored in the `static` folder of this website. This is used to programatically generate the pages, links, tags, related content references and a database for fuzzy searching.
+
+You can learn more about the site's structure by visiting the [meta-documentation](https://github.com/flucoma/meta-documentation).
