@@ -21,7 +21,7 @@
 		allowfullscreen
 	/>
 	{:else if item.content.type == 'img'}
-	<img class='feature-image' src={item.content.url} alt="">
+	<img src={item.content.url} alt={item.content.description}>
 	{:else if item.content.type == 'code'}
 	<CodeSnippet code_key={item.content.url} />
 	{/if}
@@ -32,14 +32,13 @@
         display: flex;
         flex-direction: column;
         gap: 1em;
-        height: fit-content;
+		height: fit-content;
         width: 300px;
         color: black;
     }
 
     .gallery-item > img {
-        height: 100%;
-        width: 100%;
+        height: fit-content;
     }
 
     .gallery-item > iframe {

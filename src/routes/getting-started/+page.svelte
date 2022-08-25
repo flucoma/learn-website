@@ -9,6 +9,7 @@
 
 <h1>Getting Started</h1>
 <h2>Tutorials</h2>
+
 <div class="widgets">
     <Map />
     <div class="pair">
@@ -19,6 +20,11 @@
 </div>
 
 <style>
+    h1, h2 {
+        text-align: center;
+        margin-top: 0.5rem;
+        margin-bottom: 0.5rem;
+    }
     .widgets {
         display: flex;
         flex-direction: column;
@@ -31,5 +37,6 @@
         flex-wrap: wrap;
         gap: 1em;
         justify-content: center;
+        margin-bottom: 3em;
     }
 </style>

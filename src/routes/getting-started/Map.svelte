@@ -79,19 +79,31 @@
 </script>
 
 
-<a class="interactive tile" href='/learn/2d-corpus-explorer'>
-	<h2>2D Corpus Exploration</h2>
+<a class="raisedbox tile" href='/learn/2d-corpus-explorer'>
+	<h3>2D Corpus Exploration</h3>
 	<p>Explore a sound bank using machine listening and machine learning</p>
 	<canvas bind:this={canvas} id="scatter-plot" on:mouseenter={change} on:mouseleave={change}/>
 </a>
 
 <style>
 	a {
-		max-width: calc(600px + 2.5em);
-		min-width: 100px;
+		padding: 0.75em;
 	}
+
 	#scatter-plot {
-		max-width: 100%;
 		max-height: 200px;
 	}
+
+	@media (min-width: 700px) {
+		a, #scatter-plot {
+			width: calc(668px - 1.5em) !important;
+		}
+	}
+	
+	@media (max-width: 700px) {
+		a, #scatter-plot {
+			width: 300px !important;
+		}
+	}
+
 </style>

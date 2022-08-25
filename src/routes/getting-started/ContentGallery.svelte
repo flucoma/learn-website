@@ -70,7 +70,6 @@
     .container {
         display: grid;
         gap: 1em;
-        /* transition: grid-template-columns 1s linear; */
     }
 
     @media (max-width: 768px) {
