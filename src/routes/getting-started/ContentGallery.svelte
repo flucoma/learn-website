@@ -11,15 +11,6 @@
             }
         },
         {
-            "title" : "Discuss FluCoMa on Discourse",
-            "desc" : "Join the community of users who have been sharing code and ideas for the past five years.",
-            "link" : "https://discourse.flucoma.org/",
-            "content" : {
-                "type" : "img",
-                "url" : "/img/discourse.png"
-            }
-        },
-        {
             "title" : "Read About a FluCoMa Project",
             "desc" : "Read an article in the FluCoMa Explore series: in-depth musicological analysis of performances and code.",
             "link" : "/explore",
@@ -38,21 +29,30 @@
             }
         },
         {
-            "title" : "Explore the Source Code",
-            "desc" : "If you're just curious or feel like contributing, check out the source code on GitHub.",
-            "link" : "https://github.com/flucoma",
-            "content" : {
-                "type" : "img",
-                "url" : "/img/gh.jpg"
-            }
-        },
-        {
             title: "Browse Objects and Algorithms",
             desc: "Learn about different objects and algorithms.",
             link : '/reference',
             content: {
                 type: 'img',
                 url : '/img/flucoma-magical.jpg'
+            }
+        },
+        {
+            "title" : "Discuss FluCoMa on Discourse",
+            "desc" : "Join the community of users who have been sharing code and ideas for the past five years.",
+            "link" : "https://discourse.flucoma.org/",
+            "content" : {
+                "type" : "img",
+                "url" : "/img/discourse.png"
+            }
+        },
+        {
+            "title" : "Explore the Source Code",
+            "desc" : "If you're just curious or feel like contributing, check out the source code on GitHub.",
+            "link" : "https://github.com/flucoma",
+            "content" : {
+                "type" : "img",
+                "url" : "/img/gh.jpg"
             }
         }
     ];
