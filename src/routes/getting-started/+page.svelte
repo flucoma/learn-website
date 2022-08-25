@@ -2,9 +2,9 @@
     import Map from './Map.svelte';
     import Regressor from './Regressor.svelte';
     import Classifier from './Classifier.svelte';
-    import VideoGallery from './VideoGallery.svelte';
     import ContentGallery from './ContentGallery.svelte';
 </script>
+
 <h1>Getting Started</h1>
 
 <div class="container">
@@ -29,6 +29,4 @@
     }
 </style>
 
-<!-- <VideoGallery /> -->
-
-<!-- <ContentGallery /> -->
+<ContentGallery />
