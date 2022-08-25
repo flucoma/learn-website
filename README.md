@@ -24,7 +24,7 @@ which will create a static site in `./build`
 
 # How does it work?
 
-Pages are written in `.svx` format, which is a mix of markdown and svelte. Wrting is principally written in what you might know as normal markdown while bits of javascript (widgets, audio, pictures) are included as svelte widgets. There is also markdown frontmatter where you can include arbitrary information such as tags, a blurb, the title (so that you are not dependent on the name of the file itself). An example of a page describing how speakers work might look like this:
+Pages are written in `.svx` format, which is a mix of markdown and svelte. Wrting is principally written in what you might know as normal markdown while bits of Javascript (widgets, audio, pictures) are included as svelte widgets. There is also markdown frontmatter where you can include arbitrary information such as tags, a blurb, the title (so that you are not dependent on the name of the file itself). An example of a page describing how speakers work might look like this:
 
 ```
 ---
@@ -37,7 +37,7 @@ tags:
 ---
 
 <script>
-import MyAmazingWidget from '$lib/demos/amazingwidget.svelte'
+import MyAmazingWidget from '$lib/components/AmazingWidget.svelte'
 </script>
 
 # Speakers
@@ -49,4 +49,4 @@ Speaker move air wiggle. Simples. Look at the picture below
 <MyAmazingWidget /> <-- this is defined inside the script tag and imported
 ```
 
-In the `scripts` folder you will find a file called `extract_structure.py`. This will parse the `.svx` pages and return some JSON data that is then stored in the `static` folder of this website. This is used to programatically generate the pages, links, tags and some content.
+In the `scripts` folder you will find a file called `preprocess.js`. This will parse the `.svx` pages and return some JSON data that is then stored in the `static` folder of this website. This is used to programatically generate the pages, links, tags, related content references and a database for fuzzy searching.
