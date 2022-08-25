@@ -1,5 +1,4 @@
 <script>
-	import './top.css';
 	import { onMount } from 'svelte';
 	import { Chart, registerables } from 'chart.js';
 	import * as d3 from 'd3';
@@ -88,7 +87,7 @@
 
 <style>
 	a {
-		max-width: 100%;
+		max-width: calc(600px + 2.5em);
 		min-width: 100px;
 	}
 	#scatter-plot {

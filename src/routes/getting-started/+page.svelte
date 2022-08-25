@@ -1,4 +1,5 @@
 <script>
+    import './theme.css'
     import Map from './Map.svelte';
     import Regressor from './Regressor.svelte';
     import Classifier from './Classifier.svelte';
@@ -6,9 +7,9 @@
 </script>
 
 
-<div class="container">
-    <h1>Getting Started</h1>
-    <h2>Tutorials</h2>
+<h1>Getting Started</h1>
+<h2>Tutorials</h2>
+<div class="widgets">
     <Map />
     <div class="pair">
         <Regressor width=150 height=150 />
@@ -18,9 +19,10 @@
 </div>
 
 <style>
-    .container {
+    .widgets {
         display: flex;
         flex-direction: column;
+        align-items: center;
         gap: 1em;
     }
     .pair {
@@ -28,5 +30,6 @@
         flex-direction: row;
         flex-wrap: wrap;
         gap: 1em;
+        justify-content: center;
     }
 </style>
