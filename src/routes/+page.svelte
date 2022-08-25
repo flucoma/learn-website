@@ -26,11 +26,14 @@
 				>Welcome to the <strong>Fluid Corpus Manipulation Learn platform</strong>.</span
 			>
 			<br />
+			<a href="/getting-started">Get Started</a> with the FluCoMa ecosystem.
+			<br />
 			<a href="/learn">Learn</a> how to use the FluCoMa toolkit.
 			<br />
 			<a href="/explore">Explore</a> what other people are doing.
 			<br />
 			<a href="/reference">References</a> for all the algorithms in the toolkit.
+			
 		</p>
 	</div>
 
