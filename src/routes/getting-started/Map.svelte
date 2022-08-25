@@ -27,7 +27,7 @@
 		clearInterval(timer);
 		const time = Math.random() * 3000 + 2000
 		timer = setInterval(change, time);
-		chart.data.datasets[0].data = _.sample(metric);
+		chart.data.datasets[0].data = _.sample(metric).slice(0, 400);
 		let colour;
 		const choice = Math.random();
 		if (choice > 0.66) {
@@ -50,7 +50,7 @@
 		const data = {
 			datasets: [
 				{
-					data: metric[0],
+					data: metric[0].slice(0, 400),
 					backgroundColor: colours,
 					borderColor: colours,
 					pointRadius: 4
