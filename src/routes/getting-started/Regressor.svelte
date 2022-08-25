@@ -19,7 +19,7 @@
 <a class="container interactive tile" href='/learn/regression-neural-network'>
 	<div class="text">
 	<h3>Controlling a Synth Using a Neural Network</h3>
-		<p>Train a neural network to learn a mapping betweeen two (or more) data spaces</p>
+	<p class='description'>Train a neural network to learn a mapping betweeen two (or more) data spaces</p>
 	</div>
 	<div class="interactives">
 		<svg class='chaos-pad' width={width} height={height}>

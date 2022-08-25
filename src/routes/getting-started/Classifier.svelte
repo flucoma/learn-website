@@ -22,8 +22,8 @@
 <a class="container interactive tile" href='/learn/classification-neural-network'>
 	<div class="text">
 		<h3>Classification with a Neural Network</h3>
-		<p>Train a neural network to identify sounds based on audio-descriptor data</p>
-	</div>
+		<p class='description'>Train a neural network to identify sounds based on audio-descriptor data</p>
+</div>
 	
 	<svg width={width} height={height}>
 		<!-- Connections -->

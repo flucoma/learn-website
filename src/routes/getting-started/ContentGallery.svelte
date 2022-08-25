@@ -2,7 +2,7 @@
     import GalleryItem from './GalleryItem.svelte';
 	let items = [
         {
-            "title" : "Hear music made using FluCoMa",
+            "title" : "Hear Music That Uses FluCoMa",
             "desc" : "Watch this short video from Dialogues Festival 2021 in Edinbourgh which featured a showcase of FluCoMa projects.",
             "link" : "https://youtu.be/3GqYFDB425k",
             "content" : {
@@ -16,25 +16,16 @@
             "link" : "https://discourse.flucoma.org/",
             "content" : {
                 "type" : "img",
-                "url" : "/getting-started/discourse-screenshot.png"
+                "url" : "/img/discourse.png"
             }
         },
         {
-            "title" : "Slice by Novelty",
-            "desc" : "Use the FluCoMa novelty slicer to slice by novelty.",
-            "link" : "/reference/noveltyslice",
-            "content" : {
-                "type" : "code",
-                "url" : "novelty_slice"
-            }
-        },
-        {
-            "title" : "Read an in-depth article about a FluCoMa project",
+            "title" : "Read About a FluCoMa Project",
             "desc" : "Read an article in the FluCoMa Explore series: in-depth musicological analysis of performances and code.",
             "link" : "/explore",
             "content" : {
                 "type" : "img",
-                "url" : "/explore/harker/umap_explorer_example.png"
+                "url" : "/explore/burton/multiple_scores.png"
             }
         },
         {
@@ -47,12 +38,21 @@
             }
         },
         {
-            "title" : "Check out the Source Code",
+            "title" : "Explore the Source Code",
             "desc" : "If you're just curious or feel like contributing, check out the source code on GitHub.",
             "link" : "https://github.com/flucoma",
             "content" : {
                 "type" : "img",
-                "url" : "/getting-started/github-screenshot.png"
+                "url" : "/img/gh.jpg"
+            }
+        },
+        {
+            title: "Browse Objects and Algorithms",
+            desc: "Learn about different objects and algorithms.",
+            link : '/reference',
+            content: {
+                type: 'img',
+                url : '/img/flucoma-magical.jpg'
             }
         }
     ];

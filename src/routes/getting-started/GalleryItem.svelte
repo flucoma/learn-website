@@ -1,12 +1,11 @@
 <script>
-	import CodeSnippet from './CodeSnippet.svelte';
 	export let item;
 </script>
 
 <a class="gallery-item interactive" href={item.link}>
         
 	<!--Text content alternates odd and even (see below)-->
-	<div class="gallery_text_content" href={item.link}>
+	<div class="gallery-text" href={item.link}>
 		<h3>{item.title}</h3>
 		<p>{item.desc}</p>
 	</div>
@@ -22,8 +21,6 @@
 	/>
 	{:else if item.content.type == 'img'}
 	<img src={item.content.url} alt={item.content.description}>
-	{:else if item.content.type == 'code'}
-	<CodeSnippet code_key={item.content.url} />
 	{/if}
 </a>
 
@@ -32,7 +29,6 @@
         display: flex;
         flex-direction: column;
         gap: 1em;
-		height: fit-content;
         width: 300px;
         color: black;
     }
@@ -44,6 +40,15 @@
     .gallery-item > iframe {
         height: 100%;
     }
+
+	.gallery-text > h3 {
+	}
+
+	.gallery-text > p {
+		color: rgb(104, 104, 104);
+		text-align: left;
+		font-size: 0.8rem;
+	}
 
     a {
         text-decoration: none;

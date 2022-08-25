@@ -81,7 +81,7 @@
 
 <a class="raisedbox tile" href='/learn/2d-corpus-explorer'>
 	<h3>2D Corpus Exploration</h3>
-	<p>Explore a sound bank using machine listening and machine learning</p>
+	<p class='description'>Explore a sound bank using machine listening and machine learning</p>
 	<canvas bind:this={canvas} id="scatter-plot" on:mouseenter={change} on:mouseleave={change}/>
 </a>
 
