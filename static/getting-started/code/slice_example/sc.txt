@@ -1,7 +1,0 @@
-(
-~src = Buffer.read(s, FluidFilesPath("Nicol-LoopE-M.wav"));
-~indices = Buffer(s);
-FluidBufNoveltySlice.processBlocking(s, source: ~src, indices: ~indices);
-
-FluidWaveform(~src,~indices,bounds:Rect(0,0,1600,400));
-)

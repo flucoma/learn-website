@@ -7,10 +7,10 @@
 
     let code_examples = {
         "novelty_slice" : {
-            "max" : "this is max code",
-            "sc" : "this is sc code"
+            "max" : "<pre><code>\n----------begin_max5_patcher----------\n585.3oc0VtsiaCBDF9Z6mBDWmFA3Sw8p88nZUEwljxJarEfSypU69rWN3rMa\niiiaJRs8hXqYLge9lYXfWhifa6NxTPvmAeADE8RbTjyk0QzncDrkdrpgpbCC\n1xTJ5dFbk+aZ1QsyOo7jKdsyQ21m9DN4jydpt5abw9uJYUZudDT5ZzJPBNy9\nJCYeRHqQfGG+OhgVtngocBS9oytA8Iu3QudW5m6Y94FBAOZ+xqww1GqVHbB1\n2MK6KXqWx5YhZfhomBR7LPlT54JO29pfLOj3+hPtmooZsDnns8JvCMbklI.n\no.FMWVMI6LfwiV+lDmbUhWM9KjjucX2Nl7sIHsXNPKSNq7MM+d3jbMN20zQ0\nVP2RE6CJrRiVLfG4IHNeAoV+91h6ZCKY1LaHAUC1BTSPX1BHLwkZwEoAMo5x\nk2MlWqwqo2TCshMAooyPJdSoCQjizzM+617cb2IPIqlfQxBXLwkFyy9OYG5t\nlAd8ZC1htCrF8ypFdE6MvCptAYE6JwA7sqpwEX2qRTPCDWVQ6lVXCW7q2rvs\n1r9+XPwC13zMlTA32Wb0LklKnZdm3rwX.FftRXeo5LNGypSdHzAs.gr2UxR8\netR2JzUD.jxVBQnPD6VRRp3CiokW22wEZ0oqfUtNybPMxU9mfHuaEfXvMKSC\nQcZ9BBAYAPmzEnC4Bc7a2o88GXR03fcRX518TmzZtYkyjK7ltq2YN35.+z3c\n8bfToo0k1z2ZP5VVvi49yvfsc0LoXf6FarENijtNoBp4fwdpmCWC23Wi+Afp\n2Xen\n-----------end_max5_patcher-----------\n</code></pre>",
+            "sc" : "(\n~src = Buffer.read(s, FluidFilesPath(\"Nicol-LoopE-M.wav\"));\n~indices = Buffer(s);\nFluidBufNoveltySlice.processBlocking(s, source: ~src, indices: ~indices);\n\nFluidWaveform(~src,~indices,bounds:Rect(0,0,1600,400));\n)"
         }
-    }
+    };
 
     function get_string(type){
         return code_examples[code_key][type];
@@ -83,6 +83,10 @@
 <style>
     .codesnipper_container{
         display: inline;
+
+        z-index: 100;
+        width: 100%;
+        height: 200px;
     }
 
     .ctrl{
@@ -90,13 +94,20 @@
         position: relative;
     }
 
+    .max_code{
+        width: 100%;
+    }
+
     .code_container{
-        border: 0.063rem solid #dcdee0;
+        /*border: 0.063rem solid #dcdee0;*/
         height: 150px;
+        width: 100%;
         
         white-space: pre-wrap;
         word-wrap: break-word; 
         overflow-y: scroll;
+        font-size: 0.5em;
+        padding: 0em;
     }
 
     .code_block {
@@ -118,5 +129,26 @@
         font-size: 2em;
         opacity: 0;
     }
+
+    /*=================================================
+    WIDE*/
+    @media (min-width: 1200px) {
+        .codesnipper_container{
+            height: 200px;
+        }
+        .code_container{
+            height: 155px;
+        }
+	}
+    /*=================================================
+    NARROW*/
+	@media (max-width: 1200px) {
+        .codesnipper_container{
+            height: 250px;
+        }
+        .code_container{
+            height: 200px;
+        }
+	}
 
 </style>

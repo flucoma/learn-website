@@ -65,14 +65,14 @@
 
     <div class="gallery">
         {#each data as item, i}
-        <a class="gallery_element_odd gallery_element raisedbox" href={item.link}>
+        <div class="gallery_element raisedbox" href={item.link}>
             
             <!--Text content alternates odd and even (see below)-->
             {#if i % 2 == 0}
-                <div class="gallery_text_content">
+                <a class="gallery_text_content" href={item.link}>
                     <h3 style="text-align: right;">{item.title}</h3>
                     <p style="text-align: right;">{item.desc}</p>
-                </div>
+                </a>
             {/if}
 
             <!--Pretty content goes here-->
@@ -107,12 +107,12 @@
             </div>
 
             {#if i % 2 != 0}
-                <div class="gallery_text_content">
+                <a class="gallery_text_content" href={item.link}>
                     <h3>{item.title}</h3>
                     <p>{item.desc}</p>
-                </div>
+                </a>
             {/if}
-        </a>
+            </div>
         {/each}
 
         <p style="text-align: centre; width: 80%; margin: auto; padding-top: 1em; padding-bottom: 2em;">
@@ -140,6 +140,8 @@
         display: flex;
         height: 200px;
         overflow: hidden;
+
+        z-index: -1;
     }
 
     .gallery_text_content{
@@ -160,6 +162,8 @@
         height: 200px;
         justify-content: center;
         align-items: center;
+
+        cursor: default;
     }
 
     .gallery_element > p {
@@ -168,6 +172,14 @@
 		text-justify: inter-word;
         text-decoration: none;
 	}
+
+    a{
+        text-decoration: none;
+    }
+
+    a:hover{
+        background-color: white;
+    }
 
 	/* Overwrite hover behaviour */
 	.gallery_element,
