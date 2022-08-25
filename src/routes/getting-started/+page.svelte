@@ -20,11 +20,11 @@
         display: flex;
         flex-direction: column;
         gap: 1em;
-
     }
     .pair {
-        display: grid;
-        grid-template-columns: auto auto;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
         gap: 1em;
     }
 </style>

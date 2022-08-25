@@ -89,6 +89,7 @@
 <style>
 	a {
 		max-width: 100%;
+		min-width: 100px;
 	}
 	#scatter-plot {
 		max-width: 100%;
