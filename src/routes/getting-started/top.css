@@ -1,0 +1,27 @@
+
+.interactive {
+	max-width: 300px;
+	border-radius: 0.25rem;
+	border: 0.063rem solid #dcdee0;
+	padding: 0.75em;
+	transition: transform 250ms cubic-bezier(0.77, 0, 0.175, 1);
+	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.interactive:hover {
+	transform: scale(1.025);
+} 
+
+.tile {
+	text-decoration: none;
+	color: black;
+}
+
+.tile:hover {
+	background: transparent;
+	color: black;
+}
+
+h1, h2, h3, p {
+	margin: 0;
+}
