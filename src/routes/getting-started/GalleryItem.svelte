@@ -6,8 +6,8 @@
         
 	<!--Text content alternates odd and even (see below)-->
 	<div class="gallery-text" href={item.link}>
-		<h3>{item.title}</h3>
-		<p>{item.desc}</p>
+		<h3 class='gs-header'>{item.title}</h3>
+		<p class='description'>{item.desc}</p>
 	</div>
 
 	<!--Pretty content goes here-->
@@ -40,15 +40,6 @@
     .gallery-item > iframe {
         height: 100%;
     }
-
-	.gallery-text > h3 {
-	}
-
-	.gallery-text > p {
-		color: rgb(104, 104, 104);
-		text-align: left;
-		font-size: 0.8rem;
-	}
 
     a {
         text-decoration: none;

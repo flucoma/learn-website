@@ -1,5 +1,4 @@
 <script>
-    import './theme.css'
     import Map from './Map.svelte';
     import Regressor from './Regressor.svelte';
     import Classifier from './Classifier.svelte';

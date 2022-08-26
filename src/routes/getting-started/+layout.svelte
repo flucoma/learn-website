@@ -1,3 +1,7 @@
+<script>
+    import './theme.css'
+</script>
+
 <div class='container'>
 	<slot></slot>
 </div>

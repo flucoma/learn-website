@@ -18,7 +18,7 @@
 
 <a class="container interactive tile" href='/learn/regression-neural-network'>
 	<div class="text">
-	<h3>Controlling a Synth Using a Neural Network</h3>
+	<h3 class='gs-header'>Controlling a Synth Using a Neural Network</h3>
 	<p class='description'>Train a neural network to learn a mapping betweeen two (or more) data spaces</p>
 	</div>
 	<div class="interactives">
