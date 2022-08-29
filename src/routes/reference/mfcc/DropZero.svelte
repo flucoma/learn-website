@@ -15,7 +15,7 @@
 	let chart;
 	let smoothing = 100;
 	let feature = new Array(21).fill(0);
-	
+
 	const audioSpec = {
 		src: '/audio/drum-m.mp3',
 		loop: true,
@@ -64,12 +64,16 @@
 	});
 
 	let offset = 0;
-	const dropzero = (x) => {
+	const dropzero = x => {
 		offset = x;
-		chart.data.labels = new Array(20).fill(0).map((x, i) => `MFCC ${i+offset}`);
-		chart.data.datasets[0].borderColor = colors.slice(offset, offset+20).map(x => `rgb(${x[0]}, ${x[1]}, ${x[2]}`)
-		chart.data.datasets[0].backgroundColor = colors.slice(offset, offset+20).map(x => `rgba(${x[0]}, ${x[1]}, ${x[2]}, 0.5`)
-	}
+		chart.data.labels = new Array(20).fill(0).map((x, i) => `MFCC ${i + offset}`);
+		chart.data.datasets[0].borderColor = colors
+			.slice(offset, offset + 20)
+			.map(x => `rgb(${x[0]}, ${x[1]}, ${x[2]}`);
+		chart.data.datasets[0].backgroundColor = colors
+			.slice(offset, offset + 20)
+			.map(x => `rgba(${x[0]}, ${x[1]}, ${x[2]}, 0.5`);
+	};
 
 	const play = () => {
 		playing = true;
@@ -87,8 +91,8 @@
 				numberOfMFCCCoefficients: 21,
 				callback: features => {
 					feature = features.mfcc;
-					chart.data.datasets[0].data = feature.slice(offset, offset+20);
-					console.log(feature.slice(offset, offset+20))
+					chart.data.datasets[0].data = feature.slice(offset, offset + 20);
+					console.log(feature.slice(offset, offset + 20));
 					chart.update();
 				}
 			});
@@ -104,19 +108,19 @@
 	const zero = {
 		label: 'startCoeff = 0',
 		width: '200px'
-	}
+	};
 	const one = {
 		label: 'startCoeff = 1',
 		width: '200px'
-	}
+	};
 </script>
 
 <div class="container">
 	<canvas id="filter" bind:this={canvas} />
 	<div class="controls">
 		<Audio {...audioSpec} bind:audio on:play={play} on:pause={pause} />
-		<Button {...zero} on:click={() => dropzero(1)}/>
-		<Button {...one}  on:click={() => dropzero(0)}/>
+		<Button {...zero} on:click={() => dropzero(1)} />
+		<Button {...one} on:click={() => dropzero(0)} />
 	</div>
 </div>
 

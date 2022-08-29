@@ -27,7 +27,7 @@
 
 	const change = () => {
 		clearInterval(timer);
-		const time = Math.random() * 3000 + 2000
+		const time = Math.random() * 3000 + 2000;
 		timer = setInterval(change, time);
 		chart.data.datasets[0].data = _.sample(metric).slice(0, numpoints);
 		let colour;
@@ -40,10 +40,10 @@
 			colour = metric[0].map(v => d3.interpolateWarm(v[0] * 4 * v[1] + 0.4));
 		}
 
-		chart.data.datasets[0].backgroundColor = colour
+		chart.data.datasets[0].backgroundColor = colour;
 		chart.data.datasets[0].borderColor = colour;
 		chart.update();
-	}
+	};
 
 	onMount(async () => {
 		Chart.register(...registerables);
@@ -76,15 +76,14 @@
 		});
 		chart.options.animation = { duration: 3000 };
 
-		timer = setInterval(change, 2000)
+		timer = setInterval(change, 2000);
 	});
 </script>
 
-
-<a class="raisedbox tile" href='/learn/2d-corpus-explorer'>
-	<h3 class='gs-title'>2D Corpus Exploration</h3>
-	<p class='description'>Explore a sound bank using machine listening and machine learning</p>
-	<canvas bind:this={canvas} id="scatter-plot" on:mouseenter={change} on:mouseleave={change}/>
+<a class="raisedbox tile" href="/learn/2d-corpus-explorer">
+	<h3 class="gs-title">2D Corpus Exploration</h3>
+	<p class="description">Explore a sound bank using machine listening and machine learning</p>
+	<canvas bind:this={canvas} id="scatter-plot" on:mouseenter={change} on:mouseleave={change} />
 </a>
 
 <style>
@@ -97,15 +96,16 @@
 	}
 
 	@media (min-width: 700px) {
-		a, #scatter-plot {
+		a,
+		#scatter-plot {
 			width: calc(668px - 1.5em) !important;
 		}
 	}
-	
+
 	@media (max-width: 700px) {
-		a, #scatter-plot {
+		a,
+		#scatter-plot {
 			width: 300px !important;
 		}
 	}
-
 </style>

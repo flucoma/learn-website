@@ -33,7 +33,6 @@
 			<a href="/explore">Explore</a> what other people are doing.
 			<br />
 			<a href="/reference">References</a> for all the algorithms in the toolkit.
-			
 		</p>
 	</div>
 

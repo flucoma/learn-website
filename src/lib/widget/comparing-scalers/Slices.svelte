@@ -8,18 +8,19 @@
 
 	let chart, canvas;
 
-	const transformer = (i) => {
+	const transformer = i => {
 		const entries = Object.entries(i);
-		return entries.map((pt, i) => ({ x: pt[1][0], y: pt[1][1], id: pt[0] }))
-	}
-	const entries = Object.entries(scalingData.norm)
-	const colours = entries.map((x,i) => d3.interpolateTurbo(x[1][0] * 4 * x[1][1]));
+		return entries.map((pt, i) => ({ x: pt[1][0], y: pt[1][1], id: pt[0] }));
+	};
+	const entries = Object.entries(scalingData.norm);
+	const colours = entries.map((x, i) => d3.interpolateTurbo(x[1][0] * 4 * x[1][1]));
 
 	onMount(() => {
 		Chart.register(...registerables, annotationPlugin);
 		const ctx = canvas.getContext('2d');
 		let data = {
-			datasets: [{
+			datasets: [
+				{
 					labels: Object.entries(scalingData.raw).map((x, i) => x[0]),
 					data: transformer(scalingData.raw),
 					backgroundColor: colours,
@@ -27,8 +28,9 @@
 					borderWidth: 2,
 					tension: 1,
 					pointRadius: 5,
-					animation: { duration: 750 },
-			}]
+					animation: { duration: 750 }
+				}
+			]
 		};
 		chart = new Chart(ctx, {
 			type: 'scatter',
@@ -37,7 +39,7 @@
 				// onHover: (e, pts, chart) => console.log(e, pts, chart),
 				plugins: {
 					legend: { display: false },
-					tooltip: { enabled: true },
+					tooltip: { enabled: true }
 				},
 				normalized: true,
 				responsive: true,
@@ -63,11 +65,10 @@
 		raw();
 	});
 
-
 	const raw = () => {
-		const data = scalingData.raw
-		const origin = data['slice-21']
-		const destination = data['slice-13']
+		const data = scalingData.raw;
+		const origin = data['slice-21'];
+		const destination = data['slice-13'];
 		chart.data.datasets[0].data = transformer(data);
 		chart.options.scales.x.min = 0;
 		chart.options.scales.x.max = 10000;
@@ -83,13 +84,13 @@
 			}
 		};
 		chart.update();
-		activeScale = 'Raw'
-	}
+		activeScale = 'Raw';
+	};
 
 	const norm = () => {
-		const data = scalingData.norm
-		const origin = data['slice-21']
-		const destination = data['slice-13']
+		const data = scalingData.norm;
+		const origin = data['slice-21'];
+		const destination = data['slice-13'];
 		chart.data.datasets[0].data = transformer(data);
 		chart.options.scales.x.min = -3;
 		chart.options.scales.x.max = 3;
@@ -106,37 +107,45 @@
 			},
 			xmin: {
 				type: 'line',
-				xMin: 0, xMax: 0,
-				yMin: -3, yMax: 3,
+				xMin: 0,
+				xMax: 0,
+				yMin: -3,
+				yMax: 3,
 				borderColor: 'rgba(160, 160, 160, 0.5)'
 			},
 			xmax: {
 				type: 'line',
-				xMin: 1, xMax: 1,
-				yMin: -3, yMax: 3,
+				xMin: 1,
+				xMax: 1,
+				yMin: -3,
+				yMax: 3,
 				borderColor: 'rgba(160, 160, 160, 0.5)'
 			},
 			ymin: {
 				type: 'line',
-				xMin: -3, xMax: 3,
-				yMin: 0, yMax: 0,
+				xMin: -3,
+				xMax: 3,
+				yMin: 0,
+				yMax: 0,
 				borderColor: 'rgba(160, 160, 160, 0.5)'
 			},
 			ymax: {
 				type: 'line',
-				xMin: -3, xMax: 3,
-				yMin: 1, yMax: 1,
+				xMin: -3,
+				xMax: 3,
+				yMin: 1,
+				yMax: 1,
 				borderColor: 'rgba(160, 160, 160, 0.5)'
-			},
-		}
+			}
+		};
 		chart.update();
-		activeScale = 'Normalised'
-	}
+		activeScale = 'Normalised';
+	};
 
 	const std = () => {
 		const data = scalingData.std;
-		const origin = data['slice-21']
-		const destination = data['slice-13']
+		const origin = data['slice-21'];
+		const destination = data['slice-13'];
 		chart.data.datasets[0].data = transformer(data);
 		chart.options.scales.x.min = -3;
 		chart.options.scales.x.max = 3;
@@ -152,37 +161,45 @@
 			},
 			xmin: {
 				type: 'line',
-				xMin: -1, xMax: -1,
-				yMin: -3, yMax: 3,
+				xMin: -1,
+				xMax: -1,
+				yMin: -3,
+				yMax: 3,
 				borderColor: 'rgba(160, 160, 160, 0.5)'
 			},
 			xmax: {
 				type: 'line',
-				xMin: 1, xMax: 1,
-				yMin: -3, yMax: 3,
+				xMin: 1,
+				xMax: 1,
+				yMin: -3,
+				yMax: 3,
 				borderColor: 'rgba(160, 160, 160, 0.5)'
 			},
 			ymin: {
 				type: 'line',
-				xMin: -3, xMax: 3,
-				yMin: -1, yMax: -1,
+				xMin: -3,
+				xMax: 3,
+				yMin: -1,
+				yMax: -1,
 				borderColor: 'rgba(160, 160, 160, 0.5)'
 			},
 			ymax: {
 				type: 'line',
-				xMin: -3, xMax: 3,
-				yMin: 1, yMax: 1,
+				xMin: -3,
+				xMax: 3,
+				yMin: 1,
+				yMax: 1,
 				borderColor: 'rgba(160, 160, 160, 0.5)'
-			},
-		}
+			}
+		};
 		chart.update();
-		activeScale = 'Standardised'
-	}
+		activeScale = 'Standardised';
+	};
 
 	const robust = () => {
 		const data = scalingData.robust;
-		const origin = data['slice-21']
-		const destination = data['slice-13']
+		const origin = data['slice-21'];
+		const destination = data['slice-13'];
 		chart.data.datasets[0].data = transformer(data);
 		chart.options.scales.x.min = -3;
 		chart.options.scales.x.max = 3;
@@ -198,32 +215,40 @@
 			},
 			xmin: {
 				type: 'line',
-				xMin: 0, xMax: 0,
-				yMin: -3, yMax: 3,
+				xMin: 0,
+				xMax: 0,
+				yMin: -3,
+				yMax: 3,
 				borderColor: 'rgba(160, 160, 160, 0.5)'
 			},
 			xmax: {
 				type: 'line',
-				xMin: 1, xMax: 1,
-				yMin: -3, yMax: 3,
+				xMin: 1,
+				xMax: 1,
+				yMin: -3,
+				yMax: 3,
 				borderColor: 'rgba(160, 160, 160, 0.5)'
 			},
 			ymin: {
 				type: 'line',
-				xMin: -3, xMax: 3,
-				yMin: 0, yMax: 0,
+				xMin: -3,
+				xMax: 3,
+				yMin: 0,
+				yMax: 0,
 				borderColor: 'rgba(160, 160, 160, 0.5)'
 			},
 			ymax: {
 				type: 'line',
-				xMin: -3, xMax: 3,
-				yMin: 1, yMax: 1,
+				xMin: -3,
+				xMax: 3,
+				yMin: 1,
+				yMax: 1,
 				borderColor: 'rgba(160, 160, 160, 0.5)'
-			},
-		}
+			}
+		};
 		chart.update();
-		activeScale = 'Robust Scaling'
-	}
+		activeScale = 'Robust Scaling';
+	};
 
 	const buttonSpec = [
 		{
@@ -242,20 +267,13 @@
 			label: 'Robust Scaling',
 			func: robust
 		}
-	]
-	let activeScale = 'Raw'
+	];
+	let activeScale = 'Raw';
 </script>
 
 <div class="swapper">
 	{#each buttonSpec as spec}
-
-	<Button 
-	width={'150px'}
-	on:click={spec.func}
-	label={spec.label}
-	disabled={activeScale === spec.label}
-	/>
-
+		<Button width={'150px'} on:click={spec.func} label={spec.label} disabled={activeScale === spec.label} />
 	{/each}
 </div>
 

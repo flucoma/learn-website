@@ -5,11 +5,9 @@
 <Crumbs />
 
 <div class="wrapper">
-
 	<div class="main">
 		<slot />
 	</div>
-
 </div>
 
 <style lang="postcss">
@@ -43,5 +41,4 @@
 		display: flex;
 		flex-direction: column;
 	}
-    
 </style>

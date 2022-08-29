@@ -10,10 +10,7 @@
 
 <Admonition type="pointer">
 	<p>
-		Download the demonstration patches for this article <a
-			href={link}
-			download={download}>here</a
-		>.
+		Download the demonstration patches for this article <a href={link} {download}>here</a>.
 	</p>
 	{#if note !== ''}
 		<p>

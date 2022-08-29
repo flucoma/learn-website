@@ -30,7 +30,7 @@
 		audioContext = new AudioContext();
 		const source = audioContext.createMediaElementSource(audio);
 		source.connect(audioContext.destination);
-			
+
 		const analyser = Meyda.createMeydaAnalyzer({
 			audioContext: audioContext,
 			source: source,
@@ -68,20 +68,13 @@
 	$: if (chart) chart.options.plugins.annotation.annotations.rolloff.xMax = Math.min(shape.rolloff, 20000);
 </script>
 
-
 <div class="container">
 	<div class="start">
-		<Button
-		on:click={startAudioDescriptor}
-		label="Start Audio"
-		width="200px"
-		height="40px"
-		disabled={enabled}
-		/>
+		<Button on:click={startAudioDescriptor} label="Start Audio" width="200px" height="40px" disabled={enabled} />
 	</div>
 	<div class="frame" class:disabled={!enabled}>
-		<div class="plot" >
-			<Spectrogram bind:chart smoothing=200 />
+		<div class="plot">
+			<Spectrogram bind:chart smoothing="200" />
 
 			<div class="values">
 				{#each Object.entries(shape) as [k, v]}
@@ -93,15 +86,14 @@
 			</div>
 		</div>
 
-		<Audio 
-		src='/reference/spectralshape/passage.mp3'
-		bind:audio
-		label='Evolving Sound'
-		waveform={true}
-		loop={true}
+		<Audio
+			src="/reference/spectralshape/passage.mp3"
+			bind:audio
+			label="Evolving Sound"
+			waveform={true}
+			loop={true}
 		/>
 	</div>
-
 </div>
 
 <style>
