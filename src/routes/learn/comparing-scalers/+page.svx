@@ -31,8 +31,7 @@ While each scaler transforms the data into a relatively similar range, they all 
 Differences such as these can have meaningful impacts on the musical results. Choosing which scaler to use can be an important musical decision in the creative process, which may be based on some specific context (such as if you know there are extreme [outliers](/learn/outliers)), or decided by testing them and choosing which one produces the results you like the best.
 
 ### Nearest Neighbour of "slice-27"
-
-<Slices />
+<!-- <Slices /> --> 
 
 <Tabs>
     <TabList>
