@@ -84,13 +84,3 @@ This is really just the start of thinking about _time_ and we hope that you delv
         gap: 1em;
     }
 </style>
-
-[Smoothing Data](/learn/smoothing-data)
-
-[Refining Pitch Analysis](/learn/refining-pitch-analysis)
-<!-- [LPT](/learn/lpt) -->
-
-
-
-
- 
