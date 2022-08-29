@@ -10,6 +10,7 @@ category: Analyse Sound
 
 <script>
     import MFCCScrub from './MFCCScrub.svelte';
+    import DropZero from './DropZero.svelte'
     import Admonition from '$lib/components/Admonition.svelte';
 </script>
 
@@ -35,4 +36,6 @@ Learn more about how the MFCC values are calculated in an <a sveltekit:reload hr
 
 Other that the 0th coefficient, MFCCs are unchanged by differences in the overall energy of the spectrum (which relates to how we perceive loudness). This means that timbres with similar spectral contours, but different volumes, will still have similar MFCC values, other than MFCC 0. To remove any indication of loudness but keep the information about timbre, we can ignore MFCC 0 by setting the parameter ``startCoeff`` = 1. 
 
-This can be useful when you want the timbres used in a classification or analysis to be unaffected by loudness. For example, if using an [MLPClassifier](/reference/mlpclassifier) to classify the difference between a trombone and an oboe, you'll want the classifier to distinguish between these instruments regardless of how loud or quiet the instrumentalists are playing.
+<DropZero />
+
+Filtering out the 0th coefficient can be useful when you want the timbres used in a classification or analysis to be unaffected by loudness. For example, if using an [MLPClassifier](/reference/mlpclassifier) to classify the difference between a trombone and an oboe, you'll want the classifier to distinguish between these instruments regardless of how loud or quiet the instrumentalists are playing.
