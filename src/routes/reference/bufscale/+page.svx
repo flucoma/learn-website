@@ -1,0 +1,18 @@
+---
+title: BufScale
+blurb: Buffer scaling
+tags: 
+    - utility
+    - buffer
+flair: reference
+category: Utility
+---
+
+<script>
+    import BufScale from './BufScale.svelte'
+</script>
+
+
+The [BufScale]() object scaling the value of data stored in a buffer and copies it to a new buffer. The interface is relatively lean: all you provide are minima and maxima for the input and output. Optionally you can clip the output, such that after the scaling is performed the numbers never exceed the provided output range. Use the widget below to see how the scaling process processes data.
+
+<BufScale />

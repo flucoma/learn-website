@@ -1,0 +1,73 @@
+---
+title: Grid
+blurb: Constraint a 2D Dataset to a grid using the hungarian algorithm
+tags: 
+    - utlity
+    - data
+    - querying
+    - dataset
+    - umap
+    - mds
+    - pca
+flair: reference
+category: Analyse Data
+---
+
+<script>
+    import ResourceLink from '$lib/components/ResourceLink.svelte';
+    import Grid from './Grid.svelte';
+    import GridOversample from './GridOversample.svelte';
+    import GridExtent from './GridExtent.svelte';
+</script>
+
+[Grid]() maps a set of two-dimensional points from a [DataSet](/reference/dataset) to a rectangular grid. To do this, it uses a variant of the [Jonker-Volgenant algorithm](https://www.gwern.net/docs/statistics/decision/1987-jonker.pdf). This can be useful for reorganising or transforming two-dimensional data into a uniform representation in which points are equally spaced from each other. Such a layout might be easier to navigate visually, or with a controller or could be used as a compositional impetus for the organisation of corpus items.
+
+<Grid />
+
+To do this, [Grid]() analyses a dataset and determines a _cost_ for moving (or assigning) each point to a position on a grid based on the [euclidian distance](https://en.wikipedia.org/wiki/Euclidean_distance) between points. Ideally, the grid moves each point as little as possible, but each point can only be assigned to a single position on the output grid. Given these constraints, the algorithm will find the best outcome in which the cost of moving points is minimised. Try this out for yourself, by transitioning between an original "raw" data and its assignment to a grid using the button below the scatterplot.
+
+What you'll notice is that points which are tightly compacted in the original data sometimes get moved quite far from their original position. This is because densely clustered areas have points that are competing for the same limited positions on the target grid. The algorithm has to deal with this problem across the entire dataset, meaning points can be moved quite far in order for another point to be moved minimally. Overall though, you can see that the colour mapping across the space is relatively preserved, save for a few minor disruptions.
+
+## Oversampling
+
+By default, the output grid has the same number of points _or larger but as as close as possible_ to the input data, ensuring that the output forms a square or rectangle. For example, if you have 100 points in the input, the output will be a grid with 100 points (so possibly 10 by 10). You can oversample the output grid, in effect providing more resolution for the assignemnt process to work with. As oversampling is increased the output tends towards the original shape of the input, giving you flexible control over "how gridded" you want the generated outcome to be. Notice how selecting the oversampling factor of 25 below almost renders the output to be the same as the input?
+
+<GridOversample />
+
+## Extent and Axis
+
+You can also determine the dimensionality of the grid output along a single axis by providing an `extent` and `axis`. This might be useful if you need to constrain the grid to a certain output shape, such as for a [monome](https://monome.org/docs/grid/). Play with the widget below and see how combining the `axis` and `extent` can be powerful in determining the nature of the output.
+
+<GridExtent />
+
+## Related Resources
+
+<ResourceLink 
+title='A shortest augmenting path algorithm for dense and sparse linear assignment problems'
+url='https://www.gwern.net/docs/statistics/decision/1987-jonker.pdf'
+blurb='The original algorithm described in a paper by Jonker and Volgenant'
+/>
+
+<ResourceLink 
+title='RasterFairy'
+url='https://github.com/Quasimondo/RasterFairy'
+blurb='A similar grid assignment project'
+/>
+
+<ResourceLink 
+title='CloudToGrid'
+url='https://github.com/kylemcdonald/CloudToGrid/'
+blurb='A similar grid assignment project'
+/>
+
+<ResourceLink
+title='IsoMatch: Creating Informative Grid Layouts'
+url='http://users.sussex.ac.uk/~nq28/kernelized_sorting.html'
+blurb='A similar grid assignment project'
+/>
+
+<ResourceLink
+title='Kernelised Sorting'
+url='http://users.sussex.ac.uk/~nq28/kernelized_sorting.html'
+blurb='A related algorithm'
+/>
