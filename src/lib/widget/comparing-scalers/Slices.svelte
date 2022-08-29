@@ -3,7 +3,6 @@
 	import * as d3 from 'd3';
 	import { Chart, registerables } from 'chart.js';
 	import annotationPlugin from 'chartjs-plugin-annotation';
-	import datalabels from 'chartjs-plugin-datalabels';
 	import scalingData from '$lib/data/learn/comparing-scalers/analysis.json';
 	import Button from '$lib/components/Button.svelte';
 
@@ -17,7 +16,7 @@
 	const colours = entries.map((x,i) => d3.interpolateTurbo(x[1][0] * 4 * x[1][1]));
 
 	onMount(() => {
-		Chart.register(...registerables, annotationPlugin, datalabels);
+		Chart.register(...registerables, annotationPlugin);
 		const ctx = canvas.getContext('2d');
 		let data = {
 			datasets: [{
@@ -29,9 +28,6 @@
 					tension: 1,
 					pointRadius: 5,
 					animation: { duration: 750 },
-					datalabels: {
-						color: '#00000'
-					}
 			}]
 		};
 		chart = new Chart(ctx, {
@@ -41,7 +37,7 @@
 				// onHover: (e, pts, chart) => console.log(e, pts, chart),
 				plugins: {
 					legend: { display: false },
-					tooltip: { enabled: true }
+					tooltip: { enabled: true },
 				},
 				normalized: true,
 				responsive: true,
@@ -67,25 +63,47 @@
 		raw();
 	});
 
+
 	const raw = () => {
-		chart.data.datasets[0].data = transformer(scalingData.raw);
+		const data = scalingData.raw
+		const origin = data['slice-21']
+		const destination = data['slice-13']
+		chart.data.datasets[0].data = transformer(data);
 		chart.options.scales.x.min = 0;
 		chart.options.scales.x.max = 10000;
 		chart.options.scales.y.min = -5000;
 		chart.options.scales.y.max = 5000;
-		chart.options.plugins.annotation.annotations = {};
+		chart.options.plugins.annotation.annotations = {
+			line1: {
+				type: 'line',
+				xMin: origin[0],
+				xMax: destination[0],
+				yMin: origin[1],
+				yMax: destination[1]
+			}
+		};
 		chart.update();
 		activeScale = 'Raw'
 	}
 
 	const norm = () => {
-		chart.data.datasets[0].data = transformer(scalingData.norm);
+		const data = scalingData.norm
+		const origin = data['slice-21']
+		const destination = data['slice-13']
+		chart.data.datasets[0].data = transformer(data);
 		chart.options.scales.x.min = -3;
 		chart.options.scales.x.max = 3;
 		chart.options.scales.y.min = -3;
 		chart.options.scales.y.max = 3;
 
 		chart.options.plugins.annotation.annotations = {
+			line1: {
+				type: 'line',
+				xMin: origin[0],
+				xMax: destination[0],
+				yMin: origin[1],
+				yMax: destination[1]
+			},
 			xmin: {
 				type: 'line',
 				xMin: 0, xMax: 0,
@@ -116,12 +134,22 @@
 	}
 
 	const std = () => {
-		chart.data.datasets[0].data = transformer(scalingData.std);
+		const data = scalingData.std;
+		const origin = data['slice-21']
+		const destination = data['slice-13']
+		chart.data.datasets[0].data = transformer(data);
 		chart.options.scales.x.min = -3;
 		chart.options.scales.x.max = 3;
 		chart.options.scales.y.min = -3;
 		chart.options.scales.y.max = 3;
 		chart.options.plugins.annotation.annotations = {
+			line1: {
+				type: 'line',
+				xMin: origin[0],
+				xMax: destination[0],
+				yMin: origin[1],
+				yMax: destination[1]
+			},
 			xmin: {
 				type: 'line',
 				xMin: -1, xMax: -1,
@@ -152,12 +180,22 @@
 	}
 
 	const robust = () => {
-		chart.data.datasets[0].data = transformer(scalingData.robust);
+		const data = scalingData.robust;
+		const origin = data['slice-21']
+		const destination = data['slice-13']
+		chart.data.datasets[0].data = transformer(data);
 		chart.options.scales.x.min = -3;
 		chart.options.scales.x.max = 3;
 		chart.options.scales.y.min = -3;
 		chart.options.scales.y.max = 3;
 		chart.options.plugins.annotation.annotations = {
+			line1: {
+				type: 'line',
+				xMin: origin[0],
+				xMax: destination[0],
+				yMin: origin[1],
+				yMax: destination[1]
+			},
 			xmin: {
 				type: 'line',
 				xMin: 0, xMax: 0,

@@ -20,8 +20,6 @@ featuredimage: /learn/comparing-scalers/08_norm-with-2-neighbors.png
     import { Tabs, TabList, TabPanel, Tab } from '$lib/components/tabs/tabs';
 </script>
 
-
-
 FluCoMa has three scalers for scaling data (in a [DataSet](/reference/dataset) and/or a buffer): [Normalize](/reference/normalize), [Standardize](/reference/standardize), and [RobustScale](/reference/robustscale). Each transform data in different way, but all will position data into a space that could be considered "standard" (here used differently from the "Standardize" object), either ranging 0-1, or centred around 0 with the rest of the values in nearby positive and negative ranges.
 
 Below are plots of a sound slices, each of which is represented by a spectral centroid in Hz and a loudness measure in dB. The plots show different scalings of the data: the first is the raw data with the dimensions original ranges, and the next three are the three scalers found in FluCoMa. Notice that the dimensions of the raw data have very different ranges which means that when computing distance (i.e., similarity) the dimension with a larger range (spectral centroid) will have a much greater impact on the measured distance between points. This may be undesirable for use with many machine learning algorithms. See the [Why Scale?](/learn/why-scale) page for more info.
