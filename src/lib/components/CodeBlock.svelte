@@ -1,5 +1,5 @@
 <script>
-	import { browser } from '$app/env';
+	import { browser } from '$app/environment';
 	import Copy from '$lib/components/Copy.svelte';
 
 	export let title = '';
