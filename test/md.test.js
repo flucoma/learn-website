@@ -46,14 +46,13 @@ routes.forEach(route => {
 		})
 	}
 
-	console.log(fm)
 	const tree = markdown.parse(data);
 
 	const headers = tree.filter(x => x.includes('header'));
 	const h1 = headers.filter(x => x[1].level === 1)
 
 	test(`No <h1/> (#) defined in markdown ${route}`, () => {
-		expect(h1.length).toBe(0);
+		expect(h1.length).toEqual(0);
 	})
 })
 
