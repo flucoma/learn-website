@@ -132,11 +132,11 @@ Note that the derivative has one fewer value than the original series because ea
 
 After computing the number of derivatives indicated by the user,  BufStats calculates the same seven statistical summaries on these new series of numbers: mean, standard deviation, skewness, kurtosis, low, middle, and high.
 
-# Outliers
+## Outliers
 
 BufStats can find and remove [outliers](/learn/outliers) by using an analysis of the data to set boundaries for each channel in the buffer. Any frames that have a value outside the its channel's boundaries will not be used to compute the statistics. The strictness of these boundaries is determined by `outliersCutoff` (see the page on [outliers](/learn/outliers) to learn more).
 
-# Weights
+## Weights
 
 The `weights` parameter can be passed a buffer, the values of which will be used for relative weighting of each corresponding frame in the `source` buffer. This will create "weighted" statistics where some values in the data have more impact on the resulting statistical summary than others. All seven of the resulting statistics may be affected by using the weights. 
 
