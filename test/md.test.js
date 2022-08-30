@@ -54,6 +54,14 @@ routes.forEach(route => {
 	test(`No <h1/> (#) defined in markdown ${route}`, () => {
 		expect(h1.length).toEqual(0);
 	})
+
+
+	test(`related resources is <h2/> ${route}`, () => {
+		const relatedResources = headers.filter(x => x[2] === 'Related Resources')
+		relatedResources.forEach(x => {
+			expect(x[1].level).toEqual(2);
+		})
+	})
 })
 
 
