@@ -74,7 +74,7 @@ activations must be **(input frames / hopSize) + 1** frames and **components * i
 
 <!-- ### Arguments -->
 
-### Related Resources
+## Related Resources
 
 <ResourceLink
 title='Learning the Parts of Objects by Non-Negative Matrix Factorization'
