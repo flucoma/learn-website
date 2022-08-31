@@ -11,7 +11,7 @@ tags:
     - fixed media
     - meta
 flair: article
-featuredimage: /explore/harker/umap_explorer_example.png
+featuredimage: /explore/tremblay/featured.png
 author: Jacob
 ---
 
@@ -54,7 +54,7 @@ It is a remarkable piece of *post-acousmatic music* (read Tremblay's thoughts on
 
 ## Garage Code
 
-Tremblay has three musical practices: studio composition for fixed media (the case of *Newsfeed*); [chamber mixed music](https://www.youtube.com/watch?v=1G_CLlUxEF8); and [improvised performance](https://electrocd.com/en/album/4685/splice/lab) with an instrument (generally an augmented electric bass guitar with a laptop to process himself and others). Each practice involves coding in some way, however the code will intervene at different times, and in very different ways: in his improvised music, the code must “*resist the pressures of live performance*”, be very robust and reliable; in chamber music where the software is interacting in real time with a performer, the software must be able to be used by others on the road without Tremblay’s intervention (read about Tremblay’s thoughts on this in [this paper](https://eprints.hud.ac.uk/id/eprint/33478/), or watch his initial [FluCoMa artist presentation](https://www.youtube.com/watch?v=QhjeoCwqed0) where he discusses his approach to this); finally, in the case of studio composition, the code and software tools that he develops and uses will have yet another nature. Here, code is allowed to be brittle, it is allowed to be unfinished, it is allowed to break down and yield unexpected and unreliable results – this is indeed an opportunity for this to occur, and one that Tremblay intentionally chooses to seize.
+Tremblay has three musical practices: studio composition for fixed media (the case of *Newsfeed* - as a preambule, you can read [this paper](http://www.ems-network.org/IMG/pdf_EMS12_tremblay.pdf) where Tremblay already talks about this kind of practice in 2012); [chamber mixed music](https://www.youtube.com/watch?v=1G_CLlUxEF8); and [improvised performance](https://electrocd.com/en/album/4685/splice/lab) with an instrument (generally an augmented electric bass guitar with a laptop to process himself and others - read [this paper](https://eprints.hud.ac.uk/id/eprint/7421/) where Tremblay describes how this practice planted some fo the seeds for the FluCoMa project). Each practice involves coding in some way, however the code will intervene at different times, and in very different ways: in his improvised music, the code must “*resist the pressures of live performance*”, be very robust and reliable; in chamber music where the software is interacting in real time with a performer, the software must be able to be used by others on the road without Tremblay’s intervention (read about Tremblay’s thoughts on this in [this paper](https://eprints.hud.ac.uk/id/eprint/33478/), or watch his initial [FluCoMa artist presentation](https://www.youtube.com/watch?v=QhjeoCwqed0) where he discusses his approach to this); finally, in the case of studio composition, the code and software tools that he develops and uses will have yet another nature. Here, code is allowed to be brittle, it is allowed to be unfinished, it is allowed to break down and yield unexpected and unreliable results – this is indeed an opportunity for this to occur, and one that Tremblay intentionally chooses to seize.
 
 <YouTube 
 url={'j2epE0rCIF0'}
@@ -191,12 +191,7 @@ label="Nearest neighbour player routine."
 
 Another player is one that uses a [kd-tree](/reference/kdtree) to perform a nearest neighbour search on the corpus of voices (see part 4 of the example script). Tremblay not only searches for the slice’s nearest neighbour (which is itself), but also the second nearest neighbour, and plays them back simultaneously, causing a slightly distorted, almost incomprehensible stream of speech comprised of slices of general timbral zones: he describes it as an “*interesting tightness*”.
 
-<Image
-src="/explore/tremblay/reaper_in_out.png"
-label="The Reaper In Out part of the example script."
-/>
-
-The final part of the script demonstrates how the kinds of gestures created with the scrubber and recorded in Reaper can be loaded back into SuperCollider, and we can programmatically and procedurally create a new Reaper project replacing the gestures with the audio slices and performing other processes like the nearest neighbour search. We can see that Tremblay creates his tool in such a way that there can be an almost endless to-and-fro between different environments, each output is inherently fluid in nature regarding the environment it can live in. This is true of the outputs, thanks to formats such as JSON, and also the programmatic ideas and scripts themselves, thanks to the way in which the FluCoMa tools have been developed – Tremblay is able to fluidly migrate between different environments with an adaptive and modular set of key tools, which allows him to take advantage of the inherent strengths of each environment.
+Tremblay implemented a system where gestures created with the scrubber and recorded in Reaper can be dynamically loaded back into SuperCollider, and can programmatically and procedurally create new Reaper projects, replacing the gestures with the audio slices and performing other processes like the nearest neighbour search. Tremblay creates his tool in such a way that there can be an almost endless to-and-fro between different environments, each output is inherently fluid in nature regarding the environment it can live in. This is true of the outputs, thanks to formats such as JSON, and also the programmatic ideas and scripts themselves, thanks to the way in which the FluCoMa tools have been developed – Tremblay is able to fluidly migrate between different environments with an adaptive and modular set of key tools, which allows him to take advantage of the inherent strengths of each environment.
 
 #### Synth Control Workflow
 
