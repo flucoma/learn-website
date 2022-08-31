@@ -23,9 +23,9 @@ flair: article
 
 This article provides guidance on using the parameters of the neural networks found in the FluCoMa toolkit. FluCoMa contains two neural network objects, the [MLPClassifier](/reference/mlpclassifier) and [MLPRegressor](/reference/mlpregressor). "MLP" stand for multi-layer perceptron, which is a type of neural network. "Classifier" and "Regressor" refer to the task that each MLP can be trained to do. For a deeper understanding of how the MLP training process works, visit [MLP Training](/learn/mlp-training).
 
-# Parameters
+## Parameters
 
-## `hiddenLayers`
+### `hiddenLayers`
 
 A list of numbers that specifies the internal structure of the neural network. Each number in the list represents one hidden layer of the neural network, the value of which is the number of neurons in that layer. For example, 3 3 (which is the default) specifies two hidden layers with three neurons each. The number of neurons in the input and output layers are determined from the corresponding datasets when training begins.
 
@@ -101,9 +101,9 @@ Higher values will:
 
 `momentum` is a scalar that applies a portion of previous adjustments to a current adjustment being made by the neural network during training. This has many benefits--an intuitive one is that even if some data point(s) suggest the neural network make some drastic, unique adjustments in a new direction, the history of adjustments from other points (it's "momentum") will prevent it from going too far off course of where most of the data is directing it. See this great [article](https://distill.pub/2017/momentum/) for an interactive visual representation of momentum (the text gets pretty technical pretty quickly, but the interactivity at the top can help build some intuition about how and why momentum is valuable).
 
-# MLPRegressor Only:
+## MLPRegressor Only:
 
-## `tapIn`
+### `tapIn`
 
 The index of the layer to use as input to the neural network for `predict` and `predictPoint` (zero counting). The default of 0 is the first layer (the original input layer), 1 is the first hidden layer, etc. This can be used to access different parts of a trained neural network such as the encoder or decoder of an [autoencoder](https://towardsdatascience.com/auto-encoder-what-is-it-and-what-is-it-used-for-part-1-3e5c6f017726).
 
@@ -112,6 +112,6 @@ src="/learn/mlp/Autoencoder_structure.png"
 label="The internal structure of an autoencoder neural network showing the encoder and decoder portions (image by [Chervinskii](https://commons.wikimedia.org/w/index.php?curid=45555552) - Own work, CC BY-SA 4.0)."
 />
 
-## `tapOut`
+### `tapOut`
 
 The index of the layer to use as output of the neural network for `predict` and `predictPoint` (zero counting). The default of -1 is the last layer (the original output layer). This can be used to access different parts of a trained neural network such as the encoder or decoder of an [autoencoder](https://towardsdatascience.com/auto-encoder-what-is-it-and-what-is-it-used-for-part-1-3e5c6f017726).

@@ -15,6 +15,8 @@ category: Decompose
     import ResourceLink from '$lib/components/ResourceLink.svelte';
 </script>
 
+## Introduction
+
 HPSS stands for Harmonic-Percussive Source Separation, which is designed to do what it sounds like: separate out the harmonic and percussive components of a sound.
 
 This algorithm might be useful for general audio decomposition and remixing or for more specialised uses, such as extracting the harmonic component of a sound for use with a Pitch or Chroma analysis (which may improve their accuracy!) or extracting the percussive component of a sound for detecting onsets.
@@ -83,12 +85,12 @@ label="Percussive-Enhanced Spectrogram"
 
 Notice how the horizontal harmonic ridges are completely smoothed out: that information is no longer represented in this spectrogram. Instead what remains are strong clear vertical bars showing the percussive attacks of the guitar strums.
 
-# Masking
+## Masking
 The next step is to create “masks”. Masks are the same shape as these spectrograms (same number of rows and columns) but instead of containing magnitudes they contain multipliers. These masks are created by comparing the harmonic-enhanced and percussive-enhanced spectrograms point-by-point and calculating what multiplier should go in the harmonic mask and what multiplier should go in the percussive mask. FluCoMa’s HPSS object has three options for how these masks are calculated.
 
 After generating these masks (described in detail below), they are multiplied by the magnitudes in the original spectrogram to create the output percussive and harmonic components.
 
-## Binary Mask
+### Binary Mask
 The most basic kind of mask is the binary mask, which means it is filled with the binary options: zero or one. To use binary masking with FluCoMa’s HPSS object, the `maskingMode` argument must be set to 1. The harmonic and percussive binary masks are created by comparing each point in the harmonic-enhanced and percussive-enhanced spectrogram (each magnitude at each point in time) and simply seeing which is larger. If the magnitude in the harmonic-enhanced spectrogram is greater than the same one in the percussive-enhanced, then the harmonic mask gets a 1 at that point and the percussive mask gets a 0 and vice versa.
 
 In the plots below you can see that the same spot is compared in each enhanced spectrogram (the red square, which is enhanced in size for clarity). Since the percussive-enhanced has a greater magnitude at that point (green is > than blue), the percussive binary mask gets a 1 (yellow), while the percussive gets a 0 (blue).
@@ -123,7 +125,7 @@ label="Percussive Component Output Spectrogram (created using a Binary Mask)"
 
 Here we see the vertical percussive ridges of the guitar strums strongly represented. The lower partials of the harmonic guitar sustains (the yellow horizontal ridges above) are completely absent, as seen by all the black near the bottom. Although we do see some horizontal structure in this spectrogram, notice that it is filled with blue, meaning the magnitudes are rather quiet. These blue bands are the inverse of the much louder (yellow) horizontal ridges represented in the harmonic component output spectrogram above.
 
-# Output Audio
+## Output Audio
 After creating the harmonic and percussive output spectrograms, FluCoMa’s HPSS object turns these back into separate audio streams as the final output of the object. The results when using binary masks (`maskingMode` = 1, heard directly below) tend to have stronger separation between the harmonic and percussive components, but also leave more sonic artefacts. The default (`maskingMode` = 0) uses soft masks (described later), which tends to leave much fewer sonic artefacts, but allows more bleed between the harmonic and percussive components.
 
 <Audio
@@ -136,9 +138,9 @@ src="/reference/hpss/220121_180534_02_percussive_component_Binary_Mask.mp3"
 label="Percussive Component Output (created using a Binary Mask)"
 />
 
-# More Masking Modes
+## More Masking Modes
 
-## Soft Mask
+### Soft Mask
 Rather than being filled with only zeros and ones like the binary mask, a soft mask can contain numbers between zero and one. These values are determined by the ratio between the two “enhanced” spectrograms so that each mask has a proportional amount of the energy. Like the binary masks, these soft masks are still inversely related. If one added them together all the points would equal 1, accounting for all of the energy in the original spectrogram. To use a soft mask with FluCoMa’s HPSS object, set `maskingMode` = 0, which is the default.
 
 <Image

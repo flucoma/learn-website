@@ -20,7 +20,7 @@ flair: article
 
 The Fourier Transform is, by far, the most commonly used spectral analysis method in audio analysis and machine listening. Most of the FluCoMa audio descriptors use this algorithm as the basis of their computation. Because a wealth of [resources](#related-resources) explaining the Fourier Transform in more general terms already exist, the focus of this resource is going to be on the practicalities of using it within FluCoMa. If unfamiliar with the Fourier Transform or digital sampling, we highly recommend this [interactive explanation](https://jackschaedler.github.io/circles-sines-signals/part3.html).
 
-### Common Terms and Initialisms
+## Common Terms and Initialisms
 
 * **Fourier Transform:** a mathematical operation that decomposes a continuous signal into sine wave components
 * **Discrete Fourier Transform (DFT):** a mathematical operation that computes a Fourier Transform on a discrete signal
@@ -147,13 +147,12 @@ The frequencies of the FFT bins that we use are linearly spread from 0 Hz to the
     </TabPanel>
 </Tabs>
 
-
 One outcome of this mismatch is that, while most of the information humans are perceptually attuned to is below 5,000 Hz, over half of the information provided by an FFT is above 10,000 Hz! (Furthermore, about of a quarter of the information provided by an FFT is in a range most humans can't even hear!) You might account for this by changing the range of frequencies you want the FFT to analyse. Some objects (such as [Pitch](/reference/pitch) and [MFCC](/reference/mfcc)) take `minFreq` and `maxFreq` arguments which allows you to focus the FFT analysis in a register that is meaningful to you. Another approach may be using [MelBands](/reference/melbands) which is a further transformation on the magnitudes of an FFT, grouping them into bands that are more perceptually relevant to humans.
 
 ## Zero Padding and Oversampling
 Sometimes using an `fftSize` larger than the `windowSize` can be beneficial because it gives us high quality interpolation in the frequency domain frequency because of the "extra" bins we've added. In this case, the "added" audio samples used for the FFT are padded as zeros. Note that this does not actually provide higher frequency resolution in the frequency domain. Frequency resolution is still determined by the size of the window being analysed. See [Zero Padding](https://jackschaedler.github.io/circles-sines-signals/zeropadding.html) for more information.
 
-# Related Resources
+## Related Resources
 
 <ResourceLink
 title='Circle, Sines, and Signals'

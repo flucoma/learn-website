@@ -169,9 +169,7 @@ for interation.
 '''
 
 import os
-
-# Set the source file, output folder and file prefix here:
-params = {
+params = { # Set the source file, output folder and file prefix here:
     "corpus_description_file" : os.path.join(os.getcwd(), 'data_reductions/high_res_desc.json'),
     "output_folder" : os.path.join(os.getcwd(), 'data_reductions'),
     "output_file_prefix" : 'High Res Example'
