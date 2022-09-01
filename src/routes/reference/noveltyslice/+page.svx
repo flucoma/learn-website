@@ -22,7 +22,7 @@ There could be many ways of coming up with a measure of novelty. The one that we
 
 <NoveltySSM />
  
-<Admonition type='note'>
+<Admonition type='pointer'>
 
 For an interactive example of an SSM see [this website](https://colinmorris.github.io/SongSim/#/rumourhasit) which visualises the self-similarity of lyrics in popular music tracks. In effect, it shows how the same words and phrases get repeated at different points in the song structure, perhaps giving us an idea about the _musical_ structure as a consequence.
 
