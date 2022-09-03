@@ -6,7 +6,7 @@
 	//let pdfInfos
 </script>
 
-<PdfViewer url={src} />
+<PdfViewer url={src} scale="0.9" />
 
 <!--<PdfViewer file={ src } bind:infos={ pdfInfos }/>-->
 
