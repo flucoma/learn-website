@@ -25,11 +25,24 @@ https://github.com/flucoma/flucoma-pd/releases/latest
 src="/installation/pd-step-1.png"
 />
 
+This FluCoMa package can be put _next to_ the "externals" folder (which is usually found in the "Pd" folder inside your "Documents" folder)
+
 ## Step 2: Add the Package to the Search Path
 
-To install a Pure Data package you need to place it in the Pure Data search path by adding the package folder _to_ the search path.
+To install this package you need to add its path to Pure Data's search paths. To achieve this:
 
-You can achieve this by opening the path preferences.
+1. Open Pure Data's "Path..." preferences from the Pure Data preferences menu.
+
+2. Click "New...", and navigating to the folder "FluidCorpusManipulation" that was just downloaded.
+
+3. Click "Choose" when the folder itself highlighted, not something _in_ the "FluidCorpusManipulation" folder.
+
+<Admonition type="pointer">
+
+**Nota Bene**  
+You **must** complete this step to add the "FluidCorpusManipulation" folder to the Pure Data search paths. It is not sufficient to just place the "FluidCorpusManipulation" folder inside Pure Data's "extensions" folder.
+
+</Admonition>
 
 ## Step 3: Add the FluCoMa library to the Startup Preferences
 
@@ -37,7 +50,7 @@ We also need to add the FluCoMa library to the startup libraries of Pure Data. T
 
 To add the `fluid_libmanipulation` library to the startup preferences:
 
-1. Open the preferences
+1. Open Pure Data's "Startup..." preferences from the Pure Data preferences menu.
 
 <Image
 src="/installation/pd-mac-3-1.png"
@@ -61,7 +74,7 @@ Now check that the installation worked.
 
 2. Open <a href='/installation/pd-install-test.pd' download='pd-install-test.pd'>this patch</a>.
 
-<Admonition type="danger">
+<Admonition type="pointer">
 
 Binaries compiled by us for macOS are signed and notarised. However, you might need to "dequarantine" them. The command below will recursively do this for you if you provide it the valid path to the FluCoMa package, wherever that might be.
 
