@@ -106,8 +106,8 @@ images={[
 
 He additionally gave each of the musicians a set of instructions to record a number of ad hoc sounds with their instruments. These were used notably for some of the other sections of the piece. However, in the first section, we get a good look at this idea of literal translations from the electronic tape part to the acoustic instruments. The result is an intriguing passage where the origin of sounds becomes ambiguous. He explained that “*one of the really interesting things to me is that there are these moments* [where] *our brains associate the gesture with the timbre, and there’s a bit of confusion about the source that it’s actually coming from. Even as we’re listening, there’s a crossfade that happens, either literally or in our minds: we’re hearing violin sounds and then seconds later we’re hearing electronic sounds and somehow those are similar enough that the handoff gets confused and ambiguous*”.
 
-<Vimeo 
-url={'https://player.vimeo.com/video/514278225?h=2993e1c875'}
+<YouTube 
+url={'Ol-9ReF3IVA'}
 />
 
 In addition to these ideas of confusion and ambiguity, Moore explained that translation from his electronic improvisatory performance practice to acoustic instrument composition allows him to transcribe the “*musicality and expressivity*” in the gestures that come naturally to him in improvisation into his compositional practice. He has explored this idea on several occasions (see above), and it seems to have become a core part of his compositional practice. In this piece however, he looked to take these ideas further.
