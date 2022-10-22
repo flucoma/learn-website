@@ -14,7 +14,7 @@ and then to run a local server:
 
 `pnpm run dev`
 
-which will spawn a web server at http://localhost:3000
+which will spawn a web server at http://localhost:5173
 
 ## Run Static Site
 
