@@ -37,7 +37,7 @@ James is a creative-coder and artist from Perth, Western Australia currently liv
 ## Introduction
 
 <ExploreDownload 
-url={'/explore/bradbury/James Bradbury Examples/zip'}
+url={'/explore/bradbury/James Bradbury Examples.zip'}
 note="You will need to install Bradbury's FTIS library for these to work using <code>pip install ftis</code>, for more information on installation, visit the <a href='https://github.com/jamesb93/ftis'>repo</a>."
 />
 
