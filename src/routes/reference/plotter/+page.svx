@@ -5,7 +5,7 @@ tags:
     - plotting
     - gui
 flair: reference
-category: Drawing
+category: Analyse Data
 ---
 
 Plotter is a helper to visualise a 2-dimensional [DataSet](/reference/dataset). Each creative coding environment has slight variations on its features, therefore a look at the helpfile is highly recommended.
