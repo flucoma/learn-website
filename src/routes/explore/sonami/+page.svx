@@ -1,0 +1,121 @@
+---
+title: "FluCoMa Podcast #11: Laetitia Sonami"
+artist: Freida Abtan
+blurb: |
+    In this episode of the FluCoMa Podcast Jacob Hart talks with sound artist, performer, and instrument maker Laetitia Sonami.
+tags: 
+    - regression
+    - MLP
+    - mapping
+    - instrument making
+    - resistance
+    - NIME
+flair: podcast
+featuredimage: /explore/sonami/feature_img.jpeg
+author: Jacob
+---
+
+<script>
+    import YouTube from '$lib/components/YouTube.svelte';
+    import ArtistCard from '$lib/components/explore/ArtistCard.svelte';
+    import YouTubeChapters from '$lib/components/YouTubeChapters.svelte';
+    import Vimeo from '$lib/components/Vimeo.svelte';
+</script>
+
+<ArtistCard
+src = "/explore/sonami/profile_pic.jpeg"
+name = "Laetitia Sonami"
+website = "https://sonami.net/"
+>
+<p slot="bio">
+Laetitia Sonami is a sound artist, performer and researcher. Sonami’s sound performances, live film collaborations and sound installations focus on issues of presence and participation. She has devised new gestural controllers for performance and applies new technologies and appropriated media to achieve an expression of immediacy through sound, place and objects.
+</p>
+</ArtistCard>
+
+## The Podcast
+
+<YouTubeChapters 
+url={'b6RqZ74rzug'}
+chapters={[
+    {"label" : "Introduction", "start" : [0, 0]},
+    {"label" : "Background and getting into the field", "start" : [1, 35]},
+    {"label" : "Synthesis and curating sounds", "start" : [3, 42]},
+    {"label" : "Physicalities of an instrument", "start" : [7, 30]},
+    {"label" : "History of The Lady’s Glove", "start" : [13, 45]},
+    {"label" : "The agency of the instrument", "start" : [21, 43]},
+    {"label" : "Relationship with the audience", "start" : [26, 40]},
+    {"label" : "Political instruments", "start" : [30, 0]},
+    {"label" : "Discontinuing an instrument", "start" : [35, 40]},
+    {"label" : "Spring Spyre", "start" : [41, 35]},
+    {"label" : "Approach to neural network training", "start" : [47, 40]},
+    {"label" : "Neural network regression and synthesis", "start" : [54, 16]},
+    {"label" : "The subtleties of sound", "start" : [57, 57]},
+    {"label" : "When does a controller become and instrument?", "start" : [1, 2, 25]}
+]}
+/>
+
+## Overview
+
+In this episode of the FluCoMa Podcast I talk with sound artist, performer, researcher, and instrument maker Laetitia Sonami. Laetitia has been working with FluCoMa-related technologies for much of her career, notably MLP regression and feature extraction. In the podcast we first take a historical look at her instrument _Lady’s Glove_ which spanned over 25 years of development. Then, we explore her more recent instrument _Spring Spyre_ which was built specifically around MLP regression and comes to answer the questions, frustrations and dreams that emerged from _Lady’s Glove_.
+
+## Links
+
+Here are the links to some of the things that were discussed during the podcast:
+
+- Presentation and performance with the [_Lady's Glove_](https://sonami.net/portfolio/items/ladys-glove/) at [NIME 2014](https://www.nime.org/2014/index.html):
+
+<YouTube 
+url={'nEkufXDb-Ro'}
+/>
+
+- The [Putney VCS3](https://fr.wikipedia.org/wiki/EMS_VCS3) synthesizer.
+
+- [Eliane Radigue](https://en.wikipedia.org/wiki/%C3%89liane_Radigue)'s Triptych (1978):
+
+<YouTube 
+url={'OgN3_KXv5O8'}
+/>
+
+- The [ARP 2500](https://en.wikipedia.org/wiki/ARP_2500) synthesizer.
+
+- [Rodrigo Constanzo](https://rodrigoconstanzo.com/)'s [work](/explore/constanzo) on the project.
+
+- The [Power Glove](https://en.wikipedia.org/wiki/Power_Glove) controller.
+
+- [Mechanization Takes Command](https://pauldemarinis.org/Mechanization.html) with [Paul DeMarinis](https://pauldemarinis.org/) (1991).
+
+- [STEIM](https://steim.org/) Studio for Electro-Instrumental Music with [Michel Waisvisz](https://en.wikipedia.org/wiki/Michel_Waisvisz).
+
+- [Bert Bongers](https://bertbon.home.xs4all.nl/).
+
+- [Keynote](https://www.nime.org/2014/keynotes/index.html) at NIME 2014.
+
+- [Thor Magnusson](https://thormagnusson.github.io/) on the [FluCoMa Podcast](/explore/magnusson).
+
+- [Spring Spyre](https://sonami.net/portfolio/items/spring-spyre/) at NIME 2014:
+
+<YouTube 
+url={'aMYYbelPTuc'}
+/>
+
+- [David Wessel](https://www.cirm-manca.org/fiche-artiste.php?ar=127) at [CNMAT](https://cnmat.berkeley.edu/).
+
+- [Rebecca Fiebrink](https://researchers.arts.ac.uk/1594-rebecca-fiebrink)'s [Wekinator](http://www.wekinator.org/) and her FluCoMa Keynote:
+
+<YouTube 
+url={'BYUe6jlNIKY'}
+/>
+
+- The [Lady's balls](https://sonami.net/portfolio/items/ladys-balls/) instrument.
+
+- [Francesco Di Maggio](https://www.ulysses-network.eu/profiles/individual/26654/).
+
+- [Miller Puckette](https://en.wikipedia.org/wiki/Miller_Puckette)'s [PAF (Phase-Aligned Formant)](https://citeseerx.ist.psu.edu/document?repid=rep1&type=pdf&doi=a560464f05a6a0e20e1a9b8e1f5584f83151587a) synthesis.
+
+- [Pink Noise](https://www.dukeupress.edu/pink-noises), [Tara Rodgers](https://www.analogtara.net/) (2004).
+
+- [Reflections on Eight Years of Instrument Creation with Machine Learning](https://www.nime.org/proceedings/2020/nime2020_paper45.pdf), Fiebrink and Sonami, NIME 2020 (2020).
+
+<Vimeo 
+url={'https://player.vimeo.com/video/450616595?h=ea2a2ec6c0'}
+/>
