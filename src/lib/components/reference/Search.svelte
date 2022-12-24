@@ -1,11 +1,11 @@
-<script type="ts">
+<script>
 	import { docs } from '$lib/app.js';
 	import FuzzySearch from 'fuzzy-search';
 
 	export let result = [];
 
-	let query: string = '';
-	let isFocused: boolean = false;
+	let query = '';
+	let isFocused = false;
 
 	const references = docs.filter(d => d.section === 'reference');
 

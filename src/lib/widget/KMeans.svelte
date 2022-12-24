@@ -1,11 +1,11 @@
-<script type="ts">
-	import KMeans from '@flucoma/tf-kmeans';
+<script >
 	import * as tf from '@tensorflow/tfjs';
 	import * as d3 from 'd3';
-	import { onMount } from 'svelte';
-	import { Chart, registerables } from 'chart.js';
+	import KMeans from '@flucoma/tf-kmeans';
 	import Button from '$lib/components/Button.svelte';
 	import Select from 'svelte-select';
+	import { onMount } from 'svelte';
+	import { Chart, registerables } from 'chart.js';
 
 	// Data Imports TODO: fetch these on load to reduce component payload
 	import gaussianTiny from '../../../static/data/gaussian4-tiny.json';
@@ -19,12 +19,12 @@
 	import random from '../../../static/data/random.json';
 
 	// Configure some options for KMeans
-	let numClusters: number = 4;
+	let numClusters = 4;
 
 	// Set aside some variables to do with the kmeans centroids
-	let predictions: number[] = [];
-	let centroids: number[] = [];
-	let iteration: number = 0;
+	let predictions = [];
+	let centroids = [];
+	let iteration = 0;
 
 	// Chart.js
 	let ctx, canvas, chart;
@@ -33,7 +33,7 @@
 
 	// Essentially rename the colour generation function
 	var genColour = d3.interpolateSinebow;
-	let kmeans: KMeans;
+	let kmeans;
 	// Declare some vars to use after mounting
 	let doMeans; // A function that the button gets bound to. We won't define it yet because of awaits
 

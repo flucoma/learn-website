@@ -1,52 +1,38 @@
-# Learn
+# create-svelte
 
-[![Deployment](https://github.com/flucoma/learn/actions/workflows/deploy.yml/badge.svg)](https://github.com/flucoma/learn/actions/workflows/deploy.yml)
+Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
 
-To run this website you will need a package manager for js/node such as `pnpm`, `yarn` or `npm`.
+## Creating a project
 
-## Run Locally
+If you're seeing this, you've probably already done this step. Congrats!
 
-Inside this repository run:
+```bash
+# create a new project in the current directory
+npm create svelte@latest
 
-`pnpm i`
-
-and then to run a local server:
-
-`pnpm run dev`
-
-which will spawn a web server at http://localhost:3000
-
-## Run Static Site
-
-`pnpm run build`
-
-which will create a static site in `./build`
-
-# How does it work?
-
-Pages are written in `.svx` format, which is a mix of markdown and svelte. Wrting is principally written in what you might know as normal markdown while bits of javascript (widgets, audio, pictures) are included as svelte widgets. There is also markdown frontmatter where you can include arbitrary information such as tags, a blurb, the title (so that you are not dependent on the name of the file itself). An example of a page describing how speakers work might look like this:
-
-```
----
-title: 'How speakers work'
-blurb: |
-    Every wondered how sound is made by speakers? This article tells you all...
-tags:
-    - audio
-    - technology
----
-
-<script>
-import MyAmazingWidget from '$lib/demos/amazingwidget.svelte'
-</script>
-
-# Speakers
-They are very good at wiggling the air for us
-
-## How?
-Speaker move air wiggle. Simples. Look at the picture below
-
-<MyAmazingWidget /> <-- this is defined inside the script tag and imported
+# create a new project in my-app
+npm create svelte@latest my-app
 ```
 
-In the `scripts` folder you will find a file called `extract_structure.py`. This will parse the `.svx` pages and return some JSON data that is then stored in the `static` folder of this website. This is used to programatically generate the pages, links, tags and some content.
+## Developing
+
+Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+
+```bash
+npm run dev
+
+# or start the server and open the app in a new browser tab
+npm run dev -- --open
+```
+
+## Building
+
+To create a production version of your app:
+
+```bash
+npm run build
+```
+
+You can preview the production build with `npm run preview`.
+
+> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.

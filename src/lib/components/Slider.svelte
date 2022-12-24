@@ -1,11 +1,11 @@
-<script type="ts">
+<script>
 	import { createEventDispatcher } from 'svelte';
 
-	export let value: string | number;
-	export let min: string | number = '0';
-	export let max: string | number = '100';
-	export let title: string = '';
-	export let step: string | number = 'any';
+	export let value;
+	export let min = '0';
+	export let max = '100';
+	export let title = '';
+	export let step = 'any';
 
 	const dispatch = createEventDispatcher();
 

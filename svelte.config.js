@@ -1,10 +1,10 @@
 import adapter from '@sveltejs/adapter-static';
 import preprocess from 'svelte-preprocess';
-import slug from 'rehype-slug';
 import headings from 'rehype-autolink-headings';
 import { s } from 'hastscript';
 import { mdsvex } from 'mdsvex';
-import jargon from 'remark-jargon';
+import slug from 'rehype-slug';
+// import jargon from 'rehype-jargon';
 import definitions from './jargon.js';
 
 /** @type {import('@sveltejs/kit').Config} */
@@ -14,6 +14,7 @@ const config = {
 		preprocess(),
 		mdsvex({
 			rehypePlugins: [
+				// [ jargon, { jargon: definitions.definitions } ],
 				slug,
 				[
 					headings,
@@ -44,7 +45,6 @@ const config = {
 					}
 				]
 			],
-			remarkPlugins: [[jargon, { jargon: definitions.definitions }]],
 			layout: {
 				_: './src/lib/layouts/Content.svelte',
 				contentindex: './src/lib/layouts/ContentIndex.svelte'
@@ -53,17 +53,14 @@ const config = {
 	],
 	kit: {
 		adapter: adapter(),
-		prerender: {
-			default: true
-		},
-		trailingSlash: true,
-		vite: {
-			server: {
-				fs: {
-					allow: ['../']
-				}
-			}
-		}
+		// trailingSlash: 'always'
+		// vite: {
+		// 	server: {
+		// 		fs: {
+		// 			allow: ['../']
+		// 		}
+		// 	}
+		// }
 	}
 };
 

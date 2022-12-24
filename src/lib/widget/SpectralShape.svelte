@@ -1,4 +1,4 @@
-<script type="ts">
+<script>
 	import * as Meyda from 'meyda';
 	import * as Tone from 'tone';
 	import { binToHz } from '$lib/utils';
@@ -14,7 +14,7 @@
 	let chart;
 
 	// Audio
-	let audioContext: AudioContext;
+	let audioContext;
 	let generator;
 	let source;
 	let enabled = false;

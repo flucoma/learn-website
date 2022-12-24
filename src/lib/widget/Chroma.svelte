@@ -1,23 +1,22 @@
-<script type="ts">
-	import type { PeaksInstance } from 'peaks.js';
+<script>
 	import { onMount } from 'svelte';
 	import { Chart, registerables } from 'chart.js';
 	import * as Meyda from 'meyda';
 	import Button from '$lib/components/Button.svelte';
 
 	// Audio
-	let player: HTMLAudioElement | null;
-	let waveform: HTMLDivElement | null;
-	let peaksInstance: PeaksInstance;
-	let features: number[] = new Array(12).fill(0.0);
-	let ctxStarted: boolean = false;
+	let player;
+	let waveform;
+	let peaksInstance;
+	let features = new Array(12).fill(0.0);
+	let ctxStarted = false;
 	// Canvas
-	let canvas: HTMLCanvasElement | null;
-	let ctx: RenderingContext;
-	let chart: Chart;
+	let canvas;
+	let ctx;
+	let chart;
 
 	// CODE CRIME 👮
-	const colours: string[] = [
+	const colours = [
 		'#8dd3c7',
 		'#ffffb3',
 		'#bebada',
@@ -33,7 +32,7 @@
 	];
 
 	// Control
-	let smoothing: number = 50;
+	let smoothing = 50;
 
 	onMount(async () => {
 		// Chart
