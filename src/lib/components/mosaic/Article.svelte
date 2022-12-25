@@ -11,7 +11,8 @@
 		<div class="img_container">
 			<div
 				class="feature_image"
-				style="background-image: url({item.feature.featuredimage ||
+				style="background-image: url({
+					item.feature.featuredimage ||
 					_.sample(item.feature.images) ||
 					'/general/learn_default.jpeg'});"
 			/>

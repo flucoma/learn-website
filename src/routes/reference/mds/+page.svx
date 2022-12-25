@@ -22,7 +22,7 @@ category: Analyse Data
 
 Multidimensional Scaling transforms a [DataSet](/reference/dataset) to a lower number of dimensions while trying to preserve the distance relationships between the data points, so that even with fewer dimensions, the differences and similarities between points can still be observed and used effectively. 
 
-First, MDS computes a distance matrix by calculating the distance between every pair of points in the dataset. It then positions all the points in the lower number of dimensions (specified by ``numDimensions``) and iteratively shifts them around until the distances between all the points in the lower number of dimensions is as close as possible to the distances in the original dimensional space.
+First, MDS computes a distance matrix by calculating the distance between every pair of points in the dataset. It then positions all the points in the lower number of dimensions (specified by `numDimensions`) and iteratively shifts them around until the distances between all the points in the lower number of dimensions is as close as possible to the distances in the original dimensional space.
 
 Unlike the other dimensionality reduction algorithms, MDS does not have a ``fit`` or ``transform`` method, nor does it have the ability to transform data points in buffers. This is essentially because the algorithm needs to do the fit & transform as one process using just the data provided in the source DataSet and therefore incorporating new data points would require a re-fitting of the model.
 

@@ -55,7 +55,7 @@ glob('src/routes/*(reference|learn|explore)/*.svx', (err, routes) => {
 	});
 
 	// Write out results
-	fs.writeFile('static/db.json', JSON.stringify(db, null, 4), 'utf8', () => {
+	fs.writeFile('src/lib/data/db.json', JSON.stringify(db, null, 4), 'utf8', () => {
 		console.log('Database file written to static/db.json');
 	});
 });

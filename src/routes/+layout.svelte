@@ -5,13 +5,8 @@
 	import { fly } from 'svelte/transition';
 	import { nav_expanded, blur } from '$lib/app';
 
-	export const prerender = true;
 
-	const scroll = e => {
-		if ($nav_expanded) {
-			e.preventDefault();
-		}
-	};
+	const scroll = e => { if ($nav_expanded) e.preventDefault() };
 </script>
 
 <svelte:head>

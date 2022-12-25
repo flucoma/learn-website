@@ -31,7 +31,7 @@ specifiers:
   prettier-plugin-svelte: ^2.8.1
   pts: ^0.10.12
   rehype-autolink-headings: ^6.1.1
-  rehype-jargon: ^2.22.2
+  rehype-jargon: ^3.0.0-alpha.2
   rehype-slug: ^5.1.0
   remark: 13.0.0
   remark-html: 13.0.1
@@ -65,7 +65,7 @@ dependencies:
   numpy-parser: 1.2.3
   peaks.js: 0.27.0_eearfw6nppciluk44mtrxlykbq
   pts: 0.10.12
-  rehype-jargon: 2.22.2
+  rehype-jargon: 3.0.0-alpha.2
   remark: 13.0.0
   seedrandom: 2.4.4
   svelte-bricks: 0.1.7
@@ -2378,9 +2378,9 @@ packages:
       unist-util-visit: 4.1.1
     dev: true
 
-  /rehype-jargon/2.22.2:
-    resolution: {integrity: sha512-+V+FP6FVBO+fFkRDnLC8gIByA+7edUJPCnewJ0DCV3N4qhxX5fEj8GQHyqf9iQVy9/Tz9hrmZw3nOya4TPAiDA==}
-    engines: {node: '>=14.0.0', npm: '>=6'}
+  /rehype-jargon/3.0.0-alpha.2:
+    resolution: {integrity: sha512-sGqq+Jr9nMXDn61c0N48ZEITowL5307t6Ny4+SVlAVVKvIk/lYXPcmu2kubDxq2JJRITH9bfQVbbZsTQiuWMHA==}
+    engines: {node: '>=16.0.0', npm: '>=8'}
     dependencies:
       hast-util-from-html: 1.0.0
       unist-util-visit: 4.1.1

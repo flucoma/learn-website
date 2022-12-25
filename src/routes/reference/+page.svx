@@ -11,6 +11,8 @@ layout: contentindex
 
 	let references = docs.filter(d => d.section === 'reference');
 
+	console.log(references)
+
 	let categorised = {
 		'Analyse Data' : [],
 		'Analyse Sound' : [],
@@ -21,14 +23,18 @@ layout: contentindex
 	};
 
 	let items = [];
-	$: items = Object.entries(categorised).map(k => {
-		return {
+	$: {
+		items = Object.entries(categorised).map(k => ({
 			"category" : k[0],
 			"refs" : k[1]
-		}
-	});
+		}));
+	}
 
-	references.forEach(r => { categorised[r.category].push(r) });
+	references.forEach(r => { 
+		console.log(categorised)
+		categorised[r.category].push(r)
+
+	});
 
 	let query = '';
 	const search = new FuzzySearch(references, ['title', 'tags', 'blurb', 'category'], {

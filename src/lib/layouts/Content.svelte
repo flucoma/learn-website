@@ -4,11 +4,9 @@
 	export let author;
 	import TOC from '$lib/components/TOC.svelte';
 	import RelatedLinks from '$lib/components/RelatedLinks.svelte';
-	import EditHistory from '$lib/components/EditHistory.svelte';
+	// import EditHistory from '$lib/components/EditHistory.svelte';
 	import AuthorTag from '$lib/components/AuthorTag.svelte';
 	import Crumbs from '$lib/components/Crumbs.svelte';
-
-	let display_author = author === undefined ? false : true;
 </script>
 
 <Crumbs />
@@ -19,7 +17,7 @@
 	<div class="main">
 		<div class="title-box">
 			<h1>{title}</h1>
-			{#if display_author}
+			{#if author}
 				<AuthorTag {author} />
 			{/if}
 			<p class="blurb">{blurb}</p>
@@ -28,7 +26,7 @@
 
 		<slot />
 
-		<EditHistory />
+		<!-- <EditHistory /> -->
 	</div>
 
 	<div class="blank" />

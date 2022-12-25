@@ -26,16 +26,12 @@ author: Jacob
 src = "/explore/abtan/profile_pic.jpeg"
 name = "Freida Abtan"
 website = "https://www.cmu.edu/cfa/music/people/Bios/abtan_freida.html"
->
-<p slot="bio">
-Freida Abtan is a Canadian audiovisual composer and multi-disciplinary artist with a keen interest in immersive media. She works between fixed and real-time computational technologies in sound and video for concert diffusion, installation, and large-scale multimedia performance situations. Her music ranges from acousmatic composition to more industrial and pop-influenced experimental performance.
-</p>
-</ArtistCard>
+/>
 
 ## The Podcast
 
 <YouTubeChapters 
-url={'UYSa73RvJQE'}
+url='UYSa73RvJQE'
 chapters={[
     {"label" : "Introduction", "start" : [0, 0]},
     {"label" : "Getting into the world of audiovisual composition", "start" : [1, 40]},

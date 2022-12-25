@@ -1,12 +1,12 @@
 import { readable, writable } from 'svelte/store';
 import FuzzySearch from 'fuzzy-search';
 
-import t from '../../static/tag.json';
-import c from '../../static/crumbs.json';
-import e from '../../static/edits.json';
-import s from '../../static/structure.json';
-import database from '../../static/db.json';
-import manual from '../../static/manual_config.json';
+import t from '$lib/data/tag.json';
+import c from '$lib/data/crumbs.json';
+import e from '$lib/data/edits.json';
+import s from '$lib/data/structure.json';
+import database from '$lib/data/db.json';
+import manual from '$lib/data/manual_config.json';
 
 // interface state
 export const nav_expanded = writable(false);
