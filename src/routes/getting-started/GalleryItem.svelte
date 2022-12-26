@@ -33,11 +33,11 @@
 	}
 
 	.gallery-item > img {
-		height: fit-content;
+		width: 100%;
 	}
 
 	.gallery-item > iframe {
-		height: 100%;
+		width: 100%;
 	}
 
 	a {
