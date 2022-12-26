@@ -26,3 +26,4 @@ package-lock.json
 .pnpm-debug.log
 scripts/__pycache__
 
+pnpm-lock.yaml
