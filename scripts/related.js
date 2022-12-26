@@ -3,7 +3,7 @@ import path from 'path';
 import fs from 'fs';
 import _ from 'lodash';
 import frontmatter from 'front-matter';
-import { urlFromRoute } from './util.js';
+import { urlFromRoute, contentGlob } from './util.js';
 import markdownLinkExtractor from 'markdown-link-extractor';
 
 let db = {};
@@ -16,8 +16,8 @@ const add = (key, reference) => {
 	}
 };
 
-glob('src/routes/*(reference|learn|explore)/*.svx', (err, routes) => {
-	routes = routes.filter(p => path.basename(p) !== 'index.svx');
+glob(contentGlob, (err, routes) => {
+	routes = routes.filter(p => path.basename(p) !== '+page.svx');
 
 	routes.forEach(route => {
 		const section = route.split('/')[2];

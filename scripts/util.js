@@ -1,9 +1,11 @@
 import path from 'path';
 
+const contentGlob = 'src/routes/+(reference|explore|learn)/*/*page.svx'
+
 const urlFromRoute = route => {
 	let parse = path.parse(route);
 	let base = parse.dir.split('/').slice(2).join('/');
-	return `/${base}/${parse.name}`;
+	return `/${base}`
 };
 
 const spill_to_array = (list_of_dicts, desired_key) => {
@@ -60,4 +62,4 @@ const get_components = (markdown_string, to_include) => {
 	return return_dict;
 };
 
-export { urlFromRoute, spill_to_array, get_components };
+export { contentGlob, urlFromRoute, spill_to_array, get_components };

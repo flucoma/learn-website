@@ -3,7 +3,6 @@ import path from 'path';
 import fs from 'fs';
 import GithubSlugger from 'github-slugger';
 import frontmatter from 'front-matter';
-import { extractGit } from './git.js';
 import { urlFromRoute } from './util.js';
 import { markdown } from 'markdown';
 
@@ -13,11 +12,9 @@ let info = {};
 let structure = {};
 let tags = {};
 let crumbs = {};
-let edits = {};
 
 glob('src/**/*.svx', (err, routes) => {
-	routes = routes.filter(p => path.basename(p) !== 'index.svx');
-	edits = extractGit(routes);
+	routes = routes.filter(p => path.basename(p) !== '+page.svx');
 
 	routes.forEach(route => {
 		let section = route.split('/')[2];
@@ -104,5 +101,4 @@ glob('src/**/*.svx', (err, routes) => {
 	fs.writeFile('src/lib/data/info.json', JSON.stringify(info, null, 4), 'utf8', () => {});
 	fs.writeFile('src/lib/data/structure.json', JSON.stringify(structure, null, 2), 'utf8', () => {});
 	fs.writeFile('src/lib/data/crumbs.json', JSON.stringify(crumbs, null, 2), 'utf8', () => {});
-	fs.writeFile('src/lib/data/edits.json', JSON.stringify(edits, null, 2), 'utf8', () => {});
 });

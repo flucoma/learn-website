@@ -1,16 +1,18 @@
 import glob from 'glob';
-import path from 'path';
 import fs from 'fs';
 import frontmatter from 'front-matter';
-import { urlFromRoute, spill_to_array, get_components } from './util.js';
+import { 
+	urlFromRoute, 
+	spill_to_array, 
+	get_components,
+	contentGlob 
+} from './util.js';
 
 let db = {
 	docs: []
 };
 
-glob('src/routes/*(reference|learn|explore)/*.svx', (err, routes) => {
-	routes = routes.filter(p => path.basename(p) !== 'index.svx');
-
+glob(contentGlob, (err, routes) => {
 	routes.forEach(route => {
 		const section = route.split('/')[2];
 
@@ -50,12 +52,11 @@ glob('src/routes/*(reference|learn|explore)/*.svx', (err, routes) => {
 		}
 
 		fm.feature = feature_info;
-
 		db.docs.push(fm);
 	});
 
 	// Write out results
 	fs.writeFile('src/lib/data/db.json', JSON.stringify(db, null, 4), 'utf8', () => {
-		console.log('Database file written to static/db.json');
+		console.log('Database file written to db.json');
 	});
 });
