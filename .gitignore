@@ -18,6 +18,7 @@ pages.json
 related.json
 structure.json
 tag.json
+metadata.json
 
 # Lock Files
 pnpm-lock.yaml
