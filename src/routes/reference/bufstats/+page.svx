@@ -56,18 +56,18 @@ label="When data is normally distributed, it follows the 68/95/99.7 rule, indica
 Skewness indicates asymmetry in the [distribution](/learn/distribution) of the data in relation to the mean. If the data is perfectly normally distributed, the distribution to the left and right sides of the mean will be mirrored, and skewness will be 0. If either side has a longer "tail" than the other, the skewness will not be zero. If the left side (lower values) have a longer tail, the skewness will be less than 0, if the right side (higher values) have a longer tail, the skewness will be greater than 0. The larger the tail, the larger the magnitude of the skewness value.
 
 <Image
-src="bufstats/skewness_diagram-01.jpg"
+src="/reference/bufstats/skewness_diagram-01.jpg"
 label="Data distributions with a larger tail to the left have a negative skewness while data distributions with a larger tail to the right have a positive skewness. (image reproduced from [Wikipedia](https://en.wikipedia.org/wiki/Skewness))"
 />
 
 ## Kurtosis
 
-Kurtosis describes the degree to which [outliers](/learn/outliers) are present in the data, sometimes described as whether the tails (extremities) are "light" or "heavy." While a normal [distribution](#distribution-and-histograms) has a kurtosis of 3, distributions with "lighter" tails (fewer and/or less extreme outliers) will be between 1 and 3, and distributions with "heavier" tails (more and/or more extreme outliers) will be greater than 3 (and can go up to infinity).  
+Kurtosis describes the degree to which [outliers](/learn/outliers) are present in the data, sometimes described as whether the tails (extremities) are "light" or "heavy." While a normal [distribution](/learn/distribution) has a kurtosis of 3, distributions with "lighter" tails (fewer and/or less extreme outliers) will be between 1 and 3, and distributions with "heavier" tails (more and/or more extreme outliers) will be greater than 3 (and can go up to infinity).  
 
 One can see in the image below that the pink rectangle-shaped distribution function has the lowest kurtosis (1.8) because it essentially doesn't have outliers: all the data falls within range of the rectangle. The second lowest kurtosis (2) is the blue distribution function which also doesn't have "tails" that spread out on either side. As the kurtosis increases (all the way to 6 for the red distribution function), notice how the tails end up being "heavier," or "thicker" and can be seen to spread out farther beyond the mean. 
 
 <Image
-src="bufstats/Standard_symmetric_distributions-01.jpg"
+src="/reference/bufstats/Standard_symmetric_distributions-01.jpg"
 label="Kurtosis values (shown in the upper right hand corner) for various symmetric distributions. (image modified from [Wikipedia](https://en.wikipedia.org/wiki/Kurtosis))"
 />
 
@@ -81,15 +81,15 @@ When the quantity of values does not make clear which point from the data should
 
 ### Low
 
-The value returned will be the data point at the [percentile](#percentiles) indicated by the `low` parameter (between 0 and 100). The default of 0 will return the the smallest value in the data. It may be useful to use this statistical description to consider particular extremities in an analysis time-series. For example considering the smallest pitch confidence value in an analysis could indicate if there are _any_ moments in the analysis that get _unpitched_ and if so, to what degree. 
+The value returned will be the data point at the percentile indicated by the `low` parameter (between 0 and 100). The default of 0 will return the the smallest value in the data. It may be useful to use this statistical description to consider particular extremities in an analysis time-series. For example considering the smallest pitch confidence value in an analysis could indicate if there are _any_ moments in the analysis that get _unpitched_ and if so, to what degree. 
 
 ### Middle
 
-The value returned will be the data point at the [percentile](#percentiles) indicated by the `middle` parameter (between 0 and 100). The default value of 50 will return the median value. The median is the middle value when all the numbers are sorted in order. This provides a measure of central tendency different from the mean. The median is not affected by extreme outliers, which can decrease how useful a mean is for understanding central tendency.
+The value returned will be the data point at the percentile indicated by the `middle` parameter (between 0 and 100). The default value of 50 will return the median value. The median is the middle value when all the numbers are sorted in order. This provides a measure of central tendency different from the mean. The median is not affected by extreme outliers, which can decrease how useful a mean is for understanding central tendency.
 
 ### High
 
-The value returned will be the data point at the [percentile](#percentiles) indicated by the `high` parameter (between 0 and 100). The default value of 100 will return the largest value in the data. It may be useful to use this statistical description for analyses in which the largest value has the most impact on a listener's perception. For example, how [loud](/reference/loudness) one perceives a drum hit to be may be better correlated with the maximum loudness instead of the mean loudness, which will be brought down by the quieter parts of the decay tail and any silence that exists in the sound slice.
+The value returned will be the data point at the percentile indicated by the `high` parameter (between 0 and 100). The default value of 100 will return the largest value in the data. It may be useful to use this statistical description for analyses in which the largest value has the most impact on a listener's perception. For example, how [loud](/reference/loudness) one perceives a drum hit to be may be better correlated with the maximum loudness instead of the mean loudness, which will be brought down by the quieter parts of the decay tail and any silence that exists in the sound slice.
 
 # Derivatives
 
@@ -100,12 +100,12 @@ Setting the parameter `numDerivs` > 0 (the maximum is 2) will return BufStats' s
 Derivatives can indicate how a time-series (of an audio descriptor for example) changes over time. Consider the two sounds below. The top one is a snare hit with its loudness analysis overlaid. The bottom is the same snare hit but reversed. The mean [Loudness](/reference/loudness) for both of these is about -33 dB, therefore it's not useful to distinguish the two. Looking at the derivative can help. In the top chart one can see that the change between adjacent loudness measures tends to be negative (go down), so the derivative will be mostly negative numbers--and therefore the derivative mean will be negative. In the bottom chart, the change tends to be positive (go up), so the derivative will be mostly positive numbers--and therefore the derivative mean will be positive. Sure enough, the mean derivative for the top chart is -0.8 dB and the mean derivative for the bottom chart is 0.9 dB. These numbers can now be useful in distinguishing these two sounds.
 
 <Image
-src="bufstats/00_loudness_derivative.jpg"
+src="/reference/bufstats/00_loudness_derivative.jpg"
 label="A single snare hit and its loudness analysis."
 />
 
 <Image
-src="bufstats/01_reversed_loudness_derivative.jpg"
+src="/reference/bufstats/01_reversed_loudness_derivative.jpg"
 label="A reversed snare hit and its loudness analysis."
 />
 

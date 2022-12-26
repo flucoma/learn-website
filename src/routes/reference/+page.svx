@@ -11,8 +11,6 @@ layout: contentindex
 
 	let references = docs.filter(d => d.section === 'reference');
 
-	console.log(references)
-
 	let categorised = {
 		'Analyse Data' : [],
 		'Analyse Sound' : [],
@@ -31,9 +29,7 @@ layout: contentindex
 	}
 
 	references.forEach(r => { 
-		console.log(categorised)
 		categorised[r.category].push(r)
-
 	});
 
 	let query = '';

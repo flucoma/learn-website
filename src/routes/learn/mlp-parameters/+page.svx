@@ -74,11 +74,11 @@ The `learnRate` is a scalar for indicating how much the neural network should ad
 
 ## `maxIter` 
 
-`maxIter` indicates how many epochs to train for when `fit` is called on the object. An epoch is consists of training on all the data points one time. For example, if `maxIter` is set to 100, when `fit` is called the neural network will use each input-output example pair 100 times before returning the "error" to report how it is performing. The reason it represents a _maximum_ number of epochs is related to the [`validation`](/#validation) (below).
+`maxIter` indicates how many epochs to train for when `fit` is called on the object. An epoch is consists of training on all the data points one time. For example, if `maxIter` is set to 100, when `fit` is called the neural network will use each input-output example pair 100 times before returning the "error" to report how it is performing. The reason it represents a _maximum_ number of epochs is related to the [`validation`](#validation) (below).
 
 ## `validation`
 
-`validation` is a percentage (represented as a decimal) of the data points to randomly select, set aside, and not use for training (this "validation set" is reselected on each `fit`ting). Instead these points will be used after each _epoch_ to check how the neural network is performing. If it is found to be no longer improving, training will stop, even if a `fit` has not reached its [`maxIter`](/#maxIter) number of epochs. This is useful if there are many data points such that each `fit` takes a long time--using a `validation` set can allow the neural network to stop training early to save you time. 
+`validation` is a percentage (represented as a decimal) of the data points to randomly select, set aside, and not use for training (this "validation set" is reselected on each `fit`ting). Instead these points will be used after each _epoch_ to check how the neural network is performing. If it is found to be no longer improving, training will stop, even if a `fit` has not reached its [`maxIter`](#maxiter) number of epochs. This is useful if there are many data points such that each `fit` takes a long time--using a `validation` set can allow the neural network to stop training early to save you time. 
 
 A `validation` set can also help prevent [overfitting](/learn/training-testing-split#overfitting). If after an epoch, the neural network finds that it is performing poorly on the validation set, this means that in its current state, it is not even able to _generalise_ to the part of the _testing set_ that was split off to make the validation set. If it's not even able to generalise to the validation set, it probably won't be able to generalise to the testing set that was split off either, which is an indication of overfitting. At this point the neural network will stop training and return the current error, in order to prevent further overfitting.
 
@@ -88,7 +88,7 @@ A validation set is similar to a [testing set](/learn/training-testing-split) be
 
 ## `batchSize` 
 
-The number of data points to use in between adjustments of the MLP's internal parameters during training. For example, if `batchSize` is set to 5, the neural network will [feedforward](/#feedforward) 5 input points and determine how wrong each of the 5 output guesses is (their error) compared to the points' desired output pairing. Then it will combine the error of these five points and use that adjust its internal parameters (using [backpropagation](https://en.wikipedia.org/wiki/Backpropagation)) so that it can hope to make better guesses the next time it sees any one of these 5 input points. 
+The number of data points to use in between adjustments of the MLP's internal parameters during training. For example, if `batchSize` is set to 5, the neural network will feedforward 5 input points and determine how wrong each of the 5 output guesses is (their error) compared to the points' desired output pairing. Then it will combine the error of these five points and use that adjust its internal parameters (using [backpropagation](https://en.wikipedia.org/wiki/Backpropagation)) so that it can hope to make better guesses the next time it sees any one of these 5 input points. 
 
 Higher values will:
 

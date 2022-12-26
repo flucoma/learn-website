@@ -31,9 +31,9 @@ Supervised learning is contrasted with unsupervised learning which tries to find
 
 ## The Training Process
 
-### Feed-forward
+### Feed-Forward
 
-The internal structure of a multi-layer perceptron (MLP) creates a "feedforward" network in which input values are received at input neurons, passed through sequential hidden layers of neurons which compute values that are passed on to the following layer, eventually arriving at output neurons which provide their values as the output of the neural network. These sequential layers are "fully connected", meaning that each neuron in one layer connects to every neuron in the following layer. These connections are _weights_ that are multiplied by the values to control how much each neuron's output influences the neurons it is connected to. The neurons (except in the input layer) also use a bias (an added offset) and an [activation function](/#activation-functions) to compute its output. The weights and biases are internal parameters that are not controlled at all by the user. 
+The internal structure of a multi-layer perceptron (MLP) creates a "feedforward" network in which input values are received at input neurons, passed through sequential hidden layers of neurons which compute values that are passed on to the following layer, eventually arriving at output neurons which provide their values as the output of the neural network. These sequential layers are "fully connected", meaning that each neuron in one layer connects to every neuron in the following layer. These connections are _weights_ that are multiplied by the values to control how much each neuron's output influences the neurons it is connected to. The neurons (except in the input layer) also use a bias (an added offset) and an activation function to compute its output. The weights and biases are internal parameters that are not controlled at all by the user. 
 
 <Image
 src="/learn/mlp/211220_01_synth_control_sc.txt.jpg"
@@ -42,7 +42,7 @@ label="A multi-layer perceptron neural network that takes two inputs, has one hi
 
 ### Audio Mixer Metaphor
 
-A useful metaphor for understanding how the feedforward algorithm works is to think of a neural network like an audio mixer. The inputs to the neural network are like the audio inputs to the mixer. The weights are like volume adjustments that control how much of an input signal gets passed on (in the case of a neural network, passed on to the next layer). The biases are like [DC offsets](https://manual.audacityteam.org/man/dc_offset.html#:~:text=DC%20offset%20is%20a%20mean,and%20how%20to%20remove%20it.) that just shift the signal up or down. [Activation functions](/#activation) are like distortion--they introduce some non-linearities into the signal (which for neural networks help them learn non-linear relationships between the inputs and outputs). Lastly, the outputs of the neural network are like the outputs of the audio mixer--a volume adjusted, DC offset, and distorted combination of all the inputs.
+A useful metaphor for understanding how the feedforward algorithm works is to think of a neural network like an audio mixer. The inputs to the neural network are like the audio inputs to the mixer. The weights are like volume adjustments that control how much of an input signal gets passed on (in the case of a neural network, passed on to the next layer). The biases are like [DC offsets](https://manual.audacityteam.org/man/dc_offset.html#:~:text=DC%20offset%20is%20a%20mean,and%20how%20to%20remove%20it.) that just shift the signal up or down. Activation functions are like distortion--they introduce some non-linearities into the signal (which for neural networks help them learn non-linear relationships between the inputs and outputs). Lastly, the outputs of the neural network are like the outputs of the audio mixer--a volume adjusted, DC offset, and distorted combination of all the inputs.
 
 ### Training
 
