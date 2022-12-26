@@ -14,7 +14,7 @@ category: Analyse Sound
     import ResourceLink from '$lib/components/ResourceLink.svelte';
 </script>
 
-BufNMFSeed can help decide how to seed a BufNMF decomposition (see [Seeding NMF](/learn/seeding-nmf) for more information). BufNMFSeed suggests what bases and activations to seed (and therefore also how many components to request) in order to account for a certain percentage of the variance in a buffer (indicated by the parameter ``coverage``). In general, using this process to seed a BufNMF decomposition should substantially increase the speed with which BufNMF converges and avoid poor decomposition results. BufNMFSeed computes the suggested seeds using [Nonnegative Double Singular Value Decomposition](/#related-resources) ("NNDSVD").
+BufNMFSeed can help decide how to seed a BufNMF decomposition (see [Seeding NMF](/learn/seeding-nmf) for more information). BufNMFSeed suggests what bases and activations to seed (and therefore also how many components to request) in order to account for a certain percentage of the variance in a buffer (indicated by the parameter ``coverage``). In general, using this process to seed a BufNMF decomposition should substantially increase the speed with which BufNMF converges and avoid poor decomposition results. BufNMFSeed computes the suggested seeds using [Nonnegative Double Singular Value Decomposition](#related-resources) ("NNDSVD").
 
 <Admonition type="pointer">
 
