@@ -9,7 +9,7 @@ category: Analyse Sound
 ---
 
 <script>
-    import Chroma from '$lib/widget/Chroma.svelte';
+    import Chroma from './Chroma.svelte';
     import ResourceLink from '$lib/components/ResourceLink.svelte';
 </script>
 

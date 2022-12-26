@@ -1,0 +1,149 @@
+---
+title: Refining Pitch Analysis
+author: James
+blurb: |
+    Using statistics to refine the analysis of pitch content.
+tags:
+    - time
+    - smoothing
+    - descriptors
+    - audio descriptors
+    - statistics
+flair: tutorial
+featuredimage: /learn/for-featured-images/2D-corpus-explorer.png
+---
+
+<script>
+    import Audio from '$lib/components/Audio.svelte';
+    import Button from '$lib/components/Button.svelte';
+    import Admonition from '$lib/components/Admonition.svelte';
+    import RawPitchGraph from './RawPitchGraph.svelte';
+    import BanditGraph from './BanditGraph.svelte';
+
+    const scratch = {
+        src: '/audio/Tremblay-ASWINE-ScratchySynth-M.mp3',
+        waveform: true,
+        label: 'Scratchy Modular Synth Sound'
+    }
+
+    const pitch1 = {
+        src: '/learn/refining-pitch-analysis/2797.mp3',
+        waveform: true,
+        label: '2797 Hz'
+    }
+
+    const pitch2 = {
+        src: '/learn/refining-pitch-analysis/raw-mean.mp3',
+        waveform: true,
+        label: 'Mean pitch value of the first 4 seconds'
+    }
+
+    const pitch3 = {
+        src: '/learn/refining-pitch-analysis/weighted-mean.mp3',
+        waveform: true,
+        label: 'Mean pitch value weighted by the pitch confidence'
+    }
+
+    const pitch4 = {
+        src: '/learn/refining-pitch-analysis/weighted-stripped-mean.mp3',
+        waveform: true,
+        label: 'Mean pitch value weighted by the pitch confidence with outliers stripped'
+    }
+
+    let banditGraph;
+</script>
+
+## Anomalous Data and Statistics
+This article is based on understanding and using statistical analysis in order to interpret descriptor data in a musical way. The problem starts off with the following premise: **analyse the dominant pitch of the pitched component of a modular synth sound**. Listen to the sound below.
+
+<Audio {...scratch} />
+
+Now, sitting at your desk try and hum what you think is the main pitch. You probably find this very easy. You probably sung something like this:
+
+<Audio {...pitch1} />
+
+What you just did was an incredibly sophisticated and complex listening and analysis process that did several key things to arrive at a value of approximately 2797 Hz:
+
+1. Ignore the scratch sound
+2. Ignore silence
+3. Only listen to moments of pitched content
+4. "Summarise" the predominant pitch from all that information
+
+Considering these complex criteria, let's compare it to a brute force analysis of the computer using [Pitch](/reference/pitch) to analyse the fundamental frequency and the pitch confidence of the first 4 seconds of this sound.
+
+<Admonition type=note>
+
+Pitch confidence is a value between 0.0 and 1.0 for each analysis frame. It is incredibly useful at evaluating whether or not a particular frame of analysis is meaningful or not.
+
+</Admonition>
+
+<RawPitchGraph />
+
+What is visually explained in this graph is that there are points in time where the confidence values are extremely low (close to 0.0), and in these moments the pitch value spikes up into the high 10 KHz range. This makes sense if we think about the timbral content of the scratch moments, which are mostly high-frequency noise content. Now, let's simply take the mean pitch value across this analysis ignoring the confidence entirely.
+
+<Audio {...pitch2} />
+
+This mean value is skewed heavily by the extreme values at both the minima and maxima making the reading not well aligned with what we hear. We can improve this though, because we have access to a bundle of information, the **confidence**, which is useful for identifying where the most _salient_ readings of pitch are.
+
+
+## Weighted Average
+Instead of performing an equally weighted average of the pitch values we can weight the values using the pitch confidence values. At its core, this will allow us to emphasise values which have a high confidence value (more likely to be meaningful) and de-emphasise those which have low confidence values and which are probably derived from the scratchy timbres.
+
+<Audio {...pitch3} />
+
+This is far better than the unweighted average that was calculated before, though it's still not exactly the right pitch and a little bit flat. There is one more stage of refinement that we can go through which is to totally ignore any remaining statistical outliers in the analysis even if they have high confidence. Essentially if we imagine that our frames of analysis are spread out as a distribution, we only want to analyse those with high pitch confidence and that are packed together within the [interquartile range](https://en.wikipedia.org/wiki/Interquartile_range). This mitigates the prevalence of any _bandit_ bits of information influencing our analysis. Ted discusses how you can do this using [BufStats](/reference/bufstats) in the [Removing Outliers](/learn/removing-outliers) article. For more general information, check out [Outliers](/learn/outliers).
+
+If we [Normalize](/reference/normalize) the pitch and confidence and plot the values this gives us a new view into the data that we are analysing to derive the predominant pitch.
+
+<BanditGraph bind:this={banditGraph} />
+
+Taking a look at this graph, we'd ideally like to focus on values whose confidence are very high, let's say a minimum of 0.8. Click the button below to view only the data where the confidence is above 0.8.
+
+<!-- <Button on:click={()=>banditGraph.setymin(0.0)} label='All Data' /> -->
+<Button on:click={()=>banditGraph.setymin(0.80)} label='High Confidence' width={'200px'} />
+
+Now though, we can see that there is a clear outlier here in the bottom left around 350Hz! There is only one, but the total dataset is only a small sample of the original data and so this individual data point might have a drastic effect on the weighting as a result. If we remove this singular value it may improve our reading a lot. This process is straightforward to achieve with [BufStats](/reference/bufstats) using the `outlierscutoff` parameter. It is described as...
+
+*A ratio of the inter quantile range (IQR) that defines a range from the median, outside of which data will be considered an outlier and not used to compute the statistical summary. For each frame, if a single value in any channel of that frame is considered an outlier (when compared to the rest of the values in its channel), the whole frame (on all channels) will not be used for statistical calculations. The default of -1 bypasses this function, keeping all frames in the statistical measurements.*
+
+If we apply this procedure to the data above and calculate the weighted mean, this is the pitch value that is derived.
+
+<Audio {...pitch4} />
+
+Which we can compare to the original sound:
+
+<Audio {...scratch} />
+
+## Concluding Remarks
+
+The way that data evolves over time is not usually representative of how we listen over time. Interrogating your data and curating it carefully is important for understanding the difference between these two things. In this case, the first step in honing the computational process was to not analyse the entire sound source and just focus on a small portion where we were sure there was mostly pitch content. This is not always possible, but you should leverage any kind of _contextual information_ as much as you can when analysing a sound. Secondly, we used weighting, rather than a raw average in order to emphasise spectral analysis frames with a high confidence value. This removes a lot of "noise" from the analysis, however, it was evident after zooming in on this data that even then there were remaining outliers. Stripping the outliers from the data before calculating the weighted average improves the results significantly.
+
+<Admonition type=pointer>
+<p>
+You can download a patch or script that shows how to realise this entire process and compare it for yourself in Max, SuperCollider and PureData.
+</p>
+<p class='downloads'>
+    <a href='/learn/refining-pitch-analysis/patch.maxpat' download='refining pitch analysis.maxpat'>Max</a>
+    <!-- <a href='/learn/refining-pitch-analysis/patch.pd' download='refining pitch analysis.pd'>PureData</a> -->
+    <a href='/learn/refining-pitch-analysis/script.scd' download='refining pitch analysis.scd'>SuperCollider</a>
+</p>
+</Admonition>
+
+<style>
+    .downloads {
+        display: flex;
+        flex-direction: column;
+        margin: 0
+    }
+</style>
+
+
+
+
+
+
+
+
+
+
+

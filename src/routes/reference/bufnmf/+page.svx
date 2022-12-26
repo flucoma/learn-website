@@ -13,7 +13,7 @@ category: Decompose
 ---
 
 <script>
-    import IndentNote from '$lib/components/IndentNote.svelte';
+    import Admonition from '$lib/components/Admonition.svelte';
     import Image from '$lib/components/Image.svelte';
     import Audio from '$lib/components/Audio.svelte';
     import ResourceLink from '$lib/components/ResourceLink.svelte';
@@ -28,11 +28,11 @@ NMF could be thought as a [vocoder](https://en.wikipedia.org/wiki/Vocoder#Artist
 <a href='/learn/bufnmf/bufnmf-overview-example.scd' download='bufnmf-overview-example.scd'>SuperCollider Example</a>
 <a href='/learn/bufnmf/bufnmf-overview-example.maxpat' download='bufnmf-overview-example.maxpat'>Max Example</a>
 
-<IndentNote type='pointer'>
+<Admonition type='pointer'>
 
 For an example of audio decomposition using NMF, see the [Decomposition with NMF](/learn/bufnmf) Overview.
 
-</IndentNote>
+</Admonition>
 
 <Image
 src="/learn/bufnmf/01_Bases_plot.png"
@@ -63,18 +63,18 @@ If either or both of these arguments are set to 1, BufNMF expects to be supplied
 
 If either of these arguments are set to 2, BufNMF will not modify the supplied corresponding elements (activations or bases), instead using them as templates to match against. BufNMF will modify the other elements which will represent their best match to the supplied spectrogram, given the fixed elements provided. Thus, you can use the second mode of each together to do resynthesis with activations and bases from disparate or synthetic sources.
 
-<IndentNote type='pointer'>
+<Admonition type='pointer'>
 
 For more information on using `basesMode` and `actMode`, see the [Seeding NMF](/learn/seeding-nmf) Overview.
 
-</IndentNote>
+</Admonition>
 
 If supplying pre-formed data (for `actMode` and `basesMode` 1 and 2), it's up to the user to make sure that the supplied buffers are the right size: bases must be **(fft size / 2) + 1** frames and **components * input channels** channels
 activations must be **(input frames / hopSize) + 1** frames and **components * input channels** channels. FFT settings can be set in the BufNMF object.
 
 <!-- ### Arguments -->
 
-### Related Resources
+## Related Resources
 
 <ResourceLink
 title='Learning the Parts of Objects by Non-Negative Matrix Factorization'

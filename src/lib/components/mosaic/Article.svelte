@@ -75,7 +75,6 @@
 		border-radius: 0.25rem;
 		border: 0.063rem solid #dcdee0;
 		max-width: 100%;
-		width: fit-content;
 		height: fit-content;
 		margin-bottom: 1em;
 		width: 100%;

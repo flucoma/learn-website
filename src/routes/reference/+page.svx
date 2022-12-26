@@ -4,12 +4,12 @@ layout: contentindex
 
 <script>
 	import { fade } from 'svelte/transition';
-	import { docs } from '$lib/app';
+	import { db } from '$lib/app';
 	import References from '$lib/components/mosaic/References.svelte';
 	import ArrowRight from '$lib/components/ArrowRight.svelte';
 	import FuzzySearch from 'fuzzy-search';	
 
-	let references = docs.filter(d => d.section === 'reference');
+	let references = db.filter(x => x.section === 'reference');
 
 	let categorised = {
 		'Analyse Data' : [],
@@ -19,27 +19,19 @@ layout: contentindex
 		'Slicing' : [],
 		'Transform' : []
 	};
+	let query = '';
 
-	let items = [];
-	$: {
-		items = Object.entries(categorised).map(k => ({
-			"category" : k[0],
-			"refs" : k[1]
-		}));
-	}
 
 	references.forEach(r => { 
 		categorised[r.category].push(r)
 	});
 
-	let query = '';
 	const search = new FuzzySearch(references, ['title', 'tags', 'blurb', 'category'], {
 		caseSensitive: false,
 		sort: true
 	})
 
-	function doSearch() {
-		// Clear categorised table
+	function doSearch() { 	
 		Object.keys(categorised).forEach(c => {
 			categorised[c] = [];
 		});
@@ -49,6 +41,8 @@ layout: contentindex
 			categorised[r.category].push(r);
 		});
 	}
+
+	$: items = Object.entries(categorised).map(k => ({ "category" : k[0], "refs" : k[1] }));
 </script>
 
 <h1 class='title'>Reference</h1>
@@ -56,8 +50,8 @@ layout: contentindex
 <form>
 	<label class="visually-hidden" for="query"></label>
 	<input 
-	bind:value={query} 
 	on:input={doSearch}
+	bind:value={query} 
 	placeholder='Enter a search term'
 	>
 </form>

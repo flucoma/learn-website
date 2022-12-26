@@ -22,15 +22,12 @@
 .raisedbox {
 	border: 0.063rem solid #dcdee0;
 	border-radius: 0.25em;
-}
-
-.raisedbox:hover {
-	box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-}
-
-.raisedbox,
-.raisedbox:hover {
+	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 	transition: box-shadow 200ms ease-in-out;
+}
+
+.raisedbox:hover {
+	box-shadow: rgba(0, 0, 0, 0.6) 0px 5px 15px;
 }
 
 .noscroll {

@@ -1,5 +1,5 @@
 ---
-title: Seeding Bases and Activations with BufNMF
+title: Seeding BufNMF with Bases and Activations
 author: Ted
 blurb: |
     Initialize non-negative matrix factorization with seeded elements.
@@ -17,18 +17,18 @@ featuredimage: /learn/for-featured-images/seeding-nmf.png
 ---
 
 <script>
-    import IndentNote from '$lib/components/IndentNote.svelte';
+    import Admonition from '$lib/components/Admonition.svelte';
     import Image from '$lib/components/Image.svelte';
     import CodeBlock from '$lib/components/CodeBlock.svelte';
     import { Tabs, TabList, TabPanel, Tab } from '$lib/components/tabs/tabs';
     import Audio from '$lib/components/Audio.svelte';
 </script>
 
-<IndentNote type="pointer">
+<Admonition type="pointer">
 
 This overview builds on information found in the [BufNMF Overview](/learn/bufnmf). Please visit that page first to learn more.
 
-</IndentNote>
+</Admonition>
 
 Non-negative matrix factorisation can be "seeded," meaning that it is given some information to begin the decomposition process from. You can provide bases and/or activations that you think will "point the algorithm" in the direction toward what you're hoping it will decompose. Without seeding, NMF activations and bases are both initialised with random values.
 
@@ -38,16 +38,16 @@ Both [NMFFilter](/reference/nmffilter) and [NMFMatch](/reference/nmfmatch) work 
 
 Providing BufNMF with bases as seed begins the decomposition process from these spectral templates. This can be useful if you know what sort of spectral templates might be in your sound buffer, or what sort of spectral templates you're hoping to find. You can use bases derived from a BufNMF analysis or bases that are constructed manually. Setting `basesMode` = 1 indicates to BufNMF to use the provided bases as seed and modify them as part of the decomposition process. Setting `basesMode` = 2 indicates to use the provided bases as seed but to not update them during the decomposition process. (`basesMode` = 0 indicates to use randomised initial values.)
 
-In the drum loop heard in the [BufNMF Overview](/learn/bufnmf), there are three drum instruments: kick drum, snare drum, and hi-hat. In that overview, BufNMF is not seeded and decomposes the audio buffer into three channels: each containing mostly sounds from just one of those instruments. Because the process is not seeded, its bases begin filled with random values and therefore the ordering of these channels are random: each time the process runs, the "kick drum component" could result in any of the channels 1, 2, or 3, as with the other components.
+In the drum loop heard in the [BufNMF Overview](/learn/bufnmf), there are three drum instruments: kick drum, snare drum, and hi-hat. In that overview, BufNMF is not seeded and decomposes the audio buffer into three channels: each containing mostly sounds from just one of those instruments. Because the process is not seeded, its bases begin filled with random values and therefore the ordering of these channels is random: each time the process runs, the "kick drum component" could result in any of the channels 1, 2, or 3, as with the other components.
 
-By providing the seeded bases below, which _very roughly_ resemble spectral templates for a kick drum (blue), snare drum (orange), and hi-hat (green), one can be reasonably confident that these components will end up in this order: kick drum component, snare drum component, hi-hat component. Basis 1 has energy only in the low frequency range, hoping that the NMF process will transform it into a basis representing the kick drum. Basis 2 has energy only in a middle register, hoping that it will become the basis representing the snare drum. Basis 3 has energy across a lot of the spectrum, mostly in the upper frequency range where the cymbals sound, hoping it will come to represent the cymbals. (Because bases are FFT spectra, the right half represents only one octave of the spectrum. The terms "middle register" and "upper frequency" are used here based on human hearing, rather than FFT bin position). Because we want BufNMF to use these bases as the starting point _and_ transform them during the decomposition process to more closely resemble the spectra in the buffer, we'll set `basesMode` = 1.
+By providing the seeded bases below, which _very roughly_ resemble spectral templates for a kick drum (blue), snare drum (orange), and hi-hat (green), one can be reasonably confident that these components will end up in this order: kick drum component, snare drum component, hi-hat component. Basis 1 has energy only in the low frequency range,  which hopefully the NMF process will transform into a basis representing the kick drum. Basis 2 has energy only in a middle register, hoping that it will become the basis representing the snare drum. Basis 3 has energy across a lot of the spectrum, mostly in the upper frequency range where the cymbals sound, hoping it will come to represent the cymbals. (Because bases are FFT spectra, the right half represents only one octave of the spectrum. The terms "middle register" and "upper frequency" are used here based on human hearing, rather than FFT bin position). Because we want BufNMF to use these bases as the starting point _and_ transform them during the decomposition process to more closely resemble the spectra in the buffer, we'll set `basesMode` = 1.
 
 <Image
 src="/learn/seeding-nmf/00_seeded_bases.jpg"
 label="The three bases seeded to BufNMF for decomposing the drum loop that very roughly resemble the spectral templates we're hoping to find: kick drum (blue), snare drum (orange), and hi-hat (green)."
 />
 
-These bases have been created manually by calclutating each positon in the basis to have either a 0, 1, or some number in between. Download the code below to see how these values were created.
+These bases have been created manually by calculating each position in the basis to have either a 0, 1, or some number in between. Download the code below to see how these values were created.
 
 ### Example Code to create these bases
 
@@ -57,13 +57,11 @@ These bases have been created manually by calclutating each positon in the basis
         <Tab>SuperCollider</Tab>
     </TabList>
     <TabPanel>
-
     <a href='/reference/nmffilter/nmffilter-example.maxpat' download='nmffilter-example.maxpat'>Max example code for the sounds heard below</a>
-
     </TabPanel>
     <TabPanel>
     
-<CodeBlock>
+<CodeBlock title='Manually calculated bases in SuperCollider'>
 
 ```
 ~bases = Buffer.loadCollection(s,513.collect{
@@ -108,7 +106,7 @@ label="The bases after BufNMF completed its processing. They still resemble the 
 
 ## Seeding with Bases from a BufNMF Analysis
 
-Rather than using the "hand-made" bases as above, one could also uses bases derived from a BufNMF analysis. For example if we want to decompose a piano melody and we know generally what octave and key it will have, we could use BufNMF to create bases for the 8 different notes in that scale. Here is a major scale staring on middle C created using sawtooth waves.
+Rather than using the "hand-made" bases as above, one could also use bases derived from a BufNMF analysis. For example if we want to decompose a piano melody and we have some idea of its octave and key, we could use BufNMF to create bases for the 8 different notes in that scale. Here is a major scale, staring on middle C, created using sawtooth waves.
 
 <Audio
 src="/learn/seeding-nmf/00_saw_scale.mp3"
@@ -127,9 +125,9 @@ src="/learn/seeding-nmf/02_saw_scale_bases.jpg"
 label="Bases from BufNMF analysis of C major scale created with sawtooth waves."
 />
 
-One can see how the activations clearly delineate the different notes in time and the harmonic structure of the sawtooth waves are represented in the bases. It's interesting to notice how the activation for the C at the top of the scale (the purple activation) indicates some presence of the C at the bottom of the scale (the activation for which is green). This is because the harmonic structures of these two notes (one octave apart) are similar enough to make decomposing them difficult for BufNMF.
+One can see how the activations clearly delineate the different notes in time and that the harmonic structure of the sawtooth waves is represented in the bases. It's interesting to notice how the activation for the C at the top of the scale (the purple activation) indicates some presence of the C at the bottom of the scale (which corresponds to the green activation). This is because the harmonic structures of these two notes (one octave apart) are similar enough to make decomposing them difficult for BufNMF.
 
-Using these bases as a seed to decompose the following melody gives BufNMF a strict idea of what to be looking for in the source buffer. For this example we'll set `basesMode` = 2 so that BufNMF uses the provided bases as seed, but won't alter them in the process of decomposition. This is because we want to find how present and where these notes are in the melody, rather than having BufNMF take these bases as a starting point and transforming them to be more like the spectral content in the melody.
+Using these bases as a seed to decompose the following melody gives BufNMF a strict idea of what to look for in the source buffer. For this example we'll set `basesMode` = 2 so that BufNMF uses the provided bases as seed, but won't alter them in the process of decomposition. This is because we want to find how present and where these notes are in the melody, rather than have BufNMF take these bases as a starting point and transform them to be more like the spectral content in the melody.
 
 <Audio
 src="/learn/seeding-nmf/somewhere-over-the-rainbow.mp3"
@@ -159,7 +157,7 @@ src="/learn/seeding-nmf/00_activation_seeds.jpg"
 label="Activations used to seed BufNMF analysis."
 />
 
-Similar to `basesMode`, `actMode` = 1 indicates for BufNMF to use the provided activations as seed and update them during the decomposition process. `actMode` = 2 indicates to use the provided activations as seed but not modify them during the decomposition process. For this example We'll use `actMode` = 1 because we want BufNMF to alter our seeded activations slightly to more accurately adjust to where the notes occur in time. The resulting activations can be seen below (and below that the bases). We can now be confident that when we use these bases to seed an analysis (such as of the piano melody above) we can be confident which order the bases (and therefore the notes that they represent) are in. Also, notice that BufNMF has more clearly separated the two C notes (an octave apart) because the seeded activations suggested that that they are two different components.
+Similar to `basesMode`, `actMode` = 1 indicates for BufNMF to use the provided activations as seed and update them during the decomposition process. `actMode` = 2 indicates to use the provided activations as seed but not modify them during the decomposition process. For this example We'll use `actMode` = 1 because we want BufNMF to alter our seeded activations slightly to more accurately adjust to where the notes occur in time. The resulting activations can be seen below (and below that the bases). We can now be confident that when we use these bases to seed an analysis (such as of the piano melody above) we can be confident which order the bases (and therefore the notes that they represent) are in. Also, notice that BufNMF has more clearly separated the two C notes (an octave apart) because the seeded activations suggested that they are two different components.
 
 <Image
 src="/learn/seeding-nmf/01_saw_scale_activations_(after_seeding).jpg"

@@ -1,0 +1,300 @@
+---
+title: Fleeting Networks
+artist: Pierre Alexandre Tremblay
+blurb: |
+    In this article we take a look at some of the processes behind Pierre Alexandre Tremblay’s piece Newsfeed and explore some of the principles behind his creative practice and the FluCoMa project. 
+tags: 
+    - regression
+    - synthesis
+    - modular synth
+    - networks
+    - fixed media
+    - meta
+flair: article
+featuredimage: /explore/tremblay/featured.png
+author: Jacob
+---
+
+<script>
+    import Image from '$lib/components/Image.svelte';
+    import YouTube from '$lib/components/YouTube.svelte';
+    import ArtistCard from '$lib/components/explore/ArtistCard.svelte';
+    import Admonition from '$lib/components/Admonition.svelte';
+    import ExploreDownload from '$lib/components/ExploreDownload.svelte';
+    import BandCamp from '$lib/components/BandCamp.svelte';
+    import BandCampTrack from '$lib/components/BandCampTrack.svelte';
+    import BigQuote from '$lib/components/BigQuote.svelte';
+    import Audio from '$lib/components/Audio.svelte';
+</script>
+
+<ArtistCard
+src="/explore/tremblay/profile_img.jpg"
+name="Pierre Alexandre Tremblay"
+website="https://www.pierrealexandretremblay.com/"
+/>
+
+## Introduction
+
+<ExploreDownload
+url={'/explore/tremblay/Pierre Alexandre Tremblay Examples.zip'}
+/>
+
+Today we’ll be looking at a piece of music composed by the initiating force behind FluCoMa: the project’s principal investigator Pierre Alexandre Tremblay. Many people will know Tremblay from the [FluCoMa Discourse forum](https://discourse.flucoma.org/), the various workshops he has organised across the world, the various conference presentations he has given about FluCoMa – but today we shall be examining his creative practice, and how he uses the tools in his studio-based compositional workflow. Naturally, when examining Tremblay’s creative work, we shall get an idea about some of the motivations that led to the project’s inception, and in turn understand more about the nature of the tools themselves. We shall be taking a look at Tremblay’s piece *Newsfeed*, which appears on his album *Quatre poèmes*, and was composed from 2018 to 2020. As with all the [“Explore”](/explore) articles, there is a series of demonstration patches and scripts that can be <a href='https://f003.backblazeb2.com/file/learnassets/explore/tremblay/Pierre+Alexandre+Tremblay+Examples.zip' download='Pierre Alexandre Tremblay Examples.zip'>downloaded</a> and interacted with if you wish to explore the inner workings of the software.
+
+After an initial impact of dense information, giving us the headlines of what is to come, we dive into a perpetual stream of data sonification. The piece presents us a series of articles, all of them stitched together with the same cold precision of spaces between posts in an infinite feed – coloured panes that artificially fill a black, silent void. These articles are all different, yet they seem to uncannily share certain properties. Perhaps it is the dense, aggressive nature of the synthetic pulses that drive them all; perhaps the deformed fragments of acoustic sound that are struck and concussed by these boisterous attacks; perhaps it is the strident cries of infantile anguish that persist throughout the piece, just below the surface as an indication that what we’re being presented is trying to cover something up.
+
+<BandCampTrack 
+id='3620383611'
+track='4235472827'
+/>
+
+From beginning to end the piece is dripping with grains. There are momentary instances of respite – brief snippets of time filled only by quiet memory. These, however, are quicky usurped by Tremblay’s characteristic glitching synthetic drives which are found across the *four poems*: rolling and bumpy sines and phases from which sounds snatched from your own life emerge and dissipate in a violent upward draft. The silences are no better – each marked point is heavily pregnant, delirious, and inherently fleeting. Form seems to melt like plasticine: after a dense first half, we believe we may have finally found another space – events breath freely and our heads are allowed to rotate; but this soon crumbles into a long, progressive rise which culminates and splutters in falling, its legs lame. Until the end Tremblay lets us believe that we may have escaped above the clouds, but in a wicked underhand, it all starts again, and we understand that we’re condemned to voyage forever along this infinite scroll.
+
+It is a remarkable piece of *post-acousmatic music* (read Tremblay's thoughts on this term [here](https://eprints.hud.ac.uk/id/eprint/27917/) with [Monty Adkins](https://monty-adkins.com/) and [Richard Scott](http://richard-scott.net/about/)). As is written in the program notes, “*this piece is made of saturations*” – this is true in many senses. Notably, there is a quantity and frequency of information that can leave the listener quite out of breath: things are rarely the same, and the form appears more *narrative* than traditionally *musical*. We shall take a systematic approach in order to try and gain a better understanding of this piece and how it came into being. First, we shall take a global look at Tremblay’s practice, and discuss some of the broad things he was trying to achieve with the piece. Then, we shall take three examples of workflows from the piece’s composition, and interrogate them with critical notions from the world of FluCoMa and corpus-driven composition: the ontology of the corpus; where these workflows are deploying themselves; who is making them; and what is their nature.
+
+## Garage Code
+
+Tremblay has three musical practices: studio composition for fixed media (the case of *Newsfeed* - as a preambule, you can read [this paper](http://www.ems-network.org/IMG/pdf_EMS12_tremblay.pdf) where Tremblay already talks about this kind of practice in 2012); [chamber mixed music](https://www.youtube.com/watch?v=1G_CLlUxEF8); and [improvised performance](https://electrocd.com/en/album/4685/splice/lab) with an instrument (generally an augmented electric bass guitar with a laptop to process himself and others - read [this paper](https://eprints.hud.ac.uk/id/eprint/7421/) where Tremblay describes how this practice planted some fo the seeds for the FluCoMa project). Each practice involves coding in some way, however the code will intervene at different times, and in very different ways: in his improvised music, the code must “*resist the pressures of live performance*”, be very robust and reliable; in chamber music where the software is interacting in real time with a performer, the software must be able to be used by others on the road without Tremblay’s intervention (read about Tremblay’s thoughts on this in [this paper](https://eprints.hud.ac.uk/id/eprint/33478/), or watch his initial [FluCoMa artist presentation](https://www.youtube.com/watch?v=QhjeoCwqed0) where he discusses his approach to this); finally, in the case of studio composition, the code and software tools that he develops and uses will have yet another nature. Here, code is allowed to be brittle, it is allowed to be unfinished, it is allowed to break down and yield unexpected and unreliable results – this is indeed an opportunity for this to occur, and one that Tremblay intentionally chooses to seize.
+
+<YouTube 
+url={'j2epE0rCIF0'}
+/>
+
+He calls this *garage code* and describes the studio as a place where he can “*lose days or even weeks following an intuition* […] *and disposing of the code at the end because it didn’t make sense, or it led to nothing*”. We see that, unlike code destined for performance, garage code has a much shorter life expectancy. It is code that is prototypic in nature that: “*gives you the exact answer to your question, but that doesn’t mean you’ve asked the right question.*” This relationship with code is not something that necessarily comes easily – coding is an involved, technical, and specialised activity. It has been discussed many times in the [FluCoMa podcast](/explore/abtan) how easy it can be to get lost in the development of a tool, and sometimes it can take a concentrated effort to move away from that.
+
+<YouTube 
+url={'bFIhYpO2Uxg'}
+/>
+
+Tremblay adds to this discussion by recounting his experience as a young composer: he would “*spend hours and hours perfecting an algorithm that would create gestural acousmatic music – and it made no sense!*” With help from his professor at the time, composer [Marcelle Deschênes](https://fr.wikipedia.org/wiki/Marcelle_Desch%C3%AAnes), he realised that he would put months of work into an algorithm to create music that he could have made manually in a week – and thus he began to distrust, or at least *be wary* of code. He illustrated this further by recalling a discussion with [Hans Tutschku](https://tutschku.com/): “*we often have an artistic hypothesis, and a technological hypothesis. We implement, and the feedback usually occurs between the technological hypothesis and its implementation without going back to the musical ideas.* […] *We need to include musical thought and its formalisation in this cycle!*”. This is at the basis of Tremblay’s approach to coding; his relationship with code and other tools in the studio simultaneously has consequences on the nature of his compositional practice, and the nature of the tools themselves.
+
+This has given way to a somewhat opposing perspective, one that Tremblay assimilates to the role of the *producer* (a role he has occupied professionally in the past) and their *attitude of judgment*: machines will be considered as *generators of material*, and he will adopt an attitude of judgment, one where he will be much more available to critical musical though, as he was “*much less involved in the decisional process of the details*”. As we shall observe, Tremblay creates material through the configuration of small and eclectic networks which are multiple and designed to live only once, which inflect immediate feedback on the musical idea that sparked their conception. This is what characterises Tremblay creative coding in the context of studio composition: as he describes in his* Traces of Fluid Manipulation* presentation, many moving parts that allow him to challenge his assumptions and how he thinks his sonic ideas in a heuristic dialogue with himself.
+
+### Newsfeed and Form
+
+There does seem to be somewhat of a clear break in Tremblay’s conception between the *generation of material* through these fluid, short-lived networks, and the *arrangement* of these elements into a piece. Similar to ideas discussed with [Moore](https://www.tedmooremusic.com/) in [this Explore article](/explore/moore), there are some activities in his musical practice that Tremblay is not interested in automating; however, there are similar approaches in his relationship with code and technology, and his approach to what we can broadly call form. Continuing on from his relationship with tools and a global attitude of judgment and listening, Tremblay proposes the figure of the *editor*, borrowing from the world of cinema.
+
+He explained that he has always been fascinated by form and the questions around concepts like memory that come with it. He remarked how when composing for fixed media, “*time evaporates from the compositional process, but not from listening*”. This can have the consequence of acousmatic music somewhat loosing perspective on the temporal entity that music is. At the same time, he has noticed in his own work how he tended towards quite simple forms of tension and resolution, climax and descent. To address these issues, he looked to cinema, which he described as “*great at creating dynamic forms, parallel forms, forms with non-linear evolutions and co-evolutions* […] *I’m interested in working material to make forms that stand up sonically and musically, but also go beyond short-term memory, or things like theme and variation*”.
+
+Like the editor of a film, this demands a dynamic perspective on time – a capacity to consider a piece of art at both macroscopic and microscopic levels. It also demands a certain dissociation from the material – a capacity to stand back, and regard the material for what it is, to be aware of qualities that may be hidden to the entity making them, to understand what it can contribute to a narrative and how it deploys itself within a complex temporal process. This is something that Tremblay wished to examine with the pieces on *Quatre Poèmes* and is something that can be at odds with ideas of orchestration and articulation. Density of ideas which can be so characteristic of acousmatic music is something that can stifle more complex, developed sound objects.
+
+<BandCamp
+id='3620383611'
+/>
+
+This is something that Tremblay wished to move away from in *Quatre Poèmes* – he admitted having a tendency in his practice for over-articulation. He explained how, with each piece, he was trying to move further from this. He describes the form of *Bucolic & Broken* as being ABA and song-like, and not being able to resist the temptations of articulation; he judged the piece *Tentatives d’immobilité*, literally translated as *attempts at stillness*, as also falling short of his self-prescribed goals. With *Newsfeed*, he tried to “*get into the mindset of doing acousmatic trance*”. He describes it as “*constant saturation, it is dense from beginning to end. When it isn’t dense, it is hyper-purified and has a certain density in its surprising silence. There’s no middle-ground*”. He explained that the piece is a lot longer than he would have initially wanted, he finds it difficult to listen to because it is “*much slower than my usual pace*” and that in a concert, it is hit and miss. He quipped that he still couldn’t resist bringing back material at the end in a conclusive form (“*perhaps I just like stories too much…*”); but this is the conceptual place that Tremblay was approaching the piece from in terms of form.
+
+## Fleeting Networks
+
+Having briefly explored how they fit into the larger compositional picture, let us come back to the *fleeting networks* that Tremblay develops for creating his material and suggest some more refined ideas about their nature. These networks – and the way of thinking that leads to their conception – are characteristic not only of Tremblay’s approach to creating material, but to his musicking in general, and also to activities like his management of the FluCoMa project. Indeed, by taking a look at these local networks, we shall also gain a better understanding of how the FluCoMa project has worked over the past five years, and the concepts behind some of its core ideals.
+
+### What is a corpus?
+
+As we shall discover, these fleeting networks are built around precise things, in order to answer precise questions. This is a first element that will notably differentiate the creative coding that occurs here to the kind of coding that occurs, for example, when developing an instrument for performance and touring that must be particularly robust, or a patch to be used by other people to execute a piece of chambre music, which will tend to be comparatively *agnostic* (in regard to the nature of the corpus) in nature. These precise things will more often than not be what we have come to call *corpora*. These are naturally at the very heart of the *Fluid Corpus Manipulation* project, but what does this term actually mean?
+
+<YouTube 
+url={'gCRp8BVYknU'}
+/>
+
+As you can imagine, Tremblay has many ideas around this question. To help us explore this concept, we shall take three examples from the development of *Newsfeed* that he showed for his *Traces of Fluid Manipulations* presentation. The first, and what could be considered a somewhat more basic idea of the notion of corpus, is that of a group of male voices reading a text. We hear these in the piece most notably at 19:05, although there are other moments where they intervene in a less direct manner. The corpus is a set of recordings of male voice, some are real people (most of whom are not native English speakers), some are text-to-speech algorithms from around the internet. They are all reading a text written by Tremblay:
+
+<BigQuote 
+txt="Please hear me, visit my newsfeed.<br>
+For more information, listen to an echo-chamber.<br>
+We are a crumbling empire of smug, privileged, White male descent.<br>
+Western cultural hegemony converges, killing diversity."
+/>
+
+We have included some examples of these recordings with the examples in the `Audio/Male Voices` folder. This is a corpus as a collection of recorded sounds, Tremblay described it as “*a fixed discourse* [with] *poetic metaphors.* […] *male voices of non-native speakers, and computers are all saying the same thing. I wanted to get different timbral colours all saying the same thing – that was my metaphor, that was the way I managed the corpus*”. Indeed, Tremblay frames the question of corpus straight away with the question of what we will *do* with it – a corpus becomes a corpus through *manipulation*. This means that a corpus is an *inherently [grammatised](https://www.sciencedirect.com/science/article/abs/pii/S8755461515000560) object*, or at least *inherently destined to be grammatised* (see below).
+
+<Audio 
+src="/explore/tremblay/Male Voices.mp3"
+label="A human reader (Alex Harker) and a text-to-speech reader."
+/>
+
+Another immediate nature of this corpus is the balance between elements that are the same between entities, and those that are not. Tremblay went on to explain that “*I find myself with sounds that have semantic connections on some levels, and semantic conflicts on others.* […] *this is the richness of a corpus*”. Indeed, *corpus*, of Latin etymology, and indeed Tremblay’s native spoken French, *corps*-us (body): for a corpus to exist, it would appear that there must be some element that brings elements together, that gives them coherence, that binds them; however, in order for there to be movement, there must also be difference. Tremblay offers the idea of “*thinking of sound according to a temporary taxonomy*”.
+
+<Audio 
+src="/explore/tremblay/Chaos Synth.mp3"
+label="Chaos synth demo."
+/>
+
+As a second example, we shall take a corpus that seems less concrete and tangible. We shall examine a process where Tremblay shall try and drive the parameters of a chaotic synthesizer with an [MLP regressor](/reference/mlpregressor) with an [MFCC analysis](/reference/mfcc) of incoming audio. Similar to techniques explored in [Moore’s work](/explore/moore), this regressor was trained with a dataset of sounds from the synthesizer itself and their MFCC analysis and corresponding parameters. This means that the regressor will essentially try and push the synthesizer to try and emulate the sounds that are driving it (we shall take a deeper look at this process with some examples in the next section).
+
+Here, the corpus has two parts: a source sound which may or may not be heard in the musicking – this is the sample of a baby crying (hear below) that we hear on several occasions during the piece; and a collection of synthesizer sounds that emerge from specific settings on the chaotic synthesizer. One striking aspect is that for this second part, there is no actual recorded audio at all – as we shall see, Tremblay discards the recording of the sound as soon as he has derived his MFCC analysis from it. Here, the sound is more hypothetical, represented by a set of parametric settings and an accompanying set of descriptors – a corpus of states and presets.
+
+<Audio 
+src="/explore/tremblay/baby.mp3"
+label="Source sound for emulation."
+/>
+
+Tremblay will look find meeting points between the two parts of this corpus. We can think of the first example as a movement from *correspondence* (the text) to *difference and variation* (the different timbral colours of the male voices). Here, we can think of the corpus along the same terms – seeking to find *variation* in the baby crying; but also in the opposite way, with a corpus of *difference* (on one side the chaotic synthesizer, on the other a baby crying), and looking to find *correspondence*. Tremblay will skirt along these vectors with great agility during his creative coding.
+
+Finally, to show the scope and driving power behind this compositional notion, we can take another example of a corpus which is even more abstract. Tremblay also describes the corpus as a “*situated question*”, and as we discussed above, one question that drove the composition of *Newsfeed* was the idea of acousmatic trance. Tremblay explained that he “*had an archetype of a beat, and each of its streams (kick, snare, hi hat etc.) has an equivalent that I replaced it with*”. Here, the corpus is a way of grammatising, of taxonomizing musical phenomena. The flux of “*the sonorous universe suddenly becomes seen through a lens. For me, that’s a corpus.*” He described working in this corpus-driven way as being a question of configuring this lens: “*how can I focus it to answer the question that generated it? Sometimes it can be really specific (the chaotic synthesizer), sometimes it can be conceptually specific, creating an instrument like the male voices, and sometimes it’s more abstract*”. 
+
+### Environments: Assemblage and Restructuring
+
+We have seen that the driving vector behind the conception of a corpus is what we have done or intend to do with it. This is the essence of the fleeting networks in question, and it also refers to a tangible, physical process that must deploy itself in the physical world. This means that it is extremely important to consider the nature of the environment within which the corpus exists. These environments, these networks are *assembled*: some of the elements are created, like many of the scripts and patches we shall see; but they also deploy themselves within other environments like Creative Coding Environments (CCEs) or Digital Audio Workstations (DAWs). We can argue also that the code that is created is always, at least in part, an assemblage of other elements – be it fragments of code from other projects or building upon ideas from other places (FluCoMa itself can be seen as assembling, building upon the larger, pre-existing field of Music Information Retrieval, itself building on machine listening etc.). Indeed, Tremblay makes the case for CCEs like Max, SuperCollider and Pure Data as specifically being great places for quick assemblage, and easily being able to draw in strands from other projects.
+
+Broadly, we can consider two principal environments: the CCE (which here we shall subdivide into Max and SuperCollider) and the DAW (in this case, [Reaper](https://www.reaper.fm/)) – although in reality we would add multiple other environments like the studio itself, the modular synthesizer, the bass guitar, the places where Tremblay will make field recordings etc. Each environment will have different affordances and allow Tremblay to work on different aspects of musicking, in different ways. He explains that “*for me, the DAW is thought in time. It’s where I work time. I rarely generate material in the DAW.* […] *It is time and layers*”. On the other hand, “*Max and SuperCollider are toolboxes, like the bass, and modular synth – they’re instruments in a very large sense. They are spaces for exploration*”. We return to the previously discussed conception of material versus arrangement, material versus form, and discover that each aspect will have its corresponding environment(s).
+
+These differences are reflected in the visual design of these environments: we see the vectors of time and layers in the DAW with the multitrack timeline; we see the concept of a toolbox, of a space for exploration in the blank, freely moving Max patcher or something like the modular synth. Tremblay also explains that SuperCollider “*is great for managing programmatic processes and quantity: if it works for 10 iterations, it’ll work for 10000 iterations*”. Tremblay incorporates these environments and their various affordances into his workflow, and he will bend them to fit his needs through scripting. He will restructure these environments – let’s take a look at this in action with our examples.
+
+#### Male Voices Workflow
+
+<Image
+src="/explore/tremblay/windowed_cluster_example.png"
+label="Overview of the 01 Windowed Clustered Segmentation example script."
+/>
+
+Let’s begin with the male voice example. As we’ve discussed, the trajectory that Tremblay wished to follow was departing from a common text and finding variation in the shades of different vocal timbres. Concretely, he is looking to turn this corpus of voice recordings into a playable instrument. The first task that this entails is slicing, and this is implemented in the example script *01 Clustered Window Segmentation*. Here, we see a technique similar to that deployed by [Bradbury](https://jamesbradbury.net/) when looking to create a content-agnostic slicer for sorting his collected field recordings (read the Explore article [here](/explore/bradbury)). The idea is to over segment the audio using any of the FluCoMa slicing objects (here Tremblay uses [novelty slice](/reference/noveltyslice)), to describe all of these slices using a descriptor such as [MFCCs](/reference/mfcc), and to then run an iterative window across these slices, grouping together consecutive slices that are grouped together in a cluster using [k-means](/reference/kmeans). This yields a more refined and agnostic slicing that just running a normal slicer. This can be viewed in the results which are visualised in Reaper (see below).
+
+<Image
+src="/explore/tremblay/novelty_slice_versus_clustered.png"
+label="Results of the windowed clustered sigementation (versus original novelty slice)."
+/>
+
+The two environments here are SuperCollider and Reaper. As discussed above, Tremblay finds SuperCollider particularly good for programmatic processes and quantity. This is a process that not only has batch processing – taking a folder of sounds, slicing and analysing them all in the same way – but also requires a recursive function for clustering the sounds. We see, however, that as soon as Tremblay has obtained his results, he exports them straight to Reaper where he can gain immediate visual and sonic feedback. Indeed, it is useful for Tremblay to see the differences between the initial over-segmentation and the clustered results (he exports both to two tracks).
+
+<Image
+src="/explore/tremblay/reaper_to_dict.png"
+label="The 02 Reaper to Dict Python script."
+/>
+
+He will not, however, stay in Reaper for long. As proposed above, Reaper is a place where Tremblay will work *time*, however in this instance he is looking to build up an instrument from the voices. He uses another of Reaper’s affordances, which is quickly being able to make subselections of different slices, and uses a Python script (see example script *02 Reaper to Dict*) to export the currently selected media items in Reaper as a dictionary. Python as an environment is useful for clarity in scripting, and most notably how easy it is to bring in a whole host of third party libraries. Chances are that if you need any specific task or framework, somebody has implemented it in Python. Here in a couple of lines Tremblay can use [Reaper’s Python API](https://www.reaper.fm/sdk/reascript/reascripthelp.html) (everything beginning with RPR_) to gather the selected media items, and export them, along with file names, start times and lengths to a [JSON](https://www.json.org/json-en.html) dictionary. 
+
+<Image
+src="/explore/tremblay/reaper_max.png"
+label="The 02b From Reaper Loader and 02c Dict to Reaper Max example scripts."
+/>
+
+JSON is another environment which is useful for two aspects: it’s human readability, and its multi-environment support. Indeed, JSON is somewhat of a standard that many different programs use to save data, and it is often used to bridge between different environments. To demonstrate the flexibility of the JSON format, we can see that not only will it be used in the next example patch in SuperCollider to access the selected media items, but it can also be used in Max (see the example patch *02b From Reaper Loader*) and we can also make a new JSON file in Max, which can be loaded back into Reaper (see example patch *02c Dict to Reaper*). JSON is a great format to use, indeed, many of the FluCoMa tools such as the MLP regressors and classifiers, or datasets use it to save and load their internal states. 
+
+<Image
+src="/explore/tremblay/reaper_scrubber_1.png"
+label="An overview of the 03 Reaper Player Scrubber example script."
+/>
+
+As you can see in example patch *03 Reaper Player Scrubber*, the selected slices can be loaded back into SuperCollider. Tremblay developed several players which allow him to control the playback of this corpus according to several configurations. The first is a simple scrubber which allows him to move through all of the slices which playback in a looped fashion – he can also control the range of the slider so that he can create more detailed gestures in subsections of the corpus. An interesting aspect of this scrubber is that it send gesture data over MIDI and OSC. This can be used to record MIDI data in Reaper for example, and then be played-back with the scrubber in *receive* mode.
+
+<Image
+src="/explore/tremblay/scrubber_recording.png"
+label="Recording the scrubber player as MIDI in Reaper."
+/>
+
+This proposes two notable possibilities: first, it is possible to have a detailed and granular control over the gesture that is being recorded – it is not audio but the *gestural control data* that is being recorded, therefore it is possible to edit and rearrange the gesture data itself rather than chopping up audio: Tremblay describes the nature of this as usefully “*non-commital*”. Second, Tremblay can use his SuperCollider-driven instrument directly in-situ, in Reaper, where the rest of the composition is happening. This allows him to synchronise and play out the gestures he wants with immediate feedback in regard to the rest of the piece. This is a powerful notion, one that is also explore by [Bradbury](https://jamesbradbury.net/) in his [work](/explore/bradbury), who seeks to create starting environments for a piece that are generated directly in the environment within which time shall be manipulated. Once again, we see the idea of bridging between CCE and DAW, between material generation and time sculpting. Tremblay restructures his environments so that they may reach out to each other and superimpose themselves upon one another.
+
+<Image
+src="/explore/tremblay/nearest_neighbour_player.png"
+label="Nearest neighbour player routine."
+/>
+
+Another player is one that uses a [kd-tree](/reference/kdtree) to perform a nearest neighbour search on the corpus of voices (see part 4 of the example script). Tremblay not only searches for the slice’s nearest neighbour (which is itself), but also the second nearest neighbour, and plays them back simultaneously, causing a slightly distorted, almost incomprehensible stream of speech comprised of slices of general timbral zones: he describes it as an “*interesting tightness*”.
+
+Tremblay implemented a system where gestures created with the scrubber and recorded in Reaper can be dynamically loaded back into SuperCollider, and can programmatically and procedurally create new Reaper projects, replacing the gestures with the audio slices and performing other processes like the nearest neighbour search. Tremblay creates his tool in such a way that there can be an almost endless to-and-fro between different environments, each output is inherently fluid in nature regarding the environment it can live in. This is true of the outputs, thanks to formats such as JSON, and also the programmatic ideas and scripts themselves, thanks to the way in which the FluCoMa tools have been developed – Tremblay is able to fluidly migrate between different environments with an adaptive and modular set of key tools, which allows him to take advantage of the inherent strengths of each environment.
+
+#### Synth Control Workflow
+
+Let’s take a look at another example of a workflow: controlling a synthesizer with machine learning, driven by some kind of audio descriptor-based analysis. We shall examine two examples of this, one implemented in SuperCollider, the other in Max, and try to assess the differences between the two. We shall begin with the SuperCollider implementation. If you have been using the FluCoMa tools for a while, you may be familiar with the *chaotic synth* that can be found in the help files. This synth is used for the MLP regression example for controlling a synth (see example script *04 MLP Synth Control*), an example that has become quite a typical use of the FluCoMa toolkit. Indeed, it is one of the main entry points to the project and is a good way of discovering how many of the objects work. Check out the [in-depth tutorial](/learn/regression-neural-network) for a full explanation of his approach. 
+
+<Image
+src="/explore/tremblay/mlp_synth_control.png"
+label="Overview of the 04 MLP Synth Control example script."
+/>
+
+The slight inflection here is that, as explained above, Tremblay is not looking to control the synth with a low-dimensional control space, but with descriptor analysis of an incoming audio signal, in such a way that the parameters will try and emulate the sound that is coming in. We can take a deeper look at how this is achieved with the example script *05 MLP Synth Control Training*. First Tremblay defines the synth – this is the same as in the examples, except that it now also writes its output to a circular buffer that can be queried and analysed whenever we send in a trigger.
+
+<Image
+src="/explore/tremblay/mlp_synth_training.png"
+label="Overview of the 05 MLP Synth Control Training example script."
+/>
+
+Next, we build up several datasets which will all have corresponding datapoints: one for the state of the parametric control space, and others for each descriptor analysis. We can randomly change the parameters, hearing the synth, and when we find a sound we like, we can trigger analysis: this adds the current state of the synth to the control space dataset, and a number of different analyses to the others of what is currently in the circular buffer: [MFCC](/reference/mfcc), [loudness](/reference/loudness), [pitch](/reference/pitch), [spectral shape](/reference/spectralshape). We can do this manually or set a routine running which will add any number of random datapoints.
+
+After some pre-processing of the data, Tremblay trains the MLP. Once the MLP is trained, we can now control the synth with MFCC analysis of a new audio input, which is analysed every time a slice is detected using the FluCoMa novelty slice. Tremblay experimented with a few different approaches and different combinations of descriptors (it would seem that he settled of MFCCs as a good general description of timbre to control the synth), and different pre-processings (deciding which stats to keep, to [standardize](/reference/standardize) the data or not, using dimensionality reduction with [PCA](/reference/pca) etc.).
+
+<YouTube 
+url={'BYUe6jlNIKY'}
+/>
+
+He also experimented with different sized datasets: as one could intuitively expect, he initially thought that a very large dataset would yield better results. He tried with datasets of 10000 points but was unhappy with the sonic results he was hearing. Following the words of [Rebecca Fiebrink](https://www.arts.ac.uk/research/ual-staff-researchers/rebecca-fiebrink), “*small data is beautiful*” who gave a keynote at the final FluCoMa Plenary (see above), he tried again with a very small collection of curated datapoints and was much happier. He explained that it wasn’t until he went through this experience that he truly felt he understood what Fiebrink was saying. Try things out for yourself – indeed, the results may seem less precise on paper, however it certainly seems more artistically liberating and sonically engaging to train the MLP to create looser variations from much smaller datasets. This is something we shall discuss again below when looking at the nature of these networks.
+
+<Image
+src="/explore/tremblay/modular_synth_control_max.png"
+label="Overview of the 06 Modular Synth Control example patch."
+/>
+
+Finally, let’s look at a similar kind of process, this time implemented in Max. Here, Tremblay was controlling his physical modular synth setup. Obviously, everybody may not have a full modular synth setup at home, so we have provided some [VCV Rack 2](https://vcvrack.com/Rack) patches that can be used – VCV Rack 2 is a free software for modular synth emulation that we highly recommend. We start by configuring the patch and the synth together – on either the *Basic Synth* VCV example or the *Chaotic Synth*, Max is controlling the synth through the *MIDI > CV* module, therefore you must set this to receive `from Max 1`. Then you must route the output of the modular synth back to Max, using something like [Soundflower](https://rogueamoeba.com/freebies/soundflower/) of [JACK](https://jackaudio.org/) (making sure to set the input of Max correctly). When this is all setup, you should be able to hear the modular synth coming into Max in section 1 of the example patch, and control the synth with a single parameter from -1. to 1. (like control voltage) in section 2 of the patch (this works by rescaling this parameter space to 0.- 16383., which is used to query a Cartesian state map of MIDI pitches and velocities from 0-127).
+
+<Image
+src="/explore/tremblay/chaotic_modular_synth.png"
+label="The 06c Chaotic Synth VCV patch."
+/>
+
+With everything set up, you should be able to start scanning. Similar to what was happening in SuperCollider, here we iterate through different states from -1. to 1., and record and analyse the results. These are then used to train a regressor, in this case we can experiment with [MLP](/reference/mlpregressor), or a [KNN](/reference/knnregressor) regressor. Another difference here is that Tremblay uses [pitch analysis](/reference/pitch) to drive and train the regressors, which essentially allows him to control the synth with a stream of MIDI pitches. Experiment with the different VCV patches, observe the differences between working with a *basic* patch and a *chaotic* one, and also the difference in precision between the KNN and MLP regressors.
+
+There are a few aspects to discuss here that differentiate the two approaches and can also explain why one may be implemented in a certain CCE rather than the other. First, we can think of the format and environment within which the synthesis algorithm is hosted: in example 1, directly in Supercollider, in example 2 in a physical modular synth. It may seem a bit strenuous to consider the visual similarities between Max and a modular synthesis environments and draw some kind of reasoning for the pairing from that, and this certainly probably isn’t the only factor, but it is something that’s there. Furthermore, this is a kind of questioning that Tremblay does think about: in several of our interactions in preparation for this article, Tremblay mentioned [this article](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/0991907053485F9919E6CE89019AFB05/S1355771819000463a.pdf/idiomatic_patterns_and_aesthetic_influence_in_computer_music_languages.pdf) by [Andrew McPherson](https://andrewmcpherson.org/), which discusses the “*non-neutrality of tools*” in the context of creative coding, and how different CCEs leave a trace within the musicking that is performed within them. It is certainly reasonable to entertain the idea that someone with a great fluency in several CCEs will allow their knowledge of their inherent properties and visual aspect to influence their decision when choosing an environment to perform a certain task.
+
+Another difference between these two approaches is the nature of the control corpora spaces. In example 2, we have a somewhat restrained parameter space from -1.-1. along one vector. Indeed, this could be conceived of infinitely, however this is never how things turn out in practice – one must always choose a resolution for analysis (see [this article](/explore/hart) on the [author](https://jacob-hart.com/) of this article’s work for the project): here it is down to the centile. The space is also constrained in terms of how Tremblay is intending to drive the regressor: notably just with a pitch value. On the SuperCollider side of things, the dataset is *conceptually endless* – there’s no hard cap, and this is demonstrated with Tremblay’s initial stab at using 10000 different datapoints to train the regressor. The descriptor analyses are also much more open, and open to experimentation. These large data, gather-all-you-can-get, leaving-flexibility for choosing dimensions later programmatic approaches are aspects which, as discussed above, Tremblay views as being much more easily facilitated in SuperCollider than in Max.
+
+### Musickers: Assemblers and Restructurers.
+
+Having looked at what these fleeting networks base themselves around and what they manipulate, the environments within which they live and that they inflect, and how they generally work, we can now take a step back and think of some broader questions. For example, who are the musickers behind and intertwined within these networks? Who is making them, and what does that tell us about their nature? 
+
+You will have undoubtedly remarked that we have discussed the work of several other people involved in the FluCoMa project. We first discussed [Moore’s](https://www.tedmooremusic.com/) [work](/explore/moore) with an FM synthesizer controlled by descriptor-driven control data; we have also discussed [Bradbury’s](https://jamesbradbury.net/) [work](/explore/bradbury) and his Python implementation of over-segmented windowed clustering. Tremblay tried to walk back along the path of the genesis of this idea: an idea that may have come from him, which he may have given to [Gerard Roma](https://g-roma.github.io/) with whom he discussed the idea theoretically, then the idea was taken by Bradbury and implemented in Python, Tremblay then drew form that and reimplemented it in SuperCollider. He envisioned Moore’s idea as another network involving actors like himself, Rebecca Fiebrink, [Sam Pluta](http://www.sampluta.com/biographyText.html) and [Diemo Schwarz](http://diemo.concatenative.net/); he recounted other instances of this with different FluCoMa projects such as the [piano tracker](/explore/tutschku) in [Hans Tutschku’s](https://tutschku.com/) work and the [synth control](/explore/pluta) in Sam Pluta’s work. In all of these cases, Tremblay resumed the situation by explaining that “*I would never take the credit for myself, but then again, I wouldn’t want any individual to take the credit either*”.
+
+The question of credit in this context is difficult to navigate: Tremblay explained that this is something he has been aware of for a while thanks to his background in popular music as a producer and as a band leader in improvised music. This becomes even more complicated when we add all the other actors into the mix like the musicians who will play your music. This type of process is something that is unavoidable in creative coding – it is impossible to attribute credit to any one person for any one idea – indeed, it is desirable to circumnavigate this in order to avoid choking the network of ideas. This makes it important to accept this and lean-in to the *ecosystemic* nature of thought in the creative coding context – this was one of the driving principles behind the FluCoMa project.
+
+A network that is *ecosystemic in origin* will inherently have certain characteristics. First, it will symptomatically be open and fluid. If a workflow, a way of thinking is developed through a web of different people, each with their own approach and personal workflows, the resulting artefacts will tend to have equivalences that will work in many different environments. For this to be the case, the workflow, the approach, the question that this network is trying to answer, must be explored to its essence. Through this multiplicity of approaches, we can see through the fluff that various environments may impose upon an artefact, and we discover the core of a problem, the core of a musical question. Core musical questions are very flexible things that can be implemented in any number of environments and are very rich in that that can be interpreted in a host of different ways. A core musical question will tend to generate others, which in turn generate others, and so on.
+
+<Image
+src="/explore/tremblay/discourse_forum.png"
+label="The FluCoMa Forum on discourse."
+/>
+
+This means that an ecosystemic network has an *inherently generative nature* – this approach is one that invites development, adaptation, and mutation of thought. For this to work however, it is useful to have some kind of place – another environment to add to our considerations – to exchange, to discuss, to learn from each other. The [FluCoMa forum](https://discourse.flucoma.org/) on discourse is the environment that was specifically designed for this purpose. Far beyond being a place to report bugs and crashes, it is a platform, like other forums such as [lines](https://llllllll.co/), where creative coders can come together and work on this ecosystemic process. Indeed, a forum is specifically built around this idea: threads of different lines of thought and questioning which sometimes intertwine and refer to each other. It is an ideal format for this kind of approach to exist and thrive.
+
+Tremblay discussed putting this system in place for the project “*a space of to-and-fro of examples* [for us] *to learn in a dynamic field and ask questions* […] *The idea was to create an ecosystem where we can talk about this stuff, and let ideas be truly fluid – to be able to talk to each other in terms of hypotheses (even naive ones), because brain storming can lead to real jewels*”. Another property that this gives the emerging networks is indeed their fleeting nature – these ecosystems aren’t looking to generate agnostic, overarching interfaces to accommodate many different workflows. These ecosystems work and are driven by the creation of fleeting, specifically targeted sketches and bursts of thought which are then taken and dynamically bounced upon, mutated, and let to fizzle out in their own time. Indeed, Tremblay explains that this kind of mindset is necessary for this kind of process to work – one must be able to express their ideas without fear of them being judged, or of them not working or leading to anything substantial. In this environment, it must be collectively understood that most of these outputs will fail.
+
+<YouTube 
+url={'_FwGB5oGb2s'}
+/>
+
+Tremblay explains that this kind of approach is how he sees his personal approach to musicking as working. We have seen this in some of the examples we have covered above. He also reflected that he avoids any attempt to try and domesticate these ideas and sketches: “*inside my head, with my musical processes, it’s the same kind of mess. It’s the same kind of network of interactions, and the more I try and systemise it, more the result becomes flat and boring*”. This means that these networks need to be fleeting in order to produce engaging material, at least in Tremblay’s use of them. 
+
+It would seem that creative coding seems to be catching up with other types of music in terms of questions of copyright, credit, and the free circulation of ideas. With a case such as the FluCoMa project, we can see how embracing these ideas and the properties they can give to the resulting artefacts can produce very intriguing and complex objects. 
+
+### Variation and translation
+
+Finally, let’s take a further look at the nature of the networks that Tremblay (and others) have elaborated, and see how they may fit into Tremblay’s ideas of musicking, and broader concepts of form discussed above. The two broad musical questions that were at the base of the networks we have looked at were:
+
+- Finding variation in a sound.
+- Driving a sound-making unit with sound.
+
+These two questions, at their core, are actually very similar. Indeed, very abstractly, we have movement from one source sound to some kind of other variation of it. This is an idea that is at the core of many FluCoMa-based workflows, and corpus-driven musicking in general – these ideas have already been explored directly in some other Explore content with [Moore’s](https://www.tedmooremusic.com/) [work](/explore/moore) and [Darlene Castro Ortiz’s](https://www.darlenecastro.com/) [work](/explore/ortiz). What does this concept entail musically? How can it lend itself to Tremblay’s approach to form? To start thinking about this, we shall finish this article by having a look at these networks, their nature, and the motivations behind them across two concepts: variation and distortion, and poiesis.
+
+#### Variation and Distortion
+
+Working in Reaper, Tremblay composes somewhat cumulatively (even if he may not necessarily do everything in the order that we will hear in the final piece). He described the process of composition, and explained that “*at a moment, I’ll come to a point where I need a variation*”. He also explained that he “*thinks a lot in terms of voices, objects and counterpoint, archetypes and leitmotifs*”. This is perhaps symptomatic of the more cinematographic, theatrical stance he adopts in regard to form as discussed above. If we take these two ideas, variation becomes a technique that we will inevitably come to desire: to compose in a cumulative, somewhat story-driven manner with objects and entities means that at some point things occur with/to these entities. A natural way of expressing this is variation: this could range from anything slight, for example a sound that is similar to another in some way; to a process that yields an artefact that is sonically completely different to the source yet remains inherently connected to it: the roots of the new sound emerged from the soil engorged with the source’s essence.
+
+This also lives at the crux of other ideas which we presented above, which drove the conception of this piece and seem at first somewhat paradoxical. On the one hand, Tremblay expressed that he wished for nothing to be the same in this piece, for there to be constant variation. On the other, he explained wanting to avoid his tendency of over-articulation. These goals meet when we regard things in a topological manner: perpetual variation finally becoming a constant property of the piece, and absence of articulation leading to the need for perpetual variation. 
+
+These motivations are at the basis of the workflows that we have explored in this article: these are parts of the musical questions which Tremblay sets out to answer (or at least, *stimulate his creativity with* – see below). In practice, these variations have a multitude of different forms, they can go from very similar to far looser and poetic (think back to the MLP-driven synthesizer and the use of small, curated subsets of data rather than large ones). In any case, we are dealing with a *distortion* of the source data in some way. This distortion, this loss of resolution, is something we have discussed in previous Explore articles (again with [Moore](/explore/moore) and [Castro Ortiz](/explore/ortiz)) and is also a concept that the [author](https://jacob-hart.com/) of this article has explored to some extent in their [broader musicological research](https://eprints.hud.ac.uk/id/eprint/35726/) (for him, loss of resolution is an inherent property of the musical network – artistic activity of any kind is translation of musical thought through the lens of an interface).
+
+Tremblay frames this with his conception of the differences between *musique concrète* and abstract music: “*in musique concrète, you have the sound, it’s fixed, and you deal with it. In abstract music, the creative force is the distortion of abstraction. When you abstract something, you lose something, it’s a lossy format. This notion is at the base of my creativity: a model that says that fiction is simpler than reality. This is rich, it allows us to do transpositions, abstractions which aren’t possible in concrete sound*”. We see that the idea of abstraction, more than being a simple box within which he can fit his music and from which he could draw things like form, is a *driving force* in his compositional approach. The *possibility of abstraction*, to allow oneself to abstract, opens us up to a whole host of aesthetic possibilities.
+
+This also comes down, of course, to a matter of taste. Thinking back to the workflow around the male voices, Tremblay chose to hide the initial meaning somehow with processes such as simultaneously playing a source and its nearest neighbour. In his reasoning, he explains that just hearing a voice read the text would be “*too literal*”. Tremblay chooses in this instance to not be too literal, to not make *musique concrète*. All of these desires, goals and perspectives intertwine and inform each other, everything is the consequence of everything else. We see that as well as being a way of approaching (and being a consequence of) form, it is also a method for stimulating his own creativity. Let’s explore this concept further.
+
+#### Poiesis
+
+As described when talking about the actors that intervene in the construction of these networks above, an ecosystemic network is inherently *generative* in nature. It is something that, by its nature, will create new ideas. Tremblay incorporates this aspect into his musicking, talking about these networks, he described them as “*so multidimensional, they’re so rich and inspiring, they allow me to move forward*”. In practice, this comes through two notions which are essentially two sides of a same coin: failure and surprise. It is interesting to note that many of the creative coders who were commissioned to use the FluCoMa tools during their development, very early on gave the notion of surprise as being something they looked to draw from their systems. It was important for them that the FluCoMa tools could provide this.
+
+This can be configured in a number of ways – we can expect to hear a certain type of sound out of a process, but we have seen here that the ideas that are under development and in circulation around these networks go beyond sound profiles. It is *compositional ideas* that are being forged, and the failure of a system to yield a desired result is capable of seeding more compositional ideas. This kind of system needs to be purposefully put in place, it is something that is made by design, and must be engaged with in a certain way. As Tremblay explains, one must “*remain supple in ones interpretations – I can create spaces where these networks can exist, emerge, expand, be put out to pasture, and come back years later*”. He also described how it is necessary to be in a constant state of *dialogue* with these systems, and by extension with yourself.
+
+This process is something that Tremblay assimilated to working with other people, and notably improvisation: “*why would I improvise when I’m perfectly capable of doing everything at home? That’s just it, I’m not capable of that – I’m only capable of going where I go. Being with someone who I trust brings conflict, creative ideas, comings together which are wonderful. Working with musicians is the same – collaboration is not without friction, but this friction brings you something*”. Friction is generative, it causes bumps which hurt and send us crashing to the ground, but also send us soaring up into the sky.
+
+We begin to understand the role that *doing*, making in constant dialogue with oneself and one’s creations plays in Tremblay’s work. Poiesis, intentions of doing, are fundamental to the generation of the material he sculpts. He explained that sometimes it works, sometimes it doesn’t; sometimes the reasonings behind the doing are rational, sometimes they’re not; sometimes he understands why what he’s done works, sometimes he won’t understand until years later. The important part is to be in perpetual movement, to put oneself in conflict, in friction, to challenge one’s musical ideas and questions – after that, the rest shall surely come. 
+
+## Conclusion
+
+By taking a detailed look at some of the workflows that Tremblay put into motion to create his piece, we have also gained a better understanding of some of the core principles behind the FluCoMa project, the design of its tools, and the conception of the environment and community of creative coders that exist around it. *Newsfeed*, like the any piece of music, strikes us as a lucky snapshot in the perpetual musicking that a musician will make. It is one occurrence of an overwhelming range of possibilities, it is the consequence of what came before and the cause of what is to come in Tremblay’s work. With a better understanding of how it was made, we are struck by the fragmentary nature of even a fixed piece of music – the fact that this is what is reaching our ears makes it that much more special and unique. The FluCoMa tools have been developed to fit into this conception of musicking as an activity that involves many actors, where tools are fluid, where the corpus can take many forms. We hope that this, and the rest of the articles and podcast in the [FluCoMa Explore series](/explore) will inspire you, whatever your technical level may be, whatever form your practice may take, to discover new ways of making, new musics, the people that make them; and push and enable you in your own creative practice.

@@ -1,8 +1,11 @@
 name: deploy
+concurrency:
+    group: environment-${{ github.ref }}
+    cancel-in-progress: true
 
 on:
     push:
-        branches: [main]
+        branches: ['main']
 
     workflow_dispatch:
 
@@ -11,32 +14,39 @@ jobs:
         runs-on: ubuntu-latest
 
         steps:
-            - uses: actions/checkout@v2
+            - uses: actions/checkout@v3
               with:
                   fetch-depth: '0'
 
             - name: Setup SSH
               uses: shimataro/ssh-key-action@v2
               with:
-                  key: ${{ secrets.SSH_PRIVATE_KEY }}
-                  known_hosts: 'placeholder'
+                key: ${{ secrets.SSH_PRIVATE_KEY }}
+                known_hosts: 'placeholder'
+
+            - name: pnpm
+              run: npm i -g pnpm
 
             - name: Adding Known Hosts
               run: |
-                  mkdir -p ~/.ssh
-                  ssh-keyscan -H ${{ secrets.DO_IP }} >> ~/.ssh/known_hosts
+                mkdir -p ~/.ssh
+                ssh-keyscan -H ${{ secrets.DO_IP }} >> ~/.ssh/known_hosts
+
+            - name: Install Dependencies
+              run: pnpm i
+
+            - name: Test
+              run: pnpm run test
 
             - name: Build Site
-              run: |
-                  npm i
-                  npm run build
+              run: pnpm run build
 
             - name: Merge MFCC Widget
               run: |
-                  git clone https://github.com/flucoma/MFCC-interactive-widget.git mfccwidget
-                  mkdir -p ./build/reference/mfcc/explain
-                  cp -r mfccwidget/p5/* build/reference/mfcc/explain/
+                git clone https://github.com/flucoma/MFCC-interactive-widget.git mfccwidget
+                mkdir -p ./build/reference/mfcc/explain
+                cp -r mfccwidget/p5/* build/reference/mfcc/explain/
 
             - name: Upload To Droplet
               run: |
-                  rsync -avz --delete --no-times --no-o --no-g --no-perms ./build/ james@${{ secrets.DO_IP }}:/home/learn/www/
+                rsync -avz --delete --no-times --no-o --no-g --no-perms ./build/ james@${{ secrets.DO_IP }}:/home/learn/www/

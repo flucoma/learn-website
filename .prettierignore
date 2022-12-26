@@ -19,8 +19,6 @@ mfccwidget
 *.maxpat
 *.scd
 *.json
-.svelte-kit
-build
 
 .DS_Store
 node_modules

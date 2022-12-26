@@ -17,6 +17,7 @@
 		border-radius: 0.25em;
 		background-color: var(--light-blue);
 		transition: box-shadow 0.1s;
+		font-size: 1rem;
 	}
 
 	.btn:active {
@@ -32,5 +33,6 @@
 	.disabled:hover {
 		background-color: grey;
 		border: grey;
+		opacity: 0.5;
 	}
 </style>

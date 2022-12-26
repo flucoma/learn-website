@@ -8,7 +8,7 @@ category: Decompose
 ---
 
 <script>
-    import SinesPeaks from '$lib/widget/SinesPeaks.svelte';
+    import SinesPeaks from './SinesPeaks.svelte';
     import Image from '$lib/components/Image.svelte';
     import Audio from '$lib/components/Audio.svelte';
     import ResourceLink from '$lib/components/ResourceLink.svelte';

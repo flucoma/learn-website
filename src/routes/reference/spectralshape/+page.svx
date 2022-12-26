@@ -10,7 +10,7 @@ category: Analyse Sound
 ---
 
 <script>
-    import SpectralShape from '$lib/widget/SpectralShape.svelte';
+    import SpectralShape from './SpectralShape.svelte';
     import ResourceLink from '$lib/components/ResourceLink.svelte';
 </script>
 

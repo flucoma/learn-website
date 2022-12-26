@@ -12,7 +12,7 @@ category: Analyse Data
 ---
 
 <script>
-    import KMeans from '$lib/widget/KMeans.svelte';
+    import KMeans from './KMeans.svelte';
     import ResourceLink from '$lib/components/ResourceLink.svelte';
 </script>
 
