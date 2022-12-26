@@ -5,7 +5,7 @@ import { s } from 'hastscript';
 import { mdsvex } from 'mdsvex';
 import slug from 'rehype-slug';
 // import jargon from 'rehype-jargon';
-import definitions from './jargon.js';
+// import definitions from './jargon.mjs';
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
