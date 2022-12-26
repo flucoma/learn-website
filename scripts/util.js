@@ -62,4 +62,4 @@ const getComponents = (markdown_string, to_include) => {
 	return return_dict;
 };
 
-export { contentGlob, urlFromRoute, spill_to_array, get_components };
+export { contentGlob, urlFromRoute, spillToArray, getComponents };
