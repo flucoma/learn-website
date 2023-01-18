@@ -62,7 +62,7 @@ label="Data distributions with a larger tail to the left have a negative skewnes
 
 ## Kurtosis
 
-Kurtosis describes the degree to which [outliers](/learn/outliers) are present in the data, sometimes described as whether the tails (extremities) are "light" or "heavy." While a normal [distribution](#distribution-and-histograms) has a kurtosis of 3, distributions with "lighter" tails (fewer and/or less extreme outliers) will be between 1 and 3, and distributions with "heavier" tails (more and/or more extreme outliers) will be greater than 3 (and can go up to infinity).  
+Kurtosis describes the degree to which [outliers](/learn/outliers) are present in the data, sometimes described as whether the tails (extremities) are "light" or "heavy." While a normal [distribution](/learn/distribution) has a kurtosis of 3, distributions with "lighter" tails (fewer and/or less extreme outliers) will be between 1 and 3, and distributions with "heavier" tails (more and/or more extreme outliers) will be greater than 3 (and can go up to infinity).  
 
 One can see in the image below that the pink rectangle-shaped distribution function has the lowest kurtosis (1.8) because it essentially doesn't have outliers: all the data falls within range of the rectangle. The second lowest kurtosis (2) is the blue distribution function which also doesn't have "tails" that spread out on either side. As the kurtosis increases (all the way to 6 for the red distribution function), notice how the tails end up being "heavier," or "thicker" and can be seen to spread out farther beyond the mean. 
 
@@ -81,15 +81,15 @@ When the quantity of values does not make clear which point from the data should
 
 ### Low
 
-The value returned will be the data point at the [percentile](#percentiles) indicated by the `low` parameter (between 0 and 100). The default of 0 will return the the smallest value in the data. It may be useful to use this statistical description to consider particular extremities in an analysis time-series. For example considering the smallest pitch confidence value in an analysis could indicate if there are _any_ moments in the analysis that get _unpitched_ and if so, to what degree. 
+The value returned will be the data point at the percentile indicated by the `low` parameter (between 0 and 100). The default of 0 will return the the smallest value in the data. It may be useful to use this statistical description to consider particular extremities in an analysis time-series. For example considering the smallest pitch confidence value in an analysis could indicate if there are _any_ moments in the analysis that get _unpitched_ and if so, to what degree. 
 
 ### Middle
 
-The value returned will be the data point at the [percentile](#percentiles) indicated by the `middle` parameter (between 0 and 100). The default value of 50 will return the median value. The median is the middle value when all the numbers are sorted in order. This provides a measure of central tendency different from the mean. The median is not affected by extreme outliers, which can decrease how useful a mean is for understanding central tendency.
+The value returned will be the data point at the percentile indicated by the `middle` parameter (between 0 and 100). The default value of 50 will return the median value. The median is the middle value when all the numbers are sorted in order. This provides a measure of central tendency different from the mean. The median is not affected by extreme outliers, which can decrease how useful a mean is for understanding central tendency.
 
 ### High
 
-The value returned will be the data point at the [percentile](#percentiles) indicated by the `high` parameter (between 0 and 100). The default value of 100 will return the largest value in the data. It may be useful to use this statistical description for analyses in which the largest value has the most impact on a listener's perception. For example, how [loud](/reference/loudness) one perceives a drum hit to be may be better correlated with the maximum loudness instead of the mean loudness, which will be brought down by the quieter parts of the decay tail and any silence that exists in the sound slice.
+The value returned will be the data point at the percentile indicated by the `high` parameter (between 0 and 100). The default value of 100 will return the largest value in the data. It may be useful to use this statistical description for analyses in which the largest value has the most impact on a listener's perception. For example, how [loud](/reference/loudness) one perceives a drum hit to be may be better correlated with the maximum loudness instead of the mean loudness, which will be brought down by the quieter parts of the decay tail and any silence that exists in the sound slice.
 
 ## Derivatives
 

@@ -7,7 +7,6 @@ import Fuse from 'fuse.js';
 const nav_expanded = writable(false);
 const blur = writable(false);
 
-const edits = metadata.edits;
 const structure = metadata.structure;
 const db = metadata.db;
 const crumbs = metadata.crumbs;
@@ -23,4 +22,4 @@ const fuse = new Fuse(db, {
 	]
 });
 
-export { crumbs, structure, db, related, edits, fuse, config, nav_expanded, blur };
+export { crumbs, structure, db, related, fuse, config, nav_expanded, blur };

@@ -60,7 +60,7 @@ Normal distribution (also called a Gaussian Distribution) is a technical term me
 * The distribution function is symmetrical around this coincident value.
 * The data follows the 68/95/99.7 rule. 
 
-Sometimes a normal distribution is referred to as a "bell curve" because the shape of the distribution function looks like a bell. Use the [example code below](/#example-code-to-check-distribution) to see the distribution of dimensions in a dataset and how much they look like a bell curve.
+Sometimes a normal distribution is referred to as a "bell curve" because the shape of the distribution function looks like a bell. Use the [example code below](#example-code-to-check-distribution) to see the distribution of dimensions in a dataset and how much they look like a bell curve.
 
 ### The 68/95/99.7 Rule
 

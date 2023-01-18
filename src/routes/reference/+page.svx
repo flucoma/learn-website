@@ -22,7 +22,9 @@ layout: contentindex
 	let query = '';
 
 
-	references.forEach(r => { categorised[r.category].push(r) });
+	references.forEach(r => { 
+		categorised[r.category].push(r)
+	});
 
 	const search = new FuzzySearch(references, ['title', 'tags', 'blurb', 'category'], {
 		caseSensitive: false,

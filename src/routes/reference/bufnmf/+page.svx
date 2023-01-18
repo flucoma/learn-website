@@ -61,7 +61,7 @@ Some additional options and flexibility can be found through combinations of the
 
 If either or both of these arguments are set to 1, BufNMF expects to be supplied with the corresponding elements (activations or bases) to use as seeds for the decomposition, providing more guided results. It is possible to set both arguments equal to 1.
 
-If either of these arguments are set to 2, BufNMF will not modify the supplied corresponding elements (activations or bases), instead using them as templates to match against. BufNMF will modify the other elements which will represent their best match to the supplied spectrogram, given the fixed elements provided.  Note that having both basesMode and actMode set to 2 doesn't make sense.
+If either of these arguments are set to 2, BufNMF will not modify the supplied corresponding elements (activations or bases), instead using them as templates to match against. BufNMF will modify the other elements which will represent their best match to the supplied spectrogram, given the fixed elements provided. Thus, you can use the second mode of each together to do resynthesis with activations and bases from disparate or synthetic sources.
 
 <Admonition type='pointer'>
 

@@ -5,12 +5,7 @@
 	"printWidth": 120,
 	"tabWidth": 4,
 	"arrowParens": "avoid",
-	"overrides": [
-		{
-			"files": ["*.mdx", "*.svx"],
-			"options": {
-				"parser": "markdown"
-			}
-		}
-	]
+	"plugins": ["prettier-plugin-svelte"],
+	"pluginSearchDirs": ["."],
+	"overrides": [{ "files": "*.svelte", "options": { "parser": "svelte" } }]
 }
