@@ -113,7 +113,7 @@ url={'96bSKr8dBeU'}
 
 - David Beer's [The Social Power of 1lgorithms](https://www.tandfonline.com/doi/full/10.1080/1369118X.2016.1216147) (2016).
 
-- [Halldor Úlfarsson](https://halldorophone.info/)'s Halldorophone:
+- [Halldor Úlfarsson](https://halldorophone.info/)'s Halldorophone :
 
 <YouTube 
 url={'uo4Jq-_tysc'}
