@@ -32,7 +32,7 @@ This tutorial guides you through building a sound classifier. It leverages a typ
     </TabList>
     <TabPanel>
     <YouTube 
-    url='XfNZzQPdPG0'
+    url='cjk9oHw7PQg'
     />
     </TabPanel>
     <TabPanel>
