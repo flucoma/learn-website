@@ -55,7 +55,7 @@ src="/learn/outliers/plot_without_outliers.png"
 label="A plot with the identifier outliers removed."
 />
 
-### What could cause outliers?
+### What Could Cause Outliers?
 
 Given a big enough dataset some outliers are likely to occur. With smaller datasets (the size often used by musicians for creative purposes) outliers may occur in different ways. Outliers could be caused by:
 
@@ -64,15 +64,15 @@ Given a big enough dataset some outliers are likely to occur. With smaller datas
 * silence (which we often tend to not notice, but it still gets analysed!)
 * data points that are accurately analysed but just happen to be significantly different from the other data points in the dataset
 
-### What affect can outliers have?
+### What Effect Can Outliers Have?
 
 Outliers can greatly affect mean-related statistical measures of data (such as the first four statistics provided by [BufStats](/reference/bufstats)), making them less representative of the majority of the data. This may lead to a misunderstanding of how the data is distributed, where it is centred, or what it represents. When outliers are causing a misrepresentation of the data and leading to false conclusions, it is often a good idea to try to remove them or mitigate them in other ways. It also may be important to investigate outliers to determine _why_ they are significantly different from the rest of the data, and not merely throw out data points because they are different.
 
-### Might they be interesting?
+### Might They Be Interesting?
 
 Outliers are not always problematic. They may be musically more relevant than the other points in the dataset. For example, if one were to [analyse and plot](/learn/2d-corpus-explorer) a folder containing a whole bunch of snare drum hits, many of the snare hits might be very similar and form a cluster of data points. What might be more _musically_ interesting is to look for the snare hits that have unique characteristics and stand out when compared to the majority? Another way of considering this is to ask what snare hits are _significantly different_ from the majority of the data points in the dataset?
 
-## Working with Outliers
+## Working With Outliers
 
 If outliers are creating a misrepresentation and causing a misunderstanding of the data, there are some strategies one can use to mitigate these negative effects. Using the _median_ (also called the 50th percentile) as a measure of central tendency is robust to outliers, meaning that it is not affected by outliers that are very distant from this central tendency. The _mean_ as a measure of central tendency is not robust to outliers, which can negatively impact it's explanatory power. See [BufStats](/reference/bufstats) for more on using the median and mean.
 
@@ -80,7 +80,7 @@ If outliers are creating a misrepresentation and causing a misunderstanding of t
 
 The scalers [Normalize](/reference/normalize) and [Standardize](/reference/standardize) are not robust to outliers so may provide results that misrepresent the majority of the data. The scaler [RobustScaler](/reference/robustscale) uses percentiles (also called order statistics) for scaling data, making it, ahem, _robust_ to outliers.
 
-### Removing outliers with BufStats
+### Removing Outliers With BufStats
 
 Another strategy for managing outliers is to use the `outliersCutoff` feature of BufStats, which can find and remove outliers by using an analysis of the data to set boundaries for each channel in the buffer. Any frames that have a value outside the its channel's boundaries will not be used to compute the statistics. See the page on [removing outliers](/learn/removing-outliers) to learn more.
 

@@ -40,7 +40,7 @@ This tutorial guides you through building a bespoke synthesis controller. It lev
     </TabPanel>
     <TabPanel>
         <YouTube 
-        url='cjk9oHw7PQg'
+        url='XfNZzQPdPG0'
         />
     </TabPanel>
 </Tabs>

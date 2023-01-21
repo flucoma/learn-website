@@ -6,7 +6,6 @@ import fs from 'fs';
 import GithubSlugger from 'github-slugger';
 import frontmatter from 'front-matter';
 import { markdown } from 'markdown';
-import { extractGit } from './git.js';
 import { urlFromRoute, spillToArray, getComponents } from './util.js';
 
 const slugger = new GithubSlugger();
@@ -39,7 +38,6 @@ const ignores = [
 ];
 let routes = fg.sync(['**/*+page.svx']);
 routes = routes.filter(route => !ignores.includes(route));
-edits = extractGit(routes);
 
 routes.forEach(route => {
 	const section = route.split('/')[2];
@@ -182,7 +180,6 @@ let preprocData = {
 	tags: tags,
 	structure: structure,
 	crumbs: crumbs,
-	edits: edits,
 	db: db,
 	related: related
 };

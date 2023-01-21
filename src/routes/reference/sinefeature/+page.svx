@@ -1,0 +1,17 @@
+---
+title: SineFeature
+blurb: Tracks the sinusoidal peaks of audio.
+tags:
+    - time series
+    - sinusoidal model
+flair: reference
+category: Analyse Sound
+---
+
+NoveltyFeature is closely linked with [Sines](/reference/sines) and exposes the underlying sinusoidal peak tracking as a standalone audio descriptor. As a result it can be useful in understanding what assumptions its resynthesis sibling makes at a lower-level, or as a feature in and of itself.
+
+For more information on how the tracking is achieved, see the [chapter on interpolated peaks by Julius O. Smith](https://ccrma.stanford.edu/~jos/sasp/Quadratic_Interpolation_Spectral_Peaks.html).
+
+
+
+

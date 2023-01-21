@@ -1,0 +1,122 @@
+---
+title: "FluCoMa Podcast #10: Thor Magnusson"
+artist: Thor Magnusson
+blurb: |
+    Episode ten of the FluCoMa podcast where Jacob Hart talks with musicologist, creative coder and educator Thor Magnusson.
+tags: 
+    - musicology
+    - MIR
+    - live coding
+    - interface
+    - theory
+flair: podcast
+featuredimage: /explore/magnusson/article_teaser_pic.jpeg
+author: Jacob
+---
+
+<script>
+    import YouTube from '$lib/components/YouTube.svelte';
+    import ArtistCard from '$lib/components/explore/ArtistCard.svelte';
+    import YouTubeChapters from '$lib/components/YouTubeChapters.svelte';
+</script>
+
+<ArtistCard
+src = "/explore/magnusson/profile_pic.jpeg"
+name = "Thor Magnusson"
+website = "https://thormagnusson.github.io/"
+>
+<p slot="bio">
+A worker in rhythm, frequencies and intensities. Research and development in the areas of music and technology. I am a professor of future music in the Music Department at the University of Sussex and a research professor at the Iceland University of the Arts. In 2021 I served as an Edgard-Varèse guest professor at the Technische Universität Berlin.
+</p>
+</ArtistCard>
+
+## The Podcast
+
+<YouTubeChapters 
+url={'Z3AlhuyAdsc'}
+chapters={[
+    {"label" : "Introduction", "start" : [0, 0]},
+    {"label" : "Background and getting into the field", "start" : [1, 26]},
+    {"label" : "Approach to live coding", "start" : [12, 11]},
+    {"label" : "Talking about SEMA", "start" : [21, 13]},
+    {"label" : "Affordances and limits of the web browser", "start" : [26, 50]},
+    {"label" : "Sonic Writing, the Intelligent Instruments Lab and instrument design", "start" : [32, 28]},
+    {"label" : "Digital organology and contemporary musicology", "start" : [42, 43]},
+    {"label" : "MIR techniques and workflow inscription", "start" : [51, 48]},
+    {"label" : "Instruments as objects of resistance", "start" : [1, 1, 14]},
+    {"label" : "Teaching music technology", "start" : [1, 9, 43]},
+    {"label" : "Future of music technology ", "start" : [1, 16, 43]}
+]}
+/>
+
+## Overview
+
+In episode ten of the FluCoMa Podcast I talk with Dr. Thor Magnusson, primarily a theorist, but also a practitioner and educator of creative coding and music. We discuss Thor’s creative work and explore how it is influenced by and influences his theoretical research. We talk about Thor’s recent book *Sonic Writing* and his perspective on instrument design, interface and organology. 
+
+## Links
+
+Here are the links to some of the things that were discussed during the podcast:
+
+- [University of Sussex](https://www.sussex.ac.uk/).
+
+- [Iceland University of the Arts](https://www.lhi.is/en).
+
+- Performance made with [Sema](https://github.com/mimic-sussex/sema):
+
+<YouTube 
+url={'DRxBCabqsqA'}
+/>
+
+- [Enrike Hurtado](http://enrike.ixi-audio.net/) and [ixi software](http://www.ixi-audio.net/content/about.html).
+
+- [ixi lang](http://www.ixi-audio.net/ixilang/) live coding language.
+
+- Thor's PhD thesis: [Epistemic Tools: The Phenomenology of Digital Musical Instruments](https://www.researchgate.net/publication/313626457_Epistemic_Tools_The_Phenomenology_of_Digital_Musical_Instruments) (2009, University of Sussex).
+
+- Performance using the [Threnoscope](https://thormagnusson.github.io/threnoscope/):
+
+<YouTube 
+url={'JMWP0jY4FK0'}
+/>
+
+- AHRC-funded [Live Coding Research Network](https://computinged.wordpress.com/2014/05/05/launching-livecoding-network/) with [Alex McLean](https://slab.org/).
+
+- AHRC-funded [Sonic Writing](http://www.sonicwriting.org/) project, and Thor's book [Sonic Writing](https://www.bloomsbury.com/uk/sonic-writing-9781501313868/) (2019).
+
+- [Chris Kiefer](https://profiles.sussex.ac.uk/p208667-chris-kiefer) (see [his work](/explore/eldridge-kiefer) with [Alice Eldridge](https://profiles.sussex.ac.uk/p127749-alice-eldridge) for the FluCoMa project) and [Francisco Bernardo](https://frantic0.com/).
+
+- (University of the Arts London)[https://www.arts.ac.uk/] and [Durham University](https://www.durham.ac.uk/homepage/).
+
+- [Gerard Roma's](https://g-roma.github.io/)'s [creative work](/explore/roma) on the project.
+
+- [Gibber](https://charlie-roberts.com/work.htm) by [Charlie Roberts](https://charlie-roberts.com/index.htm):
+
+<YouTube 
+url={'96bSKr8dBeU'}
+/>
+
+- AHRC-funded [MIMIC Project](https://mimicproject.com/about) (Musically Intelligent Machines Interacting Creatively).
+
+- [Goldsmiths, University of London](https://www.gold.ac.uk/) and the [UAL Creative Computing Institute](https://www.arts.ac.uk/creative-computing-institute).
+
+- [Maximilian Sound Engine](https://maxilib-reference.github.io/MaxiLib-Reference/) and [Web Audio API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API).
+
+- ERC-funded [Intelligent Instruments Lab](https://iil.is/) project.
+
+- Jacques Attali's [Noise: The Political Economy of Music](https://www.upress.umn.edu/book-division/books/noise) (1984).
+
+- Thor's article [Musical organics: a heterarchical approach to digital organology](http://sro.sussex.ac.uk/id/eprint/67623/) (2017).
+
+- Deleuze and Guattari's [A Thousand Plateaus](https://www.upress.umn.edu/book-division/books/a-thousand-plateaus) (1987).
+
+- [Rebecca Fiebrink](https://researchers.arts.ac.uk/1594-rebecca-fiebrink)'s [Wekinator](http://www.wekinator.org/).
+
+- David Beer's [The Social Power of 1lgorithms](https://www.tandfonline.com/doi/full/10.1080/1369118X.2016.1216147) (2016).
+
+- [Halldor Úlfarsson](https://halldorophone.info/)'s Halldorophone :
+
+<YouTube 
+url={'uo4Jq-_tysc'}
+/>
+
+- Serres' [The Parasite](https://www.upress.umn.edu/book-division/books/the-parasite) (2007).
