@@ -1,0 +1,74 @@
+---
+title: "FluCoMa Podcast #12: Artemi-Maria Gioti"
+artist: Artemi-Maria Gioti
+blurb: |
+    Episode twelve of the FluCoMa podcast where Jacob Hart talks with composer, researcher and creative coder Artemi-Maria Gioti.
+tags: 
+    - AI 
+    - classification
+flair: podcast
+featuredimage: /explore/gioti/profile_rect.jpeg
+author: Jacob
+---
+
+<script>
+    import YouTube from '$lib/components/YouTube.svelte';
+    import ArtistCard from '$lib/components/explore/ArtistCard.svelte';
+    import YouTubeChapters from '$lib/components/YouTubeChapters.svelte';
+    import Vimeo from '$lib/components/Vimeo.svelte';
+</script>
+
+<ArtistCard
+src = "/explore/gioti/profile_square.jpeg"
+name = "Artemi-Maria Gioti"
+website = "https://www.artemigioti.com/"
+>
+<p slot="bio">
+Artemi-Maria Gioti is a composer and artistic researcher working in the fields of artificial intelligence, interactive and participatory sound art. Her compositions include works for acoustic instruments and interactive electronics, musical robotics and participatory performances and have been performed in Greece, Austria, Portugal, Germany, Denmark, Canada, The Netherlands and in the USA.
+</p>
+</ArtistCard>
+
+## The Podcast
+
+<YouTubeChapters 
+url={'Z3AlhuyAdsc'}
+chapters={[
+    {"label" : "Introduction", "start" : [0, 0]}
+]}
+/>
+
+## Overview
+
+In episode twelve of the FluCoMa Podcast I talk with Dr. Artemi-Maria Gioti, a composer, researcher, and creative coder who specialises in the creative uses of artificial intelligence and machine learning. We learn about the workings of two of her pieces that make use of these technologies, and how Artemi incorporates computational techniques into her creative practice.
+
+## Links
+
+Here are the links to some of the things that were discussed during the podcast:
+
+- [Gerogina Born](https://en.wikipedia.org/wiki/Georgina_Born)'s ERC-funded [MusAI](https://musicairesearch.wordpress.com/) project.
+
+- The [University of Macedonia](https://www.uom.gr/en), the [University of Music and Performing Arts Vienna](https://www.mdw.ac.at/), and the [University of Music and Performing Arts Graz](https://www.kug.ac.at/en/).
+
+- The thesis defense for Aremi's PhD "Agency and Distributed Creativity in Interactive Compositions":
+
+<Vimeo 
+url={'https://player.vimeo.com/video/625444151?h=9db313b9fd&title=0&byline=0&portrait=0'}
+/>
+
+- Artemi's 2019 piece Converge/Diverge:
+
+<YouTube 
+url={'1hds6aH6K28'}
+/>
+
+- [Article](https://www.researchgate.net/publication/242077991_Improvisational_Cultures_Collaborative_Emergence_and_Creativity_in_Improvisation) on Sawyer's concept of collaborative emergence.
+
+- Artemi's 2020 piece Bias:
+
+<YouTube 
+url={'8exfMRIGrFo'}
+/>
+
+- Clarinettist [Szilárd Benes](https://soundcloud.com/szil-rd-benes-1).
+
+- [Aaron Einbond](https://aaroneinbond.wordpress.com/).
