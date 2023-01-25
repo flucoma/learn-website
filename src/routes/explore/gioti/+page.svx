@@ -31,9 +31,23 @@ Artemi-Maria Gioti is a composer and artistic researcher working in the fields o
 ## The Podcast
 
 <YouTubeChapters 
-url={'Z3AlhuyAdsc'}
+url={'r5XixsSdGKI '}
 chapters={[
-    {"label" : "Introduction", "start" : [0, 0]}
+    {"label" : "Introduction", "start" : [0, 0]},
+    {"label" : "Getting into the field", "start" : [1, 16]},
+    {"label" : "Defining the “Interactive Music System”", "start" : [3, 12]},
+    {"label" : "Converge/Diverge (2019)", "start" : [5, 30]},
+    {"label" : "Implementing “states”", "start" : [9, 0]},
+    {"label" : "Different performances", "start" : [13, 19]},
+    {"label" : "Bias (2020)", "start" : [15, 5]},
+    {"label" : "Defining and analyzing “sound events”", "start" : [21, 0]},
+    {"label" : "Relationship with trainings", "start" : [22, 30]},
+    {"label" : "Working with musicians", "start" : [24, 19]},
+    {"label" : "Authorship", "start" : [27, 36]},
+    {"label" : "Balancing creative and academic work", "start" : [30, 17]},
+    {"label" : "The MusAI project", "start" : [33, 52]},
+    {"label" : "Curating corpora", "start" : [36, 11]},
+    {"label" : "Using computational techniques and the future", "start" : [40, 40]}
 ]}
 />
 
