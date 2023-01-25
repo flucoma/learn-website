@@ -31,7 +31,7 @@ Artemi-Maria Gioti is a composer and artistic researcher working in the fields o
 ## The Podcast
 
 <YouTubeChapters 
-url={'r5XixsSdGKI '}
+url={'r5XixsSdGKI'}
 chapters={[
     {"label" : "Introduction", "start" : [0, 0]},
     {"label" : "Getting into the field", "start" : [1, 16]},
