@@ -68,6 +68,8 @@ Here are the links to some of the things that were discussed during the podcast:
 url={'nEkufXDb-Ro'}
 />
 
+- NIME 2014 Goldsmiths: [Artistic Keynote](https://sonami.net/wp-content/uploads/2022/10/Sonami-SmallDictators-NIME2014.pdf): Dreams of Control, Dreams of Chaos
+
 - The [Putney VCS3](https://fr.wikipedia.org/wiki/EMS_VCS3) synthesizer.
 
 - [Eliane Radigue](https://en.wikipedia.org/wiki/%C3%89liane_Radigue)'s Triptych (1978):
@@ -91,6 +93,8 @@ url={'OgN3_KXv5O8'}
 - [Keynote](https://www.nime.org/2014/keynotes/index.html) at NIME 2014.
 
 - [Thor Magnusson](https://thormagnusson.github.io/) on the [FluCoMa Podcast](/explore/magnusson).
+
+- [Requiem for the lady’s glove](https://sonami.net/wp-content/uploads/2020/07/SOUND-AMERICAN-VOL2.pdf)
 
 - [Spring Spyre](https://sonami.net/portfolio/items/spring-spyre/) at NIME 2014:
 
@@ -118,4 +122,24 @@ url={'BYUe6jlNIKY'}
 
 <Vimeo 
 url={'https://player.vimeo.com/video/450616595?h=ea2a2ec6c0'}
+/>
+
+- Archival Footage from the 90’s:
+
+<Vimeo 
+url={'https://player.vimeo.com/video/632314493?h=ff2184fbbd'}
+/>
+
+- Roulette 2000 Performance with the lady’s glove and interview:
+
+<Vimeo 
+url={'https://player.vimeo.com/video/11316136?h=70fbd1f18a'}
+/>
+
+- [The ear goes to the sound](https://vimeo.com/ondemand/earfilm) - The work of Laetitia Sonami by [Renetta Sitoy](https://rsitoy.com/).
+
+- 1998 Steim Archive: Interview and Demo of the lady’s glove:
+
+<YouTube 
+url={'tLifuUARHIo'}
 />
