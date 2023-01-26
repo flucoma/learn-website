@@ -1,51 +1,25 @@
 import { readable, writable } from 'svelte/store';
-import FuzzySearch from 'fuzzy-search';
-
-import t from '$lib/data/tag.json';
-import c from '$lib/data/crumbs.json';
-import e from '$lib/data/edits.json';
-import s from '$lib/data/structure.json';
-import database from '$lib/data/db.json';
-import manual from '$lib/data/manual_config.json';
+import metadata from '$lib/data/metadata.json';
+import config from '$lib/data/config.json';
+import Fuse from 'fuse.js';
 
 // interface state
-export const nav_expanded = writable(false);
-export const blur = writable(false);
+const nav_expanded = writable(false);
+const blur = writable(false);
 
-export const tags = readable(t);
-export const breadcrumbs = readable(c);
-export const edits = readable(e);
-export const structure = readable(s);
+const structure = metadata.structure;
+const db = metadata.db;
+const crumbs = metadata.crumbs;
+const related = metadata.related;
 
-const installs = [
-	{
-		title: 'Max Installation',
-		tags: ['install', 'max'],
-		blurb: 'Instructions to install the Max FluCoMa Package',
-		url: '/installation/max'
-	},
-	{
-		title: 'SuperCollider Installation',
-		tags: ['install', 'supercollider'],
-		blurb: 'Instructions to install the SuperCollider FluCoMa Package',
-		url: '/installation/sc'
-	},
-	{
-		title: 'PureData Installation',
-		tags: ['install', 'pd', 'puredata'],
-		blurb: 'Instructions to install the PureData FluCoMa Package',
-		url: '/installation/pd'
-	}
-];
-
-const docs = database.docs;
-installs.forEach(i => docs.push(i)); // add installation steps
-
-const manual_config = manual;
-const search = new FuzzySearch(docs, ['title', 'tags', 'flair', 'artist', 'blurb'], {
-	caseSensitive: false,
-	sort: true
+const fuse = new Fuse(db, {
+	keys: [
+		{ name: 'title', weight: 1.0 },
+		{ name: 'artist', weight: 0.8 },
+		{ name: 'blurb', weight: 0.4 },
+		{ name: 'tags', weight: 0.4 },
+		{ name: 'author', weight: 0.2 }
+	]
 });
 
-const db = search;
-export { db, docs, manual_config };
+export { crumbs, structure, db, related, fuse, config, nav_expanded, blur };

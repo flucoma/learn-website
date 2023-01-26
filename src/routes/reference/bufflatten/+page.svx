@@ -10,7 +10,7 @@ category: Utility
 ---
   
 <script>
-    import BufFlatten from '$lib/widget/BufFlatten.svelte';
+    import BufFlatten from './BufFlatten.svelte';
 </script>
 
 BufFlatten is used to reorganise the values in a multichannel buffer into a single channel buffer. Therefore the `destination` buffer will always have only one channel. This can be useful to structure values such that they can be added to a [DataSet](/reference/dataset).

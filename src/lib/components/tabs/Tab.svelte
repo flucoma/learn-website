@@ -12,20 +12,29 @@
 	<slot />
 </button>
 
-<style lang="postcss">
+<style>
 	button {
 		background: none;
-		border: none;
-		border-bottom: 2px solid white;
-		border-radius: 0;
-		margin: 0;
-		color: #ccc;
+		border: 1px solid transparent;
+		padding: 1em;
+		cursor: pointer;
+		color: #495057;
+		font-size: 1rem;
 		font-family: var(--font);
-		font-size: 1em;
+		margin: 0;
+		min-width: 13ch; /* Number of characters in the word SuperCollider */
+		transition: border-bottom 0.05s linear;
+		transition: background-color 0.05s linear;
+	}
+
+	button:hover {
+		background-color: rgba(28, 164, 252, 0.05);
 	}
 
 	.selected {
-		border-bottom: 2px solid var(--dark-blue);
-		color: #333;
+		background-color: #fff;
+		border-bottom: 4px solid var(--light-blue);
+		color: black;
+		background-color: rgba(28, 164, 252, 0.1);
 	}
 </style>

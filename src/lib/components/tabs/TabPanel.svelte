@@ -9,7 +9,14 @@
 </script>
 
 {#if $selectedPanel === panel}
-	<br />
-	<slot />
-	<br />
+	<div class="panel">
+		<slot />
+	</div>
 {/if}
+
+<style>
+	.panel {
+		margin-bottom: 1em;
+		border-radius: 0.25rem;
+	}
+</style>

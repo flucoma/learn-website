@@ -1,54 +1,21 @@
 <script>
-	import { docs } from '$lib/app.js';
-	import { manual_config } from '$lib/app.js';
 	import _ from 'lodash';
+	import { config, db } from '$lib/app';
+	import { goto } from '$app/navigation';
 	import LearnMoreArrow from '$lib/components/LearnMoreArrow.svelte';
 
-	var learn = docs.filter(x => x.section === 'learn');
-	var explore = docs.filter(x => x.section === 'explore');
-	var reference = docs.filter(x => x.section === 'reference');
+	var learn = db.filter(x => x.section === 'learn');
+	var explore = db.filter(x => x.section === 'explore');
 
-	const rng_learn = get_item_by_key(learn, 'url', manual_config.front_page.featured_learn.url);
-	const rng_explore = get_item_by_key(explore, 'url', manual_config.front_page.featured_explore.url);
-	learn = remove_element_from_array(learn, rng_learn);
-	explore = remove_element_from_array(explore, rng_explore);
+	// Retrieve the article details from the database
+	const featuredLearn = learn.filter(x => x.url === config.frontPage.featuredLearn.url)[0];
+	const featuredExplore = explore.filter(x => x.url === config.frontPage.featuredExplore.url)[0];
 
-	const learn_random_array = get_random_elements(learn, 3);
-	const explore_random_array = get_random_elements(explore, 3);
-	const reference_random_array = get_random_elements(reference, 3);
+	learn = learn.filter(x => x.url !== config.frontPage.featuredLearn.url);
+	explore = explore.filter(x => x !== config.frontPage.featuredExplore.url);
 
-	function get_random_elements(search_array, num_entries) {
-		// Build an array of three random entries.
-		var to_return = [];
-		for (var i = 0; i < num_entries; i++) {
-			var entry_to_add = _.sample(search_array);
-			to_return.push(entry_to_add);
-			_.remove(search_array, entry_to_add);
-		}
-		return to_return;
-	}
-
-	function remove_element_from_array(the_array, element) {
-		// Retruns a new array with the element removed.
-		var to_return = [];
-		for (var i = 0; i < the_array.length; i++) {
-			if (the_array[i] != element) {
-				to_return.push(the_array[i]);
-			}
-		}
-		return to_return;
-	}
-
-	function get_item_by_key(search_array, key_name, val) {
-		// For retrieving the manually set content.
-		var to_return = {};
-		for (var i = 0; i < search_array.length; i++) {
-			if (search_array[i][key_name] == val) {
-				to_return = search_array[i];
-			}
-		}
-		return to_return;
-	}
+	const randomLearn = _.shuffle(learn).slice(0, 3);
+	const randomExplore = _.shuffle(explore).slice(0, 3);
 </script>
 
 <div class="main_wrapper">
@@ -58,6 +25,8 @@
 			<span style="font-size: 1.2em;"
 				>Welcome to the <strong>Fluid Corpus Manipulation Learn platform</strong>.</span
 			>
+			<br />
+			<a href="/getting-started">Get Started</a> with the FluCoMa ecosystem.
 			<br />
 			<a href="/learn">Learn</a> how to use the FluCoMa toolkit.
 			<br />
@@ -74,36 +43,36 @@
 		<div class="row_featured_article" style="grid-area: featuredArticle1;">
 			<div
 				class="feature_image"
-				style="background-image: url({rng_learn.feature.featuredimage ||
-					_.sample(rng_learn.feature.images) ||
-					'/general/learn_default.jpeg'});"
+				style="background-image: url({featuredLearn.featuredimage})"
+				on:click={() => goto(featuredLearn.url)}
 			/>
 
 			<div class="flaired-title-featured">
-				<div class="flair {rng_learn.flair}" />
-				<div>Learn: {rng_learn.title}</div>
+				<div class="flair {featuredLearn.flair}" />
+				<div>Learn: {featuredLearn.title}</div>
 			</div>
 
 			<div class="learn_more_link-featured">
-				<LearnMoreArrow link={rng_learn.url} />
+				<LearnMoreArrow link={featuredLearn.url} />
 			</div>
 		</div>
 
 		<div class="row_featured_article" style="grid-area: featuredArticle2;">
 			<div
 				class="feature_image"
-				style="background-image: url({rng_explore.feature.featuredimage ||
-					_.sample(rng_explore.feature.images) ||
+				style="background-image: url({featuredExplore.feature.featuredimage ||
+					_.sample(featuredExplore.feature.images) ||
 					'/general/explore_default.jpeg'});"
+				on:click={() => goto(featuredLearn.url)}
 			/>
 
 			<div class="flaired-title-featured">
-				<div class="flair {rng_explore.flair}" />
-				<div>Explore: {rng_explore.title}</div>
+				<div class="flair {featuredExplore.flair}" />
+				<div>Explore: {featuredExplore.title}</div>
 			</div>
 
 			<div class="learn_more_link-featured">
-				<LearnMoreArrow link={rng_explore.url} />
+				<LearnMoreArrow link={featuredExplore.url} />
 			</div>
 		</div>
 
@@ -113,7 +82,7 @@
 					title=""
 					width="100%"
 					height="300px"
-					src={`https://www.youtube.com/embed/${manual_config.front_page.featured_video.url}`}
+					src={`https://www.youtube.com/embed/${config.frontPage.featuredVideo.url}`}
 					frameborder="0"
 					allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
 					allowfullscreen
@@ -122,51 +91,49 @@
 
 			<div class="video_description">
 				<h3>
-					{manual_config.front_page.featured_video.title}
+					{config.frontPage.featuredVideo.title}
 				</h3>
 				<p>
-					{manual_config.front_page.featured_video.blurb}
+					{config.frontPage.featuredVideo.blurb}
 				</p>
 			</div>
 		</div>
 	</div>
 
-	<!--Learn Section-->
 	<div class="row_parent">
 		<h2 class="row_title_lower">Previously Featured: Learn</h2>
-
 		<div class="learn_more_link-section" style="grid-area: sectionLearnMore;">
 			<div>
 				<LearnMoreArrow link="/learn" />
 			</div>
 		</div>
 
-		{#each learn_random_array as item, i}
+		{#each randomLearn as item, i}
 			<div class="img_container" style="grid-area: contentImg{i + 1};">
 				<div
 					class="feature_image"
 					style="background-image: url({item.feature.featuredimage ||
-						_.sample(learn_random_array[0].feature.images) ||
+						_.sample(randomLearn[0].feature.images) ||
 						'/general/learn_default.jpeg'});"
+					on:click={() => goto(item.url)}
 				/>
 			</div>
 		{/each}
 
-		{#each learn_random_array as item, i}
+		{#each randomLearn as item, i}
 			<div class="flaired-title" style="grid-area: contentTitle{i + 1};">
 				<div class="flair {item.flair}" />
 				<div>{item.title}</div>
 			</div>
 		{/each}
 
-		{#each learn_random_array as item, i}
+		{#each randomLearn as item, i}
 			<div class="learn_more_link" style="grid-area: contentLink{i + 1};">
 				<LearnMoreArrow link={item.url} />
 			</div>
 		{/each}
 	</div>
 
-	<!--Explore Section-->
 	<div class="row_parent">
 		<h2 class="row_title_lower">Previously Featured: Explore</h2>
 
@@ -174,52 +141,27 @@
 			<LearnMoreArrow link="/explore" />
 		</div>
 
-		{#each explore_random_array as item, i}
+		{#each randomExplore as item, i}
 			<div class="img_container" style="grid-area: contentImg{i + 1};">
 				<div
 					class="feature_image"
 					style="background-image: url({item.feature.featuredimage ||
-						_.sample(learn_random_array[0].feature.images) ||
+						_.sample(randomLearn[0].feature.images) ||
 						'/general/explore_default.jpeg'});"
+					on:click={() => goto(item.url)}
 				/>
 			</div>
 		{/each}
 
-		{#each explore_random_array as item, i}
+		{#each randomExplore as item, i}
 			<div class="flaired-title" style="grid-area: contentTitle{i + 1};">
 				<div class="flair {item.flair}" />
 				<div>{item.title}</div>
 			</div>
 		{/each}
 
-		{#each explore_random_array as item, i}
+		{#each randomExplore as item, i}
 			<div class="learn_more_link" style="grid-area: contentLink{i + 1};">
-				<LearnMoreArrow link={item.url} />
-			</div>
-		{/each}
-	</div>
-
-	<!--Reference Section-->
-	<div class="algos_row">
-		<h2 class="row_title_lower">Discover an Algorithm</h2>
-
-		<div class="learn_more_link-section" style="grid-area: sectionLearnMore;">
-			<LearnMoreArrow link="/reference" />
-		</div>
-
-		{#each reference_random_array as item, i}
-			<div class="flaired-title" style="grid-area: algoTitle{i + 1};">
-				<div class="flair {item.flair}" />
-				<div>{item.title}</div>
-			</div>
-
-			<div class="algo_blurb" style="grid-area: algoBlurb{i + 1};">
-				<p>
-					{item.blurb}
-				</p>
-			</div>
-
-			<div class="learn_more_link-algo" style="grid-area: contentLink{i + 1};">
 				<LearnMoreArrow link={item.url} />
 			</div>
 		{/each}
@@ -229,9 +171,7 @@
 <style>
 	/*Main div*/
 	.main_wrapper {
-		margin-left: 1em;
-		margin-right: 1em;
-		margin-bottom: 1em;
+		gap: 1em;
 	}
 
 	/* Top featured div */
@@ -244,15 +184,12 @@
 			'featuredArticle2 featuredVideo';
 		max-width: 80%;
 		margin: 0 auto;
-		margin-bottom: 5em;
-		grid-gap: 1em;
+		gap: 1em;
 	}
 
 	.row_featured_article {
 		border-radius: 0.25rem;
 		padding: 0em 0.75em 0em 0.75em;
-		margin-top: 0em;
-		margin-bottom: 0.5em;
 	}
 
 	.row_featured_video {
@@ -289,14 +226,18 @@
 		margin: 0em 0em 0.5em 0em;
 	}
 
+	.row_parent,
+	.row_featured {
+		padding-bottom: 1em;
+	}
+
 	/*Other sections*/
 	.row_parent {
 		display: grid;
 		grid-template-columns: repeat(3, 1fr);
-		max-width: 80%;
 		margin: 0 auto;
-		margin-bottom: 5em;
-		grid-gap: 1em;
+		max-width: 80%;
+		gap: 1em;
 		grid-template-areas:
 			'featuredTitle featuredTitle sectionLearnMore'
 			'contentImg1 contentImg2 contentImg3'
@@ -354,6 +295,7 @@
 	}
 
 	.feature_image {
+		box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 		position: relative;
 		max-width: 100%;
 		height: 10em;
@@ -362,6 +304,7 @@
 		background-position: center;
 		background-repeat: no-repeat;
 		background-size: cover;
+		cursor: pointer;
 	}
 
 	/*Algorithms row*/

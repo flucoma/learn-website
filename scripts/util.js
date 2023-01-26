@@ -8,7 +8,7 @@ const urlFromRoute = route => {
 	return `/${base}`
 };
 
-const spill_to_array = (list_of_dicts, desired_key) => {
+const spillToArray = (list_of_dicts, desired_key) => {
 	var return_array = [];
 
 	for (var i = 0; i < list_of_dicts.length; i++) {
@@ -18,7 +18,7 @@ const spill_to_array = (list_of_dicts, desired_key) => {
 	return return_array;
 };
 
-const get_components = (markdown_string, to_include) => {
+const getComponents = (markdown_string, to_include) => {
 	// TODO: parse a DOM
 	// The best way of doing this would be to parse the markdown string as html, but that would
 	// mean integrating a DOMParser through node or npm and whatnot...
@@ -62,4 +62,4 @@ const get_components = (markdown_string, to_include) => {
 	return return_dict;
 };
 
-export { contentGlob, urlFromRoute, spill_to_array, get_components };
+export { contentGlob, urlFromRoute, spillToArray, getComponents };

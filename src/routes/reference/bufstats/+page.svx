@@ -15,7 +15,7 @@ category: Analyse Data
     import { Tabs, TabList, TabPanel, Tab } from '$lib/components/tabs/tabs';
     import Image from '$lib/components/Image.svelte';
     import ResourceLink from '$lib/components/ResourceLink.svelte';
-    import IndentNote from '$lib/components/IndentNote.svelte';
+    import Admonition from '$lib/components/Admonition.svelte';
 </script>
 
 BufStats statistically summarises a set of values that are in a buffer channel, by returning seven statistics: the [mean](#mean), [standard deviation](#standard-deviation), [skewness](#skewness), [kurtosis](#kurtosis), [low](#low) (by default the minimum), [middle](#middle) (by default the median), and [high](#high) (by default the maximum) values. The mean and median are a measure of the central tendency of the data, while the others help describe how the data are distributed around this tendency.
@@ -28,11 +28,11 @@ In addition to computing these statistical descriptions on the original buffer c
 * apply [weights](#weights) to the various frames to produce a weighted statistical summary using a `weights` buffer
 * find and remove [outliers](#outliers) frames with the `outliersCutoff` parameter
 
-<IndentNote type='pointer'>
+<Admonition type='pointer'>
 
 While it can be difficult to discern how to use some of these analyses practically (i.e., what does the kurtosis of the first derivative of spectral centroid indicate musically?), these statistical summaries can sometimes represent differences between analyses that dimensionality reduction and machine learning algorithms can pick up on. Including these statistical descriptions in training or analysis may provide better distinction between data points.
 
-</IndentNote>
+</Admonition>
 
 The `stats` output buffer of FluidBufStats will have the same number of channels as the `source` buffer, each one containing the statistics of it's corresponding channel in the `source` buffer. Because the dimension of time is summarised statistically, the frames in the `stats` buffer do not represent time as they normally would. The first seven frames in every channel of the `stats` buffer will have the seven statistics computed on the `source` buffer channel. After these first seven frames, there will be seven more frames for each derivative requested, each containing the seven statistical summaries for the corresponding derivative.
 
@@ -91,7 +91,7 @@ The value returned will be the data point at the percentile indicated by the `mi
 
 The value returned will be the data point at the percentile indicated by the `high` parameter (between 0 and 100). The default value of 100 will return the largest value in the data. It may be useful to use this statistical description for analyses in which the largest value has the most impact on a listener's perception. For example, how [loud](/reference/loudness) one perceives a drum hit to be may be better correlated with the maximum loudness instead of the mean loudness, which will be brought down by the quieter parts of the decay tail and any silence that exists in the sound slice.
 
-# Derivatives
+## Derivatives
 
 Setting the parameter `numDerivs` > 0 (the maximum is 2) will return BufStats' seven statistics computed on consecutive derivatives of the channel's time-series. The derivative of a time-series is approximated by finding the _difference_ between each consecutive value in a series, which helps in understanding how a time series _changes_ throughout time. 
 
@@ -132,21 +132,21 @@ Note that the derivative has one fewer value than the original series because ea
 
 After computing the number of derivatives indicated by the user,  BufStats calculates the same seven statistical summaries on these new series of numbers: mean, standard deviation, skewness, kurtosis, low, middle, and high.
 
-# Outliers
+## Outliers
 
 BufStats can find and remove [outliers](/learn/outliers) by using an analysis of the data to set boundaries for each channel in the buffer. Any frames that have a value outside the its channel's boundaries will not be used to compute the statistics. The strictness of these boundaries is determined by `outliersCutoff` (see the page on [outliers](/learn/outliers) to learn more).
 
-# Weights
+## Weights
 
 The `weights` parameter can be passed a buffer, the values of which will be used for relative weighting of each corresponding frame in the `source` buffer. This will create "weighted" statistics where some values in the data have more impact on the resulting statistical summary than others. All seven of the resulting statistics may be affected by using the weights. 
 
 This can be useful for weighting certain moments in descriptor time-series by the value of other descriptors. For example, one might want to weight the influence of pitch analyses using the pitch confidence descriptor so the resulting mean pitch value is more strongly influenced by moments in the analysis when the pitch confidence is high. Similarly, one might want to weight a descriptor time-series (such as MFCC) by amplitude so the louder moments of the sound slice have greater impact than the quieter moments on the resulting statistical summary.
 
-<IndentNote type='pointer'>
+<Admonition type='pointer'>
 
 For an example of using a `weights` buffer to influence the statistical summary in a musical way, visit the [Weighting Stats](/learn/weighting-stats) Overview.
 
-</IndentNote>
+</Admonition>
 
 ---
 

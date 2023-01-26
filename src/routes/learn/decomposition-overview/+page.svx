@@ -1,0 +1,41 @@
+---
+title: Decomposition Overview
+author: James
+blurb: |
+    A quick overview of the decomposition tools in the FluCoMa toolkit.
+tags: 
+    - decomposition
+    - slicing
+    - separation
+    - unmixing
+flair: tutorial
+featuredimage: /img/flucoma-magical.jpg
+---
+
+## Introduction
+
+One of the strongest arms of the toolkit is its *decomposition* capabilities. If you’re not familiar with the term, the basic idea is that any mixed sound is likely to be made up of many other sounds. Unfortunately it can be really hard to find and listen to those “hidden” sounds so decomposition offers some strategies, algorithms and manoeuvres that help you discover and explore the internal structure of a sound. 
+
+Here on the team, we tend to think of there being two types of objects that deal with this process distinctly. 
+
+## Slicing
+
+These objects take sounds and chop them up by looking for points in time where some *change* occurs, according to some different modes of machine listening. If you’ve ever used REAPER’s dynamic splitting, or the “Slice” mode on Ableton Live’s Simpler instrument, then you might already be familiar with why this is useful in creative practice. Let’s say you have a corpus of drum loops and want to extract a bunch of one-shots, or you have 10 hours of field recording from the arctic circle but want to create smaller sounds files between points of silence... ppslicing is your friend here. Because FluCoMa offers most algorithms in both realtime (buffer~) and non-realtime (signal) versions you can also run these algorithms in realtime to make your own bespoke drum triggers or an onset detector for your instrument. Although the technique is seemingly simple, slicing is open-ended and can lead to many wonderful creative outcomes. To get started we highly recommend experimenting with these slicing objects:
+
+1. [NoveltySlice](/reference/noveltyslice)
+2. [OnsetSlice](/reference/onsetslice)
+3. [TransientSlice](/reference/transientslice)
+4. [AmpGate](/reference/ampgate)
+5. [AmpSlice](/reference/ampslice)
+
+## Separation
+
+These objects take sounds and *deconstruct* them, returning to you a set of new sounds that when recombined would sum back to the original. The idea is that every sound has some internal structure and there are often times where we want to isolate or focus on different parts of that sound while ignoring the others. A pretty common example is when you have a mixed source, like a drum kit coming through a single microphone. If you want to separate the kick, drum, snare and hats from each other a filter will only get you so far which is where these decomposition techniques enter stage. To begin your journey we recommend investigating these objects:
+
+1. [HPSS](/reference/hpss)
+2. [Sines](/reference/sines)
+3. [Transients](/reference/transients)
+
+Separation techniques often open the musical question: “What are you hoping to find?”. Sometimes these objects can serve a direct and clear purpose such as wanting to extract a specific sound from a mixed source. On the other hand, they can also function as speculative tools, and can be used to listen to what might be lurking in the mixture. In this vein, there is a wonderful object called [BufNMF](/reference/bufnmf). Perhaps one of, if not THE most powerful tool in the toolkit on its own it can be used for “blind source separation”, classification, feature learning amongst many other things. We have a great set of articles talking about how you can use [BufNMF](/reference/bufnmf), such as [Seeding BufNMF with Bases and Activations](/learn/seeding-nmf), and [Audio Decomposition Using BufNMF](/learn/bufnmf).
+
+Lastly is the world of hybridisation through separation. Imagine you want to cross the bright timbre of a hi-hat with the envelope of a synthesiser. This is where objects like [AudioTransport](/reference/audiotransport) and [BufNMFCross](/reference/bufnmfcross) come into play. These are definitely not easy points of entry though so try out the other objects first!

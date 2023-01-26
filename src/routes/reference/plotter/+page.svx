@@ -1,0 +1,15 @@
+---
+title: Plotter
+blurb: A viewer for a 2D DataSet
+tags:
+    - plotting
+    - gui
+flair: reference
+category: Analyse Data
+---
+
+Plotter is a helper to visualise a 2-dimensional [DataSet](/reference/dataset). Each creative coding environment has slight variations on its features, therefore a look at the helpfile is highly recommended.
+
+
+
+

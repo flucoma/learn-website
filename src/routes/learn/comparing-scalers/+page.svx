@@ -1,5 +1,6 @@
 ---
 title: Comparing Scalers
+author: Ted
 blurb: |
     Normalize, Standardize, & RobustScale
 tags: 
@@ -9,11 +10,13 @@ tags:
     - standard deviation
     - percentile
 flair: tutorial
-featuredimage: /learn/comparing-scalers/08_norm with 2 neighbors.png
+featuredimage: /learn/comparing-scalers/08_norm-with-2-neighbors.png
 ---
 
 <script>
     import Image from '$lib/components/Image.svelte';
+    import Comparison from '$lib/widget/comparing-scalers/Comparison.svelte';
+    import Slices from '$lib/widget/comparing-scalers/Slices.svelte';
     import { Tabs, TabList, TabPanel, Tab } from '$lib/components/tabs/tabs';
 </script>
 
@@ -21,44 +24,14 @@ FluCoMa has three scalers for scaling data (in a [DataSet](/reference/dataset) a
 
 Below are plots of a sound slices, each of which is represented by a spectral centroid in Hz and a loudness measure in dB. The plots show different scalings of the data: the first is the raw data with the dimensions original ranges, and the next three are the three scalers found in FluCoMa. Notice that the dimensions of the raw data have very different ranges which means that when computing distance (i.e., similarity) the dimension with a larger range (spectral centroid) will have a much greater impact on the measured distance between points. This may be undesirable for use with many machine learning algorithms. See the [Why Scale?](/learn/why-scale) page for more info.
 
-<Tabs>
-    <TabList>
-        <Tab>Raw</Tab>
-        <Tab>Normalize</Tab>
-        <Tab>Standardize</Tab>
-        <Tab>RobustScale</Tab>
-    </TabList>
-    <TabPanel>
-      <Image
-      src="/learn/comparing-scalers/00_raw.png"
-      label="Raw data plotted with 8,000 units on each axis, so spatially 1 Hz = 1 dB."
-      />
-    </TabPanel>
-    <TabPanel>
-      <Image
-      src="/learn/comparing-scalers/04_norm.png"
-      label="Normalized data will always be in the range 0-1, so both axis are scaled appropriately. Solid line shows 0, dotted line shows 1."
-      />
-    </TabPanel>
-    <TabPanel>
-      <Image
-      src="/learn/comparing-scalers/09_standardized.png"
-      label="Standardized data will have the mean centred on 0 (solid line) with values on either side negative and positive. The dotted lines show 1 standard deviation from the mean, which will always be at -1 and 1 for standardized data. The axes here range from -3 to 3 for comparison with RobustScale."
-      />
-    </TabPanel>
-    <TabPanel>
-      <Image
-      src="/learn/comparing-scalers/13_robust.png"
-      label="Robust-Scaled data will have the median (50th percentile) centred on 0 (solid line) with values on either side negative and positive. The dotted lines show the 25th and 75th percentile in each dimension. Notice that there is a range of 1 between the 25th and 75th percentiles but it may be asymmetrical around the median, and different in each dimension. The axes here range from -3 to 3 for comparison with Standardize."
-      />
-    </TabPanel>
-</Tabs>
+<Comparison />
 
 While each scaler transforms the data into a relatively similar range, they all have different strategies for doing so and therefore distort the data in different ways. For details about how each scaler works, visit their respective reference pages ([Normalize](/reference/normalize), [Standardize](/reference/standardize), and [RobustScale](/reference/robustscale)). These different distortions can lead to meaningful results. Take for example the plots below, which show the same data set as above, but track the nearest neighbour of "slice-27" using different scalers.
 
 Differences such as these can have meaningful impacts on the musical results. Choosing which scaler to use can be an important musical decision in the creative process, which may be based on some specific context (such as if you know there are extreme [outliers](/learn/outliers)), or decided by testing them and choosing which one produces the results you like the best.
 
 ### Nearest Neighbour of "slice-27"
+<!-- <Slices /> --> 
 
 <Tabs>
     <TabList>
@@ -75,7 +48,7 @@ Differences such as these can have meaningful impacts on the musical results. Ch
     </TabPanel>
     <TabPanel>
       <Image
-      src="/learn/comparing-scalers/08_norm with 2 neighbors.png"
+      src="/learn/comparing-scalers/08_norm_with_2_neighbors.png"
       label="In the normalized data set, the nearest neighbour to point-27 is not point-21, but instead is point-13."
       />
     </TabPanel>

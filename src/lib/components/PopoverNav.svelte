@@ -6,6 +6,10 @@
 
 {#if $nav_expanded}
 	<nav class="popover" transition:fly={{ duration: 200, y: 0, x: -200 }}>
+		<Landing link="/getting-started">
+			<h2 slot="title">Get Started</h2>
+			<p slot="blurb" class="blurb">Get Started with the FluCoMa Ecosystem</p>
+		</Landing>
 		<Landing link="/learn">
 			<h2 slot="title">Learn</h2>
 			<p slot="blurb" class="blurb">Learn how to use the FluCoMa toolkit.</p>
@@ -36,7 +40,7 @@
 		flex-direction: column;
 		gap: 0.5em;
 		position: fixed;
-		top: 40px;
+		top: 55px;
 		left: 0;
 		background-color: white;
 		opacity: 1;

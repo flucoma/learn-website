@@ -9,7 +9,7 @@ category: Utility
 ---
 
 <script>
-    import BufScale from '$lib/widget/BufScale.svelte'
+    import BufScale from './BufScale.svelte'
 </script>
 
 

@@ -48,3 +48,9 @@
 <div class="tabs">
 	<slot />
 </div>
+
+<style>
+	.tabs {
+		margin-bottom: 1em;
+	}
+</style>

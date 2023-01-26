@@ -15,9 +15,9 @@ category: Analyse Data
 
 <script>
     import ResourceLink from '$lib/components/ResourceLink.svelte';
-    import Grid from '$lib/widget/Grid.svelte';
-    import GridOversample from '$lib/widget/GridOversample.svelte';
-    import GridExtent from '$lib/widget/GridExtent.svelte';
+    import Grid from './Grid.svelte';
+    import GridOversample from './GridOversample.svelte';
+    import GridExtent from './GridExtent.svelte';
 </script>
 
 [Grid]() maps a set of two-dimensional points from a [DataSet](/reference/dataset) to a rectangular grid. To do this, it uses a variant of the [Jonker-Volgenant algorithm](https://www.gwern.net/docs/statistics/decision/1987-jonker.pdf). This can be useful for reorganising or transforming two-dimensional data into a uniform representation in which points are equally spaced from each other. Such a layout might be easier to navigate visually, or with a controller or could be used as a compositional impetus for the organisation of corpus items.

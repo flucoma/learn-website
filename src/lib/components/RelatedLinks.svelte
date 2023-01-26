@@ -1,6 +1,6 @@
 <script>
 	import { page } from '$app/stores';
-	import related from '$lib/data/related.json';
+	import { related } from '$lib/app';
 
 	let links = [];
 	$: {
@@ -21,7 +21,7 @@
 		hover = false;
 	}
 
-	function mouseenter(e, link) {
+	function mouseEnter(e, link) {
 		hoverInfo = link;
 		hover = true;
 		const rect = e.target.getBoundingClientRect();
@@ -33,7 +33,7 @@
 
 {#if hover}
 	<div
-		class={`hoverable ${hoverInfo.flair}`}
+		class={`hoverable rel-${hoverInfo.flair}`}
 		style:left={`${hoverPos.x}px`}
 		style:top={`${hoverPos.y + hoverPos.offset}px`}
 		bind:this={hoverable}
@@ -48,9 +48,9 @@
 	{#each renderables as c}
 		{#each c as link}
 			<a
-				class={`link ${link.flair}`}
+				class={`link rel-${link.flair}`}
 				href={link.url}
-				on:mouseenter={e => mouseenter(e, link)}
+				on:mouseenter={e => mouseEnter(e, link)}
 				on:mouseleave={stopHover}
 				>{link.title}
 			</a>
@@ -63,13 +63,15 @@
 		padding: 0.25em;
 		text-decoration: none;
 		border-radius: 0.25rem;
+		color: white;
+		box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 	}
 
 	.link:hover {
 		color: white;
 	}
 	.container {
-		font-size: 0.8rem;
+		font-size: 0.75rem;
 		display: flex;
 		flex-direction: row;
 		flex-wrap: wrap;
@@ -97,30 +99,30 @@
 		border-radius: 0.25rem;
 	}
 
-	.tutorial {
+	.rel-tutorial {
 		color: var(--tutorial-flair);
 		border: 2px solid var(--tutorial-flair);
 	}
 
-	.tutorial:hover {
+	.rel-tutorial:hover {
 		background-color: var(--tutorial-flair);
 	}
 
-	.reference {
+	.rel-reference {
 		color: var(--reference-flair);
 		border: 2px solid var(--reference-flair);
 	}
 
-	.reference:hover {
+	.rel-reference:hover {
 		background-color: var(--reference-flair);
 	}
 
-	.article {
+	.rel-article {
 		color: var(--article-flair);
 		border: 2px solid var(--article-flair);
 	}
 
-	.article:hover {
+	.rel-article:hover {
 		background-color: var(--article-flair);
 	}
 </style>

@@ -10,7 +10,7 @@ category: Analyse Sound
 
 <script>
     import ResourceLink from '$lib/components/ResourceLink.svelte';
-    import Loudness from '$lib/widget/Loudness.svelte';
+    import Loudness from './Loudness.svelte';
 </script>
 
 

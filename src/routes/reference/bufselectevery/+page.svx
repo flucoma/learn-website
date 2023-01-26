@@ -9,7 +9,7 @@ category: Utility
 ---
 
 <script>
-    import BufSelectEvery from '$lib/widget/BufSelectEvery.svelte';
+    import BufSelectEvery from './BufSelectEvery.svelte';
 </script>
 
 
