@@ -15,6 +15,12 @@ flair: article
     import Admonition from '$lib/components/Admonition.svelte';
 </script>
 
+<Admonition type="pointer">
+
+FluCoMa will only work with the 64-bit version of [Pure Data](https://puredata.info/).
+
+</Admonition>
+
 ## Step 1: Download the Pure Data Package
 
 Download the latest version of the Pure Data package from GitHub releases. Choose the appropriate release for your operating system.
