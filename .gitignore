@@ -21,8 +21,6 @@ tag.json
 metadata.json
 
 # Lock Files
-pnpm-lock.yaml
-package-lock.json
 .pnpm-debug.log
 scripts/__pycache__
 
