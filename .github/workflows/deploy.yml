@@ -32,16 +32,13 @@ jobs:
             - uses: actions/setup-node@v3
               with:
                 node-version: 16
-                cache: 'pnpm'
-
-            - name: pnpm
-              run: npm i -g pnpm
+                cache: 'npm'
 
             - name: Install Dependencies
-              run: pnpm i
+              run: npm i
 
             - name: Build Site
-              run: pnpm run build
+              run: npm run build
 
             - name: Merge MFCC Widget
               run: |
