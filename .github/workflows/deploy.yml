@@ -29,16 +29,18 @@ jobs:
                 mkdir -p ~/.ssh
                 ssh-keyscan -H ${{ secrets.DO_IP }} >> ~/.ssh/known_hosts
 
+            - name: install pnpm
+              run: npm i -g pnpm
+
             - uses: actions/setup-node@v3
               with:
                 node-version: 16
-                cache: 'npm'
 
             - name: Install Dependencies
-              run: npm i
+              run: pnpm i
 
             - name: Build Site
-              run: npm run build
+              run: pnpm run build
 
             - name: Merge MFCC Widget
               run: |
