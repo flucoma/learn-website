@@ -23,6 +23,4 @@ metadata.json
 # Lock Files
 .pnpm-debug.log
 scripts/__pycache__
-
-pnpm-lock.yaml
 .vscode
