@@ -27,3 +27,4 @@ package-lock.json
 scripts/__pycache__
 
 pnpm-lock.yaml
+.vscode
