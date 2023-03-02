@@ -10,7 +10,8 @@ References are slightly different and use the ReferenceEntry component.
 	export let section = 'learn';
 
 	let [minColWidth, maxColWidth, gap] = [300, 800, 15];
-	let width, height;
+	let width = 0;
+	let height = 0;
 
 	const items = db.filter(x => x.section === section);
 </script>
