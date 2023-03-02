@@ -2,8 +2,8 @@
 	import _ from 'lodash';
 	import { config, db } from '$lib/app';
 	import Item from '$lib/components/front-page/Item.svelte'
-	import WelcomeButton from '../lib/components/WelcomeButton.svelte';
-	
+	import WelcomeButton from '$lib/components/front-page/WelcomeButton.svelte';
+	import VideoItem from '$lib/components/front-page/VideoItem.svelte';
 	var learn = db.filter(x => x.section === 'learn');
 	var explore = db.filter(x => x.section === 'explore');
 	
@@ -35,9 +35,10 @@
 </section>
 
 <section class='manual-feature'>
+
 	<Item item={featuredLearn} />
 	<Item item={featuredExplore} />
-
+	<VideoItem />
 </section>
 
 <section class='learn feature'>
@@ -66,12 +67,20 @@
 		margin-bottom: 1em;
 		margin-top: 1em;
 	}
+
+	.manual-feature {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+	}
+	
 	.feature-items {
 		display: flex;
 		flex-direction: row;
 		flex-wrap: wrap;
 		gap: 2em;
 		max-width: 100%;
+		column-count: 4;
 	}
 	#welcome-banner {
 		padding-top: 2em;
