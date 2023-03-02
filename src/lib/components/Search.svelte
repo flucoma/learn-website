@@ -120,23 +120,21 @@
 
 <style>
 	:root {
-		--radius: 10px;
-		--w: min(90%, 250px);
+		--radius: 0;
+		--w: min(100%, 250px);
 		--border: 1px solid var(--dark-blue);
 		--search-pad: 10px;
 	}
 	.search {
 		width: var(--w);
 		z-index: 999;
+		border: 0;
 	}
 	.query {
 		font-family: var(--font);
 		font-size: 1rem;
-		border-radius: var(--radius);
 		width: 90%;
 		border: 0;
-		box-sizing: none;
-		border-radius: 10px;
 		padding: 0.25em 1em 0.25em 1em;
 		border: 2px solid transparent;
 		transition: border cubic-bezier(0.075, 0.82, 0.165, 1) 300ms;
@@ -148,12 +146,10 @@
 		display: flex;
 		flex-direction: column;
 		position: absolute;
-		right: -1em;
+		right: 2em;
 		width: min(90vw, 400px);
-		padding: 0.25em;
-		background: rgb(255, 255, 255, 1);
-		border: 1px solid hsl(240, 5%, 50%);
-		border-radius: 8px;
+		background: white;
+		border: 1px solid hsla(240, 5%, 50%, 0.526);
 		gap: 0.25em;
 		z-index: 1000;
 	}
@@ -164,13 +160,10 @@
 		grid-template-rows: repeat(2, auto);
 		gap: 0.5em;
 		text-align: justify;
-		display: block;
-		outline: 0;
-		border-radius: 4px;
 		z-index: 1000;
 	}
 	.entryhover {
-		background-color: hsl(240, 5%, 80%);
+		background-color: hsla(240, 6%, 80%, 0.5);
 		cursor: pointer;
 	}
 	.top {
