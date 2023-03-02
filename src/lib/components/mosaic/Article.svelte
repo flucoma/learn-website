@@ -47,7 +47,7 @@
 	}
 
 	.text_cont {
-		margin: 0.75em;
+		/* margin: 0.75em; */
 	}
 
 	.img_container {
