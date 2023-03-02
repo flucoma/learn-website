@@ -27,7 +27,7 @@
 		display: flex;
 		flex-direction: column;
 		position: fixed;
-		max-width: 23ch;
+		max-width: 25ch;
 		position: relative;
 		margin-top: 0.25em;
 		z-index: -1;
