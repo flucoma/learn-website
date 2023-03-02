@@ -5,7 +5,7 @@ tags:
     - utility
     - buffer
 flair: reference
-category: Utility
+category: Utility Objects
 ---
 
 <script>

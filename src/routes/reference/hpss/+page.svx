@@ -6,7 +6,7 @@ tags:
     - source separation
     - mask
 flair: reference
-category: Decompose
+category: Decompose Sound
 ---
 
 <script>

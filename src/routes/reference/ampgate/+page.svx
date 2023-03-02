@@ -8,7 +8,7 @@ tags:
     - threshold
     - amplitude
 flair: reference
-category: Slicing
+category: Slice Sound
 ---
 
 <script>
