@@ -27,10 +27,10 @@
 		display: flex;
 		flex-direction: column;
 		position: fixed;
-		max-width: 25ch;
+		max-width: 20ch;
 		position: relative;
 		margin-top: 0.25em;
-		z-index: -1;
+		z-index: 0;
 	}
 
 	.headings {
