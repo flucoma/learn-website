@@ -24,7 +24,7 @@
 			<a href="/learn">Learn</a>
 			<a href='/reference'>Reference</a>
 			<a href="/explore">Explore</a>
-			<a href="https://discourse.flucoma.org" target='_blank'>Discourse</a>
+			<a href="https://discourse.flucoma.org" target='_blank' rel='noreferrer'>Discourse</a>
 		</div>
 	</div>
 	<Search />
@@ -46,6 +46,8 @@
 		padding-right: 2em;
 		background: var(--dark-blue);
 		height: 55px;
+		position: fixed;
+		width: 100%;
 	}
 	.links {
 		display: flex;
