@@ -1,6 +1,5 @@
 <script>
 	import { page } from '$app/stores';
-	import { slide } from 'svelte/transition';
 	import { structure } from '$lib/app.js';
 	let headings = [''];
 
@@ -30,17 +29,18 @@
 		position: fixed;
 		max-width: 23ch;
 		position: relative;
-		margin-top: 1em;
+		margin-top: 0.25em;
+		z-index: -1;
 	}
 
 	.headings {
 		display: flex;
 		flex-direction: column;
-		gap: 0.5em;
+		gap: 0.25em;
 	}
 
 	a {
 		text-decoration: none;
-		font-size: 0.8rem;
+		font-size: 1rem;
 	}
 </style>
