@@ -19,14 +19,14 @@
 
 	function blurSearch() {
 		focused = false;
-		$blur = false;
+		// $blur = false;
 		searchBar.blur();
 	}
 
 	function focusSearch(e) {
 		searchBar.focus();
 		focused = true;
-		$blur = true;
+		// $blur = true;
 	}
 
 	function updateFocus() {
@@ -91,15 +91,11 @@
 				<div
 					class="result"
 					on:mousedown={() => clickResult(r.item.url)}
-					on:mouseleave={() => {
-						focusedEntry = -1;
-					}}
-					on:mouseenter={() => {
-						focusedEntry = i;
-					}}
+					on:mouseleave={() => { focusedEntry = -1 }}
+					on:mouseenter={() => { focusedEntry = i }}
 					class:entryhover={i === focusedEntry}
 					on:click={() => clickResult(r.item.url)}
-					on:keypress={ () => clickResult(r.item.ur) }
+					on:keypress={ () => clickResult(r.item.url) }
 					on:focus={focusSearch}
 					on:blur={blurSearch}
 					bind:this={entries[i]}
@@ -131,7 +127,6 @@
 	}
 	.search {
 		width: var(--w);
-		position: relative;
 		z-index: 999;
 	}
 	.query {
@@ -159,8 +154,8 @@
 		background: rgb(255, 255, 255, 1);
 		border: 1px solid hsl(240, 5%, 50%);
 		border-radius: 8px;
-		z-index: 0;
 		gap: 0.25em;
+		z-index: 1000;
 	}
 	.result {
 		max-width: 100%;
@@ -172,6 +167,7 @@
 		display: block;
 		outline: 0;
 		border-radius: 4px;
+		z-index: 1000;
 	}
 	.entryhover {
 		background-color: hsl(240, 5%, 80%);
