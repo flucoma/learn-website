@@ -10,7 +10,7 @@
 	</div>
 </div>
 
-<style lang="postcss">
+<style >
 	.wrapper {
 		display: grid;
 		justify-content: center;

@@ -179,7 +179,7 @@
 	<canvas id="sketch" bind:this={canvas} />
 </div>
 
-<style lang="postcss">
+<style >
 	.container {
 		display: flex;
 		flex-direction: column;

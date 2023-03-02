@@ -12,7 +12,7 @@
 
 <p class="label">{label}</p>
 
-<style lang="postcss">
+<style >
 	.label {
 		padding-top: 1em;
 		font-size: 0.75rem;

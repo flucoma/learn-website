@@ -9,7 +9,7 @@
 	{label}
 </button>
 
-<style lang="postcss">
+<style >
 	.btn {
 		color: white;
 		cursor: pointer;

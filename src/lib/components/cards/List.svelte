@@ -16,7 +16,7 @@ References are slightly different and use the ReferenceEntry component.
 	{/each}
 </div>
 
-<style lang="postcss">
+<style >
 	.overview-list {
 		display: flex;
 		flex-direction: column;

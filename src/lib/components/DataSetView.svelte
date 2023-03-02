@@ -28,7 +28,7 @@
 	</div>
 </div>
 
-<style lang="postcss">
+<style >
 	.container {
 		margin-bottom: 0.5em;
 		padding: 0.5em;

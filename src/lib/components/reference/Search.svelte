@@ -32,7 +32,7 @@
 	on:blur={() => (isFocused = false)}
 />
 
-<style lang="postcss">
+<style >
 	.search {
 		height: 2em;
 		margin-bottom: 0.5em;

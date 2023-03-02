@@ -35,7 +35,7 @@
 	<Footer />
 </div>
 
-<style lang="postcss">
+<style >
 	.overlay {
 		background-color: hsl(240, 11%, 81%);
 		height: 1000vh;

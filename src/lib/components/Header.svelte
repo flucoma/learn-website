@@ -36,7 +36,7 @@
 
 <PopoverNav />
 
-<style lang="postcss">
+<style >
 	header {
 		display: flex;
 		flex-direction: row;

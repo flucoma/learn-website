@@ -49,7 +49,7 @@
 
 <svelte:window bind:innerWidth={w} />
 
-<style lang="postcss">
+<style >
 	.mobile-toc {
 		display: flex;
 		flex-direction: column;

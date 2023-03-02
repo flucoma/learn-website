@@ -13,7 +13,7 @@
 	{flair}
 </div>
 
-<style lang="postcss">
+<style >
 	.flair {
 		text-align: center;
 		font-size: 0.75rem;

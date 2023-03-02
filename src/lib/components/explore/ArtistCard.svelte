@@ -14,7 +14,7 @@
 	<!-- </div> -->
 </a>
 
-<style lang="postcss">
+<style >
 	.container {
 		gap: 0.5em;
 		margin-top: 1em;

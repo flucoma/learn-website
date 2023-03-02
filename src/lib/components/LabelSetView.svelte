@@ -16,7 +16,7 @@
 	</div>
 </div>
 
-<style lang="postcss">
+<style >
 	.label {
 		/* font-family: var(--mono); */
 		font-weight: bold;

@@ -16,7 +16,7 @@
 	</figcaption>
 </figure>
 
-<style lang="postcss">
+<style >
 	.container {
 		display: grid;
 		place-items: center;
