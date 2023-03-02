@@ -4,7 +4,6 @@
 
 	import WelcomeBanner from '$lib/components/front-page/WelcomeBanner.svelte';
 	import Article from '$lib/components/mosaic/Article.svelte';
-	import VideoItem from '$lib/components/front-page/VideoItem.svelte';
 	import Masonry from 'svelte-bricks';
 
 	
@@ -26,14 +25,7 @@
 	let height = 0;
 </script>
 
-
 <WelcomeBanner />
-
-<!-- <section class='manual-feature'>
-	<Article item={featuredLearn} />
-	<Article item={featuredExplore} />
-	<VideoItem />
-</section> -->
 
 <section class='learn feature'>
 	<h2>Learn</h2>
