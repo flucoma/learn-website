@@ -29,7 +29,7 @@
 	</div>
 	<Search />
 	{:else}
-	<Hamburger on:click={expandHandler} />
+	<Hamburger on:click={expandHandler} open={$nav_expanded} />
 	<Search />
 	{/if}
 </header>
