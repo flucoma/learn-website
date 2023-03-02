@@ -6,7 +6,7 @@
 	import { nav_expanded, blur } from '$lib/app';
 
 
-	const scroll = e => { if ($nav_expanded) e.preventDefault() };
+	const scroll = (e) => { if ($nav_expanded) e.preventDefault() };
 </script>
 
 <svelte:head>
@@ -17,11 +17,10 @@
 
 {#if $nav_expanded || $blur}
 	<div
-		transition:fly={{ duration: 200 }}
-		class="overlay"
-		on:click={() => {
-			$nav_expanded = false;
-		}}
+	transition:fly={{ duration: 200 }}
+	class="overlay"
+	on:click={() => { $nav_expanded = false }}
+	on:keypress={ () => { $nav_expanded = false }}
 	/>
 {/if}
 
