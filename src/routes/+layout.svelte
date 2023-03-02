@@ -57,8 +57,6 @@
 	.content {
 		display: grid;
 		justify-content: center;
-		padding-left: 1em;
-		padding-right: 1em;
 		margin-bottom: 1em;
 		flex: 1 0 auto;
 	}

@@ -10,10 +10,10 @@
 	console.log(item)
 </script>
 
-<a href={item.url} class='raisedbox'>
-	<img class='image' src={item.feature.featuredimage} alt='cover artwork for article' />
+<a href={item.url}>
+	<div class='image' style:background-image={`url(${item.feature.featuredimage}`}></div>
 	<div class={`item-${item.flair} flair`}>{item.flair}</div>
-	<h3 class="title">{item.title}</h3>
+	<div class="title">{item.title}</div>
 </a>
 
 <style>
@@ -22,19 +22,12 @@
 		flex-direction: column;
 		color: black;
 		text-decoration: none;
-		gap: 0.5em;
-		max-height: 250px;
-		padding: 1em;
-		font-weight: 700;
-		border-radius: 0.25rem;
-		border: 0.063rem solid #dcdee0;
-		max-width: 100%;
-		margin-bottom: 1em;
+		min-width: 200px;
+		max-width: 400px;
 	}
-
 	.title {
+		font-weight: bold;
 	}
-
 	a:hover {
 		cursor: pointer;
 		background: white;
@@ -42,22 +35,19 @@
 		text-decoration: none;
 	}
 	.image {
-		box-sizing: border-box;
 		background-position: center;
 		background-repeat: no-repeat;
 		background-size: cover;
-		height: 10em;
-		max-width: 100%;
+		min-height: 10em;
 	}
 	.flair {
 		text-transform: capitalize;
 		font-size: 0.75rem;
+		font-weight: bold;
 	}
-	
 	.item-event {
 		color: var(--event-fliair);
 	}
-	
 	.item-article {
 		color: var(--article-flair);
 	}

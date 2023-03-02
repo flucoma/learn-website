@@ -7,29 +7,61 @@
 	const expandHandler = () => {
 		$nav_expanded = !$nav_expanded;
 	};
+
+	let w = 0;
 </script>
 
+<svelte:window bind:innerWidth={w} />
+
 <header>
-	<Hamburger on:click={expandHandler} />
-	<div class="central-area">
+	{#if w > 1200}
+	<div class='logo-area'>
 		<a class="logo-link" href="/">
 			<img class="logo" src="/img/onlylogo.svg" alt="FluCoMa Logo" />
+			<a class="title" href="/"> FluCoMa Learn </a>
 		</a>
-		<a class="title" href="/"> FluCoMa Learn </a>
+		<div class="links">
+			<a href="/learn">Learn</a>
+			<a href='/reference'>Reference</a>
+			<a href="/explore">Explore</a>
+			<a href="https://discourse.flucoma.org" target='_blank'>Discourse</a>
+		</div>
 	</div>
 	<Search />
+	{:else}
+	<Hamburger on:click={expandHandler} />
+	<Search />
+	{/if}
 </header>
 
 <PopoverNav />
 
 <style lang="postcss">
 	header {
-		display: grid;
-		grid-template-columns: 20% auto 20%;
-		place-items: center;
-		justify-content: space-around;
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: space-between;
+		padding-left: 2em;
+		padding-right: 2em;
 		background: var(--dark-blue);
 		height: 55px;
+	}
+	.links {
+		display: flex;
+		flex-direction: row;
+		justify-content: left;
+		gap: 1em;
+	}
+
+	.links > a {
+		color: white;
+		text-decoration: none;
+	}
+
+	.links > a:hover {
+		text-decoration: underline;
+		background: transparent;
 	}
 
 	.title {
@@ -42,15 +74,12 @@
 		background-color: transparent;
 	}
 
-	.central-area {
-		display: grid;
-		grid-template-columns: auto auto;
-		place-items: center;
-		gap: 0.5em;
+	.logo-area {
+		display: flex;
+		align-items: center;
+		justify-content: left;
+		gap: 2em;
 		font-family: var(--font);
-	}
-
-	.central-area > a {
 	}
 
 	.logo {
@@ -60,8 +89,11 @@
 	}
 
 	.logo-link {
-		width: 2em;
-		height: 100%;
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		gap: 0.5em;
+		text-decoration: none;
 	}
 
 	.logo-link:hover {
