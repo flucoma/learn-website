@@ -86,7 +86,7 @@
 	</form>
 
 	{#if results.length >= 1 && focused}
-		<div class="results" tabindex="0">
+		<div class="results">
 			{#each results as r, i}
 				<div
 					class="result"
@@ -99,6 +99,7 @@
 					}}
 					class:entryhover={i === focusedEntry}
 					on:click={() => clickResult(r.item.url)}
+					on:keypress={ () => clickResult(r.item.ur) }
 					on:focus={focusSearch}
 					on:blur={blurSearch}
 					bind:this={entries[i]}
@@ -121,7 +122,7 @@
 	{/if}
 </div>
 
-<style lang="postcss">
+<style>
 	:root {
 		--radius: 10px;
 		--w: min(90%, 250px);
