@@ -20,7 +20,7 @@
 }
 
 .raisedbox {
-	transition: box-shadow 100ms linear;
+	transition: box-shadow 50ms linear;
 }
 
 .raisedbox:hover {
