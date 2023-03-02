@@ -48,6 +48,7 @@
 		height: 55px;
 		position: fixed;
 		width: 100%;
+		z-index: 10000;
 	}
 	.links {
 		display: flex;
