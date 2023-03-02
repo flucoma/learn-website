@@ -46,16 +46,6 @@
 		width: 100%;
 	}
 
-	.flair_link_wrapper {
-		display: flex;
-		flex-direction: row;
-		align-items: center;
-	}
-
-	.flair_wrapper {
-		width: fit-content;
-	}
-
 	.text_cont {
 		margin: 0.75em;
 	}
@@ -120,7 +110,7 @@
 		font-weight: bold;
 	}
 	.item-event {
-		color: var(--event-fliair);
+		color: var(--event-flair);
 	}
 	.item-article {
 		color: var(--article-flair);
