@@ -42,14 +42,26 @@
 		flex-direction: row;
 		align-items: center;
 		justify-content: space-between;
-		padding-left: 2em;
-		padding-right: 2em;
 		background: var(--dark-blue);
 		height: 55px;
 		position: fixed;
 		width: 100%;
 		z-index: 10000;
 	}
+
+	@media (min-width: 1200px) {
+		header {
+			padding-left: 2em;
+			padding-right: 2em;
+		}
+	}
+	@media (max-width: 1200px) {
+		header {
+			padding-left: 1em;
+			padding-right: 1em;
+		}
+	}
+
 	.links {
 		display: flex;
 		flex-direction: row;
