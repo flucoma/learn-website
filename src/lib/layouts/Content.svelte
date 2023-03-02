@@ -37,7 +37,7 @@
 		display: grid;
 		grid-template-columns: repeat(3, auto);
 		justify-content: center;
-		margin-top: 40px;
+		margin-top: 60px;
 	}
 
 	@media (max-width: 1200px) {
@@ -58,7 +58,7 @@
 			grid-template-areas: 'navigation main blank';
 		}
 		.navigation {
-			width: 23ch;
+			width: 25ch;
 		}
 	}
 
@@ -88,6 +88,6 @@
 
 	.blank {
 		grid-area: blank;
-		width: 23ch;
+		width: 25ch;
 	}
 </style>
