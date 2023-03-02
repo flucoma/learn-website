@@ -4,10 +4,10 @@
 
 	export let items = [];
 
-	let [minColWidth, maxColWidth, gap] = [130, 400, 15];
+	let [minColWidth, maxColWidth, gap] = [150, 250, 25];
 	let width, height;
 </script>
 
-<Masonry {items} {minColWidth} {maxColWidth} {gap} idKey={'category'} animate={false} let:item bind:width bind:height>
+<Masonry {items} {minColWidth} {maxColWidth} {gap} idKey={'category'} animate={true} let:item bind:width bind:height>
 	<RefCategory {item} />
 </Masonry>

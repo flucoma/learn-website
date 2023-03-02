@@ -9,7 +9,7 @@ tags:
     - filter
     - non-negative matrix factorization
 flair: reference
-category: Transform
+category: Transform Sound
 ---
 
 <script>

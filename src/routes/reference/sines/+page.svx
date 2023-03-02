@@ -4,7 +4,7 @@ blurb: Decomposition using a sinusoidal reconstruction model
 tags: 
     - decomposition
 flair: reference
-category: Decompose
+category: Decompose Sound
 ---
 
 <script>

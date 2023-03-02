@@ -14,10 +14,10 @@ layout: contentindex
 	let categorised = {
 		'Analyse Data' : [],
 		'Analyse Sound' : [],
-		'Utility' : [],
-		'Decompose' : [],
-		'Slicing' : [],
-		'Transform' : []
+		'Utility Objects' : [],
+		'Decompose Sound' : [],
+		'Slice Sound' : [],
+		'Transform Sound' : []
 	};
 	let query = '';
 
