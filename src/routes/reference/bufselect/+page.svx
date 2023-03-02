@@ -8,7 +8,7 @@ related:
     - bufcompose
     - bufselectevery
 flair: reference
-category: Utility
+category: Utility Objects
 ---
 
 <script>

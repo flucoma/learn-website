@@ -24,13 +24,17 @@ jobs:
                 key: ${{ secrets.SSH_PRIVATE_KEY }}
                 known_hosts: 'placeholder'
 
-            - name: pnpm
-              run: npm i -g pnpm
-
             - name: Adding Known Hosts
               run: |
                 mkdir -p ~/.ssh
                 ssh-keyscan -H ${{ secrets.DO_IP }} >> ~/.ssh/known_hosts
+
+            - name: install pnpm
+              run: npm i -g pnpm
+
+            - uses: actions/setup-node@v3
+              with:
+                node-version: 16
 
             - name: Install Dependencies
               run: pnpm i

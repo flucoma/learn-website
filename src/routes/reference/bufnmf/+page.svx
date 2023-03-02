@@ -9,7 +9,7 @@ tags:
     - spectral
     - buffer
 flair: reference
-category: Decompose
+category: Decompose Sound
 ---
 
 <script>
