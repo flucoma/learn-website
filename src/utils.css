@@ -24,7 +24,8 @@
 }
 
 .raisedbox:hover {
-	box-shadow: rgba(3, 113, 181, 0.2) -5px 5px, rgba(3, 113, 181, 0.1) -10px 10px, rgba(3, 113, 181, 0.05) -15px 15px;
+	box-shadow: rgb(255, 255, 255) -5px 5px, rgba(3, 113, 181, 0.2) -10px 10px, rgba(3, 113, 181, 0.1) -15px 15px, rgba(3, 113, 181, 0.05) -20px 20px;
+	/* box-shadow: rgba(3, 113, 181, 0.2) -5px 5px, rgba(3, 113, 181, 0.1) -10px 10px, rgba(3, 113, 181, 0.05) -15px 15px; */
 }
 
 .noscroll {
