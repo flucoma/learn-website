@@ -33,10 +33,10 @@
 
 {#if hover}
 	<div
-		class={`hoverable rel-${hoverInfo.flair}`}
-		style:left={`${hoverPos.x}px`}
-		style:top={`${hoverPos.y + hoverPos.offset}px`}
-		bind:this={hoverable}
+	class={`hoverable rel-${hoverInfo.flair}`}
+	style:left={`${hoverPos.x}px`}
+	style:top={`${hoverPos.y + hoverPos.offset}px`}
+	bind:this={hoverable}
 	>
 		<div class="flair">{hoverInfo.flair}</div>
 		<hr class="hoverInfo.flair" />
@@ -62,9 +62,8 @@
 	.link {
 		padding: 0.25em;
 		text-decoration: none;
-		border-radius: 0.25rem;
 		color: white;
-		box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+		border-radius: 0.25rem;
 	}
 
 	.link:hover {
