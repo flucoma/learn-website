@@ -23,8 +23,8 @@
 
 <style>
 	.container {
-		padding-top: 1em;
-		padding-bottom: 1em;
+		margin-top: 1em;
+		margin-bottom: 1em;
 	}
 
 	iframe {
