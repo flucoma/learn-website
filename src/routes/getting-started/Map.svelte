@@ -21,7 +21,7 @@
 		Object.values(metric5.data).map(x => [...x, Math.random() * 3])
 	];
 
-	const numpoints = 400;
+	const numpoints = 200;
 
 	const colours = metric[0].map(v => d3.interpolateBlues(v[0] * 4 * v[1] + 0.4));
 
