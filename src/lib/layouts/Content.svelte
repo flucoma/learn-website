@@ -14,14 +14,12 @@
 	</div>
 
 	<div class="main">
-		<div class="title-box">
-			<h1>{title}</h1>
-			{#if author}
-				<AuthorTag {author} />
-			{/if}
-			<p class="blurb">{blurb}</p>
-			<RelatedLinks />
-		</div>
+		<h1>{title}</h1>
+		{#if author}
+			<AuthorTag {author} />
+		{/if}
+		<p class="blurb">{blurb}</p>
+		<RelatedLinks />
 
 		<slot />
 	</div>
@@ -30,6 +28,11 @@
 </div>
 
 <style >
+
+	h1 {
+		margin: 0;
+		margin-top: 0.25em;
+	}
 	.wrapper {
 		display: grid;
 		grid-template-columns: repeat(3, auto);
