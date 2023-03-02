@@ -11,8 +11,8 @@
 <div class="widgets">
 	<Map />
 	<div class="pair">
-		<Regressor width="150" height="150" />
-		<Classifier width="300" height="150" />
+		<Regressor width={150} height={150} />
+		<Classifier width={300} height={150} />
 	</div>
 	<ContentGallery />
 </div>
