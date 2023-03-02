@@ -37,6 +37,8 @@
 		display: grid;
 		grid-template-columns: repeat(3, auto);
 		justify-content: center;
+		
+		margin: 1em;
 		margin-top: 60px;
 	}
 
