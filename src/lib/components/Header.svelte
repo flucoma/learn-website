@@ -3,6 +3,7 @@
 	import Hamburger from '$lib/components/Hamburger.svelte';
 	import PopoverNav from '$lib/components/PopoverNav.svelte';
 	import { nav_expanded } from '$lib/app';
+	import { fade } from 'svelte/transition';
 
 	const expandHandler = () => {
 		$nav_expanded = !$nav_expanded;
@@ -30,6 +31,9 @@
 	<Search />
 	{:else}
 	<Hamburger on:click={expandHandler} open={$nav_expanded} />
+	<a class="logo-link" href="/">
+		<img class="logo" src="/img/onlylogo.svg" alt="FluCoMa Logo" />
+	</a>
 	<Search />
 	{/if}
 </header>
@@ -47,19 +51,8 @@
 		position: fixed;
 		width: 100%;
 		z-index: 10000;
-	}
-
-	@media (min-width: 1200px) {
-		header {
-			padding-left: 2em;
-			padding-right: 2em;
-		}
-	}
-	@media (max-width: 1200px) {
-		header {
-			padding-left: 1em;
-			padding-right: 1em;
-		}
+		padding-left: 2em;
+		padding-right: 2em;
 	}
 
 	.links {
