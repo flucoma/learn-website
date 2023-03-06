@@ -1,107 +1,121 @@
 <script>
 	import { max_scale, clip } from '$lib/util.js';
-	let input = [1, 2, 3, 4, 5];
-	let output = [];
-	let iMin = 1;
-	let iMax = 5;
+	let input = [-4, -2, 1, 10, 12];
+	let output = [0.0];
+	let iMin = 0;
+	let iMax = 1;
 	let oMin = 0;
 	let oMax = 1;
-	let clipping = false;
+	let clipping = 0;
 
 	$: output = input.map(x => {
-		const o = max_scale(x, iMin, iMax, oMin, oMax, 1.0);
-		if (clipping) {
-			return clip(o, oMin, oMax);
+		let inp = x;
+
+		if (clipping == 1) {
+			inp = Math.max(inp, oMin);	
+		} else if (clipping == 2) {
+			inp = Math.min(inp, oMin);
+		} else if (clipping == 3) {
+			inp = clip(inp, oMin, oMax);
 		}
-		return o;
+
+		return max_scale(inp, iMin, iMax, oMin, oMax, 1.0);
 	});
 </script>
 
-<div class="container">
-	<form class="controls">
-		<h3>Minima and Maxima</h3>
-		<div>
-			<label for="imin">Input Minimum</label>
-			<input type="number" id="imin" bind:value={iMin} />
-		</div>
+<form class="controls">
+	<div class="extrema">
+		<h2>Minima and Maxima</h2>
+		<label for="imin">
+			<input type="number" id="imin" min='-99' max='99' bind:value={iMin} />
+			Input Minimum
+		</label>
 
-		<div>
-			<label for="imax">Input Maximum</label>
-			<input type="number" id="imax" bind:value={iMax} />
-		</div>
+		<label for="imax">
+			<input type="number" id="imax" min='-99' max='99' bind:value={iMax} />
+			Input Maximum
+		</label>
 
-		<div>
-			<label for="imax">Output Minimum</label>
-			<input type="number" id="omin" bind:value={oMin} />
-		</div>
+		<label for="imax">
+			<input type="number" id="omin" min='-99' max='99' bind:value={oMin} />
+			Output Minimum
+		</label>
 
-		<div>
-			<label for="imax">Output Maximum</label>
-			<input type="number" id="omax" bind:value={oMax} />
-		</div>
+		<label for="imax">
+			<input type="number" id="omax" min='-99' max='99' bind:value={oMax} />
+			Output Maximum
+		</label>
+	</div>
+	<div class="clipping">
+		<h2>Input Clipping</h2>
+		<label>
+			<input type="radio" bind:group={clipping} name='clipping' value={0}>
+			None
+		</label>
+		<label>
+			<input type="radio" bind:group={clipping} name='clipping' value={1}>
+			Clip Minimum
+		</label>			
+		<label>
+			<input type="radio" bind:group={clipping} name='clipping' value={2}>
+			Clip Maximum
+		</label>			
+		<label>
+			<input type="radio" bind:group={clipping} name='clipping' value={3}>
+			Clip Minimum and Maximum
+		</label>
+	</div>
+</form>
 
-		<div>
-			<label for="clip">Clipping</label>
-			<input class="tog" type="checkbox" id="clip" bind:checked={clipping} />
+<div class="data">
+	<h2>Result</h2>
+	<div class="data-view">
+		<div> Input Data: </div>
+		<div class='data-cells'>
+			{#each input as i}
+				<div>{i} &nbsp</div>
+			{/each}
 		</div>
-	</form>
+	</div>
 
-	<div class="data">
-		<h3>Data</h3>
-		<div class="data-view">
-			<span> Input Data: </span>
-			<span>
-				{#each input as i}
-					{i} &nbsp
-				{/each}
-			</span>
-		</div>
-
-		<div class="data-view">
-			<span> Output Data: </span>
-			<span>
-				{#each output as o}
-					{o.toFixed(2)} &nbsp
-				{/each}
-			</span>
+	<div class="data-view">
+		<div> Output Data: </div>
+		<div class='data-cells'>
+			{#each output as o}
+			<div> {o.toFixed(2)} &nbsp</div>
+			{/each}
 		</div>
 	</div>
 </div>
 
 <style>
-	.container {
-		display: flex;
-		flex-direction: row;
-		margin-top: 1em;
+	label {
+		display:grid;
+		grid-template-columns: 5ch 20ch;
+		gap: 0.5em;
+		justify-content: left;
+		align-items: center;
 	}
 	.controls {
-		display: flex;
-		flex-direction: column;
-		width: max-content;
-		margin-right: 4em;
-		gap: 0.5em;
-	}
-	.controls > div {
 		display: grid;
-		grid-template-columns: 13ch 5ch;
-	}
-
-	.tog {
-		margin: 0;
+		grid-template-columns: repeat(2, auto);
+		justify-content: space-between;
 	}
 
 	.data {
 		display: flex;
 		flex-direction: column;
+		justify-content: center;
 		gap: 0.5em;
 	}
 
 	.data-view {
 		display: grid;
-		grid-template-columns: 12ch auto;
+		grid-template-columns: 10ch auto;
 	}
 
-	.data-view > span:nth-child(1) {
-		font-weight: bold;
+	.data-cells {
+		display: grid;
+		grid-template-columns: repeat(5, 5ch);
 	}
 </style>
