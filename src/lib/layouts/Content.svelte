@@ -1,15 +1,12 @@
 <script>
-	export let title;
-	export let blurb;
-	export let author;
+	export let title = '';
+	export let blurb = '';
+	export let author = '';
 	import TOC from '$lib/components/TOC.svelte';
 	import RelatedLinks from '$lib/components/RelatedLinks.svelte';
-	// import EditHistory from '$lib/components/EditHistory.svelte';
 	import AuthorTag from '$lib/components/AuthorTag.svelte';
-	import Crumbs from '$lib/components/Crumbs.svelte';
 </script>
 
-<Crumbs />
 
 <div class="wrapper">
 	<div class="navigation">
@@ -17,28 +14,32 @@
 	</div>
 
 	<div class="main">
-		<div class="title-box">
-			<h1>{title}</h1>
-			{#if author}
-				<AuthorTag {author} />
-			{/if}
-			<p class="blurb">{blurb}</p>
-			<RelatedLinks />
-		</div>
+		<h1>{title}</h1>
+		{#if author}
+			<AuthorTag {author} />
+		{/if}
+		<p class="blurb">{blurb}</p>
+		<RelatedLinks />
 
 		<slot />
-
-		<!-- <EditHistory /> -->
 	</div>
 
 	<div class="blank" />
 </div>
 
-<style lang="postcss">
+<style >
+
+	h1 {
+		margin: 0;
+		margin-top: 0.25em;
+	}
 	.wrapper {
 		display: grid;
+		grid-template-columns: repeat(3, auto);
 		justify-content: center;
-		margin: 0;
+		
+		margin: 1em;
+		margin-top: 60px;
 	}
 
 	@media (max-width: 1200px) {
@@ -47,9 +48,6 @@
 			grid-template-areas:
 				'navigation'
 				'main';
-		}
-		.navigation {
-			width: 100%;
 		}
 		.blank {
 			display: none;
@@ -83,8 +81,6 @@
 		grid-area: main;
 		min-width: var(--min-text-width);
 		max-width: var(--max-text-width);
-		display: flex;
-		flex-direction: column;
 	}
 
 	.navigation {

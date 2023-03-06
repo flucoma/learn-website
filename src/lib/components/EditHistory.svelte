@@ -12,7 +12,7 @@
 	<a class="edit" target="_blank" href={source}>Edit File on GitHub</a>
 </div>
 
-<style lang="postcss">
+<style >
 	.history {
 		margin-top: 1em;
 		display: flex;

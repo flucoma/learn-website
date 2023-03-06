@@ -20,14 +20,12 @@
 }
 
 .raisedbox {
-	border: 0.063rem solid #dcdee0;
-	border-radius: 0.25em;
-	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-	transition: box-shadow 200ms ease-in-out;
+	transition: box-shadow 200ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .raisedbox:hover {
-	box-shadow: rgba(0, 0, 0, 0.6) 0px 5px 15px;
+	box-shadow: rgb(255, 255, 255) -5px 5px, rgba(3, 113, 181, 0.2) -10px 10px, rgba(3, 113, 181, 0.1) -15px 15px, rgba(3, 113, 181, 0.05) -20px 20px;
+	/* box-shadow: rgba(3, 113, 181, 0.2) -5px 5px, rgba(3, 113, 181, 0.1) -10px 10px, rgba(3, 113, 181, 0.05) -15px 15px; */
 }
 
 .noscroll {

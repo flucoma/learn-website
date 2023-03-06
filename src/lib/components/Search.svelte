@@ -19,14 +19,14 @@
 
 	function blurSearch() {
 		focused = false;
-		$blur = false;
+		// $blur = false;
 		searchBar.blur();
 	}
 
 	function focusSearch(e) {
 		searchBar.focus();
 		focused = true;
-		$blur = true;
+		// $blur = true;
 	}
 
 	function updateFocus() {
@@ -75,72 +75,63 @@
 	<form id="search-input" role="search" on:keypress={formpress} on:keydown={formpress}>
 		<label class="visually-hidden" for="search-term">Search The Learn Platform</label>
 		<input
-			class="query"
-			{placeholder}
-			bind:value={query}
-			bind:this={searchBar}
-			on:focus={focusSearch}
-			on:blur={blurSearch}
-			id="search-term"
+		class="query"
+		{placeholder}
+		bind:value={query}
+		bind:this={searchBar}
+		on:focus={focusSearch}
+		on:blur={blurSearch}
+		id="search-term"
 		/>
 	</form>
 
 	{#if results.length >= 1 && focused}
-		<div class="results" tabindex="0">
-			{#each results as r, i}
-				<div
-					class="result"
-					on:mousedown={() => clickResult(r.item.url)}
-					on:mouseleave={() => {
-						focusedEntry = -1;
-					}}
-					on:mouseenter={() => {
-						focusedEntry = i;
-					}}
-					class:entryhover={i === focusedEntry}
-					on:click={() => clickResult(r.item.url)}
-					on:focus={focusSearch}
-					on:blur={blurSearch}
-					bind:this={entries[i]}
-					role="button"
-					tabindex="-1"
-				>
-					<div class="top">
-						<div class="title">{r.item.title}</div>
-						{#if r.item.flair}
-							<Flair flair={r.item.flair} />
-						{/if}
-					</div>
-
-					<div class="bottom">
-						{r.item.blurb.slice(0, 150) + '...'}
-					</div>
+	<div class="results">
+		{#each results as r, i}
+			<div
+			class="result"
+			on:mousedown={() => clickResult(r.item.url)}
+			on:mouseleave={() => { focusedEntry = -1 }}
+			on:mouseenter={() => { focusedEntry = i }}
+			class:entryhover={i === focusedEntry}
+			on:click={() => clickResult(r.item.url)}
+			on:keypress={ () => clickResult(r.item.url) }
+			on:focus={focusSearch}
+			on:blur={blurSearch}
+			bind:this={entries[i]}
+			role="button"
+			tabindex="-1"
+			>
+				<div class="top">
+					<div class="title">{r.item.title}</div>
+					{#if r.item.flair}
+					<Flair flair={r.item.flair} />
+					{/if}
 				</div>
-			{/each}
-		</div>
+
+				<div class="bottom">
+					{r.item.blurb.slice(0, 150) + '...'}
+				</div>
+			</div>
+		{/each}
+	</div>
 	{/if}
 </div>
 
-<style lang="postcss">
+<style>
 	:root {
-		--radius: 10px;
-		--w: min(90%, 250px);
-		--border: 1px solid var(--dark-blue);
+		--radius: 0;
+		--w: min(100%, 250px);
 		--search-pad: 10px;
 	}
 	.search {
-		width: var(--w);
-		position: relative;
 		z-index: 999;
+		border: 0;
 	}
 	.query {
 		font-family: var(--font);
 		font-size: 1rem;
-		border-radius: var(--radius);
-		width: 90%;
 		border: 0;
-		box-sizing: none;
-		border-radius: 10px;
 		padding: 0.25em 1em 0.25em 1em;
 		border: 2px solid transparent;
 		transition: border cubic-bezier(0.075, 0.82, 0.165, 1) 300ms;
@@ -152,28 +143,23 @@
 		display: flex;
 		flex-direction: column;
 		position: absolute;
-		right: -1em;
+		right: 0;
 		width: min(90vw, 400px);
-		padding: 0.25em;
-		background: rgb(255, 255, 255, 1);
-		border: 1px solid hsl(240, 5%, 50%);
-		border-radius: 8px;
-		z-index: 0;
+		background: white;
+		border: 1px solid hsla(240, 5%, 50%, 0.526);
 		gap: 0.25em;
+		z-index: 1000;
 	}
 	.result {
 		max-width: 100%;
 		padding: 0.5em;
 		display: grid;
 		grid-template-rows: repeat(2, auto);
-		gap: 0.5em;
 		text-align: justify;
-		display: block;
-		outline: 0;
-		border-radius: 4px;
+		z-index: 1000;
 	}
 	.entryhover {
-		background-color: hsl(240, 5%, 80%);
+		background-color: hsla(240, 6%, 80%, 0.5);
 		cursor: pointer;
 	}
 	.top {

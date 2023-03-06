@@ -4,40 +4,37 @@
 	export let blurb = '';
 </script>
 
-<a class="container raisedbox" href={url}>
-	<h6>{title}</h6>
-	<p>{blurb}</p>
-	<a href={url}>{url}</a>
-</a>
+<div class='container raisedbox'>
+	<a href={url}>
+		<div>{title}</div>
+		<p>{blurb}</p>
+		<a href={url}>{url}</a>
+	</a>
+</div>
 
 <style>
 	.container {
-		border-radius: 0.25rem;
-		border: 0.063rem solid #dcdee0;
-		padding: 0.75em;
-		margin-top: 0.25em;
-		margin-bottom: 0.25em;
-		max-width: 100%;
+		margin-top: 1em;
+		margin-bottom: 1em;
+		padding-top: 1em;
+		padding-bottom: 0.5em;
 	}
+	.container:hover {
+		box-shadow: rgb(255, 255, 255) -5px 5px, rgba(3, 113, 181, 0.2) -10px 10px, rgba(3, 113, 181, 0.1) -15px 15px, rgba(3, 113, 181, 0.05) -20px 20px;
 
-	.container > p {
+	}
+	a > p {
 		color: var(--grey);
 		margin: 0;
 	}
 
-	/* Overwrite hover behaviour */
-	.container,
-	.container:hover {
+	a:hover {
+		background: transparent;
+		color: var(--med-blue);
+	}
+	.container > a {
 		color: black;
-		background-color: white;
 		text-decoration: none;
-	}
-
-	.container:hover {
-		cursor: pointer;
-	}
-
-	.container > :global(h6) {
-		margin: 0;
+		width: 100%;
 	}
 </style>

@@ -63,7 +63,7 @@
 	</div>
 </div>
 
-<style lang="postcss">
+<style>
 	.container {
 		display: flex;
 		flex-direction: column;

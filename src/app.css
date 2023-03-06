@@ -15,16 +15,20 @@ g*/
 	--mono: 'Overpass Mono', monospace;
 	--dark-blue: rgb(8, 60, 100);
 	--med-blue: rgb(3, 113, 181);
-	--light-blue: rgb(28, 164, 252);
+	--light-blue: #1ca4fc;
 	--max-text-width: 70ch;
 	--min-text-width: 30ch;
-	--footer-height: 42px;
+	--footer-height: 55px;
 	--event-flair: rgb(235, 161, 23);
 	--article-flair: var(--light-blue);
 	--reference-flair: rgb(34, 140, 34);
 	--podcast-flair: palevioletred;
 	--tutorial-flair: rgba(102, 103, 171, 255);
 	--grey: rgb(89, 89, 89);
+}
+
+* {
+	box-sizing: border-box;
 }
 
 html {
@@ -36,6 +40,7 @@ html {
 
 body {
 	margin: 0;
+	line-height: 1.5;
 	text-rendering: optimizeLegibility;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;

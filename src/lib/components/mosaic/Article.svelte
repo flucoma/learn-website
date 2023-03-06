@@ -1,9 +1,17 @@
 <script>
-	import ArrowRight from '$lib/components/ArrowRight.svelte';
-	import Flair from '$lib/components/Flair.svelte';
 	import _ from 'lodash';
-
-	export let item = {};
+	export let item = {
+		url : '',
+		title: '',
+		flair : '',
+		blurb : '',
+		feature : {
+			featuredimage: '',
+			images: [
+				'/image/path'
+			],
+		}
+	}
 </script>
 
 <div class="container raisedbox">
@@ -20,12 +28,8 @@
 
 		<div class="text_cont">
 			<h2>{item.title}</h2>
+			<div class={`item-${item.flair} flair`}>{item.flair}</div>
 			<p class="blurb">{item.blurb}</p>
-
-			<div class="flair_link_wrapper">
-				<div class="flair_wrapper"><Flair flair={item.flair} /></div>
-				<a class="linkout" href={item.url}>Learn More <ArrowRight /></a>
-			</div>
 		</div>
 	</a>
 </div>
@@ -42,18 +46,8 @@
 		width: 100%;
 	}
 
-	.flair_link_wrapper {
-		display: flex;
-		flex-direction: row;
-		align-items: center;
-	}
-
-	.flair_wrapper {
-		width: fit-content;
-	}
-
 	.text_cont {
-		margin: 0.75em;
+		/* margin: 0.75em; */
 	}
 
 	.img_container {
@@ -72,8 +66,6 @@
 	}
 
 	.container {
-		border-radius: 0.25rem;
-		border: 0.063rem solid #dcdee0;
 		max-width: 100%;
 		height: fit-content;
 		margin-bottom: 1em;
@@ -110,5 +102,29 @@
 	.linkout,
 	.linkout:hover {
 		transition: gap 80ms ease-in-out;
+	}
+
+	.flair {
+		text-transform: capitalize;
+		font-size: 0.75rem;
+		font-weight: bold;
+	}
+	.item-event {
+		color: var(--event-flair);
+	}
+	.item-article {
+		color: var(--article-flair);
+	}
+	
+	.item-reference {
+		color: var(--reference-flair);
+	}
+	
+	.item-podcast {
+		color: var(--podcast-flair);
+	}
+	
+	.item-tutorial {
+		color: var(--tutorial-flair);
 	}
 </style>

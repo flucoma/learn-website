@@ -9,28 +9,38 @@
 	{label}
 </button>
 
-<style lang="postcss">
+<style >
 	.btn {
-		color: white;
-		cursor: pointer;
+		cursor:pointer;
 		border: 2px outset var(--med-blue);
-		border-radius: 0.25em;
+		display: grid;
+		place-items: center;
+		width: 150px;
+		height: 40px;
 		background-color: var(--light-blue);
-		transition: box-shadow 0.1s;
+		padding: 0.5em;
+		color: white;
+		text-decoration: none;
+		transition: background-color 150ms linear;
+		word-wrap: none;
+		overflow: hidden;
+		min-width: fit-content;
 		font-size: 1rem;
-	}
-
-	.btn:active {
-		background-color: var(--med-blue);
+		font-family: var(--font);
 	}
 
 	.btn:hover {
-		box-shadow: 0 0 3px var(--dark-blue);
+		background-color: var(--med-blue);
+	}
+
+	.btn:active {
+		background-color: var(--dark-blue);
 	}
 
 	.disabled,
 	.disabled:active,
 	.disabled:hover {
+		cursor:not-allowed;
 		background-color: grey;
 		border: grey;
 		opacity: 0.5;

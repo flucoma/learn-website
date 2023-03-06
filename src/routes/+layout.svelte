@@ -6,7 +6,7 @@
 	import { nav_expanded, blur } from '$lib/app';
 
 
-	const scroll = e => { if ($nav_expanded) e.preventDefault() };
+	const scroll = (e) => { if ($nav_expanded) e.preventDefault() };
 </script>
 
 <svelte:head>
@@ -17,11 +17,10 @@
 
 {#if $nav_expanded || $blur}
 	<div
-		transition:fly={{ duration: 200 }}
-		class="overlay"
-		on:click={() => {
-			$nav_expanded = false;
-		}}
+	transition:fly={{ duration: 200 }}
+	class="overlay"
+	on:click={() => { $nav_expanded = false }}
+	on:keypress={ () => { $nav_expanded = false }}
 	/>
 {/if}
 
@@ -35,7 +34,7 @@
 	<Footer />
 </div>
 
-<style lang="postcss">
+<style >
 	.overlay {
 		background-color: hsl(240, 11%, 81%);
 		height: 1000vh;
@@ -57,8 +56,6 @@
 	.content {
 		display: grid;
 		justify-content: center;
-		padding-left: 1em;
-		padding-right: 1em;
 		margin-bottom: 1em;
 		flex: 1 0 auto;
 	}

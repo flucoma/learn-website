@@ -88,7 +88,7 @@
 	<p class="page_display">Page {currentPage}/{totalPages}</p>
 </div>
 
-<style lang="postcss">
+<style >
 	.page_display {
 		float: left;
 		font-size: 0.7em;

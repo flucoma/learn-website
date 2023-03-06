@@ -125,7 +125,7 @@
 	</div>
 </div>
 
-<style lang="postcss">
+<style >
 	.vis {
 		display: flex;
 		flex-direction: row;

@@ -8,7 +8,7 @@
 </script>
 
 <figure class="container" {id}>
-	<a target="_blank" href={src}>
+	<a target="_blank" href={src} rel='noreferrer'>
 		<img loading="lazy" {alt} {src} />
 	</a>
 	<figcaption class="label">
@@ -16,7 +16,7 @@
 	</figcaption>
 </figure>
 
-<style lang="postcss">
+<style >
 	.container {
 		display: grid;
 		place-items: center;

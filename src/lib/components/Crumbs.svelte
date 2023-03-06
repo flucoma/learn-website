@@ -40,7 +40,7 @@
 	<div class="right" />
 </nav>
 
-<style lang="postcss">
+<style >
 	.container {
 		display: grid;
 		grid-template-columns: auto min(var(--max-text-width), 100%) auto;

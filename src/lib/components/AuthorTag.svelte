@@ -45,7 +45,7 @@ Render authors names in articles.
 
 <p class="author_link">by <a href={author_website}>{author_name}</a></p>
 
-<style lang="postcss">
+<style>
 	.author_link {
 		font-weight: bold;
 		font-size: 1.1em;

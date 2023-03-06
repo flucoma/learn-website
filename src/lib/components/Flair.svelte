@@ -4,23 +4,41 @@
 
 <div
 	class="flair"
-	class:article={flair === 'article'}
-	class:reference={flair === 'reference'}
-	class:podcast={flair === 'podcast'}
-	class:event={flair === 'event'}
-	class:tutorial={flair === 'tutorial'}
+	class:item-article={flair === 'article'}
+	class:item-reference={flair === 'reference'}
+	class:item-podcast={flair === 'podcast'}
+	class:item-event={flair === 'event'}
+	class:item-tutorial={flair === 'tutorial'}
 >
 	{flair}
 </div>
 
-<style lang="postcss">
+<style >
 	.flair {
-		text-align: center;
+		display: grid;
+		align-items: center;
+		justify-content: center;
+		text-transform: capitalize;
 		font-size: 0.75rem;
-		border-radius: 0.25rem;
-		color: white;
-		line-height: 15px;
-		padding: 3px;
-		height: 15px;
+		font-weight: bold;
+	}
+
+	.item-event {
+		color: var(--event-flair);
+	}
+	.item-article {
+		color: var(--article-flair);
+	}
+	
+	.item-reference {
+		color: var(--reference-flair);
+	}
+	
+	.item-podcast {
+		color: var(--podcast-flair);
+	}
+	
+	.item-tutorial {
+		color: var(--tutorial-flair);
 	}
 </style>
