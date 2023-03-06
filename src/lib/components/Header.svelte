@@ -3,7 +3,6 @@
 	import Hamburger from '$lib/components/Hamburger.svelte';
 	import PopoverNav from '$lib/components/PopoverNav.svelte';
 	import { nav_expanded } from '$lib/app';
-	import { fade } from 'svelte/transition';
 
 	const expandHandler = () => {
 		$nav_expanded = !$nav_expanded;
@@ -93,7 +92,6 @@
 	.logo {
 		width: 24px;
 		height: 27px;
-		margin-top: 0.3em;
 	}
 
 	.logo-link {
