@@ -16,7 +16,7 @@ category: Analyse Sound
 
     const wf = {
         waveform: true,
-        src: '/audio/oboe-m.mp3',
+        src: '/audio/Harker-DS-TenOboeMultiphonics-M.mp3',
         label: 'Oboe Multiphonics'
     }
 

@@ -24,7 +24,7 @@ src='/reference/pitch/220304_123101_pitch.jpg'
 label='Pitch (blue) and confidence (orange) analyses for a series of trombone tones. Note how in the silences the pitch analysis is not stable, but also the confidence value is much lower.'
 />
 <Audio
-src='/audio/trombone-m.mp3'
+src='/audio/Olencki-TenTromboneLongTones-M.mp3'
 label=''
 />
 

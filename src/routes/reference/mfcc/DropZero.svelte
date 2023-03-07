@@ -17,7 +17,7 @@
 	let feature = new Array(21).fill(0);
 
 	const audioSpec = {
-		src: '/audio/drum-m.mp3',
+		src: '/audio/Nicol-LoopE-M.mp3',
 		loop: true,
 		waveform: false
 	};

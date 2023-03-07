@@ -73,8 +73,8 @@
 				waveformColor: 'rgb(3,113,181'
 			},
 			mediaElement: player,
-			dataUri: { arraybuffer: '/audio/bass-m.dat' },
-			mediaUrl: '/audio/bass-m.mp3'
+			dataUri: { arraybuffer: '/audio/Tremblay-AaS-AcBassGuit-Melo-M.dat' },
+			mediaUrl: '/audio/Tremblay-AaS-AcBassGuit-Melo-M.mp3'
 		};
 
 		Peaks.init(options, function (err, peaks) {
@@ -124,28 +124,28 @@
 			<Button
 				label="Bass 🎸"
 				on:click={() => {
-					updateWaveform('/audio/bass-m');
+					updateWaveform('/audio/Tremblay-AaS-AcBassGuit-Melo-M');
 				}}
 			/>
 
 			<Button
 				label="Piano 🎹"
 				on:click={() => {
-					updateWaveform('/audio/piano-m');
+					updateWaveform('/audio/Tremblay-SA-UprightPianoPedalWide');
 				}}
 			/>
 
 			<Button
 				label="Oboe 🎷"
 				on:click={() => {
-					updateWaveform('/audio/oboe-m');
+					updateWaveform('/audio/Harker-DS-TenOboeMultiphonics-M');
 				}}
 			/>
 
 			<Button
 				label="Trombone 🎺"
 				on:click={() => {
-					updateWaveform('/audio/trombone-m');
+					updateWaveform('/audio/Olencki-TenTromboneLongTones-M');
 				}}
 			/>
 		</div>
@@ -163,7 +163,7 @@
 			/>
 		</div>
 
-		<audio controls loop class="player" bind:this={player} src="/audio/bass-m.mp3" />
+		<audio controls loop class="player" bind:this={player} src="/audio/Tremblay-AaS-AcBassGuit-Melo-M.mp3" />
 	</div>
 </div>
 
