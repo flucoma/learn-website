@@ -18,24 +18,31 @@
 	}
 </script>
 
-<div class="container">
+<div class="youtube-container">
 	<YouTube videoId={url} on:ready={e => (instance = e.detail.target)} />
 </div>
 
-<div class="chapter-container">
+<h2>Chapters</h2>
+
+<ol class="chapter-container">
 	{#each chapters as chapter, i}
-		<div class="chapter" on:click={() => chapterClick(chapter)}>
-			{#if chapter.start.length == 2}
-				<p>{chapter.label} ({chapter.start[0]}:{chapter.start[1]})</p>
-			{:else}
-				<p>{chapter.label} ({chapter.start[0]}:{chapter.start[1]}:{chapter.start[2]})</p>
-			{/if}
-		</div>
+		<li class="chapter" 
+		on:keypress={() => chapterClick(chapter)} 
+		on:click={() => chapterClick(chapter)}
+		>
+			<p>
+				{#if chapter.start.length == 2}
+				<div>{chapter.label} ({chapter.start[0]}:{chapter.start[1]})</div>
+				{:else}
+				<div>{chapter.label} ({chapter.start[0]}:{chapter.start[1]}:{chapter.start[2]})</div>
+				{/if}
+			</p>
+		</li>
 	{/each}
-</div>
+</ol>
 
 <style>
-	.container {
+	.youtube-container {
 		padding-top: 1em;
 		padding-bottom: 1em;
 		max-width: 100%;
@@ -43,40 +50,26 @@
 		display: block;
 	}
 
-	.chapter {
-		padding: 0.25em;
-		text-decoration: none;
-		border-radius: 0.25rem;
-		cursor: pointer;
-		border: 2px solid;
-		border-color: grey;
+	.chapter-container {
+		margin-left: -1em;
+		line-height: 1.0em;
 	}
 
-	.chapter > p {
-		margin: 0px;
-		-webkit-touch-callout: none;
-		-webkit-user-select: none;
-		-khtml-user-select: none;
-		-moz-user-select: none;
-		-ms-user-select: none;
-		user-select: none;
+	.chapter {
+		text-decoration: none;
+		cursor: pointer;
+		color: var(--med-blue);
+		max-width: fit-content;
+		line-height: 1.7em;
 	}
+
 	.chapter:hover {
-		background-color: grey;
+		background-color: var(--med-blue);
 		color: white;
 	}
 
 	.chapter:active {
 		background-color: rgb(96, 96, 96);
 		color: white;
-	}
-
-	.chapter-container {
-		font-size: 0.8rem;
-		display: flex;
-		flex-direction: row;
-		flex-wrap: wrap;
-		gap: 1em;
-		margin-bottom: 1.5em;
 	}
 </style>
