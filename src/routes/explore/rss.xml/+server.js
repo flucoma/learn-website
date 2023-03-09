@@ -17,10 +17,10 @@ export function GET({ }) {
 		>
 	<channel>
 	<title>FluCoMa Learn Podcasts</title>
-	<description>FluCoMa Learn Podcasts description</description>
+	<description>The latest FluCoMa podcasts, hosted by Jacob Hart with artists working with machine learning and machine listening technology in their artistic practices.</description>
 	<language>en-gb</language>
 	<link>https://learn.flucoma.org</link>
-	<atom:link href="${siteURL}/explore/rss" rel="self" type="application/rss+xml"/>
+	<atom:link href="${siteURL}/explore/rss.xml" rel="self" type="application/rss+xml"/>
 	
 	${posts
 	.map(
