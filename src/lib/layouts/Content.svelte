@@ -13,7 +13,7 @@
 		<TOC />
 	</div>
 
-	<div class="main">
+	<main class="main">
 		<h1>{title}</h1>
 		{#if author}
 			<AuthorTag {author} />
@@ -22,7 +22,7 @@
 		<RelatedLinks />
 
 		<slot />
-	</div>
+	</main>
 
 	<div class="blank" />
 </div>

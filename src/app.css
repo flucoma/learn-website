@@ -13,14 +13,14 @@ g*/
 	--breakpoint: 1200px;
 	--font: 'overpassregular', sans-serif;
 	--mono: 'Overpass Mono', monospace;
-	--dark-blue: rgb(8, 60, 100);
-	--med-blue: rgb(3, 113, 181);
+	--dark-blue: #083c64;
+	--med-blue: #0371b5;
 	--light-blue: #1ca4fc;
 	--max-text-width: 70ch;
 	--min-text-width: 30ch;
 	--footer-height: 55px;
 	--event-flair: rgb(235, 161, 23);
-	--article-flair: var(--light-blue);
+	--article-flair: var(--med-blue);
 	--reference-flair: rgb(34, 140, 34);
 	--podcast-flair: palevioletred;
 	--tutorial-flair: rgba(102, 103, 171, 255);
@@ -56,15 +56,19 @@ h6 {
 	margin: 0.6em 0;
 }
 
-p,
 ul,
 ol,
+p,
 blockquote {
 	margin-top: 0;
 	margin-bottom: 1em;
 	margin-left: 0;
 	margin-right: 0;
 	line-height: 1.7em;
+}
+
+li > p {
+	line-height: 1.2em;
 }
 
 li {
