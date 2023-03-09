@@ -27,9 +27,9 @@
 <div class="container">
 	<Header />
 
-	<main class="content">
+	<div class="content">
 		<slot />
-	</main>
+	</div>
 
 	<Footer />
 </div>
