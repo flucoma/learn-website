@@ -1,17 +1,26 @@
 // @ts-nocheck
 import { db } from '$lib/app';
+
+export const prerender = true;
+
 const siteURL = 'https://learn.flucoma.org'
  
 export function GET({ }) {
 	const posts = db.filter(x => x.flair == 'podcast')
 	const render = (posts) =>
 	(`<?xml version="1.0" encoding="UTF-8" ?>
-	<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<rss version="2.0" 
+		xmlns:content="http://purl.org/rss/1.0/modules/content/"
+		xmlns:dc="http://purl.org/dc/elements/1.1/"
+		xmlns:atom="http://www.w3.org/2005/Atom"
+		xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+		>
 	<channel>
 	<title>FluCoMa Learn Podcasts</title>
 	<description>FluCoMa Learn Podcasts description</description>
 	<link>https://learn.flucoma.org</link>
 	<atom:link href="${siteURL}/explore/rss" rel="self" type="application/rss+xml"/>
+	
 	${posts
 	.map(
 		(post) => `<item>
@@ -21,12 +30,11 @@ export function GET({ }) {
 	<description>${post.blurb}</description>
 	<language>en-gb</language>
 	<pubDate>today</pubDate>
-	<content:encoded>
-	</content:encoded>
 	</item>`
 	)
 	.join('')
 	}
+
 	</channel>
 	</rss>
 	`)
