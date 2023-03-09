@@ -18,6 +18,7 @@ export function GET({ }) {
 	<channel>
 	<title>FluCoMa Learn Podcasts</title>
 	<description>FluCoMa Learn Podcasts description</description>
+	<language>en-gb</language>
 	<link>https://learn.flucoma.org</link>
 	<atom:link href="${siteURL}/explore/rss" rel="self" type="application/rss+xml"/>
 	
@@ -28,8 +29,7 @@ export function GET({ }) {
 	<title>${post.title}</title>
 	<link>${siteURL}${post.url}/</link>
 	<description>${post.blurb}</description>
-	<language>en-gb</language>
-	<pubDate>today</pubDate>
+	<pubDate>${new Date(1993, 1).toUTCString()}</pubDate>
 	</item>`
 	)
 	.join('')
