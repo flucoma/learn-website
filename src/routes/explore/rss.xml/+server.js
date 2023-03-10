@@ -7,6 +7,7 @@ const siteURL = 'https://learn.flucoma.org'
  
 export function GET({ }) {
 	const posts = db.filter(x => x.flair == 'podcast')
+
 	const render = (posts) =>
 	(`<?xml version="1.0" encoding="UTF-8" ?>
 	<rss version="2.0" 
@@ -24,17 +25,23 @@ export function GET({ }) {
 	${posts
 	.map(
 		(post) => `<item>
-	<guid isPermaLink="true">${siteURL}${post.url}/</guid>
+	<guid isPermaLink="true">${siteURL}${post.url}</guid>
 	<title>${post.title}</title>
-	<link>${siteURL}${post.url}/</link>
+	<link>${siteURL}${post.url}</link>
 	<description>${post.blurb}</description>
-	<language>en-gb</language>
-	<pubDate>today</pubDate>
+	<author>info@flucoma.org</author>
+	<pubDate>${new Date(1993, 1).toUTCString()}</pubDate>
+	<content:encoded>
+	<![CDATA[
+		<div>
+		This is some content
+		</div>
+	]]>
+	</content:encoded>
 	</item>`
 	)
 	.join('')
 	}
-
 	</channel>
 	</rss>
 	`)
