@@ -1,5 +1,5 @@
 ---
-title: Sound into Sound
+title: Sound Into Sound
 artist: Rodrigo Constanzo
 blurb: |
     In this article, we take a look at the work Rodrigo Constanzo did for the project and explore how he used the FluCoMa tools for his corpus-based music making.
