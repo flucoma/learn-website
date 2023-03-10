@@ -12,6 +12,10 @@ tags:
 flair: podcast
 featuredimage: /explore/abtan/profile_pic.jpeg
 author: Jacob
+year: 2022
+month: 2
+day: 3
+youtube: UYSa73RvJQE
 ---
 
 <script>

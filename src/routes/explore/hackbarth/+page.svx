@@ -12,6 +12,10 @@ tags:
 flair: podcast
 featuredimage: /explore/hackbarth/featured.png
 author: Jacob
+year: 2022
+month: 7
+day: 11
+youtube: ldA5qQyfOco
 ---
 
 <script>

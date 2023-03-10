@@ -5,9 +5,29 @@ export const prerender = true;
 
 const siteURL = 'https://learn.flucoma.org'
  
-export function GET({ }) {
-	const posts = db.filter(x => x.flair == 'podcast')
-	const render = (posts) =>
+export async function GET({ }) {
+	const posts = db
+	.filter(x => x.flair == 'podcast')
+	.sort((a, b) => {
+		const atime = new Date(a.year, a.month, a.day);
+		const btime = new Date(b.year, b.month, b.day);
+		return atime - btime;
+	});
+
+	posts.forEach(async(p) => {
+		const podcastRoute = p.url.split('/').pop();
+		const backblazePrefix = 'https://f003.backblazeb2.com/file/flucoma-podcasts';
+		const audioUrl = `${backblazePrefix}/${podcastRoute}.mp3`;
+		p['audiourl'] = audioUrl;
+
+		const params = { method: "HEAD" };
+
+		const response = await fetch(audioUrl, params);
+		const bytes = response.headers.get('content-length');
+		p['length'] = bytes;
+	});
+
+	const render = (arr) =>
 	(`<?xml version="1.0" encoding="UTF-8" ?>
 	<rss version="2.0" 
 		xmlns:content="http://purl.org/rss/1.0/modules/content/"
@@ -17,24 +37,42 @@ export function GET({ }) {
 		>
 	<channel>
 	<title>FluCoMa Learn Podcasts</title>
-	<description>The latest FluCoMa podcasts, hosted by Jacob Hart with artists working with machine learning and machine listening technology in their artistic practices.</description>
-	<language>en-gb</language>
+	<description>FluCoMa Learn Podcasts description</description>
 	<link>https://learn.flucoma.org</link>
-	<atom:link href="${siteURL}/explore/rss.xml" rel="self" type="application/rss+xml"/>
+	<atom:link href="${siteURL}/explore/rss" rel="self" type="application/rss+xml"/>
 	
-	${posts
-	.map(
-		(post) => `<item>
-	<guid isPermaLink="true">${siteURL}${post.url}/</guid>
+	${arr.map(post => 
+	`<item>
 	<title>${post.title}</title>
-	<link>${siteURL}${post.url}/</link>
+	<link>${siteURL}${post.url}</link>
+	<guid isPermaLink="true">${siteURL}${post.url}</guid>
+	<enclosure
+		url="${post.audiourl}"
+		length="${post.length}"
+		type="audio/mpeg"
+	/>
 	<description>${post.blurb}</description>
-	<pubDate>${new Date(1993, 1).toUTCString()}</pubDate>
+	<author>info@flucoma.org</author>
+	<pubDate>${new Date(post.year, post.month, post.day).toUTCString()}</pubDate>
+	<content:encoded>
+	<![CDATA[
+		<p>
+		${post.blurb}
+		</p>
+		<iframe 
+		width="560"
+		height="315"
+		src=https://www.youtube.com/embed/${post.youtube}
+		frameborder="0"
+		allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+		allowfullscreen
+		/>
+	]]>
+	</content:encoded>
 	</item>`
 	)
 	.join('')
 	}
-
 	</channel>
 	</rss>
 	`)

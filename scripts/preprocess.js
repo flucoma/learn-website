@@ -12,7 +12,6 @@ const slugger = new GithubSlugger();
 
 let structure = {};
 let tags = {};
-let crumbs = {};
 let edits = {};
 let related = {};
 let featured = {
@@ -88,29 +87,6 @@ routes.forEach(route => {
 		});
 	}
 
-	// Crumbs
-	if (fm.crumb) {
-		crumbs[url] = fm.crumb;
-	} else {
-		switch (section) {
-			case 'reference':
-				crumbs[url] = fm.title;
-				break;
-			case 'explore':
-				crumbs[url] = fm.artist;
-				break;
-			case 'guides':
-				crumbs[url] = fm.short;
-				break;
-			case 'learn':
-				crumbs[url] = fm.title;
-				break;
-			case 'installation':
-				crumbs[url] = fm.title;
-				break;
-		}
-	}
-
 	// Database
 	let featureInfo = {
 		featuredimage: '',
@@ -179,7 +155,6 @@ for (const key in related) {
 let preprocData = {
 	tags: tags,
 	structure: structure,
-	crumbs: crumbs,
 	db: db,
 	related: related
 };

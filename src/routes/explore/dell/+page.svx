@@ -12,6 +12,10 @@ tags:
 flair: podcast
 featuredimage: /explore/dell/featured_img.jpeg
 author: Jacob
+year: 2022
+month: 3
+day: 21
+youtube: 2CyHymm10ig
 ---
 
 <script>

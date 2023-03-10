@@ -12,6 +12,10 @@ tags:
 flair: podcast
 featuredimage: /explore/laczko/featured.jpeg
 author: Jacob
+year: 2022
+month: 6
+day: 21
+youtube: U93E2T2WrY4
 ---
 
 <script>

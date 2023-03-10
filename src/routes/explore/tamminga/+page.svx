@@ -13,6 +13,10 @@ tags:
 flair: podcast
 featuredimage: /explore/tamminga/featured_img.jpeg
 author: Jacob
+year: 2022
+month: 2
+day: 17
+youtube: lV0NwPZQT5w
 ---
 
 <script>
