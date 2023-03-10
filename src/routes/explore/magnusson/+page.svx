@@ -12,6 +12,9 @@ tags:
 flair: podcast
 featuredimage: /explore/magnusson/article_teaser_pic.jpeg
 author: Jacob
+year: 2023
+month: 0
+day: 18
 ---
 
 <script>
