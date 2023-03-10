@@ -13,6 +13,9 @@ tags:
 flair: podcast
 featuredimage: /explore/sonami/feature_img.jpeg
 author: Jacob
+year: 2023
+month: 0
+day: 25
 ---
 
 <script>

@@ -12,6 +12,9 @@ tags:
 flair: podcast
 featuredimage: /explore/xambo/featured.jpeg
 author: Jacob
+year: 2022
+month: 6
+day: 7 
 ---
 
 <script>

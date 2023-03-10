@@ -6,9 +6,17 @@ export const prerender = true;
 const siteURL = 'https://learn.flucoma.org'
  
 export function GET({ }) {
-	const posts = db.filter(x => x.flair == 'podcast')
+	const posts = db
+	.filter(x => x.flair == 'podcast')
+	.sort((a, b) => {
+		const atime = new Date(a.year, a.month, a.day);
+		const btime = new Date(b.year, b.month, b.day);
+		return atime - btime;
+	});
 
-	const render = (posts) =>
+	console.log(posts)
+
+	const render = (arr) =>
 	(`<?xml version="1.0" encoding="UTF-8" ?>
 	<rss version="2.0" 
 		xmlns:content="http://purl.org/rss/1.0/modules/content/"
@@ -22,15 +30,14 @@ export function GET({ }) {
 	<link>https://learn.flucoma.org</link>
 	<atom:link href="${siteURL}/explore/rss" rel="self" type="application/rss+xml"/>
 	
-	${posts
-	.map(
-		(post) => `<item>
+	${arr.map(post => 
+	`<item>
 	<guid isPermaLink="true">${siteURL}${post.url}</guid>
 	<title>${post.title}</title>
 	<link>${siteURL}${post.url}</link>
 	<description>${post.blurb}</description>
 	<author>info@flucoma.org</author>
-	<pubDate>${new Date(1993, 1).toUTCString()}</pubDate>
+	<pubDate>${new Date(post.year, post.month, post.day).toUTCString()}</pubDate>
 	<content:encoded>
 	<![CDATA[
 		<div>

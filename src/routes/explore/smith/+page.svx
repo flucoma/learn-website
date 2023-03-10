@@ -13,6 +13,9 @@ tags:
 flair: podcast
 featuredimage: /explore/smith/featured.jpg
 author: Jacob
+year: 2022
+month: 4
+day: 12
 ---
 
 <script>
