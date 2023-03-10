@@ -5,7 +5,7 @@ export const prerender = true;
 
 const siteURL = 'https://learn.flucoma.org'
  
-export function GET({ }) {
+export async function GET({ }) {
 	const posts = db
 	.filter(x => x.flair == 'podcast')
 	.sort((a, b) => {
@@ -14,7 +14,18 @@ export function GET({ }) {
 		return atime - btime;
 	});
 
-	console.log(posts)
+	posts.forEach(async(p) => {
+		const podcastRoute = p.url.split('/').pop();
+		const backblazePrefix = 'https://f003.backblazeb2.com/file/flucoma-podcasts';
+		const audioUrl = `${backblazePrefix}/${podcastRoute}.mp3`;
+		p['audiourl'] = audioUrl;
+
+		const params = { method: "HEAD" };
+
+		const response = await fetch(audioUrl, params);
+		const bytes = response.headers.get('content-length');
+		p['length'] = bytes;
+	});
 
 	const render = (arr) =>
 	(`<?xml version="1.0" encoding="UTF-8" ?>
@@ -32,17 +43,30 @@ export function GET({ }) {
 	
 	${arr.map(post => 
 	`<item>
-	<guid isPermaLink="true">${siteURL}${post.url}</guid>
 	<title>${post.title}</title>
 	<link>${siteURL}${post.url}</link>
+	<guid isPermaLink="true">${siteURL}${post.url}</guid>
+	<enclosure
+		url="${post.audiourl}"
+		length="${post.length}"
+		type="audio/mpeg"
+	/>
 	<description>${post.blurb}</description>
 	<author>info@flucoma.org</author>
 	<pubDate>${new Date(post.year, post.month, post.day).toUTCString()}</pubDate>
 	<content:encoded>
 	<![CDATA[
-		<div>
-		This is some content
-		</div>
+		<p>
+		${post.blurb}
+		</p>
+		<iframe 
+		width="560"
+		height="315"
+		src=https://www.youtube.com/embed/${post.youtube}
+		frameborder="0"
+		allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+		allowfullscreen
+		/>
 	]]>
 	</content:encoded>
 	</item>`
