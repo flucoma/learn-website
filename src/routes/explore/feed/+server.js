@@ -22,6 +22,7 @@ export async function GET({ }) {
 		const params = { method: "HEAD" };
 		const response = await fetch(audioUrl, params);
 		const bytes = response.headers.get('content-length');
+		console.log(bytes)
 		p['length_in_bytes'] = bytes;
 	});
 
@@ -41,11 +42,11 @@ export async function GET({ }) {
 	<itunes:author>Fluid Corpus Manipulation Team</itunes:author>
 	<itunes:explicit>No</itunes:explicit>
 	<itunes:category text="Technology" />
-	<itunes:category text="Music" />
+	<itunes:category text="Music Interviews" />
 	<description>FluCoMa Learn Podcasts are an intermittent series of interviews with artists discussing their work using and experimenting with machine learning and machine listening.</description>
 	<language>en-gb</language>
 	<link>https://learn.flucoma.org</link>
-	<atom:link href="${siteURL}/explore/rss" rel="self" type="application/rss+xml"/>
+	<atom:link href="${siteURL}/explore/rss.xml" rel="self" type="application/rss+xml"/>
 	
 	${arr.map((post, i) => 
 	`<item>
@@ -59,7 +60,7 @@ export async function GET({ }) {
 	/>
 	<category>Technology</category>
 	<itunes:author>Fluid Corpus Manipulation Team</itunes:author>
-	<itunes:episode>${i}</itunes:episode>
+	<itunes:episode>${i+1}</itunes:episode>
 	<itunes:explicit>No</itunes:explicit>
 	<itunes:subtitle></itunes:subtitle>
 	<itunes:summary></itunes:summary>
