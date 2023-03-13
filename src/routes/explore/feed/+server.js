@@ -83,15 +83,6 @@ export async function GET({ }) {
 		allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
 		allowfullscreen
 		/>
-
-		<div>
-		goooooo
-		</div>
-
-		<audio controls>
-		<source src="${post.audiourl}" type="audio/mpeg">  
-		Your browser does not support the html audio tag. 
-		</audio>
 	]]>
 	</content:encoded>
 	</item>`
