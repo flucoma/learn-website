@@ -13,7 +13,6 @@ export async function GET({ }) {
 		const btime = new Date(b.year, b.month, b.day);
 		return atime - btime;
 	});
-
 	posts.forEach(async(p) => {
 		const podcastRoute = p.url.split('/').pop();
 		const backblazePrefix = 'https://f003.backblazeb2.com/file/flucoma-podcasts';
@@ -21,15 +20,15 @@ export async function GET({ }) {
 		p['audiourl'] = audioUrl;
 
 		const params = { method: "HEAD" };
-
 		const response = await fetch(audioUrl, params);
 		const bytes = response.headers.get('content-length');
-		p['length'] = bytes;
+		p['length_in_bytes'] = bytes;
 	});
 
 	const render = (arr) =>
 	(`<?xml version="1.0" encoding="UTF-8" ?>
 	<rss version="2.0" 
+		xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd"
 		xmlns:content="http://purl.org/rss/1.0/modules/content/"
 		xmlns:dc="http://purl.org/dc/elements/1.1/"
 		xmlns:atom="http://www.w3.org/2005/Atom"
@@ -37,20 +36,36 @@ export async function GET({ }) {
 		>
 	<channel>
 	<title>FluCoMa Learn Podcasts</title>
-	<description>FluCoMa Learn Podcasts description</description>
+	<itunes:subtitle>Discuss, learn and explore FluCoMa</itunes:subtitle>
+	<itunes:summary>FluCoMa Learn Podcasts are an intermittent series of interviews with artists discussing their work using and experimenting with machine learning and machine listening.</itunes:summary>
+	<itunes:author>Fluid Corpus Manipulation Team</itunes:author>
+	<itunes:explicit>No</itunes:explicit>
+	<itunes:category text="Technology" />
+	<itunes:category text="Music" />
+	<description>FluCoMa Learn Podcasts are an intermittent series of interviews with artists discussing their work using and experimenting with machine learning and machine listening.</description>
+	<language>en-gb</language>
 	<link>https://learn.flucoma.org</link>
 	<atom:link href="${siteURL}/explore/rss" rel="self" type="application/rss+xml"/>
 	
-	${arr.map(post => 
+	${arr.map((post, i) => 
 	`<item>
 	<title>${post.title}</title>
 	<link>${siteURL}${post.url}</link>
 	<guid isPermaLink="true">${siteURL}${post.url}</guid>
 	<enclosure
 		url="${post.audiourl}"
-		length="${post.length}"
+		length="${post.length_in_bytes}"
 		type="audio/mpeg"
 	/>
+	<category>Technology</category>
+	<itunes:author>Fluid Corpus Manipulation Team</itunes:author>
+	<itunes:episode>${i}</itunes:episode>
+	<itunes:explicit>No</itunes:explicit>
+	<itunes:subtitle></itunes:subtitle>
+	<itunes:summary></itunes:summary>
+	<itunes:keywords>
+	machine learning, machine listening, creative coding, composition, electronic music
+	</itunes:keywords>
 	<description>${post.blurb}</description>
 	<author>info@flucoma.org</author>
 	<pubDate>${new Date(post.year, post.month, post.day).toUTCString()}</pubDate>
@@ -67,6 +82,15 @@ export async function GET({ }) {
 		allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
 		allowfullscreen
 		/>
+
+		<div>
+		goooooo
+		</div>
+
+		<audio controls>
+		<source src="${post.audiourl}" type="audio/mpeg">  
+		Your browser does not support the html audio tag. 
+		</audio>
 	]]>
 	</content:encoded>
 	</item>`
