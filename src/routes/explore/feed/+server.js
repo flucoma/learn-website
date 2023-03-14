@@ -7,13 +7,13 @@ const siteURL = 'https://learn.flucoma.org'
  
 export async function GET({ }) {
 	const posts = db
-	.filter(x => x.flair == 'podcast')
-	.sort((a, b) => {
-		const atime = new Date(a.year, a.month, a.day);
-		const btime = new Date(b.year, b.month, b.day);
-		return atime - btime;
-	});
-	(posts.forEach(async(p) => {
+		.filter(x => x.flair == 'podcast')
+		.sort((a, b) => {
+			const atime = new Date(a.year, a.month, a.day);
+			const btime = new Date(b.year, b.month, b.day);
+			return atime - btime;
+		});
+	await Promise.all(posts.map(async(p) => {
 		const podcastRoute = p.url.split('/').pop();
 		const backblazePrefix = 'https://f003.backblazeb2.com/file/flucoma-podcasts';
 		const audioUrl = `${backblazePrefix}/${podcastRoute}.mp3`;
