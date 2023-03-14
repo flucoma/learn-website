@@ -13,7 +13,7 @@ export async function GET({ }) {
 		const btime = new Date(b.year, b.month, b.day);
 		return atime - btime;
 	});
-	await Promise.all(posts.forEach(async(p) => {
+	(posts.forEach(async(p) => {
 		const podcastRoute = p.url.split('/').pop();
 		const backblazePrefix = 'https://f003.backblazeb2.com/file/flucoma-podcasts';
 		const audioUrl = `${backblazePrefix}/${podcastRoute}.mp3`;
