@@ -13,7 +13,7 @@ export async function GET({ }) {
 		const btime = new Date(b.year, b.month, b.day);
 		return atime - btime;
 	});
-	posts.forEach(async(p) => {
+	await Promise.all(posts.forEach(async(p) => {
 		const podcastRoute = p.url.split('/').pop();
 		const backblazePrefix = 'https://f003.backblazeb2.com/file/flucoma-podcasts';
 		const audioUrl = `${backblazePrefix}/${podcastRoute}.mp3`;
@@ -22,9 +22,8 @@ export async function GET({ }) {
 		const params = { method: "HEAD" };
 		const response = await fetch(audioUrl, params);
 		const bytes = response.headers.get('content-length');
-		console.log(bytes)
 		p['length_in_bytes'] = bytes;
-	});
+	}));
 
 	const render = (arr) =>
 	(`<?xml version="1.0" encoding="UTF-8" ?>
@@ -41,7 +40,7 @@ export async function GET({ }) {
 	<itunes:summary>FluCoMa Learn Podcasts are an intermittent series of interviews with artists discussing their work using and experimenting with machine learning and machine listening.</itunes:summary>
 	<itunes:author>Fluid Corpus Manipulation Team</itunes:author>
 	<itunes:explicit>No</itunes:explicit>
-	<itunes:image href="https://learn.flucoma.org/img/onlylogo.svg"/>
+	<itunes:image href="https://learn.flucoma.org/img/podcast_banner.jpg"/>
 	<itunes:category text="Technology" />
 	<itunes:category text="Music Interviews" />
 	<description>FluCoMa Learn Podcasts are an intermittent series of interviews with artists discussing their work using and experimenting with machine learning and machine listening.</description>
