@@ -40,9 +40,10 @@ export async function GET({ }) {
 	<itunes:summary>FluCoMa Learn Podcasts are an intermittent series of interviews with artists discussing their work using and experimenting with machine learning and machine listening.</itunes:summary>
 	<itunes:author>Fluid Corpus Manipulation Team</itunes:author>
 	<itunes:owner>
-		<itunes:name>Pierre Alexandre Tremblay</itunes:name>
-		<itunes:email>info@flucoma.org</itunes:email>
-	</itunes:owner
+		<itunes:email>
+		info@flucoma.org
+		</itunes:email>
+	</itunes:owner>
 	<itunes:explicit>No</itunes:explicit>
 	<itunes:image href="https://learn.flucoma.org/img/podcast_banner.jpg"/>
 	<itunes:category text="Technology" />
