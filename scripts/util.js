@@ -4,7 +4,8 @@ const contentGlob = 'src/routes/+(reference|explore|learn)/*/*page.svx'
 
 const urlFromRoute = route => {
 	let parse = path.parse(route);
-	let base = parse.dir.split('/').slice(2).join('/');
+	let base = parse.dir.split('/').slice(3).join('/');
+	// base = base.replace(/\([^)]*\)/g, '');
 	return `/${base}`
 };
 

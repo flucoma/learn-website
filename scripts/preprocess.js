@@ -30,18 +30,17 @@ const add = (key, reference) => {
 };
 
 const ignores = [
-	'src/routes/reference/+page.svx',
-	'src/routes/explore/+page.svx',
-	'src/routes/learn/+page.svx',
-	'src/routes/+page.svx'
+	'src/routes/(content)/reference/+page.svx',
+	'src/routes/(content)/explore/+page.svx',
+	'src/routes/(content)/learn/+page.svx',
+	'src/routes/(content)/+page.svx'
 ];
 let routes = fg.sync(['**/*+page.svx']);
 routes = routes.filter(route => !ignores.includes(route));
 
 routes.forEach(route => {
-	const section = route.split('/')[2];
+	const section = route.split('/')[3];
 	let url = urlFromRoute(route);
-
 	// Read the page in as a string
 	const data = fs.readFileSync(route, 'utf8');
 
@@ -49,6 +48,7 @@ routes.forEach(route => {
 	let fm = frontmatter(data).attributes;
 	fm.url = url;
 	fm.section = section;
+
 
 	// Parse the markdown tree for the headings
 	let tree = markdown.parse(data);
@@ -117,7 +117,9 @@ routes.forEach(route => {
 	db.push(fm);
 
 	// // Related Links
-	let links = markdownLinkExtractor(data, false)
+	let { links } = markdownLinkExtractor(data, false);
+	links = 
+		links
 		.filter(x => x.startsWith('/'))
 		.filter(x => path.extname(x) === '');
 
@@ -134,7 +136,7 @@ routes.forEach(route => {
 		link = link.split('#')[0];
 		if (length > 1 && link !== url) {
 			add(link, backreference);
-			const branch = fs.readFileSync(`src/routes${link}/+page.svx`, 'utf8');
+			const branch = fs.readFileSync(`src/routes/(content)/${link}/+page.svx`, 'utf8');
 			const branchfm = frontmatter(branch).attributes;
 			const fwdreference = {
 				title: branchfm.title,
