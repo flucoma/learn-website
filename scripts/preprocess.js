@@ -117,7 +117,9 @@ routes.forEach(route => {
 	db.push(fm);
 
 	// // Related Links
-	let links = markdownLinkExtractor(data, false)
+	let { links } = markdownLinkExtractor(data, false);
+	links = 
+		links
 		.filter(x => x.startsWith('/'))
 		.filter(x => path.extname(x) === '');
 
