@@ -24,6 +24,7 @@
 			<a href="/learn">Learn</a>
 			<a href='/reference'>Reference</a>
 			<a href="/explore">Explore</a>
+			<a href="/podcast">Podcast</a>
 			<a href="https://discourse.flucoma.org" target='_blank' rel='noreferrer'>Discourse</a>
 		</div>
 	</div>
