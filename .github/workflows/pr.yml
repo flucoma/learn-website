@@ -1,4 +1,4 @@
-name: deploy
+name: tests
 
 on:
     pull_request:
@@ -11,16 +11,15 @@ jobs:
         steps:
             - uses: actions/checkout@v3
 
-            - name: pnpm
+            - uses: actions/setup-node@v3
+              with:
+                node-version: 19
+
+            - name: install pnpm
               run: npm i -g pnpm
 
-            - name: Build Site
-              run: |
-                  pnpm i
-                  pnpm run build
+            - name: Install Dependencies
+              run: pnpm i
 
-            - name: Merge MFCC Widget
-              run: |
-                  git clone https://github.com/flucoma/MFCC-interactive-widget.git mfccwidget
-                  mkdir -p ./build/reference/mfcc/explain
-                  cp -r mfccwidget/p5/* build/reference/mfcc/explain/
+            - name: Run Tests
+              run: pnpm run test
