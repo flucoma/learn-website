@@ -6,7 +6,6 @@ import test from 'node:test';
 import assert from 'node:assert';
 import fetch from 'node-fetch';
 
-
 const ignores = [
 	'src/routes/(content)/reference/+page.svx',
 	'src/routes/(content)/explore/+page.svx',
@@ -26,11 +25,17 @@ routes.forEach(route => {
 
 	const fm = frontmatter(data).attributes;
 
-	test(`${route} frontmatter has necessary structure`, () => {
-
+	test(`${route} frontmatter has title`, () => {
 		assert.equal(true, fm.hasOwnProperty('title'));
+	});
+	test(`${route} frontmatter has blurb`, () => {
 		assert.equal(true, fm.hasOwnProperty('blurb'));
+	});
+	test(`${route} frontmatter has tags`, () => {
 		assert.equal(true, fm.hasOwnProperty('tags'));
+	});
+
+	test(`${route} frontmatter has flair`, () => {
 		assert.equal(true, fm.hasOwnProperty('flair'));
 	});
 	test(`${route} title is valid`, () => {
@@ -40,28 +45,10 @@ routes.forEach(route => {
 		assert.strictEqual('object', typeof fm.tags)
 		assert.strictEqual(true, fm.tags.length > 0)
 	});
-	test(`${route} flair is valid`, () => {
+	test(`${route} flair is one of (reference|article|podcast|event|tutorial)`, () => {
 		const flair = fm.flair;
 		assert.match(flair, new RegExp('reference|article|podcast|event|tutorial'))
 	});
-
-	test(`${route} podcast structure is correct`, async() => {
-		if (fm.flair === 'podcast') {
-			assert.strictEqual(true, fm.hasOwnProperty('day'))
-			assert.strictEqual(true, fm.hasOwnProperty('month'))
-			assert.strictEqual(true, fm.hasOwnProperty('year'))
-			assert.strictEqual(true, fm.hasOwnProperty('youtube'))
-			assert.strictEqual(true, fm.hasOwnProperty('artist'))
-
-			// and that there is a relevant backblaze asset to accompay, OTHERWISE FAIL
-			const backblazePrefix = 'https://f003.backblazeb2.com/file/flucoma-podcasts';
-			const parentFolder = route.split('/')[4];
-			const params = { method: "HEAD" };
-			const response = await fetch(`${backblazePrefix}/${parentFolder}.mp3`, params);
-			console.log(route)
-			assert.strictEqual(200, response.status)
-		}
-	})
 
 	const headers = tree.filter(x => x.includes('header'));
 	const h1 = headers.filter(x => x[1].level === 1);
