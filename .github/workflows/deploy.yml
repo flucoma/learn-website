@@ -12,7 +12,6 @@ on:
 jobs:
     build:
         runs-on: ubuntu-latest
-
         steps:
             - uses: actions/checkout@v3
               with:
@@ -29,15 +28,18 @@ jobs:
                 mkdir -p ~/.ssh
                 ssh-keyscan -H ${{ secrets.DO_IP }} >> ~/.ssh/known_hosts
 
+            - uses: actions/setup-node@v3
+              with:
+                node-version: 19
+
             - name: install pnpm
               run: npm i -g pnpm
 
-            - uses: actions/setup-node@v3
-              with:
-                node-version: 16
-
             - name: Install Dependencies
               run: pnpm i
+
+            - name: Run Tests
+              run: pnpm run test
 
             - name: Build Site
               run: pnpm run build
