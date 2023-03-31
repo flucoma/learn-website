@@ -4,7 +4,6 @@ import { markdown } from 'markdown';
 import fs from 'fs'
 import test from 'node:test';
 import assert from 'node:assert';
-import fetch from 'node-fetch';
 
 const ignores = [
 	'src/routes/(content)/reference/+page.svx',
