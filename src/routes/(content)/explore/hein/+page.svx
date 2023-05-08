@@ -14,7 +14,7 @@ author: Jacob
 year: 2023
 month: 5
 day: 6
-youtube: U93E2T2WrY4
+youtube: idmvd8lP__o
 ---
 
 <script>
@@ -37,23 +37,24 @@ He is a professor of Digital Creation at the Music University of Lübeck, German
 ## The Podcast
 
 <YouTubeChapters 
-url={'U93E2T2WrY4'}
+url={'idmvd8lP__o'}
 chapters={[
     {"label" : "Introduction", "start" : [0, 0]},
-    {"label" : "Getting into music and music technology", "start" : [1, 28]},
-    {"label" : "Working in different environments", "start" : [5, 30]},
-    {"label" : "Overview of Bálint’s creative work", "start" : [12, 19]},
-    {"label" : "What is the Hum?", "start" : [14, 12]},
-    {"label" : "Describing the piece", "start" : [20, 10]},
-    {"label" : "Constructing the web (dimensionality reduction, Bálint descriptors, iterative corpus recording)", "start" : [28, 27]},
-    {"label" : "Navigating the web", "start" : [42, 41]},
-    {"label" : "Performing The Hum and processing", "start" : [57, 33]},
-    {"label" : "Piece recontextualisation", "start" : [1, 5, 45]},
-    {"label" : "Perception of dimensions", "start" : [1, 13, 17]},
-    {"label" : "Dealing with technology", "start" : [1, 20, 56]},
-    {"label" : "Recording versus performance", "start" : [1, 27, 30]},
-    {"label" : "The FluCoMa ecosystem", "start" : [1, 36, 11]},
-    {"label" : "Approach to teaching and learning", "start" : [1, 45, 52]}
+    {"label" : "Getting in to music", "start" : [1, 3]},
+    {"label" : "Defining systems", "start" : [3, 37]},
+    {"label" : "Tertiary Protentions", "start" : [9, 30]},
+    {"label" : "Stiegler’s tertiary protentions", "start" : [17, 16]},
+    {"label" : "Spatialization", "start" : [23, 25]},
+    {"label" : "Tertiary Protentions and others", "start" : [28, 22]},
+    {"label" : "Transsonic", "start" : [32, 45]},
+    {"label" : "Light as instrument", "start" : [43, 20]},
+    {"label" : "The Human Robotic Ensemble", "start" : [48, 3]},
+    {"label" : "People, systems and robots", "start" : [51, 40]},
+    {"label" : "The audience and robots", "start" : [1, 0, 50]},
+    {"label" : "Guitar: the instrument", "start" : [1, 10, 49]},
+    {"label" : "Guitar and musical thinking", "start" : [1, 16, 42]},
+    {"label" : "Teaching digital creation", "start" : [1, 21, 24]},
+    {"label" : "Future of Nicola’s work", "start" : [1, 30, 38]}
 ]}
 />
 
