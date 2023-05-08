@@ -5,7 +5,13 @@
 	import ContentGallery from './ContentGallery.svelte';
 </script>
 
+<br>
+<br>
+<br>
 <h1>Getting Started</h1>
+<h2>Installation</h2>
+Start by installing the package in your creative coding environement. Max users can download the latest public version via the built-in package manager. To install the latest copy, see the detailled [installation help pages](/installation).
+<br>
 <h2>Tutorials</h2>
 
 <div class="widgets">
