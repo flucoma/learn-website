@@ -1,0 +1,92 @@
+---
+title: "FluCoMa Podcast #15: Tomomi Adachi"
+artist: Tomomi Adachi
+blurb: |
+    Episode 15 of the FluCoMa Podcast where Jacob Hart talks with performer Tomomi Adachi.
+tags: 
+    - punk
+    - noise
+    - simulation
+    - voice
+    - hacking
+    - improvisation
+flair: podcast
+featuredimage: /explore/adachi/featured.jpeg
+author: Jacob
+year: 2023
+month: 5
+day: 24
+youtube: UYSa73RvJQE
+---
+
+<script>
+    import YouTube from '$lib/components/YouTube.svelte';
+    import ArtistCard from '$lib/components/explore/ArtistCard.svelte';
+    import YouTubeChapters from '$lib/components/YouTubeChapters.svelte';
+</script>
+
+<ArtistCard
+src = "/explore/adachi/profile.jpeg"
+name = "Tomomi Adachi"
+website = "https://www.adachitomomi.com/"
+/>
+
+## The Podcast
+
+<YouTubeChapters 
+url='UYSa73RvJQE'
+chapters={[
+    {"label" : "Introduction", "start" : [0, 0]},
+    {"label" : "Getting into the world of audiovisual composition", "start" : [1, 40]},
+    {"label" : "Describing Freida's practice", "start" : [5, 20]},
+    {"label" : "Perspective on reactive audio design and gesture", "start" : [9, 3]},
+    {"label" : "Using FluCoMa-related technologies", "start" : [14, 3]},
+    {"label" : "Using systems at different scales", "start" : [25, 58]},
+    {"label" : "Learning and teaching technologies", "start" : [28, 22]},
+    {"label" : "What are computational ideas?", "start" : [44, 53]}
+]}
+/>
+
+## Overview
+
+In this episode of the FluCoMa Podcast I talk with Tomomi Adachi, a performer, composer, sound poet and installation artist. We discuss many aspects of his creative practice – notably his approaches to instrument design in various forms, and a recent project that merges artificial intelligence and vocal improvisation.
+
+## Links
+
+Here are the links to some of the things that were discussed during the podcast:
+
+- [Dick Higgins](https://en.wikipedia.org/wiki/Dick_Higgins) of [Fluxus](https://en.wikipedia.org/wiki/Fluxus).
+
+- Tomomi's [chapter](http://www.nicolascollins.com/HEM3/texts/japanesehacking.pdf) in [Nicolas Collins'](https://www.nicolascollins.com/index.htm) book [Handmade Electronic Music](https://www.nicolascollins.com/handmade.htm) (2021).
+
+- [John Cage](https://en.wikipedia.org/wiki/John_Cage), [Cornelius Cardew](https://en.wikipedia.org/wiki/Cornelius_Cardew), [David Tudor](https://en.wikipedia.org/wiki/David_Tudor) and [Christian Wolff](https://en.wikipedia.org/wiki/Christian_Wolff_(composer)).
+
+- Tomomin and Tomoring:
+
+<YouTube 
+url={'TrysZojMaSM'}
+/>
+
+<YouTube 
+url={'cmBqTAtnbS0'}
+/>
+
+- [Rodrigo Constanzo](https://rodrigoconstanzo.com/) and his [work](/explore/constanzo) on the project.
+
+- Infrared Sensor Shirt:
+
+<YouTube 
+url={'XG0Y-XUij7g'}
+/>
+
+- [Conceptual isntruments](https://www.adachitomomi.com/conceptual-instruments/) for [Walter Smetak](https://en.wikipedia.org/wiki/Walter_Smetak) and [collective instruments](https://www.adachitomomi.com/collective-instruments/).
+
+- [Alice Eldridge](https://profiles.sussex.ac.uk/p127749-alice-eldridge) and [Chris Kiefer's](https://profiles.sussex.ac.uk/p208667-chris-kiefer) [work](/explore/eldridge-kiefer) on the project.
+
+- [Voices from AI in Experimental Improvisation](https://www.adachitomomi.com/ai-improvisation/) with [Andreas Dzialocha](https://junge-akademie.adk.de/en/people/andreas-dzialocha/) and [Marcello Lussana](https://hu-berlin.academia.edu/MarcelloLussana).
+
+<YouTube 
+url={'0VexyC86F8o'}
+/>
+
+- [WaveNet](https://www.deepmind.com/blog/wavenet-a-generative-model-for-raw-audio): A generative model for raw audio.
