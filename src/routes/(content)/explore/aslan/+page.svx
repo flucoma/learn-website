@@ -25,9 +25,9 @@ youtube: N_dy8-XpgyE
 </script>
 
 <ArtistCard
-src = "/explore/aslan/aslan_profile.jpeg"
-name = "Jess Aslan"
-website = "https://xica.co.uk/"
+src="/explore/aslan/aslan_profile.png"
+name="Jess Aslan"
+website="https://xica.co.uk/"
 />
 
 ## The Podcast
