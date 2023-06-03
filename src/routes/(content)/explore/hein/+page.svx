@@ -14,7 +14,7 @@ author: Jacob
 year: 2023
 month: 5
 day: 6
-youtube: idmvd8lP__o
+youtube: QJVplQ7eFrM
 ---
 
 <script>
@@ -37,7 +37,7 @@ He is a professor of Digital Creation at the Music University of Lübeck, German
 ## The Podcast
 
 <YouTubeChapters 
-url={'idmvd8lP__o'}
+url={'QJVplQ7eFrM'}
 chapters={[
     {"label" : "Introduction", "start" : [0, 0]},
     {"label" : "Getting in to music", "start" : [1, 3]},
