@@ -1,0 +1,90 @@
+---
+title: "FluCoMa Podcast #13: Jess Aslan"
+artist: Jess Aslan
+blurb: |
+    Episode 13 of the FluCoMa Podcast where Jacob Hart talks with creative coder, musician and researcher Jess Aslan.
+tags: 
+    - collaboration
+    - algorithmic composition
+    - machine listening
+    - violin
+    - remix
+flair: podcast
+featuredimage: /explore/aslan/aslan_desc.png
+author: Jacob
+year: 2023
+month: 5
+day: 1
+youtube: N_dy8-XpgyE
+---
+
+<script>
+    import ArtistCard from '$lib/components/explore/ArtistCard.svelte';
+    import YouTubeChapters from '$lib/components/YouTubeChapters.svelte';
+    import BandCamp from '$lib/components/BandCamp.svelte';
+</script>
+
+<ArtistCard
+src="/explore/aslan/aslan_profile.png"
+name="Jess Aslan"
+website="https://xica.co.uk/"
+/>
+
+## The Podcast
+
+<YouTubeChapters 
+url='N_dy8-XpgyE'
+chapters={[
+    {"label" : "Introduction", "start" : [0, 0]},
+    {"label" : "Getting into electronic music", "start" : [0, 55]},
+    {"label" : "Collaboration", "start" : [4, 30]},
+    {"label" : "Algorithmic composition", "start" : [9, 30]},
+    {"label" : "Creative process and using ML", "start" : [16, 45]},
+    {"label" : "Describing longer musical events", "start" : [21, 45]},
+    {"label" : "Instrument design", "start" : [26, 37]},
+    {"label" : "Violin", "start" : [31, 15]},
+    {"label" : "Remixes and relationship with pre-existing music", "start" : [33, 20]},
+    {"label" : "Space, sound and gear", "start" : [35, 52]},
+    {"label" : "Computer presence", "start" : [37, 28]},
+    {"label" : "Teaching FluCoMa technologies", "start" : [42, 22]},
+    {"label" : "Future of Jess’s work", "start" : [47, 12]}
+]}
+/>
+
+## Overview
+
+In the thirteenth episode of the FluCoMa Podcast, I talk with Dr. Jess Aslan who is a performer, composer and educator currently based at Goldsmiths. We talk about her creative process and her approaches to using machine listening in her work, instrument design and algorithmic composition. We also discuss the role collaboration plays in her practice, and her ideas around presence of technology and computers in musicking.
+
+## Links
+
+Here are the links to some of the things that were discussed during the podcast:
+
+- [Goldsmiths, University of London](https://www.gold.ac.uk/) and [The University of Edinburgh](https://www.ed.ac.uk/).
+
+- [Lauren Sarah Hayes'](https://www.laurensarahhayes.com/) [creative work](/explore/hayes) on the FluCoMa Project.
+
+- [Owen Green's](http://owengreen.net/) [creative work](/explore/raw-green-rust) on the FluCoMa Project.
+
+- [Emma Jane Lloyd](https://emmajanelloyd.com/).
+
+<BandCamp 
+id={'2795414184'}
+/>
+
+- [Episode](/explore/gioti) of the FluCoMa Podcast with [Artemi Maria Gioti](https://www.artemigioti.com/).
+
+<BandCamp 
+id={'1360588931'}
+/>
+
+- [Michael Edwards'](https://michael-edwards.org/wp/) [Slippery Chicken](https://michael-edwards.org/wp/?cat=108).
+
+- [Auditory Scene Analysis](https://mitpress.mit.edu/9780262521956/auditory-scene-analysis/) by [Albert S. Bregman](https://en.wikipedia.org/wiki/Albert_Bregman).
+
+- Jess Aslan, Emma Lloyd, [Breaking Boundaries of Role and Hierarchy in Collaborative Music-Making](https://www.tandfonline.com/doi/abs/10.1080/07494467.2016.1282610?tab=permissions&scroll=top) (2017).
+
+- [MiniBrute 2](https://www.arturia.com/products/hardware-synths/minibrute-2/overview) Synthesizer.
+
+- [Elektron Machinedrum](https://www.elektron.se/en/legacy).
+
+- [Regression tutorial](/learn/regression-neural-network/).
