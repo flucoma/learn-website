@@ -1,8 +1,8 @@
 ---
-title: "FluCoMa Podcast #14: Nicola Hein"
+title: "FluCoMa Podcast #14: Nicola Leonard Hein"
 artist: Nicola Hein
 blurb: |
-    Episode 14 of the FluCoMa Podcast where Jacob Hart talks with guitarist, sound artist, composer and scholar Professor Nicola Hein.
+    Episode 14 of the FluCoMa Podcast where Jacob Hart talks with guitarist, sound artist, composer and scholar Professor Nicola Leonard Hein.
 tags: 
     - guitar
     - robots
@@ -25,7 +25,7 @@ youtube: QJVplQ7eFrM
 
 <ArtistCard
 src = "/explore/hein/profile.jpeg"
-name = "Nicola Hein"
+name = "Nicola Leonard Hein"
 website = "https://nicolahein.com/"
 >
 <p slot="bio">
@@ -60,7 +60,7 @@ chapters={[
 
 ## Overview
 
-In this episode of the FluCoMa Podcast I talk with Professor Nicola Hein, a sound artist, guitarist, composer, and scholar currently based at the University of Lübeck. We learn more about Nicola’s creative process, taking an in-depth dive into three of his works from solo work, to collaborating with other artists and robotic agents. We learn about his uses of machine learning in his practice, his relationship with his life-long instrument the guitar, and hear about his general views on aesthetics and musicking.
+In this episode of the FluCoMa Podcast I talk with Professor Nicola Leonard Hein, a sound artist, guitarist, composer, and scholar currently based at the University of Lübeck. We learn more about Nicola’s creative process, taking an in-depth dive into three of his works from solo work, to collaborating with other artists and robotic agents. We learn about his uses of machine learning in his practice, his relationship with his life-long instrument the guitar, and hear about his general views on aesthetics and musicking.
 
 ## Links
 
