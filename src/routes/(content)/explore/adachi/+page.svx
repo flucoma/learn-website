@@ -73,7 +73,7 @@ Here are the links to some of the things that were discussed during the podcast:
 <YouTube 
 url={'TrysZojMaSM'}
 />
-
+ 
 <YouTube 
 url={'cmBqTAtnbS0'}
 />
