@@ -1,0 +1,105 @@
+---
+title: "FluCoMa Podcast #14: Nicola Hein"
+artist: Nicola Hein
+blurb: |
+    Episode 14 of the FluCoMa Podcast where Jacob Hart talks with guitarist, sound artist, composer and scholar Professor Nicola Hein.
+tags: 
+    - guitar
+    - robots
+    - light
+    - machine agents
+flair: podcast
+featuredimage: /explore/hein/preview.jpeg
+author: Jacob
+year: 2023
+month: 5
+day: 6
+youtube: QJVplQ7eFrM
+---
+
+<script>
+    import YouTubeChapters from '$lib/components/YouTubeChapters.svelte';
+    import ArtistCard from '$lib/components/explore/ArtistCard.svelte';
+    import YouTube from '$lib/components/YouTube.svelte';
+</script>
+
+<ArtistCard
+src = "/explore/hein/profile.jpeg"
+name = "Nicola Hein"
+website = "https://nicolahein.com/"
+>
+<p slot="bio">
+Nicola L. Hein (*1988 in Düsseldorf) is a sound artist, guitarist, composer and scholar, working in the field of music aesthetics and cybernetics.
+He is a professor of Digital Creation at the Music University of Lübeck, Germany.
+</p>
+</ArtistCard>
+
+## The Podcast
+
+<YouTubeChapters 
+url={'QJVplQ7eFrM'}
+chapters={[
+    {"label" : "Introduction", "start" : [0, 0]},
+    {"label" : "Getting in to music", "start" : [1, 3]},
+    {"label" : "Defining systems", "start" : [3, 37]},
+    {"label" : "Tertiary Protentions", "start" : [9, 30]},
+    {"label" : "Stiegler’s tertiary protentions", "start" : [17, 16]},
+    {"label" : "Spatialization", "start" : [23, 25]},
+    {"label" : "Tertiary Protentions and others", "start" : [28, 22]},
+    {"label" : "Transsonic", "start" : [32, 45]},
+    {"label" : "Light as instrument", "start" : [43, 20]},
+    {"label" : "The Human Robotic Ensemble", "start" : [48, 3]},
+    {"label" : "People, systems and robots", "start" : [51, 40]},
+    {"label" : "The audience and robots", "start" : [1, 0, 50]},
+    {"label" : "Guitar: the instrument", "start" : [1, 10, 49]},
+    {"label" : "Guitar and musical thinking", "start" : [1, 16, 42]},
+    {"label" : "Teaching digital creation", "start" : [1, 21, 24]},
+    {"label" : "Future of Nicola’s work", "start" : [1, 30, 38]}
+]}
+/>
+
+## Overview
+
+In this episode of the FluCoMa Podcast I talk with Professor Nicola Hein, a sound artist, guitarist, composer, and scholar currently based at the University of Lübeck. We learn more about Nicola’s creative process, taking an in-depth dive into three of his works from solo work, to collaborating with other artists and robotic agents. We learn about his uses of machine learning in his practice, his relationship with his life-long instrument the guitar, and hear about his general views on aesthetics and musicking.
+
+## Links
+
+Here are the links to some of the things that were discussed during the podcast:
+
+- [Universität zu Lübeck](https://www.uni-luebeck.de/en/university/university.html), Germany.
+
+- [FluCoMa Podcast](/explore/aslan) with [Jess Aslan](https://xica.co.uk/).
+
+- Nicola's [Tertiary Protentions](https://nicolahein.com/tertiary-protention/).
+
+<YouTube 
+url={'NfdBosS8-GA'}
+/>
+
+- [MFCC](/reference/mfcc) and [KNN](/reference/kdtree) analysis.
+
+- [Bernard Stiegler](https://en.wikipedia.org/wiki/Bernard_Stiegler), [Edmund Husserl](https://en.wikipedia.org/wiki/Edmund_Husserl) and [Yuk Hui](https://en.wikipedia.org/wiki/Yuk_Hui).
+
+- Trumpeter [Axel Dörner](https://axeldoerner.org/) and [Sukandar Kartadinata](http://www.sukandar.de/_index.html).
+
+- [Transsonic](https://nicolahein.com/transsonic-2/) with [Viola Yip](https://www.violayip.com/).
+
+<YouTube 
+url={'7p991KleF7o'}
+/>
+
+- [Olivier Pasquet's](https://www.opasquet.fr/) [work](/explore/pasquet) for the FluCoMa Project.
+
+- [The Human Robitic Ensemble](https://nicolahein.com/the-human-robotic-ensemble/), with [Sebastian Gramss](https://sebastiangramss.de/), [Lotte Anker](http://www.lotteanker.com/) and [Philip Zoubek](https://philipzoubek.com/en/).
+
+<YouTube 
+url={'A6CW8ekzdrI'}
+/>
+
+- [Godfried-Willem Raes](https://en.wikipedia.org/wiki/Godfried-Willem_Raes) of the [Logos Foundation](https://logosfoundation.org/).
+
+- [Rodrigo Constanzo's](https://rodrigoconstanzo.com/) [work](/explore/constanzo) for the project.
+
+- [IRCAM](https://forum.ircam.fr/)'s [Dicy2](https://forum.ircam.fr/projects/detail/dicy2/).
+
+- [Simon Rose](https://www.simonrose.org/) and [Federico Visi](https://www.federicovisi.com/).
