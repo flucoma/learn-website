@@ -14,7 +14,7 @@ flair: podcast
 featuredimage: /explore/bowers-2/featured.jpeg
 author: Jacob
 year: 2023
-month: 5
+month: 7
 day: 6
 youtube: QJVplQ7eFrM
 ---
