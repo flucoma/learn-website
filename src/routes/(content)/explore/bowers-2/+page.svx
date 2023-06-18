@@ -16,7 +16,7 @@ author: Jacob
 year: 2023
 month: 7
 day: 6
-youtube: QJVplQ7eFrM
+youtube: Axrd2vyS5kk
 ---
 
 <script>
@@ -38,10 +38,19 @@ website = "http://jmbowers.net/"
 ## The Podcast
 
 <YouTubeChapters 
-url={'QJVplQ7eFrM'}
+url={'Axrd2vyS5kk'}
 chapters={[
     {"label" : "Introduction", "start" : [0, 0]},
-    {"label" : "Future of Nicola’s work", "start" : [1, 30, 38]}
+    {"label" : "NMF for bobot and 3BP", "start" : [0, 14]},
+    {"label" : "Simulations of the self", "start" : [5, 2]},
+    {"label" : "Curating one’s sound", "start" : [10, 11]},
+    {"label" : "Walking and mythogeosonics", "start" : [13, 33]},
+    {"label" : "Places and histories", "start" : [25, 20]},
+    {"label" : "HCI and interface", "start" : [37, 17]},
+    {"label" : "Creative coding environments", "start" : [48, 38]},
+    {"label" : "Screen acreage", "start" : [57, 14]},
+    {"label" : "Annotations", "start" : [1, 1, 46]},
+    {"label" : "Performance ecologies", "start" : [1, 14, 13]}
 ]}
 />
 
