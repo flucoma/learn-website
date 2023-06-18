@@ -16,7 +16,7 @@ author: Jacob
 year: 2023
 month: 6
 day: 29
-youtube: QJVplQ7eFrM
+youtube: 9LtwQS3HLtU
 ---
 
 <script>
@@ -38,10 +38,20 @@ website = "http://jmbowers.net/"
 ## The Podcast
 
 <YouTubeChapters 
-url={'QJVplQ7eFrM'}
+url={'9LtwQS3HLtU'}
 chapters={[
     {"label" : "Introduction", "start" : [0, 0]},
-    {"label" : "Future of Nicola’s work", "start" : [1, 30, 38]}
+    {"label" : "Getting into music", "start" : [1, 6]},
+    {"label" : "Discovering and disclosing", "start" : [10, 25]},
+    {"label" : "The Brazen Head", "start" : [15, 9]},
+    {"label" : "Approaches to improvisation", "start" : [24, 51]},
+    {"label" : "An archival turn", "start" : [36, 26]},
+    {"label" : "The floor potage", "start" : [43, 56]},
+    {"label" : "Projects and infrastructure", "start" : [47, 48]},
+    {"label" : "Room feedback system", "start" : [50, 48]},
+    {"label" : "Dynamic tonality", "start" : [1, 1, 18]},
+    {"label" : "An eye for abuse", "start" : [1, 11, 46]},
+    {"label" : "Modalities of performance with a feedback system", "start" : [1, 18, 52]}
 ]}
 />
 
