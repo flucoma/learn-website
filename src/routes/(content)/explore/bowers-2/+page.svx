@@ -18,7 +18,7 @@ month: 7
 day: 6
 youtube: Axrd2vyS5kk
 ---
-
+ 
 <script>
     import YouTubeChapters from '$lib/components/YouTubeChapters.svelte';
     import ArtistCard from '$lib/components/explore/ArtistCard.svelte';
