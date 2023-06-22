@@ -5,11 +5,11 @@
 <footer>
 	<div class="content">
 		<a target="_blank" rel='noreferrer' href="https://github.com/flucoma/learn-website/issues/new">
-			Problem? File an issue <ArrowRight white={true}/>
+			File an issue <ArrowRight white={true}/>
 		</a>
 
 		<a target="_blank" rel="noreferrer" href="https://flucoma.org">
-			Go to FluCoMa Home Page <ArrowRight white={true}/>
+			FluCoMa Home <ArrowRight white={true}/>
 		</a>
 	</div>
 </footer>
@@ -24,13 +24,12 @@
 	}
 	.content {
 		display: grid;
-		grid-template-columns: repeat(2, 1fr);
+		grid-template-columns: repeat(2, auto);
 		justify-content: space-around;
 		place-items: center;
 		padding: 0;
 		margin: 0;
-		height: 100%;
-		width: var(--max-text-width);
+		width: 100%;
 	}
 
 	.content > a {
