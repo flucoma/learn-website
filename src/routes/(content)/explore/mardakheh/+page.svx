@@ -1,0 +1,58 @@
+---
+title: "FluCoMa Podcast #18: Milad Mardakheh"
+artist: Milad Mardakheh
+blurb: |
+    Episode 18 of the FluCoMa Podcast where Jacob Hart talks with composer, sound-artist, programmer and researcher Milad Mardakheh. 
+tags: 
+    - data
+    - sonification
+    - ai listening
+    - plots
+    - concatenative synthesis
+flair: podcast
+featuredimage: /explore/mardakheh/featured.png
+author: Jacob
+year: 2022
+month: 7
+day: 20
+youtube: UYSa73RvJQE
+---
+
+<script>
+    import YouTube from '$lib/components/YouTube.svelte';
+    import ArtistCard from '$lib/components/explore/ArtistCard.svelte';
+    import BandCamp from '$lib/components/BandCamp.svelte';
+    import Vimeo from '$lib/components/Vimeo.svelte';
+    import YouTubeChapters from '$lib/components/YouTubeChapters.svelte';
+</script>
+
+<ArtistCard
+src = "/explore/mardakheh/profile.png"
+name = "Milad Mardakheh"
+website = "https://mardakhehmusic.com/"
+/>
+
+## The Podcast
+
+<YouTubeChapters 
+url='UYSa73RvJQE'
+chapters={[
+    {"label" : "Introduction", "start" : [0, 0]},
+    {"label" : "Getting into the world of audiovisual composition", "start" : [1, 40]},
+    {"label" : "Describing Freida's practice", "start" : [5, 20]},
+    {"label" : "Perspective on reactive audio design and gesture", "start" : [9, 3]},
+    {"label" : "Using FluCoMa-related technologies", "start" : [14, 3]},
+    {"label" : "Using systems at different scales", "start" : [25, 58]},
+    {"label" : "Learning and teaching technologies", "start" : [28, 22]},
+    {"label" : "What are computational ideas?", "start" : [44, 53]}
+]}
+/>
+
+## Overview
+
+In Episode 18 of the FluCoMa Podcast, we talk with composer, sound-artist, programmer, and researcher Milad Mardakheh. After learning about Milad’s creative process, we delve into an important topic and approach in his work: data sonification. We observe the forms this concepts takes across many of his works, and take a look at some pieces that make use of the FluCoMa tools. 
+
+## Links
+
+Here are the links to some of the things that were discussed during the podcast:
+
