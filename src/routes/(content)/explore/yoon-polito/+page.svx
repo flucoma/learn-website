@@ -1,0 +1,105 @@
+---
+title: "FluCoMa Podcast #17: Bora Yoon and Davis Polito"
+artist: Bora Yoon & Davis Polito
+blurb: |
+    Episode 17 of the FluCoMa Podcast in which Jacob Hart tallks to PLOrk’s Bora Yoon and Davis Polito.
+tags: 
+    - cat’s cradle 
+    - regression
+    - model training
+    - collective performance
+    - collaboration
+
+flair: podcast
+featuredimage: /explore/yoon-polito/featured.png
+author: Jacob
+year: 2022
+month: 7
+day: 13
+youtube: LxGuZulidTE
+---
+
+<script>
+    import YouTube from '$lib/components/YouTube.svelte';
+    import ArtistCard from '$lib/components/explore/ArtistCard.svelte';
+    import YouTubeChapters from '$lib/components/YouTubeChapters.svelte';
+</script>
+
+<div class="artist-cards">
+    <ArtistCard
+    src = "/explore/yoon-polito/bora-yoon.jpeg"
+    name = "Zakiya Leeming"
+    website = "https://www.borayoon.com/"
+    >
+    <p slot="bio">
+    </p>
+    </ArtistCard>
+    <ArtistCard
+    src = "/explore/yoon-polito/polito.jpeg"
+    name = "Davis Polito"
+    website = "https://music.princeton.edu/people/davis-polito/"
+    >
+    <p slot="bio">
+    </p>
+    </ArtistCard>
+</div>
+
+## The Podcast
+
+<YouTubeChapters 
+url={'LxGuZulidTE'}
+chapters={[
+    {"label" : "Introduction", "start" : [0, 0]},
+    {"label" : "Data and audio in all their forms", "start" : [1, 25, 19]}
+]}
+/>
+
+## Overview
+
+In Episode 17 of the FluCoMa Podcast, we talk with two people: Bora Yoon, a composer, vocalist, and multi-instrumentalist; and Davis Polito, an electronic music designer and researcher. We take a detailed delve into their recent collaboration that was performed at PLOrk: Cat’s Cradle. After hearing about each of their practices, we discuss the creative process behind Cat’s Cradle, what it was like working together, and how they each conceive of this fascinating piece. 
+
+## Links
+
+Here are the links to some of the things that were discussed during the podcast:
+
+- Cat's Cradle:
+
+<YouTube 
+url={'PZKJmGTpgtc'}
+/>
+
+- Monday, October 23rd: Second performance of Cat's Cradle by [Ensemble Decipher](https://ensembledecipher.com/) at [Roulette Intermedium](https://roulette.org/).
+
+- [PLOrk](https://plork.princeton.edu/) (Princeton Laptop Orchestra) at [Princeton](https://www.princeton.edu/): founded by [Dan Trueman](https://en.wikipedia.org/wiki/Dan_Trueman) and [Perry Cook](https://en.wikipedia.org/wiki/Perry_R._Cook).
+
+- [SLOrk](https://slork.stanford.edu/) (Stanford Laptop Orchestra) and [Dublin Laptop Orchestra](http://www.dublinlaptoporchestra.ie/).
+
+- [Freida Abtan](https://www.freidaabtan.com/) on the [FluCoMa Podcast](/explore/abtan).
+
+- [Marco Donnarumma](https://marcodonnarumma.com/).
+
+- [Jeff Snyder](https://music.princeton.edu/people/jeff-snyder/).
+
+- [Ellen Fullman](https://www.ellenfullman.com/) and [Thesesa Wong](https://www.theresawong.org/)'s Long String Instrument:
+
+<YouTube 
+url={'zTr_ijfwxAI'}
+/>
+
+- [Lucier](https://en.wikipedia.org/wiki/Alvin_Lucier)'s Music on a Long Thin Wire:
+
+<YouTube 
+url={'dwE4Jwk_zeI'}
+/>
+
+- [Björk](https://en.wikipedia.org/wiki/Bj%C3%B6rk)'s [Post](https://en.wikipedia.org/wiki/Post_(Bj%C3%B6rk_album)) and [Homogenic](https://en.wikipedia.org/wiki/Homogenic).
+
+<YouTube 
+url={'cTZ7XZIiT7o'}
+/>
+
+- [Hot Hand sensors](https://www.sourceaudio.net/hot-hand-usb.html).
+
+- [Regression Tutorial](/learn/regression-neural-network).
+
+- [Alice Eldridge](https://profiles.sussex.ac.uk/p127749-alice-eldridge) and [Chris Kiefer](https://profiles.sussex.ac.uk/p208667-chris-kiefer)'s [Feedback Cello](/explore/eldridge-kiefer).
