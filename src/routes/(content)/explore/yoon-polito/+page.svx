@@ -16,7 +16,7 @@ author: Jacob
 year: 2022
 month: 7
 day: 13
-youtube: LxGuZulidTE
+youtube: Qdehon2s10Y
 ---
 
 <script>
@@ -47,10 +47,20 @@ youtube: LxGuZulidTE
 ## The Podcast
 
 <YouTubeChapters 
-url={'LxGuZulidTE'}
+url={'Qdehon2s10Y'}
 chapters={[
     {"label" : "Introduction", "start" : [0, 0]},
-    {"label" : "Data and audio in all their forms", "start" : [1, 25, 19]}
+    {"label" : "Bora’s practice", "start" : [1, 16]},
+    {"label" : "Davis’ practice", "start" : [3, 20]},
+    {"label" : "PLOrk", "start" : [5, 31]},
+    {"label" : "Instrument design", "start" : [10, 0]},
+    {"label" : "Cat’s cradle", "start" : [18, 55]},
+    {"label" : "Technical development process", "start" : [23, 12]},
+    {"label" : "MLP training and gestural vocabulary", "start" : [32, 18]},
+    {"label" : "Performing the piece", "start" : [41, 35]},
+    {"label" : "Chaos and control", "start" : [47, 19]},
+    {"label" : "Collaboration at PLOrk", "start" : [52, 6]},
+    {"label" : "Theatrical approach for new music", "start" : [56, 0]}
 ]}
 />
 
