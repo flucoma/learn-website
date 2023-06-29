@@ -1,0 +1,147 @@
+---
+title: "FluCoMa Podcast #16 (Part One): John Bowers"
+artist: John Bowers
+blurb: |
+    Episode 16 (Part One) of the FluCoMa Podcast where Jacob Hart talks with artist-researcher and creative coder John Bowers.
+tags: 
+    - pure data
+    - feedback
+    - pitch
+    - ecologies
+    - improvisation
+    - nime
+flair: podcast
+featuredimage: /explore/bowers-1/featured.jpeg
+author: Jacob
+year: 2023
+month: 6
+day: 29
+youtube: 9LtwQS3HLtU
+---
+ 
+<script>
+    import YouTubeChapters from '$lib/components/YouTubeChapters.svelte';
+    import ArtistCard from '$lib/components/explore/ArtistCard.svelte';
+    import YouTube from '$lib/components/YouTube.svelte';
+    import Vimeo from '$lib/components/Vimeo.svelte';
+</script>
+
+<ArtistCard
+src = "/explore/bowers-1/profile.jpeg"
+name = "John Bowers"
+website = "http://jmbowers.net/"
+>
+<p slot="bio">
+</p>
+</ArtistCard>
+
+## The Podcast
+
+<YouTubeChapters 
+url={'9LtwQS3HLtU'}
+chapters={[
+    {"label" : "Introduction", "start" : [0, 0]},
+    {"label" : "Getting into music", "start" : [1, 6]},
+    {"label" : "Discovering and disclosing", "start" : [10, 25]},
+    {"label" : "The Brazen Head", "start" : [15, 9]},
+    {"label" : "Approaches to improvisation", "start" : [24, 51]},
+    {"label" : "An archival turn", "start" : [36, 26]},
+    {"label" : "The floor potage", "start" : [43, 56]},
+    {"label" : "Projects and infrastructure", "start" : [47, 48]},
+    {"label" : "Room feedback system", "start" : [50, 48]},
+    {"label" : "Dynamic tonality", "start" : [1, 1, 18]},
+    {"label" : "An eye for abuse", "start" : [1, 11, 46]},
+    {"label" : "Modalities of performance with a feedback system", "start" : [1, 18, 52]}
+]}
+/>
+
+## Overview
+
+In this episode on the FluCoMa Podcast, we see part one of my talk with John Bowers. John is an artist-researcher whose work has appeared all over the world. In this first episode, we learn how he got into the field of experimental music making, hear about many of his influences and his approaches to improvisation solo and with others. We also take a look at a system for room feedback that he recently presented at NIME 2023.
+See part two of this podcast [here]().
+
+## Links
+
+Here are the links to some of the things that were discussed during the podcast:
+
+- 3BP (Three-Body Problem) with [Adam Pultz Melbye](https://www.adampultz.com/) and [Paul Stapleton](http://www.paulstapleton.net/).
+
+<Vimeo 
+url={'https://player.vimeo.com/video/640946914?h=cf858052e1&byline=0&portrait=0'}
+/>
+
+- Tonesucker (The Killing of St Alphege):
+
+<YouTube 
+url={'IM6_GwCP5rE'}
+/>
+
+- [Stuart Brisley](https://www.stuartbrisley.com/pages/4).
+
+- [John Peel](https://en.wikipedia.org/wiki/John_Peel).
+
+- [Extreme Noise Terror](https://en.wikipedia.org/wiki/Extreme_Noise_Terror) and [Cradle of Filth](https://www.cradleoffilth.com/).
+
+- [Olivier Messiaen](https://en.wikipedia.org/wiki/Olivier_Messiaen) and [Karlheinz Stockhausen](https://en.wikipedia.org/wiki/Karlheinz_Stockhausen).
+
+- [Henry Cow](https://en.wikipedia.org/wiki/Henry_Cow) and [Yes](https://en.wikipedia.org/wiki/Yes_(band)).
+
+- [Can](https://en.wikipedia.org/wiki/Can_(band)).
+
+- [Fred Frith](https://en.wikipedia.org/wiki/Fred_Frith), [Derek Bailey](https://en.wikipedia.org/wiki/Derek_Bailey_(guitarist)) and [Hans Reichel](https://en.wikipedia.org/wiki/Hans_Reichel).
+
+<YouTube 
+url={'YSOFCm_ejbo'}
+/>
+
+- [Simon Waters](https://www.simonwaters.net/) at the [University of East Anglia](https://www.uea.ac.uk/).
+
+- [Royal Institute of Technology](https://www.kth.se/en) in Sweden.
+
+- [Fylkingen](http://fylkingen.se/en), [EMS](https://www.elektronmusikstudion.se/).
+
+- Duo with [Sten-Olof Hellstrom](https://stenolofhellstrom.se/):
+
+<YouTube 
+url={'gI52aK2J2UE'}
+/>
+
+- [Tomomi Adachi](https://www.adachitomomi.com/) on the [FluCoMa Podcats](/explore/adachi). 
+
+- [David Tudor](https://en.wikipedia.org/wiki/David_Tudor).
+
+- The [Rambert Dance Company](https://rambert.org.uk/). [Merce Cunningham](https://en.wikipedia.org/wiki/Merce_Cunningham)'s [RainForest](https://www.mercecunningham.org/the-work/choreography/rainforest/).
+
+- [Sonorities Festival](https://sonorities.net/). Piece with [Owen Green](http://owengreen.net/).
+
+- [John Stevens](https://en.wikipedia.org/wiki/John_Stevens_(drummer)).
+
+- [Dirty Electronics](https://www.dirtyelectronics.org/about.html) (John Richards).
+
+- "Ontologies of displacement" talk at [SARC](https://www.qub.ac.uk/sarc/) (2021):
+
+<YouTube 
+url={'m42VF2TpfmU'}
+/>
+
+- [Hal Foster](https://en.wikipedia.org/wiki/Hal_Foster_(art_critic)).
+
+- [Thor Magnusson](https://thormagnusson.github.io/)'s [Musical Organics](https://www.tandfonline.com/doi/full/10.1080/09298215.2017.1353636).
+
+- [Tacita Dean](https://www.mariangoodman.com/artists/39-tacita-dean/).
+
+- [Design Things](https://direct.mit.edu/books/book/2910/Design-Things) by A. Telier.
+
+- [A hapless but enteritaining roar](https://drive.google.com/file/d/19OzMqqaMhmw2nEi3sAbTn4tW2q0gO717/view) at [NIME 2023](https://www.nime2023.org/home).
+
+- [Alice Eldridge](https://profiles.sussex.ac.uk/p127749-alice-eldridge) and [Chris Kiefer](https://profiles.sussex.ac.uk/p208667-chris-kiefer)'s [Feedback Cello](/explore/eldridge-kiefer).
+
+- [Alvin Lucier](https://en.wikipedia.org/wiki/Alvin_Lucier), [Nicolas Collins](https://www.nicolascollins.com/index.htm) and [Éliane Radigue](https://en.wikipedia.org/wiki/%C3%89liane_Radigue).
+
+- [Karen Barad](https://en.wikipedia.org/wiki/Karen_Barad).
+
+- [Fluid.pitch](/reference/pitch), [sigmund~](https://pd.iem.sh/objects/sigmund~/).
+
+- [Jess Aslan](https://xica.co.uk/) on the [FluCoMa Podcast](/explore/aslan).
+
+- [Zakiya Leeming](https://www.zakiyaleeming.com/) and [Chris Melen](https://www.rncm.ac.uk/people/christopher-melen/) on the [FluCoMa Podcast](/explore/leeming-melen).
