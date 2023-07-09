@@ -15,7 +15,7 @@ author: Jacob
 year: 2022
 month: 7
 day: 20
-youtube: KzF6SDc9EBY
+youtube: 156dzO7djIQ
 ---
 
 <script>
@@ -34,7 +34,7 @@ website = "https://mardakhehmusic.com/"
 ## The Podcast
 
 <YouTubeChapters 
-url='KzF6SDc9EBY'
+url='156dzO7djIQ'
 chapters={[
     {"label" : "Introduction", "start" : [0, 0]},
     {"label" : "Getting into music and background", "start" : [1, 4]},
@@ -48,7 +48,7 @@ chapters={[
     {"label" : "Data dialogues", "start" : [1, 3, 36]},
     {"label" : "Knowing data", "start" : [1, 11, 19]},
     {"label" : "AI listening", "start" : [1, 14, 0]},
-    {"label" : "Creative coding environments", "start" : [1, 23, 17]}
+    {"label" : "Creative coding environments", "start" : [1, 22, 25]}
 ]}
 />
 
