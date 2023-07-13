@@ -1,0 +1,114 @@
+---
+title: "FluCoMa Podcast #18: Milad Mardakheh"
+artist: Milad Mardakheh
+blurb: |
+    Episode 18 of the FluCoMa Podcast where Jacob Hart talks with composer, sound-artist, programmer and researcher Milad Mardakheh. 
+tags: 
+    - data
+    - sonification
+    - ai listening
+    - plots
+    - concatenative synthesis
+flair: podcast
+featuredimage: /explore/mardakheh/featured.png
+author: Jacob
+year: 2022
+month: 7
+day: 20
+youtube: 156dzO7djIQ
+---
+
+<script>
+    import YouTube from '$lib/components/YouTube.svelte';
+    import ArtistCard from '$lib/components/explore/ArtistCard.svelte';
+    import Soundcloud from '$lib/components/Soundcloud.svelte';
+    import YouTubeChapters from '$lib/components/YouTubeChapters.svelte';
+</script>
+
+<ArtistCard
+src = "/explore/mardakheh/profile.png"
+name = "Milad Mardakheh"
+website = "https://mardakhehmusic.com/"
+/>
+
+## The Podcast
+
+<YouTubeChapters 
+url='156dzO7djIQ'
+chapters={[
+    {"label" : "Introduction", "start" : [0, 0]},
+    {"label" : "Getting into music and background", "start" : [1, 4]},
+    {"label" : "Data sonification", "start" : [9, 45]},
+    {"label" : "Fixed pieces and improvisation", "start" : [30, 25]},
+    {"label" : "Malignant Grains", "start" : [37, 9]},
+    {"label" : "Communicating to the audience", "start" : [44, 0]},
+    {"label" : "Plotterz", "start" : [46, 28]},
+    {"label" : "Malignant Angiogenesis", "start" : [51, 57]},
+    {"label" : "Visual development", "start" : [58, 13]},
+    {"label" : "Data dialogues", "start" : [1, 3, 36]},
+    {"label" : "Knowing data", "start" : [1, 11, 19]},
+    {"label" : "AI listening", "start" : [1, 14, 0]},
+    {"label" : "Creative coding environments", "start" : [1, 22, 25]}
+]}
+/>
+
+## Overview
+
+In Episode 18 of the FluCoMa Podcast, we talk with composer, sound-artist, programmer, and researcher Milad Mardakheh. After learning about Milad’s creative process, we delve into an important topic and approach in his work: data sonification. We observe the forms this concepts takes across many of his works, and take a look at some pieces that make use of the FluCoMa tools. 
+
+## Links
+
+Here are the links to some of the things that were discussed during the podcast:
+
+- Malignant Grains (2020):
+
+<Soundcloud 
+id = "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/783144055&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"
+caption = 'Maligrant Grains'
+/>
+
+- Malignant Angiogenesis (2021) with Ehsan Hemmati-Faräz:
+
+<YouTube 
+url={'dHbJ7egtTBQ'}
+/>
+
+- Data Dialogues (2022):
+
+<YouTube 
+url={'TZEdu8HxkXE'}
+/>
+
+- [NIME](https://www.nime2023.org/), [ICMC](https://icmc2022.org/), [KLG](https://www.klingtgut.org/) and [BEAST](https://beast.cal.bham.ac.uk/unfestival2023/).
+
+- [Art University of Tehran](https://art.ac.ir/en), [Royal Wlesh College of Music & Drama](https://www.rwcmd.ac.uk/), and [The University of Birmingham](https://www.birmingham.ac.uk/index.aspx).
+
+- [Barts Cancer Institute](https://www.bartscancer.london/).
+
+- PhD Thesis: The Sound of the Hallmarks of Cancer (2021).
+
+- Mardakheh, M. and Wilson, S. (2022). [A Strata-based Approach to Discussing Artistic Sonification](https://direct.mit.edu/leon/article-abstract/55/5/516/112353/A-Strata-Based-Approach-to-Discussing-Artistic?redirectedFrom=fulltext). Leonardo 55(5).
+
+- [Douglas Hanahan](https://www.epfl.ch/labs/hanahan-lab/prof-douglas-hanahan/) and [Robert Weinberg](https://biology.mit.edu/profile/robert-a-weinberg/).
+
+- [Scott Wilson](https://www.birmingham.ac.uk/staff/profiles/music/wilson-scott.aspx).
+
+- [Scot Gresham-Lancaster](https://scot.greshamlancaster.com/).
+
+- [Carla Scaletti](https://carlascaletti.com/bio/).
+
+- [Mark Ballora](https://scholar.google.com/citations?user=EcKrn1wAAAAJ&hl=en).
+
+- [Lily Asquith](https://profiles.sussex.ac.uk/p355525-lily-asquith).
+
+- [James Bradbury](https://jamesbradbury.net/)'s [work](/explore/bradbury) using FluCoMa.
+
+- [Alva Noto](https://alvanoto.com/).
+
+- [IRCAM](https://www.ircam.fr/)'s [CataRT](https://ismm.ircam.fr/catart/).
+
+- [2D Corpus explorer tutorial](/learn/2d-corpus-explorer).
+
+- [Simon Smith](https://uk.linkedin.com/in/simon-barry-smith73) on the [FluCoMa Podcast](/explore/smith).
+
+- [Ryoji Ikeda](https://www.ryojiikeda.com/) and his piece [datamatics](https://www.ryojiikeda.com/project/datamatics/).
