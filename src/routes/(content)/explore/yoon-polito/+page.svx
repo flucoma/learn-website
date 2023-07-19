@@ -1,8 +1,8 @@
 ---
-title: "FluCoMa Podcast #17: Bora Yoon and Davis Polito"
+title: "FluCoMa Podcast #18: Bora Yoon and Davis Polito"
 artist: Bora Yoon & Davis Polito
 blurb: |
-    Episode 17 of the FluCoMa Podcast in which Jacob Hart tallks to PLOrk’s Bora Yoon and Davis Polito.
+    Episode 18 of the FluCoMa Podcast in which Jacob Hart tallks to PLOrk’s Bora Yoon and Davis Polito.
 tags: 
     - cat’s cradle 
     - regression
@@ -15,7 +15,7 @@ featuredimage: /explore/yoon-polito/featured.png
 author: Jacob
 year: 2022
 month: 7
-day: 13
+day: 20
 youtube: Qdehon2s10Y
 ---
 
@@ -52,21 +52,21 @@ chapters={[
     {"label" : "Introduction", "start" : [0, 0]},
     {"label" : "Bora’s practice", "start" : [1, 16]},
     {"label" : "Davis’ practice", "start" : [3, 20]},
-    {"label" : "PLOrk", "start" : [5, 31]},
+    {"label" : "PLOrk (Princeton Laptop Orchestra)", "start" : [5, 31]},
     {"label" : "Instrument design", "start" : [10, 0]},
-    {"label" : "Cat’s cradle", "start" : [18, 55]},
+    {"label" : "Cat’s cradle: an interactive kinetic sculpture, multi-sensor performance instrument, and electronic performance composition", "start" : [18, 55]},
     {"label" : "Technical development process", "start" : [23, 12]},
-    {"label" : "MLP training and gestural vocabulary", "start" : [32, 18]},
+    {"label" : "Neural network training and gestural vocabulary", "start" : [32, 18]},
     {"label" : "Performing the piece", "start" : [41, 35]},
-    {"label" : "Chaos and control", "start" : [47, 19]},
-    {"label" : "Collaboration at PLOrk", "start" : [52, 6]},
+    {"label" : "Constraints and Freedoms, Chaos and Control", "start" : [47, 19]},
+    {"label" : "Collaboration with PLOrk", "start" : [52, 6]},
     {"label" : "Theatrical approach for new music", "start" : [56, 0]}
 ]}
 />
 
 ## Overview
 
-In Episode 17 of the FluCoMa Podcast, we talk with two people: Bora Yoon, a composer, vocalist, and multi-instrumentalist; and Davis Polito, an electronic music designer and researcher. We take a detailed delve into their recent collaboration that was performed at PLOrk: Cat’s Cradle. After hearing about each of their practices, we discuss the creative process behind Cat’s Cradle, what it was like working together, and how they each conceive of this fascinating piece. 
+In Episode 18 of the FluCoMa Podcast, we talk with two people: Bora Yoon, a composer, vocalist, and multi-instrumentalist; and Davis Polito, an electronic music designer and researcher. We take a detailed delve into their recent collaboration that was performed at PLOrk: Cat’s Cradle. After hearing about each of their practices, we discuss the creative process behind Cat’s Cradle, what it was like working together, and how they each conceive of this fascinating piece. 
 
 ## Links
 
@@ -78,7 +78,7 @@ Here are the links to some of the things that were discussed during the podcast:
 url={'PZKJmGTpgtc'}
 />
 
-- Monday, October 23rd: Second performance of Cat's Cradle by [Ensemble Decipher](https://ensembledecipher.com/) at [Roulette Intermedium](https://roulette.org/).
+- Monday, October 23rd: World premiere of Cat's Cradle by [Ensemble Decipher](https://ensembledecipher.com/) at [Roulette Intermedium](https://roulette.org/) in Brooklyn, NY.
 
 - [PLOrk](https://plork.princeton.edu/) (Princeton Laptop Orchestra) at [Princeton](https://www.princeton.edu/): founded by [Dan Trueman](https://en.wikipedia.org/wiki/Dan_Trueman) and [Perry Cook](https://en.wikipedia.org/wiki/Perry_R._Cook).
 

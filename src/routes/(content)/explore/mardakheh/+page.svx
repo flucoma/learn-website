@@ -1,8 +1,8 @@
 ---
-title: "FluCoMa Podcast #18: Milad Mardakheh"
+title: "FluCoMa Podcast #17: Milad Mardakheh"
 artist: Milad Mardakheh
 blurb: |
-    Episode 18 of the FluCoMa Podcast where Jacob Hart talks with composer, sound-artist, programmer and researcher Milad Mardakheh. 
+    Episode 17 of the FluCoMa Podcast where Jacob Hart talks with composer, sound-artist, programmer and researcher Milad Mardakheh. 
 tags: 
     - data
     - sonification
@@ -14,7 +14,7 @@ featuredimage: /explore/mardakheh/featured.png
 author: Jacob
 year: 2023
 month: 7
-day: 20
+day: 13
 youtube: 156dzO7djIQ
 ---
 
@@ -54,7 +54,7 @@ chapters={[
 
 ## Overview
 
-In Episode 18 of the FluCoMa Podcast, we talk with composer, sound-artist, programmer, and researcher Milad Mardakheh. After learning about Milad’s creative process, we delve into an important topic and approach in his work: data sonification. We observe the forms this concepts takes across many of his works, and take a look at some pieces that make use of the FluCoMa tools. 
+In Episode 17 of the FluCoMa Podcast, we talk with composer, sound-artist, programmer, and researcher Milad Mardakheh. After learning about Milad’s creative process, we delve into an important topic and approach in his work: data sonification. We observe the forms this concepts takes across many of his works, and take a look at some pieces that make use of the FluCoMa tools. 
 
 ## Links
 
