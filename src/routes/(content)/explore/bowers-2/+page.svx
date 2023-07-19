@@ -1,0 +1,144 @@
+---
+title: "FluCoMa Podcast #16 (Part Two): John Bowers"
+artist: John Bowers
+blurb: |
+    Episode 16 (Part Two) of the FluCoMa Podcast where Jacob Hart talks with artist-researcher and creative coder John Bowers.
+tags: 
+    - pure data
+    - feedback
+    - pitch
+    - ecologies
+    - improvisation
+    - nime
+flair: podcast
+featuredimage: /explore/bowers-2/featured.jpeg
+author: Jacob
+year: 2023
+month: 7
+day: 6
+youtube: Axrd2vyS5kk
+---
+ 
+<script>
+    import YouTubeChapters from '$lib/components/YouTubeChapters.svelte';
+    import ArtistCard from '$lib/components/explore/ArtistCard.svelte';
+    import YouTube from '$lib/components/YouTube.svelte';
+    import Vimeo from '$lib/components/Vimeo.svelte';
+</script>
+
+<ArtistCard
+src = "/explore/bowers-2/profile.jpeg"
+name = "John Bowers"
+website = "http://jmbowers.net/"
+>
+<p slot="bio">
+</p>
+</ArtistCard>
+
+## The Podcast
+
+<YouTubeChapters 
+url={'Axrd2vyS5kk'}
+chapters={[
+    {"label" : "Introduction", "start" : [0, 0]},
+    {"label" : "NMF for bobot and 3BP", "start" : [0, 14]},
+    {"label" : "Simulations of the self", "start" : [5, 2]},
+    {"label" : "Curating one’s sound", "start" : [10, 11]},
+    {"label" : "Walking and mythogeosonics", "start" : [13, 33]},
+    {"label" : "Places and histories", "start" : [25, 20]},
+    {"label" : "HCI and interface", "start" : [37, 17]},
+    {"label" : "Creative coding environments", "start" : [48, 38]},
+    {"label" : "Screen acreage", "start" : [57, 14]},
+    {"label" : "Annotations", "start" : [1, 1, 46]},
+    {"label" : "Performance ecologies", "start" : [1, 14, 13]}
+]}
+/>
+
+## Overview
+
+In this episode of the FluCoMa Podcast, we see part two of my talk with John Bowers. John is an artist-researcher whose work has appeared all over the world. In this second episode, we learn about some of John other projects that notably make use of the FluCoMa tools, and also breach some broader questions around subjects such as HCI, annotation, creating coding environments and performance ecologies.
+See part one of this podcast [here](/explore/bowers-1).
+
+## Links
+
+Here are the links to some of the things that were discussed during the podcast:
+
+- 3BP (Three-Body Problem) with [Adam Pultz Melbye](https://www.adampultz.com/) and [Paul Stapleton](http://www.paulstapleton.net/).
+
+- (NMF)(/reference/nmfmatch).
+
+<Vimeo 
+url={'https://player.vimeo.com/video/640946914?h=cf858052e1&byline=0&portrait=0'}
+/>
+
+<YouTube 
+url={'i3BgTouVZ8A'}
+/>
+
+- [Alice Eldridge](https://profiles.sussex.ac.uk/p127749-alice-eldridge) and [Chris Kiefer](https://profiles.sussex.ac.uk/p208667-chris-kiefer)'s [Feedback Cello](/explore/eldridge-kiefer).
+
+- [Fluid.pitch](/reference/pitch).
+
+- [Tim Shaw](https://tim-shaw.info/about/) and [mythogeosonics](https://iklectikartlab.com/phill-niblock-tim-shaw-john-bowers/).
+
+- [Phil Smith](https://www.triarchypress.net/smithereens.html) and [mythogeography](https://www.triarchypress.net/mythogeography.html).
+
+- [Guy Debord](https://en.wikipedia.org/wiki/Guy_Debord) and [psychogeography](https://en.wikipedia.org/wiki/Psychogeography).
+
+- [Martin Howse](https://monoskop.org/Martin_Howse) and [Jonathan Kemp](https://monoskop.org/Jonathan_Kemp), [psychogeophysics](http://www.psychogeophysics.org/wiki/doku.php).
+
+- [Tim Ingold](https://en.wikipedia.org/wiki/Tim_Ingold) and [wayfinding](https://www.routledge.com/The-Life-of-Lines/Ingold/p/book/9780415576864).
+
+- "Ontologies of displacement" talk at [SARC](https://www.qub.ac.uk/sarc/) (2021):
+
+<YouTube 
+url={'m42VF2TpfmU'}
+/>
+
+- The Sorting Box:
+
+<YouTube 
+url={'SGsTgcerbVw'}
+/>
+
+- [John Moore](https://en.wikipedia.org/wiki/John_Moore_of_Ipswich).
+
+- [Spill Festival](https://www.spillfestival.com/), [Robert Pacitti](https://www.robertpacitti.com/) and [MemoryGrinderResonanceMachine](https://thelittleboxoffice.com/spillfestival/event/view/146561).
+
+- Oh No John!
+
+<YouTube 
+url={'RYbpwzgD8DY'}
+/>
+
+- [Vorspiel / transmediale](https://vorspiel.berlin/).
+
+- [Exploding the Interface](https://dl.acm.org/doi/10.1145/169059.169205) (1993) with [Tom Rodden](https://dl.acm.org/profile/81100347821).
+
+- [Karen Barad](https://en.wikipedia.org/wiki/Karen_Barad) and [Niels Bohr](https://en.wikipedia.org/wiki/Niels_Bohr).
+
+- [Turing](https://en.wikipedia.org/wiki/Alan_Turing)'s [Imitation Game](https://plato.stanford.edu/entries/turing-test/).
+
+- [John Searle](https://en.wikipedia.org/wiki/John_Searle)'s [Chinese Room](https://plato.stanford.edu/entries/chinese-room/).
+
+- [Miller Puckette](https://en.wikipedia.org/wiki/Miller_Puckette).
+
+- [James Bradbury](https://jamesbradbury.net/)'s [python-flucoma](https://github.com/jamesb93/python-flucoma).
+
+- Archive X:
+
+<Vimeo 
+url={'https://player.vimeo.com/video/507886954?h=635ee10176'}
+/>
+
+- [Bill Gaver](https://en.wikipedia.org/wiki/Bill_Gaver).
+
+- [The Logic of Annotated Portfolios](https://dl.acm.org/doi/10.1145/2317956.2317968) (2012).
+
+<YouTube 
+url={'j53Ifkijf78'}
+/>
+
+- [Ben Piekut](https://music.cornell.edu/benjamin-d-piekut), [Dora Hanninen](https://music.umd.edu/directory/dora-hanninen) and [Christopher Small](https://en.wikipedia.org/wiki/Christopher_Small).
+
+- [Donna Haraway](https://en.wikipedia.org/wiki/Donna_Haraway)'s [A Cyborg Manifesto](https://en.wikipedia.org/wiki/A_Cyborg_Manifesto).
