@@ -1,7 +1,7 @@
 s.boot;
 
 // load the drum loop
-~drums = Buffer.read(s,File.realpath(FluidBufNMF.class.filenameSymbol).dirname.withTrailingSlash ++ "../AudioFiles/Nicol-LoopE-M.wav");
+~drums = Buffer.read(s, FluidFilesPath("Nicol-LoopE-M.wav"));
 
 // take a listen
 ~drums.play;
@@ -15,7 +15,7 @@ s.boot;
 )
 
 // process using FluidBufNMF
-FluidBufNMF.processBlocking(s,~drums,resynth:~resynth,bases:~bases,activations:~activations,components:~nComponents,action:{"done!".postln;});
+FluidBufNMF.processBlocking(s, ~drums, resynth:~resynth, resynthMode: 1, bases:~bases, activations:~activations, components:~nComponents, action:{"done!".postln;});
 
 // hear the resynth
 (
