@@ -26,6 +26,12 @@
 		margin: 0;
 	}
 
+	.container > :global(p) {
+		margin: 0;
+		margin-bottom: 0.25em;
+		margin-top: 0.25em;
+	}
+
 	.linkout {
 		display: grid;
 		grid-template-columns: auto auto;

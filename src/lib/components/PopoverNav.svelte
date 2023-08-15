@@ -44,7 +44,7 @@
 		left: 0;
 		background-color: white;
 		opacity: 1;
-		width: min(400px, 50%);
+		width: min(600px, 80%);
 		height: 100vh;
 		text-align: left;
 		padding: 1em 2em;
