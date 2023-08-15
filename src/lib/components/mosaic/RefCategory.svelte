@@ -11,7 +11,7 @@
 </script>
 
 <section>
-	<h3>{item.category}</h3>
+	<h3 class:faded={item.refs.length == 0}>{item.category}</h3>
 	<ul>
 		{#each item.refs as r}
 			<li><a href={r.url}>{r.title}</a></li>
@@ -20,6 +20,9 @@
 </section>
 
 <style>
+	.faded {
+		color: var(--grey);
+	}
 	section {
 		display: flex;
 		flex-direction: column;
