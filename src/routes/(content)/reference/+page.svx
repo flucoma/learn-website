@@ -21,28 +21,30 @@ layout: contentindex
 	};
 	let query = '';
 
-
 	references.forEach(r => { 
 		categorised[r.category].push(r)
 	});
 
 	const search = new FuzzySearch(references, ['title', 'tags', 'blurb', 'category'], {
 		caseSensitive: false,
-		sort: true
+		sort: false
 	})
 
-	function doSearch() { 	
+	function populateItems() {
+		return Object.entries(categorised).map(k => ({ "category" : k[0], "refs" : k[1] }));
+	}
+	let items = populateItems();
+	function doSearch() {
 		Object.keys(categorised).forEach(c => {
 			categorised[c] = [];
 		});
-
-		const searchResult = search.search(query);
-		searchResult.forEach(r => { 
+		let result = query === '' ? references : search.search(query);		
+		result.forEach(r => { 
 			categorised[r.category].push(r);
 		});
-	}
 
-	$: items = Object.entries(categorised).map(k => ({ "category" : k[0], "refs" : k[1] }));
+		items = populateItems();
+	}
 </script>
 
 <h1 class='title'>Reference</h1>
@@ -50,8 +52,8 @@ layout: contentindex
 <form>
 	<label class="visually-hidden" for="query"></label>
 	<input 
-	on:input={doSearch}
 	bind:value={query} 
+	on:input={doSearch}
 	placeholder='Enter a search term'
 	>
 </form>
@@ -60,7 +62,7 @@ layout: contentindex
 
 <style>
 	form > input {
-		margin-bottom: 0.5em;
+		margin-bottom: 1em;
 		font-size: 1.5rem;
 		border: none;
 		outline: none;
