@@ -39,7 +39,7 @@ As this is often how PCA is used, FluidPCA allows the user to specify the number
 
 PCA "whitening" can be turned on by setting the `whiten` parameter to 1. "Whitening" ensures that not only will the principal components be uncorrelated, but also they will all have unit variance (they'll all have a standard deviation of 1). "Whitening" is sometimes also referred to as `sphering` meaning that it's making the data "spherical" in the sense that each principal component (each new dimension) has roughly the same spread, just as a sphere has the same width in each of its three dimensions.
 
-Whitening looses some information during the transformation process (essentially, the relative scales of the principal components), however, whitening may improve the accuracy of further computations such as classification. If there is noise in the data, whitening might amplify this noise by scaling it to be the same size as other other information, making it as prominent as the relevant information, therefore whitening will not _always_ improve data.
+Whitening loses some information during the transformation process (essentially, the relative scales of the principal components), however, whitening may improve the accuracy of further computations such as classification. If there is noise in the data, whitening might amplify this noise by scaling it to be the same size as other other information, making it as prominent as the relevant information, therefore whitening will not _always_ improve data.
 
 ## Related Resources
 
