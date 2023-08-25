@@ -55,7 +55,7 @@ There is also [this](https://discourse.flucoma.org/t/supernova-supercollider-una
 </TabPanel> 
 </Tabs>
 
-In this example a single audio file is sliced into a collection of segments. Each segment will be analysed with an audio descriptor and the result for that segment will be stored in a [DataSet](/reference/dataset).The example illustrates how one can iterate through several portions of the source buffer and use the segmentation result to control a process that only analyses specific portions of time in the source file.
+In this example a single audio file is sliced into a collection of segments. Each segment will be analysed with an audio descriptor and the result for that segment will be stored in a [DataSet](/reference/dataset). The example illustrates how one can iterate through several portions of the source buffer and use the segmentation result to control a process that only analyses specific portions of time in the source file.
 
 The step-by-step workflow is as follows:
 
@@ -181,7 +181,7 @@ src='/examples/batch/add-list.png'
 alt='Using vexpr to add two lists together'
 />
 
-The complexity of the patching hasn't increased greatly, and by replacing `+` with `vexpr` (vector expression), we can process entire lists of values. The patch will also still work with single value inputs (scalars) making it much more flexible than what we had originally. While the patching itself is not too complicated, knowing about the existence of these objects and how they work is not greatly emphasised in the way visual programming is taught wich is often concerned entirely with _streams_ of scalar values. Furthermore, while this is just a toy example, it demonstrates that the notion of processing groups of things together is not the **first** and **most obvious** way to patch. Conversely, SuperCollider has the language (sclang) which offers built-in methods for dealing with arrays of data. Most operators are also _overloaded_, meaning the interface for adding two integers is roughly the same as adding two arrays of integers. For example:
+The complexity of the patching hasn't increased greatly, and by replacing `+` with `vexpr` (vector expression), we can process entire lists of values. The patch will also still work with single value inputs (scalars) making it much more flexible than what we had originally. While the patching itself is not too complicated, knowing about the existence of these objects and how they work is not greatly emphasised in the way visual programming is taught, which is often concerned entirely with _streams_ of scalar values. Furthermore, while this is just a toy example, it demonstrates that the notion of processing groups of things together is not the **first** and **most obvious** way to patch. Conversely, SuperCollider has the language (sclang) which offers built-in methods for dealing with arrays of data. Most operators are also _overloaded_, meaning the interface for adding two integers is roughly the same as adding two arrays of integers. For example:
 
 <CodeBlock title='Operator overloading'>
 
