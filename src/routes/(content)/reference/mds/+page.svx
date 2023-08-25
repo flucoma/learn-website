@@ -30,7 +30,7 @@ What makes MDS more flexible than the other dimensionality reduction algorithms 
 
 ## Comparing Measures of Distance 
 
-Below are plots different two dimensional representations of the same MFCC analyses (originally in 13 dimensions) using all the distance metrics available in MDS. The colour is arbitrarily assigned so that you can track the location changes of each point in space.
+Below are different plots of two dimensional representations of the same MFCC analyses (originally in 13 dimensions) using all the distance metrics available in MDS. The colour is arbitrarily assigned so that you can track the location changes of each point in space.
 
 <MDS />
 
