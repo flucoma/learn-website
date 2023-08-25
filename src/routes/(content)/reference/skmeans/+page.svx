@@ -20,7 +20,7 @@ category: Analyse Data
 
 1. Instead of taking the Euclidian distance to each center of each cluster like [KMeans](/reference/kmeans) does, SKMeans takes the angular distance of the normalised vector in high dimension. This is also named cosine similarity.
 
-2. Once the cluster are found, the distance are encoded with an 'alpha' function, in effect promoting a sparser representations where smaller similarities are penalised.
+2. Once the clusters are found, the distances are encoded with an 'alpha' function, in effect promoting sparser representations where smaller similarities are penalised.
 
 In effect, SKMeans is mostly used to learn features in a higher dimension space than the original data, with the assumption that it would help untangle near clusters.
 
