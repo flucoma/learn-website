@@ -82,7 +82,7 @@ The scalers [Normalize](/reference/normalize) and [Standardize](/reference/stand
 
 ### Removing Outliers With BufStats
 
-Another strategy for managing outliers is to use the `outliersCutoff` feature of BufStats, which can find and remove outliers by using an analysis of the data to set boundaries for each channel in the buffer. Any frames that have a value outside the its channel's boundaries will not be used to compute the statistics. See the page on [removing outliers](/learn/removing-outliers) to learn more.
+Another strategy for managing outliers is to use the `outliersCutoff` feature of BufStats, which can find and remove outliers by using an analysis of the data to set boundaries for each channel in the buffer. Any frames that have a value outside its channel's boundaries will not be used to compute the statistics. See the page on [removing outliers](/learn/removing-outliers) to learn more.
 
 ### Weighting BufStats
 
