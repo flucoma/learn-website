@@ -1,0 +1,12 @@
+---
+title: VoiceAllocator
+blurb: Dynamic frame based voice allocation.
+tags:
+    - utility
+flair: reference
+category: Utility Objects
+---
+
+VoiceAllocator description text.
+
+Closely linked with [Sines](/reference/sines) and [SineFeature](/reference/sinefeature).
