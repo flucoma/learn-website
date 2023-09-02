@@ -96,8 +96,8 @@
 					chart.update();
 				}
 			});
-			analyser.start();
 		}
+		analyser.start();
 	};
 
 	const pause = () => {
