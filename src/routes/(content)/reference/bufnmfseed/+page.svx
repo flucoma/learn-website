@@ -22,7 +22,7 @@ For an example of what to do with the results of BufNMFSeed, see [Seeding NMF](/
 
 </Admonition>
 
-During the NNDSVD process, any zeros in the ``soruce`` buffer won't be able to be updated because the process multiplies these values by a scalar (and ``0 * anything = 0``). Therefore, it may be useful to change any zeros to something else before this process. BufNMFSeed has four options for managing values in the ``source`` buffer before processing:
+During the NNDSVD process, any zeros in the ``source`` buffer won't be able to be updated because the process multiplies these values by a scalar (and ``0 * anything = 0``). Therefore, it may be useful to change any zeros to something else before this process. BufNMFSeed has four options for managing values in the ``source`` buffer before processing:
    
 * **NMF-SVD** Nonnegative Double Singular Value Decomposition where any negative values are first converted to their absolute value. This is likely to be quicker than the other options, but less rigorous. (This is the default.)
 * **NNDSVDar** Nonnegative Double Singular Value Decomposition where any elements that are zero are first filled with a random value between 0 and the ``average * 0.01`` (essentially small random values). This may be slightly faster but slightly less accurate than other options.  

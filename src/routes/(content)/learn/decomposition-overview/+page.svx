@@ -14,7 +14,7 @@ featuredimage: /img/flucoma-magical.jpg
 
 ## Introduction
 
-One of the strongest arms of the toolkit is its *decomposition* capabilities. If you’re not familiar with the term, the basic idea is that any mixed sound is likely to be made up of many other sounds. Unfortunately it can be really hard to find and listen to those “hidden” sounds so decomposition offers some strategies, algorithms and manoeuvres that help you discover and explore the internal structure of a sound. 
+One of the strongest arms of the toolkit is its *decomposition* capabilities. If you’re not familiar with the term, the basic idea is that any mixed sound is likely to be made up of many other sounds. Unfortunately it can be really hard to find and listen to those “hidden” sounds, so decomposition offers some strategies, algorithms and manoeuvres that help you discover and explore the internal structure of a sound.
 
 Here on the team, we tend to think of there being two types of objects that deal with this process distinctly. 
 

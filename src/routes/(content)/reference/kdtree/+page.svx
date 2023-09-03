@@ -14,7 +14,7 @@ category: Analyse Data
 
 The KDTree facilitates the rapid querying of data stored in a [DataSet](/reference/dataset). It _can_ make querying by distance more efficient and faster than if you did it by manual lookup. Before a KDTree can be queried it has to be fitted to a [DataSet](/reference/dataset) containing the points that it will look up.
 
-One use of the KDTree is for doing _nearest neighbour lookups_. The interactive example below contains a collection of data points, whose x and y values range between 0.0 and 1.0, which are plotted on to a canvas-like scatterplot. Using the coordinates of our mouse inside this scatterplot, we can search for the point, or group of points closest to our mouse. We can also constrain the radius of the search: only points within a certain distance of our query point, and not just whichever are highlighted, are highlighted. Before you use the example you will have to `fit` the underlying [KDTree](/reference/kdtree) by pressing the button labelled _fit_. 
+One use of the KDTree is for doing _nearest neighbour lookups_. The interactive example below contains a collection of data points, whose x and y values range between 0.0 and 1.0, which are plotted on to a canvas-like scatterplot. Using the coordinates of our mouse inside this scatterplot, we can search for the point, or group of points closest to our mouse. We can also constrain the radius of the search: only points within a certain distance of our query point, and not just whichever are nearest, are highlighted. Before you use the example you will have to `fit` the underlying [KDTree](/reference/kdtree) by pressing the button labelled _fit_. 
 
 <KDTree />
 
