@@ -1,7 +1,8 @@
 <script>
 	import { onMount } from 'svelte';
 	import * as d3 from 'd3';
-	import { Chart, registerables } from 'chart.js';
+	import Chart from 'chart.js/auto';
+
 	import annotationPlugin from 'chartjs-plugin-annotation';
 	import scalingData from '$lib/data/learn/comparing-scalers/analysis.json';
 	import Button from '$lib/components/Button.svelte';
@@ -17,7 +18,6 @@
 	const colours = entries.map((_, i) => d3.interpolateSinebow(i / entries.length));
 
 	onMount(async () => {
-		Chart.register(...registerables, annotationPlugin);
 		const ctx = canvas.getContext('2d');
 		let data = {
 			datasets: [
@@ -32,11 +32,11 @@
 				}
 			]
 		};
+		Chart.register(annotationPlugin);
 		chart = new Chart(ctx, {
 			type: 'scatter',
 			data: data,
 			options: {
-				// onHover: (e, pts, chart) => console.log(e, pts, chart),
 				plugins: {
 					legend: { display: false },
 					tooltip: {
@@ -79,6 +79,7 @@
 	};
 
 	const norm = () => {
+		console.log('did it!')
 		chart.data.datasets[0].data = transformer(scalingData.norm);
 		chart.options.scales.x.min = -3;
 		chart.options.scales.x.max = 3;
@@ -232,24 +233,28 @@
 	let activeScale = 'Raw';
 </script>
 
-<div class="swapper">
-	{#each buttonSpec as spec}
-		<Button width={'150px'} on:click={spec.func} label={spec.label} disabled={activeScale === spec.label} />
-	{/each}
+<div class="interactive-example-container">
+	<h3>Interactive Scaler Comparison</h3>
+	<canvas id="filter" bind:this={canvas} />
+	<p>Select a scaling type below:</p>
+	<div class="scaling-mode-selector">
+		{#each buttonSpec as spec}
+			<Button width={'150px'} on:click={spec.func} label={spec.label} disabled={activeScale === spec.label} />
+		{/each}
+	</div>
 </div>
 
-<canvas id="filter" bind:this={canvas} />
 
 <style>
-	#filter {
+	canvas {
 		width: 100%;
 		max-height: 600px;
-		margin: 0 auto;
 	}
-
-	.swapper {
+	.scaling-mode-selector {
 		display: flex;
 		flex-direction: row;
-		justify-content: space-around;
+		justify-content: space-between;
+		height: max-content;
+		text-wrap: none;
 	}
 </style>

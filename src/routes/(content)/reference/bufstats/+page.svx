@@ -148,10 +148,11 @@ For an example of using a `weights` buffer to influence the statistical summary 
 
 </Admonition>
 
----
+<Admonition type='warn'>
 
 Not providing a `weights` buffer will cause all the frames to be considered equally. Any negative values in the `weights` buffer will be treated as a weight of 0. The provided `weights` buffer must be a single channel with exactly the same number of frames as `source` (each frame in `weights` will be the weight amount for the corresponding frame in `source`).
 
+</Admonition>
 ## Related Resources
 
 <ResourceLink

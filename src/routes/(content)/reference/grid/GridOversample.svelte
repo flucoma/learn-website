@@ -49,7 +49,8 @@
 	});
 </script>
 
-<div class="container">
+<div class="interactive-example-container">
+	<h2>Grid Assignment With Oversampling</h2>
 	<canvas bind:this={canvas} id="scatter-plot" />
 
 	<div id="controls">
