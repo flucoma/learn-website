@@ -18,11 +18,11 @@ dependencies:
     specifier: ^1.0.0
     version: 1.0.0
   chart.js:
-    specifier: ^3.9.1
-    version: 3.9.1
+    specifier: ^4.0.0
+    version: 4.4.1
   chartjs-plugin-annotation:
-    specifier: ^1.4.0
-    version: 1.4.0(chart.js@3.9.1)
+    specifier: ^3.0.1
+    version: 3.0.1(chart.js@4.4.1)
   d3:
     specifier: ^7.8.5
     version: 7.8.5
@@ -493,6 +493,10 @@ packages:
 
   /@juggle/resize-observer@3.4.0:
     resolution: {integrity: sha512-dfLbk+PwWvFzSxwk3n5ySL0hfBog779o8h68wK/7/APo/7cgyWp5jcXockbxdk5kFRkbeXWm4Fbi9FrdN381sA==}
+    dev: false
+
+  /@kurkle/color@0.3.2:
+    resolution: {integrity: sha512-fuscdXJ9G1qb7W8VdHi+IwRqij3lBkosAm4ydQtEmbY58OzHXqQhvlxqEkoz0yssNVn38bcpRWgA9PP+OGoisw==}
     dev: false
 
   /@nodelib/fs.scandir@2.1.5:
@@ -1120,16 +1124,19 @@ packages:
       ansi-styles: 4.3.0
       supports-color: 7.2.0
 
-  /chart.js@3.9.1:
-    resolution: {integrity: sha512-Ro2JbLmvg83gXF5F4sniaQ+lTbSv18E+TIf2cOeiH1Iqd2PGFOtem+DUufMZsCJwFE7ywPOpfXFBwRTGq7dh6w==}
+  /chart.js@4.4.1:
+    resolution: {integrity: sha512-C74QN1bxwV1v2PEujhmKjOZ7iUM4w6BWs23Md/6aOZZSlwMzeCIDGuZay++rBgChYru7/+QFeoQW0fQoP534Dg==}
+    engines: {pnpm: '>=7'}
+    dependencies:
+      '@kurkle/color': 0.3.2
     dev: false
 
-  /chartjs-plugin-annotation@1.4.0(chart.js@3.9.1):
-    resolution: {integrity: sha512-OC0eGoVvdxTtGGi8mV3Dr+G1YmMhtYYQWqGMb2uWcgcnyiBslaRKPofKwAYWPbh7ABnmQNsNDQLIKPH+XiaZLA==}
+  /chartjs-plugin-annotation@3.0.1(chart.js@4.4.1):
+    resolution: {integrity: sha512-hlIrXXKqSDgb+ZjVYHefmlZUXK8KbkCPiynSVrTb/HjTMkT62cOInaT1NTQCKtxKKOm9oHp958DY3RTAFKtkHg==}
     peerDependencies:
-      chart.js: ^3.1.0
+      chart.js: '>=4.0.0'
     dependencies:
-      chart.js: 3.9.1
+      chart.js: 4.4.1
     dev: false
 
   /check-error@1.0.3:
