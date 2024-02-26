@@ -48,7 +48,8 @@
 	});
 </script>
 
-<div class="container">
+<div class="interactive-example-container">
+	<h2>Grid Assignment With Extents</h2>
 	<canvas bind:this={canvas} id="scatter-plot" />
 
 	<div id="controls">
@@ -69,7 +70,7 @@
 				chart.data.datasets[0].data = Object.values(extent1.data).map(x => x);
 				chart.update();
 			}}
-			label="Extent 2 along vertical axis"
+			label="Extent 2 vertical"
 		/>
 
 		<Button
@@ -79,7 +80,7 @@
 				chart.data.datasets[0].data = Object.values(extent2.data).map(x => x);
 				chart.update();
 			}}
-			label="Extent 5 along horizontal axis"
+			label="Extent 5 horizontal"
 		/>
 
 		<Button
@@ -89,23 +90,20 @@
 				chart.data.datasets[0].data = Object.values(extent3.data).map(x => x);
 				chart.update();
 			}}
-			label="Extent 10 along horizontal axis"
+			label="Extent 10 horizontal"
 		/>
 	</div>
 </div>
 
 <style>
-	.container {
-		margin-bottom: 1em;
-	}
 	#scatter-plot {
 		max-height: 400px;
 		max-width: 100%;
 	}
 
 	#controls {
-		display: grid;
-		grid-template-columns: auto auto auto;
+		display: flex;
+		flex-direction: row;
 		justify-content: center;
 		gap: 1em;
 		margin-top: 1em;

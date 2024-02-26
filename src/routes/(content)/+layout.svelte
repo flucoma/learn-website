@@ -56,7 +56,6 @@
 	.content {
 		display: grid;
 		justify-content: center;
-		margin-bottom: 1em;
 		flex: 1 0 auto;
 	}
 </style>

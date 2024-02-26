@@ -31,6 +31,9 @@
 		border: none;
 		padding: 0;
 	}
+	button:hover{
+		cursor: pointer;
+	}
 	svg {
 		min-width: 24;
 		min-height: 20;

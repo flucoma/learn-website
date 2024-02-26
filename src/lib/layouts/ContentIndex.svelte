@@ -52,7 +52,7 @@
 	.navigation {
 		grid-area: navigation;
 		width: 25ch;
-		height: max-content;
+		height: 100%;
 	}
 
 	.related {

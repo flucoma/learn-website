@@ -44,7 +44,8 @@
 	});
 </script>
 
-<div class="container">
+<div class="interactive-example-container">
+	<h2>Assign Data To Grid Points</h2>
 	<canvas bind:this={canvas} id="scatter-plot" />
 
 	<div id="controls">
@@ -69,17 +70,14 @@
 </div>
 
 <style>
-	.container {
-		margin-bottom: 1em;
-	}
 	#scatter-plot {
 		max-height: 400px;
 		max-width: 100%;
 	}
 
 	#controls {
-		display: grid;
-		grid-template-columns: auto auto;
+		display: flex;
+		flex-direction: row;
 		justify-content: center;
 		gap: 1em;
 		margin-top: 1em;

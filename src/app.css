@@ -8,6 +8,7 @@ g*/
 @import './utils.css';
 @import './jargon.css';
 @import './flair.css';
+@import './classes.css';
 
 :root {
 	--breakpoint: 1200px;

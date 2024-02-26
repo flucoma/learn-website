@@ -18,10 +18,9 @@
 		width: 150px;
 		height: 40px;
 		background-color: var(--light-blue);
-		padding: 0.5em;
 		color: white;
 		text-decoration: none;
-		transition: background-color 150ms linear;
+		transition: background-color 75ms linear;
 		word-wrap: none;
 		overflow: hidden;
 		min-width: fit-content;

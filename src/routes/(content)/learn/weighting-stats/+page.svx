@@ -20,7 +20,11 @@ The `weights` parameter of [BufStats](/reference/bufstats) can be passed a buffe
 
 This can be useful for weighting certain moments in descriptor time-series by the value of other descriptors. For example, one might want to weight a descriptor time-series (such as MFCC) by amplitude so the louder moments of the sound slice have greater impact than the quieter moments on the resulting statistical summary.
 
+<Admonition type='warn'>
+
 Not providing a `weights` buffer will cause all the frames to be considered equally. Any negative values in the `weights` buffer will be treated as a weight of 0. The provided `weights` buffer must be a single channel with exactly the same number of frames as `source` (each frame in `weights` will be the weight amount for the corresponding frame in `source`).
+
+</Admonition>
 
 ## A musical example
 

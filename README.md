@@ -1,38 +1,26 @@
-# create-svelte
+# FluCoMa Learn
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+This is the code for the [FluCoMa Learn Website](https://learn.flucoma.org).
 
-## Creating a project
+## Working Locally
 
-If you're seeing this, you've probably already done this step. Congrats!
+To work locally you will need `node` (> 16.6.0 && <= 19.9.0>) installed on your computer as well as either `npm` or `pnpm`.
 
-```bash
-# create a new project in the current directory
-npm create svelte@latest
+### 1. Installing Dependencies
 
-# create a new project in my-app
-npm create svelte@latest my-app
-```
+Set your current working directory to this repository with `cd`. Once you are there in your terminal, install all dependencies with: 
 
-## Developing
+`npm i`. 
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+> [!TIP]
+> Replace `npm` with your package manager of choice. At this time, `bun` isn't really supported.
 
-```bash
-npm run dev
+### 2. Starting the Development Server
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
+Once you have the necessary dependencies. Start the development server by running `npm run dev`. A local development server should be started on port `5173`. You can navigate to https://localhost:5173 to see the site in realtime.
 
-## Building
+From here, make your changes and see them live in the browser!
 
-To create a production version of your app:
+## Contributing
 
-```bash
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+Contributions are most welcome from the communuity. Please make a branch, add your changes then submit a pull request!
