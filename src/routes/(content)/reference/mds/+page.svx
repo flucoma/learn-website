@@ -26,11 +26,11 @@ First, MDS computes a distance matrix by calculating the distance between every 
 
 Unlike the other dimensionality reduction algorithms, MDS does not have a `fit` or `transform` method, nor does it have the ability to transform data points in buffers. This is essentially because the algorithm needs to do the fit & transform as one process using just the data provided in the source DataSet and therefore incorporating new data points would require a re-fitting of the model.
 
-What makes MDS more flexible than the other dimensionality reduction algorithms in FluCoMa ([PCA](/reference/pca) and [UMAP](/reference/umap)) is that MDS allows for different measures of distance to be used when computing the distance matrix (see the list below). This allows you to explore different ways of measuring the distance of the data points (i.e., comparing their similarity or difference) during the during the dimensionality reduction process. Exploring different measures of difference may create different musical relationships between points in the data.
+What makes MDS more flexible than the other dimensionality reduction algorithms in FluCoMa ([PCA](/reference/pca) and [UMAP](/reference/umap)) is that MDS allows for different measures of distance to be used when computing the distance matrix (see the list below). This allows you to explore different ways of measuring the distance of the data points (i.e., comparing their similarity or difference) during the dimensionality reduction process. Exploring different measures of difference may create different musical relationships between points in the data.
 
 ## Comparing Measures of Distance 
 
-Below are plots different two dimensional representations of the same MFCC analyses (originally in 13 dimensions) using all the distance metrics available in MDS. The colour is arbitrarily assigned so that you can track the location changes of each point in space.
+Below are different plots of two dimensional representations of the same MFCC analyses (originally in 13 dimensions) using all the distance metrics available in MDS. The colour is arbitrarily assigned so that you can track the location changes of each point in space.
 
 <MDS />
 
