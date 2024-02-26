@@ -14,6 +14,7 @@ featuredimage: /learn/weighting-stats/05_src_with_pitch_and_conf.jpg
 <script>
     import Image from '$lib/components/Image.svelte';
     import Audio from '$lib/components/Audio.svelte';
+    import Admonition from '$lib/components/Admonition.svelte';
 </script>
 
 The `weights` parameter of [BufStats](/reference/bufstats) can be passed a buffer, the values of which will be used for relative weighting of each corresponding frame in the `source` buffer. This will create "weighted" statistics where some values in the data have more impact on the resulting statistical summary than others. All seven of the resulting statistics of BufStats may be affected by using the weights. 
