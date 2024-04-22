@@ -1,0 +1,61 @@
+---
+title: "FluCoMa Podcast #19: Helen Bledsoe"
+artist: Helen Bledsoe
+blurb: |
+    Episode 19 of the FluCoMa Podcast where Jacob Hart talks with flutist and composer Helen Bledsoe.
+tags: 
+    - timbre transfer
+    - max for live
+    - max4live
+    - flute
+    - sinefeature
+flair: podcast
+featuredimage: /explore/bledsoe/desc.png
+author: Jacob
+year: 2024
+month: 5
+day: 16
+youtube: UYSa73RvJQE
+---
+
+<script>
+    import ArtistCard from '$lib/components/explore/ArtistCard.svelte';
+    import YouTubeChapters from '$lib/components/YouTubeChapters.svelte';
+
+    import BandCamp from '$lib/components/BandCamp.svelte';
+    import Vimeo from '$lib/components/Vimeo.svelte';
+    import YouTube from '$lib/components/YouTube.svelte';
+</script>
+
+<ArtistCard
+src = "/explore/bledsoe/profile.png"
+name = "Helen Bledsoe"
+website = "https://helenbledsoe.com/"
+/>
+
+## The Podcast
+
+<YouTubeChapters 
+url='UYSa73RvJQE'
+chapters={[
+    {"label" : "Introduction", "start" : [0, 0]},
+    {"label" : "Getting into the world of audiovisual composition", "start" : [1, 40]},
+    {"label" : "Describing Freida's practice", "start" : [5, 20]},
+    {"label" : "Perspective on reactive audio design and gesture", "start" : [9, 3]},
+    {"label" : "Using FluCoMa-related technologies", "start" : [14, 3]},
+    {"label" : "Using systems at different scales", "start" : [25, 58]},
+    {"label" : "Learning and teaching technologies", "start" : [28, 22]},
+    {"label" : "What are computational ideas?", "start" : [44, 53]},
+    {"label" : "Performance ecologies", "start" : [1, 14, 13]}
+]}
+/>
+
+## Overview
+
+The FluCoMa Podcast is back with another run of interviews with musicians and creative coders working with machine learning and machine listening. To kick things off we start with Helen Bledsoe who fills all of these profiles. Helen is a flutist, a core member of the renowned Ensemble Musikfabrik, and is also a creator of experimental electronic works. In this episode, we shall learn more about her relationship with technology both as an interpreter and a composer.
+
+## Links
+
+Here are the links to some of the things that were discussed during the podcast:
+
+- [Carnegie Mellon Univserity](https://www.cmu.edu/cfa/music/people/Bios/abtan_freida.html).
