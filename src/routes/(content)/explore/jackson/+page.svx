@@ -1,0 +1,63 @@
+---
+title: "FluCoMa Podcast #22: Yvette Janine Jackson"
+artist: Yvette Janine Jackson
+blurb: |
+    Episode 22 of the FluCoMa Podcast where Jacob Hart talks with composer Yvette Janine Jackson.
+tags: 
+    - destructive editing
+    - theater
+    - diffusion
+    - sound design
+    - radio
+    - opera
+    - soundscape
+flair: podcast
+featuredimage: /explore/jackson/desc.png
+author: Jacob
+year: 2024
+month: 6
+day: 6
+youtube: UYSa73RvJQE
+---
+
+<script>
+    import ArtistCard from '$lib/components/explore/ArtistCard.svelte';
+    import YouTubeChapters from '$lib/components/YouTubeChapters.svelte';
+
+    import BandCamp from '$lib/components/BandCamp.svelte';
+    import Vimeo from '$lib/components/Vimeo.svelte';
+    import YouTube from '$lib/components/YouTube.svelte';
+</script>
+
+<ArtistCard
+src = "/explore/jackson/profile.png"
+name = "Yvette Janine Jackson"
+website = "https://www.yvettejackson.com/"
+/>
+
+## The Podcast
+
+<YouTubeChapters 
+url='UYSa73RvJQE'
+chapters={[
+    {"label" : "Introduction", "start" : [0, 0]},
+    {"label" : "Getting into the world of audiovisual composition", "start" : [1, 40]},
+    {"label" : "Describing Freida's practice", "start" : [5, 20]},
+    {"label" : "Perspective on reactive audio design and gesture", "start" : [9, 3]},
+    {"label" : "Using FluCoMa-related technologies", "start" : [14, 3]},
+    {"label" : "Using systems at different scales", "start" : [25, 58]},
+    {"label" : "Learning and teaching technologies", "start" : [28, 22]},
+    {"label" : "What are computational ideas?", "start" : [44, 53]},
+    {"label" : "Performance ecologies", "start" : [1, 14, 13]}
+]}
+/>
+
+## Overview
+
+In episode 22 of the FluCoMa Podcast, we talk with composer of electroacoustic, chamber and orchestral music Yvette Janine Jackson. Yvette makes music for concerts, theater, installation and film, notably in the form of radio operas and narrative soundscape composition. We shall learn about these two practices, as well as Yvettes approach to working with different types of corpora, and diffusion. Taking an overview of her career, we shall learn more about her influences - be it her time at the Electronic Music Center at Columbia and how it influences her work today, her time working the soundboard in theater, or her time working on tall ships!
+
+## Links
+
+Here are the links to some of the things that were discussed during the podcast:
+
+- [Carnegie Mellon Univserity](https://www.cmu.edu/cfa/music/people/Bios/abtan_freida.html).
