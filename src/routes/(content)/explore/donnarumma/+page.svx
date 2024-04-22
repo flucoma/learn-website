@@ -1,0 +1,62 @@
+---
+title: "FluCoMa Podcast #23: Marco Donnarumma"
+artist: Marco Donnarumma
+blurb: |
+    Episode 23 of the FluCoMa Podcast where Jacob Hart talks with artist, performer and theorist Marco Donnarumma.
+tags: 
+    - intelligent instruments
+    - body
+    - amplification
+    - feature extraction
+    - embedding
+    - sensor
+flair: podcast
+featuredimage: /explore/donnarumma/desc.webp
+author: Jacob
+year: 2024
+month: 6
+day: 13
+youtube: UYSa73RvJQE
+---
+
+<script>
+    import ArtistCard from '$lib/components/explore/ArtistCard.svelte';
+    import YouTubeChapters from '$lib/components/YouTubeChapters.svelte';
+
+    import BandCamp from '$lib/components/BandCamp.svelte';
+    import Vimeo from '$lib/components/Vimeo.svelte';
+    import YouTube from '$lib/components/YouTube.svelte';
+</script>
+
+<ArtistCard
+src = "/explore/donnarumma/profile.jpeg"
+name = "Marco Donnarumma"
+website = "https://marcodonnarumma.com/"
+/>
+
+## The Podcast
+
+<YouTubeChapters 
+url='UYSa73RvJQE'
+chapters={[
+    {"label" : "Introduction", "start" : [0, 0]},
+    {"label" : "Getting into the world of audiovisual composition", "start" : [1, 40]},
+    {"label" : "Describing Freida's practice", "start" : [5, 20]},
+    {"label" : "Perspective on reactive audio design and gesture", "start" : [9, 3]},
+    {"label" : "Using FluCoMa-related technologies", "start" : [14, 3]},
+    {"label" : "Using systems at different scales", "start" : [25, 58]},
+    {"label" : "Learning and teaching technologies", "start" : [28, 22]},
+    {"label" : "What are computational ideas?", "start" : [44, 53]},
+    {"label" : "Performance ecologies", "start" : [1, 14, 13]}
+]}
+/>
+
+## Overview
+
+In Episode 23 of the FluCoMa podcast we talk with Marco Donnarumma, an artist, stage director and theorist working in contemporary performance, new media art and interactive computer music. We shall take an overlook of his career, and focus on a number of his recent works. We shall notably hear about his work with amplification and feature extraction of bodily and muscular activity, and how he uses artificial intelligence and computational agents in his work, as well as his views of the recent emergence of corporate AI aesthetics. 
+
+## Links
+
+Here are the links to some of the things that were discussed during the podcast:
+
+- [Carnegie Mellon Univserity](https://www.cmu.edu/cfa/music/people/Bios/abtan_freida.html).
