@@ -57,4 +57,38 @@ For the FluCoMa Podcast’s 20th episode we talk with artist and researcher Tim 
 
 Here are the links to some of the things that were discussed during the podcast:
 
-- [Carnegie Mellon Univserity](https://www.cmu.edu/cfa/music/people/Bios/abtan_freida.html).
+- [Article in the Guardian](https://www.theguardian.com/uk-news/2017/sep/04/artist-tim-shaw-recordings-silence-photos-darkness-galloway-forest-scotland-sanctuary), [Feature on BBC Radio 3](https://www.bbc.co.uk/programmes/m0011487) and the [Sound and Heterogeneous Arts Platform Europe](https://shapeplatform.eu/2019/tim-shaw-on-field-recording-esoteric-listening-devices-and-working-in-sarajevo/).
+
+- Tim's [PhD](https://tim-shaw.info/about/timshaw_thesis_2019.pdf) "Listening through making: artistic approaches to sound, technology, and field recording." from [Newcstle University](https://www.ncl.ac.uk/).
+
+-[Collegium Helveticum](https://collegium.ethz.ch/fellows/tim-shaw/) in Zurich, and the [Culture Lab](https://www.ncl.ac.uk/culturelab/) at Newcastle University.
+
+- [Max MSP](https://cycling74.com/products/max) and [Ableton Live](https://www.ableton.com/en/).
+
+- [Article](https://tim-shaw.info/projects/ambulation/) about Tim's "Ambulation" project.
+
+- [Bela board](https://bela.io/).
+
+- [Compass Festival](https://compassliveart.org.uk/) in Leeds.
+
+ - [Article](https://tim-shaw.info/projects/points-of-failure/) about Tim's project "Points of Failure".
+
+- [Dai Hall](https://amespace.uk/) in Huddersfield, UK.
+
+- [Episode](/explore/bowers-1) of the FluCoMa Podcast with John Bowers.
+
+- [Dirty Electronics](https://www.dirtyelectronics.org/) an [Beyond the Loudspeaker](https://www.visitnca.com/exhibitions/beyond-the-loudspeaker).
+
+- [Newcastle Contemporary Art](https://www.visitnca.com/).
+
+- [Article](https://tim-shaw.info/projects/murmurate/) about Tim's piece "Murmurate" with [Sebastien Piquemal](https://second-hander.com/).
+
+- [CTM Festical](https://www.ctm-festival.de/).
+
+- [WebPd](https://github.com/sebpiq/WebPd).
+
+- [Chris Watson](https://chriswatson.net/) and [Phill Niblock](https://phillniblock.com/).
+
+- [One Knob To Rule Them All: Reductionist Interfaces for Expansionist Research. Bowers, J. Richards, J. & Shaw, T. et al. (2016) Proceedings of NIME (New Interfaces for Musical Expression)](https://www.nime.org/proceedings/2016/nime2016_paper0085.pdf)
+
+- [Raw Data, Rough Mix: Towards an Integrated Practice of Making, Performance and Pedagogy. Bowers, J. Richards, J. Shaw, T. Foster, R. & Kubota, A. (2023) Proceedings of NIME (New Interfaces for Musical Expression)](https://drive.google.com/file/d/12cO0fDnZ7cgAB2b4lEPDqhXpH9vdgA4Q/view)
