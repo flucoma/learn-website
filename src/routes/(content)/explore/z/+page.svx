@@ -60,4 +60,74 @@ In episode 21 of the FluCoMa Podcast we talk with the renowned composer, perform
 
 Here are the links to some of the things that were discussed during the podcast:
 
-- [Carnegie Mellon Univserity](https://www.cmu.edu/cfa/music/people/Bios/abtan_freida.html).
+- [Bang on a Can](https://bangonacan.org/bang-on-a-can-25-years-lincoln-center/) at [Lincoln Center](https://www.lincolncenter.org/home), the [Venice Biennale](https://www.labiennale.org/en), [San Fransisco Symphony SoundBox](https://www.sfsymphony.org/Discover-the-Music/SoundBox).
+
+- [MoMA](https://www.moma.org/), [Whitney Museum](https://whitney.org/), [Savvy Contemporary](https://savvy-contemporary.com/).
+
+- [Kronos Quartet](https://kronosquartet.org/), [Eighth Blackbird](https://www.eighthblackbird.org/), [Bang On A Can All Stars](https://bangonacan.org/bang_on_a_can_all_stars/).
+
+- [Rome Prize](https://www.aarome.org/apply/rome-prize), [MIT McDermott Award](https://arts.mit.edu/mcdermott/), [Foundation for Contemporary Arts Dorothea Tanning Award](https://www.foundationforcontemporaryarts.org/grants/dorothea-tanning-award/).
+
+- [The Ramones](https://en.wikipedia.org/wiki/Ramones) to [Varèse](https://en.wikipedia.org/wiki/Edgard_Var%C3%A8se) to [The Roches](https://en.wikipedia.org/wiki/The_Roches) to [Stockhausen](https://en.wikipedia.org/wiki/Karlheinz_Stockhausen).
+
+- Carbon Song Cycle (in collaboration with [Christina McPhee](https://www.christina-mcphee.com/)).
+
+<YouTube 
+url={'tq4BDN1Xc4E'}
+/>
+
+- Raise for [Nick Photinos](Nick Photinos).
+
+- [Art Zoyd Studios](https://artzoydstudios.com/en/).
+
+- [Episode](/explore/sonami) of the FluCoMa Podcast with [Laetitia Sonami](https://sonami.net/).
+
+- [Donald Swearingen](https://donaldswearingen.com/).
+
+- "Mona Lisa"by Laetitia Sonami, Donald Swearingen, Pamela Z and [Visual Brains](http://www.visualbrains.com/):
+
+<YouTube 
+url={'CozyFn7mygE'}
+/>
+
+- [GRM Tools](https://inagrm.com/en/store).
+
+- [Eric Lyon](https://cycling74.com/articles/an-interview-with-eric-lyon) and [Christopher Penrose]().
+
+- The BodySynth by Ed Severinghaus and Chris Van Raalte:
+
+<Vimeo 
+url={'https://player.vimeo.com/video/150970110?h=8d6f2a0df75'}
+/>
+
+- Donald Swearingen's [controllers](http://donaldswearingen.com/stm5-overview/).
+
+- Typewriter/Breathing:
+
+<YouTube 
+url={'3JA9byfZWZA'}
+/>
+
+- Baggage Allowance:
+
+<YouTube 
+url={'Idepg3_TaIU'}
+/>
+
+- Other rooms:
+
+<Vimeo 
+url={'https://player.vimeo.com/video/514777593?h=696376e1ba'}
+/>
+
+- [Mark Coniglio](https://en.wikipedia.org/wiki/Mark_Coniglio)'s [Isadora](https://troikatronix.com/).
+
+- [Luc Dubois](https://engineering.nyu.edu/faculty/r-luke-dubois).
+
+- [RNBO](https://cycling74.com/products/rnbo).
+
+- [fiddle~ sigmund~ and bonk~](https://cycling74.com/forums/64-bit-versions-of-sigmund-fiddle-and-bonk).
+
+- [Episode](/explore/bledsoe) of the FluCoMa Podcast with [Helen Bledsoe](https://helenbledsoe.com/).
+
+- [Roomful of Teeth, Pamela Z & The Living Earth Show](https://massmoca.org/event/roomful-of-teeth-pamela-z-this-living-earth-show-the-impossible-building/).
