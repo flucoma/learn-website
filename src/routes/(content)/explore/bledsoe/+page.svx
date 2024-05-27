@@ -40,14 +40,6 @@ website = "https://helenbledsoe.com/"
 url='UYSa73RvJQE'
 chapters={[
     {"label" : "Introduction", "start" : [0, 0]},
-    {"label" : "Getting into the world of audiovisual composition", "start" : [1, 40]},
-    {"label" : "Describing Freida's practice", "start" : [5, 20]},
-    {"label" : "Perspective on reactive audio design and gesture", "start" : [9, 3]},
-    {"label" : "Using FluCoMa-related technologies", "start" : [14, 3]},
-    {"label" : "Using systems at different scales", "start" : [25, 58]},
-    {"label" : "Learning and teaching technologies", "start" : [28, 22]},
-    {"label" : "What are computational ideas?", "start" : [44, 53]},
-    {"label" : "Performance ecologies", "start" : [1, 14, 13]}
 ]}
 />
 
@@ -86,6 +78,8 @@ url={'azkC7WdsHgA'}
 - [Georges Aperghis](https://www.aperghis.com/) and [Rebecca Saunders](https://www.rebeccasaunders.net/).
 
 - [Luigi Nono](https://en.wikipedia.org/wiki/Luigi_Nono) and [Robarto Fabbriciani](http://www.robertofabbriciani.it/).
+
+- [Performing Luigi Nono's Flute Music](https://www.cambridge.org/core/journals/tempo/article/performing-luigi-nonos-flute-music/38EACB9DBABCEAF00B54552A08A8DB4D/share/9b7424fffb8d2ef809f6d5da734f37e7e16c8e4c), Helen Bledsoe and Daniel Agi.
 
 - [Melvyn Poore](https://de.wikipedia.org/wiki/Melvyn_Poore), [Ableton](https://www.ableton.com/en/), [Max for Live](https://www.ableton.com/en/live/max-for-live/).
 
