@@ -71,7 +71,7 @@ Here are the links to some of the things that were discussed during the podcast:
 
 - [Compass Festival](https://compassliveart.org.uk/) in Leeds.
 
- - [Article](https://tim-shaw.info/projects/points-of-failure/) about Tim's project "Points of Failure".
+- [Article](https://tim-shaw.info/projects/points-of-failure/) about Tim's project "Points of Failure".
 
 - [Dai Hall](https://amespace.uk/) in Huddersfield, UK.
 
@@ -92,3 +92,5 @@ Here are the links to some of the things that were discussed during the podcast:
 - [One Knob To Rule Them All: Reductionist Interfaces for Expansionist Research. Bowers, J. Richards, J. & Shaw, T. et al. (2016) Proceedings of NIME (New Interfaces for Musical Expression)](https://www.nime.org/proceedings/2016/nime2016_paper0085.pdf)
 
 - [Raw Data, Rough Mix: Towards an Integrated Practice of Making, Performance and Pedagogy. Bowers, J. Richards, J. Shaw, T. Foster, R. & Kubota, A. (2023) Proceedings of NIME (New Interfaces for Musical Expression)](https://drive.google.com/file/d/12cO0fDnZ7cgAB2b4lEPDqhXpH9vdgA4Q/view)
+
+- Tim's project [Channel Hopping](https://tim-shaw.info/projects/channel-hopping/) (running live [here](http://143.198.59.149:8000/live.mp3)).
