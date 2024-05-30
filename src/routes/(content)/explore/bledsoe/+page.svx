@@ -1,0 +1,184 @@
+---
+title: "FluCoMa Podcast #19: Helen Bledsoe"
+artist: Helen Bledsoe
+blurb: |
+    Episode 19 of the FluCoMa Podcast where Jacob Hart talks with flutist and composer Helen Bledsoe.
+tags: 
+    - timbre transfer
+    - max for live
+    - max4live
+    - flute
+    - sinefeature
+flair: podcast
+featuredimage: /explore/bledsoe/desc.png
+author: Jacob
+year: 2024
+month: 5
+day: 16
+youtube: memLG-QgsB0
+---
+
+<script>
+    import ArtistCard from '$lib/components/explore/ArtistCard.svelte';
+    import YouTubeChapters from '$lib/components/YouTubeChapters.svelte';
+
+    import BandCamp from '$lib/components/BandCamp.svelte';
+    import Vimeo from '$lib/components/Vimeo.svelte';
+    import YouTube from '$lib/components/YouTube.svelte';
+    import Soundcloud from '$lib/components/Soundcloud.svelte';
+</script>
+
+<ArtistCard
+src = "/explore/bledsoe/profile.png"
+name = "Helen Bledsoe"
+website = "https://helenbledsoe.com/"
+/>
+
+## The Podcast
+
+<YouTubeChapters 
+url='memLG-QgsB0'
+chapters={[
+    {"label" : "Introduction", "start" : [0, 0]},
+    {"label" : "Getting into music and music technology", "start" : [1, 26]},
+    {"label" : "Influences in composition", "start" : [5, 37]},
+    {"label" : "Approaches to collaboration", "start" : [7, 12]},
+    {"label" : "The sound of instruments", "start" : [9, 21]},
+    {"label" : "Moving towards computers", "start" : [12, 4]},
+    {"label" : "Interface design and creative environments", "start" : [15, 47]},
+    {"label" : "Classification", "start" : [23, 50]},
+    {"label" : "Sines and onset detection", "start" : [26, 7]},
+    {"label" : "Human and machine listening", "start" : [29, 40]},
+    {"label" : "Timbre transfer", "start" : [32, 04]},
+    {"label" : "Flutes", "start" : [38, 7]},
+    {"label" : "Composing for flutes", "start" : [41, 32]},
+    {"label" : "Poetry", "start" : [44, 35]},
+    {"label" : "Macrostructure", "start" : [47, 47]},
+    {"label" : "Future work", "start" : [52, 8]}
+]}
+/>
+
+## Overview
+
+The FluCoMa Podcast is back with another run of interviews with musicians and creative coders working with machine learning and machine listening. To kick things off we start with Helen Bledsoe who fills all of these profiles. Helen is a flutist, a core member of the renowned Ensemble Musikfabrik, and is also a creator of experimental electronic works. In this episode, we shall learn more about her relationship with technology both as an interpreter and a composer.
+
+## Links
+
+Here are the links to some of the things that were discussed during the podcast:
+
+- [Ensemble Musikfabrik](https://www.musikfabrik.eu/en/).
+
+- [Jāzeps Vītols Latvian Academy of Music](https://www.jvlma.lv/en), Riga.
+
+- [Lucerne Festival Academy](https://www.lucernefestival.ch/en/lucerne-festival-academy).
+
+- [Research Team “CREATIE”](https://www.ap-arts.be/en/researchgroup/creation) at the [Royal Conservatory of Antwerp](https://www.ap-arts.be/en/academy).
+
+- [Conservatorium van Amsterdam](https://www.conservatoriumvanamsterdam.nl/en/).
+
+- [Guy Maddin](https://en.wikipedia.org/wiki/Guy_Maddin)'s [Seances](https://seances.nfb.ca/) and The Forbidden Room.
+
+<YouTube 
+url={'azkC7WdsHgA'}
+/>
+
+- [Alexey Lapin](https://www.allaboutjazz.com/musicians/alexey-lapin/).
+
+- [GaragBand](https://www.apple.com/mac/garageband/), [Mixcraft](https://acoustica.com/products/mixcraft), [Caustic](https://www.kvraudio.com/product/caustic-by-single-cell-software), [Surge](https://surge-synthesizer.github.io/).
+
+- [Harry Partch](https://en.wikipedia.org/wiki/Harry_Partch), [Bitter Music](https://www.press.uillinois.edu/books/?id=p069130).
+
+- [Stockhausen](https://en.wikipedia.org/wiki/Karlheinz_Stockhausen)'s [Rotary Wind Quintet](https://en.wikipedia.org/wiki/Rotary_Wind_Quintet).
+
+- [Georges Aperghis](https://www.aperghis.com/) and [Rebecca Saunders](https://www.rebeccasaunders.net/).
+
+- [Luigi Nono](https://en.wikipedia.org/wiki/Luigi_Nono) and [Robarto Fabbriciani](http://www.robertofabbriciani.it/).
+
+- [Performing Luigi Nono's Flute Music](https://www.cambridge.org/core/journals/tempo/article/performing-luigi-nonos-flute-music/38EACB9DBABCEAF00B54552A08A8DB4D/share/9b7424fffb8d2ef809f6d5da734f37e7e16c8e4c), Helen Bledsoe and Daniel Agi.
+
+- [Melvyn Poore](https://de.wikipedia.org/wiki/Melvyn_Poore), [Ableton](https://www.ableton.com/en/), [Max for Live](https://www.ableton.com/en/live/max-for-live/).
+
+- [Stanford](https://online.stanford.edu/)'s [Kadenze](https://www.kadenze.com/courses/max-msp-programming-course-structuring-interactive-software-for-digital-arts/info). [Udemy](https://www.udemy.com/course/deep-learning-with-python-and-pytorch/). 
+
+- [Music Hackspace](https://musichackspace.org/) and [Umut Eldem](https://umuteldem.com/).
+
+<YouTube 
+url={'MkTWMO7g0Ws'}
+/>
+
+- [AZ Max for Live Devices](https://github.com/AffeZwei/AZ-Devices).
+
+<YouTube 
+url={'d_ymAWpafPI'}
+/>
+
+- [Generating Sound & Organizing Time: Thinking with gen](https://cycling74.com/books/go), [Graham Wakefield](https://ampd.yorku.ca/profile/graham-wakefield/) and [Gregory Taylor](https://cycling74.com/articles/an-interview-with-gregory-taylor).
+
+- [Convergence Conference](https://www.uantwerpen.be/en/research-groups/aria/activities/research-seminars/convergence2024/) in Antwerp.
+
+- [nn~](https://github.com/acids-ircam/nn_tilde) by [ACIDS](https://acids.ircam.fr/).
+
+<YouTube 
+url={'dMZs04TzxUI'}
+/>
+
+- [Rodrigo Constanzo](https://rodrigoconstanzo.com/)'s [SP Tools](https://rodrigoconstanzo.com/sp-tools/), and his [other work](/explore/constanzo) on the FluCoMa Project.
+
+- [Isotonik Studios](https://isotonikstudios.com/).
+
+- [John Bowers](https://unlanded.bandcamp.com/) and his appearance on the [FluCoMa Podcast](/explore/bowers-1).
+
+- [FluCoMa forum](https://discourse.flucoma.org/).
+
+- [MLP Classifier](/reference/mlpclassifier), [MFCC](/reference/mfcc), [Melbands](/reference/melbands), [Sine Feature](/reference/sinefeature), [Onset detection](/reference/onsetslice).
+
+- Harry Partch's Cloud Chamber Bowls and Delusion of the Firy:
+
+<YouTube 
+url={'OfZrNaLxH-0'}
+/>
+
+<YouTube 
+url={'aMQ7oeIvhkA'}
+/>
+
+- [Neutone](https://neutone.ai/) and [DataMind audio](https://datamindaudio.ai/).
+
+- [Sora](https://openai.com/sora) from [OpenAI](https://openai.com/).
+
+- [Peter Veale](https://www.musikfabrik.eu/en/ensemble/members/peter-veale/) playing Qisa.
+
+<YouTube 
+url={'Bc9tAm_PUZ8'}
+/>
+
+- Horo Horo To - Homage to Makiko.
+
+<Soundcloud 
+id = "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1306869490&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"
+caption = 'Horo Horo To for Bass Koto, Alto Flute and Oboe'
+/>
+
+- [NMF](/reference/bufnmf).
+
+- [Robert Dick](https://robertdick.net/).
+
+- [Sara Cubarsi](https://www.musikfabrik.eu/en/ensemble/members/sara-cubarsi/).
+
+- [Advice for composers](https://helenbledsoe.com/advice-for-composers/).
+
+- [Schoenberg](https://en.wikipedia.org/wiki/Arnold_Schoenberg)'s Pierrot Lunaire.
+
+<YouTube 
+url={'vQVkbKULKpI'}
+/>
+
+- Partch's Ring around the moon.
+
+<YouTube 
+url={'gXEx2il6sXg'}
+/>
+
+- [Anne Sexton](https://en.wikipedia.org/wiki/Anne_Sexton).
+
+- [Visual Studio](https://visualstudio.microsoft.com/fr/), [JUCE](https://juce.com/), [RNBO](https://cycling74.com/products/rnbo).
