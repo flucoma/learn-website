@@ -49,7 +49,7 @@ chapters={[
     {"label" : "Classification", "start" : [23, 50]},
     {"label" : "Sines and onset detection", "start" : [26, 7]},
     {"label" : "Human and machine listening", "start" : [29, 40]},
-    {"label" : "Timbre transfer", "start" : [32, 04]},
+    {"label" : "Timbre transfer", "start" : [32, 4]},
     {"label" : "Flutes", "start" : [38, 7]},
     {"label" : "Composing for flutes", "start" : [41, 32]},
     {"label" : "Poetry", "start" : [44, 35]},
