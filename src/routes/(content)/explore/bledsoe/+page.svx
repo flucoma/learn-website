@@ -15,7 +15,7 @@ author: Jacob
 year: 2024
 month: 5
 day: 16
-youtube: UYSa73RvJQE
+youtube: memLG-QgsB0
 ---
 
 <script>
@@ -37,9 +37,24 @@ website = "https://helenbledsoe.com/"
 ## The Podcast
 
 <YouTubeChapters 
-url='UYSa73RvJQE'
+url='memLG-QgsB0'
 chapters={[
     {"label" : "Introduction", "start" : [0, 0]},
+    {"label" : "Getting into music and music technology", "start" : [1, 26]},
+    {"label" : "Influences in composition", "start" : [5, 37]},
+    {"label" : "Approaches to collaboration", "start" : [7, 12]},
+    {"label" : "The sound of instruments", "start" : [9, 21]},
+    {"label" : "Moving towards computers", "start" : [12, 4]},
+    {"label" : "Interface design and creative environments", "start" : [15, 47]},
+    {"label" : "Classification", "start" : [23, 50]},
+    {"label" : "Sines and onset detection", "start" : [26, 7]},
+    {"label" : "Human and machine listening", "start" : [29, 40]},
+    {"label" : "Timbre transfer", "start" : [32, 04]},
+    {"label" : "Flutes", "start" : [38, 7]},
+    {"label" : "Composing for flutes", "start" : [41, 32]},
+    {"label" : "Poetry", "start" : [44, 35]},
+    {"label" : "Macrostructure", "start" : [47, 47]},
+    {"label" : "Future work", "start" : [52, 8]}
 ]}
 />
 
