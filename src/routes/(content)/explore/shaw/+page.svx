@@ -37,7 +37,20 @@ website = "https://tim-shaw.info/"
 <YouTubeChapters 
 url='nwYdwRgeuIQ'
 chapters={[
-    {"label" : "Introduction", "start" : [0, 0]
+    {"label" : "Introduction", "start" : [0, 0]},
+    {"label" : "Getting into sound and music tech", "start" : [1, 28]},
+    {"label" : "Space", "start" : [4, 26]},
+    {"label" : "Ambulation", "start" : [10, 34]},
+    {"label" : "Improvisation", "start" : [15, 54]},
+    {"label" : "Trust in technology", "start" : [21, 44]},
+    {"label" : "Points of failure", "start" : [27, 35]},
+    {"label" : "Configuring space", "start" : [32, 20]},
+    {"label" : "Engaging with objects", "start" : [37, 37]},
+    {"label" : "Murmurate", "start" : [44, 35]},
+    {"label" : "Smartphones", "start" : [52, 0]},
+    {"label" : "Listening", "start" : [58, 0]},
+    {"label" : "Collaborative thinking", "start" : [1, 5, 2]},
+    {"label" : "The natural world", "start" : [1, 12, 27]}
 ]}
 />
 
