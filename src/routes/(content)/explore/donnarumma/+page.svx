@@ -39,15 +39,7 @@ website = "https://marcodonnarumma.com/"
 <YouTubeChapters 
 url='UYSa73RvJQE'
 chapters={[
-    {"label" : "Introduction", "start" : [0, 0]},
-    {"label" : "Getting into the world of audiovisual composition", "start" : [1, 40]},
-    {"label" : "Describing Freida's practice", "start" : [5, 20]},
-    {"label" : "Perspective on reactive audio design and gesture", "start" : [9, 3]},
-    {"label" : "Using FluCoMa-related technologies", "start" : [14, 3]},
-    {"label" : "Using systems at different scales", "start" : [25, 58]},
-    {"label" : "Learning and teaching technologies", "start" : [28, 22]},
-    {"label" : "What are computational ideas?", "start" : [44, 53]},
-    {"label" : "Performance ecologies", "start" : [1, 14, 13]}
+    {"label" : "Introduction", "start" : [0, 0]}
 ]}
 />
 
@@ -59,4 +51,52 @@ In Episode 23 of the FluCoMa podcast we talk with Marco Donnarumma, an artist, s
 
 Here are the links to some of the things that were discussed during the podcast:
 
-- [Carnegie Mellon Univserity](https://www.cmu.edu/cfa/music/people/Bios/abtan_freida.html).
+- [Goldsmiths, University of London](https://www.gold.ac.uk/) and [Akademie für Theater und Digitalität](https://theater.digital/).
+
+- [Thor Magnusson](https://thormagnusson.github.io/) on the [FluCoMa Podcast](/explore/magnusson) and the [Intelligent Instruments Lab](https://iil.is/).
+
+- [Academy of Fine Arts in Venice](https://en.wikipedia.org/wiki/Accademia_di_Belle_Arti_di_Venezia).
+
+- [Edinburgh College of Art](https://www.eca.ed.ac.uk/) and [Martin Parker](https://www.eca.ed.ac.uk/profile/dr-martin-parker).
+
+- [FluCoMa Liminal Spaces](explore/liminal-spaces) gig:
+
+<YouTube 
+url={'6p_R2pVSMVg'}
+/>
+
+- [Corpus Nil](https://marcodonnarumma.com/works/corpus-nil/) with [Baptiste Caramiaux](https://baptistecaramiaux.com/).
+
+<Vimeo 
+url={'https://player.vimeo.com/video/152710490?h=e8793db050'}
+/>
+
+- [Xth Sense](https://marcodonnarumma.com/works/xth-sense/), [Xth sense website](https://res.marcodonnarumma.com/projects/xth-sense/).
+
+<Vimeo 
+url={'https://player.vimeo.com/video/86766860?h=b68df0a915'}
+/>
+
+- Marco's PhD [Configuring Corporeality: Performing Bodies, Vibrations and New Musical Instruments](https://marcodonnarumma.com/research/phd-thesis/).
+
+- [Amygdala](https://marcodonnarumma.com/works/amygdala/) from the [7 configurations cycle](https://7c.marcodonnarumma.com/):
+
+<Vimeo 
+url={'https://player.vimeo.com/video/263755082?h=9c311e8e97'}
+/>
+
+- [The Neurorobotics Research Laboratory](http://www.neurorobotik.de/index_en.php).
+
+- [Forte](https://esolangs.org/wiki/Forte#:~:text=Forte%20is%20an%20esoteric%20programming,makes%20of%20the%20Peano%20postulates.).
+
+- [Ex Silens](https://marcodonnarumma.com/works/ex-silens/).
+
+- [Fluid plotter](/reference/plotter).
+
+- [The I am your body](https://marcodonnarumma.com/series/i-am-your-body/) series and [Niranthea](https://marcodonnarumma.com/works/niranthea/).
+
+- [Tölvera](https://intelligent-instruments-lab.github.io/tolvera/) and [Anguilla](https://github.com/Intelligent-Instruments-Lab/anguilla).
+
+- [Against the Norm: Othering and Otherness in AI Aesthetics](https://marcodonnarumma.com/writings/against-the-norm-othering-and-otherness-in-ai-aesthetics/).
+
+- [Jack Armitage](https://jackarmitage.com/), [Victor Shepardson](https://victor-shepardson.github.io/) and [Jonathan Chaim Reus](http://jchai.me/).
