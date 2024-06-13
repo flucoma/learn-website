@@ -17,7 +17,7 @@ author: Jacob
 year: 2024
 month: 5
 day: 30
-youtube: UYSa73RvJQE
+youtube: aWwlTaRBGYk
 ---
 
 <script>
@@ -38,17 +38,21 @@ website = "https://pamelaz.com/"
 ## The Podcast
 
 <YouTubeChapters 
-url='UYSa73RvJQE'
+url='aWwlTaRBGYk'
 chapters={[
     {"label" : "Introduction", "start" : [0, 0]},
-    {"label" : "Getting into the world of audiovisual composition", "start" : [1, 40]},
-    {"label" : "Describing Freida's practice", "start" : [5, 20]},
-    {"label" : "Perspective on reactive audio design and gesture", "start" : [9, 3]},
-    {"label" : "Using FluCoMa-related technologies", "start" : [14, 3]},
-    {"label" : "Using systems at different scales", "start" : [25, 58]},
-    {"label" : "Learning and teaching technologies", "start" : [28, 22]},
-    {"label" : "What are computational ideas?", "start" : [44, 53]},
-    {"label" : "Performance ecologies", "start" : [1, 14, 13]}
+    {"label" : "Getting in to music", "start" : [1, 33]},
+    {"label" : "Collaboration", "start" : [7, 34]},
+    {"label" : "Preservation", "start" : [17, 33]},
+    {"label" : "Digital spaces", "start" : [22, 18]},
+    {"label" : "Analog to digital", "start" : [28, 40]},
+    {"label" : "Gesture controllers", "start" : [41, 42]},
+    {"label" : "Gesture and sound", "start" : [50, 42]},
+    {"label" : "Corpus curation", "start" : [55, 15]},
+    {"label" : "Isodora", "start" : [1, 1, 44]},
+    {"label" : "RNBO and technical obsolescence", "start" : [1, 9, 19]},
+    {"label" : "Form", "start" : [1, 14, 52]},
+    {"label" : "Thoughts on the future", "start" : [1, 22, 6]}
 ]}
 />
 
