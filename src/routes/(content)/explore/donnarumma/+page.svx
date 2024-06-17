@@ -39,7 +39,18 @@ website = "https://marcodonnarumma.com/"
 <YouTubeChapters 
 url='hG38dpKBFrk'
 chapters={[
-    {"label" : "Introduction", "start" : [0, 0]}
+    {"label" : "Introduction", "start" : [0, 0]},
+    {"label" : "Getting into music and body performance", "start" : [1, 28]},
+    {"label" : "The body", "start" : [5, 40]},
+    {"label" : "Artificial intelligence", "start" : [10, 28]},
+    {"label" : "Xth Sense", "start" : [15, 52]},
+    {"label" : "Feature extraction", "start" : [24, 24]},
+    {"label" : "Corpus Nil", "start" : [31, 22]},
+    {"label" : "Open source", "start" : [38, 44]},
+    {"label" : "Amygdala", "start" : [46, 11]},
+    {"label" : "Collaborative work", "start" : [55, 25]},
+    {"label" : "I am your body", "start" : [1, 4, 10]},
+    {"label" : "Corporate AI aesthetic", "start" : [1, 15, 56]}
 ]}
 />
 
@@ -100,3 +111,5 @@ url={'https://player.vimeo.com/video/263755082?h=9c311e8e97'}
 - [Against the Norm: Othering and Otherness in AI Aesthetics](https://marcodonnarumma.com/writings/against-the-norm-othering-and-otherness-in-ai-aesthetics/).
 
 - [Jack Armitage](https://jackarmitage.com/), [Victor Shepardson](https://victor-shepardson.github.io/) and [Jonathan Chaim Reus](http://jchai.me/).
+
+Profile photo credit: Ugo Dalla Porta
