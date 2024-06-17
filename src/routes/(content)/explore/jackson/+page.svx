@@ -18,7 +18,6 @@ year: 2024
 month: 6
 day: 6
 youtube: oKhUJ-A4-_0
-
 ---
 
 <script>
@@ -40,7 +39,22 @@ website = "https://www.yvettejackson.com/"
 <YouTubeChapters 
 url='oKhUJ-A4-_0'
 chapters={[
-    {"label" : "Introduction", "start" : [0, 0]}
+    {"label" : "Introduction", "start" : [0, 0]},
+    {"label" : "Getting in to music and composition", "start" : [1, 18]},
+    {"label" : "Radio operas and narrative soundscape composition", "start" : [3, 29]},
+    {"label" : "Improvisation", "start" : [6, 5]},
+    {"label" : "Curation of sounds", "start" : [7, 50]},
+    {"label" : "Self sampling", "start" : [10, 57]},
+    {"label" : "Finding and organizing sound", "start" : [14, 35]},
+    {"label" : "Physicality of tape", "start" : [18, 41]},
+    {"label" : "Digital interfaces", "start" : [21, 37]},
+    {"label" : "The sound board and diffusion", "start" : [25, 5]},
+    {"label" : "Music in spaces", "start" : [29, 18]},
+    {"label" : "Destructive editing", "start" : [36, 20]},
+    {"label" : "Computational ideas", "start" : [41, 30]},
+    {"label" : "Sound design and composition", "start" : [45, 5]},
+    {"label" : "Tall ships", "start" : [48, 5]},
+    {"label" : "Listening", "start" : [54, 20]}
 ]}
 />
 
