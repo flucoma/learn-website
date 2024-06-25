@@ -1,0 +1,52 @@
+---
+title: "FluCoMa Podcast #24: Patrick Hartono"
+artist: Patrick Hartono"
+blurb: |
+    Episode 24 of the FluCoMa Podcast where Jacob Hart talks with composer, audiovisual artist and music researcher Patrick Hartono.
+tags: 
+    - audiovisual
+    - mlp
+    - timbre
+    - polymorphism
+    - spatialisation
+flair: podcast
+featuredimage: /explore/hartono/featured_pic.jpeg
+author: Jacob
+year: 2024
+month: 7
+day: 4
+youtube: UYSa73RvJQE
+---
+
+<script>
+    import YouTube from '$lib/components/YouTube.svelte';
+    import ArtistCard from '$lib/components/explore/ArtistCard.svelte';
+    import BandCamp from '$lib/components/BandCamp.svelte';
+    import Vimeo from '$lib/components/Vimeo.svelte';
+    import YouTubeChapters from '$lib/components/YouTubeChapters.svelte';
+</script>
+
+<ArtistCard
+src = "/explore/hartono/profile_pic.jpeg"
+name = "Patrick Hartono"
+website = "https://patrickhartono.com/About/"
+/>
+
+## The Podcast
+
+<YouTubeChapters 
+url='UYSa73RvJQE'
+chapters={[
+    {"label" : "Introduction", "start" : [0, 0]},
+]}
+/>
+
+## Overview
+
+In this first episode of the FluCoMa podcast I talk to Dr. Freida Abtan. We talk about some of the projects she has worked on, and her approach to creative programming in general. She discusses how *computational* approaches can be found at the heart of her *artistic* practice, and what the concept of *reactive audio design* means for her. As well as being an artist, Freida is also an educator, and we discuss her ideas around the teaching, dissemination and learning of technologies such as those found in the FluCoMa tools.
+
+## Links
+
+Here are the links to some of the things that were discussed during the podcast:
+
+- 
