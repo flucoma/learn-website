@@ -43,7 +43,7 @@ chapters={[
 
 ## Overview
 
-In this first episode of the FluCoMa podcast I talk to Dr. Freida Abtan. We talk about some of the projects she has worked on, and her approach to creative programming in general. She discusses how *computational* approaches can be found at the heart of her *artistic* practice, and what the concept of *reactive audio design* means for her. As well as being an artist, Freida is also an educator, and we discuss her ideas around the teaching, dissemination and learning of technologies such as those found in the FluCoMa tools.
+In Episode 24 of the FluCoMa Podcast we talk with Patrick Hartono who is a composer, audiovisual artist and music researcher currently based at Goldsmiths, London. In this episode we learn about Patrick’s creative process, and the way in which he approaches the central vector of his work - sound. Patrick manipulates sounds of various natures, from traditional Indonesian instruments to computer-generated noise. We shall also discuss important notions in his work such as space, visuals and of course, the technology beind his systems.
 
 ## Links
 
