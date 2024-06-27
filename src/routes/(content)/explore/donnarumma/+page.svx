@@ -70,7 +70,7 @@ Here are the links to some of the things that were discussed during the podcast:
 
 - [Edinburgh College of Art](https://www.eca.ed.ac.uk/) and [Martin Parker](https://www.eca.ed.ac.uk/profile/dr-martin-parker).
 
-- [FluCoMa Liminal Spaces](explore/liminal-spaces) gig:
+- [FluCoMa Liminal Spaces](/explore/liminal-spaces) gig:
 
 <YouTube 
 url={'6p_R2pVSMVg'}
