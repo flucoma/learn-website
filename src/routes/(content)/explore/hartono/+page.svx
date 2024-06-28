@@ -15,7 +15,7 @@ author: Jacob
 year: 2024
 month: 7
 day: 4
-youtube: UYSa73RvJQE
+youtube: dY-gYmYh8Ns
 ---
 
 <script>
@@ -35,7 +35,7 @@ website = "https://patrickhartono.com/About/"
 ## The Podcast
 
 <YouTubeChapters 
-url='UYSa73RvJQE'
+url='dY-gYmYh8Ns'
 chapters={[
     {"label" : "Introduction", "start" : [0, 0]},
 ]}
@@ -49,4 +49,80 @@ In Episode 24 of the FluCoMa Podcast we talk with Patrick Hartono who is a compo
 
 Here are the links to some of the things that were discussed during the podcast:
 
-- 
+- [ICMC](https://www.computermusic.org/icmc-conference/), [IRCAM](https://www.ircam.fr/) and [NIME](https://www.nime.org/). [ICMA](https://www.icma-info.com/), [WOCMAT International Electroacoustic Music Young Composer Award](https://lewis841214.github.io/WOCMAT2019.github.io/) and [Prix CIME](https://www.cime-icem.net/prix-cime-2023/).
+
+Parakletos (2019):
+
+<BandCamp 
+id={'1724251847'}
+/>
+
+- [The University of Melbourne](https://www.unimelb.edu.au/) and [Goldmiths, London](https://www.gold.ac.uk/).
+
+- [Universitas Pelita Harapan](https://www.uph.edu/en/about-us/).
+
+- [Institute of Sonology](https://sonology.org/).
+
+- [Otto Sidharta](https://en.wikipedia.org/wiki/Otto_Sidharta) and [Ton de Leeuw](https://en.wikipedia.org/wiki/Ton_de_Leeuw).
+
+- [Roderik de Man](https://www.roderikdeman.com/) and [Ellen Corver](https://www.koncon.nl/en/teachers/ellen-corver).
+
+- [Jogja Noise Bombing](https://www.researchgate.net/figure/Jogja-Noise-Bombing-Festival-2017-poster-Jogja-Noise-Bombing-2017_fig3_373232773).
+
+- [kyma](https://kyma.symbolicsound.com/).
+
+- [Object-based audio](https://blog.soundparticles.com/what-is-object-based-audio) and ECO speakers.
+
+- Matrix Studies
+
+<YouTube 
+url={'pPr0GJWpBic'}
+/>
+
+- [Marko Ciciliani](https://www.ciciliani.com/)
+
+- [Towards a holophonic musicale texture](https://quod.lib.umich.edu/i/icmc/bbp2372.2005.188?rgn=main;view=fulltext) by [Panayiotis Kokoras](https://www.panayiotiskokoras.com/).
+
+- [Lemur](https://en.wikipedia.org/wiki/Lemur_(input_device)).
+
+- Omnipresent at [INMF 2023](https://drive.google.com/file/d/1gGaU2GwJQjw3AvRlOdyfai6bQcSAzo1H/view):
+
+<YouTube 
+url={'UZF2oNHgtz2MOzXg'}
+/>
+
+- [Polymorphic Transformations in Kyma](https://carlascaletti.com/publications/), by [Carla Scarletti](https://carlascaletti.com/).
+
+- Pierre Henry, Variations pour une Porte et un Soupir
+
+<YouTube 
+url={'aHgKZgNtsEk'}
+/>
+
+- Ciung Wanara:
+
+<YouTube 
+url={'UFeEJXJj0gw'}
+/>
+
+- [MLP Regression](/reference/mlpregressor)
+
+- [Nicola Giannini](https://www.nicolagiannini.com/).
+
+- [MapSPAT](https://github.com/GRIS-UdeM/MapSPAT) by [Groupe de recherche en immersion spatiale](https://gris.musique.umontreal.ca/fr/).
+
+- [Rebecca Fiebrink's](https://researchers.arts.ac.uk/1594-rebecca-fiebrink) [Wekinator](http://www.wekinator.org/).
+
+<YouTube 
+url={'Qo6n8MuEgdQ'}
+/>
+
+- [RITMO](https://www.uio.no/ritmo/english/research/labs/fourms/software/VideoAnalysis/) video analysis.
+
+- [MediaPipe](https://github.com/torinmb/mediapipe-touchdesigner) for [TouchDesigner](https://derivative.ca/).
+
+- [Sam Pluta](http://www.sampluta.com/)'s work using [FluCoMa](/explore/pluta).
+
+- [Understanding Noise: A Composer’s Reflection](https://dspace.uc.ac.id/bitstream/handle/123456789/6298/Content6298.pdf?sequence=4&isAllowed=y#page=87), Hartono, Patrick G.
+
+- [Future Guidelines on Noise](https://dspace.uc.ac.id/bitstream/handle/123456789/6298/Content6298.pdf?sequence=4&isAllowed=y#page=207), Hartono, Patrick G., Thulan Nguyen, Phyllis Toh Chze Woon, and Sanne Krogh Groth.
