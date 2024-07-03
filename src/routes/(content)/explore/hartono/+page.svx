@@ -38,6 +38,17 @@ website = "https://patrickhartono.com/About/"
 url='dY-gYmYh8Ns'
 chapters={[
     {"label" : "Introduction", "start" : [0, 0]},
+    {"label" : "Getting into music and interactive composition", "start" : [1, 23]},
+    {"label" : "Electroacoustic and audiovisual works", "start" : [10, 39]},
+    {"label" : "Sounds", "start" : [20, 40]},
+    {"label" : "Omnipresent and PSS", "start" : [31, 44]},
+    {"label" : "Sound emerging", "start" : [36, 52]},
+    {"label" : "Ciung Wanara", "start" : [40, 20]},
+    {"label" : "The model", "start" : [41, 47]},
+    {"label" : "Instrument design", "start" : [48, 48]},
+    {"label" : "Space", "start" : [51, 28]},
+    {"label" : "Noise", "start" : [58, 25]},
+    {"label" : "Indonesian instruments", "start" : [1, 4, 32]}
 ]}
 />
 
@@ -68,6 +79,8 @@ id={'1724251847'}
 - [Roderik de Man](https://www.roderikdeman.com/) and [Ellen Corver](https://www.koncon.nl/en/teachers/ellen-corver).
 
 - [Jogja Noise Bombing](https://www.researchgate.net/figure/Jogja-Noise-Bombing-Festival-2017-poster-Jogja-Noise-Bombing-2017_fig3_373232773).
+
+- [Grand Mosque in the Yogyakarta Palace Complex](https://goajomblang.com/gedhe-kauman-mosque-in-yogyakarta-history-and-characteristics/).
 
 - [kyma](https://kyma.symbolicsound.com/).
 
@@ -116,6 +129,8 @@ url={'UFeEJXJj0gw'}
 <YouTube 
 url={'Qo6n8MuEgdQ'}
 />
+
+- [Aris Daryono](https://www.dettadanford.com/Aris-Daryano-Ensemble).
 
 - [RITMO](https://www.uio.no/ritmo/english/research/labs/fourms/software/VideoAnalysis/) video analysis.
 
