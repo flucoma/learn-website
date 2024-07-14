@@ -15,8 +15,8 @@ layout: contentindex
 			<img src="/img/sc-logo.svg" alt="SuperCollider Logo" />
 		</a>
 		<a  href="/installation/pd">
-			<h2>PureData</h2>
-			<img src="/img/pd-logo.png" alt="PureData Logo" />
+			<h2>Pure Data</h2>
+			<img src="/img/pd-logo.png" alt="Pure Data Logo" />
 		</a>
 	</div>
 </div>

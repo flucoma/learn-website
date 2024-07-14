@@ -120,11 +120,11 @@ The way that data evolves over time is not usually representative of how we list
 
 <Admonition type=pointer>
 <p>
-You can download a patch or script that shows how to realise this entire process and compare it for yourself in Max, SuperCollider and PureData.
+You can download a patch or script that shows how to realise this entire process and compare it for yourself in Max, SuperCollider and Pure Data.
 </p>
 <p class='downloads'>
     <a href='/learn/refining-pitch-analysis/patch.maxpat' download='refining pitch analysis.maxpat'>Max</a>
-    <!-- <a href='/learn/refining-pitch-analysis/patch.pd' download='refining pitch analysis.pd'>PureData</a> -->
+    <!-- <a href='/learn/refining-pitch-analysis/patch.pd' download='refining pitch analysis.pd'>Pure Data</a> -->
     <a href='/learn/refining-pitch-analysis/script.scd' download='refining pitch analysis.scd'>SuperCollider</a>
 </p>
 </Admonition>
