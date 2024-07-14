@@ -36,7 +36,7 @@ This section will demonstrate with code examples a number of ways in which batch
 <Tabs>
 <TabList>
     <Tab>Max</Tab>
-    <Tab>PureData</Tab>
+    <Tab>Pure Data</Tab>
     <Tab>SuperCollider</Tab>
 </TabList>
 <TabPanel> <!-- Max -->

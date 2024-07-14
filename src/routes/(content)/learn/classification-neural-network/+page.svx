@@ -28,11 +28,17 @@ This tutorial guides you through building a sound classifier. It leverages a typ
 <Tabs>
     <TabList>
         <Tab>Max</Tab>
+        <Tab>Pure Data</Tab>
         <Tab>SuperCollider</Tab>
     </TabList>
     <TabPanel>
     <YouTube 
     url='cjk9oHw7PQg'
+    />
+    </TabPanel>
+    <TabPanel>
+    <YouTube 
+    url='ay6WWvKkjEw'
     />
     </TabPanel>
     <TabPanel>

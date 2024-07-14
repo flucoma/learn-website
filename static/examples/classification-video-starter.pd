@@ -1,0 +1,25 @@
+#N canvas 63 10 925 437 12;
+#X msg 57 28 open ./media/Harker-DS-TenOboeMultiphonics-M.wav \, 1
+, f 25;
+#X obj 57 116 readsf~;
+#X msg 301 83 stop;
+#X obj 292 114 readsf~;
+#X obj 57 147 +~, f 34;
+#X obj 57 199 dac~;
+#X msg 292 29 open ./media/Olencki-TenTromboneLongTones-M.wav \, 1
+, f 27;
+#X obj 16 207 tgl 15 0 empty empty empty 17 7 0 10 #fcfcfc #000000
+#000000 0 1;
+#X msg 16 227 \; pd dsp \$1;
+#X obj 603 160 fluid.mlpclassifier -activation 1 -learnrate 0.05 -maxiter
+1000, f 20;
+#X msg 71 85 stop;
+#X connect 0 0 1 0;
+#X connect 1 0 4 0;
+#X connect 2 0 3 0;
+#X connect 3 0 4 1;
+#X connect 4 0 5 0;
+#X connect 4 0 5 1;
+#X connect 6 0 3 0;
+#X connect 7 0 8 0;
+#X connect 10 0 1 0;
