@@ -6,9 +6,9 @@
 		<img class='badge' src='/img/apple-podcasts.jpg' alt='Apple podcasts logo'/>
 		Apple Podcasts
 	</a>
-	<a class="podcasts-link raisedbox" href='https://podcasts.google.com/feed/aHR0cHM6Ly9sZWFybi5mbHVjb21hLm9yZy9leHBsb3JlL2ZlZWQucnNz'>
-		<img class='badge' src='/img/google-podcasts-logo.svg' alt='Google podcasts logo'/>
-		Google Podcasts
+	<a class="podcasts-link raisedbox" href='https://youtube.com/playlist?list=PLLzzOXU4pTgLQdkLtMSQB8QKyR8AbJfFX&feature=shared'>
+		<img class='badge' src='/img/youtube_logo.png' alt='YouTube logo'/>
+		YouTube Playlist
 	</a>
 	<a class="podcasts-link raisedbox" href='/explore/feed.rss'>
 		<img class='badge' src='/img/rss.svg' alt='RSS logo'/>
