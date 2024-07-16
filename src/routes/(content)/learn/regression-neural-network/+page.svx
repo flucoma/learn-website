@@ -30,17 +30,23 @@ This tutorial guides you through building a bespoke synthesis controller. It lev
 
 <Tabs>
     <TabList>
-        <Tab>SuperCollider</Tab>
         <Tab>Max</Tab>
+        <Tab>Pure Data</Tab>    
+        <Tab>SuperCollider</Tab>
     </TabList>
     <TabPanel>
         <YouTube 
-        url='mxmMBvi3Cb0'
+        url='XfNZzQPdPG0'
         />
     </TabPanel>
     <TabPanel>
         <YouTube 
-        url='XfNZzQPdPG0'
+        url='cVKexgWSU0s'
+        />
+    </TabPanel>
+    <TabPanel>
+        <YouTube 
+        url='mxmMBvi3Cb0'
         />
     </TabPanel>
 </Tabs>
