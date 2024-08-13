@@ -3,14 +3,14 @@
 		"fileversion" : 1,
 		"appversion" : 		{
 			"major" : 8,
-			"minor" : 5,
-			"revision" : 5,
+			"minor" : 6,
+			"revision" : 1,
 			"architecture" : "x64",
 			"modernui" : 1
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 45.0, 87.0, 1226.0, 724.0 ],
+		"rect" : [ 134.0, 172.0, 1226.0, 724.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 12.0,
@@ -39,20 +39,6 @@
 		"subpatcher_template" : "",
 		"assistshowspatchername" : 0,
 		"boxes" : [ 			{
-				"box" : 				{
-					"fontsize" : 10.0,
-					"id" : "obj-88",
-					"linecount" : 5,
-					"maxclass" : "comment",
-					"numinlets" : 1,
-					"numoutlets" : 0,
-					"patching_rect" : [ 463.527978420257568, 52.352762667337856, 116.0, 62.0 ],
-					"text" : "You should notice that the output is symettrical whenver the hopsize is an equal division of the window size",
-					"textcolor" : [ 0.501960784313725, 0.501960784313725, 0.501960784313725, 1.0 ]
-				}
-
-			}
-, 			{
 				"box" : 				{
 					"fontface" : 1,
 					"id" : "obj-87",
@@ -101,8 +87,8 @@
 						"fileversion" : 1,
 						"appversion" : 						{
 							"major" : 8,
-							"minor" : 5,
-							"revision" : 5,
+							"minor" : 6,
+							"revision" : 1,
 							"architecture" : "x64",
 							"modernui" : 1
 						}
@@ -417,7 +403,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 0,
 					"patching_rect" : [ 593.667334318161011, 424.685687303542863, 122.0, 78.0 ],
-					"text" : "The red line shows the pitch confidence in relation to the sine waves"
+					"text" : "The red line shows the pitch confidence in relation to the sine wave"
 				}
 
 			}
@@ -454,7 +440,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 0,
 					"patching_rect" : [ 1031.045415878295898, 665.276001453399545, 124.0, 47.0 ],
-					"text" : "In the default patch this will look the same as default padding, it will change when you play with the hop size",
+					"text" : "In the default patch this will look the same as default padding, it will change when you change the hop size",
 					"textcolor" : [ 0.501960784313725, 0.501960784313725, 0.501960784313725, 1.0 ]
 				}
 
@@ -582,7 +568,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 0,
 					"patching_rect" : [ 47.66734766960144, 676.350648880004883, 600.0, 47.0 ],
-					"text" : "In the default state of the patch, the pitch/confidence outputs are symmetrical. This is because the window size fits perfectly into the buffer size. This means that the median output will always contain the full 1000 samples of sine wave. This is true as long as the window size is 1000 and the hopsize is a division of 1000.",
+					"text" : "In the default state of the patch, the pitch/confidence outputs are symmetrical. This is because the window size fits perfectly into the buffer size. This means that the median output will always contain the full 1024 samples of sine wave. This is true as long as the window size is 1024 and the hopsize is an int division of 1024.",
 					"textcolor" : [ 0.501960784313725, 0.501960784313725, 0.501960784313725, 1.0 ]
 				}
 
@@ -1109,7 +1095,6 @@
 				"box" : 				{
 					"id" : "obj-31",
 					"maxclass" : "number",
-					"maximum" : 9,
 					"minimum" : 0,
 					"numinlets" : 1,
 					"numoutlets" : 2,
@@ -1126,7 +1111,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 0,
 					"patching_rect" : [ 553.667334318161011, 526.9405330101647, 35.0, 20.0 ],
-					"text" : "3000",
+					"text" : "3072",
 					"textcolor" : [ 1.0, 1.0, 1.0, 1.0 ]
 				}
 
@@ -1138,7 +1123,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 0,
 					"patching_rect" : [ 405.167335987091064, 526.9405330101647, 35.0, 20.0 ],
-					"text" : "2000",
+					"text" : "2048",
 					"textcolor" : [ 1.0, 1.0, 1.0, 1.0 ]
 				}
 
@@ -1150,7 +1135,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 0,
 					"patching_rect" : [ 229.527801394462585, 526.9405330101647, 35.0, 20.0 ],
-					"text" : "1000",
+					"text" : "1024",
 					"textcolor" : [ 1.0, 1.0, 1.0, 1.0 ]
 				}
 
@@ -1175,7 +1160,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 49.661149263381958, 647.314453363418352, 539.006185054779053, 22.0 ],
-					"text" : "19"
+					"text" : "5"
 				}
 
 			}
@@ -1189,7 +1174,7 @@
 					"numoutlets" : 0,
 					"patching_rect" : [ 647.667334318161011, 37.940378395716152, 124.0, 21.0 ],
 					"text" : "Why use padding?",
-					"textcolor" : [ 0.501960784313725, 0.501960784313725, 0.501960784313725, 1.0 ]
+					"textcolor" : [ 0.129411764705882, 0.129411764705882, 0.129411764705882, 1.0 ]
 				}
 
 			}
@@ -1217,8 +1202,8 @@
 						"fileversion" : 1,
 						"appversion" : 						{
 							"major" : 8,
-							"minor" : 5,
-							"revision" : 5,
+							"minor" : 6,
+							"revision" : 1,
 							"architecture" : "x64",
 							"modernui" : 1
 						}
@@ -1473,7 +1458,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 0,
 					"patching_rect" : [ 593.667334318161011, 292.940510598818264, 124.0, 118.0 ],
-					"text" : "fluid.waveform displays 1000 samples of silence, 1000 samples of a sine waves, then 10000 samples of silence."
+					"text" : "fluid.waveform displays 1024 samples of silence, 1024 samples of a sine wave, 1024 samples of silence."
 				}
 
 			}
@@ -1517,13 +1502,12 @@
 , 			{
 				"box" : 				{
 					"id" : "obj-34",
-					"linecount" : 2,
 					"maxclass" : "message",
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 49.661149263381958, 561.10572930128717, 539.006185054779053, 35.0 ],
-					"text" : "0. 0. 0. 0. 849.737366 873.516663 867.012634 864.058289 863.1 863.076904 863.076965 863.594727 865.943359 870.961731 888.320251 0. 0. 0. 0."
+					"patching_rect" : [ 49.661149263381958, 561.10572930128717, 539.006185054779053, 22.0 ],
+					"text" : "0. 942.016846 938.835938 942.016846 0."
 				}
 
 			}
@@ -1537,8 +1521,8 @@
 						"fileversion" : 1,
 						"appversion" : 						{
 							"major" : 8,
-							"minor" : 5,
-							"revision" : 5,
+							"minor" : 6,
+							"revision" : 1,
 							"architecture" : "x64",
 							"modernui" : 1
 						}
@@ -1579,7 +1563,7 @@
 									"numinlets" : 1,
 									"numoutlets" : 0,
 									"patching_rect" : [ 50.0, 239.232577514637995, 304.0, 20.0 ],
-									"text" : "add to new 3000 sample buffer with 1000 sample offset"
+									"text" : "add to new 3072 sample buffer with 1024 sample offset"
 								}
 
 							}
@@ -1590,7 +1574,7 @@
 									"numinlets" : 1,
 									"numoutlets" : 0,
 									"patching_rect" : [ 234.188680648803711, 177.339546508782803, 136.0, 20.0 ],
-									"text" : "1000 sample sine buffer"
+									"text" : "1024 sample sine buffer"
 								}
 
 							}
@@ -1769,13 +1753,12 @@
 , 			{
 				"box" : 				{
 					"id" : "obj-33",
-					"linecount" : 2,
 					"maxclass" : "message",
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 49.661149263381958, 603.874370171503529, 539.006185054779053, 35.0 ],
-					"text" : "0. 0. 0. 0. 0. 0.57247 0.802215 0.927525 0.974079 0.975932 0.975759 0.949081 0.845751 0.655901 0.201464 0. 0. 0. 0."
+					"patching_rect" : [ 49.661149263381958, 603.874370171503529, 539.006185054779053, 22.0 ],
+					"text" : "0. 0.852533 0.983713 0.852533 0."
 				}
 
 			}
@@ -2085,7 +2068,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-12", 0 ],
-					"midpoints" : [ 261.070276916027069, 160.240969777107239, 7.228915929794312, 160.240969777107239, 7.228915929794312, 57.831327438354492, 24.167361021041884, 57.831327438354492 ],
+					"midpoints" : [ 261.070276916027069, 158.940378395716152, 4.61881896853447, 158.940378395716152, 4.61881896853447, 55.852762667337856, 24.167361021041884, 55.852762667337856 ],
 					"source" : [ "obj-55", 0 ]
 				}
 

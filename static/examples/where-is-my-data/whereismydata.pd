@@ -1,5 +1,5 @@
-#N canvas -1664 289 1325 669 12;
-#N canvas -1102 113 1102 625 makesine 0;
+#N canvas 66 51 1325 669 12;
+#N canvas 0 113 1102 625 makesine 0;
 #X obj 271 169 until;
 #X obj 271 243 / 20;
 #X obj 271 267 * 3.1415;
@@ -54,7 +54,7 @@
 #X text 81 147 2: Full;
 #X obj 60 171 t b b b f, f 20;
 #X msg 197 198 padding \$1;
-#N canvas -1273 587 450 300 fftsettings 0;
+#N canvas 245 545 450 300 fftsettings 0;
 #X obj 59 24 inlet;
 #X obj 59 81 pack f f, f 13;
 #X obj 59 105 t b l, f 13;
@@ -159,11 +159,7 @@
 #X obj 284 91 cnv 15 15 15 empty empty empty 20 12 0 14 #c6ffc7 #404040 0;
 #X text 283 89 .. Play with the window and hop sizes to see how the patch reacts, f 33;
 #X text 150 524 0;
-#X text 297 524 1000;
-#X text 465 525 2000;
-#X text 619 526 3000;
 #X obj 655 331 cnv 15 15 15 empty empty empty 20 12 0 14 #c6ffc7 #404040 0;
-#X text 654 329 .. fluid.waveform displays 1000 samples of silence \, 1000 samples of a sine waves \, then 10000 samples of silence., f 17;
 #X obj 655 461 cnv 15 15 15 empty empty empty 20 12 0 14 #c6ffc7 #404040 0;
 #X text 654 459 .. The red line shows the pitch confidence in relation to the sine waves, f 17;
 #X obj 845 164 cnv 15 15 15 empty empty empty 20 12 0 14 #c6ffc7 #404040 0;
@@ -178,13 +174,16 @@
 #X text 1195 333 .. The first frame stats negative half the window size, f 14;
 #X obj 1212 532 cnv 15 15 15 empty empty empty 20 12 0 14 #c6ffc7 #404040 0;
 #X text 1211 530 .. The first frame stats negative window size-hopsize, f 14;
-#X text 486 135 You should notice that the output is symettrical whenver the hopsize is an equal division of the window size, f 25;
 #X text 326 161 WINDOW SIZE, f 6;
 #X text 421 162 HOP SIZE;
-#X text 51 608 In the default state of the patch \, the pitch/confidence outputs are symmetrical. This is because the window size fits perfectly into the buffer size. This means that the median output will always contain the full 1000 samples of sine wave. This is true as long as the window size is 1000 and the hopsize is a division of 1000, f 109;
 #X text 678 36 Assuming the audio starts at the zeroth sample \, without padding the first half window of samples will be attenuated and not be equally weighted against the later samples. If we use padding \, the windowing will begin before the zeroth sample (and end after the final sample). This uses more windows but allows the first samples to be treated equally., f 87;
 #X text 667 22 WHY USE PADDING?;
 #X obj 113 19 cnv 19 220 30 empty empty Where\ is\ My\ Data 15 15 0 20 #00faff #ffffff 0;
+#X text 297 524 1024;
+#X text 467 525 2048, f 5;
+#X text 619 526 3072;
+#X text 51 608 In the default state of the patch \, the pitch/confidence outputs are symmetrical. This is because the window size fits perfectly into the buffer size. This means that the median output will always contain the full 1024 samples of sine wave. This is true as long as the window size is 1024 and the hopsize is a division of 1024, f 109;
+#X text 654 329 .. fluid.waveform displays 1024 samples of silence \, 1024 samples of a sine wave \, then 1024 samples of silence., f 17;
 #X connect 1 0 3 0;
 #X connect 3 0 4 0;
 #X connect 3 1 9 0;
