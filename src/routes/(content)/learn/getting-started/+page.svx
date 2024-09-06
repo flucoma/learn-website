@@ -22,8 +22,8 @@ featuredimage: /learn/for-featured-images/getting-started-01.jpg
 
 A quick and recommended start is to follow these introductory YouTube tutorials (first [install](/installation)!):
 
-* **[Train a neural network to classify sound based on timbre](/learn/regression-neural-network)**
-* **[Train a neural network to control a synthesizer](/learn/classification-neural-network)**
+* **[Train a neural network to classify sound based on timbre](/learn/classification-neural-network)**
+* **[Train a neural network to control a synthesizer](/learn/regression-neural-network)**
 * **[Code a 2 dimensional sound sample explorer](/learn/2d-corpus-explorer)**
 
 ## Have something more specific in mind? 
