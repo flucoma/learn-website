@@ -78,7 +78,7 @@
 		margin-bottom: 1.5em;
 	}
 	.flair {
-		font-size: 1rem;
+		font-size: 0.75rem;
 		font-weight: bold;
 	}
 	.flair::first-letter {
