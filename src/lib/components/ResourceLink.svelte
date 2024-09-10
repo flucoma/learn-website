@@ -4,37 +4,63 @@
 	export let blurb = '';
 </script>
 
-<div class='container raisedbox'>
+<div class='container'>
 	<a href={url}>
-		<div>{title}</div>
-		<p>{blurb}</p>
-		<a href={url}>{url}</a>
+		<div class="content">
+			<h3 class="title">{title}</h3>
+			<p class="blurb">{blurb}</p>
+			<span class="url">{url}</span>
+		</div>
 	</a>
 </div>
 
 <style>
 	.container {
-		margin-top: 1em;
-		margin-bottom: 1em;
-		padding-top: 1em;
-		padding-bottom: 0.5em;
+		margin: 1em 0;
+		border-radius: 12px;
+		overflow: hidden;
+		box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+		transition: transform 0.3s ease, box-shadow 0.3s ease;
 	}
+
 	.container:hover {
-		box-shadow: rgb(255, 255, 255) -5px 5px, rgba(3, 113, 181, 0.2) -10px 10px, rgba(3, 113, 181, 0.1) -15px 15px, rgba(3, 113, 181, 0.05) -20px 20px;
-
-	}
-	a > p {
-		color: var(--grey);
-		margin: 0;
+		transform: translateY(-2px);
+		box-shadow: 0 8px 12px rgba(0, 0, 0, 0.1), 0 3px 6px rgba(0, 0, 0, 0.08);
 	}
 
-	a:hover {
-		background: transparent;
-		color: var(--med-blue);
-	}
 	.container > a {
-		color: black;
 		text-decoration: none;
-		width: 100%;
+		color: inherit;
+		display: block;
+		background-color: white;
+	}
+
+	.content {
+		padding: 1.5em;
+	}
+
+	.title {
+		font-size: 1.2rem;
+		font-weight: bold;
+		color: var(--dark-blue);
+		margin: 0 0 0.5em;
+		line-height: 1.3;
+	}
+
+	.blurb {
+		font-size: 0.9rem;
+		color: #595959;
+		margin: 0 0 0.5em;
+		line-height: 1.4;
+	}
+
+	.url {
+		font-size: 0.8rem;
+		color: var(--med-blue);
+		word-break: break-all;
+	}
+
+	.container:hover .title {
+		color: var(--med-blue);
 	}
 </style>

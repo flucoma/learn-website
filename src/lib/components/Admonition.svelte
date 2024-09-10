@@ -1,22 +1,15 @@
 <script>
 	export let type = 'note';
 
-	const lookup = new Map();
-	[
+	const lookup = new Map([
 		['note', 'Note'],
 		['warn', 'Warning'],
 		['danger', 'Danger'],
 		['pointer', 'Pointer']
-	].map(x => lookup.set(x[0], x[1]));
+	]);
 </script>
 
-<div
-	class="container"
-	class:note={type === 'note'}
-	class:warn={type === 'warn'}
-	class:danger={type === 'danger'}
-	class:pointer={type === 'pointer'}
->
+<div class="container {type}">
 	<div class="header">{lookup.get(type)}</div>
 	<div class="text">
 		<slot />
@@ -29,21 +22,24 @@
 		--border-color: rgba(52, 52, 171, 0.63);
 		border-left: 4px solid var(--border-color);
 		color: rgb(65, 65, 65);
-		border-radius: 0.25rem;
-		margin-top: 1em;
-		margin-bottom: 1em;
-		box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+		border-radius: 12px;
+		margin: 1.5em 0; 
+		box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+		overflow: hidden;
 	}
 
 	.text > :global(p) {
-		padding: 1em;
+		padding: 1.25em;
+		margin: 0;
+		font-size: 0.95rem;
+		line-height: 1.5;
 	}
 
 	.header {
 		background-color: var(--bg-color);
 		font-weight: 800;
-		padding: 0.5em;
-		padding-left: 1em;
+		padding: 0.75em 1.25em;
+		font-size: 1.1rem;
 	}
 
 	.note {

@@ -17,9 +17,9 @@
 		padding: 0.5em;
 		color: white;
 		text-decoration: none;
-		box-shadow: 5px 5px 0 0 var(---med-blue);
-		transition: background-color 150ms linear;
-		box-shadow: rgba(3, 113, 181, 0.6) -5px 5px, rgba(3, 113, 181, 0.25) -10px 10px, rgba(3, 113, 181, 0.1) -15px 15px;
+		border-radius: 12px;
+		transition: background-color 150ms linear, transform 0.3s ease, box-shadow 0.3s ease;
+		box-shadow: 0 4px 6px rgba(3, 113, 181, 0.2), 0 1px 3px rgba(3, 113, 181, 0.1);
 		word-wrap: none;
 		overflow: hidden;
 		min-width: fit-content;
@@ -27,9 +27,12 @@
 
 	.btn:hover {
 		background-color: var(--med-blue);
+		transform: translateY(-2px);
+		box-shadow: 0 8px 12px rgba(3, 113, 181, 0.2), 0 3px 6px rgba(3, 113, 181, 0.1);
 	}
 
 	.btn:active {
 		background-color: var(--light-blue);
+		transform: translateY(0);
 	}
 </style>

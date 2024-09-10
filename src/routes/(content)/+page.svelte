@@ -43,10 +43,25 @@
 	</Masonry>
 </section>
 
-			
 <style>
 	.feature {
 		padding-left: 2em;
 		padding-right: 2em;
+	}
+
+	h2 {
+		font-size: 1.5rem;
+		margin-bottom: 0.5em;
+	}
+
+	p {
+		font-size: 1rem;
+		color: #595959;
+		margin-bottom: 1em;
+	}
+
+	:global(.svelte-bricks) {
+		border-radius: 12px;
+		overflow: hidden;
 	}
 </style>

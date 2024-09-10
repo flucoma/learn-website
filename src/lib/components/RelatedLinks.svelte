@@ -39,7 +39,7 @@
 	bind:this={hoverable}
 	>
 		<div class="flair">{hoverInfo.flair}</div>
-		<hr class="hoverInfo.flair" />
+		<hr class={hoverInfo.flair} />
 		<div class="blurb">{hoverInfo.blurb}</div>
 	</div>
 {/if}
@@ -52,76 +52,89 @@
 				href={link.url}
 				on:mouseenter={e => mouseEnter(e, link)}
 				on:mouseleave={stopHover}
-				>{link.title}
+			>{link.title}
 			</a>
 		{/each}
 	{/each}
 </div>
 
 <style>
-	.link {
-		padding: 0.25em;
-		text-decoration: none;
-		color: white;
-		border-radius: 0.25rem;
-	}
-
-	.link:hover {
-		color: white;
-	}
 	.container {
-		font-size: 0.75rem;
+		font-size: 0.9rem;
 		display: flex;
 		flex-direction: row;
 		flex-wrap: wrap;
-		gap: 1em;
+		gap: 0.75em;
 		margin-bottom: 1.5em;
 	}
-	.flair {
-		font-size: 0.75rem;
-		font-weight: bold;
+	.link {
+		padding: 0.5em 0.75em;
+		text-decoration: none;
+		color: var(--dark-blue);
+		border-radius: 12px;
+		transition: all 0.3s ease;
+		border: 1px solid transparent;
 	}
-	.flair::first-letter {
-		text-transform: capitalize;
-	}
-	.blurb {
-		color: black;
+	.link:hover {
+		color: white;
+		transform: translateY(-2px);
 	}
 	.hoverable {
 		position: absolute;
 		max-width: 300px;
 		z-index: 98;
-		background-color: rgba(255, 255, 255, 0.95);
-		padding: 0.5em;
-		outline-width: 2px;
-		font-size: 0.8rem;
-		border-radius: 0.25rem;
+		background-color: white;
+		padding: 1em;
+		border-radius: 12px;
+		box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+		font-size: 0.9rem;
+	}
+	.flair {
+		font-size: 0.75rem;
+		font-weight: bold;
+		text-transform: capitalize;
+		margin-bottom: 0.5em;
+	}
+	.blurb {
+		color: #595959;
+		line-height: 1.4;
+	}
+	hr {
+		border: none;
+		height: 2px;
+		margin: 0.5em 0;
 	}
 
 	.rel-tutorial {
 		color: var(--tutorial-flair);
-		border: 2px solid var(--tutorial-flair);
+		border-color: var(--tutorial-flair);
 	}
-
 	.rel-tutorial:hover {
+		background-color: var(--tutorial-flair);
+	}
+	.rel-tutorial hr {
 		background-color: var(--tutorial-flair);
 	}
 
 	.rel-reference {
 		color: var(--reference-flair);
-		border: 2px solid var(--reference-flair);
+		border-color: var(--reference-flair);
 	}
-
 	.rel-reference:hover {
+		background-color: var(--reference-flair);
+	}
+	.rel-reference hr {
 		background-color: var(--reference-flair);
 	}
 
 	.rel-article {
 		color: var(--article-flair);
-		border: 2px solid var(--article-flair);
+		border-color: var(--article-flair);
 	}
-
 	.rel-article:hover {
+		background-color: var(--article-flair);
+	}
+	.rel-article hr {
 		background-color: var(--article-flair);
 	}
 </style>
