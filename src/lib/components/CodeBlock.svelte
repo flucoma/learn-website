@@ -18,10 +18,12 @@
 
 <div bind:this={block} class="container" class:not-snippet={!snippet}>
 	{#if !snippet}
-		<div class="header">{title}</div>
+	<div class="header">
+		{title}
+		<Copy on:click={copyCode} />
+	</div>
 	{/if}
 	<div class="code">
-		<Copy on:click={copyCode} />
 		<slot />
 	</div>
 </div>
@@ -30,7 +32,7 @@
 	.container {
 		position: relative;
 		max-height: 600px;
-		border-radius: 0.25rem;
+		border-radius: 12px;
 		margin-bottom: 1em;
 		max-height: 500px;
 		overflow: auto;
