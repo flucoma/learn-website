@@ -6,7 +6,7 @@ layout: contentindex
 	import { fade } from 'svelte/transition';
 	import { db } from '$lib/app';
 	import References from '$lib/components/mosaic/References.svelte';
-	import FuzzySearch from 'fuzzy-search';	
+	import Fuse from 'fuse.js';	
 
 	let references = db.filter(x => x.section === 'reference');
 
@@ -24,20 +24,22 @@ layout: contentindex
 		categorised[r.category].push(r)
 	});
 
-	const search = new FuzzySearch(references, ['title', 'tags', 'blurb', 'category'], {
-		caseSensitive: false,
-		sort: false
-	})
+	const fuse = new Fuse(references, {
+		keys: ['title', 'tags', 'blurb', 'category'],
+		threshold: 0.4,
+		includeScore: true
+	});
 
 	function populateItems() {
 		return Object.entries(categorised).map(k => ({ "category" : k[0], "refs" : k[1] }));
 	}
 	let items = populateItems();
+	
 	function doSearch() {
 		Object.keys(categorised).forEach(c => {
 			categorised[c] = [];
 		});
-		let result = query === '' ? references : search.search(query);		
+		let result = query === '' ? references : fuse.search(query).map(r => r.item);		
 		result.forEach(r => { 
 			categorised[r.category].push(r);
 		});
@@ -49,17 +51,20 @@ layout: contentindex
 <div class="reference-page">
 	<h1 class='title'>Reference</h1>
 
-	<form>
-		<label class="visually-hidden" for="query">Search references</label>
-		<input 
-			bind:value={query} 
-			on:input={doSearch}
-			placeholder='Search references...'
-			id="query"
-		>
-	</form>
+    <div class="sticky-search">
+    	<form>
+    		<label class="visually-hidden" for="query">Search references</label>
+    		<input
+    			bind:value={query}
+    			on:input={doSearch}
+    			placeholder='Search references...'
+    			id="query"
+    		>
+    	</form>
+    </div>
 
-	<References bind:items={items} />
+    <References bind:items={items} />
+
 </div>
 
 <style>
@@ -70,6 +75,14 @@ layout: contentindex
 	.title {
 		color: var(--dark-blue);
 		margin-bottom: 1em;
+	}
+
+	.sticky-search {
+		position: sticky;
+		top: 0;
+		background-color: var(--background-color, white);
+		padding: 1em 0;
+		z-index: 10;
 	}
 
 	form {

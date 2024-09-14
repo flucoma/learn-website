@@ -68,12 +68,4 @@
 			margin: 1em 2em 1em 0;
 		}
 	}
-
-	@media (max-width: 768px) {
-		.toc-container {
-			max-width: none;
-			width: 100%;
-			margin: 1em 0;
-		}
-	}
 </style>

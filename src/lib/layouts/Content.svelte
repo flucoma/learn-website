@@ -36,15 +36,15 @@
 	.wrapper {
 		display: grid;
 		grid-template-columns: repeat(3, auto);
+		gap: 1em;
 		justify-content: center;
-		gap: 2em;
-		
-		margin: 1em;
+		margin: 2em;
 		margin-top: 60px;
 	}
 
 	@media (max-width: 1200px) {
 		.wrapper {
+			gap: 0;
 			grid-template-rows: auto auto;
 			grid-template-areas:
 				'navigation'

@@ -17,12 +17,10 @@
 <div class="container">
 	<a href={item.url}>
 		<div class="img_container">
-			<div
+			<img
 				class="feature_image"
-				style="background-image: url({
-					item.feature.featuredimage ||
-					_.sample(item.feature.images) ||
-					'/general/learn_default.jpeg'});"
+				src={item.feature.featuredimage || _.sample(item.feature.images) || '/general/learn_default.jpeg'}
+				alt={item.title}
 			/>
 		</div>
 
@@ -65,6 +63,8 @@
 
 	.img_container {
 		flex: 0 0 auto;
+		aspect-ratio: 16 / 9;
+		overflow: hidden;
 	}
 
 	.text_cont {
@@ -76,10 +76,8 @@
 
 	.feature_image {
 		width: 100%;
-		height: 200px;
-		background-position: center;
-		background-repeat: no-repeat;
-		background-size: cover;
+		height: 100%;
+		object-fit: cover;
 		transition: transform 0.3s ease;
 	}
 
