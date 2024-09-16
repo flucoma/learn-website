@@ -1,47 +1,48 @@
 <script>
 	import ArrowRight from '$lib/components/ArrowRight.svelte';
+
+	const links = [
+		{ href: "https://github.com/flucoma/learn-website/issues/new", text: "File an issue" },
+		{ href: "https://flucoma.org", text: "FluCoMa Home" }
+	];
 </script>
 
 <footer>
 	<div class="content">
-		<a target="_blank" rel='noreferrer' href="https://github.com/flucoma/learn-website/issues/new">
-			File an issue <ArrowRight white={true}/>
-		</a>
-
-		<a target="_blank" rel="noreferrer" href="https://flucoma.org">
-			FluCoMa Home <ArrowRight white={true}/>
-		</a>
+		{#each links as { href, text }}
+			<a {href} target="_blank" rel="noreferrer">
+				{text} <ArrowRight white={true} />
+			</a>
+		{/each}
 	</div>
 </footer>
 
 <style>
 	footer {
-		position: relative;
 		min-height: var(--footer-height);
 		background-color: var(--dark-blue);
 		display: grid;
 		place-items: center;
 	}
+
 	.content {
-		display: grid;
-		grid-template-columns: repeat(2, auto);
+		display: flex;
 		justify-content: space-around;
-		place-items: center;
-		padding: 0;
-		margin: 0;
 		width: 100%;
+		padding: 1rem;
 	}
 
 	.content > a {
 		color: white;
 		font-size: 1rem;
 		text-decoration: none;
-		display: grid;
-		grid-template-columns: auto auto;
-		place-items: center;
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+		transition: opacity 0.2s ease-in-out;
 	}
 
 	a:hover {
-		background-color: transparent;
+		opacity: 0.8;
 	}
 </style>

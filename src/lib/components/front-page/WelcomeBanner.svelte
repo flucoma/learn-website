@@ -7,7 +7,7 @@
 		<h1><strong>Welcome to the Fluid Corpus Manipulation Learn Platform!</strong></h1>
 		<p>The Fluid Corpus Manipulation project (FluCoMa) instigates new musical ways of exploiting ever-growing banks of sound and gestures within the digital composition process, by bringing breakthroughs of signal decomposition DSP and machine learning to the toolset of techno-fluent computer composers, creative coders and digital artists.</p>
 		<div id="buttons">
-			<WelcomeButton url='/getting-started' text='Getting Started'/>
+			<WelcomeButton url='/learn/getting-started' text='Getting Started'/>
 			<WelcomeButton url='/learn' text='Learn'/>
 			<WelcomeButton url='/explore' text='Explore'/>
 			<WelcomeButton url='/reference' text='Reference'/>

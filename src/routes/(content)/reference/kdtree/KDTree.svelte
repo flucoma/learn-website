@@ -4,7 +4,7 @@
  -->
 <script>
 	import { onMount } from 'svelte';
-	import { CanvasSpace, Create, GroupLike, Circle } from 'pts';
+	import { CanvasSpace, Create, Circle } from 'pts';
 	import Slider from '$lib/components/Slider.svelte';
 	import Button from '$lib/components/Button.svelte';
 

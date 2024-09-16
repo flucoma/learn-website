@@ -6,8 +6,7 @@ layout: contentindex
 	import { fade } from 'svelte/transition';
 	import { db } from '$lib/app';
 	import References from '$lib/components/mosaic/References.svelte';
-	import ArrowRight from '$lib/components/ArrowRight.svelte';
-	import FuzzySearch from 'fuzzy-search';	
+	import Fuse from 'fuse.js';	
 
 	let references = db.filter(x => x.section === 'reference');
 
@@ -25,20 +24,22 @@ layout: contentindex
 		categorised[r.category].push(r)
 	});
 
-	const search = new FuzzySearch(references, ['title', 'tags', 'blurb', 'category'], {
-		caseSensitive: false,
-		sort: false
-	})
+	const fuse = new Fuse(references, {
+		keys: ['title', 'tags', 'blurb', 'category'],
+		threshold: 0.4,
+		includeScore: true
+	});
 
 	function populateItems() {
 		return Object.entries(categorised).map(k => ({ "category" : k[0], "refs" : k[1] }));
 	}
 	let items = populateItems();
+	
 	function doSearch() {
 		Object.keys(categorised).forEach(c => {
 			categorised[c] = [];
 		});
-		let result = query === '' ? references : search.search(query);		
+		let result = query === '' ? references : fuse.search(query).map(r => r.item);		
 		result.forEach(r => { 
 			categorised[r.category].push(r);
 		});
@@ -47,25 +48,71 @@ layout: contentindex
 	}
 </script>
 
-<h1 class='title'>Reference</h1>
+<div class="reference-page">
+	<h1 class='title'>Reference</h1>
 
-<form>
-	<label class="visually-hidden" for="query"></label>
-	<input 
-	bind:value={query} 
-	on:input={doSearch}
-	placeholder='Enter a search term'
-	>
-</form>
+    <div class="sticky-search">
+    	<form>
+    		<label class="visually-hidden" for="query">Search references</label>
+    		<input
+    			bind:value={query}
+    			on:input={doSearch}
+    			placeholder='Search references...'
+    			id="query"
+    		>
+    	</form>
+    </div>
 
-<References bind:items={items} />
+    <References bind:items={items} />
+
+</div>
 
 <style>
-	form > input {
+	.reference-page {
+		width: 100%;
+	}
+
+	.title {
+		color: var(--dark-blue);
 		margin-bottom: 1em;
-		font-size: 1.5rem;
-		border: none;
+	}
+
+	.sticky-search {
+		position: sticky;
+		top: 0;
+		background-color: var(--background-color, white);
+		padding: 1em 0;
+		z-index: 10;
+	}
+
+	form {
+		margin-bottom: 2em;
+	}
+
+	input {
+		width: 100%;
+		font-size: 1rem;
+		padding: 0.75em 1em;
+		border: 1px solid #e0e0e0;
+		border-radius: 12px;
+		transition: all 0.3s ease;
+	}
+
+	input:focus {
 		outline: none;
-		border-bottom: 1px solid grey;
+		border-color: var(--med-blue);
+		box-shadow: 0 0 0 2px rgba(3, 113, 181, 0.2);
+	}
+
+	.visually-hidden {
+		position: absolute;
+		width: 1px;
+		height: 1px;
+		padding: 0;
+		margin: -1px;
+		overflow: hidden;
+		clip: rect(0, 0, 0, 0);
+		white-space: nowrap;
+		border: 0;
 	}
 </style>

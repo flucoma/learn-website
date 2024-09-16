@@ -45,6 +45,7 @@ body {
 	text-rendering: optimizeLegibility;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+	color: #333; /* Default text color */
 }
 
 h1,
@@ -55,6 +56,7 @@ h5,
 h6 {
 	font-family: var(--font);
 	margin: 0.6em 0;
+	line-height: 1.3;
 }
 
 ul,
@@ -140,4 +142,40 @@ code {
 
 h2 > a:hover {
 	background-color: transparent;
+}
+
+/* New styles for consistency across components */
+.component-title {
+	font-size: 1.2rem;
+	font-weight: bold;
+	margin-bottom: 0.5em;
+	line-height: 1.3;
+}
+
+.component-text {
+	font-size: 0.9rem;
+	line-height: 1.4;
+}
+
+.small-text {
+	font-size: 0.8rem;
+}
+
+.flair, .url {
+	font-size: 0.75rem;
+	font-weight: bold;
+}
+
+.hover-effect {
+	transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-effect:hover {
+	transform: translateY(-2px);
+	box-shadow: 0 8px 12px rgba(0, 0, 0, 0.1), 0 3px 6px rgba(0, 0, 0, 0.08);
+}
+
+.rounded-corners {
+	border-radius: 12px;
+	overflow: hidden;
 }

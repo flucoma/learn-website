@@ -52,7 +52,12 @@ const config = {
 		})
 	],
 	kit: {
-		adapter: adapter()
+		adapter: adapter(),
+		prerender: {
+			handleHttpError: ({ path, referrer, error }) => {
+				throw new Error(path, referrer, error);
+			}
+		}
 	}
 };
 
