@@ -13,7 +13,7 @@ category: Slice Sound
     import Admonition from '$lib/components/Admonition.svelte';
     import ResourceLink from '$lib/components/ResourceLink.svelte';
     import NoveltySSM from './NoveltySSM.svelte';
-    import NoveltyCurve from './NoveltyCurve.svelte';
+    import Image from '$lib/components/Image.svelte';
 </script>
 
 NoveltySlice provides a broad concept for thinking about how we might be able say _this_ bit of a sound is different from _that_ bit. It's useful for slicing when we want a more general basis for distinguishing between segments than looking for the start of well defined events with [onsets](/reference/onsetslice), [transients](/reference/transientslice) or changes in the envelope. It can be especially useful when we're interested in making longer slices than you might get with these typically more finely-grained methods.
@@ -28,9 +28,12 @@ For an interactive example of an SSM see [this website](https://colinmorris.gith
 
 </Admonition>
 
-What we're interested in is how much "novelty" appears to be present from one moment to the next, in other words, over a given window of time how similar is "now" to the past. We can find this out from our SSM by adding together all the differences in a window around a given moment, and making a "novelty curve". Then, we can estimate likely places to make slices by looking for peaks in this curve. If we're interested in longer slices, one thing we can do is to make the time window that we sum together larger (the _kernel size_). Additionally, we can apply smoothing to the novelty curve to suppresses smaller / shorter peaks and focus instead on larger / longer ones. Below is a depiction of a novelty curve, computed on the self-similarity matrix you can see above with a kernel size of 41. The detected peaks (read slice points) that come out of this are marked in red.
+What we're interested in is how much "novelty" appears to be present from one moment to the next, in other words, over a given window of time how similar is "now" to the past. We can find this out from our SSM by adding together all the differences in a window around a given moment, and making a "novelty curve". Then, we can estimate likely places to make slices by looking for peaks in this curve. If we're interested in longer slices, one thing we can do is to make the time window that we sum together larger (the _kernel size_). Additionally, we can apply smoothing to the novelty curve to suppresses smaller / shorter peaks and focus instead on larger / longer ones. Below is a depiction of a novelty curve (in blue), computed on the self-similarity matrix you can see above with a kernel size of 41. The detected peaks (aka slice points) that come out of this with process (with a threshold of 0.25) are marked in red.
 
-<NoveltyCurve />
+<Image
+src="/reference/noveltyslice/peaks-and-slices.jpg"
+label="Novelty curve (blue) computed on Tremblay-AaS-VoiceQC-B2K-M (grey), with peaks (red) identified as slice points."
+/>
 
 This kind of approach is very flexible, because it allows us to tune the lengths of the slices that we're interested in, and to remain relatively ambivalent about the exact properties of the signal that denote novelty (meaning that it may be able to pick up on multiple aspects of what we hear). As such, this kind of technique is quite common in what's called "structural segmentation" in the Music Information Retrieval field, where the focus is on slicing a relatively long passage, like a complete song or movement, into a number of broad sections.
 
