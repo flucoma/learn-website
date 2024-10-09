@@ -114,6 +114,7 @@
 , 			{
 				"box" : 				{
 					"candycane" : 10,
+					"contdata" : 1,
 					"ghostbar" : 100,
 					"id" : "obj-14",
 					"maxclass" : "multislider",
