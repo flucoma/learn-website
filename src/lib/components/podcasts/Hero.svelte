@@ -1,5 +1,5 @@
-<img id='podcast-banner' src='/img/podcast_banner.jpg' alt='FluCoMa podcast logo'/>
-<h2>FluCoMa Learn Podcast</h2>
+<img id='podcast-banner' src='/img/podcast_banner.jpg' alt='FluCoMa Podcast logo'/>
+<h2><a href="/">FluCoMa Learn</a> Podcast</h2>
 <div>FluCoMa Learn Podcasts are an intermittent series of interviews with artists discussing their work using and experimenting with machine learning and machine listening.</div>
 <div class="links">
 	<a class="podcasts-link raisedbox" href='https://podcasts.apple.com/gb/podcast/flucoma-learn-podcasts/id1678385732'>
