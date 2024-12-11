@@ -7,3 +7,5 @@ tags:
 flair: reference
 category: Utility Objects
 ---
+
+The [BufThresh]() object replaces all values of a buffer under the given threshold with 0 and copy the result to a destination buffer.
