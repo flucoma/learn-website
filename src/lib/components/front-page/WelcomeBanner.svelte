@@ -9,8 +9,8 @@
 		<div id="buttons">
 			<WelcomeButton url='/learn/getting-started' text='Getting Started'/>
 			<WelcomeButton url='/learn' text='Learn'/>
-			<WelcomeButton url='/explore' text='Explore'/>
 			<WelcomeButton url='/reference' text='Reference'/>
+			<WelcomeButton url='/explore' text='Explore'/>
 		</div>
 	</div>
 	<div id='welcome-right'>
