@@ -45,6 +45,8 @@ url={'zeOm9w3ZJVc'}
 "*I've spent a possibly unhealthy amount of time over the last decade discovering that bowed cardboard can make some pretty cool noises, and that computers struggle with them. 
 This is a new improvisation system for bowed box and electronics that attempts to 'learn' things about the sounds, and to transform and respond to them, driven by my playing.*"
 
+You can learn more about Owen's work for the project [here](/explore/raw-green-rust).
+
 ## Olivier Pasquet - Herbig Haro (HH)
 
 <YouTube 
@@ -82,7 +84,7 @@ url={'MTWklm1oXWQ'}
 
 "*A solo improvisation on drums and electronics, using old and new software instruments to expand an already expanded drum set.*"
 
-You can learn more about Rodrigo's work for the project [here]().
+You can learn more about Rodrigo's work for the project [here](/explore/constanzo).
 
 ## Leafcutter John - Line Crossing
 
@@ -93,3 +95,5 @@ url={'hYaZq1JCTQo'}
 "*Line Crossing takes ideas commonly associated with generative visual art and applies them to the performance of musical material. 
 Using a simple set of behaviours a graphical score is generated and used to control the playback and manipulation of sounds created by the performer. 
 These sounds influence the score creation in real time which in turn affect the sonic output of the system creating an unpredictable feedback loop.*"
+
+You can learn more about John's work for the project [here](/explore/burton).
