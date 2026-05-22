@@ -11,9 +11,14 @@ flair: article
 <script>
     import Image from '$lib/components/Image.svelte';
     import { Tabs, TabList, TabPanel, Tab } from '$lib/components/tabs/tabs';
-    import CodeBlock from '$lib/components/CodeBlock.svelte';
     import Admonition from '$lib/components/Admonition.svelte';
 </script>
+
+<Admonition type="note">
+
+The FluCoMa package is now part of Max's native [Package Manager](https://docs.cycling74.com/userguide/package_manager/). This insures the latest public version of the package is installed, and therefore this is the recommended approach. The instructions below are for a manual installation.
+
+</Admonition>
 
 ## Step 1: Download the Max Package
 
@@ -57,20 +62,6 @@ Now check that the installation worked.
 1. Restart Max.
 
 2. Open <a href='/installation/max-install-test.maxpat' download='max-install-test.maxpat'>this patch</a>.
-
-<Admonition type="danger">
-
-Binaries compiled by us for macOS are signed and notarised. However, you might need to "dequarantine" them. The command below will recursively do this for you if you provide it the valid path to the FluCoMa package, which should be located in the Max packages folder.
-
-<CodeBlock title='Dequarantine Instructions' snippet={true}>
-
-```sh
-xattr -d -r com.apple.quarantine <path_to_package>
-```
-
-</CodeBlock>
-
-</Admonition>
 
 
 
