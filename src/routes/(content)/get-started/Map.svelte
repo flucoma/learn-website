@@ -1,8 +1,6 @@
 <script>
 	import { onMount } from 'svelte';
-	import { Chart, registerables } from 'chart.js';
-	import * as d3 from 'd3';
-	import * as _ from 'lodash';
+	import { sample } from '$lib/util';
 	import metric0 from '$lib/data/reference/mds/metric_0.json';
 	import metric1 from '$lib/data/reference/mds/metric_1.json';
 	import metric2 from '$lib/data/reference/mds/metric_2.json';
@@ -11,6 +9,7 @@
 	import metric5 from '$lib/data/reference/mds/metric_5.json';
 
 	let canvas, ctx, chart, timer;
+	let d3;
 
 	const metric = [
 		Object.values(metric0.data).map(x => [...x, Math.random() * 4]),
@@ -23,13 +22,11 @@
 
 	const numpoints = 200;
 
-	const colours = metric[0].map(v => d3.interpolateBlues(v[0] * 4 * v[1] + 0.4));
-
 	const change = () => {
 		clearInterval(timer);
 		const time = Math.random() * 3000 + 2000;
 		timer = setInterval(change, time);
-		chart.data.datasets[0].data = _.sample(metric).slice(0, numpoints);
+		chart.data.datasets[0].data = sample(metric).slice(0, numpoints);
 		let colour;
 		const choice = Math.random();
 		if (choice > 0.66) {
@@ -46,8 +43,15 @@
 	};
 
 	onMount(async () => {
+		const [{ Chart, registerables }, d3Mod] = await Promise.all([
+			import('chart.js'),
+			import('d3')
+		]);
+		d3 = d3Mod;
 		Chart.register(...registerables);
 		ctx = canvas.getContext('2d');
+
+		const colours = metric[0].map(v => d3.interpolateBlues(v[0] * 4 * v[1] + 0.4));
 
 		const data = {
 			datasets: [

@@ -1,10 +1,8 @@
 <script>
-	import { interpolateSinebow } from 'd3';
-	import { tensor } from '@tensorflow/tfjs';
 	import { onMount } from 'svelte';
-	import { Chart, registerables } from 'chart.js';
+
+	let interpolateSinebow, tensor, KMeans;
 	import Button from '$lib/components/Button.svelte';
-	import KMeans from '@flucoma/tf-kmeans';
 	import Select from 'svelte-select';
 	import datasets from '$lib/data/datasets/datasets.json';
 
@@ -59,6 +57,20 @@
 	};
 
 	onMount(async () => {
+		const [
+			{ Chart, registerables },
+			d3Mod,
+			tfjsMod,
+			tfKmeansMod
+		] = await Promise.all([
+			import('chart.js'),
+			import('d3'),
+			import('@tensorflow/tfjs'),
+			import('@flucoma/tf-kmeans')
+		]);
+		interpolateSinebow = d3Mod.interpolateSinebow;
+		tensor = tfjsMod.tensor;
+		KMeans = tfKmeansMod.default;
 		Chart.register(...registerables);
 		ctx = canvas.getContext('2d');
 

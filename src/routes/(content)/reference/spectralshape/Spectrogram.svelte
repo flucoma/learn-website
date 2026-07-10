@@ -1,7 +1,5 @@
 <script>
 	import { onMount } from 'svelte';
-	import { Chart, registerables } from 'chart.js';
-	import annotationPlugin from 'chartjs-plugin-annotation';
 
 	export let windowSize = 512;
 	export let spectrum = new Array(windowSize).fill(0.0);
@@ -14,6 +12,10 @@
 
 	onMount(async () => {
 		// Chart
+		const [{ Chart, registerables }, annotationPlugin] = await Promise.all([
+			import('chart.js'),
+			import('chartjs-plugin-annotation').then(m => m.default)
+		]);
 		Chart.register(...registerables, annotationPlugin);
 		ctx = canvas.getContext('2d');
 		const data = {

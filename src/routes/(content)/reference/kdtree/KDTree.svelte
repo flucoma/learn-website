@@ -4,7 +4,6 @@
  -->
 <script>
 	import { onMount } from 'svelte';
-	import { CanvasSpace, Create, Circle } from 'pts';
 	import Slider from '$lib/components/Slider.svelte';
 	import Button from '$lib/components/Button.svelte';
 
@@ -26,6 +25,7 @@
 	}
 
 	onMount(async () => {
+		const { CanvasSpace, Create, Circle } = await import('pts');
 		let space = new CanvasSpace('#sketch');
 		let darkBlue = 'rgba(8, 60, 100,0.5)';
 		space.setup({

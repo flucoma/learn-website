@@ -1,7 +1,6 @@
 <script>
 	import { fromArrayBuffer } from 'numpy-parser';
 	import { onMount } from 'svelte';
-	import { Chart, registerables } from 'chart.js';
 
 	const db = '/reference/loudness/db.npy';
 	const freq = '/reference/loudness/filter.npy';
@@ -31,6 +30,7 @@
 			});
 
 		// Chart
+		const { Chart, registerables } = await import('chart.js');
 		Chart.register(...registerables);
 		const ctx = canvas.getContext('2d');
 		let data = {

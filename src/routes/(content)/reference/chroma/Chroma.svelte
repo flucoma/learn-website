@@ -1,6 +1,5 @@
 <script>
 	import { onMount } from 'svelte';
-	import { Chart, registerables } from 'chart.js';
 	import * as Meyda from 'meyda';
 	import Button from '$lib/components/Button.svelte';
 
@@ -32,6 +31,7 @@
 
 	onMount(async () => {
 		// Chart
+		const { Chart, registerables } = await import('chart.js');
 		Chart.register(...registerables);
 		ctx = canvas.getContext('2d');
 		const labels = 'A A# B C C# D D# E F F# G G#'.split(' ');

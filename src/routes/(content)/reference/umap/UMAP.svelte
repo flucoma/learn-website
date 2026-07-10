@@ -1,10 +1,9 @@
 <script>
-	import { UMAP } from 'umap-js';
 	import { onMount } from 'svelte';
-	import { Chart, registerables } from 'chart.js';
 	import Slider from '$lib/components/Slider.svelte';
 	import Button from '$lib/components/Button.svelte';
-	import * as d3 from 'd3';
+
+	let UMAP, d3;
 
 	let canvas, chart, ctx;
 
@@ -120,6 +119,14 @@
 	};
 
 	onMount(async () => {
+		const [{ Chart, registerables }, d3Mod, umapMod] = await Promise.all([
+			import('chart.js'),
+			import('d3'),
+			import('umap-js')
+		]);
+		d3 = d3Mod;
+		UMAP = umapMod.UMAP;
+
 		newData();
 		// Do an initial reduction from the random data to 2 dimensions
 		step();
