@@ -1,19 +1,7 @@
-.event {
-	background-color: rgb(235, 161, 23);
-}
+/* Flair (content-type) colors — used as background pills/badges */
 
-.article {
-	background-color: var(--light-blue);
-}
-
-.reference {
-	background-color: forestgreen;
-}
-
-.podcast {
-	background-color: palevioletred;
-}
-
-.tutorial {
-	background-color: rgba(102, 103, 171, 255);
-}
+.flair-event    { background-color: var(--color-event); }
+.flair-article  { background-color: var(--color-article); }
+.flair-reference { background-color: var(--color-reference); }
+.flair-podcast  { background-color: var(--color-podcast); }
+.flair-tutorial { background-color: var(--color-tutorial); }
