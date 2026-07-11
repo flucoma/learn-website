@@ -109,14 +109,17 @@
 	});
 
 	export let scale = 1;
-	$: if (chart) chart.options.scales.x.type = scale === 0 ? 'linear' : 'logarithmic';
+	$: if (chart) {
+		chart.options.scales.x.type = scale === 0 ? 'linear' : 'logarithmic';
+		chart.update();
+	}
 </script>
 
 <div class="container">
 	<form>
 		<select bind:value={scale} id="scaling" name="spectrogram-scale" placeholder="spectrogram scaling">
 			<option value={0}>Linear</option>
-			<option value={1}>Logarthmic</option>
+			<option value={1}>Logarithmic</option>
 		</select>
 	</form>
 	<canvas id="vis" bind:this={canvas} />
