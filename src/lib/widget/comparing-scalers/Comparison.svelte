@@ -239,7 +239,7 @@
 	<p>Select a scaling type below:</p>
 	<div class="scaling-mode-selector">
 		{#each buttonSpec as spec}
-			<Button width={'150px'} on:click={spec.func} label={spec.label} disabled={activeScale === spec.label} />
+			<Button variant="secondary" width={'150px'} on:click={spec.func} label={spec.label} disabled={activeScale === spec.label} />
 		{/each}
 	</div>
 </div>

@@ -55,7 +55,7 @@
 	<canvas bind:this={canvas} id="scatter-plot" />
 
 	<div id="controls">
-		<Button
+		<Button variant="secondary"
 			width={btnWidth}
 			on:click={() => {
 				chart.data.datasets[0].data = raw;
@@ -64,7 +64,7 @@
 			label="Original State"
 		/>
 
-		<Button
+		<Button variant="secondary"
 			width={btnWidth}
 			on:click={() => {
 				chart.data.datasets[0].data = Object.values(oversample1.data).map(x => x);
@@ -73,7 +73,7 @@
 			label="No Oversampling (1)"
 		/>
 
-		<Button
+		<Button variant="secondary"
 			width={btnWidth}
 			on:click={() => {
 				chart.data.datasets[0].data = Object.values(oversample2.data).map(x => x);
@@ -82,7 +82,7 @@
 			label="Oversampling (2)"
 		/>
 
-		<Button
+		<Button variant="secondary"
 			width={btnWidth}
 			on:click={() => {
 				chart.data.datasets[0].data = Object.values(oversample3.data).map(x => x);
@@ -91,7 +91,7 @@
 			label="Oversampling (3)"
 		/>
 
-		<Button
+		<Button variant="secondary"
 			width={btnWidth}
 			on:click={() => {
 				chart.data.datasets[0].data = Object.values(oversample4.data).map(x => x);
@@ -100,7 +100,7 @@
 			label="Oversampling (4)"
 		/>
 
-		<Button
+		<Button variant="secondary"
 			width={btnWidth}
 			on:click={() => {
 				chart.data.datasets[0].data = Object.values(oversample5.data).map(x => x);

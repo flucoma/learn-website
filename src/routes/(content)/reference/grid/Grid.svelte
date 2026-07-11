@@ -50,7 +50,7 @@
 	<canvas bind:this={canvas} id="scatter-plot" />
 
 	<div id="controls">
-		<Button
+		<Button variant="secondary"
 			width={'max-content'}
 			on:click={() => {
 				chart.data.datasets[0].data = grid;
@@ -59,7 +59,7 @@
 			label="Assign to Grid"
 		/>
 
-		<Button
+		<Button variant="secondary"
 			width={'max-content'}
 			on:click={() => {
 				chart.data.datasets[0].data = raw;

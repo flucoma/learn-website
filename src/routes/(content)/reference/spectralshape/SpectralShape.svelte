@@ -70,7 +70,7 @@
 
 <div class="container">
 	<div class="start">
-		<Button on:click={startAudioDescriptor} label="Start Audio" width="200px" height="40px" disabled={enabled} />
+		<Button variant="secondary" on:click={startAudioDescriptor} label="Start Audio" width="200px" height="40px" disabled={enabled} />
 	</div>
 	<div class="frame" class:disabled={!enabled}>
 		<div class="plot">

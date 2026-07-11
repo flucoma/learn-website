@@ -71,7 +71,7 @@
 </script>
 
 <div class="container">
-	<Button
+	<Button variant="secondary"
 		on:click={() => {
 			fit = true;
 		}}

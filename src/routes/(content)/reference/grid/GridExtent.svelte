@@ -54,7 +54,7 @@
 	<canvas bind:this={canvas} id="scatter-plot" />
 
 	<div id="controls">
-		<Button
+		<Button variant="secondary"
 			width={btnWidth}
 			height={btnHeight}
 			on:click={() => {
@@ -64,7 +64,7 @@
 			label="Original State"
 		/>
 
-		<Button
+		<Button variant="secondary"
 			width={btnWidth}
 			height={btnHeight}
 			on:click={() => {
@@ -74,7 +74,7 @@
 			label="Extent 2 vertical"
 		/>
 
-		<Button
+		<Button variant="secondary"
 			width={btnWidth}
 			height={btnHeight}
 			on:click={() => {
@@ -84,7 +84,7 @@
 			label="Extent 5 horizontal"
 		/>
 
-		<Button
+		<Button variant="secondary"
 			width={btnWidth}
 			height={btnHeight}
 			on:click={() => {

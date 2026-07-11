@@ -68,7 +68,7 @@
 
 	<div class="controls">
 		{#each metric as m, i}
-			<Button
+			<Button variant="secondary"
 				width={'150px'}
 				on:click={() => {
 					chart.data.datasets[0].data = m;

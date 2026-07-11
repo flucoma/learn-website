@@ -121,28 +121,28 @@
 
 	<div class="controls">
 		<div class="sound-select">
-			<Button
+			<Button variant="secondary"
 				label="Bass 🎸"
 				on:click={() => {
 					updateWaveform('/audio/Tremblay-AaS-AcBassGuit-Melo-M');
 				}}
 			/>
 
-			<Button
+			<Button variant="secondary"
 				label="Piano 🎹"
 				on:click={() => {
 					updateWaveform('/audio/Tremblay-SA-UprightPianoPedalWide');
 				}}
 			/>
 
-			<Button
+			<Button variant="secondary"
 				label="Oboe 🎷"
 				on:click={() => {
 					updateWaveform('/audio/Harker-DS-TenOboeMultiphonics-M');
 				}}
 			/>
 
-			<Button
+			<Button variant="secondary"
 				label="Trombone 🎺"
 				on:click={() => {
 					updateWaveform('/audio/Olencki-TenTromboneLongTones-M');

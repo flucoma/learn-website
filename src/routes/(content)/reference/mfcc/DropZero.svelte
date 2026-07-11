@@ -119,8 +119,8 @@
 	<canvas id="filter" bind:this={canvas} />
 	<div class="controls">
 		<Audio {...audioSpec} bind:audio on:play={play} on:pause={pause} />
-		<Button {...zero} on:click={() => dropzero(0)} />
-		<Button {...one} on:click={() => dropzero(1)} />
+		<Button variant="secondary" {...zero} on:click={() => dropzero(0)} />
+		<Button variant="secondary" {...one} on:click={() => dropzero(1)} />
 	</div>
 </div>
 

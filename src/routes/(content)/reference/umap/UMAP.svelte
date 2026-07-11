@@ -169,7 +169,7 @@
 			<Slider bind:value={neighbors} title="Number of Neighbours" min="3" max="99" step="1" chFunc={doStep} />
 		</div>
 		<div class="btns">
-			<Button on:click={doStep} label="Go" />
+			<Button variant="secondary" on:click={doStep} label="Go" />
 
 			<Button
 				on:click={() => {

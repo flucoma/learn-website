@@ -61,7 +61,7 @@
 	</div>
 
 	<div class="preset">
-		<Button
+		<Button variant="secondary"
 			on:click={() => {
 				indices = '0';
 				channels = '0 1 2 3';
@@ -69,7 +69,7 @@
 			width="100%"
 			label="First index of every channel"
 		/>
-		<Button
+		<Button variant="secondary"
 			on:click={() => {
 				indices = '0 1 2 3';
 				channels = '1';
@@ -77,7 +77,7 @@
 			width="100%"
 			label="Every index of second channel"
 		/>
-		<Button
+		<Button variant="secondary"
 			on:click={() => {
 				indices = '0 3';
 				channels = '1 3';

@@ -173,7 +173,7 @@
 </script>
 
 <div class="container">
-	<Button on:click={doMeans} label="Calculate Means" width="100%" disabled={trainDisabled} />
+	<Button variant="secondary" on:click={doMeans} label="Calculate Means" width="100%" disabled={trainDisabled} />
 
 	<div class="controls">
 		<Select {items} on:select={updateData} placeholder="Select a dataset..." showChevron={true} />
