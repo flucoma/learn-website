@@ -15,79 +15,75 @@
 
 <header>
 	{#if w > 1200}
-	<div class='logo-area'>
+		<div class="logo-area">
+			<a class="logo-link" href="/">
+				<img class="logo" src="/img/onlylogo.svg" alt="FluCoMa Logo" />
+				<span class="title">FluCoMa Learn</span>
+			</a>
+			<nav class="links">
+				<a href="/learn">Learn</a>
+				<a href="/reference">Reference</a>
+				<a href="/explore">Explore</a>
+				<a href="/podcast">Podcast</a>
+				<a href="https://discourse.flucoma.org" target="_blank" rel="noreferrer">Discourse</a>
+			</nav>
+		</div>
+		<Search />
+	{:else}
+		<Hamburger on:click={expandHandler} open={$nav_expanded} />
 		<a class="logo-link" href="/">
 			<img class="logo" src="/img/onlylogo.svg" alt="FluCoMa Logo" />
-			<a class="title" href="/"> FluCoMa Learn </a>
 		</a>
-		<div class="links">
-			<a href="/learn">Learn</a>
-			<a href='/reference'>Reference</a>
-			<a href="/explore">Explore</a>
-			<a href="/podcast">Podcast</a>
-			<a href="https://discourse.flucoma.org" target='_blank' rel='noreferrer'>Discourse</a>
-		</div>
-	</div>
-	<Search />
-	{:else}
-	<Hamburger on:click={expandHandler} open={$nav_expanded} />
-	<a class="logo-link" href="/">
-		<img class="logo" src="/img/onlylogo.svg" alt="FluCoMa Logo" />
-	</a>
-	<Search />
+		<Search />
 	{/if}
 </header>
 
 <PopoverNav />
 
-<style >
+<style>
 	header {
 		display: flex;
 		flex-direction: row;
 		align-items: center;
 		justify-content: space-between;
-		background: var(--dark-blue);
-		height: 55px;
+		background: var(--color-primary-800);
+		height: var(--header-height);
 		position: fixed;
 		width: 100%;
 		z-index: 10000;
-		padding-left: 2em;
-		padding-right: 2em;
+		padding-left: var(--space-8);
+		padding-right: var(--space-8);
 	}
 
 	.links {
 		display: flex;
 		flex-direction: row;
-		justify-content: left;
-		gap: 1em;
+		gap: var(--space-4);
 	}
 
 	.links > a {
-		color: white;
+		color: var(--color-text-inverted);
 		text-decoration: none;
+		font-size: var(--text-base);
 	}
 
 	.links > a:hover {
 		text-decoration: underline;
 		background: transparent;
+		color: var(--color-text-inverted);
 	}
 
 	.title {
-		color: white;
-		text-decoration: none;
-	}
-
-	.title:hover {
-		text-decoration: underline;
-		background-color: transparent;
+		color: var(--color-text-inverted);
+		font-size: var(--text-md);
+		font-weight: var(--font-bold);
 	}
 
 	.logo-area {
 		display: flex;
 		align-items: center;
-		justify-content: left;
-		gap: 2em;
-		font-family: var(--font);
+		gap: var(--space-8);
+		font-family: var(--font-sans);
 	}
 
 	.logo {
@@ -99,7 +95,7 @@
 		display: flex;
 		flex-direction: row;
 		align-items: center;
-		gap: 0.5em;
+		gap: var(--space-2);
 		text-decoration: none;
 	}
 
