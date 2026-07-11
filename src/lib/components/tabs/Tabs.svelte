@@ -45,12 +45,12 @@
 	});
 </script>
 
-<div class="tabs">
+<div class="tabs-root">
 	<slot />
 </div>
 
 <style>
-	.tabs {
-		margin-bottom: 1em;
+	.tabs-root {
+		margin: var(--space-8) 0;
 	}
 </style>

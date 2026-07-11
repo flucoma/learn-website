@@ -8,7 +8,12 @@
 	registerTab(tab);
 </script>
 
-<button class:selected={$selectedTab === tab} on:click={() => selectTab(tab)}>
+<button
+	role="tab"
+	aria-selected={$selectedTab === tab}
+	class:selected={$selectedTab === tab}
+	on:click={() => selectTab(tab)}
+>
 	<slot />
 </button>
 
@@ -16,25 +21,27 @@
 	button {
 		background: none;
 		border: 1px solid transparent;
-		padding: 1em;
+		padding: var(--space-2) var(--space-4);
 		cursor: pointer;
-		color: #495057;
-		font-size: 1rem;
-		font-family: var(--font);
+		color: var(--color-text-muted);
+		font-size: var(--text-sm);
+		font-family: var(--font-sans);
+		font-weight: var(--font-semibold);
 		margin: 0;
-		min-width: 13ch; /* Number of characters in the word SuperCollider */
-		transition: border-bottom 0.05s linear;
-		transition: background-color 0.05s linear;
+		border-radius: var(--radius-md);
+		transition: all var(--transition-fast);
+		white-space: nowrap;
 	}
 
 	button:hover {
-		background-color: rgba(28, 164, 252, 0.05);
+		color: var(--color-primary-700);
+		background-color: rgba(28, 164, 252, 0.08);
 	}
 
 	.selected {
-		background-color: #fff;
-		border-bottom: 4px solid var(--light-blue);
-		color: black;
-		background-color: rgba(28, 164, 252, 0.1);
+		background-color: var(--color-background) !important;
+		color: var(--color-primary-800) !important;
+		box-shadow: var(--shadow-sm);
+		border-color: var(--color-neutral-200);
 	}
 </style>
