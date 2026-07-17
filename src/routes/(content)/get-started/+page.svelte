@@ -8,7 +8,7 @@
 <br>
 <br>
 <br>
-<h1>Getting Started</h1>
+<h1>Get Started</h1>
 <h2>Installation</h2>
 <p class='installation-description'>
 	Start by installing the package in your creative coding environement. Max users can download the latest public version via the built-in package manager. To install the latest copy, see the detailled <a href='/installation'>installation instructions</a>.

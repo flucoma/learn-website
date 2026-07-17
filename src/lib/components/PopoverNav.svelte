@@ -6,7 +6,7 @@
 
 {#if $nav_expanded}
 <nav class="popover" transition:fly={{ duration: 200, y: 0, x: -200 }}>
-	<Landing link="/getting-started">
+	<Landing link="/get-started">
 		<h2 slot="title">Get Started</h2>
 		<p slot="blurb" class="blurb">Get Started with the FluCoMa Ecosystem</p>
 	</Landing>

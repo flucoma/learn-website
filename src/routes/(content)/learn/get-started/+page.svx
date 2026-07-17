@@ -10,7 +10,7 @@ tags:
     - start
     - intro
 flair: article
-featuredimage: /learn/for-featured-images/getting-started-01.jpg
+featuredimage: /learn/for-featured-images/get-started-01.jpg
 ---
 
 <script>
