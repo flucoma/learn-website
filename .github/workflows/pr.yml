@@ -13,13 +13,13 @@ jobs:
 
             - uses: actions/setup-node@v4
               with:
-                node-version: 18
+                node-version: 26
 
-            - name: install pnpm
-              run: npm i -g pnpm
+            - name: install node / pm
+              run: npm install -g @nubjs/nub
 
             - name: Install Dependencies
-              run: pnpm i
+              run: nub i
 
             - name: Run Tests
               run: pnpm run test
