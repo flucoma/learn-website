@@ -1,5 +1,6 @@
 <script>
 	import _ from 'lodash';
+
 	export let item = {
 		url: '',
 		title: '',
@@ -10,16 +11,22 @@
 			images: ['/image/path']
 		}
 	};
+
+	$: featuredSrc = item.feature.featuredimage || _.sample(item.feature.images) || '/general/learn_default.jpeg';
+	$: featuredBase = featuredSrc.replace(/\.(png|jpe?g|webp|gif)$/i, '');
 </script>
 
 <a class="mosaic-card" href={item.url}>
 	<div class="card-image-wrap">
-		<img
-			class="card-image"
-			src={item.feature.featuredimage || _.sample(item.feature.images) || '/general/learn_default.jpeg'}
-			alt={item.title}
-			loading="lazy"
-		/>
+		<picture>
+			<source srcset={featuredBase + '-640w.jpeg'} type="image/jpeg" />
+			<img
+				class="card-image"
+				src={featuredSrc}
+				alt={item.title}
+				loading="lazy"
+			/>
+		</picture>
 		<div class="card-image-overlay" />
 		<div class="card-flair-pill flair-{item.flair}">{item.flair}</div>
 	</div>
