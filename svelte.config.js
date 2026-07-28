@@ -54,8 +54,13 @@ const config = {
 	kit: {
 		adapter: adapter(),
 		prerender: {
-			handleHttpError: ({ path, referrer, error }) => {
-				throw new Error(path, referrer, error);
+			handleHttpError: ({ path, referrer, status }) => {
+				// 404s are often stale links / generated image variants — warn, don't fail
+				if (status === 404) {
+					console.warn(`  [warn] 404 on ${path} (from ${referrer})`);
+					return;
+				}
+				throw new Error(`${status} on ${path} (from ${referrer})`);
 			}
 		}
 	}
