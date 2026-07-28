@@ -1,6 +1,6 @@
 <script>
 	import { onMount } from 'svelte';
-	import { sample } from '$lib/util';
+	import { sample } from 'lodash';
 	import metric0 from '$lib/data/reference/mds/metric_0.json';
 	import metric1 from '$lib/data/reference/mds/metric_1.json';
 	import metric2 from '$lib/data/reference/mds/metric_2.json';
