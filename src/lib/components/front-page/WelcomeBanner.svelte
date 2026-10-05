@@ -12,7 +12,7 @@
 			to the toolset of techno-fluent computer composers, creative coders and digital artists.
 		</p>
 		<div class="welcome-buttons">
-			<Button href="/learn/getting-started" label="Getting Started" width="160px" height="44px" />
+			<Button href="/learn/get-started" label="Get Started" width="160px" height="44px" />
 			<Button href="/learn" label="Learn" width="160px" height="44px" />
 			<Button href="/reference" label="Reference" width="160px" height="44px" />
 			<Button href="/explore" label="Explore" width="160px" height="44px" />
