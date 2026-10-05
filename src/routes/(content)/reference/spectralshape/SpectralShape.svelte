@@ -1,18 +1,21 @@
 <script>
+	import { onDestroy } from 'svelte';
 	import * as Meyda from 'meyda';
 	import { binToHz, clip } from '$lib/util';
 	import Audio from '$lib/components/Audio.svelte';
 	import Button from '$lib/components/Button.svelte';
 	import Spectrogram from './Spectrogram.svelte';
 
-	const windowSize = 512;
 	const bufferSize = 512;
+	const DISPLAY_INTERVAL = 100; // ms
 
 	let audio;
 
 	// Visuals
-	let chart, audioContext;
+	let chart, audioContext, meydaAnalyzer;
 	let enabled = false;
+	let isPlaying = false;
+	let error = '';
 
 	let shape = {
 		centroid: 10000,
@@ -24,63 +27,99 @@
 		crest: 0
 	};
 
-	function startAudioDescriptor() {
-		enabled = true;
-		const AudioContext = window.AudioContext || window.webkitAudioContext;
-		audioContext = new AudioContext();
-		const source = audioContext.createMediaElementSource(audio);
-		source.connect(audioContext.destination);
+	let displayShape = { ...shape };
+	let lastDisplayUpdate = 0;
 
-		const analyser = Meyda.createMeydaAnalyzer({
-			audioContext: audioContext,
-			source: source,
-			bufferSize: bufferSize,
-			featureExtractors: [
-				'amplitudeSpectrum',
-				'spectralCentroid',
-				'spectralSpread',
-				'spectralSkewness',
-				'spectralKurtosis',
-				'spectralRolloff',
-				'spectralFlatness',
-				'spectralCrest'
-			],
-			callback: (...features) => {
-				const desc = features[0];
-				const spectrum = desc.amplitudeSpectrum;
-				chart.data.datasets[0].data = spectrum;
-				shape.centroid = binToHz(desc.spectralCentroid, windowSize, 44100);
-				shape.spread = desc.spectralSpread;
-				shape.skewness = desc.spectralSkewness;
-				shape.kurtosis = desc.spectralKurtosis;
-				shape.rolloff = desc.spectralRolloff;
-				shape.flatness = desc.spectralFlatness;
-				shape.crest = desc.spectralCrest;
-				chart.update();
-			}
-		});
-		analyser.start();
+	function startAudioDescriptor() {
+		try {
+			const AudioContext = window.AudioContext || window.webkitAudioContext;
+			audioContext = new AudioContext();
+			audioContext.resume();
+			const source = audioContext.createMediaElementSource(audio);
+			source.connect(audioContext.destination);
+
+			meydaAnalyzer = Meyda.createMeydaAnalyzer({
+				audioContext,
+				source,
+				bufferSize,
+				featureExtractors: [
+					'amplitudeSpectrum',
+					'spectralCentroid',
+					'spectralSpread',
+					'spectralSkewness',
+					'spectralKurtosis',
+					'spectralRolloff',
+					'spectralFlatness',
+					'spectralCrest'
+				],
+				callback: (features) => {
+					chart.data.datasets[0].data = features.amplitudeSpectrum;
+					shape.centroid = binToHz(features.spectralCentroid, bufferSize, audioContext.sampleRate);
+					shape.spread = features.spectralSpread;
+					shape.skewness = features.spectralSkewness;
+					shape.kurtosis = features.spectralKurtosis;
+					shape.rolloff = features.spectralRolloff;
+					shape.flatness = features.spectralFlatness;
+					shape.crest = features.spectralCrest;
+
+					const now = performance.now();
+					if (now - lastDisplayUpdate >= DISPLAY_INTERVAL) {
+						lastDisplayUpdate = now;
+						displayShape = { ...shape };
+						chart.update();
+					}
+				}
+			});
+			meydaAnalyzer.start();
+			enabled = true;
+		} catch (e) {
+			error = 'Failed to start audio analysis. Please try again.';
+			console.error('Audio analysis error:', e);
+		}
 	}
 
-	$: if (chart) chart.options.plugins.annotation.annotations.centroid.xMin = clip(shape.centroid, 0, 20000);
-	$: if (chart) chart.options.plugins.annotation.annotations.centroid.xMax = clip(shape.centroid, 0, 20000);
-	$: if (chart) chart.options.plugins.annotation.annotations.rolloff.xMin = Math.min(shape.rolloff, 20000);
-	$: if (chart) chart.options.plugins.annotation.annotations.rolloff.xMax = Math.min(shape.rolloff, 20000);
+	function onPlay() {
+		isPlaying = true;
+	}
+
+	function onPause() {
+		isPlaying = false;
+	}
+
+	$: if (chart) {
+		const ann = chart.options.plugins.annotation.annotations;
+		ann.centroid.display = isPlaying;
+		ann.rolloff.display = isPlaying;
+		if (isPlaying) {
+			ann.centroid.xMin = clip(shape.centroid, 0, 20000);
+			ann.centroid.xMax = clip(shape.centroid, 0, 20000);
+			ann.rolloff.xMin = Math.min(shape.rolloff, 20000);
+			ann.rolloff.xMax = Math.min(shape.rolloff, 20000);
+		}
+	}
+
+	onDestroy(() => {
+		if (meydaAnalyzer) meydaAnalyzer.stop();
+		if (audioContext) audioContext.close();
+	});
 </script>
 
 <div class="container">
 	<div class="start">
-		<Button on:click={startAudioDescriptor} label="Start Audio" width="200px" height="40px" disabled={enabled} />
+		<Button variant="secondary" on:click={startAudioDescriptor} label="Start Audio" width="200px" height="40px" disabled={enabled} />
+		{#if error}
+			<div class="error">{error}</div>
+		{/if}
 	</div>
 	<div class="frame" class:disabled={!enabled}>
 		<div class="plot">
 			<Spectrogram bind:chart smoothing="200" />
 
 			<div class="values">
-				{#each Object.entries(shape) as [k, v]}
+				{#each Object.entries(displayShape) as [k, v]}
 					<div class="descriptor">
 						<div class:centroid={k === 'centroid'} class:rolloff={k === 'rolloff'}>{k}:</div>
-						<div class:centroid={k === 'centroid'} class:rolloff={k === 'rolloff'}>{v.toFixed(1)}</div>
+						<div class:centroid={k === 'centroid'} class:rolloff={k === 'rolloff'}>{isPlaying ? v.toFixed(1) : '—'}</div>
 					</div>
 				{/each}
 			</div>
@@ -92,6 +131,8 @@
 			label="Evolving Sound"
 			waveform={true}
 			loop={true}
+			on:play={onPlay}
+			on:pause={onPause}
 		/>
 	</div>
 </div>
@@ -102,6 +143,11 @@
 	}
 	.rolloff {
 		color: blue;
+	}
+	.error {
+		color: var(--color-error, #c00);
+		font-size: 0.875rem;
+		margin-top: 0.5em;
 	}
 	.container {
 		display: flex;

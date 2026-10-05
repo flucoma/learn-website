@@ -1,11 +1,10 @@
 .interactive-example-container {
-	margin-top: 2em;
-	margin-bottom: 2em;
+	margin-top: var(--space-8);
+	margin-bottom: var(--space-8);
 	display: flex;
 	flex-direction: column;
-	gap: 1em;
-	border-width: 2px;
-	border-style: solid;
-	border-color: rgba(28, 164, 252, 0.3);
-	padding: 1em;
+	gap: var(--space-4);
+	border: 2px solid rgba(28, 164, 252, 0.3);
+	padding: var(--space-4);
+	border-radius: var(--radius-md);
 }

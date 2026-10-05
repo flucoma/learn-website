@@ -1,9 +1,7 @@
 <script>
 	import { onMount } from 'svelte';
 	import { fromArrayBuffer } from 'numpy-parser';
-	import { Chart, registerables } from 'chart.js';
 	import { pairwise, scale } from '$lib/util';
-	import annotationPlugin from 'chartjs-plugin-annotation';
 
 	let canvas, ctx, chart;
 	let curve = [0, 0];
@@ -55,6 +53,10 @@
 			window.ResizeObserver = module.ResizeObserver;
 		}
 		// Chart
+		const [{ Chart, registerables }, annotationPlugin] = await Promise.all([
+			import('chart.js'),
+			import('chartjs-plugin-annotation').then(m => m.default)
+		]);
 		Chart.register(...registerables, annotationPlugin);
 		ctx = canvas.getContext('2d');
 		const data = {

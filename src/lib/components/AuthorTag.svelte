@@ -1,53 +1,47 @@
 <script>
-	/**
-	 * A convenient way to render an author attribution.
-	 * @constructor
-	 * @param {string} author - The name of the author.
-	 */
 	export let author = '';
 
-	const authors = new Map(
-		Object.entries({
-			Jacob: {
-				name: 'Jacob Hart',
-				website: 'https://jacob-hart.com/'
-			},
-			James: {
-				name: 'James Bradbury',
-				website: 'https://www.jamesbradbury.net/'
-			},
-			Ted: {
-				name: 'Ted Moore',
-				website: 'https://www.tedmooremusic.com/'
-			},
-			PA: {
-				name: 'Pierre Alexandre Tremblay',
-				website: 'https://www.pierrealexandretremblay.com/'
-			},
-			Owen: {
-				name: 'Owen Green',
-				website: 'http://owengreen.net/'
-			}
-		})
-	);
-	const author_name = authors.get(author)['name'];
-	const author_website = authors.get(author)['website'];
+	const authors = {
+		Jacob: { name: 'Jacob Hart', website: 'https://jacob-hart.com/' },
+		James: { name: 'James Bradbury', website: 'https://www.jamesbradbury.net/' },
+		Ted: { name: 'Ted Moore', website: 'https://www.tedmooremusic.com/' },
+		PA: { name: 'Pierre Alexandre Tremblay', website: 'https://www.pierrealexandretremblay.com/' },
+		Owen: { name: 'Owen Green', website: 'http://owengreen.net/' }
+	};
+	$: info = authors[author] || { name: author, website: '#' };
 </script>
 
-<!--
-@component
-Render authors names in articles.
-
-```svelte
-<AuthorTag {author} />
-```
--->
-
-<p class="author_link">by <a href={author_website}>{author_name}</a></p>
+<p class="author-tag">
+	<span class="author-by">by</span>
+	<a class="author-link" href={info.website} target="_blank" rel="noopener noreferrer">
+		{info.name}
+	</a>
+</p>
 
 <style>
-	.author_link {
-		font-weight: bold;
-		font-size: 1.1em;
+	.author-tag {
+		display: flex;
+		align-items: center;
+		gap: 0.4em;
+		font-size: var(--text-sm);
+		margin: 0 0 var(--space-2);
+		color: var(--color-text-muted);
+	}
+
+	.author-by {
+		font-style: italic;
+	}
+
+	.author-link {
+		font-weight: var(--font-semibold);
+		color: var(--color-primary-700);
+		text-decoration: none;
+		transition: color var(--transition-fast);
+	}
+
+	.author-link:hover {
+		color: var(--color-primary-500);
+		background: transparent;
+		text-decoration: underline;
 	}
 </style>

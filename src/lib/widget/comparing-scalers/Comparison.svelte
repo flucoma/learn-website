@@ -1,9 +1,5 @@
 <script>
 	import { onMount } from 'svelte';
-	import * as d3 from 'd3';
-	import Chart from 'chart.js/auto';
-
-	import annotationPlugin from 'chartjs-plugin-annotation';
 	import scalingData from '$lib/data/learn/comparing-scalers/analysis.json';
 	import Button from '$lib/components/Button.svelte';
 
@@ -14,11 +10,15 @@
 		return entries.map((pt, i) => ({ x: pt[1][0], y: pt[1][1], id: pt[0] }));
 	};
 
-	const entries = Object.entries(scalingData.norm);
-	const colours = entries.map((_, i) => d3.interpolateSinebow(i / entries.length));
-
 	onMount(async () => {
+		const [d3, Chart, annotationPlugin] = await Promise.all([
+			import('d3'),
+			import('chart.js/auto').then(m => m.default),
+			import('chartjs-plugin-annotation').then(m => m.default)
+		]);
 		const ctx = canvas.getContext('2d');
+		const entries = Object.entries(scalingData.norm);
+		const colours = entries.map((_, i) => d3.interpolateSinebow(i / entries.length));
 		let data = {
 			datasets: [
 				{
@@ -239,7 +239,7 @@
 	<p>Select a scaling type below:</p>
 	<div class="scaling-mode-selector">
 		{#each buttonSpec as spec}
-			<Button width={'150px'} on:click={spec.func} label={spec.label} disabled={activeScale === spec.label} />
+			<Button variant="secondary" width={'150px'} on:click={spec.func} label={spec.label} disabled={activeScale === spec.label} />
 		{/each}
 	</div>
 </div>

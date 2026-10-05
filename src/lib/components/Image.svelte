@@ -5,46 +5,68 @@
 	export let alt = '';
 	export let label = '';
 	export let id = '';
+
+	let loaded = false;
 </script>
 
-<figure class="container" {id}>
-	<a target="_blank" href={src} rel='noreferrer'>
-		<img loading="lazy" {alt} {src} />
+<figure class="image-figure" {id}>
+	<a target="_blank" href={src} rel="noreferrer" class:loaded>
+		<img
+			loading="lazy"
+			{alt}
+			{src}
+			on:load={() => (loaded = true)}
+			class:loaded
+		/>
 	</a>
-	<figcaption class="label">
-		{@html markdown.toHTML(label)}
-	</figcaption>
+	{#if label}
+		<figcaption class="image-caption">
+			{@html markdown.toHTML(label)}
+		</figcaption>
+	{/if}
 </figure>
 
-<style >
-	.container {
+<style>
+	.image-figure {
 		display: grid;
 		place-items: center;
 		width: 80%;
-		margin: 0 auto;
-		margin-top: 1em;
-		margin-bottom: 1em;
+		margin: var(--space-8) auto;
+	}
+
+	.image-figure > a {
+		max-width: 100%;
+		border-radius: var(--radius-sm);
+		overflow: hidden;
+		display: block;
+		background-color: var(--color-neutral-100);
+	}
+
+	.image-figure > a:hover {
+		background: transparent;
 	}
 
 	img {
-		padding-top: 1em;
-		padding-bottom: 1em;
+		display: block;
 		max-width: 100%;
+		padding-top: var(--space-4);
+		padding-bottom: var(--space-4);
+		opacity: 0;
+		transform: scale(0.98);
+		transition: opacity 0.5s ease, transform 0.5s ease;
 	}
 
-	.container > a {
-		max-width: 100%;
-		transition: opacity linear 100ms;
+	img.loaded {
+		opacity: 1;
+		transform: scale(1);
 	}
 
-	.container > a:hover {
-		background: transparent;
-		opacity: 0.95;
-	}
-
-	.label {
+	.image-caption {
 		text-align: center;
-		font-size: 0.8rem;
+		font-size: var(--text-sm);
 		font-style: italic;
+		color: var(--color-text-muted);
+		margin-top: var(--space-2);
+		line-height: var(--leading-normal);
 	}
 </style>

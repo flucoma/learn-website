@@ -70,38 +70,41 @@ layout: contentindex
 <style>
 	.reference-page {
 		width: 100%;
+		padding: var(--space-8);
 	}
 
 	.title {
-		color: var(--dark-blue);
-		margin-bottom: 1em;
+		color: var(--color-primary-800);
+		margin-bottom: var(--space-6);
 	}
 
 	.sticky-search {
 		position: sticky;
-		top: 0;
-		background-color: var(--background-color, white);
-		padding: 1em 0;
+		top: var(--header-height);
+		background-color: var(--color-background);
+		padding: var(--space-4) 0;
 		z-index: 10;
 	}
 
 	form {
-		margin-bottom: 2em;
+		margin-bottom: var(--space-8);
 	}
 
 	input {
 		width: 100%;
-		font-size: 1rem;
-		padding: 0.75em 1em;
-		border: 1px solid #e0e0e0;
-		border-radius: 12px;
-		transition: all 0.3s ease;
+		font-size: var(--text-base);
+		padding: var(--space-3) var(--space-4);
+		border: 1px solid var(--color-neutral-200);
+		border-radius: var(--radius-lg);
+		transition: all var(--transition-base);
+		background-color: var(--color-background);
+		color: var(--color-text);
 	}
 
 	input:focus {
 		outline: none;
-		border-color: var(--med-blue);
-		box-shadow: 0 0 0 2px rgba(3, 113, 181, 0.2);
+		border-color: var(--color-primary-600);
+		box-shadow: 0 0 0 3px rgba(3, 113, 181, 0.15);
 	}
 
 	.visually-hidden {

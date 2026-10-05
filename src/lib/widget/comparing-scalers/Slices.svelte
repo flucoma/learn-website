@@ -1,8 +1,5 @@
 <script>
 	import { onMount } from 'svelte';
-	import * as d3 from 'd3';
-	import { Chart, registerables } from 'chart.js';
-	import annotationPlugin from 'chartjs-plugin-annotation';
 	import scalingData from '$lib/data/learn/comparing-scalers/analysis.json';
 	import Button from '$lib/components/Button.svelte';
 
@@ -12,12 +9,16 @@
 		const entries = Object.entries(i);
 		return entries.map((pt, i) => ({ x: pt[1][0], y: pt[1][1], id: pt[0] }));
 	};
-	const entries = Object.entries(scalingData.norm);
-	const colours = entries.map((x, i) => d3.interpolateTurbo(x[1][0] * 4 * x[1][1]));
-
-	onMount(() => {
+	onMount(async () => {
+		const [{ Chart, registerables }, d3, annotationPlugin] = await Promise.all([
+			import('chart.js'),
+			import('d3'),
+			import('chartjs-plugin-annotation').then(m => m.default)
+		]);
 		Chart.register(...registerables, annotationPlugin);
 		const ctx = canvas.getContext('2d');
+		const entries = Object.entries(scalingData.norm);
+		const colours = entries.map((x, i) => d3.interpolateTurbo(x[1][0] * 4 * x[1][1]));
 		let data = {
 			datasets: [
 				{
@@ -273,7 +274,7 @@
 
 <div class="swapper">
 	{#each buttonSpec as spec}
-		<Button width={'150px'} on:click={spec.func} label={spec.label} disabled={activeScale === spec.label} />
+		<Button variant="secondary" width={'150px'} on:click={spec.func} label={spec.label} disabled={activeScale === spec.label} />
 	{/each}
 </div>
 
