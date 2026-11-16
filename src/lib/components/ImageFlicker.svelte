@@ -7,6 +7,8 @@
 	var currentPage = String(currentIdx + 1);
 	var totalPages = String(images.length);
 
+	$: baseName = src.replace(/\.(png|jpe?g|webp|gif)$/i, '');
+
 	function handleClick(direction) {
 		if (direction == 'back') {
 			currentIdx = currentIdx - 1;
@@ -74,7 +76,7 @@
 		</button>
 
 		<a target="_blank" href={src}>
-			<img loading="lazy" {alt} {src} />
+			<img loading="lazy" {alt} src={baseName + '-640w.jpg'} />
 		</a>
 
 		<button on:click={() => handleClick('forward')} class="button button2">

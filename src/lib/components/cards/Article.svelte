@@ -18,15 +18,12 @@
 	</div>
 
 	<div class="card-image-wrap">
-		<picture>
-			<source srcset={featuredBase + '-640w.jpeg'} type="image/jpeg" />
-			<img
-				class="card-image"
-				src={featuredSrc}
-				alt={data.title}
-				loading="lazy"
-			/>
-		</picture>
+		<img
+			class="card-image"
+			src={featuredBase + '-640w.jpg'}
+			alt={data.title}
+			loading="lazy"
+		/>
 	</div>
 
 	<p class="card-blurb">{data.blurb}</p>

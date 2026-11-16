@@ -2,11 +2,13 @@
 	export let src = '';
 	export let name = '';
 	export let website = '';
+
+	$: baseName = src.replace(/\.(png|jpe?g|webp|gif)$/i, '');
 </script>
 
 <a class="artist-card neutral-link" href={website}>
 	<div class="card-top">
-		<img loading="lazy" alt={`${name} profile picture`} {src} />
+		<img loading="lazy" alt={`${name} profile picture`} src={baseName + '-640w.jpg'} />
 		<span class="card-name">{name}</span>
 	</div>
 

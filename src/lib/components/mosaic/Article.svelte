@@ -18,15 +18,12 @@
 
 <a class="mosaic-card" href={item.url}>
 	<div class="card-image-wrap">
-		<picture>
-			<source srcset={featuredBase + '-640w.jpeg'} type="image/jpeg" />
-			<img
-				class="card-image"
-				src={featuredSrc}
-				alt={item.title}
-				loading="lazy"
-			/>
-		</picture>
+		<img
+			class="card-image"
+			src={featuredBase + '-640w.jpg'}
+			alt={item.title}
+			loading="lazy"
+		/>
 		<div class="card-image-overlay" />
 		<div class="card-flair-pill flair-{item.flair}">{item.flair}</div>
 	</div>

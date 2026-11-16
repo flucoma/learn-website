@@ -18,7 +18,7 @@ function* walkImages(dir) {
 		if (entry.isDirectory() && !entry.name.startsWith('.')) {
 			yield* walkImages(full);
 		} else if (entry.isFile() && IMAGE_EXTS.has(path.extname(entry.name).toLowerCase())) {
-			// Skip generated variants (e.g., img-480w.jpeg)
+			// Skip generated variants (e.g., img-640w.jpg)
 			if (/-\d+w\.jpe?g$/i.test(entry.name)) continue;
 			yield full;
 		}
@@ -50,12 +50,12 @@ async function processImage(filePath) {
 		// Don't upscale — clamp to native width if image is smaller than the target
 		const resizeW = Math.min(w, nativeW);
 
-		const jpegDest = `${baseName}-${w}w.jpeg`;
+		const jpgDest = `${baseName}-${w}w.jpg`;
 
 		// Skip if already generated and source hasn't changed
 		const srcMtime = fs.statSync(filePath).mtimeMs;
 
-		if (fs.existsSync(jpegDest) && fs.statSync(jpegDest).mtimeMs > srcMtime) {
+		if (fs.existsSync(jpgDest) && fs.statSync(jpgDest).mtimeMs > srcMtime) {
 			skipped++;
 			continue;
 		}
@@ -64,7 +64,7 @@ async function processImage(filePath) {
 			const pipeline = sharp(filePath).resize(resizeW).withMetadata(false);
 
 			// Generate JPEG
-			await pipeline.clone().jpeg(JPEG_OPTIONS).toFile(jpegDest);
+		await pipeline.clone().jpeg(JPEG_OPTIONS).toFile(jpgDest);
 
 			generated++;
 		} catch (err) {

@@ -2,7 +2,7 @@
 	import { markdown } from 'markdown';
 
 	/** Width breakpoints matching the pre-build script */
-	const WIDTHS = [480, 960, 1440];
+	const WIDTHS = [640, 960, 1280];
 
 	/** @type {string} */
 	export let src = '';
@@ -26,21 +26,20 @@
 		return WIDTHS.map((w) => `${baseName}-${w}w.${format} ${w}w`).join(', ');
 	}
 
-	$: jpegSrcset = buildSrcSet('jpeg');
+	$: jpgSrcset = buildSrcSet('jpg');
 </script>
 
 <figure class="image-figure" {id}>
 	<a target="_blank" href={src} rel="noreferrer" class:loaded>
-		<picture>
-			<source srcset={jpegSrcset} type="image/jpeg" sizes="(max-width: 640px) 100vw, 900px" />
-			<img
-				loading="lazy"
-				{alt}
-				src={src}
-				on:load={() => (loaded = true)}
-				class:loaded
-			/>
-		</picture>
+		<img
+			loading="lazy"
+			{alt}
+			srcset={jpgSrcset}
+			sizes="(max-width: 640px) 100vw, 900px"
+			src={baseName + '-640w.jpg'}
+			on:load={() => (loaded = true)}
+			class:loaded
+		/>
 	</a>
 	{#if label}
 		<figcaption class="image-caption">
