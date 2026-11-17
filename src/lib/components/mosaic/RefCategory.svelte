@@ -1,18 +1,13 @@
 <script>
 	export let item = {
 		category: 'Decomposition',
-		refs: [
-			{
-				url: '/',
-				title: 'hpss'
-			}
-		]
+		refs: [{ url: '/', title: 'hpss' }]
 	};
 </script>
 
-<section>
-	<h3 class:faded={item.refs.length == 0}>{item.category}</h3>
-	<ul>
+<section class="ref-category">
+	<h3 class="ref-cat-title" class:faded={item.refs.length === 0}>{item.category}</h3>
+	<ul class="ref-cat-list">
 		{#each item.refs as r}
 			<li><a href={r.url}>{r.title}</a></li>
 		{/each}
@@ -20,36 +15,42 @@
 </section>
 
 <style>
-	.faded {
-		color: var(--grey);
-	}
-	section {
+	.ref-category {
 		display: flex;
 		flex-direction: column;
-		gap: 1em;
+		gap: var(--space-2);
 		min-width: max-content;
-	}
-	h3 {
-		min-width: max-content;
-		margin: 0;
 	}
 
-	ul {
+	.ref-cat-title {
+		margin: 0;
+		font-size: var(--text-base);
+		min-width: max-content;
+	}
+
+	.faded {
+		color: var(--color-text-muted);
+	}
+
+	.ref-cat-list {
 		margin: 0;
 		padding: 0;
+		list-style: none;
 	}
 
-	li {
+	.ref-cat-list li {
 		display: block;
-		margin: 0;
+		margin: 0 0 var(--space-1);
 	}
 
-	a {
+	.ref-cat-list a {
 		min-width: max-content;
 		text-decoration: none;
-		display: grid;
-		grid-template-columns: auto auto;
-		place-items: center;
-		gap: 0.125em;
+		font-size: var(--text-sm);
+		color: var(--color-link);
+	}
+
+	.ref-cat-list a:hover {
+		color: var(--color-link-hover-text);
 	}
 </style>

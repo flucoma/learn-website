@@ -17,7 +17,7 @@
 
 	<div class="filter-control">
 		<div class="filters">
-			<Button
+			<Button variant="secondary"
 				width={btnWidth}
 				label="filter 0 < 3, addcolumn 0"
 				on:click={() => {
@@ -28,7 +28,7 @@
 				}}
 			/>
 
-			<Button
+			<Button variant="secondary"
 				width={btnWidth}
 				label="filter 0 < 3, addrange 0 2"
 				on:click={() => {
@@ -39,7 +39,7 @@
 				}}
 			/>
 
-			<Button
+			<Button variant="secondary"
 				width={btnWidth}
 				label="filter 3 < 3, addcolumn 0, addcolumn 3"
 				on:click={() => {
@@ -49,7 +49,7 @@
 				}}
 			/>
 
-			<Button
+			<Button variant="secondary"
 				width={btnWidth}
 				label="filter 0 <= 2, addrange 0 2, addcolumn 3"
 				on:click={() => {

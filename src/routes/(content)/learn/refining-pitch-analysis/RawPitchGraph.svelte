@@ -1,6 +1,5 @@
 <script>
 	import { onMount } from 'svelte';
-	import { Chart, registerables } from 'chart.js';
 	import analysis from '$lib/data/learn/refining-pitch-analysis/rawpitch.json';
 
 	const pitch = analysis.data.pitch;
@@ -9,6 +8,7 @@
 	let chart, canvas;
 
 	onMount(async () => {
+		const { Chart, registerables } = await import('chart.js');
 		Chart.register(...registerables);
 		const ctx = canvas.getContext('2d');
 		let data = {

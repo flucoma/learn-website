@@ -1,11 +1,11 @@
 <script>
 	import { onMount } from 'svelte';
-	import { Chart, registerables } from 'chart.js';
 	import feature from '$lib/data/reference/onsetfeature/data.json';
 
 	let chart, canvas;
 
 	onMount(async () => {
+		const { Chart, registerables } = await import('chart.js');
 		Chart.register(...registerables);
 		const ctx = canvas.getContext('2d');
 		let data = {

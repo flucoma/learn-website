@@ -2,7 +2,6 @@
 	import { onMount } from 'svelte';
 	import { dragNetwork } from './dragNetwork.js';
 	import { clip } from '$lib/util';
-	import * as d3 from 'd3';
 
 	export let id = 'bricolage';
 	export let blurb = '';
@@ -60,7 +59,8 @@
 			counter += 1;
 		}
 	});
-	onMount(() => {
+	onMount(async () => {
+		const d3 = await import('d3');
 		let svg = d3.select(container);
 		simulation = d3
 			.forceSimulation(nodes)

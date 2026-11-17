@@ -1,7 +1,5 @@
 <script>
 	import { onMount } from 'svelte';
-	import { Chart, registerables } from 'chart.js';
-	import * as d3 from 'd3';
 	import Button from '$lib/components/Button.svelte';
 	import metric0 from '$lib/data/reference/mds/metric_0.json';
 	import metric1 from '$lib/data/reference/mds/metric_1.json';
@@ -25,9 +23,12 @@
 
 	const labels = ['Manhattan', 'Euclidian', 'Squared Euclidian', 'Max Distance', 'Min Distance', 'KL Divergence'];
 
-	const colours = metric[0].map(v => d3.interpolateSinebow(v[0] * 2 * v[1]));
-
 	onMount(async () => {
+		const [{ Chart, registerables }, d3] = await Promise.all([
+			import('chart.js'),
+			import('d3')
+		]);
+		const colours = metric[0].map(v => d3.interpolateSinebow(v[0] * 2 * v[1]));
 		Chart.register(...registerables);
 		ctx = canvas.getContext('2d');
 
@@ -67,7 +68,7 @@
 
 	<div class="controls">
 		{#each metric as m, i}
-			<Button
+			<Button variant="secondary"
 				width={'150px'}
 				on:click={() => {
 					chart.data.datasets[0].data = m;

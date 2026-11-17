@@ -1,6 +1,5 @@
-<script lang="ts">
+<script>
     import { onMount } from 'svelte';
-	import { CanvasSpace, Create, Pt } from 'pts';
     let height = 100;
     let width;
     let palette = [
@@ -15,6 +14,7 @@
     let waveHeight = 1.0;
     $: speed = 0.75
     onMount(async () => {
+		const { CanvasSpace, Create, Pt } = await import('pts');
 		let space = new CanvasSpace('#canvas');
 		let form = space.getForm();
 		space.setup({

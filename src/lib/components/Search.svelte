@@ -19,14 +19,12 @@
 
 	function blurSearch() {
 		focused = false;
-		// $blur = false;
 		searchBar.blur();
 	}
 
-	function focusSearch(e) {
+	function focusSearch() {
 		searchBar.focus();
 		focused = true;
-		// $blur = true;
 	}
 
 	function updateFocus() {
@@ -53,13 +51,11 @@
 				focusedEntry -= 1;
 				updateFocus();
 			}
-
 			if (e.key === 'ArrowDown') {
 				e.preventDefault();
 				focusedEntry += 1;
 				updateFocus();
 			}
-
 			if (e.key === 'Enter') {
 				if (focusedEntry !== -1) {
 					clickResult(results[focusedEntry].item.url);
@@ -86,34 +82,34 @@
 	</form>
 
 	{#if results.length >= 1 && focused}
-	<div class="results">
-		{#each results as r, i}
-			<div
-				class="result"
-				on:mousedown={() => clickResult(r.item.url)}
-				on:mouseleave={() => { focusedEntry = -1 }}
-				on:mouseenter={() => { focusedEntry = i }}
-				class:entryhover={i === focusedEntry}
-				on:click={() => clickResult(r.item.url)}
-				on:keypress={() => clickResult(r.item.url)}
-				on:focus={focusSearch}
-				on:blur={blurSearch}
-				bind:this={entries[i]}
-				role="button"
-				tabindex="0"
-			>
-				<div class="top">
-					<h3 class="title">{r.item.title}</h3>
-					{#if r.item.flair}
-					<div class={`item-${r.item.flair} flair`}>{r.item.flair}</div>
-					{/if}
+		<div class="results">
+			{#each results as r, i}
+				<div
+					class="result"
+					on:mousedown={() => clickResult(r.item.url)}
+					on:mouseleave={() => { focusedEntry = -1; }}
+					on:mouseenter={() => { focusedEntry = i; }}
+					on:click={() => clickResult(r.item.url)}
+					on:keypress={() => clickResult(r.item.url)}
+					on:focus={focusSearch}
+					on:blur={blurSearch}
+					bind:this={entries[i]}
+					role="button"
+					tabindex="0"
+					class:hovered={i === focusedEntry}
+				>
+					<div class="top">
+						<h3 class="title">{r.item.title}</h3>
+						{#if r.item.flair}
+							<div class="result-flair flair-{r.item.flair}">{r.item.flair}</div>
+						{/if}
+					</div>
+					<p class="bottom">
+						{r.item.blurb.slice(0, 150) + '...'}
+					</p>
 				</div>
-				<p class="bottom">
-					{r.item.blurb.slice(0, 150) + '...'}
-				</p>
-			</div>
-		{/each}
-	</div>
+			{/each}
+		</div>
 	{/if}
 </div>
 
@@ -122,86 +118,103 @@
 		z-index: 999;
 		position: relative;
 	}
+
 	.query {
-		font-family: var(--font);
+		font-family: var(--font-sans);
 		font-size: 0.9rem;
-		border: 1px solid #e0e0e0;
-		padding: 0.5em 0.75em;
-		border-radius: 12px;
+		border: 1px solid var(--color-border);
+		padding: var(--space-2) var(--space-3);
+		border-radius: var(--radius-lg);
 		width: 100%;
 		height: 36px;
 		box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-		transition: all 0.3s ease;
+		transition: all var(--transition-slow);
+		background-color: var(--color-background);
+		color: var(--color-text);
 	}
-	.query:hover, .query:focus {
-		border-color: var(--med-blue);
-		box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+	.query:hover,
+	.query:focus {
+		border-color: var(--color-primary-600);
+		box-shadow: var(--shadow-sm);
 		outline: none;
 	}
+
 	.results {
 		display: flex;
 		flex-direction: column;
 		position: absolute;
 		right: 0;
 		width: min(90vw, 400px);
-		background: white;
-		border-radius: 12px;
+		background: var(--color-background);
+		border-radius: var(--radius-lg);
 		overflow: hidden;
-		box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+		box-shadow: var(--shadow-md);
 		z-index: 1000;
-		margin-top: 0.5em;
+		margin-top: var(--space-2);
 	}
+
 	.result {
-		padding: 1em;
+		padding: var(--space-4);
 		display: flex;
 		flex-direction: column;
 		text-align: left;
-		transition: all 0.3s ease;
+		transition: all var(--transition-slow);
 		border-left: 4px solid transparent;
 	}
-	.entryhover, .result:hover, .result:focus {
+
+	.hovered,
+	.result:hover,
+	.result:focus {
 		background-color: rgba(146, 200, 246, 0.15);
-		border-left-color: var(--med-blue);
+		border-left-color: var(--color-primary-600);
 		cursor: pointer;
 	}
-	.result:hover .title, .result:focus .title {
-		color: var(--med-blue);
+
+	.result:hover .title,
+	.result:focus .title {
+		color: var(--color-primary-600);
 	}
+
 	.top {
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-		gap: 0.5em;
-		margin-bottom: 0.5em;
+		gap: var(--space-2);
+		margin-bottom: var(--space-2);
 	}
+
 	.title {
-		font-weight: bold;
-		font-size: 1.1rem;
-		line-height: 1.3;
+		font-weight: var(--font-bold);
+		font-size: var(--text-md);
+		line-height: var(--leading-snug);
 		margin: 0;
-		color: var(--dark-blue);
-		transition: color 0.3s ease;
+		color: var(--color-primary-800);
+		transition: color var(--transition-slow);
 	}
+
 	.bottom {
-		color: #595959;
+		color: var(--color-text-muted);
 		font-size: 0.9rem;
 		margin: 0;
 		line-height: 1.4;
 	}
-	.flair {
+
+	.result-flair {
 		align-self: flex-start;
 		text-transform: capitalize;
-		font-size: 0.75rem;
-		font-weight: bold;
+		font-size: var(--text-xs);
+		font-weight: var(--font-bold);
 		padding: 0.3em 0.8em;
-		border-radius: 20px;
-		color: white;
+		border-radius: var(--radius-full);
+		color: var(--color-text-inverted);
 	}
-	.item-event { background-color: var(--event-flair); }
-	.item-article { background-color: var(--article-flair); }
-	.item-reference { background-color: var(--reference-flair); }
-	.item-podcast { background-color: var(--podcast-flair); }
-	.item-tutorial { background-color: var(--tutorial-flair); }
+
+	.flair-event    { background-color: var(--color-event); }
+	.flair-article  { background-color: var(--color-article); }
+	.flair-reference { background-color: var(--color-reference); }
+	.flair-podcast  { background-color: var(--color-podcast); }
+	.flair-tutorial { background-color: var(--color-tutorial); }
 
 	.visually-hidden {
 		position: absolute;

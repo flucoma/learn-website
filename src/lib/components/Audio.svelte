@@ -6,7 +6,7 @@
 	 * @param {string} label - The caption to render underneath the element.
 	 * @param {boolean} waveform - Toggle for waveform display.
 	 */
-	import { onMount } from 'svelte';
+	import { onMount, onDestroy } from 'svelte';
 	export let src = '';
 	export let label = '';
 	export let waveform = false;
@@ -46,6 +46,11 @@
 				}
 			});
 		}
+	});
+
+	onDestroy(() => {
+		if (instance) instance.destroy();
+		if (ctx) ctx.close();
 	});
 </script>
 

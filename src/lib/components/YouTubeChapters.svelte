@@ -24,22 +24,24 @@
 
 <h2>Chapters</h2>
 
-<ol class="chapter-container">
+<div class="chapter-container">
 	{#each chapters as chapter, i}
-		<li class="chapter" 
-		on:keypress={() => chapterClick(chapter)} 
-		on:click={() => chapterClick(chapter)}
+		<button
+			class="chapter"
+			on:click={() => chapterClick(chapter)}
+			on:keypress={() => chapterClick(chapter)}
 		>
-			<p>
+			<span class="chapter-time">
 				{#if chapter.start.length == 2}
-				<div>{chapter.label} ({chapter.start[0]}:{chapter.start[1]})</div>
+					{chapter.start[0]}:{chapter.start[1].toString().padStart(2, '0')}
 				{:else}
-				<div>{chapter.label} ({chapter.start[0]}:{chapter.start[1]}:{chapter.start[2]})</div>
+					{chapter.start[0]}:{chapter.start[1].toString().padStart(2, '0')}:{chapter.start[2].toString().padStart(2, '0')}
 				{/if}
-			</p>
-		</li>
+			</span>
+			{chapter.label}
+		</button>
 	{/each}
-</ol>
+</div>
 
 <style>
 	.youtube-container {
@@ -51,16 +53,26 @@
 	}
 
 	.chapter-container {
-		margin-left: -1em;
-		line-height: 1.0em;
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.5em;
+		margin: calc(2 * var(--heading-spacing)) 0;
+		padding: 0;
 	}
 
 	.chapter {
-		text-decoration: none;
-		cursor: pointer;
+		display: inline-flex;
+		align-items: center;
+		gap: 0.4em;
+		padding: 0.4em 0.75em;
+		border: 1px solid var(--med-blue);
+		border-radius: 999px;
+		background: transparent;
 		color: var(--med-blue);
-		max-width: fit-content;
-		line-height: 1.7em;
+		font-size: 0.875em;
+		line-height: 1.4;
+		cursor: pointer;
+		transition: background-color 0.15s, color 0.15s;
 	}
 
 	.chapter:hover {
@@ -70,6 +82,12 @@
 
 	.chapter:active {
 		background-color: rgb(96, 96, 96);
+		border-color: rgb(96, 96, 96);
 		color: white;
+	}
+
+	.chapter-time {
+		font-variant-numeric: tabular-nums;
+		opacity: 0.8;
 	}
 </style>

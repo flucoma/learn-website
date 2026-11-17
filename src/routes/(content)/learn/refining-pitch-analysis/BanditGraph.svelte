@@ -1,7 +1,5 @@
 <script>
 	import { onMount } from 'svelte';
-	import { Chart, registerables } from 'chart.js';
-	import annotationPlugin from 'chartjs-plugin-annotation';
 	import analysis from '$lib/data/learn/refining-pitch-analysis/normpitch.json';
 
 	let chart, canvas;
@@ -9,6 +7,10 @@
 	const pitchData = Object.values(analysis.data).map(x => ({ x: x[0], y: x[1] }));
 
 	onMount(async () => {
+		const [{ Chart, registerables }, annotationPlugin] = await Promise.all([
+			import('chart.js'),
+			import('chartjs-plugin-annotation')
+		]);
 		Chart.register(...registerables);
 		const ctx = canvas.getContext('2d');
 		const data = {

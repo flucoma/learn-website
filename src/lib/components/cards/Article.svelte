@@ -6,102 +6,110 @@
 	export let data = {};
 </script>
 
-<a class="container raisedbox" href={data.url}>
-	<div class="top">
-		<h2>{data.title}</h2>
+<a class="list-card raisedbox" href={data.url}>
+	<div class="card-header">
+		<h2 class="card-title">{data.title}</h2>
 		<Flair flair={data.flair} />
 	</div>
 
-	<div class="img_container">
+	<div class="card-image-wrap">
 		<div
-			class="feature_image"
+			class="card-image"
 			style="background-image: url({data.feature.featuredimage ||
 				_.sample(data.feature.images) ||
 				'/general/learn_default.jpeg'});"
 		/>
 	</div>
 
-	<p>{data.blurb}</p>
-	<a class="linkout" href={data.url}>Learn More <ArrowRight /></a>
+	<p class="card-blurb">{data.blurb}</p>
+	<span class="card-cta">Learn More <ArrowRight /></span>
 </a>
 
 <style>
-	.img_container {
-		background-repeat: no-repeat;
-		background-size: cover;
-		background-position: 50% 50%;
-		border-radius: 0.25rem;
-		padding: 0em 0em 0em 0em;
-		margin-top: 0em;
-		margin-bottom: 0.25em;
+	.list-card {
+		display: flex;
+		flex-direction: column;
+		border-radius: var(--card-radius);
+		border: 1px solid var(--color-border);
+		padding: var(--space-5);
+		margin: var(--space-2) 0;
+		background: var(--color-background);
+		color: var(--color-text);
+		text-decoration: none;
+		transition: var(--card-transition);
+		position: relative;
 	}
 
-	.feature_image {
-		position: relative;
-		max-width: 100%;
+	.list-card:hover {
+		color: var(--color-text);
+		background: var(--color-background);
+		cursor: pointer;
+		border-color: var(--color-primary-200);
+	}
+
+	.card-header {
+		display: grid;
+		grid-template-columns: 1fr auto;
+		align-items: start;
+		gap: var(--space-3);
+		margin-bottom: var(--space-3);
+	}
+
+	.card-title {
+		font-size: var(--text-lg);
+		font-weight: var(--font-bold);
+		margin: 0;
+		line-height: var(--leading-snug);
+	}
+
+	.card-image-wrap {
+		border-radius: var(--radius-sm);
+		overflow: hidden;
+		margin-bottom: var(--space-3);
+	}
+
+	.card-image {
+		width: 100%;
 		height: 10em;
-		margin: 0.5em 0em 0.5em 0em;
-		border: 0.063rem solid #dcdee0;
+		border: 1px solid var(--color-neutral-200);
 		background-position: center;
 		background-repeat: no-repeat;
 		background-size: cover;
+		border-radius: var(--radius-sm);
+		transition: transform 0.5s ease;
 	}
 
-	.container {
-		border-radius: 0.25rem;
-		border: 0.063rem solid #dcdee0;
-		padding: 0.75em;
-		margin-top: 0.5em;
-		margin-bottom: 0.5em;
-		max-width: 100%;
+	.list-card:hover .card-image {
+		transform: scale(1.02);
 	}
 
-	.container > p {
-		color: var(--grey);
+	.card-blurb {
+		color: var(--color-text-muted);
+		font-size: var(--text-sm);
+		line-height: var(--leading-normal);
+		margin: 0 0 var(--space-3);
 		text-align: justify;
 		text-justify: inter-word;
 	}
 
-	/* Overwrite hover behaviour */
-	.container,
-	.container:hover {
-		color: black;
-		background-color: white;
-		text-decoration: none;
-	}
-
-	.container:hover {
-		cursor: pointer;
-	}
-
-	.top {
-		display: grid;
+	.card-cta {
+		display: inline-grid;
 		grid-template-columns: auto auto;
-		place-items: center;
-		justify-content: space-between;
-		margin-bottom: 0.5em;
-	}
-
-	.top > :global(h2) {
-		margin: 0;
-	}
-
-	.linkout {
-		display: grid;
-		grid-template-columns: auto auto;
-		justify-content: left;
-		place-items: center;
+		align-items: center;
 		gap: 0.2em;
+		font-size: var(--text-sm);
+		font-weight: var(--font-semibold);
+		color: var(--color-link);
+		transition: gap var(--transition-fast), color var(--transition-fast);
+		margin-top: auto;
 	}
 
-	.linkout:hover {
-		background-color: transparent;
-		color: var(--med-blue);
-		gap: 0.3em;
+	.list-card:hover .card-cta {
+		gap: 0.4em;
+		color: var(--color-primary-700);
 	}
 
-	.linkout,
-	.linkout:hover {
-		transition: gap 80ms ease-in-out;
+	.card-cta:hover {
+		background: transparent;
 	}
 </style>

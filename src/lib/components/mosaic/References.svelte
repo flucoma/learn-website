@@ -4,17 +4,16 @@
 	export let items = [];
 </script>
 
-<div class="items">
+<div class="ref-grid">
 	{#each items as item}
 		<RefCategory {item} />
 	{/each}
 </div>
 
 <style>
-	.items {
-		display: flex;
-		flex-direction: row;
-		flex-wrap: wrap;
-		gap: 1em;
+	.ref-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+		gap: var(--space-6);
 	}
 </style>

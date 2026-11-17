@@ -1,7 +1,6 @@
 <script>
 	import { onMount } from 'svelte';
 	import smooth from 'array-smooth';
-	import Two from 'two.js';
 
 	let container;
 	let raw = new Array(100).fill(0.5).map(() => Math.random()); // the value the probe reads
@@ -12,6 +11,7 @@
 	$: smoothed = smooth(raw, window);
 
 	onMount(async () => {
+		const { default: Two } = await import('two.js');
 		two = new Two({
 			type: Two.Types.svg,
 			autostart: true,

@@ -30,19 +30,16 @@ jobs:
 
             - uses: actions/setup-node@v4
               with:
-                node-version: 18
-
-            - name: install pnpm
-              run: npm i -g pnpm
+                node-version: 26 
 
             - name: Install Dependencies
-              run: pnpm i
+              run: bun i
 
             - name: Run Tests
-              run: pnpm run test
+              run: bun run test
 
             - name: Build Site
-              run: pnpm run build
+              run: bun run build
 
             - name: Merge MFCC Widget
               run: |

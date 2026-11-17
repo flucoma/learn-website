@@ -1,0 +1,177 @@
+/* FluCoMa Learn — Design Tokens */
+
+:root {
+	/* ── Color Palette ─────────────────────────────────────── */
+
+	/* Primary (Brand Blue) */
+	--color-primary-50: #e6f2fa;
+	--color-primary-100: #b3d8f0;
+	--color-primary-200: #80bef0;
+	--color-primary-300: #4da8f5;
+	--color-primary-400: #1ca4fc;
+	--color-primary-500: #0390d6;
+	--color-primary-600: #0371b5;
+	--color-primary-700: #025891;
+	--color-primary-800: #083c64;
+	--color-primary-900: #042038;
+
+	/* Neutral (Gray) */
+	--color-neutral-50: #f8f9fa;
+	--color-neutral-100: #f0f0f0;
+	--color-neutral-200: #e0e0e0;
+	--color-neutral-300: #dcdee0;
+	--color-neutral-400: #b0b3b5;
+	--color-neutral-500: #8a8d90;
+	--color-neutral-600: #595959;
+	--color-neutral-700: #4a4d50;
+	--color-neutral-800: #333333;
+	--color-neutral-900: #1a1a1a;
+
+	/* Content-Type Accents (flairs) */
+	--color-article: #1ca4fc;
+	--color-event: #eba117;
+	--color-reference: #228c22;
+	--color-podcast: #db7093;
+	--color-tutorial: #6667ab;
+
+	/* Admonition / Semantic */
+	--color-note-bg: rgba(52, 52, 171, 0.2);
+	--color-note-border: rgba(31, 31, 136, 0.63);
+	--color-note-text: #414141;
+	--color-warning-bg: rgba(255, 204, 0, 0.2);
+	--color-warning-border: rgba(255, 204, 0, 0.63);
+	--color-danger-bg: rgba(204, 51, 0, 0.2);
+	--color-danger-border: rgba(204, 51, 0, 0.63);
+	--color-success-bg: rgba(230, 252, 224, 1);
+	--color-success-border: rgb(133, 229, 106);
+
+	/* Semantic Aliases (consume these in components) */
+	--color-text: var(--color-neutral-800);
+	--color-text-muted: var(--color-neutral-600);
+	--color-text-inverted: #ffffff;
+	--color-background: #ffffff;
+	--color-surface: var(--color-neutral-50);
+	--color-border: var(--color-neutral-300);
+	--color-link: var(--color-primary-600);
+	--color-link-hover-bg: var(--color-primary-600);
+	--color-link-hover-text: #ffffff;
+	--color-code-bg: var(--color-neutral-100);
+	--color-code-text: #555555;
+	--color-code-block-bg: #f7f7f7;
+
+	/* ── Typography ────────────────────────────────────────── */
+
+	--font-sans: 'overpassregular', sans-serif;
+	--font-mono: 'Overpass Mono', monospace;
+
+	/* Type Scale (1.25 major-third ratio) */
+	--text-xs: 0.75rem;     /* 12px */
+	--text-sm: 0.875rem;    /* 14px */
+	--text-base: 1rem;      /* 16px */
+	--text-md: 1.125rem;    /* 18px */
+	--text-lg: 1.25rem;     /* 20px */
+	--text-xl: 1.5rem;      /* 24px */
+	--text-2xl: 1.75rem;    /* 28px */
+	--text-3xl: 2.125rem;   /* 34px */
+	--text-4xl: 2.5rem;     /* 40px (h1) */
+
+	/* Font Weights */
+	--font-normal: 400;
+	--font-semibold: 600;
+	--font-bold: 700;
+	--font-extrabold: 800;
+
+	/* Letter Spacing */
+	--tracking-tight: -0.015em;
+	--tracking-normal: 0;
+	--tracking-wide: 0.02em;
+
+	/* Line Heights */
+	--leading-tight: 1.15;
+	--leading-snug: 1.25;
+	--leading-normal: 1.6;
+	--leading-relaxed: 1.75;
+
+	/* Content Rhythm */
+	--paragraph-spacing: 1.25em;
+	--heading-spacing: 0.5em;
+	--section-spacing: 2em;
+
+	/* ── Spacing Scale (4px base) ──────────────────────────── */
+
+	--space-0: 0;
+	--space-1: 0.25rem;   /* 4px */
+	--space-2: 0.5rem;    /* 8px */
+	--space-3: 0.75rem;   /* 12px */
+	--space-4: 1rem;      /* 16px */
+	--space-5: 1.25rem;   /* 20px */
+	--space-6: 1.5rem;    /* 24px */
+	--space-8: 2rem;      /* 32px */
+	--space-10: 2.5rem;   /* 40px */
+	--space-12: 3rem;     /* 48px */
+	--space-16: 4rem;     /* 64px */
+
+	/* ── Border Radius ─────────────────────────────────────── */
+
+	--radius-none: 0;
+	--radius-sm: 0.25rem;  /* 4px — subtle rounding */
+	--radius-md: 0.5rem;   /* 8px — cards, inputs */
+	--radius-lg: 0.75rem;  /* 12px — containers, modals */
+	--radius-xl: 1rem;     /* 16px */
+	--radius-full: 9999px; /* pills, badges */
+
+	/* ── Shadows / Elevation ───────────────────────────────── */
+
+	--shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.06), 0 1px 3px rgba(0, 0, 0, 0.1);
+	--shadow-md: 0 4px 6px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.06);
+	--shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.08), 0 4px 6px rgba(0, 0, 0, 0.05);
+	--shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.1), 0 10px 10px rgba(0, 0, 0, 0.04);
+
+	/* Interactive shadow (brand-tinted for raised cards/buttons) */
+	--shadow-interactive: var(--color-primary-600) -5px 5px 0px -3px,
+		rgba(3, 113, 181, 0.2) -10px 10px,
+		rgba(3, 113, 181, 0.1) -15px 15px,
+		rgba(3, 113, 181, 0.05) -20px 20px;
+
+	/* ── Transitions ───────────────────────────────────────── */
+
+	--transition-fast: 150ms ease;
+	--transition-base: 200ms ease;
+	--transition-slow: 300ms ease;
+
+	/* ── Breakpoints (reference; use in media queries) ─────── */
+
+	--bp-tablet: 768px;
+	--bp-desktop: 1200px;
+
+	/* ── Layout ────────────────────────────────────────────── */
+
+	--max-text-width: 70ch;
+	--min-text-width: 30ch;
+	--header-height: 55px;
+	--footer-height: 55px;
+
+	/* ── Cards ─────────────────────────────────────────────── */
+
+	--card-radius: var(--radius-lg);
+	--card-shadow: 0 1px 3px rgba(0, 0, 0, 0.06), 0 4px 12px rgba(0, 0, 0, 0.04);
+	--card-shadow-hover: 0 2px 6px rgba(0, 0, 0, 0.08), 0 8px 24px rgba(0, 0, 0, 0.06);
+	--card-image-overlay: linear-gradient(180deg, transparent 55%, rgba(8, 60, 100, 0.75) 100%);
+	--card-transition: transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+		box-shadow 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+	/* ── Backwards-compat aliases (keep old var names working) ─ */
+
+	--font: var(--font-sans);
+	--mono: var(--font-mono);
+	--dark-blue: var(--color-primary-800);
+	--med-blue: var(--color-primary-600);
+	--light-blue: var(--color-primary-400);
+	--grey: var(--color-neutral-600);
+	--breakpoint: var(--bp-desktop);
+	--event-flair: var(--color-event);
+	--article-flair: var(--color-article);
+	--reference-flair: var(--color-reference);
+	--podcast-flair: var(--color-podcast);
+	--tutorial-flair: var(--color-tutorial);
+}

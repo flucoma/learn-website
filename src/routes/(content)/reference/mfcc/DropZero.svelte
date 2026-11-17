@@ -1,6 +1,5 @@
 <script>
 	import * as Meyda from 'meyda';
-	import { Chart, registerables } from 'chart.js';
 	import { onMount } from 'svelte';
 	import { colors } from '$lib/color.js';
 	import Audio from '$lib/components/Audio.svelte';
@@ -23,6 +22,7 @@
 	};
 
 	onMount(async () => {
+		const { Chart, registerables } = await import('chart.js');
 		Chart.register(...registerables);
 		const ctx = canvas.getContext('2d');
 		let data = {
@@ -119,8 +119,8 @@
 	<canvas id="filter" bind:this={canvas} />
 	<div class="controls">
 		<Audio {...audioSpec} bind:audio on:play={play} on:pause={pause} />
-		<Button {...zero} on:click={() => dropzero(0)} />
-		<Button {...one} on:click={() => dropzero(1)} />
+		<Button variant="secondary" {...zero} on:click={() => dropzero(0)} />
+		<Button variant="secondary" {...one} on:click={() => dropzero(1)} />
 	</div>
 </div>
 

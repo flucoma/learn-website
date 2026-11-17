@@ -12,6 +12,7 @@
 	$: articles = links.filter(x => x.flair === 'article') || [];
 	$: tutorials = links.filter(x => x.flair === 'tutorial') || [];
 	$: renderables = [articles, tutorials, references];
+
 	let hoverable;
 	let hover = false;
 	let hoverInfo = { flair: '', blurb: '' };
@@ -33,108 +34,121 @@
 
 {#if hover}
 	<div
-	class={`hoverable rel-${hoverInfo.flair}`}
-	style:left={`${hoverPos.x}px`}
-	style:top={`${hoverPos.y + hoverPos.offset}px`}
-	bind:this={hoverable}
+		class="tooltip tooltip-{hoverInfo.flair}"
+		style:left={`${hoverPos.x}px`}
+		style:top={`${hoverPos.y + hoverPos.offset}px`}
+		bind:this={hoverable}
 	>
-		<div class="flair">{hoverInfo.flair}</div>
-		<hr class={hoverInfo.flair} />
-		<div class="blurb">{hoverInfo.blurb}</div>
+		<div class="tooltip-flair">{hoverInfo.flair}</div>
+		<hr class="tooltip-divider" />
+		<div class="tooltip-blurb">{hoverInfo.blurb}</div>
 	</div>
 {/if}
 
-<div class="container">
+<div class="related-container">
 	{#each renderables as c}
 		{#each c as link}
 			<a
-				class={`link rel-${link.flair}`}
+				class="related-link related-link-{link.flair}"
 				href={link.url}
 				on:mouseenter={e => mouseEnter(e, link)}
 				on:mouseleave={stopHover}
-			>{link.title}
+			>
+				{link.title}
 			</a>
 		{/each}
 	{/each}
 </div>
 
 <style>
-	.container {
+	.related-container {
 		font-size: 0.9rem;
 		display: flex;
 		flex-direction: row;
 		flex-wrap: wrap;
-		gap: 0.75em;
-		margin-bottom: 1.5em;
+		gap: var(--space-3);
+		margin-bottom: var(--space-6);
 	}
-	.link {
-		padding: 0.5em 0.75em;
+
+	.related-link {
+		padding: var(--space-2) var(--space-3);
 		text-decoration: none;
-		color: var(--dark-blue);
-		border-radius: 12px;
-		transition: all 0.3s ease;
+		color: var(--color-primary-800);
+		border-radius: var(--radius-lg);
+		transition: all var(--transition-slow);
 		border: 1px solid transparent;
 	}
-	.link:hover {
-		color: white;
+
+	.related-link:hover {
+		color: var(--color-text-inverted);
 		transform: translateY(-2px);
 	}
-	.hoverable {
+
+	/* Per-flair colors using accent tokens */
+	.related-link-tutorial {
+		color: var(--color-tutorial);
+		border-color: var(--color-tutorial);
+	}
+	.related-link-tutorial:hover {
+		background-color: var(--color-tutorial);
+	}
+
+	.related-link-reference {
+		color: var(--color-reference);
+		border-color: var(--color-reference);
+	}
+	.related-link-reference:hover {
+		background-color: var(--color-reference);
+	}
+
+	.related-link-article {
+		color: var(--color-article);
+		border-color: var(--color-article);
+	}
+	.related-link-article:hover {
+		background-color: var(--color-article);
+	}
+
+	/* Tooltip */
+	.tooltip {
 		position: absolute;
 		max-width: 300px;
 		z-index: 98;
-		background-color: white;
-		padding: 1em;
-		border-radius: 12px;
-		box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+		background-color: var(--color-background);
+		padding: var(--space-4);
+		border-radius: var(--radius-lg);
+		box-shadow: var(--shadow-md);
 		font-size: 0.9rem;
 	}
-	.flair {
-		font-size: 0.75rem;
-		font-weight: bold;
+
+	.tooltip-flair {
+		font-size: var(--text-xs);
+		font-weight: var(--font-bold);
 		text-transform: capitalize;
-		margin-bottom: 0.5em;
+		margin-bottom: var(--space-2);
 	}
-	.blurb {
-		color: #595959;
+
+	.tooltip .tooltip-flair {
+		color: var(--color-text-muted);
+	}
+
+	.tooltip-blurb {
+		color: var(--color-text-muted);
 		line-height: 1.4;
 	}
-	hr {
+
+	.tooltip-divider {
 		border: none;
 		height: 2px;
-		margin: 0.5em 0;
+		margin: var(--space-2) 0;
 	}
 
-	.rel-tutorial {
-		color: var(--tutorial-flair);
-		border-color: var(--tutorial-flair);
-	}
-	.rel-tutorial:hover {
-		background-color: var(--tutorial-flair);
-	}
-	.rel-tutorial hr {
-		background-color: var(--tutorial-flair);
-	}
+	.tooltip-article .tooltip-flair { color: var(--color-article); }
+	.tooltip-article .tooltip-divider { background-color: var(--color-article); }
 
-	.rel-reference {
-		color: var(--reference-flair);
-		border-color: var(--reference-flair);
-	}
-	.rel-reference:hover {
-		background-color: var(--reference-flair);
-	}
-	.rel-reference hr {
-		background-color: var(--reference-flair);
-	}
+	.tooltip-reference .tooltip-flair { color: var(--color-reference); }
+	.tooltip-reference .tooltip-divider { background-color: var(--color-reference); }
 
-	.rel-article {
-		color: var(--article-flair);
-		border-color: var(--article-flair);
-	}
-	.rel-article:hover {
-		background-color: var(--article-flair);
-	}
-	.rel-article hr {
-		background-color: var(--article-flair);
-	}
+	.tooltip-tutorial .tooltip-flair { color: var(--color-tutorial); }
+	.tooltip-tutorial .tooltip-divider { background-color: var(--color-tutorial); }
 </style>

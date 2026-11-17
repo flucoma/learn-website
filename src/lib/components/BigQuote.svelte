@@ -2,33 +2,77 @@
 	export let txt = '';
 </script>
 
-<blockquote class="container">
-	{@html txt}
-</blockquote>
+<figure class="big-quote">
+	<blockquote>
+		{@html txt}
+	</blockquote>
+</figure>
 
 <style>
-	.container {
-		font-size: 1.25rem;
-		margin: 1.5em;
-		padding: 1.5em;
+	.big-quote {
+		margin: var(--space-10) auto;
+		padding: 0;
+		max-width: 85%;
+		text-align: center;
+	}
+
+	blockquote {
+		margin: 0;
+		padding: var(--space-6) var(--space-8);
+		font-size: var(--text-xl);
+		font-weight: var(--font-normal);
 		font-style: italic;
-		border-left: 4px solid rgb(191, 191, 191);
-		background-color: rgba(128, 128, 128, 0.04);
+		line-height: var(--leading-relaxed);
+		color: var(--color-primary-800);
+		position: relative;
+		border: none;
+		background: linear-gradient(
+			135deg,
+			rgba(28, 164, 252, 0.04) 0%,
+			rgba(28, 164, 252, 0.01) 100%
+		);
+		border-radius: var(--radius-md);
 	}
-	.container:before {
-		color: #ccc;
-		content: open-quote;
-		font-size: 3em;
-		margin-right: 0.25em;
+
+	blockquote::before {
+		content: '“';
+		position: absolute;
+		top: -0.2em;
+		left: -0.05em;
+		font-size: 5rem;
+		font-weight: var(--font-extrabold);
+		line-height: 1;
+		color: rgba(28, 164, 252, 0.12);
+		font-style: normal;
+		font-family: Georgia, 'Times New Roman', serif;
+		pointer-events: none;
 	}
-	.container:after {
-		color: #ccc;
-		content: close-quote;
+
+	blockquote::after {
+		content: '”';
+		position: absolute;
+		bottom: -0.5em;
+		right: -0.05em;
+		font-size: 5rem;
+		font-weight: var(--font-extrabold);
+		line-height: 1;
+		color: rgba(28, 164, 252, 0.12);
+		font-style: normal;
+		font-family: Georgia, 'Times New Roman', serif;
+		pointer-events: none;
 	}
-	.container:after,
-	.container:before {
-		font-size: 2em;
-		line-height: 0.1em;
-		vertical-align: -0.4em;
+
+	@media (max-width: 768px) {
+		.big-quote {
+			max-width: 95%;
+		}
+		blockquote {
+			font-size: var(--text-md);
+			padding: var(--space-5) var(--space-6);
+		}
+		blockquote::before,
+		blockquote::after {
+			font-size: 3rem;
+		}
 	}
 </style>

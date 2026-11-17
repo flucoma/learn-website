@@ -4,9 +4,9 @@ A component that plays back filtered noise, while showing how a curve can be dra
 -->
 <script>
 	import { onMount } from 'svelte';
-	import * as Tone from 'tone';
-	import Two from 'two.js';
 	import PlayTog from './PlayTog.svelte';
+
+	let Tone, Two;
 
 	let container;
 	let probe; // a probe to extract LFO values
@@ -18,6 +18,12 @@ A component that plays back filtered noise, while showing how a curve can be dra
 	let everPlayed = false;
 
 	onMount(async () => {
+		[Tone, { default: TwoModule }] = await Promise.all([
+			import('tone'),
+			import('two.js')
+		]);
+		Two = TwoModule;
+
 		two = new Two({
 			type: Two.Types.svg,
 			autostart: true,

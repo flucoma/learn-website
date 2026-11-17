@@ -1,4 +1,4 @@
-<div class="tab-list">
+<div class="tab-list" role="tablist">
 	<slot />
 </div>
 
@@ -6,7 +6,11 @@
 	.tab-list {
 		display: flex;
 		flex-direction: row;
-		gap: 0;
-		box-shadow: 0, 0, rgba(60, 64, 67, 1), 0;
+		flex-wrap: wrap;
+		gap: var(--space-1);
+		padding: var(--space-1);
+		background-color: var(--color-neutral-100);
+		border-radius: var(--radius-lg);
+		border: 1px solid var(--color-neutral-200);
 	}
 </style>

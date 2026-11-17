@@ -4,7 +4,7 @@
 
 	import WelcomeBanner from '$lib/components/front-page/WelcomeBanner.svelte';
 	import Article from '$lib/components/mosaic/Article.svelte';
-	import Masonry from 'svelte-bricks';
+	import Masonry from '$lib/components/mosaic/Masonry.svelte';
 
 	
 	let learn = db.filter(x => x.section === 'learn');
@@ -15,7 +15,7 @@
 	const featuredExplore = explore.filter(x => x.url === config.frontPage.featuredExplore.url)[0];
 	
 	learn = learn.filter(x => x.url !== config.frontPage.featuredLearn.url);
-	explore = explore.filter(x => x !== config.frontPage.featuredExplore.url);
+	explore = explore.filter(x => x.url !== config.frontPage.featuredExplore.url);
 	
 	let randomLearn = [featuredLearn].concat(_.shuffle(learn).slice(0, 7));
 	let randomExplore = [featuredExplore].concat(_.shuffle(explore).slice(0, 7));
@@ -45,23 +45,25 @@
 
 <style>
 	.feature {
-		padding-left: 2em;
-		padding-right: 2em;
+		padding-left: var(--space-8);
+		padding-right: var(--space-8);
+		padding-bottom: var(--space-8);
 	}
 
-	h2 {
-		font-size: 1.5rem;
-		margin-bottom: 0.5em;
+	.feature h2 {
+		font-size: var(--text-2xl);
+		font-weight: var(--font-bold);
+		margin: var(--space-6) 0 var(--space-1);
 	}
 
-	p {
-		font-size: 1rem;
-		color: #595959;
-		margin-bottom: 1em;
+	.feature p {
+		font-size: var(--text-base);
+		color: var(--color-text-muted);
+		margin-bottom: var(--space-6);
 	}
 
 	:global(.svelte-bricks) {
-		border-radius: 12px;
-		overflow: hidden;
+		border-radius: var(--card-radius);
+		overflow: visible;
 	}
 </style>

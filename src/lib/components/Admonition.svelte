@@ -1,64 +1,64 @@
 <script>
 	export let type = 'note';
 
-	const lookup = new Map([
-		['note', 'Note'],
-		['warn', 'Warning'],
-		['danger', 'Danger'],
-		['pointer', 'Pointer']
-	]);
+	const labels = {
+		note: 'Note',
+		warn: 'Warning',
+		danger: 'Danger',
+		pointer: 'Pointer'
+	};
 </script>
 
-<div class="container {type}">
-	<div class="header">{lookup.get(type)}</div>
-	<div class="text">
+<div class="admonition {type}">
+	<div class="admonition-header">{labels[type] ?? 'Note'}</div>
+	<div class="admonition-body">
 		<slot />
 	</div>
 </div>
 
 <style>
-	.container {
-		--bg-color: rgba(224, 244, 252, 1);
-		--border-color: rgba(52, 52, 171, 0.63);
-		border-left: 4px solid var(--border-color);
-		color: rgb(65, 65, 65);
-		border-radius: 12px;
-		margin: 1.5em 0; 
-		box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+	.admonition {
+		--_bg: var(--color-note-bg);
+		--_border: var(--color-note-border);
+		border-left: 4px solid var(--_border);
+		color: var(--color-note-text);
+		border-radius: var(--radius-lg);
+		margin: var(--space-6) 0;
+		box-shadow: var(--shadow-sm);
 		overflow: hidden;
 	}
 
-	.text > :global(p) {
-		padding: 1.25em;
+	.admonition-body :global(p) {
+		padding: var(--space-5);
 		margin: 0;
 		font-size: 0.95rem;
-		line-height: 1.5;
+		line-height: var(--leading-normal);
 	}
 
-	.header {
-		background-color: var(--bg-color);
-		font-weight: 800;
-		padding: 0.75em 1.25em;
-		font-size: 1.1rem;
+	.admonition-header {
+		background-color: var(--_bg);
+		font-weight: var(--font-extrabold);
+		padding: var(--space-3) var(--space-5);
+		font-size: var(--text-md);
 	}
 
 	.note {
-		--bg-color: rgba(52, 52, 171, 0.2);
-		--border-color: rgba(31, 31, 136, 0.63);
+		--_bg: var(--color-note-bg);
+		--_border: var(--color-note-border);
 	}
 
 	.warn {
-		--bg-color: rgba(255, 204, 0, 0.2);
-		--border-color: rgba(255, 204, 0, 0.63);
+		--_bg: var(--color-warning-bg);
+		--_border: var(--color-warning-border);
 	}
 
 	.danger {
-		--bg-color: rgba(204, 51, 0, 0.2);
-		--border-color: rgba(204, 51, 0, 0.63);
+		--_bg: var(--color-danger-bg);
+		--_border: var(--color-danger-border);
 	}
 
 	.pointer {
-		--bg-color: rgba(230, 252, 224, 1);
-		--border-color: rgb(133, 229, 106);
+		--_bg: var(--color-success-bg);
+		--_border: var(--color-success-border);
 	}
 </style>

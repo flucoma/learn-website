@@ -1,7 +1,5 @@
 <script>
 	import { onMount } from 'svelte';
-	import { Chart, registerables } from 'chart.js';
-	import * as d3 from 'd3';
 	import Button from '$lib/components/Button.svelte';
 	import gaussian4 from '$lib/data/datasets/gaussian4.json';
 	import oversample1 from '$lib/data/reference/grid/help.grid.oversample.1.json';
@@ -15,9 +13,12 @@
 	const btnWidth = '180px';
 
 	const raw = Object.values(gaussian4.data);
-	const colours = raw.map(x => d3.interpolateSinebow(x[0] * x[1]));
-
 	onMount(async () => {
+		const [{ Chart, registerables }, d3] = await Promise.all([
+			import('chart.js'),
+			import('d3')
+		]);
+		const colours = raw.map(x => d3.interpolateSinebow(x[0] * x[1]));
 		Chart.register(...registerables);
 		ctx = canvas.getContext('2d');
 
@@ -54,7 +55,7 @@
 	<canvas bind:this={canvas} id="scatter-plot" />
 
 	<div id="controls">
-		<Button
+		<Button variant="secondary"
 			width={btnWidth}
 			on:click={() => {
 				chart.data.datasets[0].data = raw;
@@ -63,7 +64,7 @@
 			label="Original State"
 		/>
 
-		<Button
+		<Button variant="secondary"
 			width={btnWidth}
 			on:click={() => {
 				chart.data.datasets[0].data = Object.values(oversample1.data).map(x => x);
@@ -72,7 +73,7 @@
 			label="No Oversampling (1)"
 		/>
 
-		<Button
+		<Button variant="secondary"
 			width={btnWidth}
 			on:click={() => {
 				chart.data.datasets[0].data = Object.values(oversample2.data).map(x => x);
@@ -81,7 +82,7 @@
 			label="Oversampling (2)"
 		/>
 
-		<Button
+		<Button variant="secondary"
 			width={btnWidth}
 			on:click={() => {
 				chart.data.datasets[0].data = Object.values(oversample3.data).map(x => x);
@@ -90,7 +91,7 @@
 			label="Oversampling (3)"
 		/>
 
-		<Button
+		<Button variant="secondary"
 			width={btnWidth}
 			on:click={() => {
 				chart.data.datasets[0].data = Object.values(oversample4.data).map(x => x);
@@ -99,7 +100,7 @@
 			label="Oversampling (4)"
 		/>
 
-		<Button
+		<Button variant="secondary"
 			width={btnWidth}
 			on:click={() => {
 				chart.data.datasets[0].data = Object.values(oversample5.data).map(x => x);

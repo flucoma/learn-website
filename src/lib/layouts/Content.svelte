@@ -86,7 +86,6 @@
 
 	.navigation {
 		grid-area: navigation;
-		height: max-content;
 	}
 
 	.blank {

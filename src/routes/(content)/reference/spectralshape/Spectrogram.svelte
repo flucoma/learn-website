@@ -1,7 +1,5 @@
 <script>
 	import { onMount } from 'svelte';
-	import { Chart, registerables } from 'chart.js';
-	import annotationPlugin from 'chartjs-plugin-annotation';
 
 	export let windowSize = 512;
 	export let spectrum = new Array(windowSize).fill(0.0);
@@ -14,6 +12,10 @@
 
 	onMount(async () => {
 		// Chart
+		const [{ Chart, registerables }, annotationPlugin] = await Promise.all([
+			import('chart.js'),
+			import('chartjs-plugin-annotation').then(m => m.default)
+		]);
 		Chart.register(...registerables, annotationPlugin);
 		ctx = canvas.getContext('2d');
 		const data = {
@@ -107,14 +109,17 @@
 	});
 
 	export let scale = 1;
-	$: if (chart) chart.options.scales.x.type = scale === 0 ? 'linear' : 'logarithmic';
+	$: if (chart) {
+		chart.options.scales.x.type = scale === 0 ? 'linear' : 'logarithmic';
+		chart.update();
+	}
 </script>
 
 <div class="container">
 	<form>
 		<select bind:value={scale} id="scaling" name="spectrogram-scale" placeholder="spectrogram scaling">
 			<option value={0}>Linear</option>
-			<option value={1}>Logarthmic</option>
+			<option value={1}>Logarithmic</option>
 		</select>
 	</form>
 	<canvas id="vis" bind:this={canvas} />

@@ -4,44 +4,59 @@
 	export let website = '';
 </script>
 
-<a class="container neutral-link" href={website}>
-	<div class="top">
+<a class="artist-card neutral-link" href={website}>
+	<div class="card-top">
 		<img loading="lazy" alt={`${name} profile picture`} {src} />
-		<h3>{name}</h3>
+		<span class="card-name">{name}</span>
 	</div>
-	<!-- <div class="bio"> -->
-	<!-- <slot name="bio"></slot> -->
-	<!-- </div> -->
+
+	{#if $$slots.bio}
+		<div class="card-bio">
+			<slot name="bio" />
+		</div>
+	{/if}
 </a>
 
-<style >
-	.container {
-		gap: 0.5em;
-		margin-top: 1em;
-		margin-right: 2em;
+<style>
+	.artist-card {
+		display: block;
+		margin: var(--space-4) 0;
 	}
 
-	.top {
+	.card-top {
 		display: flex;
-		flex-direction: row;
-		place-items: center;
-		gap: 1em;
-	}
-
-	h3 {
-		color: var(--med-blue);
-	}
-
-	h3:hover {
-		text-decoration: underline;
+		align-items: center;
+		gap: var(--space-4);
 	}
 
 	img {
-		max-width: 80px;
-		max-height: 80px;
-		width: auto;
-		height: auto;
-		border-radius: 50%;
-		box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+		flex-shrink: 0;
+		width: 80px;
+		height: 80px;
+		border-radius: var(--radius-full);
+		object-fit: cover;
+		box-shadow: var(--shadow-sm);
+	}
+
+	.card-name {
+		font-size: var(--text-2xl);
+		font-weight: var(--font-semibold);
+		color: var(--color-primary-800);
+		line-height: var(--leading-snug);
+	}
+
+	.artist-card:hover .card-name {
+		text-decoration: underline;
+	}
+
+	.card-bio {
+		margin-top: var(--space-3);
+		line-height: var(--leading-normal);
+	}
+
+	.card-bio :global(p) {
+		font-size: var(--text-sm);
+		color: var(--color-text-muted);
+		margin: 0;
 	}
 </style>
