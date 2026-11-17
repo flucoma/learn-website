@@ -1,6 +1,6 @@
 <script>
 	import { onMount } from 'svelte';
-	import { sample } from '$lib/util';
+    import _ from "lodash";
 	import metric0 from '$lib/data/reference/mds/metric_0.json';
 	import metric1 from '$lib/data/reference/mds/metric_1.json';
 	import metric2 from '$lib/data/reference/mds/metric_2.json';
@@ -26,7 +26,7 @@
 		clearInterval(timer);
 		const time = Math.random() * 3000 + 2000;
 		timer = setInterval(change, time);
-		chart.data.datasets[0].data = sample(metric).slice(0, numpoints);
+		chart.data.datasets[0].data = _.sample(metric).slice(0, numpoints);
 		let colour;
 		const choice = Math.random();
 		if (choice > 0.66) {
