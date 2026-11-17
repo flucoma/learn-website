@@ -1,13 +1,13 @@
-<img id='podcast-banner' src='/img/podcast_banner.jpg' alt='FluCoMa Podcast logo'/>
+<img id='podcast-banner' src='/img/podcast_banner-640w.jpg' alt='FluCoMa Podcast logo'/>
 <h2><a href="/">FluCoMa Learn</a> Podcast</h2>
 <div>FluCoMa Learn Podcasts are an intermittent series of interviews with artists discussing their work using and experimenting with machine learning and machine listening.</div>
 <div class="links">
 	<a class="podcasts-link raisedbox" href='https://podcasts.apple.com/gb/podcast/flucoma-learn-podcasts/id1678385732'>
-		<img class='badge' src='/img/apple-podcasts.jpg' alt='Apple podcasts logo'/>
+		<img class='badge' src='/img/apple-podcasts-640w.jpg' alt='Apple podcasts logo'/>
 		Apple Podcasts
 	</a>
 	<a class="podcasts-link raisedbox" href='https://youtube.com/playlist?list=PLLzzOXU4pTgLQdkLtMSQB8QKyR8AbJfFX&feature=shared'>
-		<img class='badge' src='/img/youtube_logo.png' alt='YouTube logo'/>
+		<img class='badge' src='/img/youtube_logo-640w.jpg' alt='YouTube logo'/>
 		YouTube Playlist
 	</a>
 	<a class="podcasts-link raisedbox" href='/explore/feed.rss'>

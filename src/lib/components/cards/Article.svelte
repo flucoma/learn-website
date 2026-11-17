@@ -4,6 +4,11 @@
 	import _ from 'lodash';
 
 	export let data = {};
+
+	$: featuredSrc = data.feature.featuredimage ||
+		_.sample(data.feature.images) ||
+		'/general/learn_default.jpeg';
+	$: featuredBase = featuredSrc.replace(/\.(png|jpe?g|webp|gif)$/i, '');
 </script>
 
 <a class="list-card raisedbox" href={data.url}>
@@ -13,11 +18,11 @@
 	</div>
 
 	<div class="card-image-wrap">
-		<div
+		<img
 			class="card-image"
-			style="background-image: url({data.feature.featuredimage ||
-				_.sample(data.feature.images) ||
-				'/general/learn_default.jpeg'});"
+			src={featuredBase + '-640w.jpg'}
+			alt={data.title}
+			loading="lazy"
 		/>
 	</div>
 
@@ -70,11 +75,9 @@
 
 	.card-image {
 		width: 100%;
-		height: 10em;
+		height: 100%;
+		object-fit: cover;
 		border: 1px solid var(--color-neutral-200);
-		background-position: center;
-		background-repeat: no-repeat;
-		background-size: cover;
 		border-radius: var(--radius-sm);
 		transition: transform 0.5s ease;
 	}

@@ -17,6 +17,8 @@ jobs:
               with:
                   fetch-depth: '0'
 
+            - uses: oven-sh/setup-bun@v2 
+
             - name: Setup SSH
               uses: shimataro/ssh-key-action@v2
               with:

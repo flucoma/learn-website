@@ -1,12 +1,32 @@
 <script>
 	import { markdown } from 'markdown';
 
+	/** Width breakpoints matching the pre-build script */
+	const WIDTHS = [640, 960, 1280];
+
+	/** @type {string} */
 	export let src = '';
+	/** @type {string} */
 	export let alt = '';
+	/** @type {string} */
 	export let label = '';
+	/** @type {string} */
 	export let id = '';
 
 	let loaded = false;
+
+	/**
+	 * Strip the extension to get the base name used by the pre-build script.
+	 * "/explore/pluta/img.png" → "/explore/pluta/img"
+	 */
+	$: baseName = src.replace(/\.(png|jpe?g|webp|gif)$/i, '');
+
+	/** Build a srcset string like "img-480w.avif 480w, img-960w.avif 960w, ..." */
+	function buildSrcSet(format) {
+		return WIDTHS.map((w) => `${baseName}-${w}w.${format} ${w}w`).join(', ');
+	}
+
+	$: jpgSrcset = buildSrcSet('jpg');
 </script>
 
 <figure class="image-figure" {id}>
@@ -14,7 +34,9 @@
 		<img
 			loading="lazy"
 			{alt}
-			{src}
+			srcset={jpgSrcset}
+			sizes="(max-width: 640px) 100vw, 900px"
+			src={baseName + '-640w.jpg'}
 			on:load={() => (loaded = true)}
 			class:loaded
 		/>
@@ -49,6 +71,7 @@
 	img {
 		display: block;
 		max-width: 100%;
+		height: auto;
 		padding-top: var(--space-4);
 		padding-bottom: var(--space-4);
 		opacity: 0;
